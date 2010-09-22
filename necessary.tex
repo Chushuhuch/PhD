@@ -1,0 +1,81 @@
+\section{Необходимые условия}
+
+Будем рассматривать условия, необходимые для выполнения
+неравенства (\ref{toprove}) в одномерном случае. Также можно
+считать, что $F$ зависит только от последнего аргумента, а $a$ ---
+только от первого. Такие условия будут необходимыми и в
+общем случае.
+
+Пусть $u$ убывает. Тогда
+\begin{multline*}
+I(u)-I(u^*) =
+\int_{-1}^1 (
+    F( \abs{ a(x) u'(x) } ) -
+    F( \abs{ a(x) u'(-x) } )
+) dx = \\ =
+\int_{-1}^1 (
+    F( \abs{ a(x) u'(x) } ) -
+    F( \abs{ a(-x) u'(x) } )
+) dx
+\end{multline*}
+
+\begin{prop}
+$a$ должна быть четной, то есть $\forall x\ a(x)=a(-x)$
+\end{prop}
+
+\begin{proof} Пусть $a(\bar{x})<a(-\bar{x})$, $\abs{\bar{x}} \neq 1$. Тогда
+$$\exists \eps : |x-\bar{x}| < \eps \Rightarrow a(x) < a(-x)$$
+и можно взять следующую функцию: $u([-1,\bar{x}-\eps]) = 1$,
+$u([\bar{x}+\eps, 1]) = 0$,\newline
+$u(x)=-\frac{x}{2\eps}+\frac{\bar{x}+\eps}{2\eps}$ при
+$|x-\bar{x}|<\eps$. Она убывает. Значит
+$$I(u)-I(u^*) =
+\int_{|x-\bar{x}|>\eps} (
+    F( 0 ) - F( 0 )
+) dx +
+\int_{\bar{x}-\eps}^{\bar{x}+\eps} (
+    F( \frac{ a(x) }{ 2\eps } ) -
+    F( \frac{ a(-x) }{ 2\eps } )
+) dx <0.$$
+ Тем самым мы пришли к противоречию.
+\end{proof}
+
+\begin{prop}
+$\forall s \le t \ a( s ) + a( t ) \ge a( 1 - t + s ).$
+\end{prop}
+
+\begin{proof}
+Предположим, для некоторых $-1 < s \le t < 1$ неравенство неверно:
+$a( s ) + a( t ) + 2 \delta < a( -1 + t - s )$. Тогда найдется
+$\eps > 0$ такое, что для произвольного $0 \le y \le \eps$ останется
+$a( s - y ) + a( t + y ) + \delta < a( -1 + t - s + 2y )$.
+Построим функцию $u$, имеющую ненулевые производные только в окрестностях $s$ и $t$.
+$u( [-1,s] \cup [t,1] ) = 0$, $u( [s+\eps,t-\eps] ) = 0$,
+$u( x ) = \frac{ x - s }{ \eps }$ при $x \in [s,s+\eps]$,
+$u( x ) = \frac{ t - x }{ \eps }$ при $x \in [t-\eps,t]$.
+Тогда $u^*( [-1, 1 - t + s] ) = 0$, $u^*( [1 - t + s + 2\eps, 1] ) = 1$,
+$u^*( x ) = \frac{ x - ( 1 - t + s ) }{2 \eps}$ при $x \in [1 - t + s, 1 - t + s + 2\eps]$.
+Тогда получим
+\begin{multline*}
+0 \le I( u ) - I( u^* ) =
+\int_0^\eps F( \frac{a( s + z )}{\eps} ) + F( \frac{ s( t - z ) }{\eps} ) - F( \frac{ a( 1 - t + s + 2 z ) }{2 \eps} ) <
+\\ \int_0^\eps F( \frac{a( s + z )}{\eps} ) + F( \frac{ s( t - z ) }{\eps} ) -
+F( \frac{ a( s - z ) + a( t + z ) + \delta }{2 \eps} ) =: J
+\end{multline*}
+
+Положим теперь $F(x) = x^\alpha$. Такая функция строго выпукла при $\alpha > 1$. Однако по заданному $\delta$ можно
+найти такое $\alpha$, чтобы $\frac{ F( x ) + F( y ) }{2} \le F( \frac{x + y}{2} + \frac{\delta}{2 \eps} )$ при
+$x,y \in [0,A]$. Для этого решим неравенство
+$\frac{ x^\alpha + y^\alpha }{2} \le ( \frac{x + y}{2} + \frac{\delta}{2 \eps} )^\alpha$
+относительно $\frac{\delta}{2 \eps}$. Получим
+$\frac{\delta}{2 \eps} \ge ( \frac{ x^\alpha + y^\alpha }{2} )^{\frac{1}{\alpha}} - \frac{x + y}{2}$.
+Максимум последнего выражения достигается, например, при $x = 0$, $y = A$, то есть
+$\frac{\delta}{2 \eps} \ge A(\frac{1}{2^{\frac{1}{\alpha}}} - \frac{1}{2})$. Итого, можно взять
+$\alpha = -( \log_2 \frac{\delta}{2 A \eps} + \frac{1}{2} )^{-1} > 1$.
+
+Тогда, если взять $A = \max a$, $\alpha = -( \log_2 \frac{\delta}{2 A \eps} + \frac{1}{2} )^{-1}$
+и $F( x ) = x^\alpha$, получим $J \le 0$ и противоречие.
+\end{proof}
+
+\rem Из доказательства ясно, что последнее условие является необходимым и для выполнения неравенства (\ref{toprove})
+в случае закрепленных на левом конце функций: $u( -1 ) = 0$.

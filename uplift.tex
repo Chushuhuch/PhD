@@ -1,0 +1,19 @@
+\section{О расширении класса функций, для которых выполняется $I(u^*) \le I(u)$}
+\begin{prop}
+\label{uplift}
+Пусть $A \subset \W(-1,1)$. И пусть $B \subset A$ таково, что
+$\forall v \in B$ $I(v^*) \le I(v)$. Предположим, что для каждого $u \in A$
+найдется последовательность $u_m \in B$ такая, что $u_m \to u$ в $\W(-1, 1)$ и
+$I(u_m) \to I(u)$. Тогда $\forall u \in A$ $I(u^*) \le I(u)$.
+\end{prop}
+\begin{proof}
+Возьмем некоторую $u \in A$ и для нее найдем соответствующие $u_m \in B$.
+По условию $I(u_m^*) \le I(u_m) \to I(u)$.
+В \cite[Theorem 1]{Br} показано, что из $u_m \to u$ в $\W(-1,1)$ следует
+$\overline{u_m} \rightharpoondown \overline{u}$ в $\W(-1,1)$. Но
+$u_m^*( x ) = \overline{u_m}( \frac{x - 1}{2} )$ и
+$u^*( x ) = \overline{u}( \frac{x - 1}{2} )$. Значит, и
+$u_m^* \rightharpoondown u^*$. Тогда из слабой полунепрерывности снизу
+функционала $I$ заключаем $I(u^*) \le \liminf I(u_m^*)$. Тем самым, получаем
+$I(u^*) \le I(u)$.
+\end{proof}
