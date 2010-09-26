@@ -55,7 +55,7 @@ $a(x) = a( x + (1 + x_0) )$.
 \end{proof}
 
 \begin{lm}
-\label{partialLinearConcave}
+\label{piecewiseLinearConcave}
 Пусть функция $a$ удовлетворяет неравенству (\ref{almostConcaveSum}), $k \in \Nat$.
 Тогда кусочно-линейная функция $a_k$, построенная на точках
 $(-1 + \frac{2i}{k}, a(-1 + \frac{2i}{k}))$ при $i = 0, 1, \dots, k$, тоже
@@ -79,6 +79,7 @@ $s \in [-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}]$, придем к противоречию
 \end{proof}
 
 \begin{lm}
+\label{maxConcave}
 Пусть функции $a_1$ и $a_2$ удовлетворяют неравенству (\ref{almostConcaveSum}),
 тогда функция $a(x) = \max (a_1(x), a_2(x))$ тоже ему удовлетворяет.
 \end{lm}
