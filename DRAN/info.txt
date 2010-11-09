@@ -1,0 +1,39 @@
+Please fill in the following items (except those marked by *;
+11, 12, 14 are not necessary).
+
+1. Author(s):
+Bankevich, S.V.; Nazarov, A.I.
+
+2. Email address of contact person:
+al.il.nazarov@gmail.com
+
+3. Title of paper (in English):
+On Polya-Szego inequality generalization for one-dimensional functionals
+
+4*. URL: http://www.MathSoc.spb.ru/preprint/1999/index.html#
+
+5*. The paper is a preprint.
+
+6. It is written in Russian.
+
+7. and coded as cp1251.
+
+8*. Series: St. Petersburg Mathematical Society Preprints
+
+9. Date (year, month, day).
+
+10. Primary MSC: 49K05.
+
+11. Secondary MSC: 49N99.
+
+12. Keywords: rearrangements, Lavrentiev's phenomenon. 
+
+13. Abstract (English, not more than 12 lines 80 characters yech):
+Polya-Szego typed weighted inequality considered. Necessary conditions on the
+weight discussed. Inequality proved for monotone rearrangement with
+restrictions on weight and in general case for symmetrization. The case with
+minimum of the function on the left end of the segment analyzed.
+
+14. Notes (not necessary):
+TeX: latex 2e.
+File size: 17 kB.
