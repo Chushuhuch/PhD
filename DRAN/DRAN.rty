@@ -1,2 +1,16 @@
 \input maik.rty
+
+\usepackage[cp866]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm,amsfonts}
+
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newtheorem{thm}{Теорема}
+\newtheorem{prop}{Предложение}
+\newtheorem{lm}{Лемма}
+\newtheorem{defin}{Определение}
+\newcommand{\rem}{{\it\bf Замечание. }}
+\newcommand{\W}{W_1^1}
+\newcommand{\Wf}{\stackrel{o\ }{W_1^1}}
+
 \endinput 
