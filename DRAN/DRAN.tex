@@ -25,12 +25,12 @@ centertags]%
 \author{\firstname{С.~В.}~\surname{Банкевич}}
 \email{Sergey.Bankevich@gmail.com}
 \affiliation{%
-СПбГУ
+Санкт-Петербургский государственный университет
 }%
 \author{\firstname{А.~И.}~\surname{Назаров}}
 \email{al.il.nazarov@gmail.com}
 \affiliation{%
-СПбГУ
+Санкт-Петербургский государственный университет
 }%
 
 \maketitle
@@ -54,9 +54,9 @@ u^\circ =
 u^*(x) = u^\circ(\frac{x + 1}{2}).
 \end{equation}
 
-Пусть $F: \mathbb R \times \mathbb R \to \mathbb R_+$ --- непрерывная
+Пусть $F: \mathbb R \times \mathbb R \to \bar{\mathbb R}_+$ --- непрерывная
 функция, четная и выпуклая по второму аргументу,
-$a: \Omega \times \mathbb R \to \mathbb R_+$ --- непрерывная функция.
+$a: \Omega \times \mathbb R \to \bar{\mathbb R}_+$ --- непрерывная функция.
 Введем функционал
 \begin{equation}
 \label{functional}
@@ -122,15 +122,9 @@ I(u^\circ) \leqslant I(u).
 Напомним, что функция $a$ предполагается неотрицательной.
 
 \begin{prop}
-Для того, чтобы неравенство (\ref{toprovemon}) выполнялось для любой кусочно
-линейной функции $u$, вес $a$ должен быть четным по $x$, то есть
-$$\forall x \in [-1, 1],\quad \forall u \in \mathbb R \quad a(x, u)=a(-x, u).$$
-\end{prop}
-
-\begin{prop}
 Для того, чтобы неравенство (\ref{toprovemon}) выполнялось для любой строго
-выпуклой $F$ и любой кусочно линейной функции $u$, вес $a$ должен удовлетворять
-условию
+выпуклой $F$ и любой кусочно линейной функции $u$, вес $a$ должен быть четным по
+$x$ и удовлетворять условию
 \begin{equation}
 \label{almostConcave}
 \forall s \leqslant t \in [-1, 1],\quad \forall u \in \mathbb R
@@ -145,14 +139,13 @@ $$\forall x \in [-1, 1],\quad \forall u \in \mathbb R \quad a(x, u)=a(-x, u).$$
 \label{period}
 Если для функции $a$, удовлетворяющей условию
 (\ref{almostConcave}), найдутся такие $x_0 \in [-1, 1]$, $u_0 \in \mathbb R$, что
-$a(x_0, u_0) = 0$, то $a(1, u_0) = 0$ и функция $a(\cdot, u_0)$ периодична по
-$x$ на $[x_0, 1]$.
+$a(x_0, u_0) = 0$, то $a(1, u_0) = 0$ и функция $a(\cdot, u_0)$ периодична
+на $[x_0, 1]$.
 \end{prop}
 
-\rem Если, вдобавок к условиям предложения \ref{period}, функция $a(\cdot, u)$
+\rem Если, вдобавок к условиям предложения \ref{period}, функция $a(\cdot, u_0)$
 четна, то она периодична на всем отрезке $[-1, 1]$ с периодом, делящим $x_0+1$
-нацело. В частности, для любого неотрицательного целого $k$, такого, что
-$-1 + k (x_0 + 1) \leqslant 1$ имеем $a(-1 + k (x_0 + 1), u_0) = 0$.
+нацело.
 
 \section{Результат на кусочно липшицевых функциях}
 
@@ -202,8 +195,12 @@ $u^* \in {\cal W}(a)$, $u^*$ кусочно линейна между разрывами, и
 
 \begin{proof}
 Для любой кусочно липшицевой функции $u$ найдется последовательность
-кусочно линейных $u_n$, такая, что $u_n \to u$ в ${\cal W}(a)$ и
-$I(u_n) \to I(u)$. Но тогда
+кусочно линейных $u_n$, такая, что
+\begin{equation}
+\label{convergence}
+u_n \to u\ \text{в}\ {\cal W}(a)\quad \text{и}\quad I(u_n) \to I(u).
+\end{equation}
+Но тогда
 из результата \cite[Theorem 1, part 2]{Br}, формулы (\ref{relation}) и теоремы
 \ref{linthm} следует, что $u_n^*\rightharpoondown u^*$. Применение предложения
 \ref{lowersemi} заканчивает доказательство.
@@ -220,19 +217,14 @@ $I(u_n) \to I(u)$. Но тогда
 
 Для доказательства мы распространяем конструкцию из \cite{ASC} на случай
 монотонного веса. Это дает возможность построить последовательность липшицевых
-функций $u_n$, такую, что
-\begin{equation}
-\label{convergence}
-u_n \to u\ \text{в}\ {\cal W}(a)\quad \text{и}\quad I(u_n) \to I(u).
-\end{equation}
-Применение теоремы \ref{lipthm} и предложения \ref{lowersemi} заканчивает
-доказательство.
+функций $u_n$, удовлетворяющую условию (\ref{convergence}). Результат следует из
+теоремы \ref{lipthm} и предложения \ref{lowersemi}.
 
 \begin{thm}
 \label{main}
 Пусть $a(x, u) = \mathfrak{a}(x) \mathfrak{A}(u)$, причем $\mathfrak{a}$ четна
-и удовлетворяет условию (\ref{almostConcave}). Тогда
-$\forall u \in \widetilde{\cal M}(a)$ справедливо неравенство
+и удовлетворяет условию (\ref{almostConcave}). Тогда для любой функции
+$u \in \widetilde{\cal M}(a)$ справедливо неравенство
 (\ref{toprovemon}).
 \end{thm}
 
