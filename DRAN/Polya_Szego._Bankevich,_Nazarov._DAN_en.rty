@@ -1,0 +1,15 @@
+\input maik.rty
+
+\usepackage[cp866]{inputenc}
+\usepackage{amsthm,amsfonts}
+
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lm}{Lemma}
+\newtheorem{defin}{Definition}
+\newcommand{\rem}{{\it\bf Remark. }}
+\newcommand{\W}{W_1^1}
+\newcommand{\Wf}{\stackrel{o\ }{W_1^1}}
+
+\endinput 

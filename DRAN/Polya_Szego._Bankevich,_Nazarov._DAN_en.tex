@@ -1,0 +1,318 @@
+\documentclass[
+aps,%
+12pt,%
+final,%
+notitlepage,%
+oneside,%
+onecolumn,%
+nobibnotes,%
+nofootinbib,% 
+superscriptaddress,%
+noshowpacs,%
+centertags]%
+{revtex4}
+%\documentclass[12pt,russian]{article}
+%\renewcommand{\baselinestretch}{1}
+\renewcommand{\baselinestretch}{2}
+
+\begin{document}
+
+\large
+
+\title{A generalization of the P\'olya-Szeg\"o inequality for one-dimensional functionals}
+
+\author{\firstname{S.~V.}~\surname{Bankevich}}
+\email{Sergey.Bankevich@gmail.com}
+\affiliation{%
+St. Petersburg State University
+}%
+\author{\firstname{A.~I.}~\surname{Nazarov}}
+\email{al.il.nazarov@gmail.com}
+\affiliation{%
+St. Petersburg State University
+}%
+
+\maketitle
+
+\begin{center}
+\small Presented by Academician I.A.~Ibragimov 12.11.2010 £.
+\end{center}
+
+\section{Introduction}
+It is well known that for a nonnegative measurable function $u$, defined in
+$\Omega = [-1, 1]$, the so-called layer cake representation holds (see, 
+for example, \cite[Ch. 1]{LL}):
+$$u(x) = \int_0^\infty \chi_{\{x \in \Omega :\ u(x) > t \}}\, dt.$$ 
+For a measurable set $E \subset \Omega$, define the sets 
+$$ E^* = [1 - \abs{E}, 1], \qquad 
+E^\circ = (-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}).$$ 
+We define the monotone rearrangement and the Steiner symmetrization of a function $u$ as follows 
+(see \cite[Ch. 10]{HLP}): 
+$$u^*(x) = \int_0^\infty \chi_{\{x \in \Omega :\ u(x) > t\}^*}\, dt; \qquad 
+u^\circ = \int_0^\infty \chi_{\{x \in \Omega :\ u(x) > t\}^\circ}\, dt.$$
+It is easy to see that 
+\begin{equation} 
+\label{relation} 
+u^*(x) = u^\circ(\frac{x + 1}{2}). 
+\end{equation} 
+
+Let $F: \mathbb R \times \mathbb R \to \bar{\mathbb R}_+$ be a continuous 
+function even and convex with respect to the second argument.
+Let also $a: \Omega \times \mathbb R \to \bar{\mathbb R}_+$ be a continuous function. 
+We introduce the functional 
+\begin{equation} 
+\label{functional} 
+I(u) = \int_\Omega F(u(x), \abs{a(x, u(x)) u'(x)}) dx, 
+\end {equation} 
+defined on the set ${\cal M}$ of functions $u \in \W(\Omega)$, for which 
+integral in (\ref{functional}) converges. 
+
+Monotonicity properties of the functionals under rearrangements were studied
+by a number of authors (see e.g. \cite{Kawohl} and references therein). In particular, 
+it is well known that if $a \equiv const$, then 
+\begin{subequations} 
+\begin{equation} 
+\label{toprovemon} 
+I(u^*) \leqslant I(u).
+\end{equation} 
+If, in addition, $u(\pm 1) = 0$, then 
+\begin{equation} 
+\label{toprovesymm} 
+I(u^\circ) \leqslant I(u). 
+\end{equation} 
+\end{subequations} 
+
+In the paper \cite{Br} the behavior of the functional (\ref{functional}) and its 
+multidimensional analogue under the Steiner symmetrization was studied. Namely, it was
+shown that if $a$ is even and convex in $x$, then the inequality 
+(\ref{toprovesymm}) holds 
+for any piecewise linear function $u$. Further, the author of \cite{Br} claims that
+for $u \in {\cal M}$ this inequality can be obtained by a simple approximation. 
+However, the Lavrentiev phenomenon (see e.g. \cite[Ch. 4]{BGG}) could arise
+for the functional (\ref{functional}). This possibility was not taken into
+account and was not excluded in \cite{Br}, and thus, the proof of
+(\ref{toprovesymm}) for a general case contains a gap.
+
+In Section \ref{symmSection} of this paper, we establish the absence of the
+Lavrentiev phenomenon for functionals of the
+form (\ref{functional}) with a weight $a$ even and convex in $x$. Thus, 
+we prove the inequality (\ref{toprovesymm}) in full generality. Note that for 
+the multi-dimensional case the problem remains open.
+
+The bulk of our paper is devoted to the more difficult inequality 
+(\ref{toprovemon}). For Lipschitz functions $u$, we prove it under only
+necessary conditions on the weight function. For arbitrary function
+$u \in {\cal M}$ we succeed only under some additional restriction.
+
+In our proof we modify the construction from \cite{ASC}. In this paper
+the absence of the Lavrentiev phenomenon was proved for functionals (\ref{functional})
+with $a \equiv const$ and a general function $F$.
+
+Note that in the paper \cite{Lan} the inequality (\ref{toprovemon}) was considered
+under the additional restriction $u(-1) = \min \limits_\Omega u $. However,
+both the class of functions $F$ and the class of admissible weights in this
+paper are non-optimal. Our results for this case formulated in the
+end of Section \ref{sobolSection} are stronger than the ones in \cite{Lan}. 
+
+\section{Necessary conditions on the weight} 
+
+Recall that the function $a$ is assumed nonnegative. 
+
+\begin{prop} 
+Suppose the inequality (\ref{toprovemon}) holds for any strictly 
+convex $F$ and any piecewise linear function $u$. Then the weight $a$ is even in
+$x$ and satisfies
+\begin{equation} 
+\label{almostConcave} 
+\forall s \leqslant t \in [-1, 1], \quad \forall u \in \mathbb R 
+\qquad a(s, u) + a(t, u) \geqslant a(1 - t + s, u). 
+\end{equation} 
+\end{prop} 
+
+\rem If $a$ is concave and is even in $x$, then it satisfies 
+(\ref{almostConcave}). 
+
+\begin{prop} 
+\label{period} 
+If for the function $a$, satisfying 
+(\ref{almostConcave}), there exist $x_0 \in [-1, 1] $ and $u_0 \in \mathbb R$
+such that $a(x_0, u_0) = 0$, then $a(1, u_0) = 0$ and function
+$a(\cdot, u_0)$ is periodic on $[x_0, 1]$. 
+\end{prop} 
+
+\rem Let the assumptions of the Proposition \ref{period} hold.
+If, in addition
+the function $a(\cdot, u_0)$ is even, then it is periodic on the whole
+interval $[-1, 1]$, and the period is a divisor of $x_0 +1$.
+
+\section{The result for piecewise Lipschitz functions} 
+
+\begin{defin}
+Let $a$ be a continuous function defined on $[-1, 1] \times \mathbb R$, and let
+$a(\cdot, u)$ have a finite number of zeros for any $u$. We define ${\cal W}(a)$ 
+as the set of functions $u$, piecewise absolutely continuous on $[-1, 1]$ such that 
+if $\hat{x}$ is a point of discontinuity, then $a(\hat{x}, \cdot) \equiv 0$ 
+on the interval $[u(\hat{x}-), u(\hat{x }+)]$. We say that a sequence 
+$u_n \in {\cal W}(a)$ converges to $u \in {\cal W}(a)$, if $u_n$ are absolutely 
+continuous on every interval $\Omega_k$ where $u$ is absolutely continuous and
+$u_n \to u$ in $\W(\Omega_k)$ for every $k$.
+\end{defin}
+
+For functions $u \in {\cal W}(a)$ we define the integral in (\ref{functional}) as 
+the sum of integrals taken over the intervals where $u$ is absolutely continuous.
+We also define the set $\widetilde{{\cal M}}(a)$ of functions 
+$u \in {\cal W}(a)$, for which this integral converges. 
+
+Obviously, any piecewise Lipschitz function $u \in {\cal W}(a)$ belongs to
+$\widetilde{\cal M}(a)$. 
+
+\begin{thm}
+\label{linthm}
+Let the weight function $a$ be even in $x$ and satisfy
+(\ref{almostConcave}). Then, if $u \in {\cal W}(a)$ 
+is piecewise linear between any two discontinuity points, then 
+$u^* \in {\cal W}(a)$, $u^*$ is piecewise linear between the discontinuity points, and 
+the inequality (\ref{toprovemon}) holds.
+\end{thm} 
+
+Theorem \ref{linthm} can be proved by direct computation using 
+the proposition \ref{period}.
+
+\begin{prop} 
+\label{lowersemi} 
+The functional $I(u)$ is weakly semi-continuous from below in ${\cal W}(a)$. 
+\end{prop} 
+
+\begin{thm} 
+\label{lipthm} 
+Let the weight function $a$ satisfy the assumptions of the Theorem \ref{linthm}. Then for 
+any piecewise Lipschitz function $u \in {\cal W}(a)$ the inequality (\ref{toprovemon}) holds.
+\end{thm} 
+
+\begin{proof} 
+For any piecewise Lipschitz function $u$ there exists a sequence of
+piecewise linear functions $u_n$, such that
+\begin{equation} 
+\label{convergence} 
+u_n \to u\ \text{in}\ {\cal W}(a)\quad \text{and}\quad I(u_n) \to I(u). 
+\end{equation} 
+Then the result of \cite[Theorem 1, part 2]{Br}, the formula (\ref{relation}) and the Theorem
+\ref{linthm} imply $u_n^*\rightharpoondown u^*$. Applying the proposition 
+\ref{lowersemi} completes the proof. 
+\end{proof} 
+
+\section{Generalization to the Sobolev functions} 
+\label{sobolSection} 
+
+\begin{thm} 
+\label{Wapprox} 
+Let the weight function $a$ satisfy the assumptions of the Theorem \ref{linthm},
+and let it decrease
+in $x$ on $[0, 1]$. Then for any function $u \in \widetilde{\cal M}(a)$ 
+the inequality (\ref{toprovemon}) holds.
+\end{thm} 
+
+To prove this, we extend the construction from \cite[Theorem 2.4]{ASC} to the case of
+monotone weight. This allows us construct a sequence of Lipschitz 
+functions $u_n$, satisfying (\ref{convergence}). The result follows from 
+the Theorem \ref{lipthm} and the Proposition \ref{lowersemi}. 
+
+\begin{thm} 
+\label{main} 
+Let $a(x, u) = \mathfrak{a}(x) \mathfrak{A}(u)$, where $\mathfrak{a}$ is even 
+and satisfies (\ref{almostConcave}). Then for any function 
+$u \in \widetilde{\cal M}(a)$ the inequality (\ref{toprovemon}) holds.
+\end{thm}
+
+The theorem is proved in several steps.
+First, (\ref{toprovemon}) is proved under the additional assumption that 
+$\mathfrak{a}$ is piecewise monotone and is constant in a neighbourhoods
+of every non-zero local minimum. Then (\ref{toprovemon}) is proved for all
+piecewise monotone functions $\mathfrak{a}$,
+and, finally, without additional restrictions. 
+
+\medskip 
+
+Now let the function $u$ be subject to the additional condition 
+\begin{equation} 
+\label{restrictU} 
+u(-1) = \min\limits_{[-1, 1]} u \geqslant 0. 
+\end{equation} 
+
+\begin{prop} 
+If the inequality (\ref{toprovemon}) holds for any piecewise 
+linear function $u$ subject to the condition (\ref{restrictU}) and for any strictly 
+convex $F$, then the weight $a$ satisfies the condition (\ref{almostConcave}). 
+\end{prop} 
+
+\rem If $a(\cdot, u)$ is a nonincreasing function then it satisfies 
+(\ref{almostConcave}). 
+
+\begin{thm} 
+\label{restthm} 
+Let one of two conditions hold:
+\begin{enumerate} 
+\item $a(\cdot, u)$ is a nonincreasing function for all $u$.
+\item $a(x, u) = \mathfrak{a}(x) \mathfrak{A}(u)$, where $\mathfrak{a}$ 
+satisfies (\ref{almostConcave}). 
+\end{enumerate} 
+Then for any function $u \in \widetilde{\cal M}(a)$, satisfying the condition 
+(\ref{restrictU}), the inequality (\ref{toprovemon}) holds.
+\end{thm} 
+
+\medskip 
+
+In the paper \cite{Lan} the inequality (\ref{toprovemon}) is considered
+for functions subject to (\ref{restrictU}) and for functionals with the
+integrand of the form $F(\abs{u'}) a(x)$. 
+It is assumed in \cite{Lan} that $a$ is a nondecreasing function. Note that for 
+$F(t) = t^p$ the
+integrand in \cite{Lan} can be reduced to the form (\ref{functional}), and the restrictions
+on the weight in Theorem \ref{restthm} are considerably weaker than in \cite {Lan}.
+Besides, the additional restrictions on the growth of $F$ are imposed in \cite{Lan}.
+
+\section{The inequality for the symmetrization}
+\label{symmSection}
+
+Recall that in \cite{Br} the inequality (\ref{toprovesymm}) was proved
+for Lipschitz functions $u$, satisfying $u(\pm 1) = 0$, if the weight $a$ is
+even and convex in $x$. 
+
+\begin{prop} 
+If the inequality (\ref{toprovesymm}) holds for any 
+piecewise linear function $u$ with $u(\pm 1) = 0$, then the weight function
+$a(\cdot, u)$ is even and convex in $x$.
+\end{prop} 
+
+\begin{thm} 
+\label{symm} 
+Let the function $a(\cdot, u)$ be even and convex for all $u \in \mathbb R$. 
+Then for every $u \in \Wf(-1, 1)$ the inequality (\ref{toprovesymm}) holds.
+\end{thm}
+
+Similarly to the Theorem \ref{main}, we proceed in two steps.
+At first we prove (\ref{toprovesymm}) for the functions $a$, constant in $x$
+in some neighborhood
+of zero, and then we do for the general case.
+
+\begin{acknowledgments}
+This work was supported by RFBR grant 09-01-00729 and Federal Program 
+????????.
+\end{acknowledgments}
+
+\begin{thebibliography}{99}
+\large
+\bibitem{LL} E.~Lieb, M.~Loss. Analysis. Second edition. Providence, Rhode Island; AMS, 2001. xxii+346 p.
+\bibitem{HLP} G.~Hardy, J.~E.~Littlewood, G.~P\'olya. Inequalities. Second edition. Cambridge;
+Cambridge University Press, 1952. xii+324 p.
+\bibitem{Kawohl} B.~Kawohl. Rearrangements and convexity of level sets in PDE,
+Lecture notes in mathematics 1150. Berlin; Springer Verlag, 1985. 134 p.
+\bibitem{Br} F.~Brock. // Calc. Var. 1999. V.~8. P.~15--25.
+\bibitem{BGG} G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt. One-Dimentional Variational Problems.
+An Introduction. New York; Oxford University Press, 1998. viii+262 p.
+\bibitem{ASC} G.~Alberti,~F.~Serra~Cassano // Ser. Adv. Math. Appl. Sci. 1994.
+V.~18. P.~1--17.
+\bibitem{Lan} R.~Landes // Math.~Nachr., V.~280, Iss.~5--6. P.~560--570.
+
+\end{thebibliography}
+\end{document}
