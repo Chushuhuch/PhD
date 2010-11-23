@@ -43,7 +43,7 @@ It is well known that for a nonnegative measurable function $u$, defined in
 $\Omega = [-1, 1]$, the so-called layer cake representation holds (see, 
 for example, \cite[Ch. 1]{LL}):
 $$u(x) = \int_0^\infty \chi_{\{x \in \Omega :\ u(x) > t \}}\, dt.$$ 
-For a measurable set $E \subset \Omega$, define the sets 
+For a measurable set $E \subset \Omega$ let us define the sets 
 $$ E^* = [1 - \abs{E}, 1], \qquad 
 E^\circ = (-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}).$$ 
 We define the monotone rearrangement and the Steiner symmetrization of a function $u$ as follows 
@@ -57,15 +57,15 @@ u^*(x) = u^\circ(\frac{x + 1}{2}).
 \end{equation} 
 
 Let $F: \mathbb R \times \mathbb R \to \bar{\mathbb R}_+$ be a continuous 
-function even and convex with respect to the second argument.
-Let also $a: \Omega \times \mathbb R \to \bar{\mathbb R}_+$ be a continuous function. 
+function which is even and convex with respect to the second argument.
+Also let $a: \Omega \times \mathbb R \to \bar{\mathbb R}_+$ be a continuous function. 
 We introduce the functional 
 \begin{equation} 
 \label{functional} 
-I(u) = \int_\Omega F(u(x), \abs{a(x, u(x)) u'(x)}) dx, 
+I(u) = \int_\Omega F(u(x), \abs{a(x, u(x)) u'(x)}) dx
 \end {equation} 
 defined on the set ${\cal M}$ of functions $u \in \W(\Omega)$, for which 
-integral in (\ref{functional}) converges. 
+the integral in (\ref{functional}) converges. 
 
 Monotonicity properties of the functionals under rearrangements were studied
 by a number of authors (see e.g. \cite{Kawohl} and references therein). In particular, 
@@ -95,28 +95,28 @@ account and was not excluded in \cite{Br}, and thus, the proof of
 
 In Section \ref{symmSection} of this paper, we establish the absence of the
 Lavrentiev phenomenon for functionals of the
-form (\ref{functional}) with a weight $a$ even and convex in $x$. Thus, 
+form (\ref{functional}) with a weight $a$ which is even and convex in $x$. Thus, 
 we prove the inequality (\ref{toprovesymm}) in full generality. Note that for 
 the multi-dimensional case the problem remains open.
 
 The bulk of our paper is devoted to the more difficult inequality 
 (\ref{toprovemon}). For Lipschitz functions $u$, we prove it under only
 necessary conditions on the weight function. For arbitrary function
-$u \in {\cal M}$ we succeed only under some additional restriction.
+$u \in {\cal M}$ we succeed in doing it only under a certain additional restriction.
 
-In our proof we modify the construction from \cite{ASC}. In this paper
+In our proof we modify the construction from \cite{ASC}. In that paper
 the absence of the Lavrentiev phenomenon was proved for functionals (\ref{functional})
 with $a \equiv const$ and a general function $F$.
 
 Note that in the paper \cite{Lan} the inequality (\ref{toprovemon}) was considered
 under the additional restriction $u(-1) = \min \limits_\Omega u $. However,
-both the class of functions $F$ and the class of admissible weights in this
-paper are non-optimal. Our results for this case formulated in the
+both the class of functions $F$ and the class of admissible weights in that
+paper are non-optimal. Our results for this case formulated at the
 end of Section \ref{sobolSection} are stronger than the ones in \cite{Lan}. 
 
 \section{Necessary conditions on the weight} 
 
-Recall that the function $a$ is assumed nonnegative. 
+Recall that the function $a$ is assumed to be nonnegative. 
 
 \begin{prop} 
 Suppose the inequality (\ref{toprovemon}) holds for any strictly 
@@ -140,8 +140,8 @@ such that $a(x_0, u_0) = 0$, then $a(1, u_0) = 0$ and function
 $a(\cdot, u_0)$ is periodic on $[x_0, 1]$. 
 \end{prop} 
 
-\rem Let the assumptions of the Proposition \ref{period} hold.
-If, in addition
+\rem Let the assumptions of Proposition \ref{period} hold.
+If, in addition,
 the function $a(\cdot, u_0)$ is even, then it is periodic on the whole
 interval $[-1, 1]$, and the period is a divisor of $x_0 +1$.
 
@@ -150,11 +150,11 @@ interval $[-1, 1]$, and the period is a divisor of $x_0 +1$.
 \begin{defin}
 Let $a$ be a continuous function defined on $[-1, 1] \times \mathbb R$, and let
 $a(\cdot, u)$ have a finite number of zeros for any $u$. We define ${\cal W}(a)$ 
-as the set of functions $u$, piecewise absolutely continuous on $[-1, 1]$ such that 
+as a set of functions $u$, piecewise absolutely continuous on $[-1, 1]$ such that 
 if $\hat{x}$ is a point of discontinuity, then $a(\hat{x}, \cdot) \equiv 0$ 
 on the interval $[u(\hat{x}-), u(\hat{x }+)]$. We say that a sequence 
 $u_n \in {\cal W}(a)$ converges to $u \in {\cal W}(a)$, if $u_n$ are absolutely 
-continuous on every interval $\Omega_k$ where $u$ is absolutely continuous and
+continuous on every interval $\Omega_k$, where $u$ is absolutely continuous and
 $u_n \to u$ in $\W(\Omega_k)$ for every $k$.
 \end{defin}
 
@@ -176,7 +176,7 @@ the inequality (\ref{toprovemon}) holds.
 \end{thm} 
 
 Theorem \ref{linthm} can be proved by direct computation using 
-the proposition \ref{period}.
+Proposition \ref{period}.
 
 \begin{prop} 
 \label{lowersemi} 
@@ -185,8 +185,8 @@ The functional $I(u)$ is weakly semi-continuous from below in ${\cal W}(a)$.
 
 \begin{thm} 
 \label{lipthm} 
-Let the weight function $a$ satisfy the assumptions of the Theorem \ref{linthm}. Then for 
-any piecewise Lipschitz function $u \in {\cal W}(a)$ the inequality (\ref{toprovemon}) holds.
+Let the weight function $a$ satisfy the assumptions of Theorem \ref{linthm}. Then for 
+any piecewise Lipschitz function $u \in {\cal W}(a)$, the inequality (\ref{toprovemon}) holds.
 \end{thm} 
 
 \begin{proof} 
@@ -196,8 +196,8 @@ piecewise linear functions $u_n$, such that
 \label{convergence} 
 u_n \to u\ \text{in}\ {\cal W}(a)\quad \text{and}\quad I(u_n) \to I(u). 
 \end{equation} 
-Then the result of \cite[Theorem 1, part 2]{Br}, the formula (\ref{relation}) and the Theorem
-\ref{linthm} imply $u_n^*\rightharpoondown u^*$. Applying the proposition 
+Then the result of \cite[Theorem 1, part 2]{Br}, the formula (\ref{relation}) and Theorem
+\ref{linthm} imply $u_n^*\rightharpoondown u^*$. Applying Proposition 
 \ref{lowersemi} completes the proof. 
 \end{proof} 
 
@@ -206,16 +206,16 @@ Then the result of \cite[Theorem 1, part 2]{Br}, the formula (\ref{relation}) an
 
 \begin{thm} 
 \label{Wapprox} 
-Let the weight function $a$ satisfy the assumptions of the Theorem \ref{linthm},
+Let the weight function $a$ satisfy the assumptions of Theorem \ref{linthm},
 and let it decrease
 in $x$ on $[0, 1]$. Then for any function $u \in \widetilde{\cal M}(a)$ 
 the inequality (\ref{toprovemon}) holds.
 \end{thm} 
 
 To prove this, we extend the construction from \cite[Theorem 2.4]{ASC} to the case of
-monotone weight. This allows us construct a sequence of Lipschitz 
+monotone weight. This allows us to construct a sequence of Lipschitz 
 functions $u_n$, satisfying (\ref{convergence}). The result follows from 
-the Theorem \ref{lipthm} and the Proposition \ref{lowersemi}. 
+Theorem \ref{lipthm} and Proposition \ref{lowersemi}. 
 
 \begin{thm} 
 \label{main} 
@@ -226,7 +226,7 @@ $u \in \widetilde{\cal M}(a)$ the inequality (\ref{toprovemon}) holds.
 
 The theorem is proved in several steps.
 First, (\ref{toprovemon}) is proved under the additional assumption that 
-$\mathfrak{a}$ is piecewise monotone and is constant in a neighbourhoods
+$\mathfrak{a}$ is piecewise monotone and is constant in neighbourhoods
 of every non-zero local minimum. Then (\ref{toprovemon}) is proved for all
 piecewise monotone functions $\mathfrak{a}$,
 and, finally, without additional restrictions. 
@@ -245,12 +245,12 @@ linear function $u$ subject to the condition (\ref{restrictU}) and for any stric
 convex $F$, then the weight $a$ satisfies the condition (\ref{almostConcave}). 
 \end{prop} 
 
-\rem If $a(\cdot, u)$ is a nonincreasing function then it satisfies 
+\rem If $a(\cdot, u)$ is a nonincreasing function, then it satisfies 
 (\ref{almostConcave}). 
 
 \begin{thm} 
 \label{restthm} 
-Let one of two conditions hold:
+Let any of the two following conditions hold:
 \begin{enumerate} 
 \item $a(\cdot, u)$ is a nonincreasing function for all $u$.
 \item $a(x, u) = \mathfrak{a}(x) \mathfrak{A}(u)$, where $\mathfrak{a}$ 
@@ -290,10 +290,10 @@ Let the function $a(\cdot, u)$ be even and convex for all $u \in \mathbb R$.
 Then for every $u \in \Wf(-1, 1)$ the inequality (\ref{toprovesymm}) holds.
 \end{thm}
 
-Similarly to the Theorem \ref{main}, we proceed in two steps.
-At first we prove (\ref{toprovesymm}) for the functions $a$, constant in $x$
+Similarly to Theorem \ref{main}, we proceed in two steps.
+First, we prove (\ref{toprovesymm}) for the functions $a$, which are constant in $x$
 in some neighborhood
-of zero, and then we do for the general case.
+of zero, and then we do it for the general case.
 
 \begin{acknowledgments}
 This work was supported by RFBR grant 09-01-00729 and Federal Scientific and Innovation Program.
