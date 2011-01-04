@@ -1,0 +1,531 @@
+%
+% ****** maiksamp.tex 29.11.2001 ******
+%
+\documentclass[
+aps,%
+12pt,%
+final,%
+notitlepage,%
+oneside,%
+onecolumn,%
+nobibnotes,%
+nofootinbib,% 
+superscriptaddress,%
+noshowpacs,%
+centertags]%
+{revtex4}
+
+\begin{document}
+\selectlanguage{russian}
+
+\title{НАЗВАНИЕ СТАТЬИ,\\
+РАЗБИТОЕ НА СТРОКИ}% Разбиение на строки осуществляется командой \\
+
+\author{\firstname{П.~A.}~\surname{Первый-Автор}}
+% Здесь разбиение на строки осуществляется автоматически или командой \\
+\email{First.Author@institution.ras.ru}
+\affiliation{%
+Место работы и/или адрес первого и второго авторов
+}%
+\author{\firstname{В.~А.}~\surname{Второй-Автор}}
+\email{Second.Author@institution.ras.ru}
+\affiliation{%
+Место работы и/или адрес первого и второго авторов
+}%
+
+\author{\firstname{Т.~А.}~\surname{Третий-Автор}}
+\email{Third.Author@univ.edu}
+%\noaffiliation % если у автора место работы не указывается
+\affiliation{%
+Место работы и/или адрес третьего автора
+}%
+
+
+\author{\firstname{Ч.~А.}~\surname{Четвертый-Автор}}
+\email{Fourth.Author@inst.ras.ru}
+\affiliation{%
+Место работы и/или адрес четвертого автора
+}%
+
+
+%\date{\today}
+%\today печатает cегодняшнее число
+
+\begin{abstract}
+В этом примере статьи содержатся некоторые необходимые автору
+сведения и примеры того, как набрать статью в REV\TeX~4 для
+журналов, издаваемых Международной академической издательской
+компанией \flqqНаука/Интерпериодика\frqq.
+\end{abstract}
+
+\maketitle
+
+\section{Введение}
+
+Процесс оформлении статьи с помощью REV\TeX~4 подробно описан в
+руководстве по работе с REV\TeX~4 \cite{RTeX}. Большую помощь в
+разрешениии возникших \TeX{}'нических вопросов могут оказать книги
+\cite{GG,L}.
+
+Для набора кавычек \glqqлапок\grqq используйте команды
+\verb|\glqq| и \verb|\grqq|, а для кавычек \flqq{}елочек\frqq ---
+\verb|\flqq| и \verb|\frqq|. Описание этих и других макросов
+зависящих от русского языка можно найти в \cite{babel} страницы
+29-30. Знак номера \No{} вводится командой \verb|\No|.
+
+Для статей на русском языке используется стандартная русификация
+и LH-шрифты, включенная в состав пакета \LaTeXe. Кодировка
+\TeX{}-файлов CP866 (альтернативная).
+
+Особенностью пакета REV\TeX~4 является использование rty-файла
+(см. \cite{RTeX}, стр. 15, раздел "Job Macro Package"). В файле
+maik.rty подключаются в правильном порядке необходимые пакеты
+LaTex 2e, пeреопределяются некоторые команды REVTeX 4 и LaTeX 2e,
+связанные с оформлением русского варианта статьи в МАИК. Не
+желательно использование пакетов LaTeX 2e отличных от включенных
+в maik.rty. Не вносите никаких изменений в файл maik.rty. Файл
+maik.rty необходимо разместить в директории доступной для поиска
+TeX-компилятору.
+
+Небольшой файл \verb|<имя статьи>.rty| должен присутствовать в той
+же директории, что и TeX-файл со статьей. В этом файле происходит
+вызов файла maik.rty. Этот файл должен иметь то же название, что
+и \TeX{}-файл со статьей, но только с расширением .rty, его
+подключение REV\TeX~4 производит автоматичеcки в процессе
+компиляции.
+
+В простейшем и наиболее желательном случае, когда отсутствуют
+макрокоманды \LaTeXe, введенных автором,
+файл \verb|<имя статьи>.rty| должен содержать всего две строки:
+
+\verb+\input maik.rty+
+
+\verb+\endinput+
+
+В конце файла \verb|<имя статьи>.rty| перед командой
+\verb+\endinput+ могут быть помещены специфичные для данной
+статьи макрокоманды. Убедительная просьба не разбрасывать такие
+команды по всему \TeX{}-файлу со статьей.
+
+\section{Заголовок первого уровня\protect\\
+разделен на строки}
+
+Заголовки в статье бывают трех уровней и определяются командами
+\verb|\section|, \verb|\subsection| и \verb|\subsubsection|
+(глава, подглава, подраздел). Разбиение заголовка на строки
+делается при помощи команды \verb+\protect\\+.
+
+\subsection{Заголовок второго уровня}
+
+Ссылки на литературу в тексте оформляются с использованием команд
+\verb+\cite{#1}+ или \verb+\onlinecite{#1}+. Метка \verb+#1+
+может иметь название, состоящее как из букв, так и из цифр. В
+библиографическом разделе\footnote{См.\ конец статьи.} эта ссылка тоже имеет метку \verb+#1+ и
+начинается командой \verb+\bibitem{#1}+.
+
+С помощью команды \verb+\cite{GG}+ получается ссылка \cite{GG},
+если нужно сослаться сразу на несколько источников:
+\cite{GG,L}, то в фигурных скобках указываются ссылки на источники
+через запятую: \verb+\cite{GG,L}+. При
+использовании команды \verb|\onlinecite{#1}| ссылка не будет
+заключена в квадратные скобки: см.~\onlinecite{RTeX}, стр.~8.
+Если идет ссылка на источники с последовательными номерами,
+например, [1,2,3,6,7,8], то на печати автоматически сслыка примет
+вид [1--3,6--8].
+
+\section{Выключные формулы}
+
+\subsection{Еще один заголовок второго уровня}
+
+В \LaTeX'е существует много способов размещения выключных формул
+на странице и их выравнивания. По умолчанию формулы всегда
+центрируются.
+
+\subsubsection{Однострочные формулы}
+
+Ниже приведены примеры однострочных уравнений:
+\begin{eqnarray}
+\chi_+(p)\alt{\bf [}2|{\bf p}|(|{\bf p}|+p_z){\bf ]}^{-1/2}
+\left(
+\begin{array}{c}
+|{\bf p}|+p_z\\
+px+ip_y
+\end{array}\right)\;,
+\\
+\left\{%
+ \openone234567890abc123\alpha\beta\gamma\delta1234556\alpha\beta
+ \frac{1\sum^{a}_{b}}{A^2}%
+\right\}%
+\label{one}.
+\end{eqnarray}
+Вторая формула имеет номер~(\ref{one}), который задается командой
+\verb|\label{one}|. Первой формуле присвоен номер~(1), однако на
+нее нельзя сослаться при помощи аппарата автоматических ссылок,
+так как она не имеет метки.
+
+Если формулу нумеровать не нужно, используется окружение
+\verb+\[+, \verb+\]+, с помощью которого и получена следующая формула:
+\[g^+g^+ \rightarrow g^+g^+g^+g^+ \dots ~,~~q^+q^+\rightarrow
+q^+g^+g^+ \dots ~. \]
+
+\subsubsection{Многострочные формулы}
+
+Многострочные формулы набираются с использование окружения
+eqnarray:
+\begin{eqnarray}
+{\cal M}=&&ig_Z^2(4E_1E_2)^{1/2}(l_i^2)^{-1}
+\delta_{\sigma_1,-\sigma_2}
+(g_{\sigma_2}^e)^2\chi_{-\sigma_2}(p_2)\nonumber\\
+&&\times
+[\epsilon_jl_i\epsilon_i]_{\sigma_1}\chi_{\sigma_1}(p_1),
+\end{eqnarray}
+\begin{eqnarray}
+\sum \vert M^{\rm viol}_g \vert ^2&=&g^{2n-4}_S(Q^2)~N^{n-2}
+        (N^2-1)\nonumber \\
+ & &\times \left( \sum_{i<j}\right)
+  \sum_{\rm perm}
+ \frac{1}{S_{12}}
+ \frac{1}{S_{12}}
+ \sum_\tau c^f_\tau~.
+\end{eqnarray}
+Если формулу нумеровать не нужно, то в конце строки перед знаком
+\verb|\\| нужно поставить команду \verb|\nonumber|. Никогда не
+используйте в одной строчке команды \verb|\nonumber| и
+\verb|\label{#1}|, так как это может привести к ошибке в автоматической
+нумерации ссылок.
+
+Если нужно набрать несколько формул без номера, можно
+использовать окружение eqnarray* (звездочка означает отмену
+нумерации):
+\begin{eqnarray*}
+\sum \vert M^{\rm viol}_g \vert ^2&=&g^{2n-4}_S(Q^2)~N^{n-2}
+        (N^2-1)\\
+ & &\times \left( \sum_{i<j}\right)
+ \left(
+  \sum_{\rm perm}\frac{1}{S_{12}S_{23}S_{n1}}
+ \right)
+ \frac{1}{S_{12}}~.
+\end{eqnarray*}
+Чтобы пронумеровать формулы вручную, используется команда
+\verb+\tag{#1}+, в которой  \verb+#1+~--- нужный номер формулы.
+Вот как получается формула с номером~(\ref{eq:mynum}):
+\begin{equation}
+g^+g^+ \rightarrow g^+g^+g^+g^+ \dots ~,~~q^+q^+\rightarrow
+q^+g^+g^+ \dots ~. \tag{2.6$'$}\label{eq:mynum}
+\end{equation}
+
+При включении однострочных и многострочных формул в окружение
+subequations каждая формула ``нумеруется'' дополнительно буквой,
+как показано в уравнениях~(\ref{mlett:1}) и (\ref{mlett:2}):
+\begin{subequations}
+\label{generallabel}
+\begin{equation}
+\left\{
+ abc123456abcdef\alpha\beta\gamma\delta1234556\alpha\beta
+ \frac{1\sum^{a}_{b}}{A^2}
+\right\},\label{mlett:1}
+\end{equation}
+\begin{eqnarray}
+{\cal M}=&&ig_Z^2(4E_1E_2)^{1/2}(l_i^2)^{-1}
+(g_{\sigma_2}^e)^2\chi_{-\sigma_2}(p_2)\nonumber\\
+&&\times
+[\epsilon_i]_{\sigma_1}\chi_{\sigma_1}(p_1).\label{mlett:2}
+\end{eqnarray}
+\end{subequations}
+Если поставить метку сразу после \verb+\begin{subequations}+, то
+ее можно использовать далее как ссылку на все уравнения этого
+окружения. Например, можно сослаться на
+уравнения~(\ref{generallabel}) этого примера.
+
+Для набора многострочных формул можно использовать окружения
+multline, gather и align. Окружение multline хорошо использовать
+для набора длинных выключных формул, которые не помещаются на
+одной строчке:
+\begin{multline}
+\int_{a_1}^{a_2} f(x)\,dx+\int_{a_2}^{a_3} f(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} f(x)\,dx\\
++\int_{a_1}^{a_2} g(x)\,dx+\int_{a_2}^{a_3} g(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} g(x)\,dx\\
++\int_{a_1}^{a_2} h(x)\,dx+\int_{a_2}^{a_3} h(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} h(x)\,dx\\
+       =\int_{a_1}^{a_n} f(x)+g(x)+h(x)\,dx.
+\end{multline}
+Эта формула автоматически нумеруется, если формулу нумеровать не
+нужно, то надо воспользоваться окружением multline*.
+
+Окружение gather центрирует включенные в него формулы:
+\begin{gather}
+\int_{a_1}^{a_2} f(x)\,dx+\int_{a_2}^{a_3} f(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} f(x)\,dx\\
++\int_{a_1}^{a_2} g(x)\,dx+\int_{a_2}^{a_3} g(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} g(x)\,dx\notag\\
++\int_{a_1}^{a_2} h(x)\,dx+\int_{a_2}^{a_3} h(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} h(x)\,dx\\
+       =\int_{a_1}^{a_n} f(x)+g(x)+h(x)\,dx.
+\end{gather}
+Каждая строчка автоматически нумеруется, если строчку нумеровать
+не надо, то перед \verb+\\+ в этой строке нужно поставить команду
+\verb+\notag+. При использовании окружения gather* формулы
+нумероваться не будет.
+
+Окружение align позволяет выравнивать формулы по вашему
+усмотрению:
+\begin{align}
+\int_{a_1}^{a_2} f(x)\,dx &+\int_{a_2}^{a_3} f(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} f(x)\,dx\notag\\
+&+\int_{a_1}^{a_2} g(x)\,dx +\int_{a_2}^{a_3} g(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} g(x)\,dx\\
+&+\int_{a_1}^{a_2} h(x)\,dx+\int_{a_2}^{a_3} h(x)\,dx
+       +\dots+\int_{a_{n-1}}^{a_n} h(x)\,dx\notag\\
+       &=\int_{a_1}^{a_n} f(x)+g(x)+h(x)\,dx.
+\end{align}
+Подробнее о работе с этими окружениями можно прочитать в книге
+\cite{GG}.
+
+
+\section{Рисунки и таблицы}
+REV\TeX~4 автоматически нумерует разделы, формулы, таблицы и
+рисунки. Рисунки и таблицы помещайте в конце статьи после списка
+литературы. Подписи к рисункам делаются после рисунка,  а подписи
+к таблицам~--- перед таблицей, как показано в примерах в конце. В
+таблицах сноски\footnote{Сноски в таблицах можно попытаться
+сделать вручную.} не работают.
+
+\begin{acknowledgments}
+В конце статьи пишутся благодарности.
+\end{acknowledgments}
+
+\appendix
+
+\section{Это приложения}
+
+Чтобы перейти к разделу приложений, нужно использовать команду
+\verb+\appendix+. После нее все разделы будут именоваться словом
+Приложение и соответствующей буквой, в команде \verb+\section+
+можно ничего не указывать, тогда приложение не будет иметь
+названия.
+
+\section{}
+
+Приложение может содержать подглавы и подразделы.
+
+%
+% Список литературы
+%
+\begin{thebibliography}{99}
+\bibitem{RTeX}
+\refitem{url}
+REV\TeX~4 Author's Guide\\
+\url{http://publish.aps.org/revtex4/augide.ps};
+\refitem{url}
+Differences between REV\TeX~4 and REV\TeX~3\\
+\url{http://publish.aps.org/revtex4/differ.ps};
+\refitem{url}
+REV\TeX~ 4 Command and Options Summary\\
+\url{http://publish.aps.org/revtex4/summary.ps}.
+\bibitem {GG}
+\refitem{book}
+{\it Грэтцер Г.} // Первые шаги в \LaTeX'е. М.: Мир, 2000.
+\bibitem{L}
+\refitem{book}
+{\it Львовский С.М.} // Набор и верстка в пакете \LaTeX, 2-е издание. М.: Космосинформ, 1995.
+\bibitem{K}
+\refitem{book}
+{\it Кнут Д.} // Все про \TeX. Протвино: AO RDTeX, 1993.
+\bibitem{S}
+\refitem{book}
+{\it Спивак М.} // Восхитительный TeX. М.: Мир, 1993.
+\bibitem{KCh}
+\refitem{book}
+{\it Котельников И., Чеботаев П.} //
+Издательская система \LaTeXe. Новосибирск: Сибирский хронограф, 1998.
+\bibitem{GMS}
+\refitem{book}
+{\it Гуссенс М., Миттельбах Ф., Самарин А.} //
+Путеводитель по пакету \LaTeX. М.: Мир, 1999.
+\bibitem{KD}
+\refitem{book}
+{\it Kopka H. and Daly P.} // A Guide to \LaTeXe.
+Addison-Wesley, Reading, MA, 1995.
+\bibitem{GRM}
+\refitem{book}
+{\it Goossens M., Rahtz S., and Mittelbach F.} //
+The \LaTeXe Graphics Companion.
+Addison-Wesley, Reading, MA, 1997.
+\bibitem{RG}
+\refitem{book}
+{\it Goossens M., Rahtz S. et al.} //
+The \LaTeXe Web Companion:Integrating \TeX, HTML and XML.
+Addison-Wesley, Reading, MA , 1999.
+\bibitem{R}
+\refitem{misc}
+{\it Reckdahl K.} //
+Using Imported Graphics in \LaTeXe. Version 2.0, 1997.
+\url{\texmf\doc\latex\graphics\epslatex.pdf}
+\bibitem{babel}
+\refitem{misc}
+{\it J. Braams.} Babel, a multilingual package for use with \LaTeX{}'s
+standard document class. \url{\texmf\doc\generic\babel\user.dvi}
+%
+\bibitem{1}
+\refitem{article}
+N.~Cabibbo, Phys. Rev. Lett. \textbf{10}, 531 (1963);
+\refitem{article}
+M.~Kobayashi and T.~Maskawa, Prog. Theor. Phys. \textbf{49}, 652 (1973).
+\bibitem{37:Landsberg_n}%[37]%
+S.~L.~Glashow, J.~Iliopoulos, and L.~Maiani, Phys. Rev. D \textbf{2}, 1285 (1970).
+\bibitem{38:Landsberg_n}%[38]%
+\refitem{article}
+T.~D.~Lee and C.~S.~Wu, Annu. Rev. Nucl. Part. Sci. \textbf{15}, 381 (1965);
+\refitem{article;ibid}
+\textbf{16}, 471 (1966).
+\bibitem{2}
+\refitem{report}
+A.~R.~Barker and S.~H.~Kettell, hep-ex/0009024;
+\refitem{article;prevau}
+Annu. Rev. Nucl. Part. Sci. \textbf{50}, 249 (2000).
+\bibitem{3}
+\refitem{article}
+A.~I.~Va\u{\i}nshte\u{\i}n \emph{et al.}, Pis'ma Zh. \'{E}ksp. Teor. Fiz. \textbf{22}, 123 (1975)
+\refitem{article;rusjou}
+[JETP Lett. \textbf{22}, 55 (1975)];
+\refitem{article;prevau}
+Nucl. Phys. B \textbf{120}, 316 (1977).
+\bibitem{4}
+\refitem{article}
+A.~ Vainshtein, Int. J. Mod. Phys. A \textbf{14}, 4705 (1999).
+\bibitem{5}
+\refitem{article}
+NA-31 Collab. (H. Burkhardt \emph{et al.}), Phys. Lett. B \textbf{206}, 169 (1988);
+\refitem{article}
+NA-31 Collab. (G. D. Barr \emph{et al.}), Phys. Lett. B \textbf{317}, 233 (1993).
+\bibitem{06}
+\refitem{book}
+L.~B.~Okun, \emph{Leptons and Quarks} (Nauka, Moscow, 1990; North-Holland, Amsterdam, 1984);
+\refitem{book}
+L.~B.~Okun, \emph{Particle Physics} (Nauka, Moscow, 1988; Harwood, Chur, 1985).
+\bibitem{7}
+\refitem{article}
+Yu.~R.~Rivin, Int.~J.~Geomagn. Aeron. \textbf{1} (3), (1998);
+\end{thebibliography}
+%
+\newpage
+%
+% Для статей на русском языке далее следуют
+% на английском языке название статьи, список авторов и краткая аннотация.
+%
+\selectlanguage{english}
+\begin{center}
+\large \bfseries \MakeTextUppercase{%
+English name of paper
+}
+\end{center}
+%
+\begin{center}
+\bfseries F.~Author, S.~Author, T.~Author, F.~Author
+\end{center}
+%
+\begin{center}
+\begin{minipage}{\textwidth - 2cm}
+\small
+Abstract in English. Abstract in English. Abstract in English. Abstract in English.
+Abstract in English. Abstract in English. Abstract in English. Abstract in English.
+Abstract in English. Abstract in English. Abstract in English. Abstract in English.
+Abstract in English. Abstract in English. Abstract in English. Abstract in English.
+
+\end{minipage}
+\end{center}
+\selectlanguage{russian}
+%
+\newpage
+%Рисунок в статью можно включить при помощи окружения figure:
+\begin{figure}
+\setcaptionmargin{5mm}
+\onelinecaptionstrue
+\includegraphics{fig_1.eps} % Так вставляется рисунок
+\captionstyle{normal}
+\caption{Название рисунка, оформленное
+при помощи пакета \textbf{caption2}.}
+\end{figure}
+
+\begin{figure}[t!]
+\setcaptionmargin{5mm}
+%\onelinecaptionsfalse % если подпись к рисунку многострочная
+\onelinecaptionstrue  % если подпись к рисунку однострочная
+\includegraphics{fig_2.eps}
+\captionstyle{normal} \caption{Однострочная подпись к рисунку,
+оформленная при помощи пакета \textbf{caption2}.}
+\end{figure}
+
+\pagebreak
+
+\begin{table}[p]
+\setcaptionmargin{0mm} \onelinecaptionsfalse
+\captionstyle{flushleft} \caption{ Для вставки таблиц
+используется окружение table, подписи к таблицам оформляются
+аналогично подписям к рисункам. Это пример таблицы, многострочное
+название которой оформлено при помощи пакета \textbf{caption2}.}
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+ &$r_c$ (\AA)&$r_0$ (\AA)&$\kappa r_0$&
+ &$r_c$ (\AA) &$r_0$ (\AA)&$\kappa r_0$\\
+\hline
+Cu& 0.800 & 14.10 & 2.550 &Sn
+& 0.680 & 1.870 & 3.700 \\
+Ag& 0.990 & 15.90 & 2.710 &Pb
+& 0.450 & 1.930 & 3.760 \\
+Au& 1.150 & 15.90 & 2.710 &Ca
+& 0.750 & 2.170 & 3.560 \\
+Mg& 0.490 & 17.60 & 3.200 &Sr
+& 0.900 & 2.370 & 3.720 \\
+Zn& 0.300 & 15.20 & 2.970 &Li
+& 0.380 & 1.730 & 2.830 \\
+Cd& 0.530 & 17.10 & 3.160 &Na
+& 0.760 & 2.110 & 3.120 \\
+Hg& 0.550 & 17.80 & 3.220 &K &  1.120 & 2.620 & 3.480 \\
+Al& 0.230 & 15.80 & 3.240 &Rb & 1.330 & 2.800 & 3.590 \\
+Ga& 0.310 & 16.70 & 3.330 &Cs & 1.420 & 3.030 & 3.740 \\
+In& 0.460 & 18.40 & 3.500 &Ba & 0.960 & 2.460 & 3.780 \\
+Tl& 0.480 & 18.90 & 3.550 & & & & \\[1mm]
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+\setcaptionmargin{0mm}
+\onelinecaptionstrue
+\captionstyle{flushleft}
+\caption{Название этой таблицы~--- однострочное.}
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|c|}
+  \hline
+    & 1 & 2 & 3 & 4 & 5 & 6\\
+  \hline
+  1 & 1 & 2 & 3 & 4 & 5 & 6\\
+  2 & 2 & 4 & 6 & 8 & 10 & 12\\
+  3 & 3 & 6 & 9 & 12 & 15 & 18\\[1mm]
+  \hline
+\end{tabular}
+\end{table}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Character code reference %%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                             %
+%     Upper case russian letters (CP866): АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ   %                                                                       %
+%     Lower case russian letters (CP866): абвгдеёжзийклмнопрстуфхцчшщъыьэюя   %
+%                     Upper case letters: ABCDEFGHIJKLMNOPQRSTUVWXYZ          %
+%                     Lower case letters: abcdefghijklmnopqrstuvwxyz          %
+%                                   Digits: 0123456789                        %
+% Square, curly, angle braces, parentheses: [] {} <> ()                       %
+%                Backslash, slash, solidus: \ / |                             %
+%       Period, interrogative, exclamation: . ? !                             %
+%                 Comma, colon, semi-colon: , : ;                             %
+%          Underscore, hyphen, equals sign: _ - =                             %
+%             Quotes (left, right, double): ` ' "                             %
+%     Commercial-at, hash, dollar, percent: @ # $ %                           %
+%  Ampersand, asterisk, plus, caret, tilde: & * +   ^                         %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% ****** End of file apssampr.tex ******
