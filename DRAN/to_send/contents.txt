@@ -1,0 +1,17 @@
+Encoding: CP 866
+
+Формат диска: CD с данными
+Операционная система: Windows XP
+Текстовый редактор: втроенный редактор Far manager
+Файлы:
+	русская версия:
+		Polya_Szego._Bankevich,_Nazarov._DAN.tex
+		Polya_Szego._Bankevich,_Nazarov._DAN.rty
+		Polya_Szego._Bankevich,_Nazarov._DAN.pdf
+	английская версия:
+	  Polya_Szego._Bankevich,_Nazarov._DAN_en.tex
+	  Polya_Szego._Bankevich,_Nazarov._DAN_en.rty
+	  Polya_Szego._Bankevich,_Nazarov._DAN_en.pdf
+Название журнала: Доклады РАН
+Название статьи: Об обобщении неравенства Пойа-Сеге для одномерных функционалов
+Авторы: Банкевич С.В., Назаров А.И.
