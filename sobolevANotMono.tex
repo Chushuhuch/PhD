@@ -37,9 +37,10 @@ $b_j(x) = \max\limits_{i \le j} \theta_i a_{k(\theta_i)}^0(x)$ и
 $a_j(x, u) = \varkappa(u) b_j(x)$. По лемме (\ref{maxConcave}) $b_j$
 удовлетворяют неравенству (\ref{almostConcaveSum}).
 $a_j(x, u) \le a(x, u)$ при $x \in [-1 + \eps, 1 - \eps]$ и
-$a_j(x, u)$ монотонно возрастают по $j$.
+$a_j(x, u) \nearrow a(x, u)$.
 
-Функции $b_j$ кусочно-монотонные, поэтому
+Функции $b_j$ кусочно-монотонные как максимум нескольких кусочно-монотонных
+функций, поэтому
 \begin{equation}
 \label{inequlityForPartiallyLinear}
 \int_{-1}^1 F(u(x), a_j(x, u) u'(x)) dx \ge
