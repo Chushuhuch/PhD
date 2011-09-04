@@ -14,7 +14,42 @@
 
 Схема: $a$ удовлетворяет $H1$--$Hi$.
 Строим последовательность $a_k$, удовлетворяющих $H1$--$H(i+1)$
-так, чтобы $a^n := \max\limits_{k \le n} a_k \nearrow a$.
+так, чтобы $a^n := \max\limits_{k \le n} a_k$ удовлетворяли
+$F(u(x), a^n(x, u(x)) u'(x)) \nearrow F(u(x), a(x, u(x)) u'(x))$ для почти всех $x$.
+
+\begin{prop}
+\label{levelDerivative}
+Для любой $u \in \W(-1, 1)$ и произвольного $u_0 \in \Real$ выполнено
+$u'(x) = 0$ для почти всех $x \in \{ x : u(x) = u_0 \}$.
+\end{prop}
+
+Предположим, вес $a$ удовлетворяет $H1$, зафиксируем $\eps > 0, u_0 \in \Real$.
+Построим вес $b^{u_0}_\eps$ следующим образом.
+$b^{u_0}_\eps(x, u) = a(x, u)$ при $\abs{u - u_0} \ge 2 \eps$,
+$b^{u_0}_\eps(x, u) = \frac{\abs{u - u_0} - \eps}{\eps} a(x, u)$ при
+$2 \eps \ge \abs{u - u_0} \ge \eps$ и
+$b^{u_0}_\eps(x, u) = 0$ при $\eps \ge \abs{u - u_0}$.
+Легко видеть, что $b^{u_0}_\eps(x, u) \le a(x, u)$ и
+$b^{u_0}_\eps(x, u) \nearrow a(x, u)$ при $\eps \to 0$ для всех $x$ и $u \neq u_0$.
+Кроме того, $b^{u_0}_\eps(x, u)$ удовлетворяет $H1$, потому что мы домножили
+вес $a$ на непрерывный коэффициент, не больший единицы и зависящий только от $u$.
+
+\begin{lm}
+$\int_{-1}^1 F(u(x), b^{u_0}_\eps(x, u) u'(x)) dx \to \int_{-1}^1 F(u(x), a(x, u) u'(x)) dx.$
+\end{lm}
+
+\begin{proof}
+Представим отрезок $[-1, 1]$ в виде $A \cup B$, где
+$A = \{x \in [-1, 1] : u(x) \neq u_0\}$, $B = \{x \in [-1, 1] : u(x) = u_0\}$.
+По теореме о монотонной сходимости
+$\int_A F(u(x), b^{u_0}_\eps(x, u) u'(x)) dx \to
+\int_A F(u(x), a(x, u) u'(x)) dx.$
+Поскольку $b^{u_0}_\eps(x, u_0) = 0$,
+$\int_B F(u(x), b^{u_0}_\eps(x, u) u'(x)) dx = \abs{\{x : u(x) = u_0\}} F(u_0, 0)$.
+А ввиду утверждения (\ref{levelDerivative})
+$\int_B F(u(x), a(x, u) u'(x)) dx = \abs{\{x : u(x) = u_0\}} F(u_0, 0)$.
+\end{proof}
+
 
 \begin{align*}
 (H3) & \text{ Количество нулей функций }
