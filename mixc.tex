@@ -939,7 +939,8 @@ $G := \{u \in \Real| \exists \eps > 0: a(\cdot, [u - \eps, u + \eps]) \not \equi
 интервалов $\{U^\delta_i\}$ такое, что $\sum \abs{U^\delta_i} < \abs{G} + \delta$.
 Положим $U^\delta_i = (\alpha^\delta_i - \beta^\delta_i, \alpha^\delta_i + \beta^\delta_i)$
 и определим $a_k(x, u) := a(x, u) \prod c_{\beta}^{\alpha} (u)$.
-Здесь $\beta=\beta^\delta_i$, $\alpha=\alpha^\delta_i$, $\delta = \frac{1}{k}$.
+Здесь $\beta=\beta^\delta_i$, $\alpha=\alpha^\delta_i$, $\delta = \frac{1}{k}$,
+произведение берется по всем $i$.
 Таким образом мы получили вес, удовлетворяющий $H1$.
 Кроме того, для любого $u$: $a(\cdot, u) \equiv 0$ найдется $\eps > 0$, что
 $a_k(\cdot, [u - \eps, u + \eps]) \equiv 0$.
