@@ -16,7 +16,11 @@
 Строим последовательность $a_k$, удовлетворяющих $H1$--$H(i+1)$
 так, чтобы $a^n := \max\limits_{k \le n} a_k$ тоже удовлетворяли
 $H1$--$H(i+1)$ и выполнялось
-$F(u(x), a^n(x, u(x)) u'(x)) \nearrow F(u(x), a(x, u(x)) u'(x))$ для почти всех $x$.
+\begin{align*}
+F(u(x), a^n(x, u(x)) u'(x)) & \nearrow F(u(x), a(x, u(x)) u'(x))\\
+F(u^*(x), a^n(x, u^*(x)) {u^*}'(x)) & \nearrow F(u^*(x), a(x, u^*(x)) {u^*}'(x))
+\end{align*}
+для почти всех $x$.
 
 \begin{prop}
 \label{levelDerivative}
