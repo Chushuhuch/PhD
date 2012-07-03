@@ -1,0 +1,40 @@
+\documentclass[a4paper]{slides}
+%\usepackage[koi8-r]{inputenc}
+%\usepackage{russianb}
+\usepackage[pdftex,landscape]{geometry}
+\usepackage{amsmath,amsthm,amssymb,lscape}
+\usepackage{graphicx}
+\pagestyle{empty}
+\tolerance 1000
+\topmargin -2cm
+\textheight=17cm
+\textwidth=27cm
+\hoffset=-3cm
+\newcommand {\W}{W_1^1}
+\newcommand {\Wf}{\stackrel{o\ }{W_1^1}}
+\newcommand{\Real}{\mathbb R}
+\renewcommand {\bar}[1]{\overline{#1}}
+\renewcommand {\ge}{\geqslant}
+\renewcommand {\le}{\leqslant}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\relpenalty=10000
+
+\begin{document}
+
+\begin{slide}
+
+
+\begin{center}
+\Large
+Step 1 --- sketch of the proof.
+
+\includegraphics[width=250mm]{graph1.eps}
+
+$a(1 + s + t) \le a(s) + a(t)\ \ \underset{\mbox{\small$a$ even}}{\Longleftrightarrow}\ \ a(1 + s - t) \le a(s) + a(t)$
+
+$\abs{\bar{u}'(1 + s - t)} \le \min\left\{\abs{u'(s)}, \abs{u'(t)}\right\} \Longrightarrow I(\bar{u}) \le I(u)$
+
+\end{center}
+
+\end{slide}
+\end{document}
