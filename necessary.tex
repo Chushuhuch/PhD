@@ -1,84 +1,72 @@
-\section{Необходимые условия}
-
-Нас интересует, каким условиям должны удовлетворять веса $a$,
-чтобы для произвольной функции $F$, строго выпуклой по второму аргументу,
-выполнялось неравенство (\ref{toprove}).
-Из формулировок условий будет ясно, что можно ограничиться рассмотрением
-весов, зависящих только от $x$.
-И эти условия должны будут выполняться для каждого $u$.
-Аналогично, $F$ можно считать зависящей только от второго аргумента.
-
-Пусть $u$ убывает. Тогда
-\begin{multline*}
-I(u)-I(u^*) =
-\int_{-1}^1 (
-    F( \abs{ a(x) u'(x) } ) -
-    F( \abs{ a(x) u'(-x) } )
-) dx = \\ =
-\int_{-1}^1 (
-    F( \abs{ a(x) u'(x) } ) -
-    F( \abs{ a(-x) u'(x) } )
-) dx
-\end{multline*}
+\section{Условия, необходимые для выполнения неравенства (\ref{toprove})}
 
 \begin{prop}
-$a$ должна быть четной, то есть $\forall x\ a(x)=a(-x)$
+Если неравенство (\ref{toprove}) выполняется для некоторой $F$
+и произвольной кусочно линейной $u$, то вес $a$ четен по первому аргументу,
+то есть $a(x, v) = a(-x, v)$.
 \end{prop}
 
-\begin{proof} Пусть $a(\bar{x})<a(-\bar{x})$, $\abs{\bar{x}} \neq 1$. Тогда
-$$\exists \eps : |x-\bar{x}| < \eps \Rightarrow a(x) < a(-x)$$
-и можно взять следующую функцию: $u([-1,\bar{x}-\eps]) = 1$,
-$u([\bar{x}+\eps, 1]) = 0$,\newline
-$u(x)=-\frac{x}{2\eps}+\frac{\bar{x}+\eps}{2\eps}$ при
-$|x-\bar{x}|<\eps$. Она убывает. Значит
-$$I(u)-I(u^*) =
-\int_{|x-\bar{x}|>\eps} (
-    F( 0 ) - F( 0 )
-) dx +
-\int_{\bar{x}-\eps}^{\bar{x}+\eps} (
-    F( \frac{ a(x) }{ 2\eps } ) -
-    F( \frac{ a(-x) }{ 2\eps } )
-) dx <0.$$
+\begin{proof}
+Пусть $a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v})$, $\abs{\bar{x}} \neq 1$.
+Тогда
+$$\exists \eps : \abs{ x - \bar{x} } < \eps, \abs{ v - \bar{v} } < \eps \Rightarrow a(x, v) < a(-x, v),$$
+и можно взять следующую функцию: $u([-1,\bar{x}-\eps]) = \bar{v} + \eps$,
+$u([\bar{x}+\eps, 1]) = \bar{v} - \eps$, $u(x) = \bar{v} + \bar{x} - x$ при
+$\abs{ x-\bar{x} } < \eps$. Тогда $u^*(x, v) = u(-x, v)$ и
+\begin{multline*}
+I(u)-I(u^*) = \int_{\bar{x}-\eps}^{\bar{x}+\eps} F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) dx -
+\int_{-\bar{x}-\eps}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, a(x, \bar{v} + \bar{x} + x) ) dx \\ =
+\int_{\bar{x}-\eps}^{\bar{x}+\eps} ( F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) -
+F( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0.
+\end{multline*}
  Тем самым мы пришли к противоречию.
 \end{proof}
 
 \begin{prop}
-$\forall s \le t \ a( s ) + a( t ) \ge a( 1 - t + s ).$
+Если неравенство (\ref{toprove}) выполняется для произвольной строго выпуклой $F$
+и произвольной кусочно линейной $u$, то вес $a$ удовлетворяет неравенству
+\begin{equation}
+\forall s \le t, \forall v \ a( s, v ) + a( t, v ) \ge a( 1 - t + s, v ).
+\end{equation}
 \end{prop}
 
 \begin{proof}
-Предположим, для некоторых $-1 < s \le t < 1$ неравенство неверно:
-$a( s ) + a( t ) + 2 \delta < a( -1 + t - s )$. Тогда найдется
-$\eps > 0$ такое, что для произвольного $0 \le y \le \eps$ останется
-$a( s + y ) + a( t - y ) + \delta < a( -1 + t - s - 2y )$.
+Предположим, для некоторых $-1 < s \le t < 1$ и $\bar{v}$ неравенство неверно:
+$a( s, \bar{v} ) + a( t, \bar{v} ) + 2 \delta < a( -1 + t - s, \bar{v} )$.
+Тогда найдется $\eps > 0$ такое, что для произвольного $0 \le y \le \eps$ и $\bar{v} \le v \le \bar{v} + \eps$ останется
+$a( s + y, v ) + a( t - y, v ) + \delta < a( -1 + t - s + 2y, v )$.
+
 Построим функцию $u$, имеющую ненулевые производные только в окрестностях $s$ и $t$.
-$u( [-1,s] \cup [t,1] ) = 0$, $u( [s+\eps,t-\eps] ) = 1$,
-$u( x ) = \frac{ x - s }{ \eps }$ при $x \in [s,s+\eps]$,
-$u( x ) = \frac{ t - x }{ \eps }$ при $x \in [t-\eps,t]$.
-Тогда $u^*( [-1, 1 - t + s] ) = 0$, $u^*( [1 - t + s + 2\eps, 1] ) = 1$,
-$u^*( x ) = \frac{ x - ( 1 - t + s ) }{2 \eps}$ при $x \in [1 - t + s, 1 - t + s + 2\eps]$.
+$u( [-1, s] \cup [t, 1] ) = \bar{v}$, $u( [s + \eps, t - \eps] ) = \bar{v} + \eps$,
+$u( x ) = \bar{v} + x - s$ при $x \in [s, s + \eps]$,
+$u( x ) = \bar{v} + t - x$ при $x \in [t - \eps, t]$.
+
+Тогда $u^*( [-1, 1 - t + s] ) = \bar{v}$, $u^*( [1 - t + s + 2\eps, 1] ) = \bar{v} + \eps$,
+$u^*( x ) = \bar{v} + \frac{ x - ( 1 - t + s ) }{2}$ при $x \in [1 - t + s, 1 - t + s + 2\eps]$.
 Тогда получим
 \begin{multline*}
-I(u^*) = \int_0^{2\eps} F(\frac{ a( 1 - t + s + z ) }{ 2\eps }) dz =
-\int_0^\eps 2 F(\frac{ a( 1 - t + s + 2y ) }{ 2\eps }) dy\\
+I(u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2}) dz =\\
+\int_0^\eps 2 F(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
 0 \le I( u ) - I( u^* ) =
-\int_0^\eps ( F( \frac{a( s + y )}{\eps} ) + F( \frac{ s( t - y ) }{\eps} ) - 2 F( \frac{ a( 1 - t + s + 2 y ) }{2 \eps} ) ) dy <
-\\< \int_0^\eps ( F( \frac{a( s + y )}{\eps} ) + F( \frac{ s( t - y ) }{\eps} ) -
-2 F( \frac{ a( s + y ) + a( t - y ) + \delta }{2 \eps} ) ) dy =: J
+\int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a( t - y, \bar{v} + y)) -\\
+2 F(\bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2})) dy <
+\\< \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a(t - y, \bar{v} + y)) -\\
+2 F(\bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2})) dy =: J
 \end{multline*}
 
-Положим теперь $F(x) = x^\alpha$. Такая функция строго выпукла при $\alpha > 1$. Однако по заданному $\delta$ можно
-найти такое $\alpha$, чтобы $\frac{ F( x ) + F( y ) }{2} \le F( \frac{x + y}{2} + \frac{\delta}{2 \eps} )$ при
-$x,y \in [0,A]$. Для этого решим неравенство
-$\frac{ x^\alpha + y^\alpha }{2} \le ( \frac{x + y}{2} + \frac{\delta}{2 \eps} )^\alpha$
-относительно $\frac{\delta}{2 \eps}$. Получим
-$\frac{\delta}{2 \eps} \ge ( \frac{ x^\alpha + y^\alpha }{2} )^{\frac{1}{\alpha}} - \frac{x + y}{2}$.
-Максимум последнего выражения достигается, например, при $x = 0$, $y = A$, то есть
-$\frac{\delta}{2 \eps} \ge A(\frac{1}{2^{\frac{1}{\alpha}}} - \frac{1}{2})$. Итого, можно взять
-$\alpha = -( \log_2 ( \frac{\delta}{2 A \eps} + \frac{1}{2} ) )^{-1} > 1$.
+Положим теперь $F(v, p) = p^\alpha$. Такая функция строго выпукла при $\alpha > 1$.
+Однако по заданному $\delta$ можно найти такое $\alpha$,
+чтобы $\frac{F(v, p) + F(v, q)}{2} \le F(v, \frac{p + q}{2} + \frac{\delta}{2})$ при $p, q \in [0, A]$.
+Для этого решим неравенство
+$\frac{ p^\alpha + q^\alpha }{2} \le ( \frac{p + q}{2} + \frac{\delta}{2} )^\alpha$
+относительно $\frac{\delta}{2}$. Получим
+$\frac{\delta}{2} \ge (\frac{p^\alpha + q^\alpha}{2} )^{\frac{1}{\alpha}} - \frac{p + q}{2}$.
+Максимум последнего выражения достигается, например, при $p = 0$, $q = A$, то есть
+$\frac{\delta}{2} \ge A(\frac{1}{2^{\frac{1}{\alpha}}} - \frac{1}{2})$.
+Итого, можно взять $\alpha = -( \log_2 ( \frac{\delta}{2 A} + \frac{1}{2} ) )^{-1} > 1$.
 
-Тогда, если взять $A = \max a$, $\alpha = -( \log_2 ( \frac{\delta}{2 A \eps} + \frac{1}{2} ) )^{-1}$
-и $F( x ) = x^\alpha$, получим $J \le 0$ и противоречие.
+Тогда, если взять $A = \max a$, $\alpha = -( \log_2 ( \frac{\delta}{2 A} + \frac{1}{2} ) )^{-1}$
+и $F(v, p) = p^\alpha$, получим $J \le 0$ и, тем самым, противоречие.
 \end{proof}
 
 \rem Из доказательства ясно, что последнее условие является необходимым и для выполнения неравенства (\ref{toprove})
