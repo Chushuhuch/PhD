@@ -1,100 +1,92 @@
 \section{Слабая полунепрерывность функционала}
 
 \begin{prop}
-Функция $a$ непрерывна. Тогда функционал $I(u)$ слабо полунепрерывен снизу в $\W(\Omega)$.
+Пусть функция $a$ непрерывна. Тогда функционал $I(u)$ слабо полунепрерывен снизу в $\W(-1, 1)$.
 \label{lowersemi}
 \end{prop}
 
 \begin{proof}
-Пусть $u_m \rightharpoondown u$ в $\W$. Обозначим $A = \varliminf I( u_m ) \ge 0$. Наша задача --- доказать
+Пусть $u_m \rightharpoondown u$ в $\W(-1, 1)$. Обозначим $A = \varliminf I( u_m ) \ge 0$. Наша задача --- доказать
 $I(u) \le A$. Если $A = \infty$, то утверждение тривиально, так что можно считать $A < \infty$.
 Переходя к подпоследовательности, добиваемся $A = \lim I( u_m )$. Из слабой сходимости заключаем, что найдется
-$R_0$ такое, что $\norm{ u_m }_{\W(\Omega)} \le R_0$.
+$R_0$ такое, что $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
 
-Известно, что $\W(\Omega)$ ограниченно и компактно вкладывается в $L_1(\Omega)$. Тогда, переходя к подпоследовательности,
-$u_m \to u$ в $L_1(\Omega)$. Тогда, опять по подпоследовательности, $u_m(x) \to u(x)$ почти всюду.
+Известно, что $\W(-1, 1)$ ограниченно и компактно вкладывается в $L_1(-1, 1)$. Тогда, переходя к подпоследовательности,
+$u_m \to u$ в $L_1(-1, 1)$. Тогда, опять по подпоследовательности, $u_m(x) \to u(x)$ почти всюду.
 Тогда по теореме Егорова для любого $\eps$ найдется
-$G_\eps^1$ такое, что $\abs{ G_\eps^1 } < \eps$ и $u_m \rightrightarrows u$ в $\Omega \setminus G_\eps^1$.
-Из равномерной сходимости $\exists K: \forall k>K \ \abs{u_k} \le \abs{u} + \eps$ в $\Omega \setminus G_\eps^1$.
-Возьмем $G_\eps^2 = \{ x \in \Omega \setminus G_\eps^1: \exists k > K \ \abs{u_k(x)} \ge \frac{R_0}{\eps} + \eps \}$.
-Тогда $$R_0 \ge \int_\Omega \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \ge
+$G_\eps^1$ такое, что $\abs{ G_\eps^1 } < \eps$ и $u_m \rightrightarrows u$ в $[-1, 1] \setminus G_\eps^1$.
+
+Из равномерной сходимости $\exists K: \forall k>K \ \abs{u_k} \le \abs{u} + \eps$ в $[-1, 1] \setminus G_\eps^1$.
+Возьмем $G_\eps^2 = \{ x \in [-1, 1] \setminus G_\eps^1: \exists k > K \ \abs{u_k(x)} \ge \frac{R_0}{\eps} + \eps \}$.
+Тогда $$R_0 \ge \int_{-1}^1 \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \ge
 \int_{G_\eps^2} ( \abs{u_k(x)} - \eps ) dx \ge \int_{G_\eps^2} \frac{R_0}{\eps} dx
 = \abs{G_\eps^2} \frac{R_0}{\eps}$$
 То есть $\abs{G_\eps^2} \le \eps$.
-Таким образом, вне множества
-$G_\eps = G_\eps^1 \cup G_\eps^2$
-функции $u_m$ равномерно по $m$ ограничены и равномерно по $x$ сходятся к $u$. При этом $\abs{ G_\eps } < 2\eps$.
 
-Из непрерывности $F$, $a_i$ и $a$, а также равномерной сходимости и ограниченности $u_m$ вне множеств $G_\eps$,
+Из непрерывности $F$ и $a$, а также равномерной сходимости и ограниченности $u_m$ вне множеств $G_\eps:=G_\eps^1 \cup G_\eps^2$,
 следует, что для произвольных $\eps$ и $R$ найдется
-$N( \eps, R )$, что если $x \in \Omega \setminus G_\eps$, $\abs{ M_i } \le R$, $\abs{ M } \le R$ и $m > N( \eps, R )$, то
-\begin{multline*}
-| F( x', u_m( x ), \norm{ a_i( x', u_m( x ) ) M_i, a( x, u_m( x ) ) M } ) -
-\\ F( x', u( x ), \norm{ a_i( x', u( x ) ) M_i, a( x, u( x ) ) M } ) | < \eps.
-\end{multline*}
+$N( \eps, R )$, что если $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ и $m > N( \eps, R )$, то
+$$| F( u_m( x ), a( x, u_m( x ) ) M ) - F( u( x ), a( x, u( x ) ) M ) | < \eps.$$
 
-Выделим множества $E^1_{m,\eps} = \{ x \in \Omega: \norm{ \grad u_m( x ) } \ge \frac{ R_0 }{ \eps } \}$. Тогда
-$$R_0 \ge \int_\Omega \norm{ \grad u_m( x ) } dx \ge \int_{ E^1_{m,\eps} } \norm{ \grad u_m( x ) } dx \ge
-\int_{ E^1_{m,\eps} } \frac{ R_0 }{ \eps } dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$ А значит,
-$\abs{ E^1_{m,\eps} } \le \eps$. Теперь можно ввести $E_{m,\eps} = G_\eps \cup E^1_{m,\eps}$ и
-$L_{m,\eps} = \Omega \setminus E_{m,\eps}$. Тогда $\abs{ E_{m,\eps} } \le 3 \eps$.
+Рассмотрим множества $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
+$$R_0 \ge \int_{-1}^1 \abs{ u_m'( x ) } dx \ge \int_{ E_{m,\eps} } \abs{ u_m'( x ) } dx \ge
+\int_{ E_{m,\eps} } \frac{ R_0 }{ \eps } dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$
+А значит, $\abs{ E_{m,\eps} } \le \eps$.
 
-Зафиксируем $R = \frac{ R_0 }{ \eps }$. Теперь $N( \eps ) = N( \eps, R_0 )$.
+Теперь можно ввести $L_{m,\eps} := [-1, 1] \setminus ( E_{m,\eps} \cup G_\eps )$.
+Тогда $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
+
+Зафиксируем $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
 Для любых $\eps > 0$, $x \in L_{m,\eps}$ и $m > N( \eps )$ получим
-\begin{multline*}
-| F( x', u_m( x ), \norm{ a_i( x', u_m( x ) ) D_i u_m( x ), a( x, u_m( x ) ) D_n u_m( x ) } ) -
-\\ F( x', u( x ), \norm{ a_i( x', u( x ) ) D_i u_m( x ), a( x, u( x ) ) D_n u_m( x ) } ) | < \eps.
-\end{multline*}
+$$| F( u_m( x ), a( x, u_m( x ) ) u_m'( x ) ) - F( u( x ), a( x, u( x ) ) u_m'( x ) ) | < \eps.$$
 Или
-\begin{multline*}
-\int_{L_{m,\eps}} | F( x', u_m( x ), \norm{ a_i( x', u_m( x ) ) D_i u_m( x ), a( x, u_m( x ) ) D_n u_m( x ) } ) -
-\\ F( x', u( x ), \norm{ a_i( x', u( x ) ) D_i u_m( x ), a( x, u( x ) ) D_n u_m( x ) } ) | dx < \abs{\Omega} \eps.
-\end{multline*}
-Возьмем $\eps_j = \frac{ \eps }{ 2^j }$, $m_j = N( \eps_j ) + j \to \infty$ и $L_\eps = \bigcap L_{m_j,\eps_j}$.
-Тогда $\sum \eps_j = \eps$ и $\abs{ \Omega \setminus L_\eps } < 3 \eps$.
+$$\int_{L_{m,\eps}} | F( u_m( x ), a( x, u_m( x ) ) u_m'( x ) ) - F( u( x ), a( x, u( x ) ) u_m'( x ) ) | dx < 2 \eps.$$
+
+Возьмем $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ и $L_\eps = \bigcap L_{m_j,\eps_j}$.
+Тогда $\sum \eps_j = \eps$ и $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
 Теперь можно заключить, что
+$$\int_{L_\eps} | F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) u_{m_j}'( x ) ) - F( u( x ), a( x, u( x ) ) u_{m_j}'( x ) ) | dx < 2 \eps_j.$$
+
+Имеем
 \begin{multline*}
-\int_{L_\eps} | F( x', u_{m_j}( x ),
-\norm{ a_i( x', u_{m_j}( x ) ) D_i u_{m_j}( x ), a( x, u_{m_j}( x ) ) D_n u_{m_j}( x ) } ) -
-\\ F( x', u( x ), \norm{ a_i( x', u( x ) ) D_i u_{m_j}( x ), a( x, u( x ) ) D_n u_{m_j}( x ) } ) | dx < \abs{\Omega} \eps_j.
-\end{multline*}
-\begin{multline*}
-A = \lim I( u_{m_j} ) = \\ \lim \int_\Omega F( x', u_{m_j}( x ),
-\norm{ a_i( x', u_{m_j}( x ) ) D_i u_{m_j}( x ), a( x, u_{m_j}( x ) ) D_n u_{m_j}( x ) } ) dx \ge
-\\ \varliminf \int_\Omega \chi_{L_\eps} ( x ) ( F( x', u( x ),
-\norm{ a_i( x', u( x ) ) D_i u_{m_j}( x ), a( x, u( x ) ) D_n u_{m_j}( x ) } ) + 
-\\ ( F( x', u_{m_j}( x ),
-\norm{ a_i( x', u_{m_j}( x ) ) D_i u_{m_j}( x ), a( x, u_{m_j}( x ) ) D_n u_{m_j}( x ) } ) -
-\\ F( x', u( x ), \norm{ a_i( x', u( x ) ) D_i u_{m_j}( x ), a( x, u( x ) ) D_n u_{m_j}( x ) } ) ) )dx = \\
-\varliminf \int_\Omega \chi_{L_\eps} ( x ) F( x', u( x ),
-\norm{ a_i( x', u( x ) ) D_i u_{m_j}( x ), a( x, u( x ) ) D_n u_{m_j}( x ) } ) dx = \\
-\varliminf J_\eps( \grad u_{m_j} )
+A = \lim I( u_{m_j} ) = \lim \int_{-1}^1 F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) u_{m_j}'( x ) ) dx
+\\ \ge \varliminf \int_{-1}^1 \chi_{L_\eps} ( x ) ( F( u( x ), a( x, u( x ) ) u_{m_j}'( x ) ) \\+ 
+( F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) u_{m_j}'( x ) ) -
+F( u( x ), a( x, u( x ) ) u_{m_j}'( x ) ) ) )dx \\
+= \varliminf \int_{-1}^1 \chi_{L_\eps} ( x ) F( u( x ), a( x, u( x ) ) u_{m_j}'( x ) ) dx =
+\varliminf J_\eps( u_{m_j}' )
 \end{multline*}
 Наш новый функционал
-$$J_\eps( v ) = \int_\Omega \chi_{L_\eps} ( x ) F( x', u( x ),
-\norm{ a_i( x', u( x ) ) v_i( x ), a( x, u( x ) ) v_n( x ) } ) dx$$
+$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps} ( x ) F( u( x ), a( x, u( x ) ) v_n( x ) ) dx$$
 выпуклый. Перейдем к подпоследовательности последовательности $u_{m_j}$, обозначив ее $u_k$, так, что на ней
-$\varliminf J_\eps( \grad u_{m_j} ) = \lim J_\eps( \grad u_k )$. Так как $\grad u_k \rightharpoondown \grad u$ в $L_1$,
+$\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$. Так как $u_k' \rightharpoondown u'$ в $L_1$,
 то можно подобрать последовательность
-выпуклых комбинаций $\grad u_k$, которые будут сходиться к $\grad u$ сильно. А именно: найдутся $\alpha_{k,l} \ge 0$ для
+выпуклых комбинаций $u_k'$, которые будут сходиться к $u'$ сильно. А именно: найдутся $\alpha_{k,l} \ge 0$ для
 $k \in \Nat$, $l \le k$ такие, что $\sum_{l = 1}^k \alpha_{k,l} = 1$ для каждого $k$ и 
-$w_k = \sum_{l = 1}^k \alpha_{k,l} \grad u_{k + l} \to \grad u$ в $L_1$. %Покажем, что
-Так как $J_\eps$ выпуклый, $$A \ge \lim J_\eps( \grad u_k ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( \grad u_{k + l} ) \ge
-\varliminf J_\eps( w_k ) = J_\eps( \grad u ).$$
+$w_k = \sum_{l = 1}^k \alpha_{k,l} u_{k + l}' \to u'$ в $L_1$.
+Так как $J_\eps$ выпуклый,
+\begin{equation}
+\label{Jseq}
+A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{k + l}' ) \ge
+\varliminf J_\eps( w_k ) = J_\eps( u' ).
+\end{equation}
 
-Поясним последнее равенство. $w_k = \sum_{l = 1}^k \alpha_{k,l} \grad u_{k + l} \to \grad u$ в $L_1$. Тогда, по
-подпоследовательности, $\varliminf J_\eps(w_k) = \lim J_\eps(w_k)$ и  $w_k( x ) \to \grad u( x )$ почти всюду.
-Кроме того, так как в $L_\eps$ $\abs{ \grad u_j( x ) } < \frac{ R_0 }{\eps}$, то и $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
-Значит 
+Поясним второе неравенство (\ref{Jseq}).
 \begin{multline*}
-F( x', u( x ), \norm{ a_i( x', u( x ) ) w_k^i( x ), a( x, u( x ) ) w_k^n( x ) } ) \le
-\\ \max F( x', u( x ), \norm{ a_i( x', u( x ) ) M_i, a( x, u( x ) ) M } ) < \infty,
+\lim\limits_{k \to \infty} \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{k + l}' ) - \varliminf\limits_{k \to \infty} J_\eps( w_k )
+=\lim\limits_{k \to \infty} \sum_{l = 1}^k \alpha_{k,l} ( J_\eps( u_{k + l}' ) - \varliminf\limits_{j \to \infty} J_\eps( w_j ) )
+\\=\lim\limits_{k \to \infty} \sum_{l = 1}^k \alpha_{k,l} \delta_{k + l}.
 \end{multline*}
-где максимум берется по компактному множеству
-$( M_i, M, x ) \in [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}] ^n \times \Omega$ от непрерывной функции.
-Таким образом, применима теорема Лебега, и мы получаем необходимое равенство. Осталось заметить, что при $\eps \to 0$
-$J_\eps( u ) \to I( u )$ из абсолютной непрерывности интеграла. Тем самым, утверждение доказано.
-\end{proof}
+Найдется такое $K$, что для каждого $k > K$ выполнено $J_\eps( u_k' ) \ge \varliminf\limits_{j \to \infty} J_\eps( w_j )$.
+Тем самым, с некоторого момента все $\delta$ будут неотрицательными.
 
-\rem Рассмотрим одномерный случай ($n = 1$) и предположим, что $a$ зависит только от $x$. Тогда функционал
-$I(u)$ слабо полунепрерывен снизу в $\W(\Omega \setminus Z)$ ($Z = a^{-1} (0)$).
+Поясним последнее равенство (\ref{Jseq}). $w_k = \sum_{l = 1}^k \alpha_{k,l} u_{k + l}' \to u'$ в $L_1$. Тогда, по
+подпоследовательности, $\varliminf J_\eps(w_k) = \lim J_\eps(w_k)$ и  $w_k( x ) \to u'( x )$ почти всюду.
+Кроме того, так как в $L_\eps$ выполнено $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$, то и $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
+Значит 
+$$F( u( x ), a( x, u( x ) ) w_k( x ) ) \le \max F( u( x ), a( x, u( x ) ) M ) < \infty,$$
+где максимум берется по компактному множеству
+$( M, x ) \in [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}] \times [-1, 1]$ от непрерывной функции.
+Таким образом, применима теорема Лебега, и мы получаем $A \ge J_\eps(u')$. Осталось заметить, что при $\eps \to 0$
+$J_\eps( u' ) \to I( u )$ из абсолютной непрерывности интеграла. Тем самым, утверждение доказано.
+\end{proof}
