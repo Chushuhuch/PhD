@@ -91,7 +91,7 @@ $u^*( x ) = \bar{v} + \frac{ x - ( 1 - t + s ) }{2}$ при $x \in [1 - t + s, 1 - 
 \end{picture}
 \end{center}
 
-Тогда получим
+Имеем
 \begin{multline*}
 I(u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2}) dz =\\
 \int_0^\eps 2 F(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
@@ -99,22 +99,16 @@ I(u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s +
 \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a( t - y, \bar{v} + y)) -\\
 2 F(\bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2})) dy <
 \\< \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a(t - y, \bar{v} + y)) -\\
-2 F(\bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2})) dy =: J
+2 F(\bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
 \end{multline*}
 
-Положим теперь $F(v, p) = p^\alpha$. Такая функция строго выпукла при $\alpha > 1$.
-Однако по заданному $\delta$ можно найти такое $\alpha$,
-чтобы $\frac{F(v, p) + F(v, q)}{2} \le F(v, \frac{p + q}{2} + \frac{\delta}{2})$ при $p, q \in [0, A]$.
-Для этого решим неравенство
-$\frac{ p^\alpha + q^\alpha }{2} \le ( \frac{p + q}{2} + \frac{\delta}{2} )^\alpha$
-относительно $\frac{\delta}{2}$. Получим
-$\frac{\delta}{2} \ge (\frac{p^\alpha + q^\alpha}{2} )^{\frac{1}{\alpha}} - \frac{p + q}{2}$.
-Максимум последнего выражения достигается, например, при $p = 0$, $q = A$, то есть
-$\frac{\delta}{2} \ge A(\frac{1}{2^{\frac{1}{\alpha}}} - \frac{1}{2})$.
-Итого, можно взять $\alpha = -( \log_2 ( \frac{\delta}{2 A} + \frac{1}{2} ) )^{-1} > 1$.
-
-Тогда, если взять $A = \max a$, $\alpha = -( \log_2 ( \frac{\delta}{2 A} + \frac{1}{2} ) )^{-1}$
-и $F(v, p) = p^\alpha$, получим $J \le 0$ и, тем самым, противоречие.
+Рассмотрим теперь строго выпуклую по второму аргументу функцию $F(v, p) = p^\alpha$,
+где $\alpha = ( \log_2 \frac{2 A}{A + \delta} )^{-1} > 1$
+и $A = \max\limits_{(x, v)} a$ по всем $(x, v) \in [-1, 1] \times u([-1, 1])$.
+Несложно убедиться, что такая функция $F$ удовлетворяет неравенству
+$\frac{F(v, p) + F(v, q)}{2} - F(v, \frac{p + q}{2} + \frac{\delta}{2}) \le 0$,
+то есть $J \le 0$.
+Что приводит нас к противоречию.
 \end{proof}
 
 \rem Видно, что в доказательстве второго пункта теоремы
