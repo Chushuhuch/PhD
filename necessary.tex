@@ -16,12 +16,20 @@
 \begin{proof}
 {\bf 1.} Предположим, что $a(x, v) \not\equiv a(-x, v)$.
 Тогда найдутся такие $\bar{x} \in (-1, 1)$, $\eps > 0$ и $\bar{v} \in \Real_+$, что
-$$a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v})$$
+$$a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v}).$$
 Тогда
 $$\exists \eps : \bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v),$$
-и можно взять следующую функцию: $u([-1,\bar{x}-\eps]) = \bar{v} + \eps$,
-$u([\bar{x}, 1]) = \bar{v}$, $u(x) = \bar{v} + \bar{x} - x$ при
-$\bar{x} - \eps \le x \le \bar{x}$. Тогда $u^*(x, v) = u(-x, v)$ и
+и можно взять следующую функцию:
+$$
+\left\{     
+\begin{aligned}
+u(x) &= \bar{v} + \eps, & x \in [-1,\bar{x}-\eps]\\
+u(x) &= \bar{v} + \bar{x} - x, & x \in (\bar{x} - \eps, \bar{x})\\
+u(x) &= \bar{v}, & x \in [\bar{x}, 1]
+\end{aligned}
+\right.
+$$
+Тогда $u^*(x, v) = u(-x, v)$ и
 \begin{multline*}
 I(u)-I(u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) dx -
 \int_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, a(x, \bar{v} + \bar{x} + x) ) dx \\ =
@@ -35,58 +43,73 @@ F( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
 для любого $0 \le y \le \eps$ справедливо неравенство
 $$a( s + y, v ) + a( t - y, v ) + \delta < a( 1 - t + s + 2y, v ).$$
 
-Рассмотрим функцию $u$:
-$u( [-1, s] \cup [t, 1] ) = \bar{v}$, $u( [s + \eps, t - \eps] ) = \bar{v} + \eps$,
-$u( x ) = \bar{v} + x - s$ при $x \in [s, s + \eps]$,
-$u( x ) = \bar{v} + t - x$ при $x \in [t - \eps, t]$ (см. рис. \ref{uGraph}).
+Рассмотрим функцию $u$ (см. рис. \ref{uGraph})	:
+$$
+\left\{     
+\begin{aligned}
+u(x) &= \bar{v}, & x \in [-1, s] \cup [t, 1]\\
+u(x) &= \bar{v} + x - s, & x \in [s, s + \eps]\\
+u(x) &= \bar{v} + \eps, & x \in [s + \eps, t - \eps]\\
+u(x) &= \bar{v} + t - x, & x \in [t - \eps, t]
+\end{aligned}
+\right.
+$$
 
 \begin{center}
-\begin{picture}(200,80)
+\begin{picture}(200,90)
 \refstepcounter{pictureCounter}
 \label{uGraph}
-\put(10,60){\line(1,0){50}}
-\put(60,60){\line(1,1){10}}
-\put(70,70){\line(1,0){40}}
-\put(110,70){\line(1,-1){10}}
-\put(120,60){\line(1,0){70}}
-\put(0,20){\vector(1,0){200}}
-\put(100,10){\vector(0,1){80}}
-\put(99,60){\line(1,0){2}}
-\put(92,57){$\bar{v}$}
-\put(60,19){\line(0,1){2}}
-\put(58,11){$s$}
-\put(120,19){\line(0,1){2}}
-\put(119,11){$t$}
-\put(10,19){\line(0,1){2}}
-\put(6,11){$-1$}
-\put(190,19){\line(0,1){2}}
-\put(188,11){$1$}
-\put(20,65){$u(x)$}
+\put(10,65){\line(1,0){50}}
+\put(60,65){\line(1,1){10}}
+\put(70,75){\line(1,0){40}}
+\put(110,75){\line(1,-1){10}}
+\put(120,65){\line(1,0){70}}
+\put(0,25){\vector(1,0){200}}
+\put(100,15){\vector(0,1){80}}
+\put(99,65){\line(1,0){2}}
+\put(92,62){$\bar{v}$}
+\put(60,24){\line(0,1){2}}
+\put(58,14){$s$}
+\put(120,24){\line(0,1){2}}
+\put(119,14){$t$}
+\put(10,24){\line(0,1){2}}
+\put(6,14){$-1$}
+\put(190,24){\line(0,1){2}}
+\put(188,14){$1$}
+\put(20,70){$u(x)$}
 \put(85,1){рис. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
-Тогда $u^*( [-1, 1 - t + s] ) = \bar{v}$, $u^*( [1 - t + s + 2\eps, 1] ) = \bar{v} + \eps$,
-$u^*( x ) = \bar{v} + \frac{ x - ( 1 - t + s ) }{2}$ при $x \in [1 - t + s, 1 - t + s + 2\eps]$
+Тогда
+$$
+\left\{     
+\begin{aligned}
+u^*(x) &= \bar{v}, & x \in [-1, 1 - t + s]\\
+u^*(x) &= \bar{v} + x - s, & x \in [s, s + \eps]\\
+u^*(x) &= \bar{v} + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]
+\end{aligned}
+\right.
+$$
 (см. рис. \ref{uStarGraph}).
 
 \begin{center}
-\begin{picture}(200,80)
+\begin{picture}(200,90)
 \refstepcounter{pictureCounter}
 \label{uStarGraph}
-\put(10,60){\line(1,0){120}}
-\put(130,59){\line(2,1){20}}
-\put(150,70){\line(1,0){40}}
-\put(0,20){\vector(1,0){200}}
-\put(100,10){\vector(0,1){80}}
-\put(99,60){\line(1,0){2}}
-\put(92,62){$\bar{v}$}
-\put(130,19){\line(0,1){2}}
-\put(110,11){$1 - t + s$}
-\put(10,19){\line(0,1){2}}
-\put(6,11){$-1$}
-\put(190,19){\line(0,1){2}}
-\put(188,11){$1$}
-\put(20,65){$u^*(x)$}
+\put(10,65){\line(1,0){120}}
+\put(130,64){\line(2,1){20}}
+\put(150,75){\line(1,0){40}}
+\put(0,25){\vector(1,0){200}}
+\put(100,15){\vector(0,1){80}}
+\put(99,65){\line(1,0){2}}
+\put(92,67){$\bar{v}$}
+\put(130,24){\line(0,1){2}}
+\put(110,14){$1 - t + s$}
+\put(10,24){\line(0,1){2}}
+\put(6,14){$-1$}
+\put(190,24){\line(0,1){2}}
+\put(188,14){$1$}
+\put(20,70){$u^*(x)$}
 \put(85,1){рис. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
