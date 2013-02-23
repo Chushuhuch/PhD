@@ -445,10 +445,10 @@ $$T \ge F\Big( \frac{ \sum_{k=1}^m a(y_k, v) }{ \sum_{k=1}^m b_k } \Big) \sum_{k
 
 \section{Слабая полунепрерывность функционала}
 
-\begin{prop}
+\begin{lm}
 Пусть функция $a$ непрерывна. Тогда функционал $I(u)$ слабо полунепрерывен снизу в $\W(-1, 1)$.
 \label{lowersemi}
-\end{prop}
+\end{lm}
 
 \begin{proof}
 Пусть $u_m \rightharpoondown u$ в $\W(-1, 1)$. Обозначим $A = \varliminf I( u_m ) \ge 0$. Наша задача --- доказать
@@ -462,13 +462,13 @@ $u_m \to u$ в $L_1(-1, 1)$. Тогда, опять по подпоследовательности, $u_m(x) \to u
 $G_\eps^1$ такое, что $\abs{ G_\eps^1 } < \eps$ и $u_m \rightrightarrows u$ в $[-1, 1] \setminus G_\eps^1$.
 
 Из равномерной сходимости $\exists K: \forall k>K \ \abs{u_k} \le \abs{u} + \eps$ в $[-1, 1] \setminus G_\eps^1$.
-Возьмем $G_\eps^2 = \{ x \in [-1, 1] \setminus G_\eps^1: \exists k > K \ \abs{u_k(x)} \ge \frac{R_0}{\eps} + \eps \}$.
+Возьмем $G_\eps^2 = \{ x \in [-1, 1] \setminus G_\eps^1: \abs{u(x)} \ge \frac{R_0 + \eps}{\eps}\}$.
 Тогда $$R_0 \ge \int_{-1}^1 \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \ge
-\int_{G_\eps^2} ( \abs{u_k(x)} - \eps ) dx \ge \int_{G_\eps^2} \frac{R_0}{\eps} dx
-= \abs{G_\eps^2} \frac{R_0}{\eps}$$
-То есть $\abs{G_\eps^2} \le \eps$.
+\int_{G_\eps^2} \frac{R_0 + \eps}{\eps} dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}$$
+То есть $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
+Тем самым, $u_k$ равномерно сходятся и равномерно ограничены $R_0$ вне множеств $G_\eps:=G_\eps^1 \cup G_\eps^2$.
 
-Из непрерывности $F$ и $a$, а также равномерной сходимости и ограниченности $u_m$ вне множеств $G_\eps:=G_\eps^1 \cup G_\eps^2$,
+Из непрерывности $F$ и $a$
 следует, что для произвольных $\eps$ и $R$ найдется
 $N( \eps, R )$, что если $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ и $m > N( \eps, R )$, то
 $$| F( u_m( x ), a( x, u_m( x ) ) M ) - F( u( x ), a( x, u( x ) ) M ) | < \eps.$$
@@ -483,71 +483,70 @@ $$R_0 \ge \int_{-1}^1 \abs{ u_m'( x ) } dx \ge \int_{ E_{m,\eps} } \abs{ u_m'( x
 
 Зафиксируем $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
 Для любых $\eps > 0$, $x \in L_{m,\eps}$ и $m > N( \eps )$ получим
-$$| F( u_m( x ), a( x, u_m( x ) ) u_m'( x ) ) - F( u( x ), a( x, u( x ) ) u_m'( x ) ) | < \eps.$$
-Или
-$$\int_{L_{m,\eps}} | F( u_m( x ), a( x, u_m( x ) ) u_m'( x ) ) - F( u( x ), a( x, u( x ) ) u_m'( x ) ) | dx < 2 \eps.$$
+$$| F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) | < \eps,$$
+откуда
+$$\int_{L_{m,\eps}} | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) | dx < 2 \eps.$$
 
 Возьмем $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ и $L_\eps = \bigcap L_{m_j,\eps_j}$.
 Тогда $\sum \eps_j = \eps$ и $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
 Теперь можно заключить, что
-$$\int_{L_\eps} | F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) u_{m_j}'( x ) ) - F( u( x ), a( x, u( x ) ) u_{m_j}'( x ) ) | dx < 2 \eps_j.$$
+$$\int_{L_\eps} | F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) \abs{u_{m_j}'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_{m_j}'( x )} ) | dx < 2 \eps_j.$$
 
 Имеем
 \begin{multline*}
-A = \lim I( u_{m_j} ) = \lim \int_{-1}^1 F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) u_{m_j}'( x ) ) dx
-\\ \ge \varliminf \int_{-1}^1 \chi_{L_\eps} ( x ) ( F( u( x ), a( x, u( x ) ) u_{m_j}'( x ) ) \\+ 
-( F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) u_{m_j}'( x ) ) -
-F( u( x ), a( x, u( x ) ) u_{m_j}'( x ) ) ) )dx \\
-= \varliminf \int_{-1}^1 \chi_{L_\eps} ( x ) F( u( x ), a( x, u( x ) ) u_{m_j}'( x ) ) dx =
-\varliminf J_\eps( u_{m_j}' )
+A = \lim I( u_{m_j} ) = \lim \int_{-1}^1 F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) \abs{u_{m_j}'( x )} ) dx\\
+\ge \varliminf \int_{-1}^1 \chi_{L_\eps} ( x ) F( u( x ), a( x, u( x ) ) \abs{u_{m_j}'( x )} ) dx
+=: \varliminf J_\eps( u_{m_j}' )
 \end{multline*}
 Наш новый функционал
-$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps} ( x ) F( u( x ), a( x, u( x ) ) v_n( x ) ) dx$$
+$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps} ( x ) F( u( x ), a( x, u( x ) ) v( x ) ) dx$$
 выпуклый. Перейдем к подпоследовательности последовательности $u_{m_j}$, обозначив ее $u_k$, так, что на ней
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$. Так как $u_k' \rightharpoondown u'$ в $L_1$,
 то можно подобрать последовательность
-выпуклых комбинаций $u_k'$, которые будут сходиться к $u'$ сильно. А именно: найдутся $\alpha_{k,l} \ge 0$ для
+выпуклых комбинаций $u_k'$, которые будут сходиться к $u'$ сильно (см. \cite[Параграф~2.13]{LL}).
+А именно: найдутся $\alpha_{k,l} \ge 0$ для
 $k \in \Nat$, $l \le k$ такие, что $\sum_{l = 1}^k \alpha_{k,l} = 1$ для каждого $k$ и 
-$w_k = \sum_{l = 1}^k \alpha_{k,l} u_{k + l}' \to u'$ в $L_1$.
+$w_k = \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ в $L_1$.
+Кроме того, очевидно, можно потребовать, чтобы минимальный индекс $l$ ненулевого коэффициента $\alpha_{k,l}$
+стремился к бесконечности по $k$.
 Так как $J_\eps$ выпуклый,
 \begin{equation}
 \label{Jseq}
-A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{k + l}' ) \ge
+A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge
 \varliminf J_\eps( w_k ) = J_\eps( u' ).
 \end{equation}
 
 Поясним второе неравенство (\ref{Jseq}).
-\begin{multline*}
-\lim\limits_{k \to \infty} \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{k + l}' ) - \varliminf\limits_{k \to \infty} J_\eps( w_k )
-=\lim\limits_{k \to \infty} \sum_{l = 1}^k \alpha_{k,l} ( J_\eps( u_{k + l}' ) - \varliminf\limits_{j \to \infty} J_\eps( w_j ) )
-\\=\lim\limits_{k \to \infty} \sum_{l = 1}^k \alpha_{k,l} \delta_{k + l}.
-\end{multline*}
+$$
+\lim\limits_{k \to \infty} \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) - \varliminf\limits_{k \to \infty} J_\eps( w_k )
+=\lim\limits_{k \to \infty} \sum_{l = 1}^k \alpha_{k,l} ( J_\eps( u_{l}' ) - \varliminf\limits_{j \to \infty} J_\eps( w_j ) )
+$$
 Найдется такое $K$, что для каждого $k > K$ выполнено $J_\eps( u_k' ) \ge \varliminf\limits_{j \to \infty} J_\eps( w_j )$.
-Тем самым, с некоторого момента все $\delta$ будут неотрицательными.
+Тем самым, с некоторого момента все слагаемые будут неотрицательными.
 
-Поясним последнее равенство (\ref{Jseq}). $w_k = \sum_{l = 1}^k \alpha_{k,l} u_{k + l}' \to u'$ в $L_1$. Тогда, по
+Поясним последнее равенство (\ref{Jseq}). $w_k = \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ в $L_1$. Тогда, по
 подпоследовательности, $\varliminf J_\eps(w_k) = \lim J_\eps(w_k)$ и  $w_k( x ) \to u'( x )$ почти всюду.
 Кроме того, так как в $L_\eps$ выполнено $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$, то и $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
 Значит 
-$$F( u( x ), a( x, u( x ) ) w_k( x ) ) \le \max F( u( x ), a( x, u( x ) ) M ) < \infty,$$
+$$F( u( x ), a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), a( x, u( x ) ) M ) < \infty,$$
 где максимум берется по компактному множеству
-$( M, x ) \in [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}] \times [-1, 1]$ от непрерывной функции.
+$(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
 Таким образом, применима теорема Лебега, и мы получаем $A \ge J_\eps(u')$. Осталось заметить, что при $\eps \to 0$
 $J_\eps( u' ) \to I( u )$ из абсолютной непрерывности интеграла. Тем самым, утверждение доказано.
 \end{proof}
 
 \section{О расширении класса функций, для которых выполняется $I(u^*) \le I(u)$}
-\begin{prop}
+\begin{lm}
 \label{uplift}
 Пусть $A \subset \W(-1,1)$. И пусть $B \subset A$ таково, что
-$\forall v \in B$ $I(v^*) \le I(v)$. Предположим, что для каждого $u \in A$
+$\forall v \in B$ выполнено $I(v^*) \le I(v)$. Предположим, что для каждого $u \in A$
 найдется последовательность $u_m \in B$ такая, что $u_m \to u$ в $\W(-1, 1)$ и
-$I(u_m) \to I(u)$. Тогда $\forall u \in A$ $I(u^*) \le I(u)$.
-\end{prop}
+$I(u_m) \to I(u)$. Тогда $\forall u \in A$ будет выполнено $I(u^*) \le I(u)$.
+\end{lm}
 \begin{proof}
 Возьмем некоторую $u \in A$ и для нее найдем соответствующие $u_m \in B$.
 По условию $I(u_m^*) \le I(u_m) \to I(u)$.
-В \cite[Theorem 1]{Br} показано, что из $u_m \to u$ в $\W(-1,1)$ следует
+В \cite[Теорема 1]{Br} показано, что из $u_m \to u$ в $\W(-1,1)$ следует
 $\overline{u_m} \rightharpoondown \overline{u}$ в $\W(-1,1)$. Но
 $u_m^*( x ) = \overline{u_m}( \frac{x - 1}{2} )$ и
 $u^*( x ) = \overline{u}( \frac{x - 1}{2} )$. Значит, и
@@ -1265,6 +1264,7 @@ Bouchitt\'e, G. Buttazzo, P. Suquet, ed.: World Sci., Singapore, p.1--17, 1994
 Math.~Nachr.~280, No.~5--6, p.560--570, 2007
 \bibitem{DAN} С.~Банкевич, А.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
 Доклады Академии Наук~438, №1, стр. 11--13, 2011
+\bibitem{LL} Э.~Либ, М.~Лосс: Анализ, Научная книга, Новосибирск, 1998
 \bibitem{Fed} Г.~Федерер: Геометрическая теория меры, Наука, М., 1987
 
 \end{thebibliography}
