@@ -1,5 +1,4 @@
-\section{Слабая полунепрерывность функционала}
-
+\section{О расширении класса функций, для которых выполняется $I(u^*) \le I(u)$}
 \begin{lm}
 Пусть функция $a$ непрерывна. Тогда функционал $I(u)$ слабо полунепрерывен снизу в $\W(-1, 1)$.
 \label{lowersemi}
@@ -84,4 +83,23 @@ $$A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) 
 \varliminf J_\eps( w_k ) = J_\eps( u' ).$$
 
 Поскольку неравенство выполнено для каждого $\eps > 0$, верно $A \ge I(u)$.
+\end{proof}
+
+\begin{lm}
+\label{uplift}
+Пусть $A \subset \W(-1,1)$. И пусть $B \subset A$ таково, что
+$\forall v \in B$ выполнено $I(v^*) \le I(v)$. Предположим, что для каждого $u \in A$
+найдется последовательность $u_m \in B$ такая, что $u_m \to u$ в $\W(-1, 1)$ и
+$I(u_m) \to I(u)$. Тогда $\forall u \in A$ будет выполнено $I(u^*) \le I(u)$.
+\end{lm}
+\begin{proof}
+Возьмем некоторую $u \in A$ и для нее найдем соответствующие $u_m \in B$.
+По условию $I(u_m^*) \le I(u_m) \to I(u)$.
+В \cite[Теорема 1]{Br} показано, что из $u_m \to u$ в $\W(-1,1)$ следует
+$\overline{u_m} \rightharpoondown \overline{u}$ в $\W(-1,1)$. Но
+$u_m^*( x ) = \overline{u_m}( \frac{x - 1}{2} )$ и
+$u^*( x ) = \overline{u}( \frac{x - 1}{2} )$. Значит, и
+$u_m^* \rightharpoondown u^*$. Тогда из слабой полунепрерывности снизу
+функционала $I$ заключаем $I(u^*) \le \liminf I(u_m^*)$. Тем самым, получаем
+$I(u^*) \le I(u)$.
 \end{proof}

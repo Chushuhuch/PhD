@@ -4,10 +4,10 @@
 неравенства $I(\overline{u}) \le I(u)$ в одномерном случае. Как и для монотонной перестановки, можно
 считать, что $F$ зависит только от последнего аргумента, а $a$ --- только от первого.
 
-\begin{prop}
+\begin{lm}
 $a$ должна удовлетворять условию $a( s ) + a( t ) \ge a( \frac{ s - t }{2} ) + a( \frac{ t - s }{2} )$ для
 любых $s$ и $t$.
-\end{prop}
+\end{lm}
 
 \begin{proof}
 Пусть, для определенности, $s < t$. И пусть
@@ -36,10 +36,10 @@ $\overline{u}( x ) = 1$ при $\frac{s - t}{2} + \eps \le x \le \frac{t - s}{2} - 
 Для $s = t$ неравенство верно по непрерывности.
 \end{proof}
 
-\begin{prop}
+\begin{lm}
 Если функция $a \in C^1([-1, 1])$ удовлетворяет $a( s ) + a( t ) \ge a( \frac{ s - t }{2} ) + a( \frac{ t - s }{2} )$ для
 любых $s$ и $t$, то она четная.
-\end{prop}
+\end{lm}
 
 \begin{proof}
 Рассмотрим функцию $b( t ) = a( s ) + a( t ) - a( \frac{ s - t }{2} ) - a( \frac{ t - s }{2} ) \ge 0$.
@@ -48,10 +48,10 @@ $b'( -s ) = a'( -s ) + \frac{1}{2} a'( s ) - \frac{1}{2} a'( -s ) = 0$, то есть 
 Тем самым, функция четна.
 \end{proof}
 
-\begin{prop}
+\begin{lm}
 Если функция $a \in C([-1, 1])$ такова, что $a( s ) + a( t ) \ge a( \frac{ s - t }{2} ) + a( \frac{ t - s }{2} )$ для
 любых $s$ и $t$, то она четная.
-\end{prop}
+\end{lm}
 
 \begin{proof}
 Продолжим $a( x ) = a( -1 )$ при $x < -1$ и $a( x ) = a( 1 )$ при $x > 1$.
@@ -65,10 +65,10 @@ a_\rho( s ) + a_\rho( t ) - a_\rho( \frac{ s - t }{2} ) - a_\rho( \frac{ t - s }
 $a( x ) = \lim a_\rho( x ) = \lim a_\rho( -x ) = a( -x )$.
 \end{proof}
 
-\begin{prop}
+\begin{lm}
 Если четная функция $a$ удовлетворяет $a( s ) + a( t ) \ge a( \frac{ s - t }{2} ) + a( \frac{ t - s }{2} )$ для
 любых $s$ и $t$, то она выпукла.
-\end{prop}
+\end{lm}
 
 \begin{proof}
 Действительно, для любых $s$, $t$ $a( s ) + a( t ) = a( s ) + a( -t ) \ge 2 a( \frac{ s + t }{2} )$.

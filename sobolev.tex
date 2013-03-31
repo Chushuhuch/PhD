@@ -1,35 +1,57 @@
 \section{Переход к $\W$-функциям}
 \label{ASC}
 
+\begin{lm}
+Пусть вес $a$ непрерывен и для любой кусочно-линейной функции $u$ $I(u^*) \le I(u)$.
+Тогда для любой липшицевой функции $u$ верно $I(u^*) \le I(u)$.
+\end{lm}
+
+\begin{proof}
+Липшицеву функцию можно почти всюду вместе с производной приблизить бесконечно гладкими.
+Поскольку производные приближающих функций будут равномерно ограничены,
+по теореме Лебега последовательность будет сходиться в $\W(-1, 1)$,
+а также будет сходиться функционал $I$.
+В свою очередь, бесконечно гладкие можно равномерно вместе с производной приблизить кусочно линейными.
+Такая сходимость обеспечивает сходимость в $\W(-1, 1)$ и сходимость функционала $I$.
+Тем самым, применив лемму \ref{uplift}, получаем требуемое.
+\end{proof}
+
 Поднимем результат на случай обобщенно дифференцируемых функций.
 
-\begin{lm} \cite[Lemma 2.7]{ASC}
+\begin{prop}
+\label{convToOne}
+\cite[Lemma 2.7]{ASC}.
 Пусть $\phi_h: [-1, 1] \to \Real$ --- последовательность липшицевых функций, удовлетворяющих условиям:
 $\phi_h' \ge 1$ для почти всех $x$ и всех $h$, $\phi_h( x ) \to x$ для почти каждого $x$.
 Тогда для любой $f \in L_1(\Real)$ $f(\phi_h) \to f$ в $L_1(\Real)$.
-\end{lm}
-
-\begin{prop}
-\label{Wapprox}
-Если функция $a$ непрерывна, четна и убывает на $[0, 1]$, то
-$\forall u \in \W \exists u_n \in Lip: u_n \to u$ в $\W$ и $I(u_n) \to I(u)$.
 \end{prop}
+
+\begin{lm}
+\label{Wapprox}
+Пусть $a$ --- непрерывная функция, и $a(\cdot, u)$ четна и убывает на $[0, 1]$ для всех $u \ge 0$.
+Тогда
+$\forall u \in \W(-1, 1)\ \exists u_m \in Lip[-1, 1]: u_m \to u$ в $\W(-1, 1)$ и $I(u_m) \to I(u)$.
+\end{lm}
 
 \begin{proof}
 Можно считать, что $I( u ) < \infty$.
 
-Вес $a$ возрастает по $x$ при $x \in \Omega_1 = [-1, 0]$
-и убывает при $x \in \Omega_2 = [0, 1]$.
-Докажем утверждение для функционала $$I_2( u ) = \int_{\Omega_2} F( u(x), a(x, u(x)) u'(x) ) dx$$
-а случай $\Omega_1$ сведем к первому: $$I_1( u ) = \int_{\Omega_1} F( u( x ), a( x, u(x) ) u'( x ) ) dx =
-\int_{-\Omega_1} F( u( -z ), a( -z, u(-z) ) u'( -z ) ) dz.$$
+Вес $a$ возрастает по $x$ при $x \in [-1, 0]$
+и убывает при $x \in [0, 1]$.
+Докажем утверждение для функционала
+$$I_2( u ) = \int_0^1 F( u(x), a(x, u(x)) |u'(x)| ) dx,$$
+а случай $[-1, 0]$ сведем к первому: $$I_1( u ) = \int_{-1}^0 F( u( x ), a( x, u(x) ) |u'(x)| ) dx =
+\int_0^1 F( u( -z ), a( -z, u(-z) ) |u'( -z )| ) dz.$$
 
-Известно, что для любой $u$ найдется последовательность $v_h \in Lip$ такая, что $v_h = u$ и $v_h' = u'$
-на множествах $\Omega_2 \setminus A_h$, где $\abs{A_h} \to 0$, причем $A_h$ монотонно убывают по включению.
-Очевидно, можно выбрать $v_h$ так, что они будут линейны на связных компонентах $A_h$ ($A_h$ --- открытые),
+Для доказательства мы модифицируем схему из \cite[Теоремы 2.4]{ASC}.
+Доказательства частично совпадают, но для удобства читателя мы приводим здесь полное доказательство.
+
+Известно, что для любой $u$ найдется последовательность $v_h \in Lip[0,1]$ такая, что $v_h = u$ и $v_h' = u'$
+на множествах $[0, 1] \setminus A_h$, где $A_h$ --- открытые (???), $\abs{A_h} \to 0$, причем $A_h$ монотонно убывают по включению.
+Очевидно, можно выбрать $v_h$ так, что они будут линейны на связных компонентах $A_h$,
 а также $v_h(0) = u( 0 )$.
 Тогда $v_h \to u$ в $\W$. Кроме того,
-$$I_2(v_h)=\int_{\Omega_2 \setminus A_h} F( u(x), a( x, u(x) ) u'( x ) ) dx +
+$$I_2(v_h)=\int_{[0, 1] \setminus A_h} F( u(x), a( x, u(x) ) u'( x ) ) dx +
 \int_{A_h} F( v_h(x), a( x, v_h(x) ) v_h'( x ) ) dx.$$
 Первое слагаемое сходится к $I_2(u)$ при $h \to \infty$.
 Изменим немного аппроксимацию, чтобы доказать сходимость второго слагаемого к $0$.
@@ -40,19 +62,19 @@ $\beta_{h,k} = v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-)$.
 Заметим, что $\sum \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx < \infty$, а значит,
 $\sum \abs{\beta_{h,k}} \to 0$.
 
-Рассмотрим некоторую функцию $\phi_h \in \W(\Omega_2)$ такую, что
+Рассмотрим некоторую функцию $\phi_h \in \W(0, 1)$ такую, что
 \begin{align*}
 \phi_h( 0 ) &= 0 & & \\
-\phi_h' &=  1 & \text{ в } & \Omega_2 \setminus A_h,\\
+\phi_h' &=  1 & \text{ в } & [0, 1] \setminus A_h,\\
 \phi_h' &=  \frac{ \abs{\beta_{h,k}} }{ \alpha_{h,k} } \vee 1 & \text{ в } & \Omega_{h,k},
 \end{align*}
 где $t_1 \vee t_2 = \max\{ t_1, t_2 \}$.
 
-Заметим, что $\int_{\Omega_2} \abs{\phi_h'} dx \le 2 + \sum \abs{ \beta_{h,k} } < \infty$.
+Заметим, что $\int_{[0, 1]} \abs{\phi_h'} dx \le 2 + \sum \abs{ \beta_{h,k} } < \infty$.
 
-{\bf Факт 1: } $\phi_h \to Id$ в $\W(\Omega_2)$, где $Id( x ) = x$.
+{\bf Факт 1: } $\phi_h \to Id$ в $\W(0, 1)$, где $Id( x ) = x$.
 
-Достаточно доказать, что $\phi_h' \to 1$ в $L_1( \Omega_2 )$:
+Достаточно доказать, что $\phi_h' \to 1$ в $L_1(0, 1)$:
 $$\int \abs{ \phi_h' - 1 } dx = \sum ( \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } \vee 1 - 1 ) \alpha_{h,k} \le
 \sum \abs{ \beta_{h,k} } \to 0$$.
 
@@ -61,82 +83,75 @@ $$\int \abs{ \phi_h' - 1 } dx = \sum ( \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k
 $$\abs{\phi_h( A_h )} = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \abs{\beta_{h,k}} \vee \alpha_{h,k}
 \le \sum \alpha_{h,k} + \sum \abs{ \beta_{h,k} } \to 0$$.
 
-Рассмотрим теперь $\phi_h^{-1}: \Omega_2 \to \Omega_2$ --- ограничение обратной к $\phi_h$ функции на $\Omega_2$.
+Рассмотрим теперь $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- ограничение обратной к $\phi_h$ функции на $[0, 1]$.
 Для нее верно $0 \le ( \phi_h^{-1} )' \le 1$ и
 
 \begin{align*}
 \phi_h^{-1} ( 0 ) &= 0 & & \\
-( \phi_h^{-1} )' &=  1 & \text{ в } & \Omega_2 \setminus \phi_h( A_h ),\\
-( \phi_h^{-1} )' &=  \frac{ \alpha_{h,k} }{ \abs{ \beta_{h,k} } } \wedge 1 & \text{ в } & \Omega_2 \cap \phi_h( \Omega_{h,k} ).
+( \phi_h^{-1} )' &=  1 & \text{ в } & [0, 1] \setminus \phi_h( A_h ),\\
+( \phi_h^{-1} )' &=  \frac{ \alpha_{h,k} }{ \abs{ \beta_{h,k} } } \wedge 1 & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
 \end{align*}
 
-Тогда возьмем $u_h = v_h( \phi_h^{-1} )$. Она липшицева как композиция липшицевых функций. Кроме того,
+Возьмем $u_h = v_h( \phi_h^{-1} )$. Она липшицева как композиция липшицевых функций. Кроме того,
+$u_h(0) = u(0)$ и
 
 \begin{align*}
-u_h( 0 ) &= u( 0 ) & & \\
-u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = u'( \phi_h^{-1} ) & \text{ в } & \Omega_2 \setminus \phi_h( A_h ),\\
+u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = u'( \phi_h^{-1} ) & \text{ в } & [0, 1] \setminus \phi_h( A_h ),\\
 u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = 
-\sign{ \beta_{h,k} } ( 1 \wedge \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } ) & \text{ в } & \Omega_2 \cap \phi_h( \Omega_{h,k} ).
+\sign{ \beta_{h,k} } ( 1 \wedge \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } ) & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
 \end{align*}
 
-{\bf Факт 3: } $u_h \to u$ в $\W( \Omega_2 )$.
+{\bf Факт 3: } $u_h \to u$ в $\W( [0, 1] )$.
 
-Достаточно доказать $u_h' \to u'$ в $L_1( \Omega_2 )$:
-$$\norm{ u_h' - u' }_{L_1} \le \int_{ \Omega_2 \setminus \phi_h(A_h) } \abs{ u_h' - u' } + 
-\int_{ \Omega_2 \cap \phi_h(A_h) } \abs{ u_h'} + \int_{ \Omega_2 \cap \phi_h(A_h) } \abs{ u'} = P_h^1 + P_h^2 + P_h^3$$
-$$P_h^1 = \int_{ \Omega_2 \setminus \phi_h( A_h ) } \abs{ u'( \phi_h^{-1} ) - u' } dx =
-\int_{ \phi_h^{-1} ( \Omega_2 ) \setminus A_h } \abs{ u' - u'( \phi_h ) } dz \le
-\int_{\Omega_2} \abs{ u' - u'( \phi_h ) } dz$$
-Тогда, в силу леммы $P_h^1 \to 0$.
-
-$P_h^2 \le \abs{ \phi_h( A_h ) } \to 0$
-
-$P_h^3 \to 0$ по абсолютной непрерывности интеграла.
+Достаточно доказать $u_h' \to u'$ в $L_1(0, 1)$:
+$$\norm{ u_h' - u' }_{L_1} \le \int_{ [0, 1] \setminus \phi_h(A_h) } \abs{ u_h' - u' } + 
+\int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u_h'} + \int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u'} = P_h^1 + P_h^2 + P_h^3$$
+$$P_h^1 = \int_{ [0, 1] \setminus \phi_h( A_h ) } \abs{ u'( \phi_h^{-1} ) - u' } dx =
+\int_{ \phi_h^{-1} ( [0, 1] ) \setminus A_h } \abs{ u' - u'( \phi_h ) } dz \le
+\int_{[0, 1]} \abs{ u' - u'( \phi_h ) } dz$$
+В, силу предложения \ref{convToOne}, $P_h^1 \to 0$.
+Далее, $P_h^2 \le \abs{ \phi_h( A_h ) } \to 0$.
+Наконец, $P_h^3 \to 0$ по абсолютной непрерывности интеграла.
 
 {\bf Факт 4: } $I_2( u_h ) \to I_2( u )$.
 
-$$I_2( u_h ) = \int\limits_{ \Omega_2 \setminus \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx +\
-\int\limits_{ \Omega_2 \cap \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx.$$
+$$I_2( u_h ) = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx +\
+\int\limits_{ [0, 1] \cap \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx.$$
 Обозначим эти слагаемые $\hat{P_h^1}$ и $\hat{P_h^2}$.
-Так как $u \in \W( \Omega_2 )$, то $u \in L_\infty( \Omega_2 )$. Обозначим $\norm{ u }_\infty = r$,
-тогда $\norm{ u_h }_\infty < 2r$ с некоторого $h$. Кроме того, $\abs{ u_h' } \le 1$
+Так как $u \in \W( [0, 1] )$, то $u \in L_\infty( [0, 1] )$. Обозначим $\norm{ u }_\infty = r$,
+тогда $\norm{ u_h }_\infty < 2r$ при достаточно больших $h$. Кроме того, $\abs{ u_h' } \le 1$
 почти всюду в $\phi_h( A_h )$. Тогда $\hat{P_h^2} \le M_F \abs{ \phi_h( A_h ) } \to 0$, где
-$M_F = \max F$ по множеству $[-2r, 2r] \times [-M_a, M_a]$, а $M_a = \max a$ по $\Omega_2 \times [-2r, 2r]$.
+$M_F = \max\limits_{[-2r, 2r] \times [-M_a, M_a]} F$; $M_a = \max\limits_{[0, 1] \times [-2r, 2r]} a$.
 
+Далее,
 \begin{multline*}
-\hat{P_h^1} = \int\limits_{ \Omega_2 \setminus \phi_h( A_h ) }
+\hat{P_h^1} = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) }
 	F( u( \phi_h^{-1}( x ) ), a( x, u( \phi_h^{-1}( x ) ) u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )' ) dx =
-\\ =\int\limits_{ \phi_h^{-1}( \Omega_2 ) \setminus A_h } F( u( z ), a( \phi_h( z ), u( z ) ) u'( z ) ) dz
-\\ = \int\limits_{ \Omega_2 } F( u( z ), a( \phi_h( z ), u( z ) ) u'( z ) ) \chi_{ \phi_h^{-1}( \Omega_2 ) \setminus A_h }dz
+\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), a( \phi_h( z ), u( z ) ) u'( z ) ) dz
+\\ = \int\limits_{ [0, 1] } F( u( z ), a( \phi_h( z ), u( z ) ) u'( z ) ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h }dz
 \end{multline*}
-Последнее равенство, вообще говоря, не имеет смысла, так как $\phi_h( z )$ может принимать значения вне $\Omega_2$.
+Последнее равенство, вообще говоря, не имеет смысла, так как $\phi_h( z )$ может принимать значения вне $[0, 1]$.
 Определим $a( z, u ) = a( 1, u )$ при $z > 1$. Теперь выражение корректно.
-Заметим, что множества $\phi_h^{-1}( \Omega_2 ) \setminus A_h$ возрастают, так как множества
-$\phi_h^{-1}( \Omega_2 )$ возрастают и $A_h$ убывает, то есть
-$\phi_{h_1}^{-1}( \Omega_2 ) \subset \phi_{h_2}^{-1}( \Omega_2 )$ и $A_{h_1} \supset A_{h_2}$ при $h_1 \le h_2$.
-На отрезке $\Omega_2$ (и даже $\phi_h( \Omega_2 )$) $a$ убывает, значит $a( \phi_h( z ) )$ будет расти по $h$,
+Заметим, что $\chi_{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ возрастают, так как множества
+$\phi_h^{-1}( [0, 1] )$ возрастают и $A_h$ убывает, то есть
+$\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ и $A_{h_1} \supset A_{h_2}$ при $h_1 \le h_2$.
+На отрезке $[0, 1]$ (и даже $\phi_h( [0, 1] )$) $a$ убывает, значит $a( \phi_h( z ) )$ будет расти по $h$,
 так как $\phi_h( z )$ убывает по $h$. В таком случае можно применить теорему
-о монотонной сходимости и получить в пределе $$\hat{P_h^1} \to \int_{\Omega_2} F( u( z ), a( z, u( z ) ) u'( z ) ) dz.$$
+о монотонной сходимости и получить
+$$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), a( z, u( z ) ) u'( z ) ) dz.$$
 
 \end{proof}
 
 \begin{rem}
-Если функция $a$ четна, вогнута и неотрицательна, то она удовлетворяет условию (\ref{almostConcave}).
-Действительно: для любых $s$ и $t$ $a( 1 ) - a( s ) \le a( t ) - a( -1 + t - s )$. А так как $a( 1 ) \ge 0$, то
-получаем $a( s ) + a( t ) \ge a( -1 + t - s ) = a( 1 - t + s )$. Обратное вообще говоря неверно, то есть не всякая четная
-неотрицательная функция, удовлетворяющая (\ref{almostConcave}) вогнута.
-\end{rem}
-
-\begin{rem}
 Очевидно, что те же рассуждения с закреплением функции $u$ на левом конце можно провести на любом интервале по $x$, где
 вес $a$ убывает по $x$. То есть получить на этом интервале последовательность $u_h \to u$ в $\W$ и $I( u_h ) \to I( u )$.
-Аналогично, можно закрепить правый конец при условии возрастания $a$ по $x$.
+Аналогично, если $a$ возрастает по $x$, можно аппроксимировать $u$ с закреплением на правом конце.
 \end{rem}
 
-\begin{prop}
-Если функция $a$ непрерывна, четна и убывает на $[0, 1]$, то для любой $u \in \W$ $I( u^* ) \le I( u )$.
-\end{prop}
+\begin{cor}
+Если функция $a$ непрерывна, четна и убывает на $[0, 1]$, то для любой $u \in \W(-1, 1)$ выполнено $I( u^* ) \le I( u )$.
+\end{cor}
 
 \begin{proof}
-Неравенство немедленно следует из утверждений (\ref{uplift}) и (\ref{Wapprox}).
+Неравенство немедленно следует из лемм (\ref{uplift}) и (\ref{Wapprox}).
 \end{proof}
