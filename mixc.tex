@@ -91,7 +91,11 @@ I(\overline{u}) &\le& I(u)
 В работе \cite{ASC} доказано отсутствие эффекта Лаврентьева для функционалов вида
 $I(u) = \int_{-1}^1 F(u, u')$
 и, более того, показано, что для любой $u \in \W(-1, 1)$ существует последовательность
-липшицевых функций $u_k$, такая, что $$u_k \to u \text{ в } \W(-1, 1) \text{ и } I(u_k) \to I(u).$$
+липшицевых функций $u_k$, такая, что
+\begin{equation}
+\label{convergence}
+u_k \to u \text{ в } \W(-1, 1) \text{ и } I(u_k) \to I(u).
+\end{equation}
 
 Мы модифицируем доказательство из \cite{ASC} и доказываем отсутствие эффекта Лаврентьева
 для функционалов вида (\ref{functional}) для некоторого класса весовых функций $a$.
@@ -414,8 +418,8 @@ $(-1 + \frac{2i}{k})$, $i = 0, 1, \dots, k$, тоже
 \begin{thm}
 \label{linth}
 Пусть функция $a$ неотрицательна, четна и удовлетворяет условию (\ref{almostConcave}).
-Тогда, если $u$ --- кусочно линейная функция, то $I(u) \ge I(u^*)$.
-\end{thm}
+Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I(u) \ge I(u^*)$.
+\end{thm}                    
 
 \begin{proof}
 Положим $-1 = x_1 < x_2 < \dots < x_K = 1$ --- множество точек перелома функции $u$.
@@ -557,7 +561,7 @@ $$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
 $$F( u( x ), a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), a( x, u( x ) ) M ) < \infty,$$
 где максимум берется по компактному множеству
 $(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
-Таким образом, применима теорема Лебега, и мы получаем $\lim J_\eps(w_k) = J_\eps(u')$.
+Поэтому применима теорема Лебега, и мы получаем $\lim J_\eps(w_k) = J_\eps(u')$.
 Таким образом,
 $$A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge
 \varliminf J_\eps( w_k ) = J_\eps( u' ).$$
@@ -569,24 +573,24 @@ $$A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) 
 \label{uplift}
 Пусть $A \subset \W(-1,1)$. И пусть $B \subset A$ таково, что
 $\forall v \in B$ выполнено $I(v^*) \le I(v)$. Предположим, что для каждого $u \in A$
-найдется последовательность $u_m \in B$ такая, что $u_m \to u$ в $\W(-1, 1)$ и
-$I(u_m) \to I(u)$. Тогда $\forall u \in A$ будет выполнено $I(u^*) \le I(u)$.
+найдется последовательность $u_k \in B$ такая, что $u_k \to u$ в $\W(-1, 1)$ и
+$I(u_k) \to I(u)$. Тогда $\forall u \in A$ будет выполнено $I(u^*) \le I(u)$.
 \end{lm}
 \begin{proof}
-Возьмем некоторую $u \in A$ и для нее найдем соответствующие $u_m \in B$.
-По условию $I(u_m^*) \le I(u_m) \to I(u)$.
-В \cite[Теорема 1]{Br} показано, что из $u_m \to u$ в $\W(-1,1)$ следует
-$\overline{u_m} \rightharpoondown \overline{u}$ в $\W(-1,1)$. Но
-$u_m^*( x ) = \overline{u_m}( \frac{x - 1}{2} )$ и
+Возьмем некоторую $u \in A$ и для нее найдем соответствующие $u_k \in B$.
+По условию $I(u_k^*) \le I(u_k) \to I(u)$.
+В \cite[Теорема 1]{Br} показано, что из $u_k \to u$ в $\W(-1,1)$ следует
+$\overline{u_k} \rightharpoondown \overline{u}$ в $\W(-1,1)$. Но
+$u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ и
 $u^*( x ) = \overline{u}( \frac{x - 1}{2} )$. Значит, и
-$u_m^* \rightharpoondown u^*$. Тогда из слабой полунепрерывности снизу
-функционала $I$ заключаем $I(u^*) \le \liminf I(u_m^*)$. Тем самым,
+$u_k^* \rightharpoondown u^*$. Тогда из слабой полунепрерывности снизу
+функционала $I$ заключаем $I(u^*) \le \liminf I(u_k^*)$. Тем самым,
 $I(u^*) \le I(u)$.
 \end{proof}
 
 \begin{cor}
-Пусть вес $a$ непрерывен, и неравенство (\ref{toprove}) верно для кусочно линейных функций $u$.
-Тогда оно верно для всех липшицевых функций.
+Пусть вес $a$ непрерывен, и неравенство (\ref{toprove}) верно для неотрицательных кусочно линейных функций $u$.
+Тогда оно верно для всех неотрицательных липшицевых функций.
 \end{cor}
 \begin{proof}
 Липшицеву функцию можно почти всюду вместе с производной приблизить бесконечно гладкими.
@@ -601,19 +605,15 @@ $I(u^*) \le I(u)$.
 \section{Переход к $\W$-функциям при дополнительном ограничении на вес}
 \label{ASC}
 
-\begin{prop}
-\label{convToOne}
-\cite[Lemma 2.7]{ASC}.
-Пусть $\phi_h: [-1, 1] \to \Real$ --- последовательность липшицевых функций, удовлетворяющих условиям:
-$\phi_h' \ge 1$ для почти всех $x$ и всех $h$, $\phi_h( x ) \to x$ для почти каждого $x$.
-Тогда для любой $f \in L_1(\Real)$ $f(\phi_h) \to f$ в $L_1(\Real)$.
-\end{prop}
+В этом параграфе мы получим неравенство (\ref{toprove}) при дополнительном условии
+монотонности весовой функции при $x \in [-1, 0]$ и при $x \in [0, 1]$.
 
 \begin{lm}
 \label{Wapprox}
 Пусть $a$ --- непрерывная функция, $a(\cdot, u)$ четна и убывает на $[0, 1]$ для всех $u \ge 0$.
-Тогда
-$\forall u \in \W(-1, 1)\ \exists u_m \in Lip[-1, 1]: u_m \to u$ в $\W(-1, 1)$ и $I(u_m) \to I(u)$.
+Тогда любая функция $u \in \W(-1, 1)$, $u \ge 0$,
+приближается липшицевыми функциями по функционалу $I$,
+то есть существует последовательность $u_k \in Lip[-1, 1]$, такая, что выполнено соотношение (\ref{convergence}).
 \end{lm}
 
 \begin{proof}
@@ -629,6 +629,16 @@ $$I_2( u ) = \int_0^1 F( u(x), a(x, u(x)) |u'(x)| ) dx,$$
 Для доказательства мы модифицируем схему из \cite[Теорема 2.4]{ASC}.
 Доказательство	 частично совпадает с \cite{ASC}, но для удобства читателя мы приводим здесь его полностью.
 
+Нам потребуется следующее вспомогательное утверждение.
+
+\begin{prop}
+\label{convToOne}
+\cite[Lemma 2.7]{ASC}.
+Пусть $\phi_h: [-1, 1] \to \Real$ --- последовательность липшицевых функций, удовлетворяющих условиям:
+$\phi_h' \ge 1$ для почти всех $x$ и всех $h$, $\phi_h( x ) \to x$ для почти каждого $x$.
+Тогда для любой $f \in L_1(\Real)$ $f(\phi_h) \to f$ в $L_1(\Real)$.
+\end{prop}
+
 Покроем множества $\{x \in [0, 1]: \abs{u'(x)} > \frac{1}{h}\}$
 открытыми (в $[0, 1]$) множествами $A_h \subset [0, 1]$ так,
 чтобы $A_{h + 1} \subset A_{h}$ и $\abs{A_h} \to 0$.
@@ -641,32 +651,33 @@ $$I_2(v_h)=\int_{[0, 1] \setminus A_h} F( u(x), a( x, u(x) ) u'( x ) ) dx +
 Изменим немного аппроксимацию, чтобы доказать сходимость второго слагаемого к $0$,
 а также чтобы сделать аппроксимацию липшицевой.
 
-Представим $A_h = \cup \Omega_{h,k}$, где $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$. $\alpha_{h,k} = \abs{\Omega_{h,k}}$,
+Представим $A_h = \cup_k \Omega_{h,k}$, где $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$. $\alpha_{h,k} = \abs{\Omega_{h,k}}$,
 $\beta_{h,k} = v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-)$.
 Тогда $v'_h = \frac{ \beta_{h,k} }{ \alpha_{h,k} }$ в $\Omega_{h,k}$.
-Заметим, что $\sum \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx < \infty$, а значит,
-$\sum \abs{\beta_{h,k}} \to 0$.
+Заметим, что
+$$\sum_k \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
+а значит,
+$\sum_k \abs{\beta_{h,k}} \to 0$ при $h \to 0$ по теореме Лебега.
 
-Рассмотрим некоторую функцию $\phi_h \in \W(0, 1)$ такую, что
+Определим функцию $\phi_h \in \W(0, 1)$ так:
 \begin{align*}
 \phi_h( 0 ) &= 0 & & \\
 \phi_h' &=  1 & \text{ в } & [0, 1] \setminus A_h,\\
-\phi_h' &=  \frac{ \abs{\beta_{h,k}} }{ \alpha_{h,k} } \vee 1 & \text{ в } & \Omega_{h,k},
+\phi_h' &=  \max \Big( \frac{ \abs{\beta_{h,k}} }{ \alpha_{h,k} }, 1 \Big) & \text{ в } & \Omega_{h,k}.
 \end{align*}
-где $t_1 \vee t_2 = \max\{ t_1, t_2 \}$.
 
-Заметим, что $\int_0^1 \abs{\phi_h'} dx \le 2 + \sum \abs{ \beta_{h,k} } < \infty$.
+Заметим, что $\int_0^1 \abs{\phi_h'} dx \le 2 + \sum_k \abs{ \beta_{h,k} } < \infty$.
 
 {\bf Факт 1: } $\phi_h \to Id$ в $\W(0, 1)$, где $Id( x ) = x$.
 
 Достаточно доказать, что $\phi_h' \to 1$ в $L_1(0, 1)$:
-$$\int \abs{ \phi_h' - 1 } dx = \sum \Big( \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } \vee 1 - 1 \Big) \alpha_{h,k} \le
-\sum \abs{ \beta_{h,k} } \to 0$$.
+$$\int \abs{ \phi_h' - 1 } dx = \sum \Big( \max \Big( \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} }, 1 \Big) - 1 \Big) \alpha_{h,k} \le
+\sum \abs{ \beta_{h,k} } \to 0.$$
 
-{\bf Факт 2: } $\abs{\phi_h( A_h )} \to 0$
+{\bf Факт 2: } $\abs{\phi_h( A_h )} \to 0$.
 
-$$\abs{\phi_h( A_h )} = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \abs{\beta_{h,k}} \vee \alpha_{h,k}
-\le \sum \alpha_{h,k} + \sum \abs{ \beta_{h,k} } \to 0$$.
+$$\abs{\phi_h( A_h )} = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \max (\abs{\beta_{h,k}}, \alpha_{h,k})
+\le \sum \alpha_{h,k} + \sum \abs{ \beta_{h,k} } \to 0.$$
 
 Рассмотрим теперь $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- ограничение обратной к $\phi_h$ функции на $[0, 1]$.
 Для нее верно $0 \le ( \phi_h^{-1} )' \le 1$ и
@@ -674,7 +685,7 @@ $$\abs{\phi_h( A_h )} = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \abs{\beta_{h
 \begin{align*}
 \phi_h^{-1} ( 0 ) &= 0 & & \\
 ( \phi_h^{-1} )' &=  1 & \text{ в } & [0, 1] \setminus \phi_h( A_h ),\\
-( \phi_h^{-1} )' &=  \frac{ \alpha_{h,k} }{ \abs{ \beta_{h,k} } } \wedge 1 & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
+( \phi_h^{-1} )' &=  \min \Big( \frac{ \alpha_{h,k} }{ \abs{ \beta_{h,k} } }, 1 \Big) & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
 \end{align*}
 
 Возьмем $u_h = v_h( \phi_h^{-1} )$.
@@ -682,7 +693,7 @@ $$\abs{\phi_h( A_h )} = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \abs{\beta_{h
 \begin{align*}
 u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = u'( \phi_h^{-1} ) & \text{ в } & [0, 1] \setminus \phi_h( A_h ),\\
 u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = 
-\sign{ \beta_{h,k} } ( 1 \wedge \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } ) & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
+\sign{ \beta_{h,k} } \cdot \min \Big( 1, \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } \Big) & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
 \end{align*}
 
 Тем самым, $u_h$ липшицева, поскольку $u$ имеет вне $A_h$ ограниченную производную.
@@ -743,13 +754,13 @@ u_h \to u \text{ в } \W([x_0, x_1]);\\
 \end{cor}
 
 \begin{proof}
-Неравенство немедленно следует из лемм (\ref{uplift}) и (\ref{Wapprox}).
+Неравенство немедленно следует из лемм \ref{uplift} и \ref{Wapprox}.
 \end{proof}
 
 \section{Переход к $\W$-функциям в случае симметричной перестановки}
 \label{sobolevSymm}
 
-Как и раньше (в случае с переходом к соболевским функциям), нам нужно для каждой $u \in \W$ лишь найти
+Как и раньше (в случае с переходом к соболевским функциям), нам нужно для каждой $u \in \W$, $u \ge 0$ лишь найти
 аппроксимацию липшицевыми $u_h$: $u_h \to u$ в $\W$ и $I( u_h ) \to I( u )$. Остальные неравенства обеспечиваются слабой
 полунепрерывностью снизу фунционала $I$. Отличие состоит в том, что в случае с монотонной перестановкой можно было закрепить
 $u$ в $0$ и аппроксимировать ее отдельно на $[-1,0]$ и $[0,1]$. Поскольку в случае симметричной перестановки вес $a$ имеет
