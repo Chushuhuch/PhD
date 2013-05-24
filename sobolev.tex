@@ -40,15 +40,13 @@ $\phi_h' \ge 1$ для почти всех $x$ и всех $h$, $\phi_h( x ) \to x$ для почти каж
 чтобы $A_{h + 1} \subset A_{h}$ и $\abs{A_h} \to 0$.
 В качестве $v_h$ возьмем функцию, совпадающую с $u$ вне множества $A_h$.
 На связных участках $A_h$ сделаем $v_h$ линейной.
-Тогда $v_h \to u$ в $\W$. Кроме того,
-$$I_2(v_h)=\int_{[0, 1] \setminus A_h} F( u(x), a( x, u(x) ) u'( x ) ) dx +
-\int_{A_h} F( v_h(x), a( x, v_h(x) ) v_h'( x ) ) dx.$$
-Первое слагаемое сходится к $I_2(u)$ при $h \to \infty$.
-Изменим немного аппроксимацию, чтобы доказать сходимость второго слагаемого к $0$,
-а также чтобы сделать аппроксимацию липшицевой.
+Тогда $v_h \to u$ в $\W$.
+Изменим немного $v_h$, чтобы сделать аппроксимацию липшицевой.
 
-Представим $A_h = \cup_k \Omega_{h,k}$, где $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$. $\alpha_{h,k} = \abs{\Omega_{h,k}}$,
-$\beta_{h,k} = v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-)$.
+Представим $A_h = \cup_k \Omega_{h,k}$, где
+$$\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ ),\quad
+\alpha_{h,k} = \abs{\Omega_{h,k}},\quad
+\beta_{h,k} = v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-).$$
 Тогда $v'_h = \frac{ \beta_{h,k} }{ \alpha_{h,k} }$ в $\Omega_{h,k}$.
 Заметим, что
 $$\sum_k \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
@@ -62,18 +60,14 @@ $\sum_k \abs{\beta_{h,k}} \to 0$ при $h \to 0$ по теореме Лебега.
 \phi_h' &=  \max \Big( \frac{ \abs{\beta_{h,k}} }{ \alpha_{h,k} }, 1 \Big) & \text{ в } & \Omega_{h,k}.
 \end{align*}
 
-Заметим, что $\int_0^1 \abs{\phi_h'} dx \le 2 + \sum_k \abs{ \beta_{h,k} } < \infty$.
+Заметим, что $\int_0^1 \abs{\phi_h'} dx \le 1 + \sum_k \abs{ \beta_{h,k} } < \infty$.
 
-{\bf Факт 1: } $\phi_h \to Id$ в $\W(0, 1)$, где $Id( x ) = x$.
+\medskip
 
-Достаточно доказать, что $\phi_h' \to 1$ в $L_1(0, 1)$:
+Покажем, что $\phi_h' \to 1$ в $L_1(0, 1)$:
 $$\int \abs{ \phi_h' - 1 } dx = \sum \Big( \max \Big( \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} }, 1 \Big) - 1 \Big) \alpha_{h,k} \le
 \sum \abs{ \beta_{h,k} } \to 0.$$
-
-{\bf Факт 2: } $\abs{\phi_h( A_h )} \to 0$.
-
-$$\abs{\phi_h( A_h )} = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \max (\abs{\beta_{h,k}}, \alpha_{h,k})
-\le \sum \alpha_{h,k} + \sum \abs{ \beta_{h,k} } \to 0.$$
+Отсюда следует, что $\phi_h$ удовлетворяет условиям предложения \ref{convToOne}.
 
 Рассмотрим теперь $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- ограничение обратной к $\phi_h$ функции на $[0, 1]$.
 Для нее верно $0 \le ( \phi_h^{-1} )' \le 1$ и
@@ -94,19 +88,22 @@ u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' =
 
 Тем самым, $u_h$ липшицева, поскольку $u$ имеет вне $A_h$ ограниченную производную.
 
-{\bf Факт 3: } $u_h \to u$ в $\W( [0, 1] )$.
+Покажем, что $u_h \to u$ в $\W( [0, 1] )$.
+Для этого достаточно оценить
 
-Достаточно доказать $u_h' \to u'$ в $L_1(0, 1)$:
 $$\norm{ u_h' - u' }_{L_1} \le \int_{ [0, 1] \setminus \phi_h(A_h) } \abs{ u_h' - u' } + 
 \int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u_h'} + \int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u'} =: P_h^1 + P_h^2 + P_h^3$$
 $$P_h^1 = \int_{ [0, 1] \setminus \phi_h( A_h ) } \abs{ u'( \phi_h^{-1} ) - u' } dx =
 \int_{ \phi_h^{-1} ( [0, 1] ) \setminus A_h } \abs{ u' - u'( \phi_h ) } dz \le
 \int_{[0, 1]} \abs{ u' - u'( \phi_h ) } dz$$
 В силу предложения \ref{convToOne}, $P_h^1 \to 0$.
-Далее, $P_h^2 \le \abs{ \phi_h( A_h ) } \to 0$.
-Наконец, $P_h^3 \to 0$ по абсолютной непрерывности интеграла.
 
-{\bf Факт 4: } $I_2( u_h ) \to I_2( u )$.
+Далее,
+$$P_h^2 \le \abs{ \phi_h( A_h ) } = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \max (\abs{\beta_{h,k}}, \alpha_{h,k})
+\le \sum \alpha_{h,k} + \sum \abs{ \beta_{h,k} } \to 0.$$
+Наконец, $P_h^3 \to 0$ по абсолютной непрерывности интеграла, и утверждение доказано.
+
+Осталось показать, что $I_2( u_h ) \to I_2( u )$.
 
 $$I_2( u_h ) = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx +\
 \int\limits_{ [0, 1] \cap \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx.$$
@@ -114,7 +111,7 @@ $$I_2( u_h ) = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) } F( u_h( x ), a( x,
 Так как $u \in \W( [0, 1] )$, то $u \in L_\infty( [0, 1] )$. Обозначим $\norm{ u }_\infty = r$,
 тогда $\norm{ u_h }_\infty < 2r$ при достаточно больших $h$. Кроме того, $\abs{ u_h' } \le 1$
 почти всюду в $\phi_h( A_h )$. Тогда $\hat{P_h^2} \le M_F \abs{ \phi_h( A_h ) } \to 0$, где
-$$M_F = \max\limits_{[-2r, 2r] \times [-M_a, M_a]} F;\ M_a = \max\limits_{[0, 1] \times [-2r, 2r]} a.$$
+$$M_F = \max\limits_{[-2r, 2r] \times [-M_a, M_a]} F;\quad M_a = \max\limits_{[0, 1] \times [-2r, 2r]} a.$$
 
 Далее,
 \begin{multline*}
