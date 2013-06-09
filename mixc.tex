@@ -75,7 +75,8 @@ I(\overline{u}) &\le& I(u)
 
 В работе \cite{Br} доказывается неравенство (\ref{toproveSymm}) и его многомерный аналог
 при условии, что функция $a$ четна и выпукла по $x$.
-Однако, доказательство содержит пробел, и фактически это неравенство доказано лишь для $u \in Lip[-1, 1]$.
+Однако, доказательство содержит пробел,
+и фактически это неравенство доказано лишь для липшицевых функций $u$.
 
 Именно, доказывая неравенство (\ref{toproveSymm}) для естественного класса функций,
 автор \cite{Br} аппроксимирует функцию $u \in \Wf$ с конечным интегралом (\ref{functional})
@@ -231,13 +232,13 @@ $$
 
 Имеем
 \begin{multline*}
-I(u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2}) dz =\\
-\int_0^\eps 2 F(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
+I(u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2}) dz\\
+= \int_0^\eps 2 F(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
 0 \le I( u ) - I( u^* ) =
-\int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a( t - y, \bar{v} + y)) -\\
-2 F(\bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2})) dy <
-\\< \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a(t - y, \bar{v} + y)) -\\
-2 F(\bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
+\int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a( t - y, \bar{v} + y))\\
+- 2 F(\bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2})) dy\\
+< \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a(t - y, \bar{v} + y))\\
+- 2 F(\bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
 \end{multline*}
 
 Рассмотрим теперь функцию $F(v, p) = p^\alpha$.
@@ -647,10 +648,10 @@ $\phi_h' \ge 1$ для почти всех $x$ и всех $h$, $\phi_h( x ) \to x$ для почти каж
 Тогда $v_h \to u$ в $\W$.
 Изменим немного $v_h$, чтобы сделать аппроксимацию липшицевой.
 
-Представим $A_h = \cup_k \Omega_{h,k}$, где
-$$\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ ),\quad
-\alpha_{h,k} = \abs{\Omega_{h,k}},\quad
-\beta_{h,k} = v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-).$$
+Представим $A_h = \cup_k \Omega_{h,k}$, где $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$.
+Обозначим
+$$\alpha_{h,k} := \abs{\Omega_{h,k}},\quad
+\beta_{h,k} := v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-).$$
 Тогда $v'_h = \frac{ \beta_{h,k} }{ \alpha_{h,k} }$ в $\Omega_{h,k}$.
 Заметим, что
 $$\sum_k \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
@@ -658,11 +659,13 @@ $$\sum_k \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx \le \norm{u'}_{L_1(-1, 1)}
 $\sum_k \abs{\beta_{h,k}} \to 0$ при $h \to 0$ по теореме Лебега.
 
 Определим функцию $\phi_h \in \W(0, 1)$ так:
-\begin{align*}
+$$
+\begin{aligned}
 \phi_h( 0 ) &= 0 & & \\
 \phi_h' &=  1 & \text{ в } & [0, 1] \setminus A_h,\\
 \phi_h' &=  \max \Big( \frac{ \abs{\beta_{h,k}} }{ \alpha_{h,k} }, 1 \Big) & \text{ в } & \Omega_{h,k}.
-\end{align*}
+\end{aligned}
+$$	
 
 Заметим, что $\int_0^1 \abs{\phi_h'} dx \le 1 + \sum_k \abs{ \beta_{h,k} } < \infty$.
 
@@ -676,11 +679,13 @@ $$\int \abs{ \phi_h' - 1 } dx = \sum \Big( \max \Big( \frac{ \abs{ \beta_{h,k} }
 Рассмотрим теперь $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- ограничение обратной к $\phi_h$ функции на $[0, 1]$.
 Для нее верно $0 \le ( \phi_h^{-1} )' \le 1$ и
 
-\begin{align*}
+$$
+\begin{aligned}
 \phi_h^{-1} ( 0 ) &= 0 & & \\
 ( \phi_h^{-1} )' &=  1 & \text{ в } & [0, 1] \setminus \phi_h( A_h ),\\
 ( \phi_h^{-1} )' &=  \min \Big( \frac{ \alpha_{h,k} }{ \abs{ \beta_{h,k} } }, 1 \Big) & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
-\end{align*}
+\end{aligned}
+$$
 
 Возьмем $u_h = v_h( \phi_h^{-1} )$.
 Заметим, что $u_h(0) = u(0)$, и
@@ -692,11 +697,11 @@ u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' =
 
 Тем самым, $u_h$ липшицева, поскольку $u$ имеет вне $A_h$ ограниченную производную.
 
-Покажем, что $u_h \to u$ в $\W( [0, 1] )$.
+Покажем, что $u_h \to u$ в $\W(0, 1)$.
 Для этого достаточно оценить
 
 $$\norm{ u_h' - u' }_{L_1} \le \int_{ [0, 1] \setminus \phi_h(A_h) } \abs{ u_h' - u' } + 
-\int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u_h'} + \int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u'} =: P_h^1 + P_h^2 + P_h^3$$
+\int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u_h'} + \int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u'} =: P_h^1 + P_h^2 + P_h^3.$$
 $$P_h^1 = \int_{ [0, 1] \setminus \phi_h( A_h ) } \abs{ u'( \phi_h^{-1} ) - u' } dx =
 \int_{ \phi_h^{-1} ( [0, 1] ) \setminus A_h } \abs{ u' - u'( \phi_h ) } dz \le
 \int_{[0, 1]} \abs{ u' - u'( \phi_h ) } dz$$
@@ -712,7 +717,7 @@ $$P_h^2 \le \abs{ \phi_h( A_h ) } = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \
 $$I_2( u_h ) = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx +\
 \int\limits_{ [0, 1] \cap \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx.$$
 Обозначим эти слагаемые $\hat{P_h^1}$ и $\hat{P_h^2}$.
-Так как $u \in \W( [0, 1] )$, то $u \in L_\infty( [0, 1] )$. Обозначим $\norm{ u }_\infty = r$,
+Так как $u \in \W(0, 1)$, то $u \in L_\infty( [0, 1] )$. Обозначим $\norm{ u }_\infty = r$,
 тогда $\norm{ u_h }_\infty < 2r$ при достаточно больших $h$. Кроме того, $\abs{ u_h' } \le 1$
 почти всюду в $\phi_h( A_h )$. Тогда $\hat{P_h^2} \le M_F \abs{ \phi_h( A_h ) } \to 0$, где
 $$M_F = \max\limits_{[-2r, 2r] \times [-M_a, M_a]} F;\quad M_a = \max\limits_{[0, 1] \times [-2r, 2r]} a.$$
@@ -740,7 +745,7 @@ $$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), a( z, u( z ) ) u'( z ) ) dz.$$
 Очевидно, что те же рассуждения с закреплением функции $u$ на левом конце можно провести на любом интервале $[x_0, x_1]$, где
 вес $a$ убывает по $x$. То есть получить на этом интервале последовательность
 \begin{gather*}
-u_h \to u \text{ в } \W([x_0, x_1]);\\
+u_h \to u \text{ в } \W(x_0, x_1);\\
 \int_{x_0}^{x_1} F( u_h(x), a(x, u_h(x)) \abs{u_h'(x)} ) \to \int_{x_0}^{x_1} F( u(x), a(x, u(x)) \abs{u'(x)} ).
 \end{gather*}
 Аналогично, если $a$ возрастает по $x$, можно аппроксимировать $u$ с закреплением на правом конце.
