@@ -109,8 +109,8 @@ $$P_h^2 \le \abs{ \phi_h( A_h ) } = \sum \abs{ \phi_h( \Omega_{h,k} ) } = \sum \
 
 Осталось показать, что $I_2( u_h ) \to I_2( u )$.
 
-$$I_2( u_h ) = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx +\
-\int\limits_{ [0, 1] \cap \phi_h( A_h ) } F( u_h( x ), a( x, u_h(x) ) u_h'( x ) ) dx.$$
+$$I_2( u_h ) = \!\!\!\!\int\limits_{ [0, 1] \setminus \phi_h( A_h ) }\!\!\!\! F( u_h( x ), a( x, u_h(x) ) |u_h'( x )| ) dx +\
+\!\!\!\!\int\limits_{ [0, 1] \cap \phi_h( A_h ) }\!\!\!\! F( u_h( x ), a( x, u_h(x) ) |u_h'( x )| ) dx.$$
 Обозначим эти слагаемые $\hat{P_h^1}$ и $\hat{P_h^2}$.
 Так как $u \in \W(0, 1)$, то $u \in L_\infty( [0, 1] )$. Обозначим $\norm{ u }_\infty = r$,
 тогда $\norm{ u_h }_\infty < 2r$ при достаточно больших $h$. Кроме того, $\abs{ u_h' } \le 1$
@@ -120,9 +120,9 @@ $$M_F = \max\limits_{[-2r, 2r] \times [-M_a, M_a]} F;\quad M_a = \max\limits_{[0
 Далее,
 \begin{multline*}
 \hat{P_h^1} = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) }
-	F( u( \phi_h^{-1}( x ) ), a( x, u( \phi_h^{-1}( x ) ) u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )' ) dx =
-\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), a( \phi_h( z ), u( z ) ) u'( z ) ) dz
-\\ = \int\limits_{ [0, 1] } F( u( z ), a( \phi_h( z ), u( z ) ) u'( z ) ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h }dz
+	F( u( \phi_h^{-1}( x ) ), a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) dx
+\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| ) dz
+\\ = \int\limits_{ [0, 1] } F( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h }dz.
 \end{multline*}
 Последнее равенство, вообще говоря, не имеет смысла, так как $\phi_h( z )$ может принимать значения вне $[0, 1]$.
 Определим $a( z, u ) = a( 1, u )$ при $z > 1$. Теперь выражение корректно.
@@ -132,7 +132,7 @@ $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ и $A_{h_1} \supset
 На отрезке $[0, 1]$ (и даже $\phi_h( [0, 1] )$) $a$ убывает, значит $a( \phi_h( z ) )$ будет расти по $h$,
 так как $\phi_h( z )$ убывает по $h$. В таком случае можно применить теорему
 о монотонной сходимости и получить
-$$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), a( z, u( z ) ) u'( z ) ) dz.$$
+$$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), a( z, u( z ) ) |u'( z )| ) dz.$$
 
 \end{proof}
 
