@@ -31,7 +31,7 @@ u(x) &= \bar{v}, & x \in [\bar{x}, 1]
 $$
 Тогда $u^*(x, v) = u(-x, v)$ и
 \begin{multline*}
-I(u)-I(u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) dx -
+I(a, u)-I(a, u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) dx -
 \int_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, a(x, \bar{v} + \bar{x} + x) ) dx \\ =
 \int_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) -
 F( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
@@ -116,9 +116,9 @@ $$
 
 Имеем
 \begin{multline*}
-I(u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2}) dz\\
+I(a, u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2}) dz\\
 = \int_0^\eps 2 F(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
-0 \le I( u ) - I( u^* ) =
+0 \le I( a, u ) - I( a, u^* ) =
 \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a( t - y, \bar{v} + y))\\
 - 2 F(\bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2})) dy\\
 < \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a(t - y, \bar{v} + y))\\

@@ -13,7 +13,7 @@
 \end{lm}
 
 \begin{proof}
-Можно считать, что $I( u ) < \infty$.
+Можно считать, что $I( a, u ) < \infty$.
 
 Вес $a$ возрастает по $x$ при $x \in [-1, 0]$
 и убывает при $x \in [0, 1]$.
@@ -99,7 +99,7 @@ $$\norm{ u_h' - u' }_{L_1} \le \int_{ [0, 1] \setminus \phi_h(A_h) } \abs{ u_h' 
 \int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u_h'} + \int_{ [0, 1] \cap \phi_h(A_h) } \abs{ u'} =: P_h^1 + P_h^2 + P_h^3.$$
 $$P_h^1 = \int_{ [0, 1] \setminus \phi_h( A_h ) } \abs{ u'( \phi_h^{-1} ) - u' } dx =
 \int_{ \phi_h^{-1} ( [0, 1] ) \setminus A_h } \abs{ u' - u'( \phi_h ) } dz \le
-\int_{[0, 1]} \abs{ u' - u'( \phi_h ) } dz$$
+\int_{[0, 1]} \abs{ u' - u'( \phi_h ) } dz.$$
 В силу предложения \ref{convToOne}, $P_h^1 \to 0$.
 
 Далее,
@@ -147,7 +147,7 @@ u_h \to u \text{ в } \W(x_0, x_1);\\
 \end{rem}
 
 \begin{cor}
-Если функция $a$ непрерывна, четна и убывает на $[0, 1]$, то для любой $u \in \W(-1, 1)$ выполнено $I( u^* ) \le I( u )$.
+Если функция $a$ непрерывна, четна и убывает на $[0, 1]$, то для любой $u \in \W(-1, 1)$ выполнено $I( a, u^* ) \le I( a, u )$.
 \end{cor}
 
 \begin{proof}

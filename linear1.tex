@@ -7,7 +7,7 @@
 \begin{thm}
 \label{linth}
 Пусть функция $a$ неотрицательна, четна и удовлетворяет условию (\ref{almostConcave}).
-Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I(u) \ge I(u^*)$.
+Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I(a, u) \ge I(a, u^*)$.
 \end{thm}                    
 
 \begin{proof}
@@ -41,11 +41,11 @@ $y^*$ и знаки $y_k^j$ чередуются, и ${y^*}'(v)\ge 0$.
 
 Рассмотрим оставшиеся части интегралов:
 \begin{multline*}
-I(u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), \abs{a(x, u(x)) u'(x)}) dx
+I(a, u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), \abs{a(x, u(x)) u'(x)}) dx
 \\ = \sum_{j=1}^N \int_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} dv,
 \end{multline*}
 \begin{multline*}
-I(u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{a(x, u(x)) {u^*}'(x)}) dx
+I(a, u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{a(x, u(x)) {u^*}'(x)}) dx
 \\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
 \sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } dv.
 \end{multline*}
