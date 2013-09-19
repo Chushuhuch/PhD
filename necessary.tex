@@ -40,11 +40,12 @@ F( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
 
 {\bf 2.} Предположим, что условие (\ref{almostConcave}) не выполняется.
 Тогда в силу непрерывности функции $a$ найдутся такие $-1 \le s \le t \le 1$, $\eps, \delta > 0$ и $\bar{v} \in \Real_+$, что
-для любого $0 \le y \le \eps$ справедливо неравенство
+для любых $0 \le y \le \eps$ и $\bar{v} \le v \le \bar{v} + \eps$ справедливо неравенство
 $$a( s + y, v ) + a( t - y, v ) + \delta < a( 1 - t + s + 2y, v ).$$
 
 Рассмотрим функцию $u$ (см. рис. \ref{uGraph})	:
-$$
+\begin{equation}
+\label{parLinU}
 \left\{     
 \begin{aligned}
 u(x) &= \bar{v}, & x \in [-1, s] \cup [t, 1]\\
@@ -53,7 +54,7 @@ u(x) &= \bar{v} + \eps, & x \in [s + \eps, t - \eps]\\
 u(x) &= \bar{v} + t - x, & x \in [t - \eps, t]
 \end{aligned}
 \right.
-$$
+\end{equation}
 
 \begin{center}
 \begin{picture}(200,90)

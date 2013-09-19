@@ -3,28 +3,27 @@
 \subsection{Необходимые условия}
 
 Будем рассматривать условия, необходимые для выполнения
-неравенства $I(a, \overline{u}) \le I(a, u)$ в одномерном случае. Как и для монотонной перестановки, можно
-считать, что $F$ зависит только от последнего аргумента, а $a$ --- только от первого.
+неравенства $I(a, \overline{u}) \le I(a, u)$ в одномерном случае.
 
 \begin{lm}
-$a$ должна удовлетворять условию $a( s ) + a( t ) \ge a( \frac{ s - t }{2} ) + a( \frac{ t - s }{2} )$ для
-любых $s$ и $t$.
+Если неравенство (\ref{toproveSymm}) выполняется для произвольной $F \in \mathfrak{F}$
+и произвольной кусочно линейной $u$, то
+вес $a$ удовлетворяет условию
+$$\forall s, t \in [-1, 1], \forall v \quad
+a( s, v ) + a( t, v ) \ge a\Big( \frac{ s - t }{2}, v \Big) + a\Big( \frac{ t - s }{2}, v \Big).$$
 \end{lm}
 
 \begin{proof}
-Пусть, для определенности, $s < t$. И пусть
-$a( s + z ) + a( t - z ) + 2 \delta < a( \frac{ s - t + 2 z }{2} ) + a( \frac{ t - s - 2 z }{2} )$
-для $0 \le z \le \eps$, где $2 \eps < t - s$.
-Построим функцию $u$: $u( x ) = 0$, если $x \le s$ или $x \ge t$; $u( x ) = 1$ при $s + \eps \le x \le t - \eps$; на
-оставшихся промежутках она будет линейная с производной $\frac{1}{\eps}$ и $-\frac{1}{\eps}$ соответственно.
-Тогда $\overline{u}( x ) = 0$ при $x \le \frac{ s - t }{2}$ и при $x \ge \frac{t - s}{2}$;
-$\overline{u}( x ) = 1$ при $\frac{s - t}{2} + \eps \le x \le \frac{t - s}{2} - \eps$; на оставшихся двух кусках
-опять линейная с теми же производными.
+Предположим, заключение леммы не выполнено.
+Тогда найдутся $-1 \le s \le t \le 1$, $\eps, \delta > 0$ ($2 \eps < t - s$) и $\bar{v} \in \Real_+$,
+что для любого $0 \le z \le \eps$ выполнено
+$$a(s + z) + a(t - z) + 2 \delta < a\Big(\frac{s - t + 2z}{2}\Big) + a\Big(\frac{t - s - 2z}{2}\Big).$$
 
-Тогда 
+Рассмотрим функцию $u$, заданную (\ref{parLinU}).
+Для нее
 \begin{multline*}
-0 \le I(a, u) - I(a, \overline{u}) =
-\\ \int_s^{s + \eps} F( \frac{a( x )}{\eps} ) dx + \int_{t - \eps}^{t} F( \frac{a( x )}{\eps} ) dx -
+0 \le I(a, u) - I(a, \overline{u}) \\
+=\int_s^{s + \eps} F( \frac{a( x )}{\eps} ) dx + \int_{t - \eps}^{t} F( \frac{a( x )}{\eps} ) dx -
 \int_{\frac{s - t}{2}}^{\frac{s - t}{2} + \eps} F( \frac{a( x )}{\eps} ) dx -
 \int_{\frac{t - s}{2} - \eps}^{\frac{t - s}{2}} F( \frac{a( x )}{\eps} ) dx =: J.
 \end{multline*}
