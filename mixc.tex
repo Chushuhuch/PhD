@@ -1115,27 +1115,32 @@ a( s, v ) + a( t, v ) \ge a\Big( \frac{ s - t }{2}, v \Big) + a\Big( \frac{ t - 
 \begin{proof}
 Предположим, заключение леммы не выполнено.
 Тогда найдутся $-1 \le s \le t \le 1$, $\eps, \delta > 0$ ($2 \eps < t - s$) и $\bar{v} \in \Real_+$,
-что для любого $0 \le z \le \eps$ выполнено
-$$a(s + z) + a(t - z) + 2 \delta < a\Big(\frac{s - t + 2z}{2}\Big) + a\Big(\frac{t - s - 2z}{2}\Big).$$
+что для любого $0 \le z \le \eps$ и любого $\bar{v} \le v \le \bar{v} + \eps$ выполнено
+$$a(s + z, v) + a(t - z, v) + 2 \delta < a\Big(\frac{s - t + 2z}{2}, v\Big) + a\Big(\frac{t - s - 2z}{2}, v\Big).$$
 
-Рассмотрим функцию $u$, заданную (\ref{parLinU}).
+Рассмотрим функцию $u$, заданную в (\ref{parLinU}). Тогда
+$$
+\left\{     
+\begin{aligned}
+\bar{u}(x) &= \bar{v}, & x \in &[-1, \frac{s - t}{2}] \cup [\frac{t - s}{2}, 1]\\
+\bar{u}(x) &= \bar{v} + x - \frac{s - t}{2}, & x \in &[\frac{s - t}{2}, \frac{s - t}{2} + \eps]\\
+\bar{u}(x) &= \bar{v} + \eps, & x \in &[\frac{s - t}{2} + \eps, \frac{t - s}{2} - \eps]\\
+\bar{u}(x) &= \bar{v} + \frac{t - s}{2} - x, & x \in &[\frac{t - s}{2} - \eps, \frac{t - s}{2}].
+\end{aligned}
+\right.
+$$
 
-Построим функцию $u$: $u( x ) = 0$, если $x \le s$ или $x \ge t$; $u( x ) = 1$ при $s + \eps \le x \le t - \eps$; на
-оставшихся промежутках она будет линейная с производной $\frac{1}{\eps}$ и $-\frac{1}{\eps}$ соответственно.
-Тогда $\overline{u}( x ) = 0$ при $x \le \frac{ s - t }{2}$ и при $x \ge \frac{t - s}{2}$;
-$\overline{u}( x ) = 1$ при $\frac{s - t}{2} + \eps \le x \le \frac{t - s}{2} - \eps$; на оставшихся двух кусках
-опять линейная с теми же производными.
-
-Тогда 
+Тогда выполнено
 \begin{multline*}
-0 \le I(a, u) - I(a, \overline{u}) =
-\\ \int_s^{s + \eps} F( \frac{a( x )}{\eps} ) dx + \int_{t - \eps}^{t} F( \frac{a( x )}{\eps} ) dx -
-\int_{\frac{s - t}{2}}^{\frac{s - t}{2} + \eps} F( \frac{a( x )}{\eps} ) dx -
-\int_{\frac{t - s}{2} - \eps}^{\frac{t - s}{2}} F( \frac{a( x )}{\eps} ) dx =: J.
+0 \le I(a, u) - I(a, \overline{u}) \\
+=\int_0^{\eps} F( u(s + x), \frac{a( s + x, u(s + x) )}{\eps} ) dx + \int_{-\eps}^0 F( u(t + x), \frac{a( t + x, u(t + x) )}{\eps} ) dx \\
+-\int_0^{\eps} F( \bar{u}(\frac{s - t}{2} + x), \frac{a( \frac{s - t}{2} + x, \bar{u}(\frac{s - t}{2} + x) )}{\eps} ) dx \\
+-\int_{-\eps}^0 F( \bar{u}(\frac{t - s}{2} + x), \frac{a( \frac{t - s}{2} + x, \bar{u}(\frac{t - s}{2} + x) )}{\eps} ) dx =: J.
 \end{multline*}
-Обозначим $A = \max a$. Подберем $F( x ) = x^\alpha$ так,
-чтобы $\alpha > 1$ и $x \le F( x ) \le x + \delta$ для $x \le \frac{ A }{\eps}$.
-Для этого возьмем $\alpha = \log_{ \frac{A}{\eps} }(\delta + \frac{A}{\eps})$.
+
+Обозначим $A := \max a(x, v)$, где максимум берется по всем $x \in [-1, 1]$ и $v \in [\bar{v}, \bar{v} + \eps]$.
+Если взять $\alpha := \log_{ \frac{A}{\eps} }(\delta + \frac{A}{\eps}) > 1$ и
+$F( v, p ) := p^\alpha$, то для $p \le \frac{ A }{\eps}$ выполнено $p \le F( v, p ) \le p + \delta$.
 Тогда $$J \le \int_s^{s + \eps} \frac{a( x )}{\eps} dx + \int_{t - \eps}^{t} \frac{a( x )}{\eps} dx -
 \int_{\frac{s - t}{2}}^{\frac{s - t}{2} + \eps} \frac{a( x )}{\eps} dx -
 \int_{\frac{t - s}{2} - \eps}^{\frac{t - s}{2}} \frac{a( x )}{\eps} dx < 0.$$
