@@ -90,9 +90,9 @@ $$a(x + \Delta) = a(-(x + \Delta)) + a(1 - \Delta) \ge a(-x) = a(x).$$
 \end{proof}
 
 \begin{lm}
-\label{maxConcave}
+\label{maxSumConcave}
 Пусть функции $a_1$ и $a_2$ удовлетворяют неравенству (\ref{almostConcave}).
-Тогда функция $a(x) = \max (a_1(x), a_2(x))$ тоже ему удовлетворяет.
+Тогда функции $a(x) = \max (a_1(x), a_2(x))$ и $a_1(x) + a_2(x)$ тоже ему удовлетворяет.
 \end{lm}
 \begin{proof}
 \begin{multline*}
@@ -101,6 +101,8 @@ a(1 + s + t ) = \max( a_1(1 + s + t), a_2(1 + s + t) ) \le
 \le \max( a_1( s ), a_2( s ) ) + \max( a_1( t ), a_2( t ) ) =
 a( s ) + a( t ).
 \end{multline*}
+
+Утверждение для второй функции очевидно.
 \end{proof}
 
 \begin{lm}
