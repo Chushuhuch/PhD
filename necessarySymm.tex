@@ -2,22 +2,22 @@
 
 \subsection{Необходимые условия}
 
-Будем рассматривать условия, необходимые для выполнения
-неравенства $I(a, \overline{u}) \le I(a, u)$ в одномерном случае.
-
 \begin{lm}
 Если неравенство (\ref{toproveSymm}) выполняется для произвольной $F \in \mathfrak{F}$
 и произвольной кусочно линейной $u$, то
 вес $a$ удовлетворяет условию
-$$\forall s, t \in [-1, 1], \forall v \quad
-a( s, v ) + a( t, v ) \ge a\Big( \frac{ s - t }{2}, v \Big) + a\Big( \frac{ t - s }{2}, v \Big).$$
+\begin{equation}
+\label{almostConvex}
+\forall s, t \in [-1, 1], \forall v \in \Real_+ \quad
+a( s, v ) + a( t, v ) \ge a\Big( \frac{ s - t }{2}, v \Big) + a\Big( \frac{ t - s }{2}, v \Big).
+\end{equation}
 \end{lm}
 
 \begin{proof}
-Предположим, заключение леммы не выполнено.
-Тогда найдутся $-1 \le s \le t \le 1$, $\eps, \delta > 0$ ($2 \eps < t - s$) и $\bar{v} \in \Real_+$,
+Предположим, что неравенство (\ref{almostConvex}) не выполнено.
+Тогда найдутся $-1 \le s < t \le 1$, $\eps, \delta > 0$ ($2 \eps < t - s$) и $\bar{v} \in \Real_+$,
 что для любого $0 \le z \le \eps$ и любого $\bar{v} \le v \le \bar{v} + \eps$ выполнено
-$$a(s + z, v) + a(t - z, v) + 2 \delta < a\Big(\frac{s - t + 2z}{2}, v\Big) + a\Big(\frac{t - s - 2z}{2}, v\Big).$$
+$$a(s + z, v + z) + a(t - z, v + z) + 2 \delta < a\Big(\frac{s - t}{2} + z, v + z \Big) + a\Big(\frac{t - s}{2} - z, v + z \Big).$$
 
 Рассмотрим функцию $u$, заданную в (\ref{parLinU}). Тогда
 $$
@@ -31,58 +31,63 @@ $$
 \right.
 $$
 
-Тогда выполнено
+Отсюда получаем
 \begin{multline*}
 0 \le I(a, u) - I(a, \overline{u}) \\
-=\int_0^{\eps} F( u(s + x), \frac{a( s + x, u(s + x) )}{\eps} ) dx + \int_{-\eps}^0 F( u(t + x), \frac{a( t + x, u(t + x) )}{\eps} ) dx \\
--\int_0^{\eps} F( \bar{u}(\frac{s - t}{2} + x), \frac{a( \frac{s - t}{2} + x, \bar{u}(\frac{s - t}{2} + x) )}{\eps} ) dx \\
--\int_{-\eps}^0 F( \bar{u}(\frac{t - s}{2} + x), \frac{a( \frac{t - s}{2} + x, \bar{u}(\frac{t - s}{2} + x) )}{\eps} ) dx =: J.
+=\int_0^{\eps} F( u(s + z), \frac{a( s + z, u(s + z) )}{\eps} ) dz + \int_0^{\eps} F( u(t - z), \frac{a(t - z, u(t - z))}{\eps} ) dz \\
+-\int_0^{\eps} F( \bar{u}(\frac{s - t}{2} + z), \frac{a( \frac{s - t}{2} + z, \bar{u}(\frac{s - t}{2} + z) )}{\eps} ) dz \\
+-\int_0^{\eps} F( \bar{u}(\frac{t - s}{2} - z), \frac{a( \frac{t - s}{2} - z, \bar{u}(\frac{t - s}{2} - z) )}{\eps} ) dz =: J.
 \end{multline*}
 
 Обозначим $A := \max a(x, v)$, где максимум берется по всем $x \in [-1, 1]$ и $v \in [\bar{v}, \bar{v} + \eps]$.
 Если взять $\alpha := \log_{ \frac{A}{\eps} }(\delta + \frac{A}{\eps}) > 1$ и
 $F( v, p ) := p^\alpha$, то для $p \le \frac{ A }{\eps}$ выполнено $p \le F( v, p ) \le p + \delta$.
-Тогда $$J \le \int_s^{s + \eps} \frac{a( x )}{\eps} dx + \int_{t - \eps}^{t} \frac{a( x )}{\eps} dx -
-\int_{\frac{s - t}{2}}^{\frac{s - t}{2} + \eps} \frac{a( x )}{\eps} dx -
-\int_{\frac{t - s}{2} - \eps}^{\frac{t - s}{2}} \frac{a( x )}{\eps} dx < 0.$$
+Тогда
+\begin{multline*}
+J \cdot \eps^\alpha = \int_0^{\eps} \big( a(s + z, \bar{v} + z)^\alpha + a(t - z, \bar{v} + z)^\alpha
+- a(\frac{s - t}{2} + z, \bar{v} + z)^\alpha - a(\frac{t - s}{2} - z, \bar{v} + z)^\alpha \big) dz \\
+\le \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v} + z) + 2 \delta
+- a(\frac{s - t}{2} + z, \bar{v} + z) - a(\frac{t - s}{2} - z, \bar{v} + z) \big) dz < 0.
+\end{multline*}
 
-Для $s = t$ неравенство верно по непрерывности.
+Тем самым, мы пришли к противоречию, что завершает доказательство.
 \end{proof}
 
 \begin{lm}
-Если функция $a \in C^1([-1, 1])$ удовлетворяет $a( s ) + a( t ) \ge a( \frac{ s - t }{2} ) + a( \frac{ t - s }{2} )$ для
-любых $s$ и $t$, то она четная.
+Если для функции $a \in C([-1, 1], \Real_+)$ выполнено соотношение (\ref{almostConvex}), то она четная по первому аргументу.
 \end{lm}
 
 \begin{proof}
-Рассмотрим функцию $b( t ) = a( s ) + a( t ) - a( \frac{ s - t }{2} ) - a( \frac{ t - s }{2} ) \ge 0$.
-При $t = -s$ $b( t ) = 0$, то есть достигает минимума. Значит ее производная 
-$b'( -s ) = a'( -s ) + \frac{1}{2} a'( s ) - \frac{1}{2} a'( -s ) = 0$, то есть $a'( s ) = -a'( -s )$.
-Тем самым, функция четна.
-\end{proof}
+Предположим для начала, что $a(\cdot, v) \in C^1([-1, 1])$ при каждом $v$.
+Зафиксируем произвольное $s \in [-1, 1]$ и рассмотрим функцию
+$$b( x, v ) := a( s, v ) + a( x, v ) - a( \frac{ s - x }{2}, v ) - a( \frac{ x - s }{2}, v ) \ge 0.$$
+$x = -s$ является точкой минимума функции $b$, поскольку $b(-s, v) = 0$.
+Значит
+$$b'_x( -s, v ) = a'( -s, v ) + \frac{1}{2} a'( s, v ) - \frac{1}{2} a'( -s, v ) = 0,$$
+то есть $a'( s, v ) = -a'( -s, v )$. Тем самым, функция $a(\cdot, v)$ четна.
 
-\begin{lm}
-Если функция $a \in C([-1, 1])$ такова, что $a( s ) + a( t ) \ge a( \frac{ s - t }{2} ) + a( \frac{ t - s }{2} )$ для
-любых $s$ и $t$, то она четная.
-\end{lm}
+Рассмотрим теперь случай произвольной непрерывной $a$.
 
-\begin{proof}
-Продолжим $a( x ) = a( -1 )$ при $x < -1$ и $a( x ) = a( 1 )$ при $x > 1$.
-Рассмотрим усреднение функции: $a_\rho( x ) = \int_\Real w_\rho ( z ) a( x - z ) dz = \int_\Real w_\rho ( z ) a( x + z ) dz$.
+Продолжим $a( x, v ) := a( -1, v )$ при $x < -1$ и $a( x, v ) := a( 1, v )$ при $x > 1$.
+Рассмотрим усреднение функции:
+$$a_\rho( x, v ) = \int_\Real w_\rho ( z ) a( x - z, v ) dz = \int_\Real w_\rho ( z ) a( x + z, v ) dz,$$
+где $w_\rho(z) = \frac{1}{\rho} w(\frac{z}{\rho})$ и
+$w(z)=e^{1/(z^2-1)}$ при $-1 < z < 1$ и $w(z) = 0$ при $|z| \ge 1$.
 Тогда 
 \begin{multline*}
-a_\rho( s ) + a_\rho( t ) - a_\rho( \frac{ s - t }{2} ) - a_\rho( \frac{ t - s }{2} ) =
-\\ \int_\Real w_\rho ( z ) ( a( s - z ) + a( t + z ) - a( \frac{ s - t }{2} - z ) - a( \frac{ t - s }{2} + z ) ) dz \ge 0.
+a_\rho( s, v ) + a_\rho( t, v ) - a_\rho( \frac{ s - t }{2}, v ) - a_\rho( \frac{ t - s }{2}, v ) =
+\\ \int_\Real w_\rho ( z ) \big( a( s - z, v ) + a( t + z, v ) - a( \frac{ s - t }{2} - z, v ) - a( \frac{ t - s }{2} + z, v ) \big) dz \ge 0.
 \end{multline*}
-Значит $a_\rho$ --- четная. Кроме того, $a_\rho( x ) \to a( x )$ равномерно. Тогда
-$a( x ) = \lim a_\rho( x ) = \lim a_\rho( -x ) = a( -x )$.
+Значит $a_\rho(\cdot, v)$ --- четная. Кроме того, $a_\rho( \cdot, v ) \to a( \cdot, v )$ равномерно.
+Тогда при $\rho \to \infty$
+$$a( x, v ) = \lim a_\rho( x, v ) = \lim a_\rho( -x, v ) = a( -x, v ).$$
 \end{proof}
 
 \begin{lm}
-Если четная функция $a$ удовлетворяет $a( s ) + a( t ) \ge a( \frac{ s - t }{2} ) + a( \frac{ t - s }{2} )$ для
-любых $s$ и $t$, то она выпукла.
+Если четная функция $a(x, v)$ удовлетворяет (\ref{almostConvex}), то она выпукла по $x$.
 \end{lm}
 
 \begin{proof}
-Действительно, для любых $s$, $t$ $a( s ) + a( t ) = a( s ) + a( -t ) \ge 2 a( \frac{ s + t }{2} )$.
+Действительно, для любых $s$, $t$ и $v$ имеем
+$$a( s, v ) + a( t, v ) = a( s, v ) + a( -t, v ) \ge 2 a\big( \frac{ s + t }{2}, v \big).$$
 \end{proof}
