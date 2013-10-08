@@ -767,22 +767,13 @@ u_h \to u \text{ в } \W(x_0, x_1);\\
 \end{rem}
 
 \begin{cor}
-Если функция $a$ непрерывна, четна и убывает на $[0, 1]$, то для любой $u \in \W(-1, 1)$ выполнено $I( a, u^* ) \le I( a, u )$.
+Пусть функция $a$ непрерывна, четна, удовлетворяет неравенству (\ref{almostConcave})
+и убывает на $[0, 1]$. Тогда для любой $u \in \W(-1, 1)$ выполнено $I( a, u^* ) \le I( a, u )$.
 \end{cor}
 
 \begin{proof}
 Неравенство немедленно следует из лемм \ref{uplift} и \ref{Wapprox}.
 \end{proof}
-
-Легко видеть, что ввиду замечаний \ref{landesNecessary} и \ref{landesLinear},
-а также доказательства леммы \ref{Wapprox} для одной половинки весовой функции
-верна
-\begin{thm}
-Пусть $F \in \mathfrak{F}$, функция $u \in \W(-1, 1)$ неотрицательна и удовлетворяет $u(-1) = 0$,
-весовая функция $a: [-1, 1] \times \Real_+ \to \Real_+$ непрерывна
-и удовлетворяет неравенству (\ref{almostConcave}).
-Тогда справедливо неравенство (\ref{toprove}).
-\end{thm}
 
 \section{Получение результата в общем случае}
 
@@ -1138,10 +1129,13 @@ a( s, v ) + a( t, v ) \ge a\Big( \frac{ s - t }{2}, v \Big) + a\Big( \frac{ t - 
 \begin{proof}
 Предположим, что неравенство (\ref{almostConvex}) не выполнено.
 Тогда найдутся $-1 \le s < t \le 1$, $\eps, \delta > 0$ ($2 \eps < t - s$) и $\bar{v} \in \Real_+$,
-что для любого $0 \le z \le \eps$ и любого $\bar{v} \le v \le \bar{v} + \eps$ выполнено
-$$a(s + z, v + z) + a(t - z, v + z) + 2 \delta < a\Big(\frac{s - t}{2} + z, v + z \Big) + a\Big(\frac{t - s}{2} - z, v + z \Big).$$
+такие, что для любого $0 \le z \le \eps$ и любого $\bar{v} \le v \le \bar{v} + \eps$ выполнено
+\begin{equation}
+\label{notConvex}
+a(s + z, v + z) + a(t - z, v + z) + 2 \delta < a\Big(\frac{s - t}{2} + z, v + z \Big) + a\Big(\frac{t - s}{2} - z, v + z \Big).
+\end{equation}
 
-Рассмотрим функцию $u$, заданную в (\ref{parLinU}). Тогда
+Рассмотрим функцию $u$, введенную в (\ref{parLinU}). Тогда
 $$
 \left\{     
 \begin{aligned}
@@ -1161,16 +1155,19 @@ $$
 -\int_0^{\eps} F( \bar{u}(\frac{t - s}{2} - z), \frac{a( \frac{t - s}{2} - z, \bar{u}(\frac{t - s}{2} - z) )}{\eps} ) dz =: J.
 \end{multline*}
 
-Обозначим $A := \max a(x, v)$, где максимум берется по всем $x \in [-1, 1]$ и $v \in [\bar{v}, \bar{v} + \eps]$.
-Если взять $\alpha := \log_{ \frac{A}{\eps} }(\delta + \frac{A}{\eps}) > 1$ и
-$F( v, p ) := p^\alpha$, то для $p \le \frac{ A }{\eps}$ выполнено $p \le F( v, p ) \le p + \delta$.
+Возьмем $F(v, p) := p^\alpha$, где $\alpha > 1$.
 Тогда
-\begin{multline*}
-J \cdot \eps^\alpha = \int_0^{\eps} \big( a(s + z, \bar{v} + z)^\alpha + a(t - z, \bar{v} + z)^\alpha
-- a(\frac{s - t}{2} + z, \bar{v} + z)^\alpha - a(\frac{t - s}{2} - z, \bar{v} + z)^\alpha \big) dz \\
-\le \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v} + z) + 2 \delta
-- a(\frac{s - t}{2} + z, \bar{v} + z) - a(\frac{t - s}{2} - z, \bar{v} + z) \big) dz < 0.
-\end{multline*}
+$$J = \frac{1}{\eps^\alpha} \int_0^{\eps} \big( a(s + z, \bar{v} + z)^\alpha + a(t - z, \bar{v} + z)^\alpha
+- a(\frac{s - t}{2} + z, \bar{v} + z)^\alpha - a(\frac{t - s}{2} - z, \bar{v} + z)^\alpha \big) dz.$$
+
+Обозначим $A := \max a(x, v)$, где максимум берется по всем $x \in [-1, 1]$ и $v \in [\bar{v}, \bar{v} + \eps]$.
+Если взять $\alpha := \log_{ \frac{A}{\eps} }(\frac{A}{\eps} + \delta) > 1$,
+то для $p \le \frac{ A }{\eps}$ имеем $p - \delta \le F( v, p ) \le p$, и
+\begin{equation*}
+J \le \frac{1}{\eps^\alpha} \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v} + z) + 2 \delta
+- a(\frac{s - t}{2} + z, \bar{v} + z) - a(\frac{t - s}{2} - z, \bar{v} + z) \big) dz < 0
+\end{equation*}
+(последнее неравенство следует из (\ref{notConvex})).
 
 Тем самым, мы пришли к противоречию, что завершает доказательство.
 \end{proof}
