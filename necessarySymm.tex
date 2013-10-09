@@ -42,14 +42,14 @@ $$
 -\int_0^{\eps} F( \bar{u}(\frac{t - s}{2} - z), \frac{a( \frac{t - s}{2} - z, \bar{u}(\frac{t - s}{2} - z) )}{\eps} ) dz =: J.
 \end{multline*}
 
-Возьмем $F(v, p) := p^\alpha$, где $\alpha > 1$.
+Возьмем $F(v, p) := f(p) := p + c p^2$, где $c > 0$.
 Тогда
-$$J = \frac{1}{\eps^\alpha} \int_0^{\eps} \big( a(s + z, \bar{v} + z)^\alpha + a(t - z, \bar{v} + z)^\alpha
-- a(\frac{s - t}{2} + z, \bar{v} + z)^\alpha - a(\frac{t - s}{2} - z, \bar{v} + z)^\alpha \big) dz.$$
+$$J = \int_0^{\eps} \big( f(a(s + z, \bar{v} + z)) + f(a(t - z, \bar{v} + z))
+- f(a(\frac{s - t}{2} + z, \bar{v} + z)) - f(a(\frac{t - s}{2} - z, \bar{v} + z)) \big) dz.$$
 
 Обозначим $A := \max a(x, v)$, где максимум берется по всем $x \in [-1, 1]$ и $v \in [\bar{v}, \bar{v} + \eps]$.
-Если взять $\alpha := \log_{ \frac{A}{\eps} }(\frac{A}{\eps} + \delta) > 1$,
-то для $p \le \frac{ A }{\eps}$ имеем $p - \delta \le F( v, p ) \le p$, и
+Если взять $c := \frac{\delta}{(A / \eps)^2} > 0$,
+то для $p \le \frac{ A }{\eps}$ имеем $p \le f( p ) \le p + \delta$, и
 \begin{equation*}
 J \le \frac{1}{\eps^\alpha} \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v} + z) + 2 \delta
 - a(\frac{s - t}{2} + z, \bar{v} + z) - a(\frac{t - s}{2} - z, \bar{v} + z) \big) dz < 0
