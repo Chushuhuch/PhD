@@ -1173,33 +1173,31 @@ J \le \frac{1}{\eps^\alpha} \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z,
 \end{proof}
 
 \begin{lm}
-Если для функции $a \in C([-1, 1], \Real_+)$ выполнено соотношение (\ref{almostConvex}), то она четная по первому аргументу.
+Если для функции $a \in C([-1, 1] \times \Real_+)$ выполнено соотношение (\ref{almostConvex}), то она четна по первому аргументу.
 \end{lm}
 
 \begin{proof}
 Предположим для начала, что $a(\cdot, v) \in C^1([-1, 1])$ при каждом $v$.
-Зафиксируем произвольное $s \in [-1, 1]$ и рассмотрим функцию
-$$b( x, v ) := a( s, v ) + a( x, v ) - a( \frac{ s - x }{2}, v ) - a( \frac{ x - s }{2}, v ) \ge 0.$$
-$x = -s$ является точкой минимума функции $b$, поскольку $b(-s, v) = 0$.
-Значит
-$$b'_x( -s, v ) = a'( -s, v ) + \frac{1}{2} a'( s, v ) - \frac{1}{2} a'( -s, v ) = 0,$$
-то есть $a'( s, v ) = -a'( -s, v )$. Тем самым, функция $a(\cdot, v)$ четна.
+Зафиксируем произвольные $s \in [-1, 1]$ и $v \in \Real_+$ и рассмотрим функцию
+$$b(x) := a( s, v ) + a( x, v ) - a( \frac{ s - x }{2}, v ) - a( \frac{ x - s }{2}, v ) \ge 0.$$
+$x = -s$ является точкой минимума функции $b$, поскольку $b(-s) = 0$.
+Значит,
+$$b'(-s) = a'_x( -s, v ) + \frac{1}{2} a'_x( s, v ) - \frac{1}{2} a'_x( -s, v ) = 0,$$
+то есть $a'_x( s, v ) = -a'_x( -s, v )$. Тем самым, функция $a(\cdot, v)$ четна.
 
 Рассмотрим теперь случай произвольной непрерывной $a$.
 
 Продолжим $a( x, v ) := a( -1, v )$ при $x < -1$ и $a( x, v ) := a( 1, v )$ при $x > 1$.
 Рассмотрим усреднение функции:
 $$a_\rho( x, v ) = \int_\Real w_\rho ( z ) a( x - z, v ) dz = \int_\Real w_\rho ( z ) a( x + z, v ) dz,$$
-где $w_\rho(z) = \frac{1}{\rho} w(\frac{z}{\rho})$ и
-$w(z)=e^{1/(z^2-1)}$ при $-1 < z < 1$ и $w(z) = 0$ при $|z| \ge 1$.
+где $w_\rho(z)$ --- усредняющее ядро с радиусом $\rho$.
 Тогда 
 \begin{multline*}
 a_\rho( s, v ) + a_\rho( t, v ) - a_\rho( \frac{ s - t }{2}, v ) - a_\rho( \frac{ t - s }{2}, v ) =
 \\ \int_\Real w_\rho ( z ) \big( a( s - z, v ) + a( t + z, v ) - a( \frac{ s - t }{2} - z, v ) - a( \frac{ t - s }{2} + z, v ) \big) dz \ge 0.
 \end{multline*}
-Значит $a_\rho(\cdot, v)$ --- четная. Кроме того, $a_\rho( \cdot, v ) \to a( \cdot, v )$ равномерно.
-Тогда при $\rho \to \infty$
-$$a( x, v ) = \lim a_\rho( x, v ) = \lim a_\rho( -x, v ) = a( -x, v ).$$
+Значит $a_\rho(\cdot, v)$ --- четная.
+Переходя к пределу при $\rho \to 0$, получаем, что $a(\cdot, v)$ --- четная.
 \end{proof}
 
 \begin{lm}
@@ -1225,6 +1223,7 @@ $$a( s, v ) + a( t, v ) = a( s, v ) + a( -t, v ) \ge 2 a\big( \frac{ s + t }{2},
 получив неравенство (\ref{toproveSymm}) в общем виде.
 Заметим, что шаг 1 использует лишь условия $(H1)$, $(H6)$, $(H7)$,
 так что нет нужды проверять остальные.
+Таким образом, получаем следующий результат.
 
 \begin{thm}
 \label{symmThm}
@@ -1236,21 +1235,21 @@ $$a( s, v ) + a( t, v ) = a( s, v ) + a( -t, v ) \ge 2 a\big( \frac{ s + t }{2},
 
 \begin{thebibliography}{99}
 \bibitem{ASC} G.~Alberti,~F.~Serra~Cassano: Non-occurrence of gap for one-dimentional autonomous functionals,
-Proceedings of ``Calc. Var., Homogen. and Cont. Mech.'' , G.~Bouchitt\'e, G.~Buttazzo, P.~Suquet, ed.: World Sci., Singapore, p.1--17, 1994
+Proceedings of ``Calc. Var., Homogen. and Cont. Mech.'', G.~Bouchitt\'e, G.~Buttazzo, P.~Suquet, ed.: World Sci., Singapore, p.~1--17, 1994
 \bibitem{Br} F.~Brock: Weighted Dirichlet-type inequalities for Steiner symmetrization,
-Calc.~Var.~8, p.15--25, 1999
+Calc.~Var.~{\bf8}, p.~15--25, 1999
 \bibitem{BGH} G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt: One-dimensional Variational Problems,
-Oxford Lecture Series in Mathematics and Its Applications 15, 1998
+Oxford Lecture Series in Mathematics and Its Applications {\bf15}, 1998
 \bibitem{Kawohl} B.~Kawohl: Rearrangements and convexity of level sets in PDE,
-Lecture notes in mathematics 1150. Berlin; Springer Verlag, 1985. 134 p.
+Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~p.
 \bibitem{Lan} R.~Landes: Some remarks on rearrangements and functionals with non-constant density,
-Math.~Nachr.~280, No.~5--6, p.560--570, 2007
+Math.~Nachr.~{\bf280}, \No5--6, p.~560--570, 2007
 \bibitem{DAN} С.~Банкевич, А.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
-Доклады Академии Наук~438, \No1, стр. 11--13, 2011
+Доклады Академии Наук~{\bf438}, \No1, стр.~11--13, 2011
 \bibitem{Zh1} В.~В.~Жиков: О весовых соболевских пространствах,
-Матем. сб., 189:8, стр. 27--58, 1998
+Матем. сб., {\bf189}, \No8, стр.~27--58, 1998
 \bibitem{Zh2} В.~В.~Жиков: К проблеме предельного перехода в дивергентных неравномерно эллиптических уравнениях,
-Функц. анализ и его прил., 35:1, 23--39, 2001
+Функц. анализ и его прил., {\bf35}, \No1, стр.~23--39, 2001
 \bibitem{LL} Э.~Либ, М.~Лосс: Анализ, Научная книга, Новосибирск, 1998
 \bibitem{Fed} Г.~Федерер: Геометрическая теория меры, Наука, М., 1987
 
