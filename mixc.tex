@@ -110,15 +110,15 @@ u_k \to u \text{ в } \W(-1, 1) \quad \text{ и } \quad I(a, u_k) \to I(a, u).
 При некоторых дополнительных условиях этот результат был анонсирован в \cite{DAN}.
 
 Отметим еще, что неравенство (\ref{toprove}) для функционалов, аналогичных (\ref{functional}),
-рассматривалось в работе \cite{Lan} при дополнительном ограничении $u(-1) = 0$ и предположении,
-что вес убывает.
+рассматривалось в работе \cite{Lan} при дополнительном ограничении $u(-1) = 0$.
 При этом ограничении мы также получаем необходимые и достаточные условия выполнения (\ref{toprove}).
+(В \cite{Lan} предполагалось, что весовая функция убывает по $x$.)
 
 Статья разделена на 8 параграфов.
 В \S2 выводятся необходимые условия на весовую функцию $a$ для выполнения неравенства (\ref{toprove}).
 В \S3 сконцентрированы вспомогательные утверждения для весов, удовлетворяющих необходимым условиям.
 В \S4 неравенство (\ref{toprove}) доказано для кусочно линейных функций $u$.
-В \S5 мы намечаем схему для доказательства неравенства (\ref{toprove}) для более широких классов функций $u$.
+В \S5 мы намечаем схему для распространения неравенства (\ref{toprove}) на более широкие классы функций $u$.
 В \S6 мы доказываем неравенство (\ref{toprove}) при условии, что вес $a$ сначала возрастает, затем убывает.
 \S7 посвящен доказательству неравенства (\ref{toprove}) в общем виде.
 Наконец, в \S8 мы рассматриваем случай симметричной перестановки.
@@ -1201,16 +1201,18 @@ $$
 -\int_0^{\eps} F( \bar{u}(\frac{t - s}{2} - z), \frac{a( \frac{t - s}{2} - z, \bar{u}(\frac{t - s}{2} - z) )}{\eps} ) dz =: J.
 \end{multline*}
 
-Возьмем $F(v, p) := f(p) := p + c p^2$, где $c > 0$.
+Возьмем $F(v, p) := f(p) := p + \gamma p^2$, где $\gamma > 0$.
 Тогда
-$$J = \int_0^{\eps} \big( f(a(s + z, \bar{v} + z)) + f(a(t - z, \bar{v} + z))
-- f(a(\frac{s - t}{2} + z, \bar{v} + z)) - f(a(\frac{t - s}{2} - z, \bar{v} + z)) \big) dz.$$
+\begin{multline*}
+J = \int_0^{\eps} \big( f(\frac{a(s + z, \bar{v} + z)}{\eps}) + f(\frac{a(t - z, \bar{v} + z)}{\eps}) \\
+- f(\frac{a(\frac{s - t}{2} + z, \bar{v} + z)}{\eps}) - f(\frac{a(\frac{t - s}{2} - z, \bar{v} + z)}{\eps}) \big) dz.
+\end{multline*}
 
 Обозначим $A := \max a(x, v)$, где максимум берется по всем $x \in [-1, 1]$ и $v \in [\bar{v}, \bar{v} + \eps]$.
-Если взять $c := \frac{\delta}{(A / \eps)^2} > 0$,
-то для $p \le \frac{ A }{\eps}$ имеем $p \le f( p ) \le p + \delta$, и
+Если взять $\gamma := \frac{\delta / \eps}{(A / \eps)^2} > 0$,
+то для $p \le \frac{ A }{\eps}$ имеем $p \le f( p ) \le p + \frac{\delta}{\eps}$, и
 \begin{equation*}
-J \le \frac{1}{\eps^\alpha} \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v} + z) + 2 \delta
+J \le \frac{1}{\eps} \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v} + z) + 2 \delta
 - a(\frac{s - t}{2} + z, \bar{v} + z) - a(\frac{t - s}{2} - z, \bar{v} + z) \big) dz < 0
 \end{equation*}
 (последнее неравенство следует из (\ref{notConvex})).
@@ -1235,12 +1237,12 @@ $$b'(-s) = a'_x( -s, v ) + \frac{1}{2} a'_x( s, v ) - \frac{1}{2} a'_x( -s, v ) 
 
 Продолжим $a( x, v ) := a( -1, v )$ при $x < -1$ и $a( x, v ) := a( 1, v )$ при $x > 1$.
 Рассмотрим усреднение функции:
-$$a_\rho( x, v ) = \int_\Real w_\rho ( z ) a( x - z, v ) dz = \int_\Real w_\rho ( z ) a( x + z, v ) dz,$$
-где $w_\rho(z)$ --- усредняющее ядро с радиусом $\rho$.
+$$a_\rho( x, v ) = \int_\Real \omega_\rho ( z ) a( x - z, v ) dz = \int_\Real \omega_\rho ( z ) a( x + z, v ) dz,$$
+где $\omega_\rho(z)$ --- усредняющее ядро с радиусом $\rho$.
 Тогда 
 \begin{multline*}
 a_\rho( s, v ) + a_\rho( t, v ) - a_\rho( \frac{ s - t }{2}, v ) - a_\rho( \frac{ t - s }{2}, v ) =
-\\ \int_\Real w_\rho ( z ) \big( a( s - z, v ) + a( t + z, v ) - a( \frac{ s - t }{2} - z, v ) - a( \frac{ t - s }{2} + z, v ) \big) dz \ge 0.
+\\ \int_\Real \omega_\rho ( z ) \big( a( s - z, v ) + a( t + z, v ) - a( \frac{ s - t }{2} - z, v ) - a( \frac{ t - s }{2} + z, v ) \big) dz \ge 0.
 \end{multline*}
 Значит $a_\rho(\cdot, v)$ --- четная.
 Переходя к пределу при $\rho \to 0$, получаем, что $a(\cdot, v)$ --- четная.
@@ -1285,19 +1287,19 @@ Proceedings of ``Calc. Var., Homogen. and Cont. Mech.'', G.~Bouchitt\'e, G.~Butt
 \bibitem{Br} F.~Brock: Weighted Dirichlet-type inequalities for Steiner symmetrization,
 Calc.~Var.~{\bf8}, p.~15--25, 1999
 \bibitem{BGH} G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt: One-dimensional Variational Problems,
-Oxford Lecture Series in Mathematics and Its Applications {\bf15}, 1998
+Oxford Lecture Series in Mathematics and Its Applications {\bf15}, 1998. 272 p.
 \bibitem{Kawohl} B.~Kawohl: Rearrangements and convexity of level sets in PDE,
 Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~p.
 \bibitem{Lan} R.~Landes: Some remarks on rearrangements and functionals with non-constant density,
 Math.~Nachr.~{\bf280}, \No5--6, p.~560--570, 2007
 \bibitem{DAN} С.~Банкевич, А.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
-Доклады Академии Наук~{\bf438}, \No1, стр.~11--13, 2011
+Доклады Академии Наук~{\bf438}, \No1, с.~11--13, 2011
 \bibitem{Zh1} В.~В.~Жиков: О весовых соболевских пространствах,
-Матем. сб., {\bf189}, \No8, стр.~27--58, 1998
+Матем. сб., {\bf189}, \No8, с.~27--58, 1998
 \bibitem{Zh2} В.~В.~Жиков: К проблеме предельного перехода в дивергентных неравномерно эллиптических уравнениях,
-Функц. анализ и его прил., {\bf35}, \No1, стр.~23--39, 2001
-\bibitem{LL} Э.~Либ, М.~Лосс: Анализ, Научная книга, Новосибирск, 1998
-\bibitem{Fed} Г.~Федерер: Геометрическая теория меры, Наука, М., 1987
+Функц. анализ и его прил., {\bf35}, \No1, с.~23--39, 2001
+\bibitem{LL} Э.~Либ, М.~Лосс: Анализ, Научная книга, Новосибирск, 1998. 276~с.
+\bibitem{Fed} Г.~Федерер: Геометрическая теория меры, Наука, М., 1987. 760~с.
 
 \end{thebibliography}
 
