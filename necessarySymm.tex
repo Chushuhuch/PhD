@@ -1,6 +1,6 @@
 \section{Дополнение. Случай симметричной перестановки}
 
-\subsection{Необходимые условия}
+\subsection{Необходимые условия на вес}
 
 \begin{lm}
 Если неравенство (\ref{toproveSymm}) выполняется для произвольной $F \in \mathfrak{F}$
@@ -62,7 +62,8 @@ J \le \frac{1}{\eps} \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v
 \end{proof}
 
 \begin{lm}
-Если для функции $a \in C([-1, 1] \times \Real_+)$ выполнено соотношение (\ref{almostConvex}), то она четна по первому аргументу.
+Если для функции $a \in C([-1, 1] \times \Real_+)$ выполнено соотношение (\ref{almostConvex}),
+то она четна и выпукла по первому аргументу.
 \end{lm}
 
 \begin{proof}
@@ -87,13 +88,7 @@ a_\rho( s, v ) + a_\rho( t, v ) - a_\rho( \frac{ s - t }{2}, v ) - a_\rho( \frac
 \end{multline*}
 Значит $a_\rho(\cdot, v)$ --- четная.
 Переходя к пределу при $\rho \to 0$, получаем, что $a(\cdot, v)$ --- четная.
-\end{proof}
 
-\begin{lm}
-Если четная функция $a(x, v)$ удовлетворяет (\ref{almostConvex}), то она выпукла по $x$.
-\end{lm}
-
-\begin{proof}
-Действительно, для любых $s$, $t$ и $v$ имеем
+Наконец, для любых $s$, $t$ и $v$ имеем
 $$a( s, v ) + a( t, v ) = a( s, v ) + a( -t, v ) \ge 2 a\big( \frac{ s + t }{2}, v \big).$$
 \end{proof}

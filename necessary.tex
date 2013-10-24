@@ -9,7 +9,7 @@
 и произвольной кусочно линейной $u$, то вес $a$ удовлетворяет неравенству
 \begin{equation}
 \label{almostConcave}
-\forall -1 \le s \le t \le 1, \forall v \quad a( s, v ) + a( t, v ) \ge a( 1 - t + s, v ).
+a( s, v ) + a( t, v ) \ge a( 1 - t + s, v ), \qquad -1 \le s \le t \le 1, v \in \Real_+.
 \end{equation}
 \end{thm}
 
@@ -17,8 +17,8 @@
 {\bf 1.} Предположим, что $a(x, v) \not\equiv a(-x, v)$.
 Тогда найдутся такие $\bar{x} \in (-1, 1)$, $\eps > 0$ и $\bar{v} \in \Real_+$, что
 $$a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v}).$$
-Тогда
-$$\exists \eps : \bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v),$$
+Поэтому существует $\eps > 0$, такое, что
+$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v),$$
 и можно взять следующую функцию:
 $$
 \left\{     

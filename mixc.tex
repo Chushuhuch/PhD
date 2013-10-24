@@ -22,6 +22,7 @@
 \renewcommand{\le}{\leqslant}
 \renewcommand{\liminf}{\underline{\lim}}
 \newcommand{\grad}{\triangledown}
+\newcommand{\card}{{\rm card}}
 \newtheorem{thm}{Теорема}
 \newtheorem{prop}{Предложение}
 \newtheorem{lm}{Лемма}
@@ -135,7 +136,7 @@ u_k \to u \text{ в } \W(-1, 1) \quad \text{ и } \quad I(a, u_k) \to I(a, u).
 и произвольной кусочно линейной $u$, то вес $a$ удовлетворяет неравенству
 \begin{equation}
 \label{almostConcave}
-\forall -1 \le s \le t \le 1, \forall v \quad a( s, v ) + a( t, v ) \ge a( 1 - t + s, v ).
+a( s, v ) + a( t, v ) \ge a( 1 - t + s, v ), \qquad -1 \le s \le t \le 1, v \in \Real_+.
 \end{equation}
 \end{thm}
 
@@ -143,8 +144,8 @@ u_k \to u \text{ в } \W(-1, 1) \quad \text{ и } \quad I(a, u_k) \to I(a, u).
 {\bf 1.} Предположим, что $a(x, v) \not\equiv a(-x, v)$.
 Тогда найдутся такие $\bar{x} \in (-1, 1)$, $\eps > 0$ и $\bar{v} \in \Real_+$, что
 $$a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v}).$$
-Тогда
-$$\exists \eps : \bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v),$$
+Поэтому существует $\eps > 0$, такое, что
+$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v),$$
 и можно взять следующую функцию:
 $$
 \left\{     
@@ -414,7 +415,7 @@ $(-1 + \frac{2i}{k})$, $i = 0, 1, \dots, k$, тоже
 
 Рассмотрим функцию $h_2(y) = a_k(\frac{2j}{k}) - a_k(s - y) - a_k(t + y)$, где $1 - t + s = \frac{2j}{k}$.
 Предположим, $s + y_0$ --- один из узлов интерполяции, тогда $t + y_0$ тоже будет узлом интерполяции.
-Тем самым, $h_2(y_0) \le 0$.
+Тем самым, $h_2(y_0) = a(\frac{2j}{k}) - a(s - y) - a(t + y) \le 0$.
 В промежутках между такими $y_0$ функция $h_2$ линейна, границы области определения $h_2$ приходятся на узлы интерполяции,
 значит $h_2(y) \le 0$ на всей области определения.
 
@@ -1041,8 +1042,8 @@ h(v) = &\frac{c(x_{i + 1}, v) - c(x_i, v)}{\tilde{t}(v)} &\text{ при } \tilde{t}
 h(v) = &0 &\text{ при } \tilde{t}(v) = 0&.
 \end{aligned}
 $$
-Тогда $card A_i = card \{ \alpha \in [0, 1]: meas \{ v \in [\min u, \max u]: h(v) \pm \frac{2}{k}\ \alpha = 0 \} > 0 \}.$
-Значит, $card A_i \le \aleph_0$, а также $card \cup_i A_i \le \aleph_0$.
+Тогда $\card(A_i) = \card(\{ \alpha \in [0, 1]: meas \{ v \in [\min u, \max u]: h(v) \pm \frac{2}{k}\ \alpha = 0 \} > 0 \}).$
+Значит, $\card(A_i) \le \aleph_0$, а также $\card(\cup_i A_i) \le \aleph_0$.
 Тем самым, найдется последовательность весов $d_{\alpha_j} \searrow c$, удовлетворяющих $(H1)-(H5)$.
 Поэтому $I(d_{\alpha_j}, u^*) \le I(d_{\alpha_j}, u)$.
 Переходя к пределу, получим $I(c, u^*) \le I(c, u)$.
@@ -1065,7 +1066,7 @@ $$F(u(x), c_k(x, u(x)) |u'(x)|) \to F(u(x), a(x, u(x)) |u'(x)|).$$
 
 Покажем, что $b_k$ удовлетворяет $(H2)$.
 Действительно, в противном случае найдется последовательность $v_l$, для которой
-$l < card Z_{b_k}(v_l) < \infty$.
+$l < \card(Z_{b_k})(v_l) < \infty$.
 После перехода к подпоследовательности имеем $v_l \to v_0$.
 Покажем, что $Z_a(v_0) = [-1, 1]$. Из леммы \ref{periodicity} следует, что
 множества $Z_{b_k}(v_l) = Z_a(v_l)$ периодические с периодом не более $\frac{2}{l - 1}$.
@@ -1075,7 +1076,7 @@ $\abs{x - x_l} \le \frac{1}{l - 1}$ и $a(x_l, v_l) = 0$.
 Тем самым, $a(x, v_0) = 0$ и $Z_a(v_0) = [-1, 1]$.
 Но это означает, что для каждого $v$ такого,
 что $\abs{v - v_0} \le \frac{1}{k}$, выполнено $b_k(\cdot, v) \equiv 0$,
-что противоречит $card Z_{b_k}(v_l) < \infty$.
+что противоречит $\card(Z_{b_k})(v_l) < \infty$.
 
 
 Зафиксируем теперь $k \in \Nat$, обозначим $b_k =: b$
@@ -1114,17 +1115,16 @@ $$D_j(c_j, U(c_j)) = D_j(b, U(c_j)) \le D_j(b, U(b)) \to 0.$$
 \medskip
 
 Рассмотрим теперь случай, когда функция $u$ удовлетворяет дополнительному условию $u(-1) = 0$.
-Тогда верна
 \begin{thm}
-Пусть $F \in \mathfrak{F}$, функция $u \in \W(-1, 1)$ неотрицательна и удовлетворяет $u(-1) = 0$,
+Пусть $F \in \mathfrak{F}$, функция $u \in \W(-1, 1)$ неотрицательна, $u(-1) = 0$,
 весовая функция $a: [-1, 1] \times \Real_+ \to \Real_+$ непрерывна
 и удовлетворяет неравенству (\ref{almostConcave}).
 Тогда справедливо неравенство (\ref{toprove}).
 \end{thm}
 
 \begin{proof}
-Схема доказательства будет такой же, как и у теоремы \ref{mainThm},
-только нам придется несколько изменить ограничения $(H1)$ и $(H7)$:
+Мы следуем схеме доказательства теоремы \ref{mainThm},
+но вместо $(H1)$ и $(H7)$ накладываем следующие условия на вес:
 
 \bigskip
 \noindent
@@ -1132,34 +1132,30 @@ $(H1')$ $a(x, v)$ удовлетворяет неравенству (\ref{almostConcave}), а также $I(a,
 
 \bigskip
 \noindent
-$(H7')$ Пусть $x_1 < x_2 < x_3$,
-и на $[x_1, x_2]$ вес $a(\cdot, v)$ в $v$-окрестности графика функции $u$ убывает,
-а на $[x_2, x_3]$ возрастает.
-Тогда в некоторой окрестности точки $u(x_2)$ имеем $a(\cdot, v) \equiv 0$.
-Кроме того, в некоторой окрестности $u(-1)$ также $a(\cdot, v) \equiv 0$.
+$(H7')$ Выполнено условие $(H7)$, и $a(\cdot, v) \equiv 0$ в некоторой $v$-окрестности нуля.
 
 \bigskip
-{\bf Шаг 1.} Пусть $u \in \W(-1, 1)$, выполнено $u(-1) = 0$, и вес $a$ удовлетворяет условиям $(H1')-(H7')$.
+{\bf Шаг 1.} Пусть $u \in \W(-1, 1)$, выполнено $u(-1) = 0$, и вес $a$ удовлетворяет условиям $(H1'), (H2)-(H6), (H7')$.
 Тогда выполняется неравенство (\ref{toprove}).
 
-Будем приближать так же, как и в первом шаге доказательства теоремы \ref{mainThm},
-с заменой $u$ в некоторой окрестности $-1$ на линейную так, чтобы $u_n(-1) = 0$.
+Будем приближать функцию $u$ так же, как и в первом шаге доказательства теоремы \ref{mainThm},
+с заменой $u$ в некоторой окрестности точки $x = -1$ на линейную так, чтобы $u_n(-1) = 0$.
 
 \bigskip
-{\bf Шаг 2.} Пусть вес $a$ удовлетворяет условиям $(H1')-(H6)$.
+{\bf Шаг 2.} Пусть вес $a$ удовлетворяет условиям $(H1'), (H2)-(H6)$.
 Тогда выполняется неравенство (\ref{toprove}).
 
-Добавим в множество $W$ из второго шага доказательства теоремы \ref{mainThm} точку $-1$
+Добавим в множество $W$ из второго шага доказательства теоремы \ref{mainThm} точку $0$
 и повторим рассуждение.
 
 \medskip
 
-Дальнейшие шаги переносятся без изменений.
+Дальнейшие шаги проходят без изменений.
 \end{proof}
 
 \section{Дополнение. Случай симметричной перестановки}
 
-\subsection{Необходимые условия}
+\subsection{Необходимые условия на вес}
 
 \begin{lm}
 Если неравенство (\ref{toproveSymm}) выполняется для произвольной $F \in \mathfrak{F}$
@@ -1221,7 +1217,8 @@ J \le \frac{1}{\eps} \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v
 \end{proof}
 
 \begin{lm}
-Если для функции $a \in C([-1, 1] \times \Real_+)$ выполнено соотношение (\ref{almostConvex}), то она четна по первому аргументу.
+Если для функции $a \in C([-1, 1] \times \Real_+)$ выполнено соотношение (\ref{almostConvex}),
+то она четна и выпукла по первому аргументу.
 \end{lm}
 
 \begin{proof}
@@ -1246,19 +1243,26 @@ a_\rho( s, v ) + a_\rho( t, v ) - a_\rho( \frac{ s - t }{2}, v ) - a_\rho( \frac
 \end{multline*}
 Значит $a_\rho(\cdot, v)$ --- четная.
 Переходя к пределу при $\rho \to 0$, получаем, что $a(\cdot, v)$ --- четная.
-\end{proof}
 
-\begin{lm}
-Если четная функция $a(x, v)$ удовлетворяет (\ref{almostConvex}), то она выпукла по $x$.
-\end{lm}
-
-\begin{proof}
-Действительно, для любых $s$, $t$ и $v$ имеем
+Наконец, для любых $s$, $t$ и $v$ имеем
 $$a( s, v ) + a( t, v ) = a( s, v ) + a( -t, v ) \ge 2 a\big( \frac{ s + t }{2}, v \big).$$
 \end{proof}
 
-\subsection{Переход к $\W$-функциям в неравенстве (\ref{toproveSymm})}
+\subsection{Доказательство неравенства (\ref{toproveSymm})}
 \label{sobolevSymm}
+
+\begin{thm}
+\label{symmThm}
+Пусть $F \in \mathfrak{F}$, функция $u \in \W(-1, 1)$ неотрицательна,
+и непрерывная весовая функция $a: [-1, 1] \times \Real_+ \to \Real_+$
+четна и выпукла по первому аргументу.
+Тогда справедливо неравенство (\ref{toproveSymm}).
+\end{thm}
+
+\begin{proof}
+Как указывалось во введении,
+для липшицевых функций $u$ утверждение теоремы доказано в \cite{Br}.
+Таким образом, необходимо лишь перейти к $\W$-функциям.
 
 Структура выпуклого по $x$ веса гораздо проще структуры веса,
 который мы рассматривали для случая монотонной перестановки.
@@ -1271,29 +1275,23 @@ $$a( s, v ) + a( t, v ) = a( s, v ) + a( -t, v ) \ge 2 a\big( \frac{ s + t }{2},
 получив неравенство (\ref{toproveSymm}) в общем виде.
 Заметим, что шаг 1 использует лишь условия $(H1)$, $(H6)$, $(H7)$,
 так что нет нужды проверять остальные.
-Таким образом, получаем следующий результат.
-
-\begin{thm}
-\label{symmThm}
-Пусть $F \in \mathfrak{F}$, функция $u \in \W(-1, 1)$ неотрицательна,
-и непрерывная весовая функция $a: [-1, 1] \times \Real_+ \to \Real_+$
-четна и выпукла по первому аргументу.
-Тогда справедливо неравенство (\ref{toproveSymm}).
-\end{thm}
+\end{proof}
 
 \begin{thebibliography}{99}
 \bibitem{ASC} G.~Alberti,~F.~Serra~Cassano: Non-occurrence of gap for one-dimentional autonomous functionals,
 Proceedings of ``Calc. Var., Homogen. and Cont. Mech.'', G.~Bouchitt\'e, G.~Buttazzo, P.~Suquet, ed.: World Sci., Singapore, p.~1--17, 1994
 \bibitem{Br} F.~Brock: Weighted Dirichlet-type inequalities for Steiner symmetrization,
-Calc.~Var.~{\bf8}, p.~15--25, 1999
-\bibitem{BGH} G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt: One-dimensional Variational Problems,
-Oxford Lecture Series in Mathematics and Its Applications {\bf15}, 1998. 272 p.
+Calc. Var. and PDEs~{\bf8}, p.~15--25, 1999
 \bibitem{Kawohl} B.~Kawohl: Rearrangements and convexity of level sets in PDE,
 Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~p.
 \bibitem{Lan} R.~Landes: Some remarks on rearrangements and functionals with non-constant density,
 Math.~Nachr.~{\bf280}, \No5--6, p.~560--570, 2007
 \bibitem{DAN} С.~Банкевич, А.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
 Доклады Академии Наук~{\bf438}, \No1, с.~11--13, 2011
+\bibitem{BGH} Дж.~Буттаццо, М.~Джаквинта, С.~Гильдебрандт: Одномерные вариационные задачи. Введение,
+Научная книга, Новосибирск, 2002. 246~с.
+%G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt: One-dimensional Variational Problems,
+%Oxford Lecture Series in Mathematics and Its Applications {\bf15}, 1998. 272 p.
 \bibitem{Zh1} В.~В.~Жиков: О весовых соболевских пространствах,
 Матем. сб., {\bf189}, \No8, с.~27--58, 1998
 \bibitem{Zh2} В.~В.~Жиков: К проблеме предельного перехода в дивергентных неравномерно эллиптических уравнениях,
