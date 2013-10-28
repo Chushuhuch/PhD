@@ -1,62 +1,63 @@
 \section{Introduction}
-Recall that for a measurable non-negative function there is a layer cake representation.
-Namely, we set $\mathcal{A}_t: = \{x \in [-1,1]:\ u(x)> t \}$.
-Then we have the equation $u(x) = \int_0^\infty \chi_{\mathcal{A}_t}dt$.
 
-Let us define a monotone rearrangement of a measurable set $E \subset [-1, 1]$ and
-monotone rearrangement of non-negative function $u \in \W (-1, 1)$ :
+First, we recall the layer cake representation for a measurable non-negative function.
+Namely, if we set $\mathcal{A}_t: = \{x \in [-1,1]:\ u(x)> t \}$
+then $u(x) = \int_0^\infty \chi_{\mathcal{A}_t}dt$.
+
+We define the monotone rearrangement of a measurable set $E \subset [-1, 1]$ and the
+monotone rearrangement of non-negative function $u \in \W (-1, 1)$ as follows:
 \begin{eqnarray*}
 E^*: = [1 - \abs{E}, 1] \qquad
 u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*}dt
 \end{eqnarray*}
 
-Under the same conditions we can define a symmetric rearrangement (or symmetrization) for sets and functions:
+Under the same conditions we define the symmetric rearrangement 
+(symmetrization) for sets and functions:
 \begin{eqnarray*}
 \overline{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}] \qquad
 \overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}}dt
 \end{eqnarray*}
 
-Introduce the set $\mathfrak{F}$ of convex and increasing in the second argument
-continuous functions $F: \Real_+ \times \Real_+ \to \Real_+$
-(where $\Real_+ = [0,\infty)$ here and below).
+We denote by $\mathfrak{F}$ the set of continuous functions 
+$F: \Real_+ \times \Real_+ \to \Real_+$
+which are convex and increasing with respect to the second argument.
+Here and elsewhere $\Real_+ = [0,\infty)$.
 
-Consider the functional :
+Let us consider a functional
 \begin{equation}
 \label{functional}
 I(a, u) = \int_{-1}^1 F(u(x), a(x, u(x)) \abs{u'(x)}) dx,
 \end{equation}
 where $a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
 
-It is well known that if $a \equiv const$ the inequalities
+It is well known that if $a \equiv const$ then the inequalities
 \begin{eqnarray}
 \label{toprove}
 I(a, u^*) & \le & I(a, u), \\
 \label{toproveSymm}
 I(a, \overline{u}) & \le & I(a, u)
 \end{eqnarray}
-hold (see for example \cite{Kawohl} and references therein).
+hold, see for example \cite{Kawohl} and references therein.
 
 The inequality (\ref{toproveSymm}) and its multi-dimensional analogue
-are proved in \cite{Br}
-provided that the function $a$ is even and convex with respect to $x$.
-However, the proof contains a gap,
-and in fact this inequality is proved only for Lipschitz functions $u$.
+are proved in \cite{Br} provided that the function $a$ is even and convex 
+with respect to $x$. However, the proof contains a gap,
+and in fact this inequality was proved in \cite{Br} only for Lipschitz functions $u$.
 
-Namely, while proving the inequality (\ref{toproveSymm}) for a natural class of functions
+Namely, while proving the inequality (\ref{toproveSymm}) for a natural class of functions,
 the author of \cite{Br} approximates $u \in \Wf$ having finite integral (\ref{functional})
-using piecewise linear functions $u_k$ and argues that $I(a, u_k) \to I(a, u)$.
-However, this assertion is not substantiated and in general is even incorrect.
-In 1926 M.~A.~Lavrentiev proposed the first example of an integral functional
-for which the infimum over the domain is strictly less than the infimum over the set of Lipschitz functions.
-For historical overview and simple examples of ``one-dimensional'' functionals
-for which the Lavrentiev phenomenon takes place see \cite{BGH} for example.
-Note that a deep study of the Lavrentiev phenomenon for some classes of multidimensional functionals
-was conducted by V.~V.~Zhikov (see for example \cite{Zh1}, \cite{Zh2}).
+using piecewise linear functions $u_k$ and claims that $I(a, u_k) \to I(a, u)$.
+However, this assertion is not justified and in general is is not true.
+In 1926, M.~A.~Lavrentiev proposed the first example of an integral functional
+for which the infimum over the domain is strictly less than the infimum over the set of 
+Lipschitz functions. For historical overview and simple examples of ``one-dimensional'' 
+functionals for which the Lavrentiev phenomenon takes place see, e.g., \cite{BGH}.
+Note that a deep investigation of the Lavrentiev phenomenon for some classes of multidimensional 
+functionals was realized by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
 
-In the paper \cite{ASC} the Lavrentiev phenomenon is proved not to take place for the functionals
-$I(a, u) = \int_{-1}^1 F(u, u')$.
-Moreover it is shown that for every $u \in \W(-1, 1)$ there exists a sequence
-of Lipschitz functions $u_k$, such that
+In the paper \cite{ASC} the absence of the Lavrentiev phenomenon was proved for the functionals
+$I(a, u) = \int_{-1}^1 F(u, u')$. Moreover it was shown that for every $u \in \W(-1, 1)$ 
+there exists a sequence of Lipschitz functions $u_k$, such that
 \begin{equation}
 \label{convergence}
 u_k \to u \text{ in } \W (-1, 1) \quad \text{ and } \quad I (a, u_k) \to I (a, u).
@@ -64,26 +65,31 @@ u_k \to u \text{ in } \W (-1, 1) \quad \text{ and } \quad I (a, u_k) \to I (a, u
 
 We modify the proof from \cite{ASC} and prove the absence of the Lavrentiev phenomenon
 for the functionals of the form (\ref{functional}).
-This makes it possible to fill a gap in the proof from \cite{Br} for the one-dimensional case.
-In addition we prove that evenness and convexity of the weight is a necessary and sufficient condition
+This allows us fill a gap in the proof from \cite{Br} in one-dimensional case.
+In addition we prove that evenness and convexity of the weight is a necessary condition
 for the inequality (\ref{toproveSymm}) to hold.
 
-The bulk of the paper is devoted to the inequality (\ref{toprove}).
-We find a necessary and sufficient condition on the weight $a$ for the inequality (\ref{toprove}) to hold%
-\footnote{In particular, the inequality is satisfied if the weight function $a$ is even and concave in $x$.}.
-Under certain additional conditions this result was announced in \cite{DAN}.
+The bulk of our paper is devoted to the inequality (\ref{toprove}).
+We find a necessary and sufficient condition on the weight $a$ for the inequality 
+(\ref{toprove}) to hold%
+\footnote{In particular, the inequality is satisfied if the weight function $a$ is even 
+and concave in $x$.}.
+Under certain additional assumptions this result was announced in \cite{DAN}.
 
-Also note that the inequality (\ref{toprove}) was considered in \cite{Lan}
-for functionals similar to (\ref{functional}) with the additional constraint $u(-1) = 0$.
+We note also that the inequality (\ref{toprove}) was considered in \cite{Lan}
+for functionals similar to (\ref{functional}) under additional constraint $u(-1) = 0$.
 We obtain necessary and sufficient conditions for (\ref{toprove}) under this constraint.
-(Author of \cite{Lan} assumed that the weight $a$ is decreasing in $x$.)
+(The author of \cite{Lan} assumed that the weight $a$ was decreasing in $x$.)
 
 The article is divided into 8 sections.
-In \S2 we set the conditions on the weight function $a$ which are necessary for the inequality (\ref{toprove}).
-In \S3 auxiliary statements for weights satisfying the necessary conditions are gathered.
+In Section 2 we deduce the assumptions on the weight function $a$ which are necessary for the 
+inequality (\ref{toprove}).
+In \S3 auxiliary statements for weights satisfying necessary conditions are established.
 In \S4 the inequality (\ref{toprove}) is proved for piecewise linear functions $u$.
-In \S5 we present the scheme for proving inequality (\ref{toprove}) for a wider class of functions $u$.
-In \S6 we prove inequality (\ref{toprove}), provided that the weight $a$ first increases, then decreases.
-\S7 is devoted to the proof of (\ref{toprove}) under only necessary conditions.
+In \S5 we present the scheme for proving inequality (\ref{toprove}) for a wider class of 
+functions $u$.
+In \S6 we prove inequality (\ref{toprove}), provided that the weight $a$ first increases, 
+then decreases.
+\S7 is devoted to the proof of (\ref{toprove}) under necessary conditions only.
 Finally, in the \S8 we consider the case of symmetric rearrangement.
-There we get the necessary conditions on the weight and complete the proof of (\ref{toproveSymm}).
+There we obtain necessary conditions on the weight and complete the proof of (\ref{toproveSymm}).
