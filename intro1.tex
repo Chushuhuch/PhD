@@ -1,5 +1,7 @@
 \section{Введение}
-Напомним, что для измеримой неотрицательной функции верна формула послойного представления.
+Напомним, что для измеримой функции $u: [-1, 1] \to \Real_+$
+(здесь и далее $\Real_+ = [0, \infty)$)
+верна формула послойного представления.
 Именно, положим $\mathcal{A}_t := \{ x \in [-1,1] :\ u( x ) > t \}$.
 Тогда имеет место равенство $u(x) = \int_0^\infty \chi_{\mathcal{A}_t} dt$.
 
@@ -16,8 +18,7 @@ u^*(x) := \int_0^\infty \chi_{\mathcal{A}_t^*} dt
 \overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}} dt
 \end{eqnarray*}
 
-Определим множество $\mathfrak{F}$ непрерывных функций $F: \Real_+ \times \Real_+ \to \Real_+$
-(здесь и далее $\Real_+ = [0, \infty)$),
+Определим множество $\mathfrak{F}$ непрерывных функций $F: \Real_+ \times \Real_+ \to \Real_+$,
 выпуклых и возрастающих по второму аргументу.
 
 Рассмотрим функционал:
@@ -30,7 +31,7 @@ I( a, u ) = \int_{-1}^1 F( u(x), a( x, u( x ) ) \abs{ u'( x ) } ) dx,
 Хорошо известно, что при $a \equiv const$ справедливы неравенства
 \begin{eqnarray}
 \label{toprove}
-I(a, u^*) &\le& I(a, u), \qquad \qquad u \in \W(-1, 1) \\
+I(a, u^*) &\le& I(a, u), \qquad \qquad u \in \W(-1, 1); \\
 \label{toproveSymm}
 I(a, \overline{u}) &\le& I(a, u), \qquad \qquad u \in \Wf(-1, 1)
 \end{eqnarray}
