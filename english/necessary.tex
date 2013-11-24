@@ -1,12 +1,12 @@
 \section{ The conditions necessary for the inequality (\ref{toprove})}
 
 \begin{thm}
-{\bf 1} If the inequality $(\ref{toprove})$ holds for some $F \in \mathfrak {F}$
-and arbitrary piecewise linear $u$, the weight $a$ is even in the first argument,
+{\bf 1}. Let the inequality (\ref{toprove}) hold for some $F \in \mathfrak {F}$
+and arbitrary piecewise linear $u$. Then the weight function $a$ is even with respect to the first argument,
 that is $a(x, v) \equiv a(-x, v)$.
 
-{\bf 2} If the inequality $(\ref{toprove})$ holds for arbitrary $F \in \mathfrak{F}$
-and arbitrary piecewise linear $u$, the weight $a$ satisfies
+{\bf 2}. Let the inequality (\ref{toprove}) hold for arbitrary $F \in \mathfrak{F}$
+and arbitrary piecewise linear $u$. Then the weight function $a$ satisfies
 \begin{equation}
 \label{almostConcave}
 a(s, v) + a(t, v) \ge a(1 - t + s, v), \qquad -1 \le s \le t \le 1, v \in \Real_+.
@@ -15,11 +15,11 @@ a(s, v) + a(t, v) \ge a(1 - t + s, v), \qquad -1 \le s \le t \le 1, v \in \Real_
 
 \begin{proof}
 {\bf 1.} Suppose that $a(x, v) \not \equiv a(-x, v)$.
-Then there are $\bar{x} \in (-1, 1 )$ and $\bar{v} \in \Real_ +$, for which
+Then there are $\bar{x} \in (-1, 1 )$ and $\bar{v} \in \Real_+$ such that
 $$a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v}).$$
-Therefore, there is $\eps> 0$, such that
-$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v),$$
-so we take the following function:
+Therefore, there is $\eps> 0$ such that
+$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v).$$
+Now we introduce the following function:
 $$
 \left\{     
 \begin{aligned}
@@ -36,11 +36,11 @@ I(a, u)-I(a, u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, a(x,
 \int_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) -
 F( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
 \end{multline*}
-which contradicts the hypothesis. {\bf 1} is proved.
+which contradicts the assumption. Thus, the first statement is proved.
 
-{\bf 2.} Suppose that the condition (\ref{almostConcave}) is not satisfied.
-Then, by the continuity of $a$, there exist $-1 \le s \le t \le 1$, $\eps, \delta> 0$ and $\bar{v} \in \Real_ +$, such that
-for every $0 \le y \le \eps$ and $\bar{v} \le v \le \bar{v} + \eps$ the following inequality holds:
+{\bf 2.} Suppose that the assumption (\ref{almostConcave}) is not satisfied.
+Then, by continuity of $a$, there exist $-1 \le s \le t \le 1$, $\eps, \delta> 0$ and $\bar{v} \in \Real_+$, such that
+for any $0 \le y \le \eps$ and $\bar{v} \le v \le \bar{v} + \eps$ the following inequality holds:
 $$a(s + y, v) + a(t - y, v) + \delta < a( 1 - t + s + 2y, v).$$
 
 Consider the function $u$ (see fig. \ref{uGraph}):
@@ -78,10 +78,10 @@ u(x) &= \bar{v} + t - x, & x \in [t - \eps, t]
 \put(190,24){\line(0,1){2}}
 \put(188,14){$1$}
 \put(20,70){$u(x)$}
-\put(85,1){рис. \arabic{pictureCounter}}
+\put(85,1){Fig. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
-then
+Then
 $$
 \left\{     
 \begin{aligned}
@@ -111,7 +111,7 @@ $$
 \put(190,24){\line(0,1){2}}
 \put(188,14){$1$}
 \put(20,70){$u^*(x)$}
-\put(85,1){рис. \arabic{pictureCounter}}
+\put(85,1){Fig. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
 
@@ -126,36 +126,36 @@ I(a, u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + 
 - 2 F(\bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
 \end{multline*}
 
-Now consider the function $F(v, p) = p ^ \alpha$.
-Obviously, with $\alpha = 1$, holds
+Let us consider the function $F(v, p) = p ^ \alpha$.
+For $\alpha = 1$, the following inequality trivially holds:
 \begin{equation}
 \label{anticonvex}
 \frac{F(v, p) + F(v, q)}{ 2 } - F(v, \frac{p + q}{ 2 } + \frac{\delta}{ 2}) <0.
 \end{equation}
-We are interested in $p, q$, lying on a compact $[0 , \max \limits_{(x, v)} a]$,
-where $(x, v) \in [-1, 1 ] \times u([-1, 1] )$.
-Then there is an $\alpha> 1$, for which the inequality (\ref{anticonvex})
+We are interested in $p, q$, lying on a compact $[0 , A]$,
+where 
+$$A=\max \limits_{(x, v)} a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
+$$
+Therefore, there is an $\alpha> 1$, for which the inequality (\ref{anticonvex})
 still holds.
 For example, any $1 < \alpha < (\log_2 \frac{ 2 A}{A + \delta})^{-1}$ is suitable.
 
-Thus, we picked up a strictly convex (in the second argument) function $F$
-for which $J \le 0$.
-This contradiction proves the {\bf 2} .
+Thus, we obtain a function $F$ strictly convex with respect to the second argument
+for which $J \le 0$. This contradiction proves the second statement.
 \end{proof}
 
 \begin{rem}
 \label{landesNecessary}
-It can be seen that the proof of the second part of the theorem
-function $u$ on the interval $[-1, s]$ can be replaced by any increasing function .
-Thus , the condition $(\ref{almostConcave})$ is a necessary and for the inequality $(\ref{toprove})$
-when fixed at the left end functions : $u(-1) = 0$.
+It can be seen that proving the second statement of the theorem
+one can replace the function $u$ on the interval $[-1, s]$ by any increasing function.
+Thus, in the case where $u$ is pinned at the left end {\rm ($u(-1) = 0$)}
+the assumption (\ref{almostConcave}) is also necessary for the inequality (\ref{toprove}) to hold.
 \end{rem}
 
 \begin{rem}
-If the $a$ is non-negative , and the even and concave in the first parameter , then it satisfies the condition $(\ref{almostConcave})$.
-Indeed, for every $s$, $t$ and $u$ holds $a( 1 , u) - a(s, u) \le a(t, u) - a(-1 + t - s, u)$.
-Since $a( 1 , u) \ge 0$, then
-get $a(s, u) + a(t, u) \ge a(-1 + t - s, u) = a( 1 - t + s, u)$.
-The converse is not true in general , that is not all the even
-a non-negative function satisfying $(\ref{almostConcave})$, is concave .
+If a  non-negative function $a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}). 
+Indeed, for every $s$, $t$ and $u$ we have $a( 1 , u) - a(s, u) \le a(t, u) - a(-1 + t - s, u)$.
+Since $a( 1 , u) \ge 0$, we obtain $a(s, u) + a(t, u) \ge a(-1 + t - s, u) = a( 1 - t + s, u)$.
+The converse is not true in general, that is not any even
+non-negative function satisfying (\ref{almostConcave}) is concave.
 \end{rem}
