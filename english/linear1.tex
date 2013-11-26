@@ -1,0 +1,76 @@
+\section{ Result on piecewise linear functions }
+
+\rm
+In this section we prove the inequality (\ref{toprove}) for piecewise-linear functions .
+Without loss of generality , we assume that $F(\cdot, 0) \equiv 0$.
+
+\begin{thm}
+\label{linth}
+Let the function $a$ is even and satisfies the condition $(\ref{almostConcave})$.
+Then, if $u$ --- nonnegative piecewise linear function, then $I(a, u) \ge I(a, u^*)$.
+\end{thm}
+
+\begin{proof}
+Put $-1 = x_1 < x_2 < \dots < x_K = 1$ --- many inflection function $u$.
+Consider the set $U$ of the function $u$, the images are not endpoints
+linear segments : $U := u( [-1, 1] ) \setminus \{ u(x_1), \dots, u(x_K) \}$.
+Set $U$ is the union of a finite number of intervals $U = \cup_{j = 1}^N G_j$.
+
+$ M_j $ denote the number of preimages value $u_0 \in G_j$,
+ie the number of solutions of the equation $u(y) = u_0$
+(obviously , this number is for $u_0 \in G_j$).
+It is easy to see that these are prototypes of linear functions $u_0$:
+$y = y_k^j(u_0)$, $k = 1, \dots, m_j$,
+and $y_k^j{}'(u(y)) = \frac{1}{u'(u)}$.
+We assume that $y_1^j(u_0) < y_2^j(u_0) < \dots < y_{m_j}^j(u_0)$.
+
+Solution of the equation $u^*(y^*)=u_0$ ($u_0 \in U$) can be expressed in terms of $y_k^j$:
+
+\begin{center}
+\begin{tabular}{l|l|l} 
+\multirow{2}{*}{$u(-1)<u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ is even & $y^*=1-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+                                                     & $m_j$ is odd  & $y^*=-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ \hline
+\multirow{2}{*}{$u(-1)>u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ is even & $y^*=-1+\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+                                                     & $m_j$ is odd  & $y^*=\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ 
+\end{tabular}
+\end{center}
+
+Let $y^*(v) = (u^*)^{-1}(v)$.
+Then $y^*{}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ with $u \in G_j$, as the signs in the expression for
+$y^*$ and signs $y_k^j$ alternate , and $y^*{}'(v)\ge 0$.
+
+Set of zeros of $u'(x)$ and $u^*{}'(x)$ can have a nonzero measure .
+However, they do not contribute to the integral , since $F(u(x), 0) = 0$.
+
+Consider the remaining parts of the integrals :
+\begin{multline*}
+I(a, u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), a(x, u(x)) \abs{u'(x)}) dx
+\\ = \sum_{j=1}^N \int_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} dv,
+\end{multline*}
+\begin{multline*}
+I(a, u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{a(x, u(x)) u^*{}'(x)}) dx
+\\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
+\sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } dv.
+\end{multline*}
+
+Fix $j$ and $v$ in the right parts and prove the inequality for integrands .
+We denote $b_k := |y_k^j{}'(v)|$, $y_k := y_k^j(v)$, $y^* := y^*(v)$, $m := m_j$ . then
+the assertion of the form :
+$$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ a(y_k, v) }{b_k} \Big) \ge F\Big( v, \frac{ a(y^*, v) }{ \sum_{k=1}^m b_k  } \Big) \sum_{k=1}^m b_k$$
+With the help of Jensen's inequality for the function $F(v, \cdot)$ , we obtain
+$$T \ge F\Big( v, \frac{ \sum_{k=1}^m a(y_k, v) }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k.$$
+Then it is sufficient to $\sum_{k=1}^m a(y_k, v) \ge a(y^*, v)$, which is true in view of Lemma \ref{weightSum} and comments
+\ref{almostConcaveMultRem}.
+\end{proof}
+
+\begin{rem}
+\label{landesLinear}
+In this paper $\cite{Lan}$ inequality $(\ref{toprove})$ is proved under the additional condition $u(-1) = 0$
+for weight functions $a$, decreasing by $x$.
+It is easy to see that under this condition, the proof of Theorem $\ref{linth}$ passes for weights satisfying
+$(\ref{almostConcave})$ without the parity condition ,
+since in this case $u(-1) < u_0$, and we need only two of the four inequality ,
+which gives Lemma $\ref{weightSum}$.
+It is also obvious that the condition $(\ref{almostConcave})$ is weaker than the condition of decreasing $a$ to $x$.
+\end{rem}
+
