@@ -1,0 +1,122 @@
+\section{ The extension of a class of functions for which the $I(a, u^*) \le I(a, u)$}
+\begin{lm}
+Let the function $a$ is continuous . Then the functional $I(a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$ .
+\label{lowersemi}
+\end{lm}
+
+\begin{proof}
+Let $u_m \rightharpoondown u$ in $\W(-1, 1)$ . We denote $A = \varliminf I( a, u_m ) \ge 0$. Our task is to prove ---
+$I(a, u) \le A$. If $A = \infty$, the assertion is trivial, so we can assume $A < \infty$.
+Passing to a subsequence, we achieve $A = \lim I( a, u_m )$. Weak convergence, we conclude that there
+$R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
+
+It is known that $\W(-1, 1)$ compactly embedded in $L_1(-1, 1)$ .
+Passing to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
+and $u_m(x) \to u(x)$ almost everywhere.
+Then, by Egorov's theorem, for any $\eps$ there exists a set
+$G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$ .
+
+Uniform convergence of $\exists K: \forall m>K \\abs{u_m} \le \abs{u} + \eps$ in $[-1, 1] \setminus G_\eps^1$ .
+Take $G_\eps^2 = \{x \in [-1, 1] \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
+Then $$R_0 \ge \int_{-1}^1 \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \ge
+\int_{G_\eps^2} \frac{R_0 + \eps}{\eps} dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}$$
+That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
+Outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$ of $u_m$, $m > K$,
+converge uniformly and uniformly bounded.
+
+Continuity of $F$ and $a$
+It follows that for any $\eps$ and $R$, there exists
+$N( \eps, R )$, if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
+$$| F( u_m( x ), a( x, u_m( x ) ) M ) - F( u( x ), a( x, u( x ) ) M ) | < \eps.$$
+
+We consider the sets $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
+have
+$$R_0 \ge \int_{-1}^1 \abs{ u_m'( x ) } dx \ge \int_{ E_{m,\eps} } \abs{ u_m'( x ) } dx \ge
+\int_{ E_{m,\eps} } \frac{ R_0 }{ \eps } dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$
+Therefore $\abs{ E_{m,\eps} } \le \eps$.
+
+Now you can enter the $L_{m,\eps} := [-1, 1] \setminus ( E_{m,\eps} \cup G_\eps )$.
+Then $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
+
+We fix $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
+For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we obtain
+$$\Big | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
+whence
+$$\int_{L_{m,\eps}} \Big | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) \Big | dx < 2 \eps.$$
+
+Take $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
+Then $\sum \eps_j = \eps$ and $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
+Now it can be concluded that
+$$\int_{L_\eps} \Big | F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | dx < 2 \eps_j.$$
+
+have
+\begin{multline*}
+A = \lim I (a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), a(x, u_{m_j}(x)) | u_{m_j }'(x) |) dx \\
+\ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), a(x, u(x)) | u_{m_j}'(x) |) dx
+=: \varliminf J_\eps(u_{m_j}').
+\end{multline*}
+Our new functional
+$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), a( x, u( x ) ) |v( x )| ) dx$$
+convex.
+Again passing to a subsequence (we denote its $u_k$), we can assume that
+$\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$. Since $u_k' \rightharpoondown u'$ in $L_1$,
+we can choose a sequence
+convex combinations of $u_k'$, which will converge to $u'$ is strongly ( see \cite [ Theorem 3.13]{Rudin}).
+Namely, there are $\alpha_{k,l} \ge 0$ for
+$k \in \Nat$, $l \le k$ such that $\sum_{l = 1}^k \alpha_{k,l} = 1$ for every $k$ and
+$w_k = \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
+Also, apparently, you can require that the minimum index $l$ nonzero coefficient $\alpha_{k,l}$
+tends to infinity on $k$.
+then
+$$\lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ).$$
+
+By the convexity of $J_\eps$, we have
+$$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
+
+Finally, since $w_k \to u'$ in $L_1(-1, 1)$, passing to a subsequence, we can assume that $w_k(x) \to u'(x)$ ae
+Moreover, since $L_\eps$ holds $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
+hence,
+$$F( u( x ), a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), a( x, u( x ) ) M ) < \infty,$$
+where the maximum is taken over a compact set
+$(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
+Therefore, the Lebesgue theorem applies, and we get $\lim J_\eps(w_k) = J_\eps(u')$.
+Thus,
+$$A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge
+\varliminf J_\eps( w_k ) = J_\eps( u' ).$$
+
+By the arbitrariness of $\eps > 0$, we have $A \ge I(a, u)$.
+\end{proof}
+
+\begin{lm}
+\label{uplift}
+Let $A \subset \W(-1,1)$. And let $B \subset A$ such that
+$\forall v \in B$ holds $I(a, v^*) \le I(a, v)$. Suppose that for each $u \in A$
+there is a sequence $u_k \in B$ such that $u_k \to u$ in $\W(-1, 1)$ and
+$I(a, u_k) \to I(a, u)$. Then $\forall u \in A$ is satisfied $I(a, u^*) \le I(a, u)$.
+\end{lm}
+\begin{proof}
+Take some $u \in A$ and it will find the appropriate $u_k \in B$.
+By hypothesis, $I(a, u_k^*) \le I(a, u_k) \to I(a, u)$.
+In \cite [ Theorem 1 ]{Br} shows that of $u_k \to u$ in $\W(-1, 1)$ should
+$\overline{u_k} \rightharpoondown \overline{u}$ in $\W(-1, 1)$. but
+$u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and
+$u^*( x ) = \overline{u}( \frac{x - 1}{2} )$ . Hence,
+$u_k^* \rightharpoondown u^*$. Then the weak lower semicontinuity
+functional conclude $I$ $I(a, u^*) \le \liminf I(a, u_k^*)$. Thereby
+$I(a, u^*) \le I(a, u)$.
+\end{proof}
+
+\begin{cor}
+Let the weight of $a$ is continuous, and the inequality $(\ref{toprove})$ is true for non-negative piecewise linear functions $u$.
+Then it is true for all non-negative Lipschitz functions .
+\end{cor}
+\begin{proof}
+By Theorem 1 of \S6.6 \cite{Gariepy} Lipschitz function can be almost everywhere with derivative bring continuously differentiable .
+Since the derivatives of the approximating functions are uniformly bounded,
+by Lebesgue sequence will converge in $\W(-1, 1)$
+and will converge functional $I$.
+In turn, continuously differentiable functions can be uniformly approximated with piecewise linear derivative .
+This convergence provides convergence in $\W(-1, 1)$ and the convergence of the functional $I$.
+Applying Lemma \ref{uplift}, we obtain the desired result.
+\end{proof}
+
