@@ -36,7 +36,7 @@
 \newcounter{pictureCounter}
 \begin{document}
 
-\title{On monotonicity of some functionals under rearrangements}
+\title{On monotonicity of some functionals \\ under rearrangements}
 \author{
 S.~Bankevich\\
 \texttt{Sergey.Bankevich@gmail.com}
@@ -57,15 +57,15 @@ then $u(x) = \int_0^\infty \chi_{\mathcal{A}_t}dt$.
 We define the monotone rearrangement of a measurable set $E \subset [-1, 1]$ and the
 monotone rearrangement of non-negative function $u \in \W (-1, 1)$ as follows:
 \begin{eqnarray*}
-E^*: = [1 - \abs{E}, 1] \qquad
-u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*}dt
+E^*: = [1 - \abs{E}, 1]; \qquad
+u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*}dt.
 \end{eqnarray*}
 
 Under the same conditions we define the symmetric rearrangement 
 (symmetrization) for sets and functions:
 \begin{eqnarray*}
-\overline{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}] \qquad
-\overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}}dt
+\overline{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}]; \qquad
+\overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}}dt.
 \end{eqnarray*}
 
 We denote by $\mathfrak{F}$ the set of continuous functions 
@@ -75,41 +75,42 @@ which are convex and increasing with respect to the second argument.
 Let us consider a functional
 \begin{equation}
 \label{functional}
-I(a, u) = \int_{-1}^1 F(u(x), a(x, u(x)) \abs{u'(x)}) dx,
+I(\mathfrak a, u) = \int_{-1}^1 F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) dx,
 \end{equation}
-where $a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
+where $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
 
-It is well known that if $a \equiv const$ then the inequalities
+It is well known that if $\mathfrak a \equiv const$ then the inequalities
 \begin{eqnarray}
 \label{toprove}
-I(a, u^*) & \le & I(a, u), \qquad \qquad u \in \W(-1, 1);\\
+I(\mathfrak a, u^*) & \le & I(\mathfrak a, u), \qquad \qquad u \in \W(-1, 1);\\
 \label{toproveSymm}
-I(a, \overline{u}) & \le & I(a, u), \qquad \qquad u \in \Wf(-1, 1)
+I(\mathfrak a, \overline{u}) & \le & I(\mathfrak a, u), \qquad \qquad u \in \Wf(-1, 1)
 \end{eqnarray}
 hold, see for example \cite{Kawohl} and references therein.
 
 The inequality (\ref{toproveSymm}) and its multi-dimensional analogue
-are proved in \cite{Br} provided that the function $a$ is even and convex 
+are proved in \cite{Br} provided that the function $\mathfrak a$ is even and convex 
 with respect to $x$. However, the proof contains a gap,
 and in fact this inequality was proved in \cite{Br} only for Lipschitz functions $u$.
 
 Namely, while proving the inequality (\ref{toproveSymm}) for a natural class of functions,
 the author of \cite{Br} approximates $u \in \Wf$ having finite integral (\ref{functional})
-using piecewise linear functions $u_k$ and claims that $I(a, u_k) \to I(a, u)$.
-However, this assertion is not justified and in general is is not true.
+using piecewise linear functions $u_k$ and claims that $I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+However, this assertion is not justified and in general is not true.
 In 1926, M.~A.~Lavrentiev proposed the first example of an integral functional
 for which the infimum over the domain is strictly less than the infimum over the set of 
-Lipschitz functions. For historical overview and simple examples of ``one-dimensional'' 
-functionals for which the Lavrentiev phenomenon takes place see, e.g., \cite{BGH}.
+Lipschitz functions.
+Historical overview and simple examples of ``one-dimensional'' 
+functionals for which the Lavrentiev phenomenon takes place can be found in \cite{BGH} f.e..
 Note that a deep investigation of the Lavrentiev phenomenon for some classes of multidimensional 
-functionals was realized by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
+functionals was conducted by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
 
 In the paper \cite{ASC} the absence of the Lavrentiev phenomenon was proved for the functionals
-$I(a, u) = \int_{-1}^1 F(u, u')$. Moreover it was shown that for every $u \in \W(-1, 1)$ 
+$I(\mathfrak a, u) = \int_{-1}^1 F(u, u')$. Moreover it was shown that for every $u \in \W(-1, 1)$ 
 there exists a sequence of Lipschitz functions $u_k$, such that
 \begin{equation}
 \label{convergence}
-u_k \to u \text{ in } \W (-1, 1) \quad \text{ and } \quad I (a, u_k) \to I (a, u).
+u_k \to u \text{ in } \W (-1, 1) \quad \text{ and } \quad I (\mathfrak a, u_k) \to I (\mathfrak a, u).
 \end{equation}
 
 We modify the proof from \cite{ASC} and prove the absence of the Lavrentiev phenomenon
@@ -119,28 +120,28 @@ In addition we prove that evenness and convexity of the weight is a necessary co
 for the inequality (\ref{toproveSymm}) to hold.
 
 The bulk of our paper is devoted to the inequality (\ref{toprove}).
-We find a necessary and sufficient condition on the weight $a$ for the inequality 
+We find a necessary and sufficient condition on the weight $\mathfrak a$ for the inequality 
 (\ref{toprove}) to hold%
-\footnote{In particular, the inequality is satisfied if the weight function $a$ is even 
+\footnote{In particular, the inequality is satisfied if the weight function $\mathfrak a$ is even 
 and concave in $x$.}.
 Under certain additional assumptions this result was announced in \cite{DAN}.
 
 We note also that the inequality (\ref{toprove}) was considered in \cite{Lan}
 for functionals similar to (\ref{functional}) under additional constraint $u(-1) = 0$.
 We obtain necessary and sufficient conditions for (\ref{toprove}) under this constraint.
-(The author of \cite{Lan} assumed that the weight $a$ was decreasing in $x$.)
+(The author of \cite{Lan} assumed that the weight $\mathfrak a$ was decreasing in $x$.)
 
 The article is divided into 8 sections.
-In Section 2 we deduce the assumptions on the weight function $a$ which are necessary for the 
+In section 2 we deduce the assumptions on the weight function $\mathfrak a$ which are necessary for the 
 inequality (\ref{toprove}).
-In \S3 auxiliary statements for weights satisfying necessary conditions are established.
-In \S4 the inequality (\ref{toprove}) is proved for piecewise linear functions $u$.
-In \S5 we present the scheme for proving inequality (\ref{toprove}) for a wider class of 
+Auxiliary statements for weights satisfying necessary conditions are established in section 3.
+In section 4 the inequality (\ref{toprove}) is proved for piecewise linear functions $u$.
+In section 5 we present the scheme for proving inequality (\ref{toprove}) for a wider class of 
 functions $u$.
-In \S6 we prove inequality (\ref{toprove}), provided that the weight $a$ first increases, 
+In section 6 we prove inequality (\ref{toprove}), provided that the weight $\mathfrak a$ first increases, 
 then decreases.
-\S7 is devoted to the proof of (\ref{toprove}) under necessary conditions only.
-Finally, in the \S8 we consider the case of symmetric rearrangement.
+Section 7 is devoted to the proof of (\ref{toprove}) under necessary conditions only.
+Finally, in the section 8 we deal with symmetric rearrangement.
 There we obtain necessary conditions on the weight and complete the proof of (\ref{toproveSymm}).
 
 \section{ The conditions necessary for the inequality (\ref{toprove})}
@@ -262,13 +263,13 @@ $$
 
 We have
 \begin{multline*}
-I(a, u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2}) dz\\
-= \int_0^\eps 2 F(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
-0 \le I( a, u ) - I( a, u^* ) =
-\int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a( t - y, \bar{v} + y))\\
-- 2 F(\bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2})) dy\\
-< \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a(t - y, \bar{v} + y))\\
-- 2 F(\bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
+I(\mathfrak a, u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2}) dz\\
+= \int_0^\eps 2 F(\bar{v} + y, \frac{\mathfrak a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
+0 \le I( \mathfrak a, u ) - I( \mathfrak a, u^* ) =
+\int_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a( t - y, \bar{v} + y))\\
+- 2 F(\bar{v} + y, \frac{ \mathfrak a(1 - t + s + 2y, \bar{v} + y) }{2})) dy\\
+< \int_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a(t - y, \bar{v} + y))\\
+- 2 F(\bar{v} + y, \frac{ \mathfrak a(s + y, \bar{v} + y) + \mathfrak a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
 \end{multline*}
 
 Let us consider the function $F(v, p) = p ^ \alpha$.
@@ -279,7 +280,7 @@ For $\alpha = 1$, the following inequality trivially holds:
 \end{equation}
 We are interested in $p, q$, lying on a compact $[0 , A]$,
 where 
-$$A=\max \limits_{(x, v)} a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
+$$A=\max \limits_{(x, v)} \mathfrak a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
 $$
 Therefore, there is an $\alpha> 1$, for which the inequality (\ref{anticonvex})
 still holds.
@@ -298,9 +299,9 @@ the assumption (\ref{almostConcave}) is also necessary for the inequality (\ref{
 \end{rem}
 
 \begin{rem}
-If a  non-negative function $a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}). 
-Indeed, for every $s$, $t$ and $u$ we have $a( 1 , u) - a(s, u) \le a(t, u) - a(-1 + t - s, u)$.
-Since $a( 1 , u) \ge 0$, we obtain $a(s, u) + a(t, u) \ge a(-1 + t - s, u) = a( 1 - t + s, u)$.
+If a  non-negative function $\mathfrak a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}). 
+Indeed, for every $s$, $t$ and $u$ we have $\mathfrak a( 1 , u) - \mathfrak a(s, u) \le \mathfrak a(t, u) - \mathfrak a(-1 + t - s, u)$.
+Since $\mathfrak a(1 , u) \ge 0$, we obtain $\mathfrak a(s, u) + \mathfrak a(t, u) \ge \mathfrak a(-1 + t - s, u) = \mathfrak a( 1 - t + s, u)$.
 The converse is not true in general, that is not any even
 non-negative function satisfying (\ref{almostConcave}) is concave.
 \end{rem}
@@ -311,13 +312,13 @@ For brevity, in this section we omit the second argument of the function $a$.
 
 \begin{lm}
 \label{weightSum}
-Consider a continuous function $a \ge 0$ defined on $[-1, 1]$
+Consider a continuous function $\mathfrak a \ge 0$ defined on $[-1, 1]$
 and satisfying the condition (\ref{almostConcave}).
 Then for any $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$
 the following inequalities hold
 \begin{align*}
-\sum_{k = 1}^n a(t_k) & \ge a( 1 - \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
-\sum_{k = 1}^n a(t_k) & \ge a(- \sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a( 1 - \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(- \sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
 \end{align*}
 \end{lm}
 
@@ -325,92 +326,82 @@ the following inequalities hold
 We will prove the lemma by induction.
 For $n = 1$ the assertion is trivial.
 Now let $n$ be even. Then, by the induction hypothesis,
-$$\sum_{k=1}^{n - 1} a(t_k) \ge a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ).$$
+$$\sum_{k=1}^{n - 1} \mathfrak a(t_k) \ge \mathfrak a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ).$$
 Then
-$$\sum_{k = 1}^{n - 1} a( t_k ) + a( t_n ) \ge a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ) + a( t_n ) \ge
-a( 1 - \sum_{k = 1}^{n} (-1)^k t_k ).$$
+$$\sum_{k = 1}^{n - 1} \mathfrak a( t_k ) + \mathfrak a( t_n ) \ge \mathfrak a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ) + \mathfrak a( t_n ) \ge
+\mathfrak a( 1 - \sum_{k = 1}^{n} (-1)^k t_k ).$$
 In the case of odd $n$ we have the following induction hypothesis:
-$$\sum_{k=2}^n a(t_k) \ge a( 1 + \sum_{k = 2}^n (-1)^k t_k ).$$
+$$\sum_{k=2}^n \mathfrak a(t_k) \ge \mathfrak a( 1 + \sum_{k = 2}^n (-1)^k t_k ).$$
 Then
-$$a( t_1 ) + \sum_{k = 2}^n a( t_k ) \ge a( t_1 ) + a( 1 + \sum_{k = 2}^{n} (-1)^k t_k ) \ge
-a( -\sum_{k = 2}^{n} (-1)^k t_k + t_1 ) = a( -\sum_{k = 1}^{n} (-1)^k t_k ).$$
+$$\mathfrak a( t_1 ) + \sum_{k = 2}^n \mathfrak a( t_k ) \ge \mathfrak a( t_1 ) + \mathfrak a( 1 + \sum_{k = 2}^{n} (-1)^k t_k ) \ge
+\mathfrak a( -\sum_{k = 2}^{n} (-1)^k t_k + t_1 ) = \mathfrak a( -\sum_{k = 1}^{n} (-1)^k t_k ).$$
 \end{proof}
 
 \begin{rem}
-Assume that in addition to the conditions of the lemma \ref{weightSum} the function $a$ is even.
+Assume that in addition to the assumptions of Lemma \ref{weightSum} the function $\mathfrak a$ is even.
 Then the following inequalities also hold:
 \label{almostConcaveMultRem}
 \begin{align*}
-\sum_{k = 1}^na(t_k) & \ge a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
-\sum_{k = 1}^na(t_k) & \ge a(\sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(\sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
 \end{align*}
 \end{rem}
 
 \begin{lm}
 \label{periodicity}
-{\bf 1.} Let $a$ satisfy $(\ref{almostConcave})$.
-If there is $x_0 \in [-1, 1]$, such that $a(x_0) = 0$,
-then either $a\Big |_{[x_0, 1]} \equiv 0$
-or the set of zeros of $a$ is periodic on $[x_0, 1]$
+{\bf 1.} Let $\mathfrak a$ satisfy $(\ref{almostConcave})$.
+If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
+then either $\mathfrak a\Big |_{[x_0, 1]} \equiv 0$
+or the set of zeros of $\mathfrak a$ is periodic on $[x_0, 1]$
 and the period is a divisor of $1 - x_0$.
 
-{\bf 2.} Let $a$ be even and satisfy $(\ref{almostConcave})$.
-If there is $x_0 \in [-1, 1]$, such that $a(x_0) = 0$,
-then either $a \equiv 0$
-or the function $a$ is periodic on the $[-1, 1]$ interval
+{\bf 2.} Let $\mathfrak a$ be even and satisfy $(\ref{almostConcave})$.
+If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
+then either $\mathfrak a \equiv 0$
+or the function $\mathfrak a$ is periodic on the $[-1, 1]$ interval
 and the period is a divisor of $1 - x_0$.
 \end{lm}
 
 \begin{proof}
-First of all, note that if $a(s) = a(t) = 0$ holds for some $s \le t$
-then the inequality (\ref{almostConcave}) implies
-$$0 = a(s) + a(t) \ge a( 1 - (t - s) ) \ge 0$$
-i.e. $a(1 - (t - s)) = 0$.
-
-Similarly, if $s \le 1 - t$ and $a(s) = a(1 - t) = 0$, then $a(s + t) = 0$.
-
-These two facts imply the following.
-If $a(s) = a(t) = 0$ then $a(s + k(t - s)) = 0$ for all positive integers $k$, for which $s + k(t - s) \le 1$.
-
 {\bf 1.}
-Substituting $s = t = x_0$, we obtain $a(1) = 0$.
+Note that if $\mathfrak a(s) = \mathfrak a(t) = 0$ holds for some $s \le t$
+then the inequality (\ref{almostConcave}) implies
+$$0 = \mathfrak a(s) + \mathfrak a(t) \ge \mathfrak a( 1 - (t - s) ) \ge 0$$
+i.e. $\mathfrak a(1 - (t - s)) = 0$.
+Substituting $s = t = x_0$, we obtain $\mathfrak a(1) = 0$.
 
-If function $a$ has roots arbitrary close to $x_0$
-then it has periodical roots on $[x_0, 1]$ with arbitrary small period.
-And thus it vanishes on a set which is dense in $[x_0, 1]$.
-By the continuity we have $a\Big |_{[x_0, 1]} = 0$.
-Otherwise, let $x_1 > x_0$ be the root of function $a$ closest to $x_0$.
-Then there must be a natural number $K$, such that $x_0 + K(x_1 - x_0) = 1$,
-otherwise we can find more dense set of roots of $a$.
+Similarly, if $s \le 1 - t$ and $\mathfrak a(s) = \mathfrak a(1 - t) = 0$, then $\mathfrak a(s + t) = 0$.
 
-Suppose now that there exists a root $x_2 > x_0$ of function $a$,
-which does not coincide with any of $x_0 + k ( x_1 - x_0 )$ with $k = 0 \dots K$.
-Then there exists a root $x_3 \in (1 - (x_1 - x_0), 1)$
-and therefore there is a root $x_4 \in (x_0, x_1)$, which leads to a contradiction.
+Thus, the set of roots of $\mathfrak a$ is symmetric and
+whenever $s$ and $s + \Delta$ ($\Delta \ge 0$) are roots of $\mathfrak a$,
+values $s + k\Delta$ are roots of $\mathfrak a$ too provided $s + k\Delta \le 1$.
+This implies the set of roots of $\mathfrak a$ is periodic on $[x_0, 1]$
+or coincides with it.
 
-{\bf 2.} The periodicity of zeros of the function $a$ follows from its evenness and from the first assertion of the lemma.
+{\bf 2.} The periodicity of zeros of the function $\mathfrak a$ follows from its evenness and from the first assertion of the lemma.
 Denote the distance between consecutive zeros by $\Delta$.
 
 Then for $-1 \le x \le 1 - \Delta$ the following holds
-$$a(x) = a(x) + a(1 - \Delta) \ge a(x + \Delta).$$
+$$\mathfrak a(x) = \mathfrak a(x) + \mathfrak a(1 - \Delta) \ge \mathfrak a(x + \Delta).$$
 
 On the other hand, $-1 \le -(x + \Delta) \le 1 - \Delta$, and
-$$a(x + \Delta) = a(-(x + \Delta)) + a(1 - \Delta) \ge a(-x) = a(x).$$
+$$\mathfrak a(x + \Delta) = \mathfrak a(-(x + \Delta)) + \mathfrak a(1 - \Delta) \ge \mathfrak a(-x) = \mathfrak a(x).$$
 
-Thus, $a(x) = a(x + \Delta)$.
+Thus, $\mathfrak a(x) = \mathfrak a(x + \Delta)$.
 \end{proof}
 
 \begin{lm}
 \label{maxSumConcave}
-Suppose that $a_1$ and $a_2$ satisfy $(\ref{almostConcave})$.
-Then the function $a(x) = \max (a_1(x), a_2(x))$ and $a_1(x) + a_2(x)$ also satisfy $(\ref{almostConcave})$.
+Suppose that $\mathfrak a_1$ and $\mathfrak a_2$ satisfy $(\ref{almostConcave})$.
+Then the function $\max (\mathfrak a_1(x), \mathfrak a_2(x))$ and $\mathfrak a_1(x) + \mathfrak a_2(x)$ also satisfy $(\ref{almostConcave})$.
 \end{lm}
 \begin{proof}
+Set $\mathfrak a(x) = \max (\mathfrak a_1(x), \mathfrak a_2(x))$. Then
 \begin{multline*}
-a(1 + s + t) = \max(a_1( 1 + s + t), a_2(1 + s + t)) \le
-\max(a_1(s) + a_1(t), a_2(s) + a_2(t)) \\
-\le \max(a_1(s), a_2(s)) + \max(a_1(t), a_2(t)) =
-a(s) + a(t).
+\mathfrak a(1 + s + t) = \max(\mathfrak a_1( 1 + s + t), \mathfrak a_2(1 + s + t)) \le
+\max(\mathfrak a_1(s) + \mathfrak a_1(t), \mathfrak a_2(s) + \mathfrak a_2(t)) \\
+\le \max(\mathfrak a_1(s), \mathfrak a_2(s)) + \max(\mathfrak a_1(t), \mathfrak a_2(t)) =
+\mathfrak a(s) + \mathfrak a(t).
 \end{multline*}
 
 The second part is obvious.
@@ -418,41 +409,43 @@ The second part is obvious.
 
 \begin{lm}
 \label{piecewiseLinearConcave}
-Let the function $a$ satisfy $(\ref{almostConcave})$, $k \in \Nat$.
-Then a piecewise linear function $a_k$,
-interpolating function $a$ using the nodes
+Let the function $\mathfrak a$ satisfy $(\ref{almostConcave})$, $k \in \Nat$.
+Then a piecewise linear function $\mathfrak a_k$,
+interpolating $\mathfrak a$ using the nodes
 $(-1 + \frac{2i}{k})$, $i = 0, 1, \dots, k$,
-satisfies $(\ref{almostConcave})$ either.
+also satisfies $(\ref{almostConcave})$.
 \end{lm}
 \begin{proof}
+{\bf 1.}
 Let $s = -1 + \frac{2i}{k}$, $t = -1 + \frac{2j}{k}$.
-Then the inequality $(\ref{almostConcave})$ holds for $a_k$, because it does for $a$,
+Then the inequality $(\ref{almostConcave})$ holds for $\mathfrak a_k$, because it does for $\mathfrak a$,
 and their values at these points are equal.
 
+{\bf 2.}
 Now let $s = -1 + \frac{2i}{k}$ and $t \in [-1 + \frac{2j}{k}, -1 + \frac{2(j + 1)}{k}]$.
 
-Consider the linear function $h_1(t) = a_k( 1 - t + s ) - a_k(t) - a_k(s)$.
-From already proved it follows that $h_1(-1 + \frac{2j}{k}) \le 0$ and $h_1(-1 + \frac{2(j + 1)}{k}) \le 0$.
-While $h_1$ is linear, $h_1(t) \le 0$.
-Thus, the inequality holds for every $s \in -1 + \frac{2i}{k}$ and $t \in [-1, 1]$.
+Consider the linear function $h_1(t) = \mathfrak a_k( 1 - t + s ) - \mathfrak a_k(t) - \mathfrak a_k(s)$.
+It follows from part 1 that $h_1(-1 + \frac{2j}{k}) \le 0$ and $h_1(-1 + \frac{2(j + 1)}{k}) \le 0$.
+Since $h_1$ is linear, $h_1(t) \le 0$.
+Thus, the inequality holds for every $s = -1 + \frac{2i}{k}$ and $t \in [-1, 1]$.
 
-Consider the function $h_2(y) = a_k(\frac{2j}{k}) - a_k(s - y) - a_k(t + y)$, where $1 - t + s = \frac{2j}{k}$.
-Suppose, $s + y_0$ is one of the interpolation nodes, then $t + y_0$ is also an interpolation node.
-Thereby, $h_2(y_0) = a(\frac{2j}{k}) - a(s - y) - a(t + y) \le 0$.
-Between such $y_0$ the $h_2$ function is linear.
-Also the boundary points of the domain of $h_2$ are nodes of interpolation.
-Therefore $h_2(y) \le 0$ on its entire domain.
+{\bf 3.}
+Let $s$ and $t$ satisfy $1 - t + s = \frac{2j}{k}$.
+Consider the function $h_2(y) = \mathfrak a_k(\frac{2j}{k}) - \mathfrak a_k(s + y) - \mathfrak a_k(t + y)$.
+If we choose $y_0$ such that $s + y_0$ is one of the nodes then $t + y_0$ is also a node.
+Therefore, $h_2(y_0) = \mathfrak a(\frac{2j}{k}) - \mathfrak a(s + y_0) - \mathfrak a(t + y_0) \le 0$.
+Since $h_2$ is linear between such $y_0$'s, we obtain $h_2(y) \le 0$ for all admissible $y$.
 
-Consider the function $h_3(s) = a_k( 1 - t + s ) - a_k(t) - a_k(s)$ for any fixed $t \in [-1, 1]$.
-This function is piecewise linear,
-and it can bend at each $s$, which is an interpolation node itself of for which
-$1 - t + s$ is an interpolation node.
-However, we have already proved that at these points $h_3(s) \le 0$.
-The boundary points of the domain of $h_3$ are the nodes of interpolation, thus, $h_3(s) \le 0$ everywhere.
+{\bf 4.}
+Finally, consider $h_3(s) = \mathfrak a_k( 1 - t + s ) - \mathfrak a_k(t) - \mathfrak a_k(s)$ for arbitrary given $t \in [-1, 1]$.
+Note that parts 2 and 3 imply $h_3(s) \le 0$ for any $s$
+such that either $s$ or $1 - t + s$ is a node.
+Since $h_3$ is linear between these points, $h_3(s) \le 0$ for all admissible $s$,
+and the statement follows.
 \end{proof}
 
 
-\section{ Result on piecewise linear functions }
+\section{The result for piecewise linear functions}
 
 \rm
 In this section we prove the inequality (\ref{toprove}) for piecewise linear functions.
@@ -460,25 +453,25 @@ Without loss of generality, we assume that $F(\cdot, 0) \equiv 0$.
 
 \begin{thm}
 \label{linth}
-Let the function $a$ be even and satisfy the condition $(\ref{almostConcave})$.
-Then, if $u$ is a nonnegative piecewise linear function then $I(a, u) \ge I(a, u^*)$.
+Let the function $\mathfrak a$ be even and satisfy the condition $(\ref{almostConcave})$.
+Then, if $u$ is a nonnegative piecewise linear function then $I(\mathfrak a, u) \ge I(\mathfrak a, u^*)$.
 \end{thm}
 
 \begin{proof}
-Let $-1 = x_1 < x_2 < \dots < x_K = 1$ be the bend points os function $u$.
+Let $-1 = x_1 < x_2 < \dots < x_K = 1$ be the nodes of $u$.
 Consider the set $U$ equal to the range of $u$ with images of endpoints of linear pieces excluded:
 $U := u( [-1, 1] ) \setminus \{ u(x_1), \dots, u(x_K) \}$.
-Set $U$ is the union of a finite number of intervals $U = \cup_{j = 1}^N G_j$.
+It's obvious that the set $U$ is the union of a finite number of intervals $U = \cup_{j = 1}^N G_j$.
 
 We denote by $m_j$ the number of preimages for $u_0 \in G_j$,
 i.e. the number of solutions of the equation $u(y) = u_0$
-(obviously, this number persists for all $u_0 \in G_j$).
+(obviously, $m_j$ does not depend on $u_0 \in G_j$).
 It is easy to see that the preimages are linear functions of $u_0$:
 $y = y_k^j(u_0)$, $k = 1, \dots, m_j$,
-and $y_k^j{}'(u(y)) = \frac{1}{u'(u)}$.
+and $y_k^j{}'(u(y)) = \frac{1}{u'(y)}$.
 We assume that $y_1^j(u_0) < y_2^j(u_0) < \dots < y_{m_j}^j(u_0)$.
 
-Solution of the equation $u^*(y^*)=u_0$ ($u_0 \in U$) can be expressed in terms of $y_k^j$:
+The solution of the equation $u^*(y^*)=u_0$ ($u_0 \in U$) can be expressed in terms of $y_k^j$:
 
 \begin{center}
 \begin{tabular}{l|l|l} 
@@ -490,165 +483,172 @@ Solution of the equation $u^*(y^*)=u_0$ ($u_0 \in U$) can be expressed in terms 
 \end{center}
 
 Let $y^*(v) = (u^*)^{-1}(v)$.
-Then $y^*{}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ with $u \in G_j$, as the signs in the expression for
+Then $y^*{}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ for $v \in G_j$, as the signs in the expression for
 $y^*$ and signs of $y_k^j{}'$ alternate, and $y^*{}'(v)\ge 0$.
 
-Set of zeros of $u'(x)$ and $u^*{}'(x)$ can have a nonzero measure.
+The sets of zeros of $u'(x)$ and $u^*{}'(x)$ can have nonzero measure.
 However, they do not contribute to the integral, since $F(u(x), 0) = 0$.
 
 Consider the remaining parts of the integrals :
 \begin{multline*}
-I(a, u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), a(x, u(x)) \abs{u'(x)}) dx
-\\ = \sum_{j=1}^N \int_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} dv,
+I(\mathfrak a, u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) dx
+\\ = \sum_{j=1}^N \int_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{\mathfrak a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} dv,
 \end{multline*}
 \begin{multline*}
-I(a, u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{a(x, u(x)) u^*{}'(x)}) dx
-\\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
+I(\mathfrak a, u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{\mathfrak a(x, u(x)) u^*{}'(x)}) dx
+\\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{\mathfrak a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
 \sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } dv.
 \end{multline*}
 
 We fix $j$ and $v$ in the right parts and prove the inequality for integrands.
 We denote $b_k := |y_k^j{}'(v)|$, $y_k := y_k^j(v)$, $y^* := y^*(v)$, $m := m_j$.
-Then the assertion takes the form :
-$$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ a(y_k, v) }{b_k} \Big) \ge F\Big( v, \frac{ a(y^*, v) }{ \sum_{k=1}^m b_k  } \Big) \sum_{k=1}^m b_k$$
-With the help of Jensen's inequality for the function $F(v, \cdot)$, we obtain
-$$T \ge F\Big( v, \frac{ \sum_{k=1}^m a(y_k, v) }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k.$$
-Then it is sufficient to prove $\sum_{k=1}^m a(y_k, v) \ge a(y^*, v)$, which is true due to Lemma \ref{weightSum} and
-remark \ref{almostConcaveMultRem}.
+Then the assertion takes the form:
+$$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ \mathfrak a(y_k, v) }{b_k} \Big)
+\ge F\Big( v, \frac{ \mathfrak a(y^*, v) }{ \sum_{k=1}^m b_k  } \Big) \sum_{k=1}^m b_k.$$
+By Jensen's inequality for the function $F(v, \cdot)$, we obtain
+$$T \ge F\Big( v, \frac{ \sum_{k=1}^m \mathfrak a(y_k, v) }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k.$$
+Then it is sufficient to prove $\sum_{k=1}^m \mathfrak a(y_k, v) \ge \mathfrak a(y^*, v)$, which is true due to Lemma \ref{weightSum} and
+Remark \ref{almostConcaveMultRem}.
 \end{proof}
 
 \begin{rem}
 \label{landesLinear}
-In the paper $\cite{Lan}$ inequality $(\ref{toprove})$ is proved under the additional condition $u(-1) = 0$
-for weight functions $a$, decreasing in $x$.
-It is easy to see that under this condition, the proof of Theorem $\ref{linth}$ works for weights satisfying
-$(\ref{almostConcave})$ without the evenness condition,
+In the paper $\cite{Lan}$ the inequality $(\ref{toprove})$ is proved under the additional assumption $u(-1) = 0$
+for the weight functions $\mathfrak a$, decreasing in $x$.
+It is easy to see that under this assumption, the proof of Theorem $\ref{linth}$ works for weights satisfying
+$(\ref{almostConcave})$ without the evenness assumption,
 since in this case $u(-1) < u_0$, and we need only two of the four inequalities,
 given by Lemma $\ref{weightSum}$.
-It is also obvious that the condition $(\ref{almostConcave})$ is weaker than the condition of $a$ decreasing in $x$.
+It is also obvious that the assumption $(\ref{almostConcave})$ is weaker than the assumption of $\mathfrak a$ decreasing in $x$.
 \end{rem}
 
 
-\section{ The extension of a class of functions for which the $I(a, u^*) \le I(a, u)$}
+\section{Extension of class of functions for which $I(a, u^*) \le I(a, u)$ holds}
 \begin{lm}
-Let the function $a$ is continuous . Then the functional $I(a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$ .
+Let the function $a$ be continuous. Then the functional $I(a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$.
 \label{lowersemi}
 \end{lm}
 
 \begin{proof}
-Let $u_m \rightharpoondown u$ in $\W(-1, 1)$ . We denote $A = \varliminf I( a, u_m ) \ge 0$. Our task is to prove ---
-$I(a, u) \le A$. If $A = \infty$, the assertion is trivial, so we can assume $A < \infty$.
-Passing to a subsequence, we achieve $A = \lim I( a, u_m )$. Weak convergence, we conclude that there
+Let $u_m \rightharpoondown u$ in $\W(-1, 1)$.
+Let's denote $A = \varliminf I( a, u_m ) \ge 0$.
+We are going to prove $I(a, u) \le A$.
+In the case $A = \infty$ the assertion is trivial, so we can assume $A < \infty$.
+Switching to a subsequence, we obtain $A = \lim I( a, u_m )$.
+Weak convergence implies, that there exists
 $R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
 
-It is known that $\W(-1, 1)$ compactly embedded in $L_1(-1, 1)$ .
-Passing to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
+It is known that $\W(-1, 1)$ is compactly embedded in $L_1(-1, 1)$.
+Then, switching to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
 and $u_m(x) \to u(x)$ almost everywhere.
 Then, by Egorov's theorem, for any $\eps$ there exists a set
-$G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$ .
+$G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$.
 
-Uniform convergence of $\exists K: \forall m>K \\abs{u_m} \le \abs{u} + \eps$ in $[-1, 1] \setminus G_\eps^1$ .
-Take $G_\eps^2 = \{x \in [-1, 1] \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
+Uniform convergence of $u_m$ implies $\exists K: \forall m>K \abs{u_m} \le \abs{u} + \eps$ in $[-1, 1] \setminus G_\eps^1$.
+Let $G_\eps^2 = \{x \in [-1, 1] \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
 Then $$R_0 \ge \int_{-1}^1 \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \ge
 \int_{G_\eps^2} \frac{R_0 + \eps}{\eps} dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}$$
 That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
-Outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$ of $u_m$, $m > K$,
-converge uniformly and uniformly bounded.
+The functions $u_m$, $m > K$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
 
-Continuity of $F$ and $a$
-It follows that for any $\eps$ and $R$, there exists
-$N( \eps, R )$, if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
+Continuity of $F$ and $a$ implies that for any $\eps$ and $R$, there exists
+$N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
 $$| F( u_m( x ), a( x, u_m( x ) ) M ) - F( u( x ), a( x, u( x ) ) M ) | < \eps.$$
 
-We consider the sets $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
-have
+Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
+Then
 $$R_0 \ge \int_{-1}^1 \abs{ u_m'( x ) } dx \ge \int_{ E_{m,\eps} } \abs{ u_m'( x ) } dx \ge
 \int_{ E_{m,\eps} } \frac{ R_0 }{ \eps } dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$
 Therefore $\abs{ E_{m,\eps} } \le \eps$.
 
-Now you can enter the $L_{m,\eps} := [-1, 1] \setminus ( E_{m,\eps} \cup G_\eps )$.
-Then $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
+Finally we set $L_{m,\eps} := [-1, 1] \setminus ( E_{m,\eps} \cup G_\eps )$.
+Note, that $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
 
 We fix $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
-For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we obtain
+For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we have
 $$\Big | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
-whence
+thus
 $$\int_{L_{m,\eps}} \Big | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) \Big | dx < 2 \eps.$$
 
-Take $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
+We put $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
 Then $\sum \eps_j = \eps$ and $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
-Now it can be concluded that
+Therefore
 $$\int_{L_\eps} \Big | F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | dx < 2 \eps_j.$$
 
-have
+And then
 \begin{multline*}
 A = \lim I (a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), a(x, u_{m_j}(x)) | u_{m_j }'(x) |) dx \\
 \ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), a(x, u(x)) | u_{m_j}'(x) |) dx
 =: \varliminf J_\eps(u_{m_j}').
 \end{multline*}
-Our new functional
+
+The new functional
 $$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), a( x, u( x ) ) |v( x )| ) dx$$
-convex.
-Again passing to a subsequence (we denote its $u_k$), we can assume that
-$\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$. Since $u_k' \rightharpoondown u'$ in $L_1$,
-we can choose a sequence
-convex combinations of $u_k'$, which will converge to $u'$ is strongly ( see \cite [ Theorem 3.13]{Rudin}).
+is convex.
+Switching to a subsequence $u_k$ again, we can assume that
+$\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
+Since $u_k' \rightharpoondown u'$ in $L_1$, we can choose a sequence
+convex combinations of $u_k'$, which will converge to $u'$ strongly (see \cite[Theorem 3.13]{Rudin}).
 Namely, there are $\alpha_{k,l} \ge 0$ for
-$k \in \Nat$, $l \le k$ such that $\sum_{l = 1}^k \alpha_{k,l} = 1$ for every $k$ and
+$k \in \Nat$, $l \le k$, such that $\sum_{l = 1}^k \alpha_{k,l} = 1$ for every $k$ and
 $w_k = \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
-Also, apparently, you can require that the minimum index $l$ nonzero coefficient $\alpha_{k,l}$
-tends to infinity on $k$.
-then
+Also, without loss of generality we can assume, that the minimal index $l$ of a nonzero coefficient $\alpha_{k,l}$
+tends to infinity as $k$ tends to infinity.
+Then
 $$\lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ).$$
 
 By the convexity of $J_\eps$, we have
 $$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
 
-Finally, since $w_k \to u'$ in $L_1(-1, 1)$, passing to a subsequence, we can assume that $w_k(x) \to u'(x)$ ae
-Moreover, since $L_\eps$ holds $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
-hence,
+Finally, since $w_k \to u'$ in $L_1(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
+Moreover, since $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$ holds for $x \in L_\eps$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
+Hence,
 $$F( u( x ), a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), a( x, u( x ) ) M ) < \infty,$$
 where the maximum is taken over a compact set
 $(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
-Therefore, the Lebesgue theorem applies, and we get $\lim J_\eps(w_k) = J_\eps(u')$.
+Therefore, the Lebesgue theorem applies, and $\lim J_\eps(w_k) = J_\eps(u')$ is proved.
 Thus,
 $$A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge
 \varliminf J_\eps( w_k ) = J_\eps( u' ).$$
 
-By the arbitrariness of $\eps > 0$, we have $A \ge I(a, u)$.
+Since $\eps > 0$ is arbitrary, $A \ge I(a, u)$ is proved.
 \end{proof}
 
 \begin{lm}
 \label{uplift}
-Let $A \subset \W(-1,1)$. And let $B \subset A$ such that
-$\forall v \in B$ holds $I(a, v^*) \le I(a, v)$. Suppose that for each $u \in A$
+Let $A \subset \W(-1,1)$.
+And let $B \subset A$ contains only $v$ for which $I(a, v^*) \le I(a, v)$ holds.
+Suppose that for each $u \in A$
 there is a sequence $u_k \in B$ such that $u_k \to u$ in $\W(-1, 1)$ and
-$I(a, u_k) \to I(a, u)$. Then $\forall u \in A$ is satisfied $I(a, u^*) \le I(a, u)$.
+$I(a, u_k) \to I(a, u)$.
+Then $\forall u \in A$ the inequality $I(a, u^*) \le I(a, u)$ holds.
 \end{lm}
 \begin{proof}
-Take some $u \in A$ and it will find the appropriate $u_k \in B$.
+Let's pick some $u \in A$ and find the appropriate $u_k \in B$.
 By hypothesis, $I(a, u_k^*) \le I(a, u_k) \to I(a, u)$.
-In \cite [ Theorem 1 ]{Br} shows that of $u_k \to u$ in $\W(-1, 1)$ should
-$\overline{u_k} \rightharpoondown \overline{u}$ in $\W(-1, 1)$. but
-$u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and
-$u^*( x ) = \overline{u}( \frac{x - 1}{2} )$ . Hence,
-$u_k^* \rightharpoondown u^*$. Then the weak lower semicontinuity
-functional conclude $I$ $I(a, u^*) \le \liminf I(a, u_k^*)$. Thereby
-$I(a, u^*) \le I(a, u)$.
+It is shown in \cite[Theorem 1]{Br} that $u_k \to u$ in $\W(-1, 1)$ implies
+$\overline{u_k} \rightharpoondown \overline{u}$ in $\W(-1, 1)$.
+But $u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and
+$u^*( x ) = \overline{u}( \frac{x - 1}{2} )$.
+Hence, $u_k^* \rightharpoondown u^*$.
+Then by the weak lower semicontinuity of the functional we conclude $I(a, u^*) \le \liminf I(a, u_k^*)$.
+Thus $I(a, u^*) \le I(a, u)$.
 \end{proof}
 
 \begin{cor}
-Let the weight of $a$ is continuous, and the inequality $(\ref{toprove})$ is true for non-negative piecewise linear functions $u$.
-Then it is true for all non-negative Lipschitz functions .
+Let the weight $a$ be continuous, and the inequality $(\ref{toprove})$ hold for non-negative piecewise linear functions $u$.
+Then it holds for all non-negative Lipschitz functions.
 \end{cor}
 \begin{proof}
-By Theorem 1 of \S6.6 \cite{Gariepy} Lipschitz function can be almost everywhere with derivative bring continuously differentiable .
+By \cite{Gariepy}, Theorem 1 in Section 6.6, any Lipschitz function can be approximated with its derivative
+almost everywhere with continuously differentiable functions.
 Since the derivatives of the approximating functions are uniformly bounded,
-by Lebesgue sequence will converge in $\W(-1, 1)$
-and will converge functional $I$.
-In turn, continuously differentiable functions can be uniformly approximated with piecewise linear derivative .
+the sequence will converge in $\W(-1, 1)$ due to Lebesgue theorem,
+and also $I$ will converge.
+In turn, continuously differentiable functions can be uniformly approximated with piecewise linear functions
+along with their derivative.
 This convergence provides convergence in $\W(-1, 1)$ and the convergence of the functional $I$.
-Applying Lemma \ref{uplift}, we obtain the desired result.
+Applying Lemma \ref{uplift} proves the corollary.
 \end{proof}
 
 
@@ -656,23 +656,27 @@ Applying Lemma \ref{uplift}, we obtain the desired result.
 \bibitem{ASC} G.~Alberti,~F.~Serra~Cassano: Non-occurrence of gap for one-dimentional autonomous functionals,
 Proceedings of ``Calc. Var., Homogen. and Cont. Mech.'', G.~Bouchitt\'e, G.~Buttazzo, P.~Suquet, ed.: World Sci., Singapore, p.~1--17, 1994
 \bibitem{Br} F.~Brock: Weighted Dirichlet-type inequalities for Steiner symmetrization,
-Calc. Var. and PDEs~{\bf 8}, p.~15--25, 1999
+Calc. Var. and PDEs~{\bf8}, p.~15--25, 1999
 \bibitem{Kawohl} B.~Kawohl: Rearrangements and convexity of level sets in PDE,
-Lecture notes in mathematics {\bf 1150}. Berlin; Springer Verlag, 1985. 134~p.
+Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~p.
 \bibitem{Lan} R.~Landes: Some remarks on rearrangements and functionals with non-constant density,
-Math.~Nachr.~{\bf 280}, \No5--6, p.~560--570, 2007
+Math.~Nachr.~{\bf280}, \No5--6, p.~560--570, 2007
 \bibitem{DAN} С.~Банкевич, А.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
-Доклады Академии Наук~{\bf 438}, \No1, с.~11--13, 2011
+Доклады Академии Наук~{\bf438}, \No1, с.~11--13, 2011
 \bibitem{BGH} Дж.~Буттаццо, М.~Джаквинта, С.~Гильдебрандт: Одномерные вариационные задачи. Введение,
 Научная книга, Новосибирск, 2002. 246~с.
 %G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt: One-dimensional Variational Problems,
-%Oxford Lecture Series in Mathematics and Its Applications {\bf 15}, 1998. 272 p.
+%Oxford Lecture Series in Mathematics and Its Applications {\bf15}, 1998. 272 p.
 \bibitem{Zh1} В.~В.~Жиков: О весовых соболевских пространствах,
-Матем. сб., {\bf 189}, \No8, с.~27--58, 1998
+Матем. сб., {\bf189}, \No8, с.~27--58, 1998
 \bibitem{Zh2} В.~В.~Жиков: К проблеме предельного перехода в дивергентных неравномерно эллиптических уравнениях,
-Функц. анализ и его прил., {\bf 35}, \No1, с.~23--39, 2001
+Функц. анализ и его прил., {\bf35}, \No1, с.~23--39, 2001
 \bibitem{LL} Э.~Либ, М.~Лосс: Анализ, Научная книга, Новосибирск, 1998. 276~с.
+\bibitem{Rudin} У.~Рудин: Функциональный анализ, Мир, М., 1975. 444~с.
 \bibitem{Fed} Г.~Федерер: Геометрическая теория меры, Наука, М., 1987. 760~с.
+\bibitem{Gariepy} Л.~К.~Эванс, Р.~Ф.~Гариепи: Теория меры и тонкие свойства функций, Научная книга, Новосибирск, 2002. 216~с.
+%\bibitem{Gariepy} L.~C.~Evans, R.~F.~Gariepy: 
+%\bibitem{ET} И.~Экланд, Р.~Темам: Выпуклый анализ и вариационные проблемы, Мир, М., 1979. 400~с.
 
 \end{thebibliography}
 
