@@ -1,4 +1,4 @@
-\section{ Result on piecewise linear functions }
+\section{The result for piecewise linear functions}
 
 \rm
 In this section we prove the inequality (\ref{toprove}) for piecewise linear functions.
@@ -6,25 +6,25 @@ Without loss of generality, we assume that $F(\cdot, 0) \equiv 0$.
 
 \begin{thm}
 \label{linth}
-Let the function $a$ be even and satisfy the condition $(\ref{almostConcave})$.
-Then, if $u$ is a nonnegative piecewise linear function then $I(a, u) \ge I(a, u^*)$.
+Let the function $\mathfrak a$ be even and satisfy the condition $(\ref{almostConcave})$.
+Then, if $u$ is a nonnegative piecewise linear function then $I(\mathfrak a, u) \ge I(\mathfrak a, u^*)$.
 \end{thm}
 
 \begin{proof}
-Let $-1 = x_1 < x_2 < \dots < x_K = 1$ be the bend points os function $u$.
+Let $-1 = x_1 < x_2 < \dots < x_K = 1$ be the nodes of $u$.
 Consider the set $U$ equal to the range of $u$ with images of endpoints of linear pieces excluded:
 $U := u( [-1, 1] ) \setminus \{ u(x_1), \dots, u(x_K) \}$.
-Set $U$ is the union of a finite number of intervals $U = \cup_{j = 1}^N G_j$.
+It's obvious that the set $U$ is the union of a finite number of intervals $U = \cup_{j = 1}^N G_j$.
 
 We denote by $m_j$ the number of preimages for $u_0 \in G_j$,
 i.e. the number of solutions of the equation $u(y) = u_0$
-(obviously, this number persists for all $u_0 \in G_j$).
+(obviously, $m_j$ does not depend on $u_0 \in G_j$).
 It is easy to see that the preimages are linear functions of $u_0$:
 $y = y_k^j(u_0)$, $k = 1, \dots, m_j$,
-and $y_k^j{}'(u(y)) = \frac{1}{u'(u)}$.
+and $y_k^j{}'(u(y)) = \frac{1}{u'(y)}$.
 We assume that $y_1^j(u_0) < y_2^j(u_0) < \dots < y_{m_j}^j(u_0)$.
 
-Solution of the equation $u^*(y^*)=u_0$ ($u_0 \in U$) can be expressed in terms of $y_k^j$:
+The solution of the equation $u^*(y^*)=u_0$ ($u_0 \in U$) can be expressed in terms of $y_k^j$:
 
 \begin{center}
 \begin{tabular}{l|l|l} 
@@ -36,41 +36,42 @@ Solution of the equation $u^*(y^*)=u_0$ ($u_0 \in U$) can be expressed in terms 
 \end{center}
 
 Let $y^*(v) = (u^*)^{-1}(v)$.
-Then $y^*{}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ with $u \in G_j$, as the signs in the expression for
+Then $y^*{}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ for $v \in G_j$, as the signs in the expression for
 $y^*$ and signs of $y_k^j{}'$ alternate, and $y^*{}'(v)\ge 0$.
 
-Set of zeros of $u'(x)$ and $u^*{}'(x)$ can have a nonzero measure.
+The sets of zeros of $u'(x)$ and $u^*{}'(x)$ can have nonzero measure.
 However, they do not contribute to the integral, since $F(u(x), 0) = 0$.
 
 Consider the remaining parts of the integrals :
 \begin{multline*}
-I(a, u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), a(x, u(x)) \abs{u'(x)}) dx
-\\ = \sum_{j=1}^N \int_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} dv,
+I(\mathfrak a, u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) dx
+\\ = \sum_{j=1}^N \int_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{\mathfrak a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} dv,
 \end{multline*}
 \begin{multline*}
-I(a, u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{a(x, u(x)) u^*{}'(x)}) dx
-\\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
+I(\mathfrak a, u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{\mathfrak a(x, u(x)) u^*{}'(x)}) dx
+\\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{\mathfrak a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
 \sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } dv.
 \end{multline*}
 
 We fix $j$ and $v$ in the right parts and prove the inequality for integrands.
 We denote $b_k := |y_k^j{}'(v)|$, $y_k := y_k^j(v)$, $y^* := y^*(v)$, $m := m_j$.
-Then the assertion takes the form :
-$$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ a(y_k, v) }{b_k} \Big) \ge F\Big( v, \frac{ a(y^*, v) }{ \sum_{k=1}^m b_k  } \Big) \sum_{k=1}^m b_k$$
-With the help of Jensen's inequality for the function $F(v, \cdot)$, we obtain
-$$T \ge F\Big( v, \frac{ \sum_{k=1}^m a(y_k, v) }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k.$$
-Then it is sufficient to prove $\sum_{k=1}^m a(y_k, v) \ge a(y^*, v)$, which is true due to Lemma \ref{weightSum} and
-remark \ref{almostConcaveMultRem}.
+Then the assertion takes the form:
+$$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ \mathfrak a(y_k, v) }{b_k} \Big)
+\ge F\Big( v, \frac{ \mathfrak a(y^*, v) }{ \sum_{k=1}^m b_k  } \Big) \sum_{k=1}^m b_k.$$
+By Jensen's inequality for the function $F(v, \cdot)$, we obtain
+$$T \ge F\Big( v, \frac{ \sum_{k=1}^m \mathfrak a(y_k, v) }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k.$$
+Then it is sufficient to prove $\sum_{k=1}^m \mathfrak a(y_k, v) \ge \mathfrak a(y^*, v)$, which is true due to Lemma \ref{weightSum} and
+Remark \ref{almostConcaveMultRem}.
 \end{proof}
 
 \begin{rem}
 \label{landesLinear}
-In the paper $\cite{Lan}$ inequality $(\ref{toprove})$ is proved under the additional condition $u(-1) = 0$
-for weight functions $a$, decreasing in $x$.
-It is easy to see that under this condition, the proof of Theorem $\ref{linth}$ works for weights satisfying
-$(\ref{almostConcave})$ without the evenness condition,
+In the paper $\cite{Lan}$ the inequality $(\ref{toprove})$ is proved under the additional assumption $u(-1) = 0$
+for the weight functions $\mathfrak a$, decreasing in $x$.
+It is easy to see that under this assumption, the proof of Theorem $\ref{linth}$ works for weights satisfying
+$(\ref{almostConcave})$ without the evenness assumption,
 since in this case $u(-1) < u_0$, and we need only two of the four inequalities,
 given by Lemma $\ref{weightSum}$.
-It is also obvious that the condition $(\ref{almostConcave})$ is weaker than the condition of $a$ decreasing in $x$.
+It is also obvious that the assumption $(\ref{almostConcave})$ is weaker than the assumption of $\mathfrak a$ decreasing in $x$.
 \end{rem}
 

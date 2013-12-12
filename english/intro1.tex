@@ -8,15 +8,15 @@ then $u(x) = \int_0^\infty \chi_{\mathcal{A}_t}dt$.
 We define the monotone rearrangement of a measurable set $E \subset [-1, 1]$ and the
 monotone rearrangement of non-negative function $u \in \W (-1, 1)$ as follows:
 \begin{eqnarray*}
-E^*: = [1 - \abs{E}, 1] \qquad
-u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*}dt
+E^*: = [1 - \abs{E}, 1]; \qquad
+u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*}dt.
 \end{eqnarray*}
 
 Under the same conditions we define the symmetric rearrangement 
 (symmetrization) for sets and functions:
 \begin{eqnarray*}
-\overline{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}] \qquad
-\overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}}dt
+\overline{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}]; \qquad
+\overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}}dt.
 \end{eqnarray*}
 
 We denote by $\mathfrak{F}$ the set of continuous functions 
@@ -26,41 +26,42 @@ which are convex and increasing with respect to the second argument.
 Let us consider a functional
 \begin{equation}
 \label{functional}
-I(a, u) = \int_{-1}^1 F(u(x), a(x, u(x)) \abs{u'(x)}) dx,
+I(\mathfrak a, u) = \int_{-1}^1 F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) dx,
 \end{equation}
-where $a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
+where $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
 
-It is well known that if $a \equiv const$ then the inequalities
+It is well known that if $\mathfrak a \equiv const$ then the inequalities
 \begin{eqnarray}
 \label{toprove}
-I(a, u^*) & \le & I(a, u), \qquad \qquad u \in \W(-1, 1);\\
+I(\mathfrak a, u^*) & \le & I(\mathfrak a, u), \qquad \qquad u \in \W(-1, 1);\\
 \label{toproveSymm}
-I(a, \overline{u}) & \le & I(a, u), \qquad \qquad u \in \Wf(-1, 1)
+I(\mathfrak a, \overline{u}) & \le & I(\mathfrak a, u), \qquad \qquad u \in \Wf(-1, 1)
 \end{eqnarray}
 hold, see for example \cite{Kawohl} and references therein.
 
 The inequality (\ref{toproveSymm}) and its multi-dimensional analogue
-are proved in \cite{Br} provided that the function $a$ is even and convex 
+are proved in \cite{Br} provided that the function $\mathfrak a$ is even and convex 
 with respect to $x$. However, the proof contains a gap,
 and in fact this inequality was proved in \cite{Br} only for Lipschitz functions $u$.
 
 Namely, while proving the inequality (\ref{toproveSymm}) for a natural class of functions,
 the author of \cite{Br} approximates $u \in \Wf$ having finite integral (\ref{functional})
-using piecewise linear functions $u_k$ and claims that $I(a, u_k) \to I(a, u)$.
-However, this assertion is not justified and in general is is not true.
+using piecewise linear functions $u_k$ and claims that $I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+However, this assertion is not justified and in general is not true.
 In 1926, M.~A.~Lavrentiev proposed the first example of an integral functional
 for which the infimum over the domain is strictly less than the infimum over the set of 
-Lipschitz functions. For historical overview and simple examples of ``one-dimensional'' 
-functionals for which the Lavrentiev phenomenon takes place see, e.g., \cite{BGH}.
+Lipschitz functions.
+Historical overview and simple examples of ``one-dimensional'' 
+functionals for which the Lavrentiev phenomenon takes place can be found in \cite{BGH} f.e..
 Note that a deep investigation of the Lavrentiev phenomenon for some classes of multidimensional 
-functionals was realized by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
+functionals was conducted by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
 
 In the paper \cite{ASC} the absence of the Lavrentiev phenomenon was proved for the functionals
-$I(a, u) = \int_{-1}^1 F(u, u')$. Moreover it was shown that for every $u \in \W(-1, 1)$ 
+$I(\mathfrak a, u) = \int_{-1}^1 F(u, u')$. Moreover it was shown that for every $u \in \W(-1, 1)$ 
 there exists a sequence of Lipschitz functions $u_k$, such that
 \begin{equation}
 \label{convergence}
-u_k \to u \text{ in } \W (-1, 1) \quad \text{ and } \quad I (a, u_k) \to I (a, u).
+u_k \to u \text{ in } \W (-1, 1) \quad \text{ and } \quad I (\mathfrak a, u_k) \to I (\mathfrak a, u).
 \end{equation}
 
 We modify the proof from \cite{ASC} and prove the absence of the Lavrentiev phenomenon
@@ -70,26 +71,26 @@ In addition we prove that evenness and convexity of the weight is a necessary co
 for the inequality (\ref{toproveSymm}) to hold.
 
 The bulk of our paper is devoted to the inequality (\ref{toprove}).
-We find a necessary and sufficient condition on the weight $a$ for the inequality 
+We find a necessary and sufficient condition on the weight $\mathfrak a$ for the inequality 
 (\ref{toprove}) to hold%
-\footnote{In particular, the inequality is satisfied if the weight function $a$ is even 
+\footnote{In particular, the inequality is satisfied if the weight function $\mathfrak a$ is even 
 and concave in $x$.}.
 Under certain additional assumptions this result was announced in \cite{DAN}.
 
 We note also that the inequality (\ref{toprove}) was considered in \cite{Lan}
 for functionals similar to (\ref{functional}) under additional constraint $u(-1) = 0$.
 We obtain necessary and sufficient conditions for (\ref{toprove}) under this constraint.
-(The author of \cite{Lan} assumed that the weight $a$ was decreasing in $x$.)
+(The author of \cite{Lan} assumed that the weight $\mathfrak a$ was decreasing in $x$.)
 
 The article is divided into 8 sections.
-In Section 2 we deduce the assumptions on the weight function $a$ which are necessary for the 
+In section 2 we deduce the assumptions on the weight function $\mathfrak a$ which are necessary for the 
 inequality (\ref{toprove}).
-In \S3 auxiliary statements for weights satisfying necessary conditions are established.
-In \S4 the inequality (\ref{toprove}) is proved for piecewise linear functions $u$.
-In \S5 we present the scheme for proving inequality (\ref{toprove}) for a wider class of 
+Auxiliary statements for weights satisfying necessary conditions are established in section 3.
+In section 4 the inequality (\ref{toprove}) is proved for piecewise linear functions $u$.
+In section 5 we present the scheme for proving inequality (\ref{toprove}) for a wider class of 
 functions $u$.
-In \S6 we prove inequality (\ref{toprove}), provided that the weight $a$ first increases, 
+In section 6 we prove inequality (\ref{toprove}), provided that the weight $\mathfrak a$ first increases, 
 then decreases.
-\S7 is devoted to the proof of (\ref{toprove}) under necessary conditions only.
-Finally, in the \S8 we consider the case of symmetric rearrangement.
+Section 7 is devoted to the proof of (\ref{toprove}) under necessary conditions only.
+Finally, in the section 8 we deal with symmetric rearrangement.
 There we obtain necessary conditions on the weight and complete the proof of (\ref{toproveSymm}).

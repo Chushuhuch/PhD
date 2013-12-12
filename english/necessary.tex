@@ -117,13 +117,13 @@ $$
 
 We have
 \begin{multline*}
-I(a, u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2}) dz\\
-= \int_0^\eps 2 F(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
-0 \le I( a, u ) - I( a, u^* ) =
-\int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a( t - y, \bar{v} + y))\\
-- 2 F(\bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2})) dy\\
-< \int_0^\eps ( F(\bar{v} + y, a(s + y, \bar{v} + y)) + F(\bar{v} + y, a(t - y, \bar{v} + y))\\
-- 2 F(\bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
+I(\mathfrak a, u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2}) dz\\
+= \int_0^\eps 2 F(\bar{v} + y, \frac{\mathfrak a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
+0 \le I( \mathfrak a, u ) - I( \mathfrak a, u^* ) =
+\int_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a( t - y, \bar{v} + y))\\
+- 2 F(\bar{v} + y, \frac{ \mathfrak a(1 - t + s + 2y, \bar{v} + y) }{2})) dy\\
+< \int_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a(t - y, \bar{v} + y))\\
+- 2 F(\bar{v} + y, \frac{ \mathfrak a(s + y, \bar{v} + y) + \mathfrak a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
 \end{multline*}
 
 Let us consider the function $F(v, p) = p ^ \alpha$.
@@ -134,7 +134,7 @@ For $\alpha = 1$, the following inequality trivially holds:
 \end{equation}
 We are interested in $p, q$, lying on a compact $[0 , A]$,
 where 
-$$A=\max \limits_{(x, v)} a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
+$$A=\max \limits_{(x, v)} \mathfrak a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
 $$
 Therefore, there is an $\alpha> 1$, for which the inequality (\ref{anticonvex})
 still holds.
@@ -153,9 +153,9 @@ the assumption (\ref{almostConcave}) is also necessary for the inequality (\ref{
 \end{rem}
 
 \begin{rem}
-If a  non-negative function $a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}). 
-Indeed, for every $s$, $t$ and $u$ we have $a( 1 , u) - a(s, u) \le a(t, u) - a(-1 + t - s, u)$.
-Since $a( 1 , u) \ge 0$, we obtain $a(s, u) + a(t, u) \ge a(-1 + t - s, u) = a( 1 - t + s, u)$.
+If a  non-negative function $\mathfrak a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}). 
+Indeed, for every $s$, $t$ and $u$ we have $\mathfrak a( 1 , u) - \mathfrak a(s, u) \le \mathfrak a(t, u) - \mathfrak a(-1 + t - s, u)$.
+Since $\mathfrak a(1 , u) \ge 0$, we obtain $\mathfrak a(s, u) + \mathfrak a(t, u) \ge \mathfrak a(-1 + t - s, u) = \mathfrak a( 1 - t + s, u)$.
 The converse is not true in general, that is not any even
 non-negative function satisfying (\ref{almostConcave}) is concave.
 \end{rem}

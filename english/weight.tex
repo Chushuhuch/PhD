@@ -4,13 +4,13 @@ For brevity, in this section we omit the second argument of the function $a$.
 
 \begin{lm}
 \label{weightSum}
-Consider a continuous function $a \ge 0$ defined on $[-1, 1]$
+Consider a continuous function $\mathfrak a \ge 0$ defined on $[-1, 1]$
 and satisfying the condition (\ref{almostConcave}).
 Then for any $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$
 the following inequalities hold
 \begin{align*}
-\sum_{k = 1}^n a(t_k) & \ge a( 1 - \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
-\sum_{k = 1}^n a(t_k) & \ge a(- \sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a( 1 - \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(- \sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
 \end{align*}
 \end{lm}
 
@@ -18,92 +18,82 @@ the following inequalities hold
 We will prove the lemma by induction.
 For $n = 1$ the assertion is trivial.
 Now let $n$ be even. Then, by the induction hypothesis,
-$$\sum_{k=1}^{n - 1} a(t_k) \ge a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ).$$
+$$\sum_{k=1}^{n - 1} \mathfrak a(t_k) \ge \mathfrak a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ).$$
 Then
-$$\sum_{k = 1}^{n - 1} a( t_k ) + a( t_n ) \ge a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ) + a( t_n ) \ge
-a( 1 - \sum_{k = 1}^{n} (-1)^k t_k ).$$
+$$\sum_{k = 1}^{n - 1} \mathfrak a( t_k ) + \mathfrak a( t_n ) \ge \mathfrak a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ) + \mathfrak a( t_n ) \ge
+\mathfrak a( 1 - \sum_{k = 1}^{n} (-1)^k t_k ).$$
 In the case of odd $n$ we have the following induction hypothesis:
-$$\sum_{k=2}^n a(t_k) \ge a( 1 + \sum_{k = 2}^n (-1)^k t_k ).$$
+$$\sum_{k=2}^n \mathfrak a(t_k) \ge \mathfrak a( 1 + \sum_{k = 2}^n (-1)^k t_k ).$$
 Then
-$$a( t_1 ) + \sum_{k = 2}^n a( t_k ) \ge a( t_1 ) + a( 1 + \sum_{k = 2}^{n} (-1)^k t_k ) \ge
-a( -\sum_{k = 2}^{n} (-1)^k t_k + t_1 ) = a( -\sum_{k = 1}^{n} (-1)^k t_k ).$$
+$$\mathfrak a( t_1 ) + \sum_{k = 2}^n \mathfrak a( t_k ) \ge \mathfrak a( t_1 ) + \mathfrak a( 1 + \sum_{k = 2}^{n} (-1)^k t_k ) \ge
+\mathfrak a( -\sum_{k = 2}^{n} (-1)^k t_k + t_1 ) = \mathfrak a( -\sum_{k = 1}^{n} (-1)^k t_k ).$$
 \end{proof}
 
 \begin{rem}
-Assume that in addition to the conditions of the lemma \ref{weightSum} the function $a$ is even.
+Assume that in addition to the assumptions of Lemma \ref{weightSum} the function $\mathfrak a$ is even.
 Then the following inequalities also hold:
 \label{almostConcaveMultRem}
 \begin{align*}
-\sum_{k = 1}^na(t_k) & \ge a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
-\sum_{k = 1}^na(t_k) & \ge a(\sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(\sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
 \end{align*}
 \end{rem}
 
 \begin{lm}
 \label{periodicity}
-{\bf 1.} Let $a$ satisfy $(\ref{almostConcave})$.
-If there is $x_0 \in [-1, 1]$, such that $a(x_0) = 0$,
-then either $a\Big |_{[x_0, 1]} \equiv 0$
-or the set of zeros of $a$ is periodic on $[x_0, 1]$
+{\bf 1.} Let $\mathfrak a$ satisfy $(\ref{almostConcave})$.
+If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
+then either $\mathfrak a\Big |_{[x_0, 1]} \equiv 0$
+or the set of zeros of $\mathfrak a$ is periodic on $[x_0, 1]$
 and the period is a divisor of $1 - x_0$.
 
-{\bf 2.} Let $a$ be even and satisfy $(\ref{almostConcave})$.
-If there is $x_0 \in [-1, 1]$, such that $a(x_0) = 0$,
-then either $a \equiv 0$
-or the function $a$ is periodic on the $[-1, 1]$ interval
+{\bf 2.} Let $\mathfrak a$ be even and satisfy $(\ref{almostConcave})$.
+If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
+then either $\mathfrak a \equiv 0$
+or the function $\mathfrak a$ is periodic on the $[-1, 1]$ interval
 and the period is a divisor of $1 - x_0$.
 \end{lm}
 
 \begin{proof}
-First of all, note that if $a(s) = a(t) = 0$ holds for some $s \le t$
-then the inequality (\ref{almostConcave}) implies
-$$0 = a(s) + a(t) \ge a( 1 - (t - s) ) \ge 0$$
-i.e. $a(1 - (t - s)) = 0$.
-
-Similarly, if $s \le 1 - t$ and $a(s) = a(1 - t) = 0$, then $a(s + t) = 0$.
-
-These two facts imply the following.
-If $a(s) = a(t) = 0$ then $a(s + k(t - s)) = 0$ for all positive integers $k$, for which $s + k(t - s) \le 1$.
-
 {\bf 1.}
-Substituting $s = t = x_0$, we obtain $a(1) = 0$.
+Note that if $\mathfrak a(s) = \mathfrak a(t) = 0$ holds for some $s \le t$
+then the inequality (\ref{almostConcave}) implies
+$$0 = \mathfrak a(s) + \mathfrak a(t) \ge \mathfrak a( 1 - (t - s) ) \ge 0$$
+i.e. $\mathfrak a(1 - (t - s)) = 0$.
+Substituting $s = t = x_0$, we obtain $\mathfrak a(1) = 0$.
 
-If function $a$ has roots arbitrary close to $x_0$
-then it has periodical roots on $[x_0, 1]$ with arbitrary small period.
-And thus it vanishes on a set which is dense in $[x_0, 1]$.
-By the continuity we have $a\Big |_{[x_0, 1]} = 0$.
-Otherwise, let $x_1 > x_0$ be the root of function $a$ closest to $x_0$.
-Then there must be a natural number $K$, such that $x_0 + K(x_1 - x_0) = 1$,
-otherwise we can find more dense set of roots of $a$.
+Similarly, if $s \le 1 - t$ and $\mathfrak a(s) = \mathfrak a(1 - t) = 0$, then $\mathfrak a(s + t) = 0$.
 
-Suppose now that there exists a root $x_2 > x_0$ of function $a$,
-which does not coincide with any of $x_0 + k ( x_1 - x_0 )$ with $k = 0 \dots K$.
-Then there exists a root $x_3 \in (1 - (x_1 - x_0), 1)$
-and therefore there is a root $x_4 \in (x_0, x_1)$, which leads to a contradiction.
+Thus, the set of roots of $\mathfrak a$ is symmetric and
+whenever $s$ and $s + \Delta$ ($\Delta \ge 0$) are roots of $\mathfrak a$,
+values $s + k\Delta$ are roots of $\mathfrak a$ too provided $s + k\Delta \le 1$.
+This implies the set of roots of $\mathfrak a$ is periodic on $[x_0, 1]$
+or coincides with it.
 
-{\bf 2.} The periodicity of zeros of the function $a$ follows from its evenness and from the first assertion of the lemma.
+{\bf 2.} The periodicity of zeros of the function $\mathfrak a$ follows from its evenness and from the first assertion of the lemma.
 Denote the distance between consecutive zeros by $\Delta$.
 
 Then for $-1 \le x \le 1 - \Delta$ the following holds
-$$a(x) = a(x) + a(1 - \Delta) \ge a(x + \Delta).$$
+$$\mathfrak a(x) = \mathfrak a(x) + \mathfrak a(1 - \Delta) \ge \mathfrak a(x + \Delta).$$
 
 On the other hand, $-1 \le -(x + \Delta) \le 1 - \Delta$, and
-$$a(x + \Delta) = a(-(x + \Delta)) + a(1 - \Delta) \ge a(-x) = a(x).$$
+$$\mathfrak a(x + \Delta) = \mathfrak a(-(x + \Delta)) + \mathfrak a(1 - \Delta) \ge \mathfrak a(-x) = \mathfrak a(x).$$
 
-Thus, $a(x) = a(x + \Delta)$.
+Thus, $\mathfrak a(x) = \mathfrak a(x + \Delta)$.
 \end{proof}
 
 \begin{lm}
 \label{maxSumConcave}
-Suppose that $a_1$ and $a_2$ satisfy $(\ref{almostConcave})$.
-Then the function $a(x) = \max (a_1(x), a_2(x))$ and $a_1(x) + a_2(x)$ also satisfy $(\ref{almostConcave})$.
+Suppose that $\mathfrak a_1$ and $\mathfrak a_2$ satisfy $(\ref{almostConcave})$.
+Then the function $\max (\mathfrak a_1(x), \mathfrak a_2(x))$ and $\mathfrak a_1(x) + \mathfrak a_2(x)$ also satisfy $(\ref{almostConcave})$.
 \end{lm}
 \begin{proof}
+Set $\mathfrak a(x) = \max (\mathfrak a_1(x), \mathfrak a_2(x))$. Then
 \begin{multline*}
-a(1 + s + t) = \max(a_1( 1 + s + t), a_2(1 + s + t)) \le
-\max(a_1(s) + a_1(t), a_2(s) + a_2(t)) \\
-\le \max(a_1(s), a_2(s)) + \max(a_1(t), a_2(t)) =
-a(s) + a(t).
+\mathfrak a(1 + s + t) = \max(\mathfrak a_1( 1 + s + t), \mathfrak a_2(1 + s + t)) \le
+\max(\mathfrak a_1(s) + \mathfrak a_1(t), \mathfrak a_2(s) + \mathfrak a_2(t)) \\
+\le \max(\mathfrak a_1(s), \mathfrak a_2(s)) + \max(\mathfrak a_1(t), \mathfrak a_2(t)) =
+\mathfrak a(s) + \mathfrak a(t).
 \end{multline*}
 
 The second part is obvious.
@@ -111,36 +101,38 @@ The second part is obvious.
 
 \begin{lm}
 \label{piecewiseLinearConcave}
-Let the function $a$ satisfy $(\ref{almostConcave})$, $k \in \Nat$.
-Then a piecewise linear function $a_k$,
-interpolating function $a$ using the nodes
+Let the function $\mathfrak a$ satisfy $(\ref{almostConcave})$, $k \in \Nat$.
+Then a piecewise linear function $\mathfrak a_k$,
+interpolating $\mathfrak a$ using the nodes
 $(-1 + \frac{2i}{k})$, $i = 0, 1, \dots, k$,
-satisfies $(\ref{almostConcave})$ either.
+also satisfies $(\ref{almostConcave})$.
 \end{lm}
 \begin{proof}
+{\bf 1.}
 Let $s = -1 + \frac{2i}{k}$, $t = -1 + \frac{2j}{k}$.
-Then the inequality $(\ref{almostConcave})$ holds for $a_k$, because it does for $a$,
+Then the inequality $(\ref{almostConcave})$ holds for $\mathfrak a_k$, because it does for $\mathfrak a$,
 and their values at these points are equal.
 
+{\bf 2.}
 Now let $s = -1 + \frac{2i}{k}$ and $t \in [-1 + \frac{2j}{k}, -1 + \frac{2(j + 1)}{k}]$.
 
-Consider the linear function $h_1(t) = a_k( 1 - t + s ) - a_k(t) - a_k(s)$.
-From already proved it follows that $h_1(-1 + \frac{2j}{k}) \le 0$ and $h_1(-1 + \frac{2(j + 1)}{k}) \le 0$.
-While $h_1$ is linear, $h_1(t) \le 0$.
-Thus, the inequality holds for every $s \in -1 + \frac{2i}{k}$ and $t \in [-1, 1]$.
+Consider the linear function $h_1(t) = \mathfrak a_k( 1 - t + s ) - \mathfrak a_k(t) - \mathfrak a_k(s)$.
+It follows from part 1 that $h_1(-1 + \frac{2j}{k}) \le 0$ and $h_1(-1 + \frac{2(j + 1)}{k}) \le 0$.
+Since $h_1$ is linear, $h_1(t) \le 0$.
+Thus, the inequality holds for every $s = -1 + \frac{2i}{k}$ and $t \in [-1, 1]$.
 
-Consider the function $h_2(y) = a_k(\frac{2j}{k}) - a_k(s - y) - a_k(t + y)$, where $1 - t + s = \frac{2j}{k}$.
-Suppose, $s + y_0$ is one of the interpolation nodes, then $t + y_0$ is also an interpolation node.
-Thereby, $h_2(y_0) = a(\frac{2j}{k}) - a(s - y) - a(t + y) \le 0$.
-Between such $y_0$ the $h_2$ function is linear.
-Also the boundary points of the domain of $h_2$ are nodes of interpolation.
-Therefore $h_2(y) \le 0$ on its entire domain.
+{\bf 3.}
+Let $s$ and $t$ satisfy $1 - t + s = \frac{2j}{k}$.
+Consider the function $h_2(y) = \mathfrak a_k(\frac{2j}{k}) - \mathfrak a_k(s + y) - \mathfrak a_k(t + y)$.
+If we choose $y_0$ such that $s + y_0$ is one of the nodes then $t + y_0$ is also a node.
+Therefore, $h_2(y_0) = \mathfrak a(\frac{2j}{k}) - \mathfrak a(s + y_0) - \mathfrak a(t + y_0) \le 0$.
+Since $h_2$ is linear between such $y_0$'s, we obtain $h_2(y) \le 0$ for all admissible $y$.
 
-Consider the function $h_3(s) = a_k( 1 - t + s ) - a_k(t) - a_k(s)$ for any fixed $t \in [-1, 1]$.
-This function is piecewise linear,
-and it can bend at each $s$, which is an interpolation node itself of for which
-$1 - t + s$ is an interpolation node.
-However, we have already proved that at these points $h_3(s) \le 0$.
-The boundary points of the domain of $h_3$ are the nodes of interpolation, thus, $h_3(s) \le 0$ everywhere.
+{\bf 4.}
+Finally, consider $h_3(s) = \mathfrak a_k( 1 - t + s ) - \mathfrak a_k(t) - \mathfrak a_k(s)$ for arbitrary given $t \in [-1, 1]$.
+Note that parts 2 and 3 imply $h_3(s) \le 0$ for any $s$
+such that either $s$ or $1 - t + s$ is a node.
+Since $h_3$ is linear between these points, $h_3(s) \le 0$ for all admissible $s$,
+and the statement follows.
 \end{proof}
 
