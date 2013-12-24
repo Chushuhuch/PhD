@@ -653,63 +653,62 @@ Using Theorem \ref{linth} and applying Lemma \ref{uplift}, we complete the proof
 \end{proof}
 
 
-\section{The transition to $\W$ functions with an additional restriction on weight}
+\section{The inequality for $u \in \W$ with an additional restriction on weight}
 \label{ASC}
 
-In this section we obtain the inequality (\ref{toprove}) under the additional condition
-monotony of the weight function at $x \in [-1, 0]$ and $x \in [0, 1]$.
+In this section we prove the inequality (\ref{toprove}) under the additional condition:
+weight is monotonic in $x$ for $x \in [-1, 0]$ and $x \in [0, 1]$.
 
 \begin{lm}
 \label{Wapprox}
-Let $a$ --- continuous function, $a(\cdot, u)$ is increasing on $[-1, 0]$ and decreasing on $[0, 1]$ for all $u \ge 0$.
-Then any function $u \in \W(-1, 1)$, $u \ge 0$,
-Lipschitz functions approaching the functional $I$,
-then there exists a sequence $u_k \in Lip[-1, 1]$, such that the relation $(\ref{convergence})$.
+Let $a$ be a continuous function
+and let $a(\cdot, u)$ be increasing on $[-1, 0]$ and decreasing on $[0, 1]$ for all $u \ge 0$.
+Then for any function $u \in \W(-1, 1)$, $u \ge 0$,
+there exists a sequence $\{u_k\} \subset Lip[-1, 1]$, such that the relation $(\ref{convergence})$ holds.
 \end{lm}
 
 \begin{proof}
 We can assume that $I( a, u ) < \infty$.
 
-Weight increases $a$ in $x$ at $x \in [-1, 0]$
-and decreases for $x \in [0, 1]$.
 We prove the assertion for the functional
 $$I_2( u ) = \int_0^1 F( u(x), a(x, u(x)) |u'(x)| ) dx,$$
-and the case of $[-1, 0]$ to first reduce the $$I_1( u ) = \int_{-1}^0 F( u( x ), a( x, u(x) ) |u'(x)| ) dx =
-\int_0^1 F( u( -z ), a( -z, u(-z) ) |u'( -z )| ) dz.$$
+and the case of $x \in [-1, 0]$ can be reduced to $I_2$ as follows
+$$I_1( u ) = \int_{-1}^0 F( u( x ), a( x, u(x) ) |u'(x)| ) dx = \int_0^1 F( u( -z ), a( -z, u(-z) ) |u'( -z )| ) dz.$$
 
-To prove this, we will modify the schema from \cite [ Theorem 2.4]{ASC}.
-Proof overlaps with \cite{ASC}, but for the reader's convenience, we present it here in full.
+We modify the schema from \cite[Theorem 2.4]{ASC}.
+The proof overlaps with \cite{ASC}, but we present it here in full for the reader's convenience.
 
 We need the following auxiliary assertion.
 
 \begin{prop}
 \label{convToOne}
 $\cite[Lemma 2.7]{ASC}$.
-Let $\phi_h: [-1, 1] \to \Real$ --- a sequence of Lipschitz functions satisfying the conditions :
-$\phi_h' \ge 1$ for almost all $x$ and all $h$, $\phi_h( x ) \to x$ for almost every $x$.
-Then, for any $f \in L_1(\Real)$ $f(\phi_h) \to f$ in $L_1(\Real)$.
+Let $\phi_h: [-1, 1] \to \Real$ be a sequence of Lipschitz functions satisfying the conditions:
+$\phi_h' \ge 1$ for almost every $x$ and all $h$, $\phi_h( x ) \to x$ for almost every $x$.
+Then for any $f \in L_1(\Real)$ we have $f(\phi_h) \to f$ in $L_1(\Real)$.
 \end{prop}
 
-For $h \in \Nat$ cover the set $\{ x \in [0, 1]: |u'(x)| > h \}$
-open set $A_h$.
+For $h \in \Nat$ we cover the set $\{ x \in [0, 1]: |u'(x)| > h \}$ with an open set $A_h$.
 Without loss of generality, we can assume that
 $A_{h + 1} \subset A_{h}$ and $\abs{A_h} \to 0$ for $h \to \infty$.
-As we take $v_h$ function coinciding with $u$ is the set $A_h$.
-On connected sites will make $A_h$ $v_h$ linear.
-Then $v_h \to u$ in $\W$.
-Change little $v_h$, to make an approximation of Lipschitz.
 
-Imagine $A_h = \cup_k \Omega_{h,k}$, where $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$.
-denote
-$$\alpha_{h,k} := \abs{\Omega_{h,k}},\quad
+Consider function $v_h: [0, 1] \to \Real_+$,
+coinciding with $u$ on $[0, 1] \setminus A_h$ and
+linear on segments comprising $A_h$.
+Then $v_h \to u$ in $\W$.
+We change $v_h$ to make an it Lipschitz functions.
+
+Let $A_h = \cup_k \Omega_{h,k}$, where $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$.
+Denote
+$$\alpha_{h,k} := \abs{\Omega_{h,k}}, \quad
 \beta_{h,k} := v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-).$$
 Then $v'_h = \frac{\beta_{h,k}}{\alpha_{h,k}}$ in $\Omega_{h,k}$.
 Note that
 $$\sum_k \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
 and hence
-$\sum_k \abs{\beta_{h,k}} \to 0$ for $h \to 0$ by Lebesgue.
+$\sum_k \abs{\beta_{h,k}} \to 0$ for $h \to 0$ by Lebesgue theorem.
 
-We define a function $\phi_h \in \W(0, 1)$ as follows:
+We define the function $\phi_h \in \W(0, 1)$ as follows:
 $$
 \begin{aligned}
 \phi_h( 0 ) &= 0 & & \\
@@ -720,16 +719,13 @@ $$
 
 Note that $\int_0^1 \abs{\phi_h'} dx \le 1 + \sum_k \abs{\beta_{h,k}} < \infty$.
 
-\medskip
-
-We show that $\phi_h' \to 1$ in $L_1(0, 1)$ :
+Let us show that $\phi_h' \to 1$ in $L_1(0, 1)$:
 $$\int \abs{\phi_h' - 1} dx = \sum \Big( \max \Big( \frac{\abs{\beta_{h,k}}}{\alpha_{h,k}}, 1 \Big) - 1 \Big) \alpha_{h,k} \le
 \sum \abs{\beta_{h,k}} \to 0.$$
-It follows that $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
+Then $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
 
-We now consider the $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- restriction inverse to $\phi_h$ functions on $[0, 1]$.
-For it is true $0 \le ( \phi_h^{-1} )' \le 1$ and
-
+Consider now $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- the restriction of the inverse $\phi_h$ to $[0, 1]$.
+Then $0 \le ( \phi_h^{-1} )' \le 1$ and
 $$
 \begin{aligned}
 \phi_h^{-1} ( 0 ) &= 0 & & \\
@@ -738,7 +734,7 @@ $$
 \end{aligned}
 $$
 
-Take $u_h = v_h( \phi_h^{-1} )$.
+Let $u_h = v_h( \phi_h^{-1} )$.
 Note that $u_h(0) = u(0)$, and
 \begin{align*}
 u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = u'( \phi_h^{-1} ) & \text{ in } & [0, 1] \setminus \phi_h( A_h ),\\
@@ -746,10 +742,9 @@ u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' =
 \sign{ \beta_{h,k} } \cdot \min \Big( 1, \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } \Big) & \text{ in } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
 \end{align*}
 
-Thus, $u_h$ Lipschitz as $u$ is a $A_h$ bounded derivative.
+Thus, $u_h$ is Lipschitz since $u'$ is bounded in $[0, 1] \setminus A_h$.
 
-We show that $u_h \to u$ in $\W(0, 1)$.
-To do this, it suffices to estimate
+Let us show that $u_h \to u$ in $\W(0, 1)$. It is sufficient to estimate
 
 $$\norm{u_h' - u'}_{L_1} \le \int_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} + 
 \int_{[0, 1] \cap \phi_h(A_h)} \abs{u_h'} + \int_{[0, 1] \cap \phi_h(A_h)} \abs{u'} =: P_h^1 + P_h^2 + P_h^3.$$
@@ -757,20 +752,21 @@ $$P_h^1 = \int_{[0, 1] \setminus \phi_h( A_h )} \abs{u'( \phi_h^{-1} ) - u'} dx 
 \int_{\phi_h^{-1} ( [0, 1] ) \setminus A_h} \abs{u' - u'( \phi_h )} dz \le
 \int_{[0, 1]} \abs{u' - u'( \phi_h )} dz.$$
 By Proposition \ref{convToOne}, $P_h^1 \to 0$.
-
 Further,
 $$P_h^2 \le \abs{\phi_h( A_h )} = \sum \abs{\phi_h( \Omega_{h,k} )} = \sum \max (\abs{\beta_{h,k}}, \alpha_{h,k})
 \le \sum \alpha_{h,k} + \sum \abs{\beta_{h,k}} \to 0.$$
-Finally, $P_h^3 \to 0$ in absolute continuity of the integral, and the assertion is proved.
+Finally, $P_h^3 \to 0$ by the absolute continuity of the integral, and the assertion is proved.
 
 It remains to show that $I_2( u_h ) \to I_2( u )$.
 
 $$I_2( u_h ) = \!\!\!\!\int\limits_{[0, 1] \setminus \phi_h( A_h )}\!\!\!\! F( u_h( x ), a( x, u_h(x) ) |u_h'( x )| ) dx +\
 \!\!\!\!\int\limits_{[0, 1] \cap \phi_h( A_h )}\!\!\!\! F( u_h( x ), a( x, u_h(x) ) |u_h'( x )| ) dx.$$
-These terms denote $\hat{P_h^1}$ and $\hat{P_h^2}$.
-Since $u \in \W(0, 1)$, then $u \in L_\infty( [0, 1] )$. We denote $\norm{u}_\infty = r$,
-then $\norm{u_h}_\infty < 2r$ for sufficiently large $h$. Additionally, $\abs{u_h'} \le 1$
-almost everywhere in $\phi_h( A_h )$. Then $\hat{P_h^2} \le M_F \abs{\phi_h( A_h )} \to 0$, where
+Denote these terms $\hat{P_h^1}$ and $\hat{P_h^2}$.
+Since $u \in \W(0, 1)$ then $u \in L_\infty( [0, 1] )$.
+Denote $\norm{u}_\infty = r$.
+Then $\norm{u_h}_\infty < 2r$ for any sufficiently large $h$.
+Also, $\abs{u_h'} \le 1$ almost everywhere in $\phi_h( A_h )$.
+Then $\hat{P_h^2} \le M_F \abs{\phi_h( A_h )} \to 0$, where
 $$M_F = \max\limits_{[-2r, 2r] \times [-M_a, M_a]} F;\quad M_a = \max\limits_{[0, 1] \times [-2r, 2r]} a.$$
 
 Further,
@@ -780,35 +776,36 @@ Further,
 \\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| ) dz
 \\ = \int\limits_{ [0, 1] } F( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h }dz.
 \end{multline*}
-The last equality, generally speaking, does not make sense, since $\phi_h( z )$ can take values is $[0, 1]$.
-We define $a( z, u ) = a( 1, u )$ at $z > 1$. Now the expression correctly.
-Note that $\chi_{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ increases, as set
-$\phi_h^{-1}( [0, 1] )$ increases and $A_h$ decay, ie
-$\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ and $A_{h_1} \supset A_{h_2}$ for $h_1 \le h_2$.
-On $[0, 1]$ (or even $\phi_h( [0, 1] )$) $a$ decreases, then $a( \phi_h( z ) )$ is expected to grow by $h$,
-since $\phi_h( z )$ is decreasing in $h$. In this case it is possible to apply the theorem
-monotone convergence and get
+The last equality, generally speaking, does not make sense, since $\phi_h( z )$ can take values outside $[0, 1]$.
+Let us define $a( z, u ) = a( 1, u )$ for $z > 1$. Now the expression is correct.
+Note that $\chi_{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ increases,
+since sets $\phi_h^{-1}( [0, 1] )$ increase and sets $A_h$ decay,
+that is $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ and $A_{h_1} \supset A_{h_2}$ for $h_1 \le h_2$.
+Since $a$ is decreasing on $[0, 1]$ (and even on $\phi_h( [0, 1] )$) and $\phi_h( z )$ is decreasing in $h$,
+then $a( \phi_h( z ) )$ is increasing in $h$.
+We apply monotone convergence theorem and get
 $$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), a( z, u( z ) ) |u'( z )| ) dz.$$
 
 \end{proof}
 
 \begin{rem}
-Obviously, the same reasoning with binding function $u$ on the left end can be spent at any interval $[x_0, x_1]$, where
-weight $a$ is decreasing in $x$. That is to get over this interval sequence
+Obviously, the proof works for any interval $[x_0, x_1]$ with function $u$ bound in $x_0$,
+provided the weight $a$ is decreasing in $x$ on $[x_0, x_1]$.
+That is there exists $\{u_h\}$, such that
 \begin{gather*}
 u_h \to u \text{ in } \W(x_0, x_1);\\
 \int_{x_0}^{x_1} F( u_h(x), a(x, u_h(x)) \abs{u_h'(x)} ) \to \int_{x_0}^{x_1} F( u(x), a(x, u(x)) \abs{u'(x)} ).
 \end{gather*}
-Similarly, if $a$ is increasing in $x$, can be approximated by $u$ with fixing on the right end.
+Similarly, if $a$ is increasing in $x$, the same works for functions $u$ bound on the right end of the segment.
 \end{rem}
 
 \begin{cor}
-Let the function $a$ is continuous, even, satisfies $(\ref{almostConcave})$
-and decreasing on $[0, 1]$. Then for every $u \in \W(-1, 1)$ holds $I( a, u^* ) \le I( a, u )$.
+Let the function $a$ be continuous, even in $x$, satisfy $(\ref{almostConcave})$
+and be decreasing on $[0, 1]$. Then for every $u \in \W(-1, 1)$ the inequality (\ref{toprove}) holds.
 \end{cor}
 
 \begin{proof}
-Inequality follows immediately from Lemma \ref{uplift} and \ref{Wapprox}.
+The inequality follows from Lemma \ref{uplift} and \ref{Wapprox} immediately.
 \end{proof}
 
 
