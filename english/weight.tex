@@ -1,4 +1,4 @@
-\section{Properties of the weighting function }
+\section{Properties of the weight function}
 
 For brevity, in this section we omit the second argument of the function $a$.
 
@@ -15,7 +15,7 @@ the following inequalities hold
 \end{lm}
 
 \begin{proof}
-We will prove the lemma by induction.
+We prove the lemma by induction.
 For $n = 1$ the assertion is trivial.
 Now let $n$ be even. Then, by the induction hypothesis,
 $$\sum_{k=1}^{n - 1} \mathfrak a(t_k) \ge \mathfrak a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ).$$
@@ -43,14 +43,14 @@ Then the following inequalities also hold:
 \label{periodicity}
 {\bf 1.} Let $\mathfrak a$ satisfy $(\ref{almostConcave})$.
 If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
-then either $\mathfrak a\Big |_{[x_0, 1]} \equiv 0$
+then either $\mathfrak a \Big|_{[x_0, 1]} \equiv 0$
 or the set of zeros of $\mathfrak a$ is periodic on $[x_0, 1]$
 and the period is a divisor of $1 - x_0$.
 
 {\bf 2.} Let $\mathfrak a$ be even and satisfy $(\ref{almostConcave})$.
 If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
 then either $\mathfrak a \equiv 0$
-or the function $\mathfrak a$ is periodic on the $[-1, 1]$ interval
+or the function $\mathfrak a$ is periodic on $[-1, 1]$
 and the period is a divisor of $1 - x_0$.
 \end{lm}
 
@@ -67,7 +67,7 @@ Similarly, if $s \le 1 - t$ and $\mathfrak a(s) = \mathfrak a(1 - t) = 0$, then 
 Thus, the set of roots of $\mathfrak a$ is symmetric and
 whenever $s$ and $s + \Delta$ ($\Delta \ge 0$) are roots of $\mathfrak a$,
 values $s + k\Delta$ are roots of $\mathfrak a$ too provided $s + k\Delta \le 1$.
-This implies the set of roots of $\mathfrak a$ is periodic on $[x_0, 1]$
+This implies the set of roots of $\mathfrak a$ is periodic on the segment $[x_0, 1]$
 or coincides with it.
 
 {\bf 2.} The periodicity of zeros of the function $\mathfrak a$ follows from its evenness and from the first assertion of the lemma.
@@ -123,6 +123,7 @@ Thus, the inequality holds for every $s = -1 + \frac{2i}{k}$ and $t \in [-1, 1]$
 
 {\bf 3.}
 Let $s$ and $t$ satisfy $1 - t + s = \frac{2j}{k}$.
+
 Consider the function $h_2(y) = \mathfrak a_k(\frac{2j}{k}) - \mathfrak a_k(s + y) - \mathfrak a_k(t + y)$.
 If we choose $y_0$ such that $s + y_0$ is one of the nodes then $t + y_0$ is also a node.
 Therefore, $h_2(y_0) = \mathfrak a(\frac{2j}{k}) - \mathfrak a(s + y_0) - \mathfrak a(t + y_0) \le 0$.

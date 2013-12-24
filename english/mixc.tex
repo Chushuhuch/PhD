@@ -55,7 +55,7 @@ Namely, if we set $\mathcal{A}_t: = \{x \in [-1,1]:\ u(x)> t \}$
 then $u(x) = \int_0^\infty \chi_{\mathcal{A}_t}dt$.
 
 We define the monotone rearrangement of a measurable set $E \subset [-1, 1]$ and the
-monotone rearrangement of non-negative function $u \in \W (-1, 1)$ as follows:
+monotone rearrangement of a non-negative function $u \in \W (-1, 1)$ as follows:
 \begin{eqnarray*}
 E^*: = [1 - \abs{E}, 1]; \qquad
 u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*}dt.
@@ -94,16 +94,16 @@ with respect to $x$. However, the proof contains a gap,
 and in fact this inequality was proved in \cite{Br} only for Lipschitz functions $u$.
 
 Namely, while proving the inequality (\ref{toproveSymm}) for a natural class of functions,
-the author of \cite{Br} approximates $u \in \Wf$ having finite integral (\ref{functional})
+the author of \cite{Br} approximates $u \in \Wf$ with finite integral (\ref{functional})
 using piecewise linear functions $u_k$ and claims that $I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
-However, this assertion is not justified and in general is not true.
+However, this assertion is not justified and general speaking is not true.
 In 1926, M.~A.~Lavrentiev proposed the first example of an integral functional
 for which the infimum over the domain is strictly less than the infimum over the set of 
 Lipschitz functions.
 Historical overview and simple examples of ``one-dimensional'' 
-functionals for which the Lavrentiev phenomenon takes place can be found in \cite{BGH} f.e..
+functionals for which the Lavrentiev phenomenon takes place can be found in e.g. \cite{BGH}.
 Note that a deep investigation of the Lavrentiev phenomenon for some classes of multidimensional 
-functionals was conducted by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
+functionals was carried out by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
 
 In the paper \cite{ASC} the absence of the Lavrentiev phenomenon was proved for the functionals
 $I(\mathfrak a, u) = \int_{-1}^1 F(u, u')$. Moreover it was shown that for every $u \in \W(-1, 1)$ 
@@ -115,7 +115,7 @@ u_k \to u \text{ in } \W (-1, 1) \quad \text{ and } \quad I (\mathfrak a, u_k) \
 
 We modify the proof from \cite{ASC} and prove the absence of the Lavrentiev phenomenon
 for the functionals of the form (\ref{functional}).
-This allows us fill a gap in the proof from \cite{Br} in one-dimensional case.
+This allows us to fill the gap in the proof from \cite{Br} in one-dimensional case.
 In addition we prove that evenness and convexity of the weight is a necessary condition
 for the inequality (\ref{toproveSymm}) to hold.
 
@@ -132,39 +132,40 @@ We obtain necessary and sufficient conditions for (\ref{toprove}) under this con
 (The author of \cite{Lan} assumed that the weight $\mathfrak a$ was decreasing in $x$.)
 
 The article is divided into 8 sections.
-In section 2 we deduce the assumptions on the weight function $\mathfrak a$ which are necessary for the 
+In Section 2 we deduce the assumptions on the weight function $\mathfrak a$ which are necessary for the 
 inequality (\ref{toprove}).
-Auxiliary statements for weights satisfying necessary conditions are established in section 3.
-In section 4 the inequality (\ref{toprove}) is proved for piecewise linear functions $u$.
-In section 5 we present the scheme for proving inequality (\ref{toprove}) for a wider class of 
+Auxiliary statements for weights satisfying necessary conditions are established in Section 3.
+In Section 4 the inequality (\ref{toprove}) is proved for piecewise linear functions $u$.
+In Section 5 we present the scheme for proving inequality (\ref{toprove}) for a wider class of 
 functions $u$.
-In section 6 we prove inequality (\ref{toprove}), provided that the weight $\mathfrak a$ first increases, 
+In Section 6 we prove inequality (\ref{toprove}), provided that the weight $\mathfrak a$ first increases, 
 then decreases.
 Section 7 is devoted to the proof of (\ref{toprove}) under necessary conditions only.
-Finally, in the section 8 we deal with symmetric rearrangement.
+Finally, in the Section 8 we deal with symmetric rearrangement.
 There we obtain necessary conditions on the weight and complete the proof of (\ref{toproveSymm}).
 
-\section{ The conditions necessary for the inequality (\ref{toprove})}
+\section{The conditions necessary for the inequality (\ref{toprove})}
 
 \begin{thm}
+\label{necessary}
 {\bf 1}. Let the inequality (\ref{toprove}) hold for some $F \in \mathfrak {F}$
-and arbitrary piecewise linear $u$. Then the weight function $a$ is even with respect to the first argument,
-that is $a(x, v) \equiv a(-x, v)$.
+and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ is even with respect to the first argument,
+that is $\mathfrak a(x, v) \equiv \mathfrak a(-x, v)$.
 
 {\bf 2}. Let the inequality (\ref{toprove}) hold for arbitrary $F \in \mathfrak{F}$
-and arbitrary piecewise linear $u$. Then the weight function $a$ satisfies
+and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ satisfies
 \begin{equation}
 \label{almostConcave}
-a(s, v) + a(t, v) \ge a(1 - t + s, v), \qquad -1 \le s \le t \le 1, v \in \Real_+.
+\mathfrak a(s, v) + \mathfrak a(t, v) \ge \mathfrak a(1 - t + s, v), \qquad -1 \le s \le t \le 1, v \in \Real_+.
 \end{equation}
 \end{thm}
 
 \begin{proof}
-{\bf 1.} Suppose that $a(x, v) \not \equiv a(-x, v)$.
+{\bf 1.} Suppose that $\mathfrak a(x, v) \not \equiv \mathfrak a(-x, v)$.
 Then there are $\bar{x} \in (-1, 1 )$ and $\bar{v} \in \Real_+$ such that
-$$a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v}).$$
+$$\mathfrak a(\bar{x}, \bar{v}) < \mathfrak a(-\bar{x}, \bar{v}).$$
 Therefore, there is $\eps> 0$ such that
-$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v).$$
+$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow \mathfrak a(x, v) < \mathfrak a(-x, v).$$
 Now we introduce the following function:
 $$
 \left\{     
@@ -177,17 +178,17 @@ u(x) &= \bar{v}, & x \in [\bar{x}, 1]
 $$
 Then $u^*(x, v) = u(-x, v)$ and
 \begin{multline*}
-I(a, u)-I(a, u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) dx -
-\int_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, a(x, \bar{v} + \bar{x} + x) ) dx \\ =
-\int_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) -
-F( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
+I(\mathfrak a, u)-I(\mathfrak a, u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) dx -
+\int_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, \mathfrak a(x, \bar{v} + \bar{x} + x) ) dx \\ =
+\int_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) -
+F( \bar{v} + \bar{x} - x, \mathfrak a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
 \end{multline*}
 which contradicts the assumption. Thus, the first statement is proved.
 
 {\bf 2.} Suppose that the assumption (\ref{almostConcave}) is not satisfied.
-Then, by continuity of $a$, there exist $-1 \le s \le t \le 1$, $\eps, \delta> 0$ and $\bar{v} \in \Real_+$, such that
+Then, by continuity of $\mathfrak a$, there exist $-1 \le s \le t \le 1$, $\eps, \delta> 0$ and $\bar{v} \in \Real_+$, such that
 for any $0 \le y \le \eps$ and $\bar{v} \le v \le \bar{v} + \eps$ the following inequality holds:
-$$a(s + y, v) + a(t - y, v) + \delta < a( 1 - t + s + 2y, v).$$
+$$\mathfrak a(s + y, v) + \mathfrak a(t - y, v) + \delta < \mathfrak a( 1 - t + s + 2y, v).$$
 
 Consider the function $u$ (see fig. \ref{uGraph}):
 \begin{equation}
@@ -292,7 +293,7 @@ for which $J \le 0$. This contradiction proves the second statement.
 
 \begin{rem}
 \label{landesNecessary}
-It can be seen that proving the second statement of the theorem
+It can be seen that proving the second statement of Theorem \ref{necessary}
 one can replace the function $u$ on the interval $[-1, s]$ by any increasing function.
 Thus, in the case where $u$ is pinned at the left end {\rm ($u(-1) = 0$)}
 the assumption (\ref{almostConcave}) is also necessary for the inequality (\ref{toprove}) to hold.
@@ -306,7 +307,7 @@ The converse is not true in general, that is not any even
 non-negative function satisfying (\ref{almostConcave}) is concave.
 \end{rem}
 
-\section{Properties of the weighting function }
+\section{Properties of the weight function}
 
 For brevity, in this section we omit the second argument of the function $a$.
 
@@ -323,7 +324,7 @@ the following inequalities hold
 \end{lm}
 
 \begin{proof}
-We will prove the lemma by induction.
+We prove the lemma by induction.
 For $n = 1$ the assertion is trivial.
 Now let $n$ be even. Then, by the induction hypothesis,
 $$\sum_{k=1}^{n - 1} \mathfrak a(t_k) \ge \mathfrak a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ).$$
@@ -351,14 +352,14 @@ Then the following inequalities also hold:
 \label{periodicity}
 {\bf 1.} Let $\mathfrak a$ satisfy $(\ref{almostConcave})$.
 If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
-then either $\mathfrak a\Big |_{[x_0, 1]} \equiv 0$
+then either $\mathfrak a \Big|_{[x_0, 1]} \equiv 0$
 or the set of zeros of $\mathfrak a$ is periodic on $[x_0, 1]$
 and the period is a divisor of $1 - x_0$.
 
 {\bf 2.} Let $\mathfrak a$ be even and satisfy $(\ref{almostConcave})$.
 If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
 then either $\mathfrak a \equiv 0$
-or the function $\mathfrak a$ is periodic on the $[-1, 1]$ interval
+or the function $\mathfrak a$ is periodic on $[-1, 1]$
 and the period is a divisor of $1 - x_0$.
 \end{lm}
 
@@ -375,7 +376,7 @@ Similarly, if $s \le 1 - t$ and $\mathfrak a(s) = \mathfrak a(1 - t) = 0$, then 
 Thus, the set of roots of $\mathfrak a$ is symmetric and
 whenever $s$ and $s + \Delta$ ($\Delta \ge 0$) are roots of $\mathfrak a$,
 values $s + k\Delta$ are roots of $\mathfrak a$ too provided $s + k\Delta \le 1$.
-This implies the set of roots of $\mathfrak a$ is periodic on $[x_0, 1]$
+This implies the set of roots of $\mathfrak a$ is periodic on the segment $[x_0, 1]$
 or coincides with it.
 
 {\bf 2.} The periodicity of zeros of the function $\mathfrak a$ follows from its evenness and from the first assertion of the lemma.
@@ -431,6 +432,7 @@ Thus, the inequality holds for every $s = -1 + \frac{2i}{k}$ and $t \in [-1, 1]$
 
 {\bf 3.}
 Let $s$ and $t$ satisfy $1 - t + s = \frac{2j}{k}$.
+
 Consider the function $h_2(y) = \mathfrak a_k(\frac{2j}{k}) - \mathfrak a_k(s + y) - \mathfrak a_k(t + y)$.
 If we choose $y_0$ such that $s + y_0$ is one of the nodes then $t + y_0$ is also a node.
 Therefore, $h_2(y_0) = \mathfrak a(\frac{2j}{k}) - \mathfrak a(s + y_0) - \mathfrak a(t + y_0) \le 0$.
@@ -523,18 +525,20 @@ It is also obvious that the assumption $(\ref{almostConcave})$ is weaker than th
 \end{rem}
 
 
-\section{Extension of class of functions for which $I(a, u^*) \le I(a, u)$ holds}
+\section{Extension of class of functions for which $I(\mathfrak a, u^*) \le I(\mathfrak a, u)$ holds}
+The next statement is rather standard. However, we give a full proof for the reader's convenience.
+
 \begin{lm}
-Let the function $a$ be continuous. Then the functional $I(a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$.
+Let the function $\mathfrak a$ be continuous. Then the functional $I(\mathfrak a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$.
 \label{lowersemi}
 \end{lm}
 
 \begin{proof}
 Let $u_m \rightharpoondown u$ in $\W(-1, 1)$.
-Let's denote $A = \varliminf I( a, u_m ) \ge 0$.
-We are going to prove $I(a, u) \le A$.
+Let's denote $A = \varliminf I( \mathfrak a, u_m ) \ge 0$.
+We are going to prove $I(\mathfrak a, u) \le A$.
 In the case $A = \infty$ the assertion is trivial, so we can assume $A < \infty$.
-Switching to a subsequence, we obtain $A = \lim I( a, u_m )$.
+Switching to a subsequence, we obtain $A = \lim I( \mathfrak a, u_m )$.
 Weak convergence implies, that there exists
 $R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
 
@@ -551,9 +555,9 @@ Then $$R_0 \ge \int_{-1}^1 \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \
 That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
 The functions $u_m$, $m > K$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
 
-Continuity of $F$ and $a$ implies that for any $\eps$ and $R$, there exists
+Continuity of $F$ and $\mathfrak a$ implies that for any $\eps$ and $R$, there exists
 $N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
-$$| F( u_m( x ), a( x, u_m( x ) ) M ) - F( u( x ), a( x, u( x ) ) M ) | < \eps.$$
+$$| F( u_m( x ), \mathfrak a( x, u_m( x ) ) M ) - F( u( x ), \mathfrak a( x, u( x ) ) M ) | < \eps.$$
 
 Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
 Then
@@ -566,33 +570,35 @@ Note, that $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
 
 We fix $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
 For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we have
-$$\Big | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
+$$\Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
 thus
-$$\int_{L_{m,\eps}} \Big | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) \Big | dx < 2 \eps.$$
+\begin{equation}
+\label{frDer}
+\int_{L_{m,\eps}} \Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | dx < 2 \eps.
+\end{equation}
 
 We put $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
-Then $\sum \eps_j = \eps$ and $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
-Therefore
-$$\int_{L_\eps} \Big | F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | dx < 2 \eps_j.$$
-
-And then
+Then $\sum \eps_j = \eps$ and therefore $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
+Since (\ref{frDer}) implies
+$$\int_{L_\eps} \Big | F( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | dx < 2 \eps_j,$$
+we obtain
 \begin{multline*}
-A = \lim I (a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), a(x, u_{m_j}(x)) | u_{m_j }'(x) |) dx \\
-\ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), a(x, u(x)) | u_{m_j}'(x) |) dx
+A = \lim I (\mathfrak a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |) dx \\
+\ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |) dx
 =: \varliminf J_\eps(u_{m_j}').
 \end{multline*}
 
-The new functional
-$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), a( x, u( x ) ) |v( x )| ) dx$$
+The functional
+$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), \mathfrak a( x, u( x ) ) |v( x )| ) dx$$
 is convex.
 Switching to a subsequence $u_k$ again, we can assume that
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
-Since $u_k' \rightharpoondown u'$ in $L_1$, we can choose a sequence
-convex combinations of $u_k'$, which will converge to $u'$ strongly (see \cite[Theorem 3.13]{Rudin}).
+Since $u_k' \rightharpoondown u'$ in $L_1$, we can choose a sequence of convex combinations of $u_k'$,
+which converges to $u'$ strongly (see \cite[Theorem 3.13]{Rudin}).
 Namely, there are $\alpha_{k,l} \ge 0$ for
 $k \in \Nat$, $l \le k$, such that $\sum_{l = 1}^k \alpha_{k,l} = 1$ for every $k$ and
-$w_k = \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
-Also, without loss of generality we can assume, that the minimal index $l$ of a nonzero coefficient $\alpha_{k,l}$
+$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
+Also, without loss of generality we can assume that the minimal index $l$ of a nonzero coefficient $\alpha_{k,l}$
 tends to infinity as $k$ tends to infinity.
 Then
 $$\lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ).$$
@@ -603,52 +609,47 @@ $$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
 Finally, since $w_k \to u'$ in $L_1(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
 Moreover, since $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$ holds for $x \in L_\eps$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
 Hence,
-$$F( u( x ), a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), a( x, u( x ) ) M ) < \infty,$$
+$$F( u( x ), \mathfrak a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), \mathfrak a( x, u( x ) ) M ) < \infty,$$
 where the maximum is taken over a compact set
 $(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
-Therefore, the Lebesgue theorem applies, and $\lim J_\eps(w_k) = J_\eps(u')$ is proved.
+Therefore, by the Lebesgue theorem, $\lim J_\eps(w_k) = J_\eps(u')$.
 Thus,
 $$A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge
 \varliminf J_\eps( w_k ) = J_\eps( u' ).$$
 
-Since $\eps > 0$ is arbitrary, $A \ge I(a, u)$ is proved.
+Since $\eps > 0$ is arbitrary, $A \ge I(\mathfrak a, u)$ follows.
 \end{proof}
 
 \begin{lm}
 \label{uplift}
-Let $A \subset \W(-1,1)$.
-And let $B \subset A$ contains only $v$ for which $I(a, v^*) \le I(a, v)$ holds.
+Let $B \subset A \subset \W(-1,1)$.
+Let the inequality (\ref{toprove}) hold for any $u \in B$.
 Suppose that for each $u \in A$
 there is a sequence $u_k \in B$ such that $u_k \to u$ in $\W(-1, 1)$ and
-$I(a, u_k) \to I(a, u)$.
-Then $\forall u \in A$ the inequality $I(a, u^*) \le I(a, u)$ holds.
+$I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+Then the inequality (\ref{toprove}) holds for any $u \in A$.
 \end{lm}
 \begin{proof}
-Let's pick some $u \in A$ and find the appropriate $u_k \in B$.
-By hypothesis, $I(a, u_k^*) \le I(a, u_k) \to I(a, u)$.
-It is shown in \cite[Theorem 1]{Br} that $u_k \to u$ in $\W(-1, 1)$ implies
-$\overline{u_k} \rightharpoondown \overline{u}$ in $\W(-1, 1)$.
-But $u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and
-$u^*( x ) = \overline{u}( \frac{x - 1}{2} )$.
-Hence, $u_k^* \rightharpoondown u^*$.
-Then by the weak lower semicontinuity of the functional we conclude $I(a, u^*) \le \liminf I(a, u_k^*)$.
-Thus $I(a, u^*) \le I(a, u)$.
+Let us pick some $u \in A$ and find an appropriating sequence $\{u_k\} \subset B$.
+By hypothesis, $I(\mathfrak a, u_k^*) \le I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+By \cite[Theorem 1]{Br}
+$$u_k \to u \text{ in } \W(-1, 1) \Rightarrow \overline{u_k} \rightharpoondown \overline{u} \text{ in } \W(-1, 1).$$
+Since $u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and $u^*( x ) = \overline{u}( \frac{x - 1}{2} )$,
+we have $u_k^* \rightharpoondown u^*$ in $\W(-1, 1)$.
+By Lemma \ref{lowersemi}, we obtain 
+$$I(\mathfrak a, u^*) \le \liminf I(\mathfrak a, u_k^*) \le \lim I(\mathfrak a, u_k) = I(\mathfrak a, u).$$
 \end{proof}
 
 \begin{cor}
-Let the weight $a$ be continuous, and the inequality $(\ref{toprove})$ hold for non-negative piecewise linear functions $u$.
+Let the weight $\mathfrak a$ be continuous, and let the inequality $(\ref{toprove})$ hold for non-negative piecewise linear functions $u$.
 Then it holds for all non-negative Lipschitz functions.
 \end{cor}
 \begin{proof}
-By \cite{Gariepy}, Theorem 1 in Section 6.6, any Lipschitz function can be approximated with its derivative
-almost everywhere with continuously differentiable functions.
-Since the derivatives of the approximating functions are uniformly bounded,
-the sequence will converge in $\W(-1, 1)$ due to Lebesgue theorem,
-and also $I$ will converge.
-In turn, continuously differentiable functions can be uniformly approximated with piecewise linear functions
-along with their derivative.
-This convergence provides convergence in $\W(-1, 1)$ and the convergence of the functional $I$.
-Applying Lemma \ref{uplift} proves the corollary.
+By Theorem 1 in Section 6.6 \cite{Gariepy}, any Lipschitz function $u$ can be approximated by $u_k \in C^1[-1, 1]$ such that
+$$u_k \rightrightarrows u, \qquad u_k' \to u' \text{ a.e.}, \qquad |u_k'| \le const.$$
+By the Lebesgue theorem, $u_k \to u$ in $\W(-1, 1)$, and $I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+In turn, $u_k$ can be approximated in the same way by piecewise linear functions.
+Using Theorem \ref{linth} and applying Lemma \ref{uplift}, we complete the proof.
 \end{proof}
 
 

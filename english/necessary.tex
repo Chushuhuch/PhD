@@ -1,24 +1,25 @@
-\section{ The conditions necessary for the inequality (\ref{toprove})}
+\section{The conditions necessary for the inequality (\ref{toprove})}
 
 \begin{thm}
+\label{necessary}
 {\bf 1}. Let the inequality (\ref{toprove}) hold for some $F \in \mathfrak {F}$
-and arbitrary piecewise linear $u$. Then the weight function $a$ is even with respect to the first argument,
-that is $a(x, v) \equiv a(-x, v)$.
+and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ is even with respect to the first argument,
+that is $\mathfrak a(x, v) \equiv \mathfrak a(-x, v)$.
 
 {\bf 2}. Let the inequality (\ref{toprove}) hold for arbitrary $F \in \mathfrak{F}$
-and arbitrary piecewise linear $u$. Then the weight function $a$ satisfies
+and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ satisfies
 \begin{equation}
 \label{almostConcave}
-a(s, v) + a(t, v) \ge a(1 - t + s, v), \qquad -1 \le s \le t \le 1, v \in \Real_+.
+\mathfrak a(s, v) + \mathfrak a(t, v) \ge \mathfrak a(1 - t + s, v), \qquad -1 \le s \le t \le 1, v \in \Real_+.
 \end{equation}
 \end{thm}
 
 \begin{proof}
-{\bf 1.} Suppose that $a(x, v) \not \equiv a(-x, v)$.
+{\bf 1.} Suppose that $\mathfrak a(x, v) \not \equiv \mathfrak a(-x, v)$.
 Then there are $\bar{x} \in (-1, 1 )$ and $\bar{v} \in \Real_+$ such that
-$$a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v}).$$
+$$\mathfrak a(\bar{x}, \bar{v}) < \mathfrak a(-\bar{x}, \bar{v}).$$
 Therefore, there is $\eps> 0$ such that
-$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow a(x, v) < a(-x, v).$$
+$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow \mathfrak a(x, v) < \mathfrak a(-x, v).$$
 Now we introduce the following function:
 $$
 \left\{     
@@ -31,17 +32,17 @@ u(x) &= \bar{v}, & x \in [\bar{x}, 1]
 $$
 Then $u^*(x, v) = u(-x, v)$ and
 \begin{multline*}
-I(a, u)-I(a, u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) dx -
-\int_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, a(x, \bar{v} + \bar{x} + x) ) dx \\ =
-\int_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) ) -
-F( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
+I(\mathfrak a, u)-I(\mathfrak a, u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) dx -
+\int_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, \mathfrak a(x, \bar{v} + \bar{x} + x) ) dx \\ =
+\int_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) -
+F( \bar{v} + \bar{x} - x, \mathfrak a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
 \end{multline*}
 which contradicts the assumption. Thus, the first statement is proved.
 
 {\bf 2.} Suppose that the assumption (\ref{almostConcave}) is not satisfied.
-Then, by continuity of $a$, there exist $-1 \le s \le t \le 1$, $\eps, \delta> 0$ and $\bar{v} \in \Real_+$, such that
+Then, by continuity of $\mathfrak a$, there exist $-1 \le s \le t \le 1$, $\eps, \delta> 0$ and $\bar{v} \in \Real_+$, such that
 for any $0 \le y \le \eps$ and $\bar{v} \le v \le \bar{v} + \eps$ the following inequality holds:
-$$a(s + y, v) + a(t - y, v) + \delta < a( 1 - t + s + 2y, v).$$
+$$\mathfrak a(s + y, v) + \mathfrak a(t - y, v) + \delta < \mathfrak a( 1 - t + s + 2y, v).$$
 
 Consider the function $u$ (see fig. \ref{uGraph}):
 \begin{equation}
@@ -146,7 +147,7 @@ for which $J \le 0$. This contradiction proves the second statement.
 
 \begin{rem}
 \label{landesNecessary}
-It can be seen that proving the second statement of the theorem
+It can be seen that proving the second statement of Theorem \ref{necessary}
 one can replace the function $u$ on the interval $[-1, s]$ by any increasing function.
 Thus, in the case where $u$ is pinned at the left end {\rm ($u(-1) = 0$)}
 the assumption (\ref{almostConcave}) is also necessary for the inequality (\ref{toprove}) to hold.

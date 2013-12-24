@@ -1,15 +1,17 @@
-\section{Extension of class of functions for which $I(a, u^*) \le I(a, u)$ holds}
+\section{Extension of class of functions for which $I(\mathfrak a, u^*) \le I(\mathfrak a, u)$ holds}
+The next statement is rather standard. However, we give a full proof for the reader's convenience.
+
 \begin{lm}
-Let the function $a$ be continuous. Then the functional $I(a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$.
+Let the function $\mathfrak a$ be continuous. Then the functional $I(\mathfrak a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$.
 \label{lowersemi}
 \end{lm}
 
 \begin{proof}
 Let $u_m \rightharpoondown u$ in $\W(-1, 1)$.
-Let's denote $A = \varliminf I( a, u_m ) \ge 0$.
-We are going to prove $I(a, u) \le A$.
+Let's denote $A = \varliminf I( \mathfrak a, u_m ) \ge 0$.
+We are going to prove $I(\mathfrak a, u) \le A$.
 In the case $A = \infty$ the assertion is trivial, so we can assume $A < \infty$.
-Switching to a subsequence, we obtain $A = \lim I( a, u_m )$.
+Switching to a subsequence, we obtain $A = \lim I( \mathfrak a, u_m )$.
 Weak convergence implies, that there exists
 $R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
 
@@ -26,9 +28,9 @@ Then $$R_0 \ge \int_{-1}^1 \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \
 That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
 The functions $u_m$, $m > K$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
 
-Continuity of $F$ and $a$ implies that for any $\eps$ and $R$, there exists
+Continuity of $F$ and $\mathfrak a$ implies that for any $\eps$ and $R$, there exists
 $N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
-$$| F( u_m( x ), a( x, u_m( x ) ) M ) - F( u( x ), a( x, u( x ) ) M ) | < \eps.$$
+$$| F( u_m( x ), \mathfrak a( x, u_m( x ) ) M ) - F( u( x ), \mathfrak a( x, u( x ) ) M ) | < \eps.$$
 
 Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
 Then
@@ -41,33 +43,35 @@ Note, that $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
 
 We fix $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
 For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we have
-$$\Big | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
+$$\Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
 thus
-$$\int_{L_{m,\eps}} \Big | F( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), a( x, u( x ) ) \abs{u_m'( x )} ) \Big | dx < 2 \eps.$$
+\begin{equation}
+\label{frDer}
+\int_{L_{m,\eps}} \Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | dx < 2 \eps.
+\end{equation}
 
 We put $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
-Then $\sum \eps_j = \eps$ and $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
-Therefore
-$$\int_{L_\eps} \Big | F( u_{m_j}( x ), a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | dx < 2 \eps_j.$$
-
-And then
+Then $\sum \eps_j = \eps$ and therefore $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
+Since (\ref{frDer}) implies
+$$\int_{L_\eps} \Big | F( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | dx < 2 \eps_j,$$
+we obtain
 \begin{multline*}
-A = \lim I (a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), a(x, u_{m_j}(x)) | u_{m_j }'(x) |) dx \\
-\ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), a(x, u(x)) | u_{m_j}'(x) |) dx
+A = \lim I (\mathfrak a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |) dx \\
+\ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |) dx
 =: \varliminf J_\eps(u_{m_j}').
 \end{multline*}
 
-The new functional
-$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), a( x, u( x ) ) |v( x )| ) dx$$
+The functional
+$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), \mathfrak a( x, u( x ) ) |v( x )| ) dx$$
 is convex.
 Switching to a subsequence $u_k$ again, we can assume that
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
-Since $u_k' \rightharpoondown u'$ in $L_1$, we can choose a sequence
-convex combinations of $u_k'$, which will converge to $u'$ strongly (see \cite[Theorem 3.13]{Rudin}).
+Since $u_k' \rightharpoondown u'$ in $L_1$, we can choose a sequence of convex combinations of $u_k'$,
+which converges to $u'$ strongly (see \cite[Theorem 3.13]{Rudin}).
 Namely, there are $\alpha_{k,l} \ge 0$ for
 $k \in \Nat$, $l \le k$, such that $\sum_{l = 1}^k \alpha_{k,l} = 1$ for every $k$ and
-$w_k = \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
-Also, without loss of generality we can assume, that the minimal index $l$ of a nonzero coefficient $\alpha_{k,l}$
+$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
+Also, without loss of generality we can assume that the minimal index $l$ of a nonzero coefficient $\alpha_{k,l}$
 tends to infinity as $k$ tends to infinity.
 Then
 $$\lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ).$$
@@ -78,51 +82,46 @@ $$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
 Finally, since $w_k \to u'$ in $L_1(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
 Moreover, since $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$ holds for $x \in L_\eps$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
 Hence,
-$$F( u( x ), a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), a( x, u( x ) ) M ) < \infty,$$
+$$F( u( x ), \mathfrak a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), \mathfrak a( x, u( x ) ) M ) < \infty,$$
 where the maximum is taken over a compact set
 $(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
-Therefore, the Lebesgue theorem applies, and $\lim J_\eps(w_k) = J_\eps(u')$ is proved.
+Therefore, by the Lebesgue theorem, $\lim J_\eps(w_k) = J_\eps(u')$.
 Thus,
 $$A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge
 \varliminf J_\eps( w_k ) = J_\eps( u' ).$$
 
-Since $\eps > 0$ is arbitrary, $A \ge I(a, u)$ is proved.
+Since $\eps > 0$ is arbitrary, $A \ge I(\mathfrak a, u)$ follows.
 \end{proof}
 
 \begin{lm}
 \label{uplift}
-Let $A \subset \W(-1,1)$.
-And let $B \subset A$ contains only $v$ for which $I(a, v^*) \le I(a, v)$ holds.
+Let $B \subset A \subset \W(-1,1)$.
+Let the inequality (\ref{toprove}) hold for any $u \in B$.
 Suppose that for each $u \in A$
 there is a sequence $u_k \in B$ such that $u_k \to u$ in $\W(-1, 1)$ and
-$I(a, u_k) \to I(a, u)$.
-Then $\forall u \in A$ the inequality $I(a, u^*) \le I(a, u)$ holds.
+$I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+Then the inequality (\ref{toprove}) holds for any $u \in A$.
 \end{lm}
 \begin{proof}
-Let's pick some $u \in A$ and find the appropriate $u_k \in B$.
-By hypothesis, $I(a, u_k^*) \le I(a, u_k) \to I(a, u)$.
-It is shown in \cite[Theorem 1]{Br} that $u_k \to u$ in $\W(-1, 1)$ implies
-$\overline{u_k} \rightharpoondown \overline{u}$ in $\W(-1, 1)$.
-But $u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and
-$u^*( x ) = \overline{u}( \frac{x - 1}{2} )$.
-Hence, $u_k^* \rightharpoondown u^*$.
-Then by the weak lower semicontinuity of the functional we conclude $I(a, u^*) \le \liminf I(a, u_k^*)$.
-Thus $I(a, u^*) \le I(a, u)$.
+Let us pick some $u \in A$ and find an appropriating sequence $\{u_k\} \subset B$.
+By hypothesis, $I(\mathfrak a, u_k^*) \le I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+By \cite[Theorem 1]{Br}
+$$u_k \to u \text{ in } \W(-1, 1) \Rightarrow \overline{u_k} \rightharpoondown \overline{u} \text{ in } \W(-1, 1).$$
+Since $u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and $u^*( x ) = \overline{u}( \frac{x - 1}{2} )$,
+we have $u_k^* \rightharpoondown u^*$ in $\W(-1, 1)$.
+By Lemma \ref{lowersemi}, we obtain 
+$$I(\mathfrak a, u^*) \le \liminf I(\mathfrak a, u_k^*) \le \lim I(\mathfrak a, u_k) = I(\mathfrak a, u).$$
 \end{proof}
 
 \begin{cor}
-Let the weight $a$ be continuous, and the inequality $(\ref{toprove})$ hold for non-negative piecewise linear functions $u$.
+Let the weight $\mathfrak a$ be continuous, and let the inequality $(\ref{toprove})$ hold for non-negative piecewise linear functions $u$.
 Then it holds for all non-negative Lipschitz functions.
 \end{cor}
 \begin{proof}
-By \cite{Gariepy}, Theorem 1 in Section 6.6, any Lipschitz function can be approximated with its derivative
-almost everywhere with continuously differentiable functions.
-Since the derivatives of the approximating functions are uniformly bounded,
-the sequence will converge in $\W(-1, 1)$ due to Lebesgue theorem,
-and also $I$ will converge.
-In turn, continuously differentiable functions can be uniformly approximated with piecewise linear functions
-along with their derivative.
-This convergence provides convergence in $\W(-1, 1)$ and the convergence of the functional $I$.
-Applying Lemma \ref{uplift} proves the corollary.
+By Theorem 1 in Section 6.6 \cite{Gariepy}, any Lipschitz function $u$ can be approximated by $u_k \in C^1[-1, 1]$ such that
+$$u_k \rightrightarrows u, \qquad u_k' \to u' \text{ a.e.}, \qquad |u_k'| \le const.$$
+By the Lebesgue theorem, $u_k \to u$ in $\W(-1, 1)$, and $I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+In turn, $u_k$ can be approximated in the same way by piecewise linear functions.
+Using Theorem \ref{linth} and applying Lemma \ref{uplift}, we complete the proof.
 \end{proof}
 
