@@ -19,7 +19,7 @@ and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ satis
 Then there are $\bar{x} \in (-1, 1 )$ and $\bar{v} \in \Real_+$ such that
 $$\mathfrak a(\bar{x}, \bar{v}) < \mathfrak a(-\bar{x}, \bar{v}).$$
 Therefore, there is $\eps> 0$ such that
-$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow \mathfrak a(x, v) < \mathfrak a(-x, v).$$
+$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \quad \Longrightarrow \quad \mathfrak a(x, v) < \mathfrak a(-x, v).$$
 Now we introduce the following function:
 $$
 \left\{     
@@ -87,8 +87,8 @@ $$
 \left\{     
 \begin{aligned}
 u^*(x) &= \bar{v}, & x \in [-1, 1 - t + s]\\
-u^*(x) &= \bar{v} + x - s, & x \in [s, s + \eps]\\
-u^*(x) &= \bar{v} + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]
+u^*(x) &= \bar{v} + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]\\
+u^*(x) &= \bar{v} + \eps, & x \in [1 - t + s + 2\eps, 1]
 \end{aligned}
 \right.
 $$
