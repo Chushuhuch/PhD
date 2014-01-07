@@ -165,7 +165,7 @@ and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ satis
 Then there are $\bar{x} \in (-1, 1 )$ and $\bar{v} \in \Real_+$ such that
 $$\mathfrak a(\bar{x}, \bar{v}) < \mathfrak a(-\bar{x}, \bar{v}).$$
 Therefore, there is $\eps> 0$ such that
-$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \Rightarrow \mathfrak a(x, v) < \mathfrak a(-x, v).$$
+$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \quad \Longrightarrow \quad \mathfrak a(x, v) < \mathfrak a(-x, v).$$
 Now we introduce the following function:
 $$
 \left\{     
@@ -233,8 +233,8 @@ $$
 \left\{     
 \begin{aligned}
 u^*(x) &= \bar{v}, & x \in [-1, 1 - t + s]\\
-u^*(x) &= \bar{v} + x - s, & x \in [s, s + \eps]\\
-u^*(x) &= \bar{v} + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]
+u^*(x) &= \bar{v} + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]\\
+u^*(x) &= \bar{v} + \eps, & x \in [1 - t + s + 2\eps, 1]
 \end{aligned}
 \right.
 $$
@@ -309,7 +309,7 @@ non-negative function satisfying (\ref{almostConcave}) is concave.
 
 \section{Properties of the weight function}
 
-For brevity, in this section we omit the second argument of the function $a$.
+For brevity, in this section we omit the second argument of the function $\mathfrak a$.
 
 \begin{lm}
 \label{weightSum}
@@ -373,10 +373,10 @@ Substituting $s = t = x_0$, we obtain $\mathfrak a(1) = 0$.
 
 Similarly, if $s \le 1 - t$ and $\mathfrak a(s) = \mathfrak a(1 - t) = 0$, then $\mathfrak a(s + t) = 0$.
 
-Thus, the set of roots of $\mathfrak a$ is symmetric and
+Thus, the set of roots of $\mathfrak a$ is symmetric on the segment $[x_0, 1]$ and
 whenever $s$ and $s + \Delta$ ($\Delta \ge 0$) are roots of $\mathfrak a$,
 values $s + k\Delta$ are roots of $\mathfrak a$ too provided $s + k\Delta \le 1$.
-This implies the set of roots of $\mathfrak a$ is periodic on the segment $[x_0, 1]$
+This implies the set of roots of $\mathfrak a$ is periodic on $[x_0, 1]$
 or coincides with it.
 
 {\bf 2.} The periodicity of zeros of the function $\mathfrak a$ follows from its evenness and from the first assertion of the lemma.
@@ -394,7 +394,7 @@ Thus, $\mathfrak a(x) = \mathfrak a(x + \Delta)$.
 \begin{lm}
 \label{maxSumConcave}
 Suppose that $\mathfrak a_1$ and $\mathfrak a_2$ satisfy $(\ref{almostConcave})$.
-Then the function $\max (\mathfrak a_1(x), \mathfrak a_2(x))$ and $\mathfrak a_1(x) + \mathfrak a_2(x)$ also satisfy $(\ref{almostConcave})$.
+Then the functions $\max (\mathfrak a_1(x), \mathfrak a_2(x))$ and $\mathfrak a_1(x) + \mathfrak a_2(x)$ also satisfy $(\ref{almostConcave})$.
 \end{lm}
 \begin{proof}
 Set $\mathfrak a(x) = \max (\mathfrak a_1(x), \mathfrak a_2(x))$. Then
@@ -456,7 +456,7 @@ Without loss of generality, we assume that $F(\cdot, 0) \equiv 0$.
 \begin{thm}
 \label{linth}
 Let the function $\mathfrak a$ be even and satisfy the condition $(\ref{almostConcave})$.
-Then, if $u$ is a nonnegative piecewise linear function then $I(\mathfrak a, u) \ge I(\mathfrak a, u^*)$.
+If $u$ is a nonnegative piecewise linear function then $I(\mathfrak a, u) \ge I(\mathfrak a, u^*)$.
 \end{thm}
 
 \begin{proof}
@@ -525,7 +525,7 @@ It is also obvious that the assumption $(\ref{almostConcave})$ is weaker than th
 \end{rem}
 
 
-\section{Extension of class of functions for which $I(\mathfrak a, u^*) \le I(\mathfrak a, u)$ holds}
+\section{Extension of class of functions for which inequality (\ref{toprove}) holds}
 The next statement is rather standard. However, we give a full proof for the reader's convenience.
 
 \begin{lm}
@@ -548,12 +548,13 @@ and $u_m(x) \to u(x)$ almost everywhere.
 Then, by Egorov's theorem, for any $\eps$ there exists a set
 $G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$.
 
-Uniform convergence of $u_m$ implies $\exists K: \forall m>K \abs{u_m} \le \abs{u} + \eps$ in $[-1, 1] \setminus G_\eps^1$.
+Uniform convergence of $u_m$ implies there exists $K$ such that for each $m>K$
+the inequality $\abs{u_m} \le \abs{u} + \eps$ holds in $[-1, 1] \setminus G_\eps^1$.
 Let $G_\eps^2 = \{x \in [-1, 1] \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
 Then $$R_0 \ge \int_{-1}^1 \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \ge
 \int_{G_\eps^2} \frac{R_0 + \eps}{\eps} dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}$$
 That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
-The functions $u_m$, $m > K$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
+Thus, the functions $u_m$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
 
 Continuity of $F$ and $\mathfrak a$ implies that for any $\eps$ and $R$, there exists
 $N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
@@ -625,15 +626,14 @@ Since $\eps > 0$ is arbitrary, $A \ge I(\mathfrak a, u)$ follows.
 Let $B \subset A \subset \W(-1,1)$.
 Let the inequality (\ref{toprove}) hold for any $u \in B$.
 Suppose that for each $u \in A$
-there is a sequence $u_k \in B$ such that $u_k \to u$ in $\W(-1, 1)$ and
-$I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+there is a sequence $u_k \in B$ such that relation (\ref{convergence}) holds.
 Then the inequality (\ref{toprove}) holds for any $u \in A$.
 \end{lm}
 \begin{proof}
 Let us pick some $u \in A$ and find an appropriating sequence $\{u_k\} \subset B$.
 By hypothesis, $I(\mathfrak a, u_k^*) \le I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
 By \cite[Theorem 1]{Br}
-$$u_k \to u \text{ in } \W(-1, 1) \Rightarrow \overline{u_k} \rightharpoondown \overline{u} \text{ in } \W(-1, 1).$$
+$$u_k \to u \text{ in } \W(-1, 1) \quad \Longrightarrow \quad \overline{u_k} \rightharpoondown \overline{u} \text{ in } \W(-1, 1).$$
 Since $u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and $u^*( x ) = \overline{u}( \frac{x - 1}{2} )$,
 we have $u_k^* \rightharpoondown u^*$ in $\W(-1, 1)$.
 By Lemma \ref{lowersemi}, we obtain 
@@ -647,7 +647,7 @@ Then it holds for all non-negative Lipschitz functions.
 \begin{proof}
 By Theorem 1 in Section 6.6 \cite{Gariepy}, any Lipschitz function $u$ can be approximated by $u_k \in C^1[-1, 1]$ such that
 $$u_k \rightrightarrows u, \qquad u_k' \to u' \text{ a.e.}, \qquad |u_k'| \le const.$$
-By the Lebesgue theorem, $u_k \to u$ in $\W(-1, 1)$, and $I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+By the Lebesgue theorem relation (\ref{convergence}) holds.
 In turn, $u_k$ can be approximated in the same way by piecewise linear functions.
 Using Theorem \ref{linth} and applying Lemma \ref{uplift}, we complete the proof.
 \end{proof}
@@ -661,28 +661,27 @@ weight is monotonic in $x$ for $x \in [-1, 0]$ and $x \in [0, 1]$.
 
 \begin{lm}
 \label{Wapprox}
-Let $a$ be a continuous function
-and let $a(\cdot, u)$ be increasing on $[-1, 0]$ and decreasing on $[0, 1]$ for all $u \ge 0$.
+Let $\mathfrak a$ be a continuous function
+and let $\mathfrak a(\cdot, u)$ be increasing on $[-1, 0]$ and decreasing on $[0, 1]$ for all $u \ge 0$.
 Then for any function $u \in \W(-1, 1)$, $u \ge 0$,
 there exists a sequence $\{u_k\} \subset Lip[-1, 1]$, such that the relation $(\ref{convergence})$ holds.
 \end{lm}
 
 \begin{proof}
-We can assume that $I( a, u ) < \infty$.
+We can assume that $I( \mathfrak a, u ) < \infty$.
 
 We prove the assertion for the functional
-$$I_2( u ) = \int_0^1 F( u(x), a(x, u(x)) |u'(x)| ) dx,$$
-and the case of $x \in [-1, 0]$ can be reduced to $I_2$ as follows
-$$I_1( u ) = \int_{-1}^0 F( u( x ), a( x, u(x) ) |u'(x)| ) dx = \int_0^1 F( u( -z ), a( -z, u(-z) ) |u'( -z )| ) dz.$$
+$$I_1( u ) = \int_0^1 F( u(x), \mathfrak a(x, u(x)) |u'(x)| ) dx,$$
+and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing variable.
 
-We modify the schema from \cite[Theorem 2.4]{ASC}.
-The proof overlaps with \cite{ASC}, but we present it here in full for the reader's convenience.
+We modify the scheme from \cite[Theorem 2.4]{ASC}.
+The proof overlaps with \cite{ASC}, but we present a complete proof here for the reader's convenience.
 
 We need the following auxiliary assertion.
 
 \begin{prop}
 \label{convToOne}
-$\cite[Lemma 2.7]{ASC}$.
+{\rm \cite[Lemma 2.7]{ASC}.}
 Let $\phi_h: [-1, 1] \to \Real$ be a sequence of Lipschitz functions satisfying the conditions:
 $\phi_h' \ge 1$ for almost every $x$ and all $h$, $\phi_h( x ) \to x$ for almost every $x$.
 Then for any $f \in L_1(\Real)$ we have $f(\phi_h) \to f$ in $L_1(\Real)$.
@@ -692,11 +691,11 @@ For $h \in \Nat$ we cover the set $\{ x \in [0, 1]: |u'(x)| > h \}$ with an open
 Without loss of generality, we can assume that
 $A_{h + 1} \subset A_{h}$ and $\abs{A_h} \to 0$ for $h \to \infty$.
 
-Consider function $v_h: [0, 1] \to \Real_+$,
+Denote by $v_h$ the nonnegative continuous function on $[0, 1]$,
 coinciding with $u$ on $[0, 1] \setminus A_h$ and
-linear on segments comprising $A_h$.
+linear on segments forming $A_h$.
 Then $v_h \to u$ in $\W$.
-We change $v_h$ to make an it Lipschitz functions.
+Now we modify $v_h$ to get Lipschitz functions.
 
 Let $A_h = \cup_k \Omega_{h,k}$, where $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$.
 Denote
@@ -706,7 +705,7 @@ Then $v'_h = \frac{\beta_{h,k}}{\alpha_{h,k}}$ in $\Omega_{h,k}$.
 Note that
 $$\sum_k \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
 and hence
-$\sum_k \abs{\beta_{h,k}} \to 0$ for $h \to 0$ by Lebesgue theorem.
+$\sum_k \abs{\beta_{h,k}} \to 0$ as $h \to 0$ by the Lebesgue theorem.
 
 We define the function $\phi_h \in \W(0, 1)$ as follows:
 $$
@@ -719,12 +718,12 @@ $$
 
 Note that $\int_0^1 \abs{\phi_h'} dx \le 1 + \sum_k \abs{\beta_{h,k}} < \infty$.
 
-Let us show that $\phi_h' \to 1$ in $L_1(0, 1)$:
+Next, $\phi_h' \to 1$ in $L_1(0, 1)$:
 $$\int \abs{\phi_h' - 1} dx = \sum \Big( \max \Big( \frac{\abs{\beta_{h,k}}}{\alpha_{h,k}}, 1 \Big) - 1 \Big) \alpha_{h,k} \le
 \sum \abs{\beta_{h,k}} \to 0.$$
-Then $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
+Thus $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
 
-Consider now $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- the restriction of the inverse $\phi_h$ to $[0, 1]$.
+Consider now $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- the restriction to $[0, 1]$ of the inverse to $\phi_h$.
 Then $0 \le ( \phi_h^{-1} )' \le 1$ and
 $$
 \begin{aligned}
@@ -744,7 +743,7 @@ u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' =
 
 Thus, $u_h$ is Lipschitz since $u'$ is bounded in $[0, 1] \setminus A_h$.
 
-Let us show that $u_h \to u$ in $\W(0, 1)$. It is sufficient to estimate
+We claim that $u_h \to u$ in $\W(0, 1)$. Indeed, it is sufficient to estimate
 
 $$\norm{u_h' - u'}_{L_1} \le \int_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} + 
 \int_{[0, 1] \cap \phi_h(A_h)} \abs{u_h'} + \int_{[0, 1] \cap \phi_h(A_h)} \abs{u'} =: P_h^1 + P_h^2 + P_h^3.$$
@@ -757,55 +756,56 @@ $$P_h^2 \le \abs{\phi_h( A_h )} = \sum \abs{\phi_h( \Omega_{h,k} )} = \sum \max 
 \le \sum \alpha_{h,k} + \sum \abs{\beta_{h,k}} \to 0.$$
 Finally, $P_h^3 \to 0$ by the absolute continuity of the integral, and the assertion is proved.
 
-It remains to show that $I_2( u_h ) \to I_2( u )$.
+It remains to show that $I_1( u_h ) \to I_1( u )$.
 
-$$I_2( u_h ) = \!\!\!\!\int\limits_{[0, 1] \setminus \phi_h( A_h )}\!\!\!\! F( u_h( x ), a( x, u_h(x) ) |u_h'( x )| ) dx +\
-\!\!\!\!\int\limits_{[0, 1] \cap \phi_h( A_h )}\!\!\!\! F( u_h( x ), a( x, u_h(x) ) |u_h'( x )| ) dx.$$
-Denote these terms $\hat{P_h^1}$ and $\hat{P_h^2}$.
+\begin{multline*}
+I_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) dx +\\
+\int\limits_{[0, 1] \cap \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) dx := \hat{P_h^1} + \hat{P_h^2}.
+\end{multline*}
 Since $u \in \W(0, 1)$ then $u \in L_\infty( [0, 1] )$.
 Denote $\norm{u}_\infty = r$.
 Then $\norm{u_h}_\infty < 2r$ for any sufficiently large $h$.
 Also, $\abs{u_h'} \le 1$ almost everywhere in $\phi_h( A_h )$.
 Then $\hat{P_h^2} \le M_F \abs{\phi_h( A_h )} \to 0$, where
-$$M_F = \max\limits_{[-2r, 2r] \times [-M_a, M_a]} F;\quad M_a = \max\limits_{[0, 1] \times [-2r, 2r]} a.$$
+$$M_F = \max\limits_{[-2r, 2r] \times [-M_{\mathfrak a}, M_{\mathfrak a}]} F;\quad M_{\mathfrak a} = \max\limits_{[0, 1] \times [-2r, 2r]} \mathfrak a.$$
 
 Further,
 \begin{multline*}
 \hat{P_h^1} = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) }
-	F( u( \phi_h^{-1}( x ) ), a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) dx
-\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| ) dz
-\\ = \int\limits_{ [0, 1] } F( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h }dz.
+	F( u( \phi_h^{-1}( x ) ), \mathfrak a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) dx
+\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) dz
+\\ = \int\limits_{ [0, 1] } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h }dz.
 \end{multline*}
 The last equality, generally speaking, does not make sense, since $\phi_h( z )$ can take values outside $[0, 1]$.
-Let us define $a( z, u ) = a( 1, u )$ for $z > 1$. Now the expression is correct.
+Let us define $\mathfrak a( z, u ) = \mathfrak a( 1, u )$ for $z > 1$. Now the expression is correct.
 Note that $\chi_{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ increases,
 since sets $\phi_h^{-1}( [0, 1] )$ increase and sets $A_h$ decay,
 that is $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ and $A_{h_1} \supset A_{h_2}$ for $h_1 \le h_2$.
-Since $a$ is decreasing on $[0, 1]$ (and even on $\phi_h( [0, 1] )$) and $\phi_h( z )$ is decreasing in $h$,
-then $a( \phi_h( z ) )$ is increasing in $h$.
+Since $\mathfrak a$ is decreasing on $[0, 1]$ (and even on $\phi_h( [0, 1] )$) and $\phi_h( z )$ is decreasing in $h$,
+then $\mathfrak a( \phi_h( z ) )$ is increasing in $h$.
 We apply monotone convergence theorem and get
-$$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), a( z, u( z ) ) |u'( z )| ) dz.$$
+$$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), \mathfrak a( z, u( z ) ) |u'( z )| ) dz.$$
 
 \end{proof}
 
 \begin{rem}
-Obviously, the proof works for any interval $[x_0, x_1]$ with function $u$ bound in $x_0$,
-provided the weight $a$ is decreasing in $x$ on $[x_0, x_1]$.
+Obviously, the proof works for any interval $[x_0, x_1]$ with function $u$ pinned at $x_0$,
+provided the weight $\mathfrak a$ is decreasing in $x$ on $[x_0, x_1]$.
 That is there exists $\{u_h\}$, such that
 \begin{gather*}
-u_h \to u \text{ in } \W(x_0, x_1);\\
-\int_{x_0}^{x_1} F( u_h(x), a(x, u_h(x)) \abs{u_h'(x)} ) \to \int_{x_0}^{x_1} F( u(x), a(x, u(x)) \abs{u'(x)} ).
+u_h(x_0) = u(x_0); \qquad u_h \to u \text{ in } \W(x_0, x_1);\\
+\int_{x_0}^{x_1} F( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} ) \to \int_{x_0}^{x_1} F( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} ).
 \end{gather*}
-Similarly, if $a$ is increasing in $x$, the same works for functions $u$ bound on the right end of the segment.
+Similarly, if $\mathfrak a$ is increasing in $x$, the same works for functions $u$ bound on the right end of the segment.
 \end{rem}
 
 \begin{cor}
-Let the function $a$ be continuous, even in $x$, satisfy $(\ref{almostConcave})$
+Let the function $\mathfrak a$ be continuous, even in $x$, satisfy $(\ref{almostConcave})$
 and be decreasing on $[0, 1]$. Then for every $u \in \W(-1, 1)$ the inequality (\ref{toprove}) holds.
 \end{cor}
 
 \begin{proof}
-The inequality follows from Lemma \ref{uplift} and \ref{Wapprox} immediately.
+The inequality follows from Lemmata \ref{uplift} and \ref{Wapprox} immediately.
 \end{proof}
 
 

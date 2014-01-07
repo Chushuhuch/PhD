@@ -26,7 +26,7 @@ We need the following auxiliary assertion.
 
 \begin{prop}
 \label{convToOne}
-$\cite[Lemma 2.7]{ASC}$.
+{\rm \cite[Lemma 2.7]{ASC}.}
 Let $\phi_h: [-1, 1] \to \Real$ be a sequence of Lipschitz functions satisfying the conditions:
 $\phi_h' \ge 1$ for almost every $x$ and all $h$, $\phi_h( x ) \to x$ for almost every $x$.
 Then for any $f \in L_1(\Real)$ we have $f(\phi_h) \to f$ in $L_1(\Real)$.
@@ -36,11 +36,11 @@ For $h \in \Nat$ we cover the set $\{ x \in [0, 1]: |u'(x)| > h \}$ with an open
 Without loss of generality, we can assume that
 $A_{h + 1} \subset A_{h}$ and $\abs{A_h} \to 0$ for $h \to \infty$.
 
-Consider function $v_h: [0, 1] \to \Real_+$,
+Denote by $v_h$ the nonnegative continuous function on $[0, 1]$,
 coinciding with $u$ on $[0, 1] \setminus A_h$ and
-linear on segments comprising $A_h$.
+linear on segments forming $A_h$.
 Then $v_h \to u$ in $\W$.
-We change $v_h$ to make an it Lipschitz functions.
+Now we modify $v_h$ to get Lipschitz functions.
 
 Let $A_h = \cup_k \Omega_{h,k}$, where $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$.
 Denote
@@ -50,7 +50,7 @@ Then $v'_h = \frac{\beta_{h,k}}{\alpha_{h,k}}$ in $\Omega_{h,k}$.
 Note that
 $$\sum_k \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
 and hence
-$\sum_k \abs{\beta_{h,k}} \to 0$ for $h \to 0$ by Lebesgue theorem.
+$\sum_k \abs{\beta_{h,k}} \to 0$ as $h \to 0$ by the Lebesgue theorem.
 
 We define the function $\phi_h \in \W(0, 1)$ as follows:
 $$
@@ -63,12 +63,12 @@ $$
 
 Note that $\int_0^1 \abs{\phi_h'} dx \le 1 + \sum_k \abs{\beta_{h,k}} < \infty$.
 
-Let us show that $\phi_h' \to 1$ in $L_1(0, 1)$:
+Next, $\phi_h' \to 1$ in $L_1(0, 1)$:
 $$\int \abs{\phi_h' - 1} dx = \sum \Big( \max \Big( \frac{\abs{\beta_{h,k}}}{\alpha_{h,k}}, 1 \Big) - 1 \Big) \alpha_{h,k} \le
 \sum \abs{\beta_{h,k}} \to 0.$$
-Then $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
+Thus $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
 
-Consider now $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- the restriction of the inverse $\phi_h$ to $[0, 1]$.
+Consider now $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- the restriction to $[0, 1]$ of the inverse to $\phi_h$.
 Then $0 \le ( \phi_h^{-1} )' \le 1$ and
 $$
 \begin{aligned}
@@ -88,7 +88,7 @@ u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' =
 
 Thus, $u_h$ is Lipschitz since $u'$ is bounded in $[0, 1] \setminus A_h$.
 
-Let us show that $u_h \to u$ in $\W(0, 1)$. It is sufficient to estimate
+We claim that $u_h \to u$ in $\W(0, 1)$. Indeed, it is sufficient to estimate
 
 $$\norm{u_h' - u'}_{L_1} \le \int_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} + 
 \int_{[0, 1] \cap \phi_h(A_h)} \abs{u_h'} + \int_{[0, 1] \cap \phi_h(A_h)} \abs{u'} =: P_h^1 + P_h^2 + P_h^3.$$
@@ -103,9 +103,10 @@ Finally, $P_h^3 \to 0$ by the absolute continuity of the integral, and the asser
 
 It remains to show that $I_1( u_h ) \to I_1( u )$.
 
-$$I_1( u_h ) = \!\!\!\!\int\limits_{[0, 1] \setminus \phi_h( A_h )}\!\!\!\! F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) dx +\
-\!\!\!\!\int\limits_{[0, 1] \cap \phi_h( A_h )}\!\!\!\! F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) dx.$$
-Denote these terms $\hat{P_h^1}$ and $\hat{P_h^2}$.
+\begin{multline*}
+I_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) dx +\\
+\int\limits_{[0, 1] \cap \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) dx := \hat{P_h^1} + \hat{P_h^2}.
+\end{multline*}
 Since $u \in \W(0, 1)$ then $u \in L_\infty( [0, 1] )$.
 Denote $\norm{u}_\infty = r$.
 Then $\norm{u_h}_\infty < 2r$ for any sufficiently large $h$.
@@ -133,22 +134,22 @@ $$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), \mathfrak a( z, u( z ) ) |u'( z )| ) 
 \end{proof}
 
 \begin{rem}
-Obviously, the proof works for any interval $[x_0, x_1]$ with function $u$ bound in $x_0$,
+Obviously, the proof works for any interval $[x_0, x_1]$ with function $u$ pinned at $x_0$,
 provided the weight $\mathfrak a$ is decreasing in $x$ on $[x_0, x_1]$.
 That is there exists $\{u_h\}$, such that
 \begin{gather*}
-u_h \to u \text{ in } \W(x_0, x_1);\\
+u_h(x_0) = u(x_0); \qquad u_h \to u \text{ in } \W(x_0, x_1);\\
 \int_{x_0}^{x_1} F( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} ) \to \int_{x_0}^{x_1} F( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} ).
 \end{gather*}
-Similarly, if $\mathfrak a$ is increasing in $x$, the same works for functions $u$ bound on the right end of the segment.
+Similarly, if $\mathfrak a$ is increasing in $x$, the same works for functions $u$ pinned at the right end of the segment.
 \end{rem}
 
 \begin{cor}
-Let the function $\mathfrak a$ be continuous, even in $x$, satisfy $(\ref{almostConcave})$
-and be decreasing on $[0, 1]$. Then for every $u \in \W(-1, 1)$ the inequality (\ref{toprove}) holds.
+Suppose that the function $\mathfrak a$ is continuous, even in $x$, decreasing on $[0, 1]$ and satisfies $(\ref{almostConcave})$.
+Then for every $u \in \W(-1, 1)$ the inequality (\ref{toprove}) holds.
 \end{cor}
 
 \begin{proof}
-The inequality follows from Lemmata \ref{uplift} and \ref{Wapprox} immediately.
+The statement follows from Lemmata \ref{uplift} and \ref{Wapprox} immediately.
 \end{proof}
 
