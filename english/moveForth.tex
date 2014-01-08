@@ -72,94 +72,98 @@ Then the inequality $(\ref{toprove})$ holds.
 \end{thm}
 
 We prove the inequality (\ref{toprove}) under the conditions $(H1)-(H7)$,
-and then we will get rid of extra conditions.
+and then get rid of extra conditions one by one.
 
 For the proof we need the following facts.
 
 \begin{prop}
 \label{levelDerivative}
-{\rm \cite [ Theorem 6.19]{LL} }
-For every $u \in \W(-1, 1)$ and an arbitrary set $A \subset \Real$ measure zero holds
+{\rm \cite[Theorem 6.19]{LL} }
+For every $u \in \W(-1, 1)$ and an arbitrary set $A \subset \Real$ of zero measure
 $u'(x) = 0$ for almost all $x \in u^{-1}(A)$.
 \end{prop}
 
 \begin{lm}
 \label{zeroApprox}
-Let $u \in \W(-1, 1)$ and weight $a$ is valid for $u$.
-Let the closed set
-$W \subset \Real$ such that the set $v \in W$, for which $a(\cdot, v) \not\equiv 0$
-has measure zero.
-Then there exists an increasing sequence of admissible for $u$ $b_k$ weights such that
+Suppose $u \in \W(-1, 1)$ and the weight $a$ is asmissible for $u$.
+Let the closed set $W \subset \Real$ satisfy the following:
+the set of $v \in W$, for which $a(\cdot, v) \not\equiv 0$, has zero measure.
+Then there exists an increasing sequence of weights $b_k$ admissible for $u$ such that
 
-1 ) $b_k(\cdot, v) \rightrightarrows a(\cdot, v)$ for almost all $v$;
+1) $b_k(\cdot, v) \rightrightarrows a(\cdot, v)$ for almost all $v$;
 
-2 ) $b_k(\cdot, v) \equiv 0$ for every $v$ in some ( depending on $k$) neighborhood of $W$;
+2) $b_k(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (with neighbourhood depending on $k$);
 
-3 ) $I(b_k, u) \to I(a, u)$.
+3) $I(b_k, u) \to I(a, u)$.
 \end{lm}
 
 \begin{proof}
 Take $\rho(d) := \min(1, \max(0, d))$,
 $$b_k(x, v) := a(x, v) \cdot \rho(k \dist(v, W) - 1) \le a(x, v).$$
-This weight is equal to zero in $\left(\frac{1}{k}\right)$- neighborhood of $W$.
-In addition, $b_k \equiv a$ is $\left(\frac{2}{k}\right)$- neighborhood of $W$ and
+This weight is equal to zero in $\left(\frac{1}{k}\right)$-neighborhood of $W$.
+In addition, $b_k \equiv a$ outside the $\left(\frac{2}{k}\right)$-neighborhood of $W$ and
 $b_k(x, v)$ increases with $k$.
 Thus, $b_k(\cdot, v) \rightrightarrows a(\cdot, v)$ for almost all $v$.
-By the monotone convergence theorem of the integral
+By the monotone convergence theorem
 $I(u^{-1}(\Real \setminus W), b_k, u) \nearrow I(u^{-1}(\Real \setminus W), a, u)$.
 
-Divide the set $W$ for two: $W_1 := \{v \in W: a(\cdot, v) \equiv 0\}$ and $W_2 = W \setminus W_1$.
-$$I(u^{-1}(W_1), b_k, u) = I(u^{-1}(W_1), a, u).$$
-$$I(u^{-1}(W_2), b_k, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), b_k(x, u(x)) u'(x)) dx.$$
-In this case, by Proposition \ref{levelDerivative}, almost everywhere on $u^{-1}(W_2)$
-holds $u'(x) = 0$.
-that is
+Divide the set $W$ into $W_1 := \{v \in W: a(\cdot, v) \equiv 0\}$ and $W_2 = W \setminus W_1$.
+Then
+$$
+\begin{aligned}
+I(u^{-1}(W_1), b_k, u) &= I(u^{-1}(W_1), a, u),\\
+I(u^{-1}(W_2), b_k, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), b_k(x, u(x)) u'(x)) dx.
+\end{aligned}
+$$
+By Proposition \ref{levelDerivative}, $u'(x) = 0$ almost everywhere on $u^{-1}(W_2)$.
+Thus
 $$I(u^{-1}(W_2), b_k, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) dx = 0.$$
-Similarly, $I(u^{-1}(W_2), a, u) = 0$, where $I(b_k, u) \to I(a, u)$.
+Similarly, $I(u^{-1}(W_2), a, u) = 0$. Hence $I(b_k, u) \to I(a, u)$.
 \end{proof}
 
 We proceed to the proof of the theorem.
 
 \bigskip
-{\bf Step 1.} Let $u \in \W(-1, 1)$ and weight $a$ satisfies the conditions $(H1)-(H7)$.
-Then the inequality (\ref{toprove}).
+{\bf Step 1.} Let $u \in \W(-1, 1)$ and let weight $a$ satisfy the conditions $(H1)-(H7)$.
+Then the inequality (\ref{toprove}) holds.
 
-Divide the interval $[-1, 1]$ on $\Delta_k$, consisting of two parts.
-On the left side of each piece weight $a$ will increase $x$ in the neighborhood
-Graphics $u(x)$. The right will also decrease.
-On each such segment can repeat scheme of the previous section,
-approximating function $u$ Lipschitz functions $u_n$.
-This gives $I(\Delta_k, a, u_n) \to I(\Delta_k, a, u)$.
+Divide the interval $[-1, 1]$ into $\Delta_k$, each consisting of two parts.
+On the left part of each $\Delta_k$ weight $a$ increases in $x$ in the neighborhood
+of the graph of $u(x)$. On the right part it decreases.
+On each $\Delta_k$ we can apply the construction from the previous section
+for approximating $u$ with Lipschitz functions $u_n$.
+This gives us $I(\Delta_k, a, u_n) \to I(\Delta_k, a, u)$.
 
-However, this approximation function $u_n$ have discontinuities at the boundaries of the segments $\Delta_k$
-(denoted by $\hat{x}_k$).
+However, approximation functions $u_n$ have discontinuities at the boundaries of the segments $\Delta_k$
+(denote them by $\hat{x}_k$).
 
-We now note that according to the condition $(H7)$ can choose points $\hat{x}_k$ so
-that $a \equiv 0$ in $(x, v)$- neighborhood of the points $(\hat{x}_k, u(\hat{x}_k))$.
+Note that according to the condition $(H7)$ one can choose points $\hat{x}_k$ so
+that $a \equiv 0$ in $(x, v)$-neighborhood of the points $(\hat{x}_k, u(\hat{x}_k))$.
 
-Now modify the function $u_n$ in the neighborhood of $\hat{x}_k$ for linear,
+Next substitute functions $u_n$ in the neighborhoods of $\hat{x}_k$ with linear pieces
 making $u_n$ continuous on $[-1, 1]$.
-In view of the above, the integrals $I(\Delta_k, a, u_n)$ it will not change,
+In view of the above, this does not change the integrals $I(\Delta_k, a, u_n)$,
 and we get $I(a, u_n) \to I(a, u)$.
 
 By Lemma \ref{uplift} we obtain (\ref{toprove}).
 
 \bigskip
 
-{\bf Step 2.} Let weight $a$ satisfies the conditions $(H1)-(H6)$.
-Then the inequality (\ref{toprove}).
+{\bf Step 2.} Let weight $a$ satisfy the conditions $(H1)-(H6)$.
+Then the inequality (\ref{toprove}) holds.
 
-We apply Lemma \ref{zeroApprox}. As the set $W$ we take the set
-all $v$, at which the transition graph $u(x)$ of the rectangle,
-in which the weight decreases by $x$, in a rectangle in which the weight increases.
+We apply Lemma \ref{zeroApprox} with the following set $W$:
+the set of all $v$, at which the graph of $u(x)$ traverses from a rectangle,
+in which the weight decreases in $x$,
+to a rectangle in which the weight increases.
 Obviously, the resulting function $b_k$ satisfy $(H1)-(H7)$.
 Therefore, $I(b_k, u^*) \le I(b_k, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
 
-{\bf Step 3.} Let weight $a$ satisfies the conditions $(H1)-(H5)$.
-Then the inequality (\ref{toprove}).
+{\bf Step 3.} Let weight $a$ satisfy the conditions $(H1)-(H5)$.
+Then the inequality (\ref{toprove}) holds.
 
 Rectangle $[-1, 1] \times [\min u(x), \max u(x)]$ naturally
 divided abscissae fracture weight $a$ and portions constancy $a$ in $x$ into rectangles
