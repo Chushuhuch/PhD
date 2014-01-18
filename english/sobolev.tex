@@ -1,4 +1,4 @@
-\section{The inequality for $u \in \W$ with an additional restriction on weight}
+\section{The inequality for $u \in \W(-1, 1)$ with an additional restriction on weight}
 \label{ASC}
 
 In this section we prove the inequality (\ref{toprove}) under the additional condition:
@@ -16,11 +16,11 @@ there exists a sequence $\{u_k\} \subset Lip[-1, 1]$, such that the relation $(\
 We can assume that $I( \mathfrak a, u ) < \infty$.
 
 We prove the assertion for the functional
-$$I_1( u ) = \int_0^1 F( u(x), \mathfrak a(x, u(x)) |u'(x)| ) dx,$$
+$$I_1( u ) = \int_0^1 F( u(x), \mathfrak a(x, u(x)) |u'(x)| ) \, dx,$$
 and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing variable.
 
 We modify the scheme from \cite[Theorem 2.4]{ASC}.
-The proof overlaps with \cite{ASC}, but we present a complete proof here for the reader's convenience.
+A part of the proof overlaps with \cite{ASC}, but we present a complete proof here for the reader's convenience.
 
 We need the following auxiliary assertion.
 
@@ -38,7 +38,7 @@ $A_{h + 1} \subset A_{h}$ and $\abs{A_h} \to 0$ for $h \to \infty$.
 
 Denote by $v_h$ the nonnegative continuous function on $[0, 1]$,
 coinciding with $u$ on $[0, 1] \setminus A_h$ and
-linear on segments forming $A_h$.
+linear on intervals forming $A_h$.
 Then $v_h \to u$ in $\W$.
 Now we modify $v_h$ to get Lipschitz functions.
 
@@ -48,7 +48,7 @@ $$\alpha_{h,k} := \abs{\Omega_{h,k}}, \quad
 \beta_{h,k} := v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-).$$
 Then $v'_h = \frac{\beta_{h,k}}{\alpha_{h,k}}$ in $\Omega_{h,k}$.
 Note that
-$$\sum_k \abs{\beta_{h,k}} \le \int_{A_h} \abs{u'} dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
+$$\sum_k \abs{\beta_{h,k}} \le \int\limits_{A_h} \abs{u'} \, dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
 and hence
 $\sum_k \abs{\beta_{h,k}} \to 0$ as $h \to 0$ by the Lebesgue theorem.
 
@@ -61,15 +61,15 @@ $$
 \end{aligned}
 $$	
 
-Note that $\int_0^1 \abs{\phi_h'} dx \le 1 + \sum_k \abs{\beta_{h,k}} < \infty$.
+Note that $\int_0^1 \abs{\phi_h'} \, dx \le 1 + \sum_k \abs{\beta_{h,k}} < \infty$.
 
 Next, $\phi_h' \to 1$ in $L_1(0, 1)$:
-$$\int \abs{\phi_h' - 1} dx = \sum \Big( \max \Big( \frac{\abs{\beta_{h,k}}}{\alpha_{h,k}}, 1 \Big) - 1 \Big) \alpha_{h,k} \le
-\sum \abs{\beta_{h,k}} \to 0.$$
+$$\int \abs{\phi_h' - 1} \, dx = \sum\limits_k \Big( \max \Big( \frac{\abs{\beta_{h,k}}}{\alpha_{h,k}}, 1 \Big) - 1 \Big) \alpha_{h,k} \le
+\sum\limits_k \abs{\beta_{h,k}} \to 0.$$
 Thus $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
 
 Consider now $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- the restriction to $[0, 1]$ of the inverse to $\phi_h$.
-Then $0 \le ( \phi_h^{-1} )' \le 1$ and
+Then
 $$
 \begin{aligned}
 \phi_h^{-1} ( 0 ) &= 0 & & \\
@@ -85,31 +85,30 @@ u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = u'( \phi_h^{-1} ) & \text{
 u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = 
 \sign{ \beta_{h,k} } \cdot \min \Big( 1, \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } \Big) & \text{ in } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
 \end{align*}
-
 Thus, $u_h$ is Lipschitz since $u'$ is bounded in $[0, 1] \setminus A_h$.
 
 We claim that $u_h \to u$ in $\W(0, 1)$. Indeed, it is sufficient to estimate
 
-$$\norm{u_h' - u'}_{L_1} \le \int_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} + 
-\int_{[0, 1] \cap \phi_h(A_h)} \abs{u_h'} + \int_{[0, 1] \cap \phi_h(A_h)} \abs{u'} =: P_h^1 + P_h^2 + P_h^3.$$
-$$P_h^1 = \int_{[0, 1] \setminus \phi_h( A_h )} \abs{u'( \phi_h^{-1} ) - u'} dx =
-\int_{\phi_h^{-1} ( [0, 1] ) \setminus A_h} \abs{u' - u'( \phi_h )} dz \le
-\int_{[0, 1]} \abs{u' - u'( \phi_h )} dz.$$
+$$\norm{u_h' - u'}_{L_1} \le \int\limits_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} + 
+\int\limits_{[0, 1] \cap \phi_h(A_h)} \abs{u_h'} + \int\limits_{[0, 1] \cap \phi_h(A_h)} \abs{u'} =: P_h^1 + P_h^2 + P_h^3.$$
+$$P_h^1 = \int\limits_{[0, 1] \setminus \phi_h( A_h )} \abs{u'( \phi_h^{-1} ) - u'} \, dx =
+\int\limits_{\phi_h^{-1} ( [0, 1] ) \setminus A_h} \abs{u' - u'( \phi_h )} \, dz \le
+\int\limits_{[0, 1]} \abs{u' - u'( \phi_h )} \, dz.$$
 By Proposition \ref{convToOne}, $P_h^1 \to 0$.
 Further,
-$$P_h^2 \le \abs{\phi_h( A_h )} = \sum \abs{\phi_h( \Omega_{h,k} )} = \sum \max (\abs{\beta_{h,k}}, \alpha_{h,k})
-\le \sum \alpha_{h,k} + \sum \abs{\beta_{h,k}} \to 0.$$
+$$P_h^2 \le \abs{\phi_h( A_h )} = \sum\limits_k \abs{\phi_h( \Omega_{h,k} )} = \sum\limits_k \max (\abs{\beta_{h,k}}, \alpha_{h,k})
+\le \sum\limits_k \alpha_{h,k} + \sum\limits_k \abs{\beta_{h,k}} \to 0.$$
 Finally, $P_h^3 \to 0$ by the absolute continuity of the integral, and the assertion is proved.
 
 It remains to show that $I_1( u_h ) \to I_1( u )$.
 
 \begin{multline*}
-I_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) dx +\\
-\int\limits_{[0, 1] \cap \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) dx := \hat{P_h^1} + \hat{P_h^2}.
+I_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) \, dx +\\
+\int\limits_{[0, 1] \cap \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) \, dx =: \hat{P_h^1} + \hat{P_h^2}.
 \end{multline*}
 Since $u \in \W(0, 1)$ then $u \in L_\infty( [0, 1] )$.
 Denote $\norm{u}_\infty = r$.
-Then $\norm{u_h}_\infty < 2r$ for any sufficiently large $h$.
+Then $\norm{u_h}_\infty < 2r$ for sufficiently large $h$.
 Also, $\abs{u_h'} \le 1$ almost everywhere in $\phi_h( A_h )$.
 Then $\hat{P_h^2} \le M_F \abs{\phi_h( A_h )} \to 0$, where
 $$M_F = \max\limits_{[-2r, 2r] \times [-M_{\mathfrak a}, M_{\mathfrak a}]} F;\quad M_{\mathfrak a} = \max\limits_{[0, 1] \times [-2r, 2r]} \mathfrak a.$$
@@ -117,19 +116,19 @@ $$M_F = \max\limits_{[-2r, 2r] \times [-M_{\mathfrak a}, M_{\mathfrak a}]} F;\qu
 Further,
 \begin{multline*}
 \hat{P_h^1} = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) }
-	F( u( \phi_h^{-1}( x ) ), \mathfrak a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) dx
-\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) dz
-\\ = \int\limits_{ [0, 1] } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h }dz.
+	F( u( \phi_h^{-1}( x ) ), \mathfrak a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) \, dx
+\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) \, dz
+\\ = \int\limits_{ [0, 1] } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } \, dz.
 \end{multline*}
 The last equality, generally speaking, does not make sense, since $\phi_h( z )$ can take values outside $[0, 1]$.
 Let us define $\mathfrak a( z, u ) = \mathfrak a( 1, u )$ for $z > 1$. Now the expression is correct.
 Note that $\chi_{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ increases,
 since sets $\phi_h^{-1}( [0, 1] )$ increase and sets $A_h$ decay,
 that is $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ and $A_{h_1} \supset A_{h_2}$ for $h_1 \le h_2$.
-Since $\mathfrak a$ is decreasing on $[0, 1]$ (and even on $\phi_h( [0, 1] )$) and $\phi_h( z )$ is decreasing in $h$,
+Since $\mathfrak a$ is decreasing on $[0, 1]$ (in fact, on $\phi_h( [0, 1] )$) and $\phi_h( z )$ is decreasing in $h$,
 then $\mathfrak a( \phi_h( z ) )$ is increasing in $h$.
-We apply monotone convergence theorem and get
-$$\hat{P_h^1} \to \int_{[0, 1]} F( u( z ), \mathfrak a( z, u( z ) ) |u'( z )| ) dz.$$
+We apply the monotone convergence theorem and get
+$$\hat{P_h^1} \to \int\limits_{[0, 1]} F( u( z ), \mathfrak a( z, u( z ) ) |u'( z )| ) \, dz.$$
 
 \end{proof}
 
@@ -139,7 +138,7 @@ provided the weight $\mathfrak a$ is decreasing in $x$ on $[x_0, x_1]$.
 That is there exists $\{u_h\}$, such that
 \begin{gather*}
 u_h(x_0) = u(x_0); \qquad u_h \to u \text{ in } \W(x_0, x_1);\\
-\int_{x_0}^{x_1} F( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} ) \to \int_{x_0}^{x_1} F( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} ).
+\int\limits_{x_0}^{x_1} F( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} ) \to \int\limits_{x_0}^{x_1} F( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} ).
 \end{gather*}
 Similarly, if $\mathfrak a$ is increasing in $x$, the same works for functions $u$ pinned at the right end of the segment.
 \end{rem}

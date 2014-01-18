@@ -3,75 +3,73 @@
 Now we want to get rid of the monotonicity restriction on the weight.
 We do this in several steps.
 
-To begin, we note that all properties of the function $a$ are of interest
+To begin, we note that all properties of the function $\mathfrak a$ are of interest
 only in the neighborhood of the graphs of functions $u$ and $u^*$.
 
-We introduce the following restrictions on the weight function:
+We introduce the following conditions each of which, being added to the previous ones, defines a narrower class of weight functions:
 
 \bigskip
 
 \smallskip
 \noindent
-$(H1)$ $a(x, v)$ satisfies (\ref{almostConcave}), is even in $x$ and $I(a, u) < \infty$.
+$(H1)$ $\mathfrak a(x, v)$ satisfies (\ref{almostConcave}), is even in $x$ and $I(\mathfrak a, u) < \infty$.
 \smallskip
 
 \bigskip
 \noindent
-$(H2)$ for $v \in [\min u(x), \max u(x)]$
-which satisfy $a(\cdot, v) \not \equiv 0$
-the number of zeros of $a(\cdot, v)$ is bounded by a constant
-independent of $v$.
+$(H2)$ the number of zeros of $\mathfrak a(\cdot, v)$ is bounded by a constant independent of $v$
+for $v \in [\min u(x), \max u(x)]$ such that $\mathfrak a(\cdot, v) \not \equiv 0$.
 
 \bigskip
 \noindent
-$(H3)$ If $a(x_0, u(x_0)) = 0$ for some $x_0$, then $a(\cdot, u(x_0)) \equiv 0$.
-Moreover, $\lim_{k \to \infty} D_k(a, U(a)) = 0$, where
-$$U(a) := \{ v \in [\min u(x), \max u(x)]: a(\cdot, v) \not \equiv 0 \},$$
+$(H3)$ If $\mathfrak a(x_0, u(x_0)) = 0$ for some $x_0$, then $\mathfrak a(\cdot, u(x_0)) \equiv 0$.
+Moreover, $\lim_{k \to \infty} D_k(\mathfrak a, U(\mathfrak a)) = 0$, where
+$$U(\mathfrak a) := \{ v \in [\min u(x), \max u(x)]: \mathfrak a(\cdot, v) \not \equiv 0 \},$$
 \begin{equation}
 \label{bigD}
-D_k(a, U): = \sup \limits_{v \in U}
-\frac{\max \limits_{\abs{x_1 - x_2} \le \frac{2}{k}} \abs{a(x_1, v) - a(x_2, v)}}
-{\min \limits_{\dist (x, u^{-1} (v)) \le \frac{2}{k}} a(x, v)}.
+D_k(\mathfrak a, U): = \sup \limits_{v \in U}
+\frac{\max \limits_{\abs{x_1 - x_2} \le \frac{2}{k}} \abs{\mathfrak a(x_1, v) - \mathfrak a(x_2, v)}}
+{\min \limits_{\dist (x, u^{-1} (v)) \le \frac{2}{k}} \mathfrak a(x, v)}.
 \end{equation}
 
 \bigskip
 \noindent
-$(H4)$ There exists an even $k$, such that $a(\cdot, v)$ are linear for each $v$ on each of the segments
+$(H4)$ There exists an even $k$, such that $\mathfrak a(\cdot, v)$ are linear for each $v$ on each of the segments
 $[-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}]$.
 
 \bigskip
 \noindent
-$(H5)$ the difference between the
-set of $v \in \Real$, for which $a(\cdot, v)$ has segments of constant values,
-and the set of $v \in \Real$ such that $a(\cdot, v) \equiv 0$
+$(H5)$ The difference between the
+set of $v \in \Real$, for which $\mathfrak a(\cdot, v)$ has segments of constant values,
+and the set of $v \in \Real$ such that $\mathfrak a(\cdot, v) \equiv 0$
 has zero measure.
 
 \bigskip
 \noindent
-$(H6)$ the segment $[-1, 1]$ can be decomposed into a finite number of intervals
-on each of which $a$ does not change the monotonicity in $x$ in a $v$-neighborhood of the graph of $u(x)$.
+$(H6)$ The segment $[-1, 1]$ can be decomposed into a finite number of intervals
+on each of which $\mathfrak a$ does not change the monotonicity in $x$ in a $v$-neighborhood of the graph of the function $u$.
 
 \bigskip
 \noindent
 $(H7)$ Let $x_1 < x_2 < x_3$,
-let $a(\cdot, v)$ decrease on $[x_1, x_2]$ in a $v$-neighborhood of the graph of the function $u$,
-and let $a(\cdot, v)$ increase on $[x_1, x_2]$ in a $v$-neighborhood of the graph of the function $u$.
-Then in a neighborhood of $u(x_2)$, we have $a(\cdot, v) \equiv 0$.
+let $\mathfrak a(\cdot, v)$ decrease for $x \in [x_1, x_2]$ in a $v$-neighborhood of the graph of the function $u$,
+and let $\mathfrak a(\cdot, v)$ increase for $x \in [x_1, x_2]$ in a $v$-neighborhood of the graph of the function $u$.
+Then we have $\mathfrak a(\cdot, v) \equiv 0$ in a neighborhood of $u(x_2)$.
 
 \bigskip
 
-We will call the weights satisfying $(H1)$ admissible.
+The weights satisfying $(H1)$ will be called {\it admissible for a given $u$}.
 
 Now we can formulate the main assertion of our work.
 \begin{thm}
 \label{mainThm}
 Suppose $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is non-negative,
-and the weight function $a: [-1, 1] \times \Real_+ \to \Real_+$ is continuous
-and is admissible for $u$.
+and the weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is continuous
+and admissible for $u$.
 Then the inequality $(\ref{toprove})$ holds.
 \end{thm}
 
-We prove the inequality (\ref{toprove}) under the conditions $(H1)-(H7)$,
+We prove the inequality (\ref{toprove}) under conditions $(H1)-(H7)$,
 and then get rid of extra conditions one by one.
 
 For the proof we need the following facts.
@@ -79,77 +77,77 @@ For the proof we need the following facts.
 \begin{prop}
 \label{levelDerivative}
 {\rm \cite[Theorem 6.19]{LL} }
-For every $u \in \W(-1, 1)$ and an arbitrary set $A \subset \Real$ of zero measure
-$u'(x) = 0$ for almost all $x \in u^{-1}(A)$.
+For every $u \in \W(-1, 1)$ and for an arbitrary set $A \subset \Real$ of zero measure
+$u'(x) = 0$ almost everywhere in $u^{-1}(A)$.
 \end{prop}
 
 \begin{lm}
 \label{zeroApprox}
-Suppose $u \in \W(-1, 1)$ and the weight $a$ is asmissible for $u$.
-Let the closed set $W \subset \Real$ satisfy the following:
-the set of $v \in W$, for which $a(\cdot, v) \not\equiv 0$, has zero measure.
+Suppose that $u \in \W(-1, 1)$ and the weight $\mathfrak a$ is admissible for $u$.
+Let a closed set $W \subset \Real$ be such that:
+the set of $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$, has zero measure.
 Then there exists an increasing sequence of weights $b_k$ admissible for $u$ such that
 
-1) $b_k(\cdot, v) \rightrightarrows a(\cdot, v)$ for almost all $v$;
+1) $b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$;
 
-2) $b_k(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (with neighbourhood depending on $k$);
+2) $b_k(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighbourhood depends on $k$);
 
-3) $I(b_k, u) \to I(a, u)$.
+3) $I(b_k, u) \to I(\mathfrak a, u)$.
 \end{lm}
 
 \begin{proof}
 Take $\rho(d) := \min(1, \max(0, d))$,
-$$b_k(x, v) := a(x, v) \cdot \rho(k \dist(v, W) - 1) \le a(x, v).$$
+$$b_k(x, v) := \mathfrak a(x, v) \cdot \rho(k \dist(v, W) - 1) \le \mathfrak a(x, v).$$
 This weight is equal to zero in $\left(\frac{1}{k}\right)$-neighborhood of $W$.
-In addition, $b_k \equiv a$ outside the $\left(\frac{2}{k}\right)$-neighborhood of $W$ and
+In addition, $b_k \equiv \mathfrak a$ outside the $\left(\frac{2}{k}\right)$-neighborhood of $W$ and
 $b_k(x, v)$ increases with $k$.
-Thus, $b_k(\cdot, v) \rightrightarrows a(\cdot, v)$ for almost all $v$.
+Thus, $b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$.
 By the monotone convergence theorem
-$I(u^{-1}(\Real \setminus W), b_k, u) \nearrow I(u^{-1}(\Real \setminus W), a, u)$.
+$I(u^{-1}(\Real \setminus W), b_k, u) \nearrow I(u^{-1}(\Real \setminus W), \mathfrak a, u)$.
 
-Divide the set $W$ into $W_1 := \{v \in W: a(\cdot, v) \equiv 0\}$ and $W_2 = W \setminus W_1$.
+Divide the set $W$ into $W_1 := \{v \in W: \mathfrak a(\cdot, v) \equiv 0\}$ and $W_2 = W \setminus W_1$.
 Then
 $$
 \begin{aligned}
-I(u^{-1}(W_1), b_k, u) &= I(u^{-1}(W_1), a, u),\\
-I(u^{-1}(W_2), b_k, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), b_k(x, u(x)) u'(x)) dx.
+I(u^{-1}(W_1), b_k, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
+I(u^{-1}(W_2), b_k, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), b_k(x, u(x)) u'(x)) \, dx.
 \end{aligned}
 $$
 By Proposition \ref{levelDerivative}, $u'(x) = 0$ almost everywhere on $u^{-1}(W_2)$.
 Thus
-$$I(u^{-1}(W_2), b_k, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) dx = 0.$$
-Similarly, $I(u^{-1}(W_2), a, u) = 0$. Hence $I(b_k, u) \to I(a, u)$.
+$$I(u^{-1}(W_2), b_k, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) \, dx = 0.$$
+Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(b_k, u) \to I(\mathfrak a, u)$.
 \end{proof}
 
 We proceed to the proof of the theorem.
 
 \bigskip
-{\bf Step 1.} Let $u \in \W(-1, 1)$ and let weight $a$ satisfy the conditions $(H1)-(H7)$.
+{\bf Step 1.} Let $u \in \W(-1, 1)$ and let weight $\mathfrak a$ satisfy the conditions $(H1)-(H7)$.
 Then the inequality (\ref{toprove}) holds.
 
 Divide the interval $[-1, 1]$ into $\Delta_k$, each consisting of two parts.
-On the left part of each $\Delta_k$ weight $a$ increases in $x$ in the neighborhood
+On the left part of each $\Delta_k$ weight $\mathfrak a$ increases in $x$ in the neighborhood
 of the graph of $u(x)$. On the right part it decreases.
 On each $\Delta_k$ we can apply the construction from the previous section
 for approximating $u$ with Lipschitz functions $u_n$.
-This gives us $I(\Delta_k, a, u_n) \to I(\Delta_k, a, u)$.
+This gives us $I(\Delta_k, \mathfrak a, u_n) \to I(\Delta_k, \mathfrak a, u)$.
 
 However, approximation functions $u_n$ have discontinuities at the boundaries of the segments $\Delta_k$
 (denote them by $\hat{x}_k$).
 
 Note that according to the condition $(H7)$ one can choose points $\hat{x}_k$ so
-that $a \equiv 0$ in $(x, v)$-neighborhood of the points $(\hat{x}_k, u(\hat{x}_k))$.
+that $\mathfrak a \equiv 0$ in $(x, v)$-neighborhood of the points $(\hat{x}_k, u(\hat{x}_k))$.
 
 Next substitute functions $u_n$ in the neighborhoods of $\hat{x}_k$ with linear pieces
 making $u_n$ continuous on $[-1, 1]$.
-In view of the above, this does not change the integrals $I(\Delta_k, a, u_n)$,
-and we get $I(a, u_n) \to I(a, u)$.
+In view of the above, this does not change the integrals $I(\Delta_k, \mathfrak a, u_n)$,
+and we get $I(\mathfrak a, u_n) \to I(\mathfrak a, u)$.
 
 By Lemma \ref{uplift} we obtain (\ref{toprove}).
 
 \bigskip
 
-{\bf Step 2.} Let weight $a$ satisfy the conditions $(H1)-(H6)$.
+{\bf Step 2.} Let weight $\mathfrak a$ satisfy the conditions $(H1)-(H6)$.
 Then the inequality (\ref{toprove}) holds.
 
 We apply Lemma \ref{zeroApprox} with the following set $W$:
@@ -162,19 +160,19 @@ Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
 
-{\bf Step 3.} Let weight $a$ satisfy the conditions $(H1)-(H5)$.
+{\bf Step 3.} Let weight $\mathfrak a$ satisfy the conditions $(H1)-(H5)$.
 Then the inequality (\ref{toprove}) holds.
 
-Consider abscissae of nodes of $a$
-and ordinates, for which $a$ has constant pieces.
+Consider abscissae of nodes of $\mathfrak a$
+and ordinates, for which $\mathfrak a$ has constant pieces.
 They define a division of the rectangle $[-1, 1] \times [\min u(x), \max u(x)]$
-into rectangles in each of which the weight $a$ is monotone in $x$.
+into rectangles in each of which the weight $\mathfrak a$ is monotone in $x$.
 However, the number of rectangles can be infinite.
 Also, if the function crosses a horizontal boundary of some rectangle,
 monotonicity in the $v$-neighborhood of the point of intersection may change.
 
-Consider set $W$ containing all $v$, for which the weight $a$ has constant pieces.
-Due to condition $(H5)$ the set of all $v \in W$, for which $a(\cdot, v) \not\equiv 0$,
+Consider set $W$ containing all $v$, for which the weight $\mathfrak a$ has constant pieces.
+Due to condition $(H5)$ the set of all $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$,
 has zero measure.
 
 Applying Lemma \ref{zeroApprox}, we obtain a sequence of weights $b_k$.
@@ -191,34 +189,34 @@ Thereby, $b_k$ satisfy $(H1)-(H6)$. Therefore, $I(b_k, u^*) \le I(b_k, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
-{\bf Step 4.} Let weight $a$ satisfies the conditions $(H1)-(H3)$.
+{\bf Step 4.} Let weight $\mathfrak a$ satisfies the conditions $(H1)-(H3)$.
 Then the inequality (\ref{toprove}).
 
-Suppose the function $a$ satisfies $(H1)-(H3)$, including $I(a, u) < \infty$.
+Suppose the function $\mathfrak a$ satisfies $(H1)-(H3)$, including $I(\mathfrak a, u) < \infty$.
 
 We fix an arbitrary even $k$.
-Points on $a(-1 + \frac{2i}{k}, v)$ for each $v$ construct a piecewise linear in $x$ interpolation.
-Resulting function $a_k(x, v)$ is continuous, even, and,
+Points on $\mathfrak a(-1 + \frac{2i}{k}, v)$ for each $v$ construct a piecewise linear in $x$ interpolation.
+Resulting function $\mathfrak a_k(x, v)$ is continuous, even, and,
 By Lemma \ref{piecewiseLinearConcave}, satisfies
 (\ref{almostConcave}).
-In addition, $a_k \to a$ when $k \to \infty$,
+In addition, $\mathfrak a_k \to \mathfrak a$ when $k \to \infty$,
 the convergence is uniform on compact sets.
-However, the inequality $a_k(x, u(x)) \le a(x, u(x))$ is not required to be performed,
-and because the weight $a_k$ may not be valid for $u$.
+However, the inequality $\mathfrak a_k(x, u(x)) \le \mathfrak a(x, u(x))$ is not required to be performed,
+and because the weight $\mathfrak a_k$ may not be valid for $u$.
 
-Take $c_k := (1 - D_k(a_k, U(a_k))) a_k$, where $D_k$ defined in (\ref{bigD}).
-Number $D_k(a_k, U(a_k))$ are positive and tend to zero, so $c_k \to a$ with $k \to \infty$.
-We show that $c_k(x, u(x)) \le a(x, u(x))$.
+Take $c_k := (1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \mathfrak a_k$, where $D_k$ defined in (\ref{bigD}).
+Number $D_k(\mathfrak a_k, U(\mathfrak a_k))$ are positive and tend to zero, so $c_k \to \mathfrak a$ with $k \to \infty$.
+We show that $c_k(x, u(x)) \le \mathfrak a(x, u(x))$.
 Take some
 $x \in [-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}] =: [x_i, x_{i + 1}]$.
 Then $c_k(x, u(x)) \le \max( c_k(x_i, u(x)), c_k(x_{i + 1}, u(x)) )$, because
 $c_k$ piecewise linear in $x$. Further,
 \begin{multline*}
-c_k (x_i, u (x)) = ( 1 - D_k (a_k, U (a_k))) \cdot a (x_i, u (x)) \\
-\le a (x_i, u (x)) - \frac{a (x_i, u (x)) - a (x, u (x))}{a (x_i, u (x))} \cdot a ( x_i, u (x)) = a (x, u (x)).
+c_k (x_i, u (x)) = ( 1 - D_k (\mathfrak a_k, U (\mathfrak a_k))) \cdot \mathfrak a (x_i, u (x)) \\
+\le \mathfrak a (x_i, u (x)) - \frac{\mathfrak a (x_i, u (x)) - \mathfrak a (x, u (x))}{\mathfrak a (x_i, u (x))} \cdot \mathfrak a ( x_i, u (x)) = \mathfrak a (x, u (x)).
 \end{multline*}
-Similarly $c_k(x_{i + 1}, u(x)) \le a(x, u(x))$.
-Thus, $c_k(x, u(x)) \le a(x, u(x))$ for any $x$, and $c_k$ are valid for $u$.
+Similarly $c_k(x_{i + 1}, u(x)) \le \mathfrak a(x, u(x))$.
+Thus, $c_k(x, u(x)) \le \mathfrak a(x, u(x))$ for any $x$, and $c_k$ are valid for $u$.
 
 Functions $c_k$ satisfy $(H1)-(H4)$.
 
@@ -247,7 +245,7 @@ By the arbitrariness of $v_1$, $v_2$ and $\eps$, we obtain that $\tilde{t}$ is c
 
 When $\alpha \in [0, 1]$ function $d_\alpha(x, v) := c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
 even with respect to $x$, satisfies (\ref{almostConcave}) by Lemma \ref{maxSumConcave}
-and does not exceed $a(x, v)$ for construction of the function $\tilde{t}$.
+and does not exceed $\mathfrak a(x, v)$ for construction of the function $\tilde{t}$.
 Thus, $d_\alpha$ --- allowable weight.
 Further, it is obvious that $d_\alpha$ satisfies $(H1)-(H4)$.
 
@@ -275,31 +273,31 @@ Therefore, $I(d_{\alpha_j}, u^*) \le I(d_{\alpha_j}, u)$.
 Passing to the limit, we get $I(c, u^*) \le I(c, u)$.
 
 Further, if $x \in [-1, 1]$ and $k \to \infty$, we have
-$$F(u(x), c_k(x, u(x)) |u'(x)|) \to F(u(x), a(x, u(x)) |u'(x)|).$$
-Additionally, $F(u(x), a(x, u(x)) |u'(x)|)$ Majorant is integrable.
-By the Lebesgue dominated convergence, we get $I(c_k, u) \to I(a, u)$.
+$$F(u(x), c_k(x, u(x)) |u'(x)|) \to F(u(x), \mathfrak a(x, u(x)) |u'(x)|).$$
+Additionally, $F(u(x), \mathfrak a(x, u(x)) |u'(x)|)$ Majorant is integrable.
+By the Lebesgue dominated convergence, we get $I(c_k, u) \to I(\mathfrak a, u)$.
 Since $I(c_k, u^*) \le I(c_k, u)$, Lemma \ref{uplift} gives (\ref{toprove}).
 
 \bigskip
-{\bf Step 5.} Let weight $a$ satisfies only the condition $(H1)$.
+{\bf Step 5.} Let weight $\mathfrak a$ satisfies only the condition $(H1)$.
 Then the inequality (\ref{toprove}).
 
-We will construct an approximation for weights $a$ satisfying $(H1)-(H2)$.
+We will construct an approximation for weights $\mathfrak a$ satisfying $(H1)-(H2)$.
 Use Lemma \ref{zeroApprox}.
-As the set $W$ we take $\{ v \in \Real: a(\cdot, v) \equiv 0 \}$.
-We introduce the notation $$Z_a(v) := \{ x \in [-1, 1]: a(x, v) = 0 \}.$$
-Note that the sets $Z_{b_k}(v)$ coincide with either $Z_a(v)$, either $[-1, 1]$.
+As the set $W$ we take $\{ v \in \Real: \mathfrak a(\cdot, v) \equiv 0 \}$.
+We introduce the notation $$Z_{\mathfrak a}(v) := \{ x \in [-1, 1]: \mathfrak a(x, v) = 0 \}.$$
+Note that the sets $Z_{b_k}(v)$ coincide with either $Z_{\mathfrak a}(v)$, either $[-1, 1]$.
 
 We show that $b_k$ satisfies $(H2)$.
 Indeed, otherwise there is a sequence $v_l$, for which
 $l < \card(Z_{b_k})(v_l) < \infty$.
 After passing to a subsequence, we have $v_l \to v_0$.
-We show that $Z_a(v_0) = [-1, 1]$. Lemma \ref{periodicity} implies that
-set $Z_{b_k}(v_l) = Z_a(v_l)$ periodic with period of not more than $\frac{2}{l - 1}$.
+We show that $Z_{\mathfrak a(v_0)} = [-1, 1]$. Lemma \ref{periodicity} implies that
+set $Z_{b_k}(v_l) = Z_{\mathfrak a(v_l)}$ periodic with period of not more than $\frac{2}{l - 1}$.
 Take some $x \in [-1, 1]$. For each $l$ $x_l$ exists such that
-$\abs{x - x_l} \le \frac{1}{l - 1}$ and $a(x_l, v_l) = 0$.
-But $a(x_l, v_l) \to a(x, v_0)$.
-Thus, $a(x, v_0) = 0$ and $Z_a(v_0) = [-1, 1]$.
+$\abs{x - x_l} \le \frac{1}{l - 1}$ and $\mathfrak a(x_l, v_l) = 0$.
+But $\mathfrak a(x_l, v_l) \to \mathfrak a(x, v_0)$.
+Thus, $\mathfrak a(x, v_0) = 0$ and $Z_{\mathfrak a}(v_0) = [-1, 1]$.
 But this means that for every $v$ such
 that $\abs{v - v_0} \le \frac{1}{k}$, holds $b_k(\cdot, v) \equiv 0$
 which contradicts $\card(Z_{b_k})(v_l) < \infty$.
@@ -309,7 +307,7 @@ Now we fix $k \in \Nat$, denoted $b_k =: b$
 and approximate the function $b$ weights satisfying $(H1)-(H3)$.
 From $(H2)$ and Lemma \ref{periodicity}, part 2, it follows that there exists a set $T \subset [-1, 1]$
 consisting of a finite number of elements, such that
-if $x \not \in T$ and $a(x, v) = 0$ for some $v$, then $b(\cdot, v) \equiv 0$.
+if $x \not \in T$ and $\mathfrak a(x, v) = 0$ for some $v$, then $b(\cdot, v) \equiv 0$.
 Again, we use Lemma \ref{zeroApprox} with multiple
 $W = u(T) \cup u^*(T)$.
 
@@ -343,7 +341,7 @@ Thus, Theorem \ref{mainThm} proved.
 We now consider the case where the function $u$ satisfies the additional condition $u(-1) = 0$.
 \begin{thm}
 Let $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative, $u(-1) = 0$,
-weight function $a: [-1, 1] \times \Real_+ \to \Real_+$ continuous
+weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ continuous
 and satisfies $(\ref{almostConcave})$.
 Then the inequality $(\ref{toprove})$.
 \end{thm}
@@ -354,21 +352,21 @@ but instead of $(H1)$ and $(H7)$ impose the following conditions on the weight:
 
 \bigskip
 \noindent
-$(H1')$ $a(x, v)$ satisfies (\ref{almostConcave}), and $I(a, u) < \infty$.
+$(H1')$ $\mathfrak a(x, v)$ satisfies (\ref{almostConcave}), and $I(\mathfrak a, u) < \infty$.
 
 \bigskip
 \noindent
-$(H7')$ Achieved condition $(H7)$, and $a(\cdot, v) \equiv 0$ in some $v$- neighborhood of zero.
+$(H7')$ Achieved condition $(H7)$, and $\mathfrak a(\cdot, v) \equiv 0$ in some $v$- neighborhood of zero.
 
 \bigskip
-{\bf Step 1.} Let $u \in \W(-1, 1)$, the $u(-1) = 0$ and the weight $a$ satisfies the conditions $(H1'), (H2)-(H6), (H7')$.
+{\bf Step 1.} Let $u \in \W(-1, 1)$, the $u(-1) = 0$ and the weight $\mathfrak a$ satisfies the conditions $(H1'), (H2)-(H6), (H7')$.
 Then the inequality (\ref{toprove}).
 
 For proof we approximate the function $u$ in the same way as in the first step of the proof of Theorem \ref{mainThm},
 the replacement of $u$ in a neighborhood of $x = -1$ on the linear so that $u_n(-1) = 0$.
 
 \bigskip
-{\bf Step 2.} Let weight $a$ satisfies the conditions $(H1'), (H2)-(H6)$.
+{\bf Step 2.} Let weight $\mathfrak a$ satisfies the conditions $(H1'), (H2)-(H6)$.
 Then the inequality (\ref{toprove}).
 
 To prove to add to the set $W$ of the second step of the proof of Theorem \ref{mainThm} point $0$

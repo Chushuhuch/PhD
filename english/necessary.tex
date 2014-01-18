@@ -32,10 +32,11 @@ u(x) &= \bar{v}, & x \in [\bar{x}, 1]
 $$
 Then $u^*(x, v) = u(-x, v)$ and
 \begin{multline*}
-I(\mathfrak a, u)-I(\mathfrak a, u^*) = \int_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) dx -
-\int_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, \mathfrak a(x, \bar{v} + \bar{x} + x) ) dx \\ =
-\int_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) -
-F( \bar{v} + \bar{x} - x, \mathfrak a(-x, \bar{v} + \bar{x} - x) ) ) dx < 0,
+I(\mathfrak a, u)-I(\mathfrak a, u^*) \\
+= \int\limits_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) \, dx -
+\int\limits_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, \mathfrak a(x, \bar{v} + \bar{x} + x) ) \, dx \\
+= \int\limits_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) -
+F( \bar{v} + \bar{x} - x, \mathfrak a(-x, \bar{v} + \bar{x} - x) ) ) \, dx < 0,
 \end{multline*}
 which contradicts the assumption. Thus, the first statement is proved.
 
@@ -118,13 +119,13 @@ $$
 
 We have
 \begin{multline*}
-I(\mathfrak a, u^*) = \int_0^{2\eps} F(u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2}) dz\\
-= \int_0^\eps 2 F(\bar{v} + y, \frac{\mathfrak a(1 - t + s + 2y, \bar{v} + y)}{2}) dy\\
+I(\mathfrak a, u^*) = \int_0^{2\eps} F \big( u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2} \big) \, dz\\
+= \int_0^\eps 2 F \big(\bar{v} + y, \frac{\mathfrak a(1 - t + s + 2y, \bar{v} + y)}{2} \big) \, dy\\
 0 \le I( \mathfrak a, u ) - I( \mathfrak a, u^* ) =
 \int_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a( t - y, \bar{v} + y))\\
-- 2 F(\bar{v} + y, \frac{ \mathfrak a(1 - t + s + 2y, \bar{v} + y) }{2})) dy\\
+- 2 F \big(\bar{v} + y, \frac{ \mathfrak a(1 - t + s + 2y, \bar{v} + y) }{2} \big) ) \, dy\\
 < \int_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a(t - y, \bar{v} + y))\\
-- 2 F(\bar{v} + y, \frac{ \mathfrak a(s + y, \bar{v} + y) + \mathfrak a(t - y, \bar{v} + y) + \delta }{2})) dy =: J.
+- 2 F \big( \bar{v} + y, \frac{ \mathfrak a(s + y, \bar{v} + y) + \mathfrak a(t - y, \bar{v} + y) + \delta }{2} \big) ) \, dy =: J.
 \end{multline*}
 
 Let us consider the function $F(v, p) = p ^ \alpha$.
@@ -133,7 +134,7 @@ For $\alpha = 1$, the following inequality trivially holds:
 \label{anticonvex}
 \frac{F(v, p) + F(v, q)}{ 2 } - F(v, \frac{p + q}{ 2 } + \frac{\delta}{ 2}) <0.
 \end{equation}
-We are interested in $p, q$, lying on a compact $[0 , A]$,
+We are interested in $p, q$ from the compact $[0 , A]$,
 where 
 $$A=\max \limits_{(x, v)} \mathfrak a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
 $$

@@ -3,20 +3,20 @@
 First, we recall the layer cake representation for a measurable function $u: [-1, 1] \to \Real_+$
 (here and elsewhere $\Real_+ = [0,\infty)$).
 Namely, if we set $\mathcal{A}_t: = \{x \in [-1,1]:\ u(x)> t \}$
-then $u(x) = \int_0^\infty \chi_{\mathcal{A}_t}dt$.
+then $u(x) = \int_0^\infty \chi_{\mathcal{A}_t} \, dt$.
 
 We define the monotone rearrangement of a measurable set $E \subset [-1, 1]$ and the
 monotone rearrangement of a non-negative function $u \in \W (-1, 1)$ as follows:
 \begin{eqnarray*}
 E^*: = [1 - \abs{E}, 1]; \qquad
-u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*}dt.
+u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*} \, dt.
 \end{eqnarray*}
 
 Under the same conditions we define the symmetric rearrangement 
 (symmetrization) for sets and functions:
 \begin{eqnarray*}
 \overline{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}]; \qquad
-\overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}}dt.
+\overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}} \, dt.
 \end{eqnarray*}
 
 We denote by $\mathfrak{F}$ the set of continuous functions 
@@ -26,11 +26,11 @@ which are convex and increasing with respect to the second argument.
 Let us consider a functional
 \begin{equation}
 \label{functional}
-I(\mathfrak a, u) = \int_{-1}^1 F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) dx,
+I(\mathfrak a, u) = \int_{-1}^1 F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) \, dx,
 \end{equation}
 where $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
 
-It is well known that if $\mathfrak a \equiv const$ then the inequalities
+It is well known that if $\mathfrak a \equiv const$ then the P\'olya-Szeg\"o type inequalities
 \begin{eqnarray}
 \label{toprove}
 I(\mathfrak a, u^*) & \le & I(\mathfrak a, u), \qquad \qquad u \in \W(-1, 1);\\
@@ -47,12 +47,12 @@ and in fact this inequality was proved in \cite{Br} only for Lipschitz functions
 Namely, while proving the inequality (\ref{toproveSymm}) for a natural class of functions,
 the author of \cite{Br} approximates $u \in \Wf$ with finite integral (\ref{functional})
 using piecewise linear functions $u_k$ and claims that $I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
-However, this assertion is not justified and general speaking is not true.
+However, this assertion is not justified and generally speaking is not true.
 In 1926, M.~A.~Lavrentiev proposed the first example of an integral functional
 for which the infimum over the domain is strictly less than the infimum over the set of 
 Lipschitz functions.
 Historical overview and simple examples of ``one-dimensional'' 
-functionals for which the Lavrentiev phenomenon takes place can be found in e.g. \cite{BGH}.
+functionals for which the Lavrentiev phenomenon takes place can be found e.g. in \cite{BGH}.
 Note that a deep investigation of the Lavrentiev phenomenon for some classes of multidimensional 
 functionals was carried out by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
 
@@ -71,7 +71,7 @@ In addition we prove that evenness and convexity of the weight is a necessary co
 for the inequality (\ref{toproveSymm}) to hold.
 
 The bulk of our paper is devoted to the inequality (\ref{toprove}).
-We find a necessary and sufficient condition on the weight $\mathfrak a$ for the inequality 
+We find necessary and sufficient conditions on the weight $\mathfrak a$ for the inequality 
 (\ref{toprove}) to hold%
 \footnote{In particular, the inequality is satisfied if the weight function $\mathfrak a$ is even 
 and concave in $x$.}.

@@ -44,13 +44,13 @@ However, they do not contribute to the integral, since $F(u(x), 0) = 0$.
 
 Consider the remaining parts of the integrals :
 \begin{multline*}
-I(\mathfrak a, u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) dx
-\\ = \sum_{j=1}^N \int_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{\mathfrak a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} dv,
+I(\mathfrak a, u) = \sum_{j=1}^N \int\limits_{u^{-1}(G_j)} F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) \, dx
+\\ = \sum_{j=1}^N \int\limits_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{\mathfrak a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} \, dv,
 \end{multline*}
 \begin{multline*}
-I(\mathfrak a, u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{\mathfrak a(x, u(x)) u^*{}'(x)}) dx
-\\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{\mathfrak a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
-\sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } dv.
+I(\mathfrak a, u^*) = \sum_{j=1}^N \int\limits_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{\mathfrak a(x, u(x)) u^*{}'(x)}) \, dx
+\\ = \sum_{j=1}^N \int\limits_{G_j} F\Big(v, \frac{\mathfrak a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
+\sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } \, dv.
 \end{multline*}
 
 We fix $j$ and $v$ in the right parts and prove the inequality for integrands.
@@ -60,8 +60,7 @@ $$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ \mathfrak a(y_k, v) }{b_k} \Big)
 \ge F\Big( v, \frac{ \mathfrak a(y^*, v) }{ \sum_{k=1}^m b_k  } \Big) \sum_{k=1}^m b_k.$$
 By Jensen's inequality for the function $F(v, \cdot)$, we obtain
 $$T \ge F\Big( v, \frac{ \sum_{k=1}^m \mathfrak a(y_k, v) }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k.$$
-Then it is sufficient to prove $\sum_{k=1}^m \mathfrak a(y_k, v) \ge \mathfrak a(y^*, v)$, which is true due to Lemma \ref{weightSum} and
-Remark \ref{almostConcaveMultRem}.
+Then it is sufficient to prove $\sum_{k=1}^m \mathfrak a(y_k, v) \ge \mathfrak a(y^*, v)$, which is true due to Lemma \ref{weightSum}.
 \end{proof}
 
 \begin{rem}
@@ -71,7 +70,7 @@ for the weight functions $\mathfrak a$, decreasing in $x$.
 It is easy to see that under this assumption, the proof of Theorem $\ref{linth}$ works for weights satisfying
 $(\ref{almostConcave})$ without the evenness assumption,
 since in this case $u(-1) < u_0$, and we need only two of the four inequalities,
-given by Lemma $\ref{weightSum}$.
+given by the first part of Lemma $\ref{weightSum}$.
 It is also obvious that the assumption $(\ref{almostConcave})$ is weaker than the assumption of $\mathfrak a$ decreasing in $x$.
 \end{rem}
 

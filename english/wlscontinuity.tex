@@ -12,11 +12,10 @@ Let's denote $A = \varliminf I( \mathfrak a, u_m ) \ge 0$.
 We are going to prove $I(\mathfrak a, u) \le A$.
 In the case $A = \infty$ the assertion is trivial, so we can assume $A < \infty$.
 Switching to a subsequence, we obtain $A = \lim I( \mathfrak a, u_m )$.
+
 Weak convergence implies, that there exists
 $R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
-
-It is known that $\W(-1, 1)$ is compactly embedded in $L_1(-1, 1)$.
-Then, switching to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
+Moreover, switching to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
 and $u_m(x) \to u(x)$ almost everywhere.
 Then, by Egorov's theorem, for any $\eps$ there exists a set
 $G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$.
@@ -24,8 +23,8 @@ $G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in 
 Uniform convergence of $u_m$ implies there exists $K$ such that for each $m>K$
 the inequality $\abs{u_m} \le \abs{u} + \eps$ holds in $[-1, 1] \setminus G_\eps^1$.
 Let $G_\eps^2 = \{x \in [-1, 1] \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
-Then $$R_0 \ge \int_{-1}^1 \abs{ u(x) } dx \ge \int_{G_\eps^2} \abs{ u(x) } dx \ge
-\int_{G_\eps^2} \frac{R_0 + \eps}{\eps} dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}$$
+Then $$R_0 \ge \int_{-1}^1 \abs{ u(x) } \, dx \ge \int\limits_{G_\eps^2} \abs{ u(x) } \, dx \ge
+\int\limits_{G_\eps^2} \frac{R_0 + \eps}{\eps} \, dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}$$
 That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
 Thus, the functions $u_m$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
 
@@ -35,35 +34,35 @@ $$| F( u_m( x ), \mathfrak a( x, u_m( x ) ) M ) - F( u( x ), \mathfrak a( x, u( 
 
 Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
 Then
-$$R_0 \ge \int_{-1}^1 \abs{ u_m'( x ) } dx \ge \int_{ E_{m,\eps} } \abs{ u_m'( x ) } dx \ge
-\int_{ E_{m,\eps} } \frac{ R_0 }{ \eps } dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$
+$$R_0 \ge \int_{-1}^1 \abs{ u_m'( x ) } \, dx \ge \int\limits_{ E_{m,\eps} } \abs{ u_m'( x ) } \, dx \ge
+\int\limits_{ E_{m,\eps} } \frac{ R_0 }{ \eps } \, dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$
 Therefore $\abs{ E_{m,\eps} } \le \eps$.
 
 Finally we set $L_{m,\eps} := [-1, 1] \setminus ( E_{m,\eps} \cup G_\eps )$.
 Note, that $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
 
-We fix $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
+We put $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
 For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we have
 $$\Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
 thus
 \begin{equation}
 \label{frDer}
-\int_{L_{m,\eps}} \Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | dx < 2 \eps.
+\int\limits_{L_{m,\eps}} \Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | \, dx < 2 \eps.
 \end{equation}
 
 We put $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
 Then $\sum \eps_j = \eps$ and therefore $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
 Since (\ref{frDer}) implies
-$$\int_{L_\eps} \Big | F( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | dx < 2 \eps_j,$$
+$$\int\limits_{L_\eps} \Big | F( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | \, dx < 2 \eps_j,$$
 we obtain
 \begin{multline*}
-A = \lim I (\mathfrak a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |) dx \\
-\ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |) dx
+A = \lim I (\mathfrak a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |) \, dx \\
+\ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |) \, dx
 =: \varliminf J_\eps(u_{m_j}').
 \end{multline*}
 
 The functional
-$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), \mathfrak a( x, u( x ) ) |v( x )| ) dx$$
+$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), \mathfrak a( x, u( x ) ) |v( x )| ) \, dx$$
 is convex.
 Switching to a subsequence $u_k$ again, we can assume that
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.

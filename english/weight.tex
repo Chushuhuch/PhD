@@ -1,20 +1,29 @@
 \section{Properties of the weight function}
 
 For brevity, in this section we omit the second argument of the function $\mathfrak a$.
+Thus, we assume, that $\mathfrak a \in C[-1, 1]$ and $\mathfrak a \ge 0$.
 
 \begin{lm}
 \label{weightSum}
-Consider a continuous function $\mathfrak a \ge 0$ defined on $[-1, 1]$
-and satisfying the condition (\ref{almostConcave}).
-Then for any $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$
+Let $\mathfrak a$ satisfy (\ref{almostConcave}).
+{\bf 1.} For any $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$
 the following inequalities hold
 \begin{align*}
 \sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a( 1 - \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
 \sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(- \sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
 \end{align*}
+
+{\bf 2.}
+Assume that in addition the function $\mathfrak a$ is even.
+Then the following inequalities also hold:
+\begin{align*}
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(\sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
+\end{align*}
 \end{lm}
 
 \begin{proof}
+{\bf 1.}
 We prove the lemma by induction.
 For $n = 1$ the assertion is trivial.
 Now let $n$ be even. Then, by the induction hypothesis,
@@ -27,17 +36,9 @@ $$\sum_{k=2}^n \mathfrak a(t_k) \ge \mathfrak a( 1 + \sum_{k = 2}^n (-1)^k t_k )
 Then
 $$\mathfrak a( t_1 ) + \sum_{k = 2}^n \mathfrak a( t_k ) \ge \mathfrak a( t_1 ) + \mathfrak a( 1 + \sum_{k = 2}^{n} (-1)^k t_k ) \ge
 \mathfrak a( -\sum_{k = 2}^{n} (-1)^k t_k + t_1 ) = \mathfrak a( -\sum_{k = 1}^{n} (-1)^k t_k ).$$
-\end{proof}
 
-\begin{rem}
-Assume that in addition to the assumptions of Lemma \ref{weightSum} the function $\mathfrak a$ is even.
-Then the following inequalities also hold:
-\label{almostConcaveMultRem}
-\begin{align*}
-\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
-\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(\sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
-\end{align*}
-\end{rem}
+Part {\bf 2.} is trivial. 
+\end{proof}
 
 \begin{lm}
 \label{periodicity}
@@ -56,7 +57,7 @@ and the period is a divisor of $1 - x_0$.
 
 \begin{proof}
 {\bf 1.}
-Note that if $\mathfrak a(s) = \mathfrak a(t) = 0$ holds for some $s \le t$
+Note that if $\mathfrak a(s) = \mathfrak a(t) = 0$ for some $s \le t$
 then the inequality (\ref{almostConcave}) implies
 $$0 = \mathfrak a(s) + \mathfrak a(t) \ge \mathfrak a( 1 - (t - s) ) \ge 0$$
 i.e. $\mathfrak a(1 - (t - s)) = 0$.
@@ -111,7 +112,7 @@ also satisfies $(\ref{almostConcave})$.
 {\bf 1.}
 Let $s = -1 + \frac{2i}{k}$, $t = -1 + \frac{2j}{k}$.
 Then the inequality $(\ref{almostConcave})$ holds for $\mathfrak a_k$, because it does for $\mathfrak a$,
-and their values at these points are equal.
+and their values at these points coincide.
 
 {\bf 2.}
 Now let $s = -1 + \frac{2i}{k}$ and $t \in [-1 + \frac{2j}{k}, -1 + \frac{2(j + 1)}{k}]$.
