@@ -6,7 +6,7 @@ We do this in several steps.
 To begin, we note that all properties of the function $\mathfrak a$ are of interest
 only in the neighborhood of the graphs of functions $u$ and $u^*$.
 
-We introduce the following conditions each of which, being added to the previous ones, defines a narrower class of weight functions:
+We introduce the following conditions each of which, being added to the previous ones, defines a smaller class of weight functions:
 
 \bigskip
 
@@ -18,12 +18,12 @@ $(H1)$ $\mathfrak a(x, v)$ satisfies (\ref{almostConcave}), is even in $x$ and $
 \bigskip
 \noindent
 $(H2)$ the number of zeros of $\mathfrak a(\cdot, v)$ is bounded by a constant independent of $v$
-for $v \in [\min u(x), \max u(x)]$ such that $\mathfrak a(\cdot, v) \not \equiv 0$.
+for all $v \in [\min u(x), \max u(x)]$ such that $\mathfrak a(\cdot, v) \not \equiv 0$.
 
 \bigskip
 \noindent
 $(H3)$ If $\mathfrak a(x_0, u(x_0)) = 0$ for some $x_0$, then $\mathfrak a(\cdot, u(x_0)) \equiv 0$.
-Moreover, $\lim_{k \to \infty} D_k(\mathfrak a, U(\mathfrak a)) = 0$, where
+Moreover, $\lim\limits_{k \to \infty} D_k(\mathfrak a, U(\mathfrak a)) = 0$, where
 $$U(\mathfrak a) := \{ v \in [\min u(x), \max u(x)]: \mathfrak a(\cdot, v) \not \equiv 0 \},$$
 \begin{equation}
 \label{bigD}
@@ -46,7 +46,7 @@ has zero measure.
 
 \bigskip
 \noindent
-$(H6)$ The segment $[-1, 1]$ can be decomposed into a finite number of intervals
+$(H6)$ The segment $[-1, 1]$ can be represented as a unity of touching segments
 on each of which $\mathfrak a$ does not change the monotonicity in $x$ in a $v$-neighborhood of the graph of the function $u$.
 
 \bigskip
@@ -54,11 +54,13 @@ on each of which $\mathfrak a$ does not change the monotonicity in $x$ in a $v$-
 $(H7)$ Let $x_1 < x_2 < x_3$,
 let $\mathfrak a(\cdot, v)$ decrease for $x \in [x_1, x_2]$ in a $v$-neighborhood of the graph of the function $u$,
 and let $\mathfrak a(\cdot, v)$ increase for $x \in [x_1, x_2]$ in a $v$-neighborhood of the graph of the function $u$.
-Then we have $\mathfrak a(\cdot, v) \equiv 0$ in a neighborhood of $u(x_2)$.
+Then we have $\mathfrak a(\cdot, v) \equiv 0$ in a $v$-neighborhood of $u(x_2)$.
 
 \bigskip
 
 The weights satisfying $(H1)$ will be called {\it admissible for a given $u$}.
+
+\medskip
 
 Now we can formulate the main assertion of our work.
 \begin{thm}
