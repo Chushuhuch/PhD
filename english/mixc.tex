@@ -58,14 +58,14 @@ We define the monotone rearrangement of a measurable set $E \subset [-1, 1]$ and
 monotone rearrangement of a non-negative function $u \in \W (-1, 1)$ as follows:
 \begin{eqnarray*}
 E^*: = [1 - \abs{E}, 1]; \qquad
-u^*(x): = \int_0^\infty \chi_{\mathcal{A}_t^*} \, dt.
+u^*(x): = \int\limits_0^\infty \chi_{\mathcal{A}_t^*} \, dt.
 \end{eqnarray*}
 
 Under the same conditions we define the symmetric rearrangement 
 (symmetrization) for sets and functions:
 \begin{eqnarray*}
 \overline{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}]; \qquad
-\overline{u}(x) := \int_0^\infty \chi_{\overline{\mathcal{A}_t}} \, dt.
+\overline{u}(x) := \int\limits_0^\infty \chi_{\overline{\mathcal{A}_t}} \, dt.
 \end{eqnarray*}
 
 We denote by $\mathfrak{F}$ the set of continuous functions 
@@ -75,7 +75,7 @@ which are convex and increasing with respect to the second argument.
 Let us consider a functional
 \begin{equation}
 \label{functional}
-I(\mathfrak a, u) = \int_{-1}^1 F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) \, dx,
+I(\mathfrak a, u) = \int\limits_{-1}^1 F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) \, dx,
 \end{equation}
 where $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
 
@@ -265,12 +265,12 @@ $$
 
 We have
 \begin{multline*}
-I(\mathfrak a, u^*) = \int_0^{2\eps} F \big( u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2} \big) \, dz\\
-= \int_0^\eps 2 F \big(\bar{v} + y, \frac{\mathfrak a(1 - t + s + 2y, \bar{v} + y)}{2} \big) \, dy\\
+I(\mathfrak a, u^*) = \int\limits_0^{2\eps} F \big( u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2} \big) \, dz\\
+= \int\limits_0^\eps 2 F \big(\bar{v} + y, \frac{\mathfrak a(1 - t + s + 2y, \bar{v} + y)}{2} \big) \, dy\\
 0 \le I( \mathfrak a, u ) - I( \mathfrak a, u^* ) =
-\int_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a( t - y, \bar{v} + y))\\
+\int\limits_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a( t - y, \bar{v} + y))\\
 - 2 F \big(\bar{v} + y, \frac{ \mathfrak a(1 - t + s + 2y, \bar{v} + y) }{2} \big) ) \, dy\\
-< \int_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a(t - y, \bar{v} + y))\\
+< \int\limits_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a(t - y, \bar{v} + y))\\
 - 2 F \big( \bar{v} + y, \frac{ \mathfrak a(s + y, \bar{v} + y) + \mathfrak a(t - y, \bar{v} + y) + \delta }{2} \big) ) \, dy =: J.
 \end{multline*}
 
@@ -551,7 +551,8 @@ $G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in 
 Uniform convergence of $u_m$ implies there exists $K$ such that for each $m>K$
 the inequality $\abs{u_m} \le \abs{u} + \eps$ holds in $[-1, 1] \setminus G_\eps^1$.
 Let $G_\eps^2 = \{x \in [-1, 1] \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
-Then $$R_0 \ge \int_{-1}^1 \abs{ u(x) } \, dx \ge \int\limits_{G_\eps^2} \abs{ u(x) } \, dx \ge
+Then
+$$R_0 \ge \int\limits_{-1}^1 \abs{ u(x) } \, dx \ge \int\limits_{G_\eps^2} \abs{ u(x) } \, dx \ge
 \int\limits_{G_\eps^2} \frac{R_0 + \eps}{\eps} \, dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}$$
 That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
 Thus, the functions $u_m$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
@@ -562,7 +563,7 @@ $$| F( u_m( x ), \mathfrak a( x, u_m( x ) ) M ) - F( u( x ), \mathfrak a( x, u( 
 
 Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
 Then
-$$R_0 \ge \int_{-1}^1 \abs{ u_m'( x ) } \, dx \ge \int\limits_{ E_{m,\eps} } \abs{ u_m'( x ) } \, dx \ge
+$$R_0 \ge \int\limits_{-1}^1 \abs{ u_m'( x ) } \, dx \ge \int\limits_{ E_{m,\eps} } \abs{ u_m'( x ) } \, dx \ge
 \int\limits_{ E_{m,\eps} } \frac{ R_0 }{ \eps } \, dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$
 Therefore $\abs{ E_{m,\eps} } \le \eps$.
 
@@ -584,13 +585,13 @@ Since (\ref{frDer}) implies
 $$\int\limits_{L_\eps} \Big | F( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | \, dx < 2 \eps_j,$$
 we obtain
 \begin{multline*}
-A = \lim I (\mathfrak a, u_{m_j}) = \lim \int_{-1}^1 F(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |) \, dx \\
-\ge \varliminf \int_{-1}^1 \chi_{L_\eps}(x) F(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |) \, dx
+A = \lim I (\mathfrak a, u_{m_j}) = \lim \int\limits_{-1}^1 F(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |) \, dx \\
+\ge \varliminf \int\limits_{-1}^1 \chi_{L_\eps}(x) F(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |) \, dx
 =: \varliminf J_\eps(u_{m_j}').
 \end{multline*}
 
 The functional
-$$J_\eps( v ) = \int_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), \mathfrak a( x, u( x ) ) |v( x )| ) \, dx$$
+$$J_\eps( v ) = \int\limits_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), \mathfrak a( x, u( x ) ) |v( x )| ) \, dx$$
 is convex.
 Switching to a subsequence $u_k$ again, we can assume that
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
@@ -671,7 +672,7 @@ there exists a sequence $\{u_k\} \subset Lip[-1, 1]$, such that the relation $(\
 We can assume that $I( \mathfrak a, u ) < \infty$.
 
 We prove the assertion for the functional
-$$I_1( u ) = \int_0^1 F( u(x), \mathfrak a(x, u(x)) |u'(x)| ) \, dx,$$
+$$I_1( u ) = \int\limits_0^1 F( u(x), \mathfrak a(x, u(x)) |u'(x)| ) \, dx,$$
 and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing variable.
 
 We modify the scheme from \cite[Theorem 2.4]{ASC}.
