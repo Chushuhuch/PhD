@@ -79,115 +79,115 @@ For the proof we need the following facts.
 \begin{prop}
 \label{levelDerivative}
 {\rm \cite[Theorem 6.19]{LL} }
-For every $u \in \W(-1, 1)$ and for an arbitrary set $A \subset \Real$ of zero measure
+For every $u \in \W(-1, 1)$ and for an arbitrary set $A \subset \Real$ of zero measure,
 $u'(x) = 0$ almost everywhere in $u^{-1}(A)$.
 \end{prop}
 
 \begin{lm}
 \label{zeroApprox}
-Suppose that $u \in \W(-1, 1)$ and the weight $\mathfrak a$ is admissible for $u$.
-Let a closed set $W \subset \Real$ be such that:
+Suppose that $u \in \W(-1, 1)$.
+Let a closed set $W \subset \Real$ be such that
 the set of $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$, has zero measure.
-Then there exists an increasing sequence of weights $\mathfrak b_k$ admissible for $u$ such that
+Then there exists an increasing sequence of weights $\mathfrak b_{\ell}$, which are admissible for $u$ and satisfy
 
-1) $\mathfrak b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$;
+1) $\mathfrak b_{\ell}(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$;
 
-2) $\mathfrak b_k(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighbourhood depends on $k$);
+2) $\mathfrak b_{\ell}(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighborhood depends on $k$);
 
-3) $I(\mathfrak b_k, u) \to I(\mathfrak a, u)$.
+3) $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$ and $I(\mathfrak b_{\ell}, u^*) \to I(\mathfrak a, u^*)$.
 \end{lm}
 
 \begin{proof}
 Take $\rho(d) := \min(1, \max(0, d))$,
-$$\mathfrak b_k(x, v) := \mathfrak a(x, v) \cdot \rho(k \dist(v, W) - 1) \le \mathfrak a(x, v).$$
+$$\mathfrak b_{\ell}(x, v) := \mathfrak a(x, v) \cdot \rho(k \dist(v, W) - 1) \le \mathfrak a(x, v).$$
 This weight is equal to zero in $\left(\frac{1}{k}\right)$-neighborhood of $W$.
-In addition, $\mathfrak b_k \equiv \mathfrak a$ outside the $\left(\frac{2}{k}\right)$-neighborhood of $W$ and
-$\mathfrak b_k(x, v)$ increases with $k$.
-Thus, $\mathfrak b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$.
+In addition, $\mathfrak b_{\ell} \equiv \mathfrak a$ outside the $\left(\frac{2}{k}\right)$-neighborhood of $W$ and
+$\mathfrak b_{\ell}(x, v)$ increases in $k$.
+Thus, $\mathfrak b_{\ell}(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$.
 By the monotone convergence theorem
-$I(u^{-1}(\Real \setminus W), \mathfrak b_k, u) \nearrow I(u^{-1}(\Real \setminus W), \mathfrak a, u)$.
+$I(u^{-1}(\Real \setminus W), \mathfrak b_{\ell}, u) \nearrow I(u^{-1}(\Real \setminus W), \mathfrak a, u)$.
 
 Divide the set $W$ into $W_1 := \{v \in W: \mathfrak a(\cdot, v) \equiv 0\}$ and $W_2 = W \setminus W_1$.
 Then
 $$
 \begin{aligned}
-I(u^{-1}(W_1), \mathfrak b_k, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
-I(u^{-1}(W_2), \mathfrak b_k, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), \mathfrak b_k(x, u(x)) u'(x)) \, dx.
+I(u^{-1}(W_1), \mathfrak b_{\ell}, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
+I(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)|) \, dx.
 \end{aligned}
 $$
 By Proposition \ref{levelDerivative}, $u'(x) = 0$ almost everywhere on $u^{-1}(W_2)$.
 Thus
-$$I(u^{-1}(W_2), \mathfrak b_k, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) \, dx = 0.$$
-Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(\mathfrak b_k, u) \to I(\mathfrak a, u)$.
+$$I(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) \, dx = 0.$$
+Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$.
+The second relation in {\it 3)} is proved by the same arguments.
 \end{proof}
 
 We proceed to the proof of the theorem.
 
 \bigskip
-{\bf Step 1.} Let $u \in \W(-1, 1)$ and let weight $\mathfrak a$ satisfy the conditions $(H1)-(H7)$.
+{\bf Step 1.} Let $u \in \W(-1, 1)$ and let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H7)$.
 Then the inequality (\ref{toprove}) holds.
 
-Divide the interval $[-1, 1]$ into $\Delta_k$, each consisting of two parts.
-On the left part of each $\Delta_k$ weight $\mathfrak a$ increases in $x$ in the neighborhood
+Divide the segment $[-1, 1]$ into $\Delta_j$, each consisting of two parts.
+On the left part of each $\Delta_j$ the weight $\mathfrak a$ increases in $x$ in a neighborhood
 of the graph of $u(x)$. On the right part it decreases.
-On each $\Delta_k$ we can apply the construction from the previous section
+On each $\Delta_j$ we can apply the construction from the previous section
 for approximating $u$ with Lipschitz functions $u_n$.
-This gives us $I(\Delta_k, \mathfrak a, u_n) \to I(\Delta_k, \mathfrak a, u)$.
+This gives us $I(\Delta_j, \mathfrak a, u_n) \to I(\Delta_j, \mathfrak a, u)$.
 
-However, approximation functions $u_n$ have discontinuities at the boundaries of the segments $\Delta_k$
-(denote them by $\hat{x}_k$).
+However, approximation functions $u_n$ have discontinuities at the boundaries of the segments $\Delta_j$
+(denote them by $\hat{x}_j$).
 
-Note that according to the condition $(H7)$ one can choose points $\hat{x}_k$ so
-that $\mathfrak a \equiv 0$ in $(x, v)$-neighborhood of the points $(\hat{x}_k, u(\hat{x}_k))$.
+Note that according to the condition $(H7)$ one can choose points $\hat{x}_j$ so
+that $\mathfrak a \equiv 0$ in $(x, v)$-neighborhoods of the points $(\hat{x}_j, u(\hat{x}_j))$.
 
-Next substitute functions $u_n$ in the neighborhoods of $\hat{x}_k$ with linear pieces
+Next substitute functions $u_n$ in these neighborhoods of $\hat{x}_j$ with linear pieces
 making $u_n$ continuous on $[-1, 1]$.
-In view of the above, this does not change the integrals $I(\Delta_k, \mathfrak a, u_n)$,
+In view of the above, this does not change the integrals $I(\Delta_j, \mathfrak a, u_n)$,
 and we get $I(\mathfrak a, u_n) \to I(\mathfrak a, u)$.
 
 By Lemma \ref{uplift} we obtain (\ref{toprove}).
 
 \bigskip
 
-{\bf Step 2.} Let weight $\mathfrak a$ satisfy the conditions $(H1)-(H6)$.
+{\bf Step 2.} Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H6)$.
 Then the inequality (\ref{toprove}) holds.
 
 We apply Lemma \ref{zeroApprox} with the following set $W$:
 the set of all $v$, at which the graph of $u(x)$ traverses from a rectangle,
 in which the weight decreases in $x$,
 to a rectangle in which the weight increases.
-Obviously, the resulting function $\mathfrak b_k$ satisfy $(H1)-(H7)$.
-Therefore, $I(\mathfrak b_k, u^*) \le I(\mathfrak b_k, u)$.
+Obviously, the resulting function $\mathfrak b_{\ell}$ satisfy $(H1)-(H7)$.
+Therefore, $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
 
-{\bf Step 3.} Let weight $\mathfrak a$ satisfy the conditions $(H1)-(H5)$.
+{\bf Step 3.} Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H5)$.
 Then the inequality (\ref{toprove}) holds.
 
-Consider abscissae of nodes of $\mathfrak a$
+Consider abscissas of nodes of $\mathfrak a$
 and ordinates, for which $\mathfrak a$ has constant pieces.
 They define a division of the rectangle $[-1, 1] \times [\min u(x), \max u(x)]$
 into rectangles in each of which the weight $\mathfrak a$ is monotone in $x$.
 However, the number of rectangles can be infinite.
-Also, if the function crosses a horizontal boundary of some rectangle,
+Also, if the graph of $u$ crosses a horizontal boundary of some rectangle,
 monotonicity in the $v$-neighborhood of the point of intersection may change.
 
 Consider set $W$ containing all $v$, for which the weight $\mathfrak a$ has constant pieces.
-Due to condition $(H5)$ the set of all $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$,
-has zero measure.
+Due to $(H5)$ the set of all  $v \in W$ such that $a(\cdot, v) \not\equiv 0$ has zero measure.
 
-Applying Lemma \ref{zeroApprox}, we obtain a sequence of weights $\mathfrak b_k$.
-Each of them, the number of intervals of monotonicity of course,
-as between neighboring $v$ portions strict monotonicity
-present band width zero weights at least $\frac{2}{k}$.
+We apply Lemma \ref{zeroApprox} and obtain a sequence of weights $\mathfrak b_k$.
+We claim that each of them has only finite number of monotonicity rectangles.
+Indeed, any two vertically adjacent rectangles with different monotonicity
+are separated by a stripe of $\frac{2}{\ell}$ width with zero values.
 
-We now at each site monotony point on the graph of $u$.
-Set of these points can not have points cluster
-as between the points at which different monotony
-distance $v$ at least $\frac{2}{k}$.
+The weight $b_{\ell}$ can change monotonicity along the graph of $u$
+either at the points $x = -1 + \frac{2 i}{k}$ or where the graph crosses a stripe of zero values.
+Note that only finite number of such crossings can arise since
+$\int |u'|$ gains at least $\frac{2}{\ell}$ at any crossing and $u' \in L_1(-1, 1)$.
 
-Thereby, $\mathfrak b_k$ satisfy $(H1)-(H6)$. Therefore, $I(\mathfrak b_k, u^*) \le I(\mathfrak b_k, u)$.
+Thereby, $\mathfrak b_{\ell}$ satisfy $(H1)-(H6)$. Therefore, $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
@@ -256,7 +256,7 @@ that $\mathfrak d_{\alpha_j}$ has no horizontal sections, except
 Continuum of zeros and a set of measure $0$.
 Denote the set of $\alpha$, `` bad '' on the site $[x_i, x_{i + 1}]$:
 \begin{multline*}
-A_i: = \big \{\alpha \in [ 0, 1 ] \\
+A_i := \big \{\alpha \in [0, 1]: \\
 meas \{v \in [\min u, \max u]: \frac{\mathfrak c (x_{i + 1}, v) - \mathfrak c (x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \big \},
 \end{multline*}
 where $\chi_i = 1$, if $[x_i, x_{i + 1}] \subset [0, 1]$, and $\chi_i = -1$, if $[x_i, x_{i + 1}] \subset [-1, 0]$.
@@ -264,11 +264,11 @@ where $\chi_i = 1$, if $[x_i, x_{i + 1}] \subset [0, 1]$, and $\chi_i = -1$, if 
 Consider the function
 $$
 \begin{aligned}
-h (v) = & \frac{\mathfrak c (x_{i + 1}, v) - \mathfrak c (x_i, v)}{\tilde{t} (v)} & \text{ if} \tilde{t} ( v) \neq 0 & \\
+h (v) = & \frac{\mathfrak c (x_{i + 1}, v) - \mathfrak c (x_i, v)}{\tilde{t} (v)} & \text{ if } \tilde{t} ( v) \neq 0 & \\
 h (v) = & 0 & \text{ if } \tilde{t} (v) = 0 &.
 \end{aligned}
 $$
-Then $\card(A_i) = \card(\{ \alpha \in [0, 1]: meas \{ v \in [\min u, \max u]: h(v) \pm \frac{2}{k}\\alpha = 0 \} > 0 \}).$
+Then $\card(A_i) = \card(\{ \alpha \in [0, 1]: meas \{ v \in [\min u, \max u]: h(v) \pm \frac{2}{k} \alpha = 0 \} > 0 \}).$
 So, $\card(A_i) \le \aleph_0$, and $\card(\cup_i A_i) \le \aleph_0$.
 Thus, there is a sequence of weights $\mathfrak d_{\alpha_j} \searrow \mathfrak c$, satisfying $(H1)-(H5)$.
 Therefore, $I(\mathfrak d_{\alpha_j}, u^*) \le I(\mathfrak d_{\alpha_j}, u)$.
