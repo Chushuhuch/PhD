@@ -88,37 +88,37 @@ $u'(x) = 0$ almost everywhere in $u^{-1}(A)$.
 Suppose that $u \in \W(-1, 1)$ and the weight $\mathfrak a$ is admissible for $u$.
 Let a closed set $W \subset \Real$ be such that:
 the set of $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$, has zero measure.
-Then there exists an increasing sequence of weights $b_k$ admissible for $u$ such that
+Then there exists an increasing sequence of weights $\mathfrak b_k$ admissible for $u$ such that
 
-1) $b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$;
+1) $\mathfrak b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$;
 
-2) $b_k(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighbourhood depends on $k$);
+2) $\mathfrak b_k(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighbourhood depends on $k$);
 
-3) $I(b_k, u) \to I(\mathfrak a, u)$.
+3) $I(\mathfrak b_k, u) \to I(\mathfrak a, u)$.
 \end{lm}
 
 \begin{proof}
 Take $\rho(d) := \min(1, \max(0, d))$,
-$$b_k(x, v) := \mathfrak a(x, v) \cdot \rho(k \dist(v, W) - 1) \le \mathfrak a(x, v).$$
+$$\mathfrak b_k(x, v) := \mathfrak a(x, v) \cdot \rho(k \dist(v, W) - 1) \le \mathfrak a(x, v).$$
 This weight is equal to zero in $\left(\frac{1}{k}\right)$-neighborhood of $W$.
-In addition, $b_k \equiv \mathfrak a$ outside the $\left(\frac{2}{k}\right)$-neighborhood of $W$ and
-$b_k(x, v)$ increases with $k$.
-Thus, $b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$.
+In addition, $\mathfrak b_k \equiv \mathfrak a$ outside the $\left(\frac{2}{k}\right)$-neighborhood of $W$ and
+$\mathfrak b_k(x, v)$ increases with $k$.
+Thus, $\mathfrak b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$.
 By the monotone convergence theorem
-$I(u^{-1}(\Real \setminus W), b_k, u) \nearrow I(u^{-1}(\Real \setminus W), \mathfrak a, u)$.
+$I(u^{-1}(\Real \setminus W), \mathfrak b_k, u) \nearrow I(u^{-1}(\Real \setminus W), \mathfrak a, u)$.
 
 Divide the set $W$ into $W_1 := \{v \in W: \mathfrak a(\cdot, v) \equiv 0\}$ and $W_2 = W \setminus W_1$.
 Then
 $$
 \begin{aligned}
-I(u^{-1}(W_1), b_k, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
-I(u^{-1}(W_2), b_k, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), b_k(x, u(x)) u'(x)) \, dx.
+I(u^{-1}(W_1), \mathfrak b_k, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
+I(u^{-1}(W_2), \mathfrak b_k, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), \mathfrak b_k(x, u(x)) u'(x)) \, dx.
 \end{aligned}
 $$
 By Proposition \ref{levelDerivative}, $u'(x) = 0$ almost everywhere on $u^{-1}(W_2)$.
 Thus
-$$I(u^{-1}(W_2), b_k, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) \, dx = 0.$$
-Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(b_k, u) \to I(\mathfrak a, u)$.
+$$I(u^{-1}(W_2), \mathfrak b_k, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) \, dx = 0.$$
+Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(\mathfrak b_k, u) \to I(\mathfrak a, u)$.
 \end{proof}
 
 We proceed to the proof of the theorem.
@@ -156,8 +156,8 @@ We apply Lemma \ref{zeroApprox} with the following set $W$:
 the set of all $v$, at which the graph of $u(x)$ traverses from a rectangle,
 in which the weight decreases in $x$,
 to a rectangle in which the weight increases.
-Obviously, the resulting function $b_k$ satisfy $(H1)-(H7)$.
-Therefore, $I(b_k, u^*) \le I(b_k, u)$.
+Obviously, the resulting function $\mathfrak b_k$ satisfy $(H1)-(H7)$.
+Therefore, $I(\mathfrak b_k, u^*) \le I(\mathfrak b_k, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
@@ -177,7 +177,7 @@ Consider set $W$ containing all $v$, for which the weight $\mathfrak a$ has cons
 Due to condition $(H5)$ the set of all $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$,
 has zero measure.
 
-Applying Lemma \ref{zeroApprox}, we obtain a sequence of weights $b_k$.
+Applying Lemma \ref{zeroApprox}, we obtain a sequence of weights $\mathfrak b_k$.
 Each of them, the number of intervals of monotonicity of course,
 as between neighboring $v$ portions strict monotonicity
 present band width zero weights at least $\frac{2}{k}$.
@@ -187,7 +187,7 @@ Set of these points can not have points cluster
 as between the points at which different monotony
 distance $v$ at least $\frac{2}{k}$.
 
-Thereby, $b_k$ satisfy $(H1)-(H6)$. Therefore, $I(b_k, u^*) \le I(b_k, u)$.
+Thereby, $\mathfrak b_k$ satisfy $(H1)-(H6)$. Therefore, $I(\mathfrak b_k, u^*) \le I(\mathfrak b_k, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
@@ -206,31 +206,31 @@ the convergence is uniform on compact sets.
 However, the inequality $\mathfrak a_k(x, u(x)) \le \mathfrak a(x, u(x))$ is not required to be performed,
 and because the weight $\mathfrak a_k$ may not be valid for $u$.
 
-Take $c_k := (1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \mathfrak a_k$, where $D_k$ defined in (\ref{bigD}).
-Number $D_k(\mathfrak a_k, U(\mathfrak a_k))$ are positive and tend to zero, so $c_k \to \mathfrak a$ with $k \to \infty$.
-We show that $c_k(x, u(x)) \le \mathfrak a(x, u(x))$.
+Take $\mathfrak c_k := (1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \mathfrak a_k$, where $D_k$ defined in (\ref{bigD}).
+Number $D_k(\mathfrak a_k, U(\mathfrak a_k))$ are positive and tend to zero, so $\mathfrak c_k \to \mathfrak a$ with $k \to \infty$.
+We show that $\mathfrak c_k(x, u(x)) \le \mathfrak a(x, u(x))$.
 Take some
 $x \in [-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}] =: [x_i, x_{i + 1}]$.
-Then $c_k(x, u(x)) \le \max( c_k(x_i, u(x)), c_k(x_{i + 1}, u(x)) )$, because
-$c_k$ piecewise linear in $x$. Further,
+Then $\mathfrak c_k(x, u(x)) \le \max( \mathfrak c_k(x_i, u(x)), \mathfrak c_k(x_{i + 1}, u(x)) )$, because
+$\mathfrak c_k$ piecewise linear in $x$. Further,
 \begin{multline*}
-c_k (x_i, u (x)) = ( 1 - D_k (\mathfrak a_k, U (\mathfrak a_k))) \cdot \mathfrak a (x_i, u (x)) \\
+\mathfrak c_k (x_i, u (x)) = ( 1 - D_k (\mathfrak a_k, U (\mathfrak a_k))) \cdot \mathfrak a (x_i, u (x)) \\
 \le \mathfrak a (x_i, u (x)) - \frac{\mathfrak a (x_i, u (x)) - \mathfrak a (x, u (x))}{\mathfrak a (x_i, u (x))} \cdot \mathfrak a ( x_i, u (x)) = \mathfrak a (x, u (x)).
 \end{multline*}
-Similarly $c_k(x_{i + 1}, u(x)) \le \mathfrak a(x, u(x))$.
-Thus, $c_k(x, u(x)) \le \mathfrak a(x, u(x))$ for any $x$, and $c_k$ are valid for $u$.
+Similarly $\mathfrak c_k(x_{i + 1}, u(x)) \le \mathfrak a(x, u(x))$.
+Thus, $\mathfrak c_k(x, u(x)) \le \mathfrak a(x, u(x))$ for any $x$, and $\mathfrak c_k$ are valid for $u$.
 
-Functions $c_k$ satisfy $(H1)-(H4)$.
+Functions $\mathfrak c_k$ satisfy $(H1)-(H4)$.
 
-For a given $k \in \Nat$, we approximate the function $c_k =: c$ weights satisfying $(H1)-(H5)$.
+For a given $k \in \Nat$, we approximate the function $\mathfrak c_k =: \mathfrak c$ weights satisfying $(H1)-(H5)$.
 Consider the auxiliary function $\Lambda(x) = 1 - \abs{x}$,
 satisfying (\ref{almostConcave}).
 
 Take
-$$t(v):=D_k(c, U(c)) \cdot \max\{\tau \ge 0: \forall x \in u^{-1}(v) \quad \tau \Lambda(x) \le c(x, u(x))\}.$$
+$$t(v):=D_k(\mathfrak c, U(\mathfrak c)) \cdot \max\{\tau \ge 0: \forall x \in u^{-1}(v) \quad \tau \Lambda(x) \le \mathfrak c(x, u(x))\}.$$
 Function $t$ depends on $k$, but we omit it in the record.
 
-It is clear that the maximum $\tau$ is zero only if $c(\cdot, v) \equiv 0$, otherwise condition is violated
+It is clear that the maximum $\tau$ is zero only if $\mathfrak c(\cdot, v) \equiv 0$, otherwise condition is violated
 $(H3)$.
 Function $t$ can not be continuous. However, it is easy to see that it is lower semicontinuous.
 We now take
@@ -245,40 +245,40 @@ For every $v_2$, we have $\tilde{t}(v_2) \le t(w_1) + |v_2 - w_1|$.
 And, thus, $\tilde{t}(v_2) - \tilde{t}(v_1) \le |v_1 - v_2| + \eps$.
 By the arbitrariness of $v_1$, $v_2$ and $\eps$, we obtain that $\tilde{t}$ is continuous.
 
-When $\alpha \in [0, 1]$ function $d_\alpha(x, v) := c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
+When $\alpha \in [0, 1]$ function $\mathfrak d_\alpha(x, v) := \mathfrak c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
 even with respect to $x$, satisfies (\ref{almostConcave}) by Lemma \ref{maxSumConcave}
 and does not exceed $\mathfrak a(x, v)$ for construction of the function $\tilde{t}$.
-Thus, $d_\alpha$ --- allowable weight.
-Further, it is obvious that $d_\alpha$ satisfies $(H1)-(H4)$.
+Thus, $\mathfrak d_\alpha$ --- allowable weight.
+Further, it is obvious that $\mathfrak d_\alpha$ satisfies $(H1)-(H4)$.
 
 We show that there exists a sequence $\alpha_j \searrow 0$
-that $d_{\alpha_j}$ has no horizontal sections, except
+that $\mathfrak d_{\alpha_j}$ has no horizontal sections, except
 Continuum of zeros and a set of measure $0$.
 Denote the set of $\alpha$, `` bad '' on the site $[x_i, x_{i + 1}]$:
 \begin{multline*}
 A_i: = \big \{\alpha \in [ 0, 1 ] \\
-meas \{v \in [\min u, \max u]: \frac{c (x_{i + 1}, v) - c (x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \big \},
+meas \{v \in [\min u, \max u]: \frac{\mathfrak c (x_{i + 1}, v) - \mathfrak c (x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \big \},
 \end{multline*}
 where $\chi_i = 1$, if $[x_i, x_{i + 1}] \subset [0, 1]$, and $\chi_i = -1$, if $[x_i, x_{i + 1}] \subset [-1, 0]$.
 
 Consider the function
 $$
 \begin{aligned}
-h (v) = & \frac{c (x_{i + 1}, v) - c (x_i, v)}{\tilde{t} (v)} & \text{ if} \tilde{t} ( v) \neq 0 & \\
+h (v) = & \frac{\mathfrak c (x_{i + 1}, v) - \mathfrak c (x_i, v)}{\tilde{t} (v)} & \text{ if} \tilde{t} ( v) \neq 0 & \\
 h (v) = & 0 & \text{ if } \tilde{t} (v) = 0 &.
 \end{aligned}
 $$
 Then $\card(A_i) = \card(\{ \alpha \in [0, 1]: meas \{ v \in [\min u, \max u]: h(v) \pm \frac{2}{k}\\alpha = 0 \} > 0 \}).$
 So, $\card(A_i) \le \aleph_0$, and $\card(\cup_i A_i) \le \aleph_0$.
-Thus, there is a sequence of weights $d_{\alpha_j} \searrow c$, satisfying $(H1)-(H5)$.
-Therefore, $I(d_{\alpha_j}, u^*) \le I(d_{\alpha_j}, u)$.
-Passing to the limit, we get $I(c, u^*) \le I(c, u)$.
+Thus, there is a sequence of weights $\mathfrak d_{\alpha_j} \searrow \mathfrak c$, satisfying $(H1)-(H5)$.
+Therefore, $I(\mathfrak d_{\alpha_j}, u^*) \le I(\mathfrak d_{\alpha_j}, u)$.
+Passing to the limit, we get $I(\mathfrak c, u^*) \le I(\mathfrak c, u)$.
 
 Further, if $x \in [-1, 1]$ and $k \to \infty$, we have
-$$F(u(x), c_k(x, u(x)) |u'(x)|) \to F(u(x), \mathfrak a(x, u(x)) |u'(x)|).$$
+$$F(u(x), \mathfrak c_k(x, u(x)) |u'(x)|) \to F(u(x), \mathfrak a(x, u(x)) |u'(x)|).$$
 Additionally, $F(u(x), \mathfrak a(x, u(x)) |u'(x)|)$ Majorant is integrable.
-By the Lebesgue dominated convergence, we get $I(c_k, u) \to I(\mathfrak a, u)$.
-Since $I(c_k, u^*) \le I(c_k, u)$, Lemma \ref{uplift} gives (\ref{toprove}).
+By the Lebesgue dominated convergence, we get $I(\mathfrak c_k, u) \to I(\mathfrak a, u)$.
+Since $I(\mathfrak c_k, u^*) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} gives (\ref{toprove}).
 
 \bigskip
 {\bf Step 5.} Let weight $\mathfrak a$ satisfies only the condition $(H1)$.
@@ -288,52 +288,52 @@ We will construct an approximation for weights $\mathfrak a$ satisfying $(H1)-(H
 Use Lemma \ref{zeroApprox}.
 As the set $W$ we take $\{ v \in \Real: \mathfrak a(\cdot, v) \equiv 0 \}$.
 We introduce the notation $$Z_{\mathfrak a}(v) := \{ x \in [-1, 1]: \mathfrak a(x, v) = 0 \}.$$
-Note that the sets $Z_{b_k}(v)$ coincide with either $Z_{\mathfrak a}(v)$, either $[-1, 1]$.
+Note that the sets $Z_{\mathfrak b_k}(v)$ coincide with either $Z_{\mathfrak a}(v)$, either $[-1, 1]$.
 
-We show that $b_k$ satisfies $(H2)$.
+We show that $\mathfrak b_k$ satisfies $(H2)$.
 Indeed, otherwise there is a sequence $v_l$, for which
-$l < \card(Z_{b_k})(v_l) < \infty$.
+$l < \card(Z_{\mathfrak b_k})(v_l) < \infty$.
 After passing to a subsequence, we have $v_l \to v_0$.
 We show that $Z_{\mathfrak a(v_0)} = [-1, 1]$. Lemma \ref{periodicity} implies that
-set $Z_{b_k}(v_l) = Z_{\mathfrak a(v_l)}$ periodic with period of not more than $\frac{2}{l - 1}$.
+set $Z_{\mathfrak b_k}(v_l) = Z_{\mathfrak a(v_l)}$ periodic with period of not more than $\frac{2}{l - 1}$.
 Take some $x \in [-1, 1]$. For each $l$ $x_l$ exists such that
 $\abs{x - x_l} \le \frac{1}{l - 1}$ and $\mathfrak a(x_l, v_l) = 0$.
 But $\mathfrak a(x_l, v_l) \to \mathfrak a(x, v_0)$.
 Thus, $\mathfrak a(x, v_0) = 0$ and $Z_{\mathfrak a}(v_0) = [-1, 1]$.
 But this means that for every $v$ such
-that $\abs{v - v_0} \le \frac{1}{k}$, holds $b_k(\cdot, v) \equiv 0$
-which contradicts $\card(Z_{b_k})(v_l) < \infty$.
+that $\abs{v - v_0} \le \frac{1}{k}$, holds $\mathfrak b_k(\cdot, v) \equiv 0$
+which contradicts $\card(Z_{\mathfrak b_k})(v_l) < \infty$.
 
 
-Now we fix $k \in \Nat$, denoted $b_k =: b$
-and approximate the function $b$ weights satisfying $(H1)-(H3)$.
+Now we fix $k \in \Nat$, denoted $\mathfrak b_k =: \mathfrak b$
+and approximate the function $\mathfrak b$ weights satisfying $(H1)-(H3)$.
 From $(H2)$ and Lemma \ref{periodicity}, part 2, it follows that there exists a set $T \subset [-1, 1]$
 consisting of a finite number of elements, such that
-if $x \not \in T$ and $\mathfrak a(x, v) = 0$ for some $v$, then $b(\cdot, v) \equiv 0$.
+if $x \not \in T$ and $\mathfrak a(x, v) = 0$ for some $v$, then $\mathfrak b(\cdot, v) \equiv 0$.
 Again, we use Lemma \ref{zeroApprox} with multiple
 $W = u(T) \cup u^*(T)$.
 
-Obtained with the help of Lemma weight $c_j$ satisfy $(H1)-(H2)$, as distinguished from a $b$
+Obtained with the help of Lemma weight $\mathfrak c_j$ satisfy $(H1)-(H2)$, as distinguished from a $\mathfrak b$
 continuous multiplication by a factor less than unity and depends only on $v$.
-Obviously, $\min\limits_{dist(x, u^{-1}(v)) \le \frac{2}{j}} c_j(x, v)$ is not equal to zero
-$v \in U(c_j)$, starting with some $j$.
-Moreover, when $v \in U(c_j)$
+Obviously, $\min\limits_{dist(x, u^{-1}(v)) \le \frac{2}{j}} \mathfrak c_j(x, v)$ is not equal to zero
+$v \in U(\mathfrak c_j)$, starting with some $j$.
+Moreover, when $v \in U(\mathfrak c_j)$
 $$
-\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{j}} \abs{c_j(x_i, v) - c_j(x_{i + 1}, v)}}
-{\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{j}} c_j(x, v)}
-=\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{j}} \abs{b(x_i, v) - b(x_{i + 1}, v)}}
-{\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{j}} b(x, v)}.
+\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{j}} \abs{\mathfrak c_j(x_i, v) - \mathfrak c_j(x_{i + 1}, v)}}
+{\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{j}} \mathfrak c_j(x, v)}
+=\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{j}} \abs{\mathfrak b(x_i, v) - \mathfrak b(x_{i + 1}, v)}}
+{\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{j}} \mathfrak b(x, v)}.
 $$
-In this case, the denominator of the second fraction at $v \in U(c_j)$ bounded away from zero.
-Thus, $D_j(c_j, U(c_j))$ is bounded.
+In this case, the denominator of the second fraction at $v \in U(\mathfrak c_j)$ bounded away from zero.
+Thus, $D_j(\mathfrak c_j, U(\mathfrak c_j))$ is bounded.
 
 Since $D_j$ is not changed by multiplying by a factor of the first argument, which is independent of $x$,
-and $U(c_j) \nearrow U(b)$, we have for $j \to \infty$
-$$D_j(c_j, U(c_j)) = D_j(b, U(c_j)) \le D_j(b, U(b)) \to 0.$$
+and $U(\mathfrak c_j) \nearrow U(\mathfrak b)$, we have for $j \to \infty$
+$$D_j(\mathfrak c_j, U(\mathfrak c_j)) = D_j(\mathfrak b, U(\mathfrak c_j)) \le D_j(\mathfrak b, U(\mathfrak b)) \to 0.$$
 
-Thus, the weights satisfy $c_j$ $(H1)-(H3)$.
-Thus, $I(c_j, u^*) \le I(c_j, u)$.
-Passing to the limit, we get $I(b_k, u^*) \le I(b_k, u)$, then the inequality (\ref{toprove}).
+Thus, the weights satisfy $\mathfrak c_j$ $(H1)-(H3)$.
+Thus, $I(\mathfrak c_j, u^*) \le I(\mathfrak c_j, u)$.
+Passing to the limit, we get $I(\mathfrak b_k, u^*) \le I(\mathfrak b_k, u)$, then the inequality (\ref{toprove}).
 
 Thus, Theorem \ref{mainThm} proved.
 \hfill $\square$
