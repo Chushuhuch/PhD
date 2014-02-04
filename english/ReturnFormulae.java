@@ -19,7 +19,7 @@ public class ReturnFormulae {
 //    $a$ $b$
 //    translation = translation.replace( "$ $", "$" );
 
-    Map < String, String > formulaeMap = new HashMap<>();
+    Map < String, String > formulaeMap = new HashMap<String, String>();
     List < String > formulae = getFormulae( original );
     for ( String formula : formulae ) {
       formulaeMap.put( removeWhitespace( formula ), formula );
@@ -56,7 +56,7 @@ public class ReturnFormulae {
   }
 
   private static List < String > getFormulae( String s ) throws IOException {
-    List < String > result = new ArrayList<>();
+    List < String > result = new ArrayList<String>();
     for ( int i = 0; i < s.length(); i ++ ) {
       for ( int j = 0; j < FORMULA_START.length; j ++ ) {
         if ( s.substring( i ).startsWith( FORMULA_START[j] ) ) {
