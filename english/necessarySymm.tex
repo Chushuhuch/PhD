@@ -1,10 +1,10 @@
-\section{Appendix . The case of symmetric permutation}
+\section{Appendix. The case of symmetric permutation}
 
-\subsection{Prerequisites for weight}
+\subsection{Necessary conditions for the weight}
 
 \begin{lm}
-If the inequality $(\ref{toproveSymm})$ holds for any $F \in \mathfrak{F}$
-and arbitrary piecewise linear $u$, then
+If the inequality $(\ref{toproveSymm})$ holds for all $F \in \mathfrak{F}$
+and all piecewise linear $u$, then
 weight $a$ satisfies
 \begin{equation}
 \label{almostConvex}
@@ -16,13 +16,13 @@ a( s, v ) + a( t, v ) \ge a\Big( \frac{ s - t }{2}, v \Big) + a\Big( \frac{ t - 
 \begin{proof}
 Assume that the inequality (\ref{almostConvex}) is not satisfied.
 Then there are $-1 \le s < t \le 1$, $\eps, \delta > 0$ ($2 \eps < t - s$) and $\bar{v} \in \Real_+$,
-such that for any $0 \le z \le \eps$ and any $\bar{v} \le v \le \bar{v} + \eps$ satisfied
+such that for any $0 \le z \le \eps$ and any $\bar{v} \le v \le \bar{v} + \eps$ the following holds:
 \begin{equation}
 \label{notConvex}
 a(s + z, v + z) + a(t - z, v + z) + 2 \delta < a\Big(\frac{s - t}{2} + z, v + z \Big) + a\Big(\frac{t - s}{2} - z, v + z \Big).
 \end{equation}
 
-Consider the function $u$, introduced in (\ref{parLinU}). then
+Consider the function $u$, introduced in (\ref{parLinU}). We have
 $$
 \left\{
 \begin{aligned}
@@ -43,53 +43,53 @@ Hence we obtain
 \end{multline*}
 
 Take $F(v, p) := f(p) := p + \gamma p^2$, where $\gamma > 0$.
-then
+Then
 \begin{multline*}
 J = \int_0^{\eps} \big( f(\frac{a(s + z, \bar{v} + z)}{\eps}) + f(\frac{a(t - z, \bar{v} + z)}{\eps}) \\
 - f(\frac{a(\frac{s - t}{2} + z, \bar{v} + z)}{\eps}) - f(\frac{a(\frac{t - s}{2} - z, \bar{v} + z)}{\eps}) \big) dz.
 \end{multline*}
 
 We denote $A := \max a(x, v)$, where the maximum is taken over all $x \in [-1, 1]$ and $v \in [\bar{v}, \bar{v} + \eps]$.
-If you take the $\gamma := \frac{\delta / \eps}{(A / \eps)^2} > 0$ ,
-then for $p \le \frac{A}{\eps}$ , we have $p \le f( p ) \le p + \frac{\delta}{\eps}$, and
+If we take $\gamma := \frac{\delta / \eps}{(A / \eps)^2} > 0$,
+then for $p \le \frac{A}{\eps}$ we have $p \le f( p ) \le p + \frac{\delta}{\eps}$, and
 \begin{equation*}
 J \le \frac{1}{\eps} \int_0^{\eps} \big( a(s + z, \bar{v} + z) + a(t - z, \bar{v} + z) + 2 \delta
 - a(\frac{s - t}{2} + z, \bar{v} + z) - a(\frac{t - s}{2} - z, \bar{v} + z) \big) dz < 0
 \end{equation*}
 (the last inequality follows from (\ref{notConvex})).
 
-Thus , we arrive at a contradiction , which completes the proof .
+Thus, we get a contradiction, hence (\ref{almostConvex}) holds.
 \end{proof}
 
 \begin{lm}
-If the function $a \in C([-1, 1] \times \Real_+)$ the relation $(\ref{almostConvex})$,
-it is even and convex in the first argument .
+If relation $(\ref{almostConvex})$ hold for a function $a \in C([-1, 1] \times \Real_+)$ then
+$a$ is even and convex in the first argument.
 \end{lm}
 
 \begin{proof}
-Assume for the moment that $a(\cdot, v) \in C^1([-1, 1])$ for each $v$.
+Assume that $a(\cdot, v) \in C^1([-1, 1])$ for each $v$.
 We fix arbitrary $s \in [-1, 1]$ and $v \in \Real_+$ and consider the function
 $$b(x) := a( s, v ) + a( x, v ) - a( \frac{ s - x }{2}, v ) - a( \frac{ x - s }{2}, v ) \ge 0.$$
 $x = -s$ is the minimum point of $b$, since $b(-s) = 0$.
-hence,
+Hence,
 $$b'(-s) = a'_x( -s, v ) + \frac{1}{2} a'_x( s, v ) - \frac{1}{2} a'_x( -s, v ) = 0,$$
-ie $a'_x( s, v ) = -a'_x( -s, v )$. Thus, the function $a(\cdot, v)$ is even.
+that is $a'_x( s, v ) = -a'_x( -s, v )$. Thus, the function $a(\cdot, v)$ is even.
 
 Now consider the case of a continuous $a$.
 
-We extend $a( x, v ) := a( -1, v )$ with $x < -1$ and $a( x, v ) := a( 1, v )$ with $x > 1$ .
-Consider the average of the function :
+Define $a( x, v ) := a( -1, v )$ for $x < -1$ and $a( x, v ) := a( 1, v )$ for $x > 1$.
+Consider the smoothing of the function:
 $$a_\rho( x, v ) = \int_\Real \omega_\rho ( z ) a( x - z, v ) dz = \int_\Real \omega_\rho ( z ) a( x + z, v ) dz,$$
-where $\omega_\rho(z)$ --- averaging kernel with radius $\rho$.
-then
+where $\omega_\rho(z)$ is a smoothing kernel with radius $\rho$.
+Then
 \begin{multline*}
 a_\rho( s, v ) + a_\rho( t, v ) - a_\rho( \frac{ s - t }{2}, v ) - a_\rho( \frac{ t - s }{2}, v ) =
 \\ \int_\Real \omega_\rho ( z ) \big( a( s - z, v ) + a( t + z, v ) - a( \frac{ s - t }{2} - z, v ) - a( \frac{ t - s }{2} + z, v ) \big) dz \ge 0.
 \end{multline*}
-So $a_\rho(\cdot, v)$ --- even.
-Passing to the limit as $\rho \to 0$ , we obtain that $a(\cdot, v)$ --- even.
+So $a_\rho(\cdot, v)$ is even.
+Passing to the limit with $\rho \to 0$, we obtain that $a(\cdot, v)$ is even.
 
-Finally, for any $s$, $t$ and $v$ , we have
+Finally, for any $s$, $t$ and $v$, we have
 $$a( s, v ) + a( t, v ) = a( s, v ) + a( -t, v ) \ge 2 a\big( \frac{ s + t }{2}, v \big).$$
 \end{proof}
 
