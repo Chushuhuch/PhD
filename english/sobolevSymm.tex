@@ -1,0 +1,28 @@
+\subsection{The proof of the inequality (\ref{toproveSymm})}
+\label{sobolevSymm}
+
+\begin{thm}
+\label{symmThm}
+Suppose $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is non-negative,
+and the continuous weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$
+is even and convex in the first argument.
+Then the inequality $(\ref{toproveSymm})$ holds.
+\end{thm}
+
+\begin{proof}
+As we mentioned in the introduction,
+the theorem is proved for Lipschitz functions $u$ in paper \cite{Br}.
+Thus, we need only to extend it to $\W$-functions.
+
+The shape of convex weights is much easier
+than the one of the weights we considered in the case of a monotone permutation.
+Convex weight decreases for $x < 0$ and increases for $x > 0$
+irrespective of $v$.
+Thus, they immediately enter the condition $(H6)$ from Theorem \ref{mainThm}.
+To enter the condition $(H7)$, we apply Lemma \ref{zeroApprox}
+with the set $W = \{ u(0) \}$ .
+This gives us the opportunity to immediately apply step 1 of the proof,
+and prove the inequality (\ref{toproveSymm}) in general form.
+Note that step 1 uses only the conditions $(H1)$, $(H6)$, $(H7)$,
+so there is no need to check conditions $(H2)-(H5)$.
+\end{proof}
