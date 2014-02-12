@@ -1,11 +1,11 @@
-\section{Appendix. The case of symmetric permutation}
+\section{Appendix. The case of symmetric rearrangement}
 
 \subsection{Necessary conditions for the weight}
 
 \begin{lm}
 If the inequality $(\ref{toproveSymm})$ holds for all $F \in \mathfrak{F}$
 and all piecewise linear $u$, then
-weight $\mathfrak a$ satisfies
+the weight $\mathfrak a$ satisfies
 \begin{equation}
 \label{almostConvex}
 \forall s, t \in [-1, 1], \forall v \in \Real_+ \quad
@@ -22,7 +22,7 @@ such that for any $0 \le z \le \eps$ and any $\bar{v} \le v \le \bar{v} + \eps$ 
 \mathfrak a(s + z, v + z) + \mathfrak a(t - z, v + z) + 2 \delta < \mathfrak a\Big(\frac{s - t}{2} + z, v + z \Big) + \mathfrak a\Big(\frac{t - s}{2} - z, v + z \Big).
 \end{equation}
 
-Consider the function $u$, introduced in (\ref{parLinU}). We have
+Consider the function $u$ defined in (\ref{parLinU}). We have
 $$
 \left\{
 \begin{aligned}
@@ -49,7 +49,7 @@ J = \int_0^{\eps} \big( f(\frac{\mathfrak a(s + z, \bar{v} + z)}{\eps}) + f(\fra
 - f(\frac{\mathfrak a(\frac{s - t}{2} + z, \bar{v} + z)}{\eps}) - f(\frac{\mathfrak a(\frac{t - s}{2} - z, \bar{v} + z)}{\eps}) \big) dz.
 \end{multline*}
 
-We denote $A := \max \mathfrak a(x, v)$, where the maximum is taken over all $x \in [-1, 1]$ and $v \in [\bar{v}, \bar{v} + \eps]$.
+We define $A$ by relation (\ref{weightMax}).
 If we take $\gamma := \frac{\delta / \eps}{(A / \eps)^2} > 0$,
 then for $p \le \frac{A}{\eps}$ we have $p \le f( p ) \le p + \frac{\delta}{\eps}$, and
 \begin{equation*}
@@ -62,12 +62,12 @@ Thus, we get a contradiction, hence (\ref{almostConvex}) holds.
 \end{proof}
 
 \begin{lm}
-If relation $(\ref{almostConvex})$ hold for a function $\mathfrak a \in C([-1, 1] \times \Real_+)$ then
-$\mathfrak a$ is even and convex in the first argument.
+Let relation $(\ref{almostConvex})$ hold for a function $\mathfrak a \in C([-1, 1] \times \Real_+)$.
+Then $\mathfrak a$ is even and convex with respect to the first argument.
 \end{lm}
 
 \begin{proof}
-Assume that $\mathfrak a(\cdot, v) \in C^1([-1, 1])$ for each $v$.
+Assume first that $\mathfrak a(\cdot, v) \in C^1([-1, 1])$ for each $v$.
 We fix arbitrary $s \in [-1, 1]$ and $v \in \Real_+$ and consider the function
 $$b(x) := \mathfrak a( s, v ) + \mathfrak a( x, v ) - \mathfrak a( \frac{ s - x }{2}, v ) - \mathfrak a( \frac{ x - s }{2}, v ) \ge 0.$$
 $x = -s$ is the minimum point of $b$, since $b(-s) = 0$.
@@ -78,7 +78,7 @@ that is $\mathfrak a'_x( s, v ) = -\mathfrak a'_x( -s, v )$. Thus, the function 
 Now consider the case of a continuous $\mathfrak a$.
 
 Define $\mathfrak a( x, v ) := \mathfrak a( -1, v )$ for $x < -1$ and $\mathfrak a( x, v ) := \mathfrak a( 1, v )$ for $x > 1$.
-Consider the smoothing of the function:
+Consider the mollification of the function:
 $$\mathfrak a_\rho( x, v ) = \int_\Real \omega_\rho ( z ) \mathfrak a( x - z, v ) dz = \int_\Real \omega_\rho ( z ) \mathfrak a( x + z, v ) dz,$$
 where $\omega_\rho(z)$ is a smoothing kernel with radius $\rho$.
 Then

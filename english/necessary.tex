@@ -136,8 +136,10 @@ For $\alpha = 1$, the following inequality trivially holds:
 \end{equation}
 We are interested in $p, q$ from the compact $[0 , A]$,
 where 
-$$A=\max \limits_{(x, v)} \mathfrak a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
-$$
+\begin{equation}
+\label{weightMax}
+A=\max \limits_{(x, v)} \mathfrak a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
+\end{equation}
 Therefore, there is an $\alpha> 1$, for which the inequality (\ref{anticonvex})
 still holds.
 For example, any $1 < \alpha < (\log_2 \frac{ 2 A}{A + \delta})^{-1}$ is suitable.
@@ -155,9 +157,7 @@ the assumption (\ref{almostConcave}) is also necessary for the inequality (\ref{
 \end{rem}
 
 \begin{rem}
-If a  non-negative function $\mathfrak a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}). 
-Indeed, for every $s$, $t$ and $u$ we have $\mathfrak a( 1 , u) - \mathfrak a(s, u) \le \mathfrak a(t, u) - \mathfrak a(-1 + t - s, u)$.
-Since $\mathfrak a(1 , u) \ge 0$, we obtain $\mathfrak a(s, u) + \mathfrak a(t, u) \ge \mathfrak a(-1 + t - s, u) = \mathfrak a( 1 - t + s, u)$.
-The converse is not true in general, that is not any even
-non-negative function satisfying (\ref{almostConcave}) is concave.
+Let $\mathfrak a(\cdot, v)$ be even.
+Then the assumption (\ref{almostConcave}) is equivalent to subadditivity of the function $\mathfrak a(1 - \cdot, v)$.
+In particular, if a non-negative function $\mathfrak a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}).
 \end{rem}

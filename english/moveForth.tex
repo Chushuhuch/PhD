@@ -1,4 +1,5 @@
 \section{The result in the general case}
+\label{moveForth}
 
 Now we want to get rid of the monotonicity restriction on the weight.
 We do this in several steps.
@@ -98,7 +99,7 @@ Then there exists an increasing sequence of weights $\mathfrak b_{\ell}$, which 
 \end{lm}
 
 \begin{rem}
-If $a$ is admissible for $u$ the $b_{\ell}$ are obviously admissible too.
+If $a$ is admissible for $u$ then $b_{\ell}$ are also admissible.
 \end{rem}
 
 \begin{proof}
@@ -217,7 +218,7 @@ We claim that $\mathfrak c_k(x, u(x)) \le \mathfrak a(x, u(x))$.
 Indeed, consider some
 $x \in [-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}] =: [x_i, x_{i + 1}]$.
 Then $\mathfrak c_k(x, u(x)) \le \max( \mathfrak c_k(x_i, u(x)), \mathfrak c_k(x_{i + 1}, u(x)) )$, because
-$\mathfrak c_k$ is piecewise linear in $x$. Moreover
+$\mathfrak c_k$ is piecewise linear in $x$. Moreover,
 \begin{multline*}
 \mathfrak c_k(x_i, u(x)) = ( 1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \cdot \mathfrak a(x_i, u(x)) \\
 \le \mathfrak a(x_i, u(x)) - \frac{\mathfrak a(x_i, u(x)) - \mathfrak a(x, u(x))}{\mathfrak a(x_i, u(x))} \cdot \mathfrak a(x_i, u(x)) = \mathfrak a(x, u(x)).
@@ -250,7 +251,7 @@ And thus $\tilde{t}(v_2) - \tilde{t}(v_1) \le |v_1 - v_2| + \eps$.
 By the arbitrariness of $v_1$, $v_2$ and $\eps$, the claim follows.
 
 For $\alpha \in [0, 1]$ the function $\mathfrak d_\alpha(x, v) := \mathfrak c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
-is even in $x$, satisfies (\ref{almostConcave}) in correspondence with Lemma \ref{maxSumConcave},
+is even in $x$, satisfies (\ref{almostConcave}) in concordance with Lemma \ref{maxSumConcave},
 and does not exceed $\mathfrak a(x, v)$ due to the construction of the function $\tilde{t}$.
 Thus, $\mathfrak d_\alpha$ is an admissible weight.
 Also, it is obvious that $\mathfrak d_\alpha$ satisfies $(H1)-(H4)$.
@@ -283,9 +284,9 @@ Further, for $x \in [-1, 1]$ we have
 \label{step4Conv}
 F\big(u(x), \mathfrak c_k(x, u(x)) |u'(x)|\big) \to F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)
 \end{equation}
-while $k \to \infty$.
+as $k \to \infty$.
 Moreover, $F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)$ is an integrable majorant
-for the left hand side in (\ref{step4Conv}).
+for the left-hand side in (\ref{step4Conv}).
 By the Lebesgue theorem, we have $I(\mathfrak c_k, u) \to I(\mathfrak a, u)$.
 Since $I(\mathfrak c_k, u^*) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves the inequality (\ref{toprove}).
 
@@ -308,6 +309,7 @@ Take some $x \in [-1, 1]$. For each $m$ there exists $x_m$ such that
 $\abs{x - x_m} \le \frac{1}{m - 1}$ and $\mathfrak a(x_m, v_m) = 0$.
 But $\mathfrak a(x_m, v_m) \to \mathfrak a(x, v_0)$.
 Therefore, $\mathfrak a(x, v_0) = 0$.
+
 Thus $Z_{\mathfrak a}(v_0) = [-1, 1]$.
 But this means that for every $v$ such that $\abs{v - v_0} \le \frac{1}{\ell}$,
 we have $\mathfrak b_{\ell}(\cdot, v) \equiv 0$,
@@ -335,13 +337,13 @@ $$
 =\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{k}} \abs{\mathfrak b(x_i, v) - \mathfrak b(x_{i + 1}, v)}}
 {\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{k}} \mathfrak b(x, v)}.
 $$
-Note, that the denominator of the right hand side is separated from zero for $v \in U(\mathfrak c_j)$.
+Note, that the denominator of the right-hand side is separated from zero for $v \in U(\mathfrak c_j)$.
 Thus, $D_k(\mathfrak c_j, U(\mathfrak c_j))$ is bounded.
 
 Since $D_k$ does not change if we multiply the first argument by a positive factor independent of $x$,
 and $U(\mathfrak c_j) \nearrow U(\mathfrak b)$, we have
 $$D_k(\mathfrak c_j, U(\mathfrak c_j)) = D_k(\mathfrak b, U(\mathfrak c_j)) \le D_k(\mathfrak b, U(\mathfrak b)) \to 0$$
-for $k \to \infty$.
+as $k \to \infty$.
 
 Thus, the weights $\mathfrak c_{j(k)}$ satisfy $(H1)-(H3)$.
 By Step 4, $I(\mathfrak c_{j(k)}, u^*) \le I(\mathfrak c_{j(k)}, u)$.
@@ -355,7 +357,7 @@ Thus, Theorem \ref{mainThm} is proved.
 
 Now we consider the case where the function $u$ satisfies the additional condition $u(-1) = 0$.
 \begin{thm}
-Suppose, that $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative, $u(-1) = 0$,
+Suppose that $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative, $u(-1) = 0$,
 and the weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is continuous
 and satisfies $(\ref{almostConcave})$.
 Then the inequality $(\ref{toprove})$ holds.
