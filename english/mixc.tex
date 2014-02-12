@@ -1,4 +1,4 @@
-\documentclass[12pt,russian]{article}
+\documentclass[12pt]{article}
 \renewcommand{\baselinestretch}{1}
 %\renewcommand{\baselinestretch}{1.5}
 \textwidth=158mm
@@ -6,8 +6,7 @@
 \voffset=-24mm
 %\pagestyle{empty}
 
-\usepackage[russian]{babel}
-\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,textcomp}
 \usepackage{multirow}
 \newcommand{\Real}{\mathbb R}
 \newcommand{\Nat}{\mathbb N}
@@ -75,7 +74,7 @@ which are convex and increasing with respect to the second argument.
 Let us consider a functional
 \begin{equation}
 \label{functional}
-I(\mathfrak a, u) = \int\limits_{-1}^1 F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) \, dx,
+I(\mathfrak a, u) = \int\limits_{-1}^1 F\big(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}\big) \, dx,
 \end{equation}
 where $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
 
@@ -179,10 +178,10 @@ $$
 Then $u^*(x, v) = u(-x, v)$ and
 \begin{multline*}
 I(\mathfrak a, u)-I(\mathfrak a, u^*) \\
-= \int\limits_{\bar{x}-\eps}^{\bar{x}} F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) \, dx -
-\int\limits_{-\bar{x}}^{-\bar{x}+\eps} F( \bar{v} + \bar{x} + x, \mathfrak a(x, \bar{v} + \bar{x} + x) ) \, dx \\
-= \int\limits_{\bar{x}-\eps}^{\bar{x}} ( F( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) ) -
-F( \bar{v} + \bar{x} - x, \mathfrak a(-x, \bar{v} + \bar{x} - x) ) ) \, dx < 0,
+= \int\limits_{\bar{x}-\eps}^{\bar{x}} F\big( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) \big) \, dx -
+\int\limits_{-\bar{x}}^{-\bar{x}+\eps} F\big( \bar{v} + \bar{x} + x, \mathfrak a(x, \bar{v} + \bar{x} + x) \big) \, dx \\
+= \int\limits_{\bar{x}-\eps}^{\bar{x}} \big( F\big( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) \big) -
+F\big( \bar{v} + \bar{x} - x, \mathfrak a(-x, \bar{v} + \bar{x} - x) \big) \big) \, dx < 0,
 \end{multline*}
 which contradicts the assumption. Thus, the first statement is proved.
 
@@ -268,22 +267,24 @@ We have
 I(\mathfrak a, u^*) = \int\limits_0^{2\eps} F \big( u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2} \big) \, dz\\
 = \int\limits_0^\eps 2 F \big(\bar{v} + y, \frac{\mathfrak a(1 - t + s + 2y, \bar{v} + y)}{2} \big) \, dy\\
 0 \le I( \mathfrak a, u ) - I( \mathfrak a, u^* ) =
-\int\limits_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a( t - y, \bar{v} + y))\\
-- 2 F \big(\bar{v} + y, \frac{ \mathfrak a(1 - t + s + 2y, \bar{v} + y) }{2} \big) ) \, dy\\
-< \int\limits_0^\eps ( F(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)) + F(\bar{v} + y, \mathfrak a(t - y, \bar{v} + y))\\
-- 2 F \big( \bar{v} + y, \frac{ \mathfrak a(s + y, \bar{v} + y) + \mathfrak a(t - y, \bar{v} + y) + \delta }{2} \big) ) \, dy =: J.
+\int\limits_0^\eps \big( F\big(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)\big) + F\big(\bar{v} + y, \mathfrak a( t - y, \bar{v} + y)\big)\\
+- 2 F \big(\bar{v} + y, \frac{ \mathfrak a(1 - t + s + 2y, \bar{v} + y) }{2} \big) \big) \, dy\\
+< \int\limits_0^\eps \big( F\big(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)\big) + F\big(\bar{v} + y, \mathfrak a(t - y, \bar{v} + y)\big)\\
+- 2 F \big( \bar{v} + y, \frac{ \mathfrak a(s + y, \bar{v} + y) + \mathfrak a(t - y, \bar{v} + y) + \delta }{2} \big) \big) \, dy =: J.
 \end{multline*}
 
 Let us consider the function $F(v, p) = p ^ \alpha$.
 For $\alpha = 1$, the following inequality trivially holds:
 \begin{equation}
 \label{anticonvex}
-\frac{F(v, p) + F(v, q)}{ 2 } - F(v, \frac{p + q}{ 2 } + \frac{\delta}{ 2}) <0.
+\frac{F(v, p) + F(v, q)}{ 2 } - F\big(v, \frac{p + q}{ 2 } + \frac{\delta}{ 2 }\big) <0.
 \end{equation}
 We are interested in $p, q$ from the compact $[0 , A]$,
 where 
-$$A=\max \limits_{(x, v)} \mathfrak a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
-$$
+\begin{equation}
+\label{weightMax}
+A=\max \limits_{(x, v)} \mathfrak a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
+\end{equation}
 Therefore, there is an $\alpha> 1$, for which the inequality (\ref{anticonvex})
 still holds.
 For example, any $1 < \alpha < (\log_2 \frac{ 2 A}{A + \delta})^{-1}$ is suitable.
@@ -301,11 +302,9 @@ the assumption (\ref{almostConcave}) is also necessary for the inequality (\ref{
 \end{rem}
 
 \begin{rem}
-If a  non-negative function $\mathfrak a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}). 
-Indeed, for every $s$, $t$ and $u$ we have $\mathfrak a( 1 , u) - \mathfrak a(s, u) \le \mathfrak a(t, u) - \mathfrak a(-1 + t - s, u)$.
-Since $\mathfrak a(1 , u) \ge 0$, we obtain $\mathfrak a(s, u) + \mathfrak a(t, u) \ge \mathfrak a(-1 + t - s, u) = \mathfrak a( 1 - t + s, u)$.
-The converse is not true in general, that is not any even
-non-negative function satisfying (\ref{almostConcave}) is concave.
+Let $\mathfrak a(\cdot, v)$ be even.
+Then the assumption (\ref{almostConcave}) is equivalent to subadditivity of the function $\mathfrak a(1 - \cdot, v)$.
+In particular, if a non-negative function $\mathfrak a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}).
 \end{rem}
 
 \section{Properties of the weight function}
@@ -492,15 +491,15 @@ Then $y^*{}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ for $v \in G_j$, as the si
 $y^*$ and signs of $y_k^j{}'$ alternate, and $y^*{}'(v)\ge 0$.
 
 The sets of zeros of $u'(x)$ and $u^*{}'(x)$ can have nonzero measure.
-However, they do not contribute to the integral, since $F(u(x), 0) = 0$.
+However, they do not contribute to the integral, since $F\big(u(x), 0\big) = 0$.
 
 Consider the remaining parts of the integrals :
 \begin{multline*}
-I(\mathfrak a, u) = \sum_{j=1}^N \,\int\limits_{u^{-1}(G_j)} F(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}) \, dx
+I(\mathfrak a, u) = \sum_{j=1}^N \,\int\limits_{u^{-1}(G_j)} F\big(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}\big) \, dx
 \\ = \sum_{j=1}^N \,\int\limits_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{\mathfrak a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} \, dv,
 \end{multline*}
 \begin{multline*}
-I(\mathfrak a, u^*) = \sum_{j=1}^N \,\int\limits_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{\mathfrak a(x, u(x)) u^*{}'(x)}) \, dx
+I(\mathfrak a, u^*) = \sum_{j=1}^N \,\int\limits_{(u^*)^{-1}(G_j)} F\big(u^*(x), \mathfrak a(x, u(x)) \bigabs{u^*{}'(x)}\big) \, dx
 \\ = \sum_{j=1}^N \,\int\limits_{G_j} F\Big(v, \frac{\mathfrak a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
 \sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } \, dv.
 \end{multline*}
@@ -560,7 +559,7 @@ Thus, the functions $u_m$ converge uniformly and are uniformly bounded outside t
 
 Continuity of $F$ and $\mathfrak a$ implies that for any $\eps$ and $R$, there exists
 $N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
-$$| F( u_m( x ), \mathfrak a( x, u_m( x ) ) M ) - F( u( x ), \mathfrak a( x, u( x ) ) M ) | < \eps.$$
+$$| F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) M \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) | < \eps.$$
 
 Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
 Then
@@ -573,26 +572,26 @@ Note, that $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
 
 We put $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
 For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we have
-$$\Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
+$$\Big | F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} \big) \Big | < \eps,$$
 thus
 \begin{equation}
 \label{frDer}
-\int\limits_{L_{m,\eps}} \Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | \, dx < 2 \eps.
+\int\limits_{L_{m,\eps}} \Big | F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} \big) \Big | \, dx < 2 \eps.
 \end{equation}
 
 We put $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
 Then $\sum \eps_j = \eps$ and therefore $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
 Since (\ref{frDer}) implies
-$$\int\limits_{L_\eps} \Big | F( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | \, dx < 2 \eps_j,$$
+$$\int\limits_{L_\eps} \Big | F\big( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| \big) \Big | \, dx < 2 \eps_j,$$
 we obtain
 \begin{multline*}
-A = \lim I (\mathfrak a, u_{m_j}) = \lim \int\limits_{-1}^1 F(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |) \, dx \\
-\ge \varliminf \int\limits_{-1}^1 \chi_{L_\eps}(x) F(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |) \, dx
+A = \lim I (\mathfrak a, u_{m_j}) = \lim \int\limits_{-1}^1 F\big(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |\big) \, dx \\
+\ge \varliminf \int\limits_{-1}^1 \chi_{L_\eps}(x) F\big(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |\big) \, dx
 =: \varliminf J_\eps(u_{m_j}').
 \end{multline*}
 
 The functional
-$$J_\eps( v ) = \int\limits_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), \mathfrak a( x, u( x ) ) |v( x )| ) \, dx$$
+$$J_\eps( v ) = \int\limits_{-1}^1 \chi_{L_\eps}( x ) F\big( u( x ), \mathfrak a( x, u( x ) ) |v( x )| \big) \, dx$$
 is convex.
 Switching to a subsequence $u_k$ again, we can assume that
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
@@ -612,7 +611,7 @@ $$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
 Finally, since $w_k \to u'$ in $L_1(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
 Moreover, since $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$ holds for $x \in L_\eps$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
 Hence,
-$$F( u( x ), \mathfrak a( x, u( x ) ) w_k( x ) ) \le \max\limits_{(x, M)} F( u( x ), \mathfrak a( x, u( x ) ) M ) < \infty,$$
+$$F\big( u( x ), \mathfrak a( x, u( x ) ) |w_k( x )| \big) \le \max\limits_{(x, M)} F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) < \infty,$$
 where the maximum is taken over a compact set
 $(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
 Therefore, by the Lebesgue theorem, $\lim J_\eps(w_k) = J_\eps(u')$.
@@ -673,7 +672,7 @@ there exists a sequence $\{u_k\} \subset Lip[-1, 1]$, such that the relation $(\
 We can assume that $I( \mathfrak a, u ) < \infty$.
 
 We prove the assertion for the functional
-$$I_1( u ) = \int\limits_0^1 F( u(x), \mathfrak a(x, u(x)) |u'(x)| ) \, dx,$$
+$$I_1( u ) = \int\limits_0^1 F\big( u(x), \mathfrak a(x, u(x)) |u'(x)| \big) \, dx,$$
 and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing variable.
 
 We modify the scheme from \cite[Theorem 2.4]{ASC}.
@@ -684,7 +683,7 @@ We need the following auxiliary assertion.
 \begin{prop}
 \label{convToOne}
 {\rm \cite[Lemma 2.7]{ASC}.}
-Let $\phi_h: [-1, 1] \to \Real$ be a sequence of Lipschitz functions satisfying the conditions:
+Let $\phi_h: [-1, 1] \to \Real_+$ be a sequence of Lipschitz functions satisfying the conditions:
 $\phi_h' \ge 1$ for almost every $x$ and all $h$, $\phi_h( x ) \to x$ for almost every $x$.
 Then for any $f \in L_1(\Real)$ we have $f(\phi_h) \to f$ in $L_1(\Real)$.
 \end{prop}
@@ -760,8 +759,8 @@ Finally, $P_h^3 \to 0$ by the absolute continuity of the integral, and the asser
 It remains to show that $I_1( u_h ) \to I_1( u )$.
 
 \begin{multline*}
-I_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) \, dx +\\
-\int\limits_{[0, 1] \cap \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) \, dx =: \hat{P_h^1} + \hat{P_h^2}.
+I_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F\big( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| \big) \, dx +\\
+\int\limits_{[0, 1] \cap \phi_h( A_h )} F\big( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| \big) \, dx =: \hat{P_h^1} + \hat{P_h^2}.
 \end{multline*}
 Since $u \in \W(0, 1)$ then $u \in L_\infty( [0, 1] )$.
 Denote $\norm{u}_\infty = r$.
@@ -773,9 +772,9 @@ $$M_F = \max\limits_{[-2r, 2r] \times [-M_{\mathfrak a}, M_{\mathfrak a}]} F;\qu
 Further,
 \begin{multline*}
 \hat{P_h^1} = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) }
-	F( u( \phi_h^{-1}( x ) ), \mathfrak a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) \, dx
-\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) \, dz
-\\ = \int\limits_{ [0, 1] } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } \, dz.
+	F\big( u( \phi_h^{-1}( x ) ), \mathfrak a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) \big) \, dx
+\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F\big( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| \big) \, dz
+\\ = \int\limits_{ [0, 1] } F\big( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| \big) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } \, dz.
 \end{multline*}
 The last equality, generally speaking, does not make sense, since $\phi_h( z )$ can take values outside $[0, 1]$.
 Let us define $\mathfrak a( z, u ) = \mathfrak a( 1, u )$ for $z > 1$. Now the expression is correct.
@@ -785,7 +784,7 @@ that is $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ and $A_{h_
 Since $\mathfrak a$ is decreasing on $[0, 1]$ (in fact, on $\phi_h( [0, 1] )$) and $\phi_h( z )$ is decreasing in $h$,
 then $\mathfrak a( \phi_h( z ) )$ is increasing in $h$.
 We apply the monotone convergence theorem and get
-$$\hat{P_h^1} \to \int\limits_{[0, 1]} F( u( z ), \mathfrak a( z, u( z ) ) |u'( z )| ) \, dz.$$
+$$\hat{P_h^1} \to \int\limits_{[0, 1]} F\big( u( z ), \mathfrak a( z, u( z ) ) |u'( z )| \big) \, dz.$$
 
 \end{proof}
 
@@ -795,7 +794,7 @@ provided the weight $\mathfrak a$ is decreasing in $x$ on $[x_0, x_1]$.
 That is there exists $\{u_h\}$, such that
 \begin{gather*}
 u_h(x_0) = u(x_0); \qquad u_h \to u \text{ in } \W(x_0, x_1);\\
-\int\limits_{x_0}^{x_1} F( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} ) \to \int\limits_{x_0}^{x_1} F( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} ).
+\int\limits_{x_0}^{x_1} F\big( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} \big) \to \int\limits_{x_0}^{x_1} F\big( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} \big).
 \end{gather*}
 Similarly, if $\mathfrak a$ is increasing in $x$, the same works for functions $u$ pinned at the right end of the segment.
 \end{rem}
@@ -811,6 +810,7 @@ The statement follows from Lemmata \ref{uplift} and \ref{Wapprox} immediately.
 
 
 \section{The result in the general case}
+\label{moveForth}
 
 Now we want to get rid of the monotonicity restriction on the weight.
 We do this in several steps.
@@ -852,14 +852,14 @@ $[-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}]$.
 \bigskip
 \noindent
 $(H5)$ The difference between the
-set of $v \in \Real$, for which $\mathfrak a(\cdot, v)$ has segments of constant values,
-and the set of $v \in \Real$ such that $\mathfrak a(\cdot, v) \equiv 0$
+set of $v \in \Real_+$, for which $\mathfrak a(\cdot, v)$ has segments of constant values,
+and the set of $v \in \Real_+$ such that $\mathfrak a(\cdot, v) \equiv 0$
 has zero measure.
 
 \bigskip
 \noindent
 $(H6)$ The segment $[-1, 1]$ can be represented as a unity of touching segments
-on each of which $\mathfrak a$ does not change the monotonicity in $x$ in a $v$-neighborhood of the graph of the function $u$.
+on each of which $\mathfrak a$ does not change the monotonicity with respect to $x$ in a $v$-neighborhood of the graph of the function $u$.
 
 \bigskip
 \noindent
@@ -891,278 +891,292 @@ For the proof we need the following facts.
 \begin{prop}
 \label{levelDerivative}
 {\rm \cite[Theorem 6.19]{LL} }
-For every $u \in \W(-1, 1)$ and for an arbitrary set $A \subset \Real$ of zero measure
+For every $u \in \W(-1, 1)$ and for an arbitrary set $A \subset \Real_+$ of zero measure,
 $u'(x) = 0$ almost everywhere in $u^{-1}(A)$.
 \end{prop}
 
 \begin{lm}
 \label{zeroApprox}
-Suppose that $u \in \W(-1, 1)$ and the weight $\mathfrak a$ is admissible for $u$.
-Let a closed set $W \subset \Real$ be such that:
+Suppose that $u \in \W(-1, 1)$ is nonnegative.
+Let a closed set $W \subset \Real_+$ be such that
 the set of $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$, has zero measure.
-Then there exists an increasing sequence of weights $b_k$ admissible for $u$ such that
+Then there exists an increasing sequence of weights $\mathfrak b_{\ell}$, which satisfy
 
-1) $b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$;
+1) $\mathfrak b_{\ell}(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$;
 
-2) $b_k(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighbourhood depends on $k$);
+2) $\mathfrak b_{\ell}(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighborhood depends on $\ell$);
 
-3) $I(b_k, u) \to I(\mathfrak a, u)$.
+3) $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$ and $I(\mathfrak b_{\ell}, u^*) \to I(\mathfrak a, u^*)$.
 \end{lm}
+
+\begin{rem}
+If $a$ is admissible for $u$ then $b_{\ell}$ are also admissible.
+\end{rem}
 
 \begin{proof}
 Take $\rho(d) := \min(1, \max(0, d))$,
-$$b_k(x, v) := \mathfrak a(x, v) \cdot \rho(k \dist(v, W) - 1) \le \mathfrak a(x, v).$$
-This weight is equal to zero in $\left(\frac{1}{k}\right)$-neighborhood of $W$.
-In addition, $b_k \equiv \mathfrak a$ outside the $\left(\frac{2}{k}\right)$-neighborhood of $W$ and
-$b_k(x, v)$ increases with $k$.
-Thus, $b_k(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$.
+$$\mathfrak b_{\ell}(x, v) := \mathfrak a(x, v) \cdot \rho(\ell \dist(v, W) - 1) \le \mathfrak a(x, v).$$
+This weight is equal to zero in $\left(\frac{1}{\ell}\right)$-neighborhood of $W$.
+In addition, $\mathfrak b_{\ell} \equiv \mathfrak a$ outside the $\left(\frac{2}{\ell}\right)$-neighborhood of $W$ and
+$\mathfrak b_{\ell}(x, v)$ increases in $\ell$.
+Thus, $\mathfrak b_{\ell}(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$.
 By the monotone convergence theorem
-$I(u^{-1}(\Real \setminus W), b_k, u) \nearrow I(u^{-1}(\Real \setminus W), \mathfrak a, u)$.
+$I(u^{-1}(\Real_+ \setminus W), \mathfrak b_{\ell}, u) \nearrow I(u^{-1}(\Real_+ \setminus W), \mathfrak a, u)$.
 
 Divide the set $W$ into $W_1 := \{v \in W: \mathfrak a(\cdot, v) \equiv 0\}$ and $W_2 = W \setminus W_1$.
 Then
 $$
 \begin{aligned}
-I(u^{-1}(W_1), b_k, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
-I(u^{-1}(W_2), b_k, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), b_k(x, u(x)) u'(x)) \, dx.
+I(u^{-1}(W_1), \mathfrak b_{\ell}, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
+I(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F\big(u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)|\big) \, dx.
 \end{aligned}
 $$
 By Proposition \ref{levelDerivative}, $u'(x) = 0$ almost everywhere on $u^{-1}(W_2)$.
 Thus
-$$I(u^{-1}(W_2), b_k, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) \, dx = 0.$$
-Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(b_k, u) \to I(\mathfrak a, u)$.
+$$I(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F\big(u(x), 0\big) \, dx = 0.$$
+Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$.
+The second relation in {\it 3)} is proved by the same arguments.
 \end{proof}
 
 We proceed to the proof of the theorem.
 
 \bigskip
-{\bf Step 1.} Let $u \in \W(-1, 1)$ and let weight $\mathfrak a$ satisfy the conditions $(H1)-(H7)$.
-Then the inequality (\ref{toprove}) holds.
+{\bf Step 1.} {\it Let $u \in \W(-1, 1)$ and let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H7)$.
+Then the inequality (\ref{toprove}) holds.}
 
-Divide the interval $[-1, 1]$ into $\Delta_k$, each consisting of two parts.
-On the left part of each $\Delta_k$ weight $\mathfrak a$ increases in $x$ in the neighborhood
+Divide the segment $[-1, 1]$ into touching subsegments $\Delta_j$, each consisting of two parts.
+On the left part of each $\Delta_j$ the weight $\mathfrak a$ increases in $x$ in a neighborhood
 of the graph of $u(x)$. On the right part it decreases.
-On each $\Delta_k$ we can apply the construction from the previous section
+On each $\Delta_j$ we can apply the construction from the previous section
 for approximating $u$ with Lipschitz functions $u_n$.
-This gives us $I(\Delta_k, \mathfrak a, u_n) \to I(\Delta_k, \mathfrak a, u)$.
+This gives us $I(\Delta_j, \mathfrak a, u_n) \to I(\Delta_j, \mathfrak a, u)$.
 
-However, approximation functions $u_n$ have discontinuities at the boundaries of the segments $\Delta_k$
-(denote them by $\hat{x}_k$).
+However, approximating functions $u_n$ have discontinuities at the borders of the segments $\Delta_j$
+(denote them by $\hat{x}_j$).
 
-Note that according to the condition $(H7)$ one can choose points $\hat{x}_k$ so
-that $\mathfrak a \equiv 0$ in $(x, v)$-neighborhood of the points $(\hat{x}_k, u(\hat{x}_k))$.
+Note that according to the condition $(H7)$ one can choose points $\hat{x}_j$ so
+that $\mathfrak a \equiv 0$ in $(x, v)$-neighborhoods of the points $(\hat{x}_j, u(\hat{x}_j))$.
 
-Next substitute functions $u_n$ in the neighborhoods of $\hat{x}_k$ with linear pieces
+Next, substitute functions $u_n$ in these neighborhoods of $\hat{x}_j$ with linear pieces
 making $u_n$ continuous on $[-1, 1]$.
-In view of the above, this does not change the integrals $I(\Delta_k, \mathfrak a, u_n)$,
+In view of the above, this does not change the integrals $I(\Delta_j, \mathfrak a, u_n)$,
 and we get $I(\mathfrak a, u_n) \to I(\mathfrak a, u)$.
 
 By Lemma \ref{uplift} we obtain (\ref{toprove}).
 
 \bigskip
 
-{\bf Step 2.} Let weight $\mathfrak a$ satisfy the conditions $(H1)-(H6)$.
-Then the inequality (\ref{toprove}) holds.
+{\bf Step 2.} {\it Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H6)$.
+Then the inequality (\ref{toprove}) holds.}
 
 We apply Lemma \ref{zeroApprox} with the following set $W$:
 the set of all $v$, at which the graph of $u(x)$ traverses from a rectangle,
 in which the weight decreases in $x$,
 to a rectangle in which the weight increases.
-Obviously, the resulting function $b_k$ satisfy $(H1)-(H7)$.
-Therefore, $I(b_k, u^*) \le I(b_k, u)$.
+Obviously, the resulting function $\mathfrak b_{\ell}$ satisfy $(H1)-(H7)$.
+By Step 1, $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
 
-{\bf Step 3.} Let weight $\mathfrak a$ satisfy the conditions $(H1)-(H5)$.
-Then the inequality (\ref{toprove}) holds.
+{\bf Step 3.} {\it Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H5)$.
+Then the inequality (\ref{toprove}) holds.}
 
-Consider abscissae of nodes of $\mathfrak a$
+Consider abscissas of nodes of $\mathfrak a$
 and ordinates, for which $\mathfrak a$ has constant pieces.
 They define a division of the rectangle $[-1, 1] \times [\min u(x), \max u(x)]$
 into rectangles in each of which the weight $\mathfrak a$ is monotone in $x$.
 However, the number of rectangles can be infinite.
-Also, if the function crosses a horizontal boundary of some rectangle,
+Also, if the graph of $u$ crosses a horizontal boundary of some rectangle,
 monotonicity in the $v$-neighborhood of the point of intersection may change.
 
 Consider set $W$ containing all $v$, for which the weight $\mathfrak a$ has constant pieces.
-Due to condition $(H5)$ the set of all $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$,
-has zero measure.
+Due to $(H5)$ the set of all  $v \in W$ such that $a(\cdot, v) \not\equiv 0$ has zero measure.
 
-Applying Lemma \ref{zeroApprox}, we obtain a sequence of weights $b_k$.
-Each of them, the number of intervals of monotonicity of course,
-as between neighboring $v$ portions strict monotonicity
-present band width zero weights at least $\frac{2}{k}$.
+We apply Lemma \ref{zeroApprox} and obtain a sequence of weights $\mathfrak b_{\ell}$.
+We claim that each of them has only finite number of monotonicity rectangles.
+Indeed, any two vertically adjacent rectangles with different monotonicity
+are separated by a stripe of $\frac{2}{\ell}$ width with zero values.
 
-We now at each site monotony point on the graph of $u$.
-Set of these points can not have points cluster
-as between the points at which different monotony
-distance $v$ at least $\frac{2}{k}$.
+The weight $b_{\ell}$ can change monotonicity along the graph of $u$
+either at the points $x = -1 + \frac{2 i}{k}$ or where the graph crosses a stripe of zero values.
+Note that only finite number of such crossings can arise since
+$\int |u'|$ gains at least $\frac{2}{\ell}$ at any crossing and $u' \in L_1(-1, 1)$.
 
-Thereby, $b_k$ satisfy $(H1)-(H6)$. Therefore, $I(b_k, u^*) \le I(b_k, u)$.
+Thereby, $\mathfrak b_{\ell}$ satisfy $(H1)-(H6)$. By Step 2, $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
-{\bf Step 4.} Let weight $\mathfrak a$ satisfies the conditions $(H1)-(H3)$.
-Then the inequality (\ref{toprove}).
+{\bf Step 4.} {\it Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H3)$.
+Then the inequality (\ref{toprove}) holds.}
 
-Suppose the function $\mathfrak a$ satisfies $(H1)-(H3)$, including $I(\mathfrak a, u) < \infty$.
+Suppose that the function $\mathfrak a$ satisfies $(H1)-(H3)$, in particular $I(\mathfrak a, u) < \infty$.
 
 We fix an arbitrary even $k$.
-Points on $\mathfrak a(-1 + \frac{2i}{k}, v)$ for each $v$ construct a piecewise linear in $x$ interpolation.
-Resulting function $\mathfrak a_k(x, v)$ is continuous, even, and,
-By Lemma \ref{piecewiseLinearConcave}, satisfies
-(\ref{almostConcave}).
+For each $v$ we interpolate $\mathfrak a$ with piecewise linear functions
+with nodes $( -1 + \frac{2i}{k}, \mathfrak a(-1 + \frac{2i}{k}, v) )$.
+Resulting function $\mathfrak a_k(x, v)$ is continuous, even in $x$
+and satisfies (\ref{almostConcave}) by Lemma \ref{piecewiseLinearConcave}.
 In addition, $\mathfrak a_k \to \mathfrak a$ when $k \to \infty$,
-the convergence is uniform on compact sets.
-However, the inequality $\mathfrak a_k(x, u(x)) \le \mathfrak a(x, u(x))$ is not required to be performed,
-and because the weight $\mathfrak a_k$ may not be valid for $u$.
+moreover the convergence is uniform on compact sets.
+However, the inequality $\mathfrak a_k(x, u(x)) \le \mathfrak a(x, u(x))$ can be violated,
+and thus $\mathfrak a_k$ may be non-admissible for $u$.
 
-Take $c_k := (1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \mathfrak a_k$, where $D_k$ defined in (\ref{bigD}).
-Number $D_k(\mathfrak a_k, U(\mathfrak a_k))$ are positive and tend to zero, so $c_k \to \mathfrak a$ with $k \to \infty$.
-We show that $c_k(x, u(x)) \le \mathfrak a(x, u(x))$.
-Take some
+Set $\mathfrak c_k := (1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \mathfrak a_k$, where $D_k$ is defined in (\ref{bigD}).
+$D_k(\mathfrak a_k, U(\mathfrak a_k))$ are positive and tend to zero, thus $\mathfrak c_k \to \mathfrak a$ while $k \to \infty$.
+We claim that $\mathfrak c_k(x, u(x)) \le \mathfrak a(x, u(x))$.
+
+Indeed, consider some
 $x \in [-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}] =: [x_i, x_{i + 1}]$.
-Then $c_k(x, u(x)) \le \max( c_k(x_i, u(x)), c_k(x_{i + 1}, u(x)) )$, because
-$c_k$ piecewise linear in $x$. Further,
+Then $\mathfrak c_k(x, u(x)) \le \max( \mathfrak c_k(x_i, u(x)), \mathfrak c_k(x_{i + 1}, u(x)) )$, because
+$\mathfrak c_k$ is piecewise linear in $x$. Moreover,
 \begin{multline*}
-c_k (x_i, u (x)) = ( 1 - D_k (\mathfrak a_k, U (\mathfrak a_k))) \cdot \mathfrak a (x_i, u (x)) \\
-\le \mathfrak a (x_i, u (x)) - \frac{\mathfrak a (x_i, u (x)) - \mathfrak a (x, u (x))}{\mathfrak a (x_i, u (x))} \cdot \mathfrak a ( x_i, u (x)) = \mathfrak a (x, u (x)).
+\mathfrak c_k(x_i, u(x)) = ( 1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \cdot \mathfrak a(x_i, u(x)) \\
+\le \mathfrak a(x_i, u(x)) - \frac{\mathfrak a(x_i, u(x)) - \mathfrak a(x, u(x))}{\mathfrak a(x_i, u(x))} \cdot \mathfrak a(x_i, u(x)) = \mathfrak a(x, u(x)).
 \end{multline*}
-Similarly $c_k(x_{i + 1}, u(x)) \le \mathfrak a(x, u(x))$.
-Thus, $c_k(x, u(x)) \le \mathfrak a(x, u(x))$ for any $x$, and $c_k$ are valid for $u$.
+Similarly $\mathfrak c_k(x_{i + 1}, u(x)) \le \mathfrak a(x, u(x))$.
+Thus, $\mathfrak c_k(x, u(x)) \le \mathfrak a(x, u(x))$ for any $x$, and $\mathfrak c_k$ are admissible for $u$.
+Thereby the functions $\mathfrak c_k$ satisfy $(H1)-(H4)$.
 
-Functions $c_k$ satisfy $(H1)-(H4)$.
-
-For a given $k \in \Nat$, we approximate the function $c_k =: c$ weights satisfying $(H1)-(H5)$.
-Consider the auxiliary function $\Lambda(x) = 1 - \abs{x}$,
-satisfying (\ref{almostConcave}).
+For a given $k \in \Nat$, we approximate the function $\mathfrak c_k =: \mathfrak c$ with weights satisfying $(H1)-(H5)$.
+Consider the auxiliary function $\Lambda(x) = 1 - \abs{x}$, satisfying (\ref{almostConcave}).
 
 Take
-$$t(v):=D_k(c, U(c)) \cdot \max\{\tau \ge 0: \forall x \in u^{-1}(v) \quad \tau \Lambda(x) \le c(x, u(x))\}.$$
-Function $t$ depends on $k$, but we omit it in the record.
+$$t(v):=D_k(\mathfrak c, U(\mathfrak c)) \cdot \max\{\tau \ge 0: \forall x \in u^{-1}(v) \quad \tau \Lambda(x) \le \mathfrak c(x, u(x))\}.$$
+The function $t$ depends on $k$, but we omit this fact in presentation.
 
-It is clear that the maximum $\tau$ is zero only if $c(\cdot, v) \equiv 0$, otherwise condition is violated
-$(H3)$.
-Function $t$ can not be continuous. However, it is easy to see that it is lower semicontinuous.
-We now take
+It is clear that the maximum $\tau$ is zero only if $\mathfrak c(\cdot, v) \equiv 0$,
+since otherwise the condition $(H3)$ is violated.
+
+Function $t$ may be discontinuous. However, it is easy to see that it is lower semicontinuous.
+Next, we take
 $$\tilde{t}(v) := \inf_{w \in u([-1, 1])} \{t(w) + |v - w|\}.$$
 It is obvious that $\tilde{t} \le t$, and the set of zeros of $t$ and $\tilde{t}$ coincide.
 
-We show that $\tilde{t}$ is continuous (and even Lipschitz ).
-Fix some $v_1$.
+We claim that $\tilde{t}$ is continuous (and even Lipschitz).
+Indeed, take some $v_1$.
 Then there is an arbitrarily small $\eps > 0$ and $w_1 \in u([-1, 1])$
 satisfying $\tilde{t}(v_1) = t(w_1) + |v_1 - w_1| - \eps$.
 For every $v_2$, we have $\tilde{t}(v_2) \le t(w_1) + |v_2 - w_1|$.
-And, thus, $\tilde{t}(v_2) - \tilde{t}(v_1) \le |v_1 - v_2| + \eps$.
-By the arbitrariness of $v_1$, $v_2$ and $\eps$, we obtain that $\tilde{t}$ is continuous.
+And thus $\tilde{t}(v_2) - \tilde{t}(v_1) \le |v_1 - v_2| + \eps$.
+By the arbitrariness of $v_1$, $v_2$ and $\eps$, the claim follows.
 
-When $\alpha \in [0, 1]$ function $d_\alpha(x, v) := c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
-even with respect to $x$, satisfies (\ref{almostConcave}) by Lemma \ref{maxSumConcave}
-and does not exceed $\mathfrak a(x, v)$ for construction of the function $\tilde{t}$.
-Thus, $d_\alpha$ --- allowable weight.
-Further, it is obvious that $d_\alpha$ satisfies $(H1)-(H4)$.
+For $\alpha \in [0, 1]$ the function $\mathfrak d_\alpha(x, v) := \mathfrak c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
+is even in $x$, satisfies (\ref{almostConcave}) in concordance with Lemma \ref{maxSumConcave},
+and does not exceed $\mathfrak a(x, v)$ due to the construction of the function $\tilde{t}$.
+Thus, $\mathfrak d_\alpha$ is an admissible weight.
+Also, it is obvious that $\mathfrak d_\alpha$ satisfies $(H1)-(H4)$.
 
-We show that there exists a sequence $\alpha_j \searrow 0$
-that $d_{\alpha_j}$ has no horizontal sections, except
-Continuum of zeros and a set of measure $0$.
-Denote the set of $\alpha$, `` bad '' on the site $[x_i, x_{i + 1}]$:
+Let us show that there exists a sequence $\alpha_j \searrow 0$
+such that $\mathfrak d_{\alpha_j}(\cdot, v)$ has no segments of constant values,
+unless $\mathfrak d_{\alpha_j}(\cdot, v) \equiv 0$ or $v$ belongs to a zero measure set.
+We introduce the set of $\alpha$, which are ``bad'' on $[x_i, x_{i + 1}]$:
 \begin{multline*}
-A_i: = \big \{\alpha \in [ 0, 1 ] \\
-meas \{v \in [\min u, \max u]: \frac{c (x_{i + 1}, v) - c (x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \big \},
+A_i := \big \{\alpha \in [0, 1]: \\
+meas \{v \in [\min u, \max u]: \frac{\mathfrak c(x_{i + 1}, v) - \mathfrak c(x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \big \},
 \end{multline*}
-where $\chi_i = 1$, if $[x_i, x_{i + 1}] \subset [0, 1]$, and $\chi_i = -1$, if $[x_i, x_{i + 1}] \subset [-1, 0]$.
+where $\chi_i = 1$ if $[x_i, x_{i + 1}] \subset [0, 1]$, and $\chi_i = -1$ if $[x_i, x_{i + 1}] \subset [-1, 0]$.
 
-Consider the function
+Consider the following function
 $$
 \begin{aligned}
-h (v) = & \frac{c (x_{i + 1}, v) - c (x_i, v)}{\tilde{t} (v)} & \text{ if} \tilde{t} ( v) \neq 0 & \\
-h (v) = & 0 & \text{ if } \tilde{t} (v) = 0 &.
+h_i(v) = & \frac{\mathfrak c(x_{i + 1}, v) - \mathfrak c(x_i, v)}{\tilde{t} (v)} & \text{ if } \tilde{t} (v) \neq 0 & \\
+h_i(v) = & 0 & \text{ if } \tilde{t} (v) = 0 &.
 \end{aligned}
 $$
-Then $\card(A_i) = \card(\{ \alpha \in [0, 1]: meas \{ v \in [\min u, \max u]: h(v) \pm \frac{2}{k}\\alpha = 0 \} > 0 \}).$
-So, $\card(A_i) \le \aleph_0$, and $\card(\cup_i A_i) \le \aleph_0$.
-Thus, there is a sequence of weights $d_{\alpha_j} \searrow c$, satisfying $(H1)-(H5)$.
-Therefore, $I(d_{\alpha_j}, u^*) \le I(d_{\alpha_j}, u)$.
-Passing to the limit, we get $I(c, u^*) \le I(c, u)$.
+We have $\card(A_i) = \card(\{ \alpha \in [0, 1]: meas \{ v \in [\min u, \max u]: h_i(v) \pm \frac{2}{k} \alpha = 0 \} > 0 \}).$
+Then $\card(A_i) \le \aleph_0$, and $\card(\cup_i A_i) \le \aleph_0$.
+Thus, there exists a sequence of weights $\mathfrak d_{\alpha_j} \searrow \mathfrak c$, satisfying $(H1)-(H5)$.
+By Step 3, $I(\mathfrak d_{\alpha_j}, u^*) \le I(\mathfrak d_{\alpha_j}, u)$.
+Passing to the limit, we get $I(\mathfrak c, u^*) \le I(\mathfrak c, u)$.
 
-Further, if $x \in [-1, 1]$ and $k \to \infty$, we have
-$$F(u(x), c_k(x, u(x)) |u'(x)|) \to F(u(x), \mathfrak a(x, u(x)) |u'(x)|).$$
-Additionally, $F(u(x), \mathfrak a(x, u(x)) |u'(x)|)$ Majorant is integrable.
-By the Lebesgue dominated convergence, we get $I(c_k, u) \to I(\mathfrak a, u)$.
-Since $I(c_k, u^*) \le I(c_k, u)$, Lemma \ref{uplift} gives (\ref{toprove}).
+Further, for $x \in [-1, 1]$ we have
+\begin{equation}
+\label{step4Conv}
+F\big(u(x), \mathfrak c_k(x, u(x)) |u'(x)|\big) \to F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)
+\end{equation}
+as $k \to \infty$.
+Moreover, $F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)$ is an integrable majorant
+for the left-hand side in (\ref{step4Conv}).
+By the Lebesgue theorem, we have $I(\mathfrak c_k, u) \to I(\mathfrak a, u)$.
+Since $I(\mathfrak c_k, u^*) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves the inequality (\ref{toprove}).
 
 \bigskip
-{\bf Step 5.} Let weight $\mathfrak a$ satisfies only the condition $(H1)$.
-Then the inequality (\ref{toprove}).
+{\bf Step 5.} {\it Let the weight $\mathfrak a$ satisfy only the condition $(H1)$.
+Then the inequality (\ref{toprove}) holds.}
 
-We will construct an approximation for weights $\mathfrak a$ satisfying $(H1)-(H2)$.
-Use Lemma \ref{zeroApprox}.
-As the set $W$ we take $\{ v \in \Real: \mathfrak a(\cdot, v) \equiv 0 \}$.
-We introduce the notation $$Z_{\mathfrak a}(v) := \{ x \in [-1, 1]: \mathfrak a(x, v) = 0 \}.$$
-Note that the sets $Z_{b_k}(v)$ coincide with either $Z_{\mathfrak a}(v)$, either $[-1, 1]$.
+We approximate $\mathfrak a$ by weights satisfying $(H1)-(H2)$.
+To do this we apply Lemma \ref{zeroApprox} with $W = \{ v \in \Real_+: \mathfrak a(\cdot, v) \equiv 0 \}$.
+Let us introduce the notation $$Z_{\mathfrak a}(v) := \{ x \in [-1, 1]: \mathfrak a(x, v) = 0 \}.$$
+Note that the sets $Z_{\mathfrak b_{\ell}}(v)$ are either $Z_{\mathfrak a}(v)$ or $[-1, 1]$.
 
-We show that $b_k$ satisfies $(H2)$.
-Indeed, otherwise there is a sequence $v_l$, for which
-$l < \card(Z_{b_k})(v_l) < \infty$.
-After passing to a subsequence, we have $v_l \to v_0$.
-We show that $Z_{\mathfrak a(v_0)} = [-1, 1]$. Lemma \ref{periodicity} implies that
-set $Z_{b_k}(v_l) = Z_{\mathfrak a(v_l)}$ periodic with period of not more than $\frac{2}{l - 1}$.
-Take some $x \in [-1, 1]$. For each $l$ $x_l$ exists such that
-$\abs{x - x_l} \le \frac{1}{l - 1}$ and $\mathfrak a(x_l, v_l) = 0$.
-But $\mathfrak a(x_l, v_l) \to \mathfrak a(x, v_0)$.
-Thus, $\mathfrak a(x, v_0) = 0$ and $Z_{\mathfrak a}(v_0) = [-1, 1]$.
-But this means that for every $v$ such
-that $\abs{v - v_0} \le \frac{1}{k}$, holds $b_k(\cdot, v) \equiv 0$
-which contradicts $\card(Z_{b_k})(v_l) < \infty$.
+Let us show that $\mathfrak b_{\ell}$ satisfies $(H2)$.
+Indeed, otherwise there is a sequence $v_m$, for which
+$m < \card(Z_{\mathfrak b_{\ell}})(v_m) < \infty$.
+After passing to a subsequence, we have $v_m \to v_0$.
+Part 2 of Lemma \ref{periodicity} implies that the set $Z_{\mathfrak b_{\ell}}(v_m) = Z_{\mathfrak a}(v_m)$
+is periodic with period less or equal to $\frac{2}{m - 1}$.
+Take some $x \in [-1, 1]$. For each $m$ there exists $x_m$ such that
+$\abs{x - x_m} \le \frac{1}{m - 1}$ and $\mathfrak a(x_m, v_m) = 0$.
+But $\mathfrak a(x_m, v_m) \to \mathfrak a(x, v_0)$.
+Therefore, $\mathfrak a(x, v_0) = 0$.
 
+Thus $Z_{\mathfrak a}(v_0) = [-1, 1]$.
+But this means that for every $v$ such that $\abs{v - v_0} \le \frac{1}{\ell}$,
+we have $\mathfrak b_{\ell}(\cdot, v) \equiv 0$,
+which contradicts $\card(Z_{\mathfrak b_{\ell}})(v_m) < \infty$.
 
-Now we fix $k \in \Nat$, denoted $b_k =: b$
-and approximate the function $b$ weights satisfying $(H1)-(H3)$.
-From $(H2)$ and Lemma \ref{periodicity}, part 2, it follows that there exists a set $T \subset [-1, 1]$
+Now we fix $\ell \in \Nat$ and denote $\mathfrak b_{\ell} =: \mathfrak b$.
+Let us approximate the function $\mathfrak b$ with weights satisfying $(H1)-(H3)$.
+It follows from $(H2)$, that there exists a set $T \subset [-1, 1]$
 consisting of a finite number of elements, such that
-if $x \not \in T$ and $\mathfrak a(x, v) = 0$ for some $v$, then $b(\cdot, v) \equiv 0$.
-Again, we use Lemma \ref{zeroApprox} with multiple
-$W = u(T) \cup u^*(T)$.
+if $x \not\in T$ and $\mathfrak b(x, v) = 0$ for some $v$, then $\mathfrak b(\cdot, v) \equiv 0$.
 
-Obtained with the help of Lemma weight $c_j$ satisfy $(H1)-(H2)$, as distinguished from a $b$
-continuous multiplication by a factor less than unity and depends only on $v$.
-Obviously, $\min\limits_{dist(x, u^{-1}(v)) \le \frac{2}{j}} c_j(x, v)$ is not equal to zero
-$v \in U(c_j)$, starting with some $j$.
-Moreover, when $v \in U(c_j)$
+We use Lemma \ref{zeroApprox} with $W = u(T) \cup u^*(T)$.
+The weights $\mathfrak c_j$, given by the Lemma, satisfy $(H1)-(H2)$,
+since they are just $\mathfrak b$ multiplied by a factor less than one, which depends only on $v$.
+
+For any $k$ sufficiently large, there exists $j = j(k)$ such that
+$$u\Big( \Big\{ x \in [-1, 1]: dist(x, T) \le \frac{4}{k} \Big\} \Big) \subset \Big\{ v \in \Real_+: dist(v, u(T)) \le \frac{1}{2j} \Big\},$$
+and $j(k) \to \infty$ as $k \to \infty$ by continuity of $u$.
+This implies that $\min\limits_{dist(x, u^{-1}(v)) \le \frac{2}{k}} c_j(x, v) > 0$
+for all $v \in U(c_j)$.
+Moreover, for $v \in U(c_j)$ we have
 $$
-\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{j}} \abs{c_j(x_i, v) - c_j(x_{i + 1}, v)}}
-{\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{j}} c_j(x, v)}
-=\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{j}} \abs{b(x_i, v) - b(x_{i + 1}, v)}}
-{\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{j}} b(x, v)}.
+\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{k}} \abs{\mathfrak c_j(x_i, v) - \mathfrak c_j(x_{i + 1}, v)}}
+{\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{k}} \mathfrak c_j(x, v)}
+=\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{k}} \abs{\mathfrak b(x_i, v) - \mathfrak b(x_{i + 1}, v)}}
+{\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{k}} \mathfrak b(x, v)}.
 $$
-In this case, the denominator of the second fraction at $v \in U(c_j)$ bounded away from zero.
-Thus, $D_j(c_j, U(c_j))$ is bounded.
+Note, that the denominator of the right-hand side is separated from zero for $v \in U(\mathfrak c_j)$.
+Thus, $D_k(\mathfrak c_j, U(\mathfrak c_j))$ is bounded.
 
-Since $D_j$ is not changed by multiplying by a factor of the first argument, which is independent of $x$,
-and $U(c_j) \nearrow U(b)$, we have for $j \to \infty$
-$$D_j(c_j, U(c_j)) = D_j(b, U(c_j)) \le D_j(b, U(b)) \to 0.$$
+Since $D_k$ does not change if we multiply the first argument by a positive factor independent of $x$,
+and $U(\mathfrak c_j) \nearrow U(\mathfrak b)$, we have
+$$D_k(\mathfrak c_j, U(\mathfrak c_j)) = D_k(\mathfrak b, U(\mathfrak c_j)) \le D_k(\mathfrak b, U(\mathfrak b)) \to 0$$
+as $k \to \infty$.
 
-Thus, the weights satisfy $c_j$ $(H1)-(H3)$.
-Thus, $I(c_j, u^*) \le I(c_j, u)$.
-Passing to the limit, we get $I(b_k, u^*) \le I(b_k, u)$, then the inequality (\ref{toprove}).
+Thus, the weights $\mathfrak c_{j(k)}$ satisfy $(H1)-(H3)$.
+By Step 4, $I(\mathfrak c_{j(k)}, u^*) \le I(\mathfrak c_{j(k)}, u)$.
+Passing to the limit, we get $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$,
+and consequently the inequality (\ref{toprove}).
 
-Thus, Theorem \ref{mainThm} proved.
+Thus, Theorem \ref{mainThm} is proved.
 \hfill $\square$
 
 \medskip
 
-We now consider the case where the function $u$ satisfies the additional condition $u(-1) = 0$.
+Now we consider the case where the function $u$ satisfies the additional condition $u(-1) = 0$.
 \begin{thm}
-Let $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative, $u(-1) = 0$,
-weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ continuous
+Suppose that $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative, $u(-1) = 0$,
+and the weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is continuous
 and satisfies $(\ref{almostConcave})$.
-Then the inequality $(\ref{toprove})$.
+Then the inequality $(\ref{toprove})$ holds.
 \end{thm}
 
 \begin{proof}
 We follow the proof of Theorem \ref{mainThm},
-but instead of $(H1)$ and $(H7)$ impose the following conditions on the weight:
+but we change $(H1)$ and $(H7)$ to the following conditions:
 
 \bigskip
 \noindent
@@ -1170,21 +1184,21 @@ $(H1')$ $\mathfrak a(x, v)$ satisfies (\ref{almostConcave}), and $I(\mathfrak a,
 
 \bigskip
 \noindent
-$(H7')$ Achieved condition $(H7)$, and $\mathfrak a(\cdot, v) \equiv 0$ in some $v$- neighborhood of zero.
+$(H7')$ The assumption $(H7)$ is satisfied and $\mathfrak a(\cdot, v) \equiv 0$ in some $v$-neighborhood of zero.
 
 \bigskip
-{\bf Step 1.} Let $u \in \W(-1, 1)$, the $u(-1) = 0$ and the weight $\mathfrak a$ satisfies the conditions $(H1'), (H2)-(H6), (H7')$.
-Then the inequality (\ref{toprove}).
+{\bf Step 1.} {\it Let $u \in \W(-1, 1)$, $u(-1) = 0$ and let the weight $\mathfrak a$ satisfy the conditions $(H1'), (H2)-(H6), (H7')$.
+Then the inequality (\ref{toprove}) holds.}
 
-For proof we approximate the function $u$ in the same way as in the first step of the proof of Theorem \ref{mainThm},
-the replacement of $u$ in a neighborhood of $x = -1$ on the linear so that $u_n(-1) = 0$.
+To prove this we approximate the function $u$ in the same way as in the first step of Theorem \ref{mainThm} proof,
+changing $u$ in a neighborhood of $x = -1$ to a linear function with $u_n(-1) = 0$ preserved.
 
 \bigskip
-{\bf Step 2.} Let weight $\mathfrak a$ satisfies the conditions $(H1'), (H2)-(H6)$.
-Then the inequality (\ref{toprove}).
+{\bf Step 2.} {\it Let the weight $\mathfrak a$ satisfy conditions $(H1'), (H2)-(H6)$.
+Then the inequality (\ref{toprove}) holds.}
 
-To prove to add to the set $W$ of the second step of the proof of Theorem \ref{mainThm} point $0$
-and repeat the argument.
+To prove this we add zero to the set $W$ from the second step of Theorem \ref{mainThm} proof,
+and repeat the rest of the proof.
 
 \medskip
 
@@ -1192,31 +1206,169 @@ Further steps are unchanged.
 \end{proof}
 
 
+\section{Appendix. The case of symmetric rearrangement}
+
+\subsection{Necessary conditions for the weight}
+
+\begin{lm}
+If the inequality $(\ref{toproveSymm})$ holds for all $F \in \mathfrak{F}$
+and all piecewise linear $u$, then
+the weight $\mathfrak a$ satisfies
+\begin{equation}
+\label{almostConvex}
+\forall s, t \in [-1, 1], \forall v \in \Real_+ \quad
+\mathfrak a( s, v ) + \mathfrak a( t, v ) \ge \mathfrak a\Big( \frac{ s - t }{2}, v \Big) + \mathfrak a\Big( \frac{ t - s }{2}, v \Big).
+\end{equation}
+\end{lm}
+
+\begin{proof}
+Assume that the inequality (\ref{almostConvex}) is not satisfied.
+Then there are $-1 \le s < t \le 1$, $\eps, \delta > 0$ ($2 \eps < t - s$) and $\bar{v} \in \Real_+$,
+such that for any $0 \le z \le \eps$ and any $\bar{v} \le v \le \bar{v} + \eps$ the following holds:
+\begin{equation}
+\label{notConvex}
+\mathfrak a(s + z, v + z) + \mathfrak a(t - z, v + z) + 2 \delta < \mathfrak a\Big(\frac{s - t}{2} + z, v + z \Big) + \mathfrak a\Big(\frac{t - s}{2} - z, v + z \Big).
+\end{equation}
+
+Consider the function $u$ defined in (\ref{parLinU}). We have
+$$
+\left\{
+\begin{aligned}
+\bar{u}(x) &= \bar{v}, & x \in &[-1, \frac{s - t}{2}] \cup [\frac{t - s}{2}, 1]\\
+\bar{u}(x) &= \bar{v} + x - \frac{s - t}{2}, & x \in &[\frac{s - t}{2}, \frac{s - t}{2} + \eps]\\
+\bar{u}(x) &= \bar{v} + \eps, & x \in &[\frac{s - t}{2} + \eps, \frac{t - s}{2} - \eps]\\
+\bar{u}(x) &= \bar{v} + \frac{t - s}{2} - x, & x \in &[\frac{t - s}{2} - \eps, \frac{t - s}{2}].
+\end{aligned}
+\right.
+$$
+
+Hence we obtain
+\begin{multline*}
+0 \le I(\mathfrak a, u) - I(\mathfrak a, \overline{u}) \\
+=\int_0^{\eps} F\big( u(s + z), \frac{\mathfrak a( s + z, u(s + z) )}{\eps} \big) dz + \int_0^{\eps} F\big( u(t - z), \frac{\mathfrak a(t - z, u(t - z))}{\eps} \big) dz \\
+-\int_0^{\eps} F\big( \bar{u}(\frac{s - t}{2} + z), \frac{\mathfrak a( \frac{s - t}{2} + z, \bar{u}(\frac{s - t}{2} + z) )}{\eps} \big) dz \\
+-\int_0^{\eps} F\big( \bar{u}(\frac{t - s}{2} - z), \frac{\mathfrak a( \frac{t - s}{2} - z, \bar{u}(\frac{t - s}{2} - z) )}{\eps} \big) dz =: J.
+\end{multline*}
+
+Take $F(v, p) := f(p) := p + \gamma p^2$, where $\gamma > 0$.
+Then
+\begin{multline*}
+J = \int_0^{\eps} \big( f(\frac{\mathfrak a(s + z, \bar{v} + z)}{\eps}) + f(\frac{\mathfrak a(t - z, \bar{v} + z)}{\eps}) \\
+- f(\frac{\mathfrak a(\frac{s - t}{2} + z, \bar{v} + z)}{\eps}) - f(\frac{\mathfrak a(\frac{t - s}{2} - z, \bar{v} + z)}{\eps}) \big) dz.
+\end{multline*}
+
+We define $A$ by relation (\ref{weightMax}).
+If we take $\gamma := \frac{\delta / \eps}{(A / \eps)^2} > 0$,
+then for $p \le \frac{A}{\eps}$ we have $p \le f( p ) \le p + \frac{\delta}{\eps}$, and
+\begin{equation*}
+J \le \frac{1}{\eps} \int_0^{\eps} \big( \mathfrak a(s + z, \bar{v} + z) + \mathfrak a(t - z, \bar{v} + z) + 2 \delta
+- \mathfrak a(\frac{s - t}{2} + z, \bar{v} + z) - \mathfrak a(\frac{t - s}{2} - z, \bar{v} + z) \big) dz < 0
+\end{equation*}
+(the last inequality follows from (\ref{notConvex})).
+
+Thus, we get a contradiction, hence (\ref{almostConvex}) holds.
+\end{proof}
+
+\begin{lm}
+Let relation $(\ref{almostConvex})$ hold for a function $\mathfrak a \in C([-1, 1] \times \Real_+)$.
+Then $\mathfrak a$ is even and convex with respect to the first argument.
+\end{lm}
+
+\begin{proof}
+Assume first that $\mathfrak a(\cdot, v) \in C^1([-1, 1])$ for each $v$.
+We fix arbitrary $s \in [-1, 1]$ and $v \in \Real_+$ and consider the function
+$$b(x) := \mathfrak a( s, v ) + \mathfrak a( x, v ) - \mathfrak a( \frac{ s - x }{2}, v ) - \mathfrak a( \frac{ x - s }{2}, v ) \ge 0.$$
+$x = -s$ is the minimum point of $b$, since $b(-s) = 0$.
+Hence,
+$$b'(-s) = \mathfrak a'_x( -s, v ) + \frac{1}{2} \mathfrak a'_x( s, v ) - \frac{1}{2} \mathfrak a'_x( -s, v ) = 0,$$
+that is $\mathfrak a'_x( s, v ) = -\mathfrak a'_x( -s, v )$. Thus, the function $\mathfrak a(\cdot, v)$ is even.
+
+Now consider the case of a continuous $\mathfrak a$.
+
+Define $\mathfrak a( x, v ) := \mathfrak a( -1, v )$ for $x < -1$ and $\mathfrak a( x, v ) := \mathfrak a( 1, v )$ for $x > 1$.
+Consider the mollification of the function:
+$$\mathfrak a_\rho( x, v ) = \int_\Real \omega_\rho ( z ) \mathfrak a( x - z, v ) dz = \int_\Real \omega_\rho ( z ) \mathfrak a( x + z, v ) dz,$$
+where $\omega_\rho(z)$ is a smoothing kernel with radius $\rho$.
+Then
+\begin{multline*}
+\mathfrak a_\rho( s, v ) + \mathfrak a_\rho( t, v ) - \mathfrak a_\rho( \frac{ s - t }{2}, v ) - \mathfrak a_\rho( \frac{ t - s }{2}, v ) =
+\\ \int_\Real \omega_\rho ( z ) \big( \mathfrak a( s - z, v ) + \mathfrak a( t + z, v ) - \mathfrak a( \frac{ s - t }{2} - z, v ) - \mathfrak a( \frac{ t - s }{2} + z, v ) \big) dz \ge 0.
+\end{multline*}
+So $\mathfrak a_\rho(\cdot, v)$ is even.
+Passing to the limit with $\rho \to 0$, we obtain that $\mathfrak a(\cdot, v)$ is even.
+
+Finally, for any $s$, $t$ and $v$, we have
+$$\mathfrak a( s, v ) + \mathfrak a( t, v ) = \mathfrak a( s, v ) + \mathfrak a( -t, v ) \ge 2 \mathfrak a\big( \frac{ s + t }{2}, v \big).$$
+\end{proof}
+
+
+\subsection{The proof of the inequality (\ref{toproveSymm})}
+\label{sobolevSymm}
+
+\begin{thm}
+\label{symmThm}
+Suppose that $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is non-negative,
+and the continuous weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$
+is even and convex with respect to the first argument.
+Then the inequality $(\ref{toproveSymm})$ holds.
+\end{thm}
+
+\begin{proof}
+As we mentioned in the introduction,
+the statement is proved for Lipschitz functions $u$ in paper \cite{Br}.
+Thus, we need only to extend it to $\W$-functions.
+
+The case of convex weight is much simpler than the case considered in Section \ref{moveForth}.
+Namely, the function $\mathfrak a$ decreases for $x < 0$ and increases for $x > 0$ regardless of $v$.
+Thus, the assumption $(H6)$ of Theorem \ref{mainThm} is satisfied.
+To fulfil the assumption $(H7)$ we apply Lemma \ref{zeroApprox} with $W = \{ u(0) \}$.
+Then we can use immediately Step 1 of the proof of Theorem \ref{mainThm}.
+This gives us (\ref{toproveSymm}).
+Since Step 1 uses assumptions $(H1)$, $(H6)$, $(H7)$ only,
+we do not need to check $(H2)-(H5)$.
+\end{proof}
+
+\vskip 40pt
+
+We are very grateful to Professor V.~G.~Osmolovskii for valuable comments,
+which helped to improve the text of the paper.
+
+Authors were supported by RFBR grant 12-01-00439.
+The second author was also supported by St. Petersburg University grant 6.38.670.2013.
+
 \begin{thebibliography}{99}
 \bibitem{ASC} G.~Alberti,~F.~Serra~Cassano: Non-occurrence of gap for one-dimentional autonomous functionals,
 Proceedings of ``Calc. Var., Homogen. and Cont. Mech.'', G.~Bouchitt\'e, G.~Buttazzo, P.~Suquet, ed.: World Sci., Singapore, p.~1--17, 1994
 \bibitem{Br} F.~Brock: Weighted Dirichlet-type inequalities for Steiner symmetrization,
 Calc. Var. and PDEs~{\bf8}, p.~15--25, 1999
 \bibitem{Kawohl} B.~Kawohl: Rearrangements and convexity of level sets in PDE,
-Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~p.
+Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~pp.
 \bibitem{Lan} R.~Landes: Some remarks on rearrangements and functionals with non-constant density,
-Math.~Nachr.~{\bf280}, \No5--6, p.~560--570, 2007
-\bibitem{DAN} С.~Банкевич, А.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
-Доклады Академии Наук~{\bf438}, \No1, с.~11--13, 2011
-\bibitem{BGH} Дж.~Буттаццо, М.~Джаквинта, С.~Гильдебрандт: Одномерные вариационные задачи. Введение,
-Научная книга, Новосибирск, 2002. 246~с.
-%G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt: One-dimensional Variational Problems,
-%Oxford Lecture Series in Mathematics and Its Applications {\bf15}, 1998. 272 p.
-\bibitem{Zh1} В.~В.~Жиков: О весовых соболевских пространствах,
-Матем. сб., {\bf189}, \No8, с.~27--58, 1998
-\bibitem{Zh2} В.~В.~Жиков: К проблеме предельного перехода в дивергентных неравномерно эллиптических уравнениях,
-Функц. анализ и его прил., {\bf35}, \No1, с.~23--39, 2001
-\bibitem{LL} Э.~Либ, М.~Лосс: Анализ, Научная книга, Новосибирск, 1998. 276~с.
-\bibitem{Rudin} У.~Рудин: Функциональный анализ, Мир, М., 1975. 444~с.
-\bibitem{Fed} Г.~Федерер: Геометрическая теория меры, Наука, М., 1987. 760~с.
-\bibitem{Gariepy} Л.~К.~Эванс, Р.~Ф.~Гариепи: Теория меры и тонкие свойства функций, Научная книга, Новосибирск, 2002. 216~с.
-%\bibitem{Gariepy} L.~C.~Evans, R.~F.~Gariepy: 
-%\bibitem{ET} И.~Экланд, Р.~Темам: Выпуклый анализ и вариационные проблемы, Мир, М., 1979. 400~с.
+Math.~Nachr.~{\bf280}, N5--6, p.~560--570, 2007
+\bibitem{DAN} S.~Bankevich, A.~Nazarov: A generalization of the P\'olya-Szeg\"o inequality for one-dimensional functionals,
+Doklady RAN~{\bf438}, N1, p.~11--13, 2011 (Russian).
+
+English translation in:
+Doklady Mathematics~{\bf83}, N3, p.~287--289, 2011
+\bibitem{BGH} G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt: One-Dimentional Variational Problems. An Introduction,
+Oxford Lecture Series in Mathematics and Its Applications {\bf15},
+Oxford University Press, New York, 1998. viii+262~pp.
+\bibitem{Zh1} V.~Zhikov: Weighted Sobolev spaces,
+Mat. Sb.~{\bf189}, N8, p.~27--58, 1998 (Russian).
+
+English translation in:
+Sb. Math.~{\bf189}, N8, p.~1139--1170, 1998
+\bibitem{Zh2} V.~Zhikov: To the Problem of Passage to the Limit in Divergent Nonuniformly Elliptic Equations,
+Funkts. Anal. Prilozh.~{\bf35}, N1, p.~23--39, 2001 (Russian).
+
+English translation in:
+Funct. Anal. Appl.~{\bf35}, N1, p.~19--33, 2001
+\bibitem{LL} E.~Lieb, M.~Loss: Analysis, second edition,
+American Mathematical Soc., 2001. 346~pp.
+\bibitem{Rudin} W.~Rudin: Functional analysis,
+McGraw-Hill, 1991. 424~pp.
+\bibitem{Gariepy} L.~C.~Evans, R.~F.~Gariepy: Measure Theory and Fine Properties of Functions,
+CRC Press, 1991. 288~pp.
 
 \end{thebibliography}
 
