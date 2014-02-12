@@ -16,7 +16,7 @@ there exists a sequence $\{u_k\} \subset Lip[-1, 1]$, such that the relation $(\
 We can assume that $I( \mathfrak a, u ) < \infty$.
 
 We prove the assertion for the functional
-$$I_1( u ) = \int\limits_0^1 F( u(x), \mathfrak a(x, u(x)) |u'(x)| ) \, dx,$$
+$$I_1( u ) = \int\limits_0^1 F\big( u(x), \mathfrak a(x, u(x)) |u'(x)| \big) \, dx,$$
 and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing variable.
 
 We modify the scheme from \cite[Theorem 2.4]{ASC}.
@@ -103,8 +103,8 @@ Finally, $P_h^3 \to 0$ by the absolute continuity of the integral, and the asser
 It remains to show that $I_1( u_h ) \to I_1( u )$.
 
 \begin{multline*}
-I_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) \, dx +\\
-\int\limits_{[0, 1] \cap \phi_h( A_h )} F( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| ) \, dx =: \hat{P_h^1} + \hat{P_h^2}.
+I_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F\big( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| \big) \, dx +\\
+\int\limits_{[0, 1] \cap \phi_h( A_h )} F\big( u_h( x ), \mathfrak a( x, u_h(x) ) |u_h'( x )| \big) \, dx =: \hat{P_h^1} + \hat{P_h^2}.
 \end{multline*}
 Since $u \in \W(0, 1)$ then $u \in L_\infty( [0, 1] )$.
 Denote $\norm{u}_\infty = r$.
@@ -116,9 +116,9 @@ $$M_F = \max\limits_{[-2r, 2r] \times [-M_{\mathfrak a}, M_{\mathfrak a}]} F;\qu
 Further,
 \begin{multline*}
 \hat{P_h^1} = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) }
-	F( u( \phi_h^{-1}( x ) ), \mathfrak a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) \, dx
-\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) \, dz
-\\ = \int\limits_{ [0, 1] } F( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| ) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } \, dz.
+	F\big( u( \phi_h^{-1}( x ) ), \mathfrak a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) \big) \, dx
+\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F\big( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| \big) \, dz
+\\ = \int\limits_{ [0, 1] } F\big( u( z ), \mathfrak a( \phi_h( z ), u( z ) ) |u'( z )| \big) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } \, dz.
 \end{multline*}
 The last equality, generally speaking, does not make sense, since $\phi_h( z )$ can take values outside $[0, 1]$.
 Let us define $\mathfrak a( z, u ) = \mathfrak a( 1, u )$ for $z > 1$. Now the expression is correct.
@@ -128,7 +128,7 @@ that is $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ and $A_{h_
 Since $\mathfrak a$ is decreasing on $[0, 1]$ (in fact, on $\phi_h( [0, 1] )$) and $\phi_h( z )$ is decreasing in $h$,
 then $\mathfrak a( \phi_h( z ) )$ is increasing in $h$.
 We apply the monotone convergence theorem and get
-$$\hat{P_h^1} \to \int\limits_{[0, 1]} F( u( z ), \mathfrak a( z, u( z ) ) |u'( z )| ) \, dz.$$
+$$\hat{P_h^1} \to \int\limits_{[0, 1]} F\big( u( z ), \mathfrak a( z, u( z ) ) |u'( z )| \big) \, dz.$$
 
 \end{proof}
 
@@ -138,7 +138,7 @@ provided the weight $\mathfrak a$ is decreasing in $x$ on $[x_0, x_1]$.
 That is there exists $\{u_h\}$, such that
 \begin{gather*}
 u_h(x_0) = u(x_0); \qquad u_h \to u \text{ in } \W(x_0, x_1);\\
-\int\limits_{x_0}^{x_1} F( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} ) \to \int\limits_{x_0}^{x_1} F( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} ).
+\int\limits_{x_0}^{x_1} F\big( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} \big) \to \int\limits_{x_0}^{x_1} F\big( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} \big).
 \end{gather*}
 Similarly, if $\mathfrak a$ is increasing in $x$, the same works for functions $u$ pinned at the right end of the segment.
 \end{rem}

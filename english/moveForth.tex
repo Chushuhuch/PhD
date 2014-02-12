@@ -112,12 +112,12 @@ Then
 $$
 \begin{aligned}
 I(u^{-1}(W_1), \mathfrak b_{\ell}, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
-I(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F(u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)|) \, dx.
+I(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F\big(u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)|\big) \, dx.
 \end{aligned}
 $$
 By Proposition \ref{levelDerivative}, $u'(x) = 0$ almost everywhere on $u^{-1}(W_2)$.
 Thus
-$$I(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F(u(x), 0) \, dx = 0.$$
+$$I(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F\big(u(x), 0\big) \, dx = 0.$$
 Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$.
 The second relation in {\it 3)} is proved by the same arguments.
 \end{proof}
@@ -273,9 +273,9 @@ Therefore, $I(\mathfrak d_{\alpha_j}, u^*) \le I(\mathfrak d_{\alpha_j}, u)$.
 Passing to the limit, we get $I(\mathfrak c, u^*) \le I(\mathfrak c, u)$.
 
 Further, for $x \in [-1, 1]$ we have
-$$F(u(x), \mathfrak c_k(x, u(x)) |u'(x)|) \to F(u(x), \mathfrak a(x, u(x)) |u'(x)|)$$
+$$F\big(u(x), \mathfrak c_k(x, u(x)) |u'(x)|\big) \to F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)$$
 while $k \to \infty$.
-Moreover, $F(u(x), \mathfrak a(x, u(x)) |u'(x)|)$ is an integrable majorant for
+Moreover, $F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)$ is an integrable majorant for
 for the left hand integrand.
 By the Lebesgue theorem, we have $I(\mathfrak c_k, u) \to I(\mathfrak a, u)$.
 Since $I(\mathfrak c_k, u^*) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves inequality (\ref{toprove}).

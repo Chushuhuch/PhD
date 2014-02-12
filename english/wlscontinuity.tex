@@ -31,7 +31,7 @@ Thus, the functions $u_m$ converge uniformly and are uniformly bounded outside t
 
 Continuity of $F$ and $\mathfrak a$ implies that for any $\eps$ and $R$, there exists
 $N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
-$$| F( u_m( x ), \mathfrak a( x, u_m( x ) ) M ) - F( u( x ), \mathfrak a( x, u( x ) ) M ) | < \eps.$$
+$$| F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) M \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) | < \eps.$$
 
 Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
 Then
@@ -44,26 +44,26 @@ Note, that $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
 
 We put $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
 For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we have
-$$\Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | < \eps,$$
+$$\Big | F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} \big) \Big | < \eps,$$
 thus
 \begin{equation}
 \label{frDer}
-\int\limits_{L_{m,\eps}} \Big | F( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} ) - F( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} ) \Big | \, dx < 2 \eps.
+\int\limits_{L_{m,\eps}} \Big | F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} \big) \Big | \, dx < 2 \eps.
 \end{equation}
 
 We put $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
 Then $\sum \eps_j = \eps$ and therefore $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
 Since (\ref{frDer}) implies
-$$\int\limits_{L_\eps} \Big | F( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| ) - F( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| ) \Big | \, dx < 2 \eps_j,$$
+$$\int\limits_{L_\eps} \Big | F\big( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| \big) \Big | \, dx < 2 \eps_j,$$
 we obtain
 \begin{multline*}
-A = \lim I (\mathfrak a, u_{m_j}) = \lim \int\limits_{-1}^1 F(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |) \, dx \\
-\ge \varliminf \int\limits_{-1}^1 \chi_{L_\eps}(x) F(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |) \, dx
+A = \lim I (\mathfrak a, u_{m_j}) = \lim \int\limits_{-1}^1 F\big(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |\big) \, dx \\
+\ge \varliminf \int\limits_{-1}^1 \chi_{L_\eps}(x) F\big(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |\big) \, dx
 =: \varliminf J_\eps(u_{m_j}').
 \end{multline*}
 
 The functional
-$$J_\eps( v ) = \int\limits_{-1}^1 \chi_{L_\eps}( x ) F( u( x ), \mathfrak a( x, u( x ) ) |v( x )| ) \, dx$$
+$$J_\eps( v ) = \int\limits_{-1}^1 \chi_{L_\eps}( x ) F\big( u( x ), \mathfrak a( x, u( x ) ) |v( x )| \big) \, dx$$
 is convex.
 Switching to a subsequence $u_k$ again, we can assume that
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
@@ -83,7 +83,7 @@ $$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
 Finally, since $w_k \to u'$ in $L_1(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
 Moreover, since $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$ holds for $x \in L_\eps$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
 Hence,
-$$F( u( x ), \mathfrak a( x, u( x ) ) |w_k( x )| ) \le \max\limits_{(x, M)} F( u( x ), \mathfrak a( x, u( x ) ) M ) < \infty,$$
+$$F\big( u( x ), \mathfrak a( x, u( x ) ) |w_k( x )| \big) \le \max\limits_{(x, M)} F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) < \infty,$$
 where the maximum is taken over a compact set
 $(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
 Therefore, by the Lebesgue theorem, $\lim J_\eps(w_k) = J_\eps(u')$.
