@@ -37,11 +37,11 @@
 
 \title{On monotonicity of some functionals \\ under rearrangements}
 \author{
-S.~Bankevich\\
-\texttt{Sergey.Bankevich@gmail.com}
+S.V.~Bankevich
+\footnote{JetBrains; Sergey.Bankevich@gmail.com}
 \and
-A.~Nazarov\\
-\texttt{al.il.nazarov@gmail.com}
+A.I.~Nazarov
+\footnote{St.Petersburg Dept of Steklov Institute and St.Petersburg State University; al.il.nazarov@gmail.com}
 }
 
 \maketitle
@@ -78,7 +78,7 @@ I(\mathfrak a, u) = \int\limits_{-1}^1 F\big(u(x), \mathfrak a(x, u(x)) \abs{u'(
 \end{equation}
 where $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function, $F \in \mathfrak{F}$.
 
-It is well known that if $\mathfrak a \equiv const$ then the P\'olya-Szeg\"o type inequalities
+It is well known that if $\mathfrak a \equiv const$ then the P\'olya--Szeg\"o type inequalities
 \begin{eqnarray}
 \label{toprove}
 I(\mathfrak a, u^*) & \le & I(\mathfrak a, u), \qquad \qquad u \in \W(-1, 1);\\
@@ -96,13 +96,13 @@ Namely, while proving the inequality (\ref{toproveSymm}) for a natural class of 
 the author of \cite{Br} approximates $u \in \Wf$ with finite integral (\ref{functional})
 using piecewise linear functions $u_k$ and claims that $I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
 However, this assertion is not justified and generally speaking is not true.
-In 1926, M.~A.~Lavrentiev proposed the first example of an integral functional
+In 1926, M.A.~Lavrentiev proposed the first example of an integral functional
 for which the infimum over the domain is strictly less than the infimum over the set of 
 Lipschitz functions.
 Historical overview and simple examples of ``one-dimensional'' 
 functionals for which the Lavrentiev phenomenon takes place can be found e.g. in \cite{BGH}.
 Note that a deep investigation of the Lavrentiev phenomenon for some classes of multidimensional 
-functionals was carried out by V.~V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
+functionals was carried out by V.V.~Zhikov (see, e.g., \cite{Zh1}, \cite{Zh2}).
 
 In the paper \cite{ASC} the absence of the Lavrentiev phenomenon was proved for the functionals
 $I(\mathfrak a, u) = \int_{-1}^1 F(u, u')$. Moreover it was shown that for every $u \in \W(-1, 1)$ 
@@ -128,7 +128,7 @@ Under certain additional assumptions this result was announced in \cite{DAN}.
 We note also that the inequality (\ref{toprove}) was considered in \cite{Lan}
 for functionals similar to (\ref{functional}) under additional constraint $u(-1) = 0$.
 We obtain necessary and sufficient conditions for (\ref{toprove}) under this constraint.
-(The author of \cite{Lan} assumed that the weight $\mathfrak a$ was decreasing in $x$.)
+(The author of \cite{Lan} assumed the weight $\mathfrak a$ decreasing in $x$.)
 
 The article is divided into 8 sections.
 In Section 2 we deduce the assumptions on the weight function $\mathfrak a$ which are necessary for the 
@@ -401,7 +401,7 @@ Then the functions $\max (\mathfrak a_1(x), \mathfrak a_2(x))$ and $\mathfrak a_
 \begin{proof}
 Set $\mathfrak a(x) = \max (\mathfrak a_1(x), \mathfrak a_2(x))$. Then
 \begin{multline*}
-\mathfrak a(1 + s + t) = \max(\mathfrak a_1( 1 + s + t), \mathfrak a_2(1 + s + t)) \le
+\mathfrak a(1 - t + s) = \max(\mathfrak a_1( 1 - t + s), \mathfrak a_2(1 - t + s)) \le
 \max(\mathfrak a_1(s) + \mathfrak a_1(t), \mathfrak a_2(s) + \mathfrak a_2(t)) \\
 \le \max(\mathfrak a_1(s), \mathfrak a_2(s)) + \max(\mathfrak a_1(t), \mathfrak a_2(t)) =
 \mathfrak a(s) + \mathfrak a(t).
@@ -1289,13 +1289,13 @@ Define $\mathfrak a( x, v ) := \mathfrak a( -1, v )$ for $x < -1$ and $\mathfrak
 Consider the mollification of the function:
 $$\mathfrak a_\rho( x, v ) = \int_\Real \omega_\rho ( z ) \mathfrak a( x - z, v ) dz = \int_\Real \omega_\rho ( z ) \mathfrak a( x + z, v ) dz,$$
 where $\omega_\rho(z)$ is a smoothing kernel with radius $\rho$.
-Then
+Then we have for $-1+\rho\le s,t \le 1-\rho$
 \begin{multline*}
 \mathfrak a_\rho( s, v ) + \mathfrak a_\rho( t, v ) - \mathfrak a_\rho( \frac{ s - t }{2}, v ) - \mathfrak a_\rho( \frac{ t - s }{2}, v ) =
 \\ \int_\Real \omega_\rho ( z ) \big( \mathfrak a( s - z, v ) + \mathfrak a( t + z, v ) - \mathfrak a( \frac{ s - t }{2} - z, v ) - \mathfrak a( \frac{ t - s }{2} + z, v ) \big) dz \ge 0.
 \end{multline*}
-So $\mathfrak a_\rho(\cdot, v)$ is even.
-Passing to the limit with $\rho \to 0$, we obtain that $\mathfrak a(\cdot, v)$ is even.
+So $\mathfrak a_\rho(\cdot, v)$ is even on $[-1+\rho, 1-\rho]$.
+Pushing $\rho \to 0$, we obtain that $\mathfrak a(\cdot, v)$ is even.
 
 Finally, for any $s$, $t$ and $v$, we have
 $$\mathfrak a( s, v ) + \mathfrak a( t, v ) = \mathfrak a( s, v ) + \mathfrak a( -t, v ) \ge 2 \mathfrak a\big( \frac{ s + t }{2}, v \big).$$
@@ -1330,7 +1330,7 @@ we do not need to check $(H2)-(H5)$.
 
 \vskip 40pt
 
-We are very grateful to Professor V.~G.~Osmolovskii for valuable comments,
+We are grateful to Professor V.G.~Osmolovskii for valuable comments,
 which helped to improve the text of the paper.
 
 Authors were supported by RFBR grant 12-01-00439.
@@ -1345,9 +1345,8 @@ Calc. Var. and PDEs~{\bf8}, p.~15--25, 1999
 Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~pp.
 \bibitem{Lan} R.~Landes: Some remarks on rearrangements and functionals with non-constant density,
 Math.~Nachr.~{\bf280}, N5--6, p.~560--570, 2007
-\bibitem{DAN} S.~Bankevich, A.~Nazarov: A generalization of the P\'olya-Szeg\"o inequality for one-dimensional functionals,
+\bibitem{DAN} S.~Bankevich, A.~Nazarov: A generalization of the P\'olya--Szeg\"o inequality for one-dimensional functionals,
 Doklady RAN~{\bf438}, N1, p.~11--13, 2011 (Russian).
-
 English translation in:
 Doklady Mathematics~{\bf83}, N3, p.~287--289, 2011
 \bibitem{BGH} G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt: One-Dimentional Variational Problems. An Introduction,
@@ -1355,19 +1354,17 @@ Oxford Lecture Series in Mathematics and Its Applications {\bf15},
 Oxford University Press, New York, 1998. viii+262~pp.
 \bibitem{Zh1} V.~Zhikov: Weighted Sobolev spaces,
 Mat. Sb.~{\bf189}, N8, p.~27--58, 1998 (Russian).
-
 English translation in:
 Sb. Math.~{\bf189}, N8, p.~1139--1170, 1998
 \bibitem{Zh2} V.~Zhikov: To the Problem of Passage to the Limit in Divergent Nonuniformly Elliptic Equations,
 Funkts. Anal. Prilozh.~{\bf35}, N1, p.~23--39, 2001 (Russian).
-
 English translation in:
 Funct. Anal. Appl.~{\bf35}, N1, p.~19--33, 2001
 \bibitem{LL} E.~Lieb, M.~Loss: Analysis, second edition,
 American Mathematical Soc., 2001. 346~pp.
 \bibitem{Rudin} W.~Rudin: Functional analysis,
 McGraw-Hill, 1991. 424~pp.
-\bibitem{Gariepy} L.~C.~Evans, R.~F.~Gariepy: Measure Theory and Fine Properties of Functions,
+\bibitem{Gariepy} L.C.~Evans, R.F.~Gariepy: Measure Theory and Fine Properties of Functions,
 CRC Press, 1991. 288~pp.
 
 \end{thebibliography}

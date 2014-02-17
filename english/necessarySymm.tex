@@ -81,13 +81,13 @@ Define $\mathfrak a( x, v ) := \mathfrak a( -1, v )$ for $x < -1$ and $\mathfrak
 Consider the mollification of the function:
 $$\mathfrak a_\rho( x, v ) = \int_\Real \omega_\rho ( z ) \mathfrak a( x - z, v ) dz = \int_\Real \omega_\rho ( z ) \mathfrak a( x + z, v ) dz,$$
 where $\omega_\rho(z)$ is a smoothing kernel with radius $\rho$.
-Then
+Then we have for $-1+\rho\le s,t \le 1-\rho$
 \begin{multline*}
 \mathfrak a_\rho( s, v ) + \mathfrak a_\rho( t, v ) - \mathfrak a_\rho( \frac{ s - t }{2}, v ) - \mathfrak a_\rho( \frac{ t - s }{2}, v ) =
 \\ \int_\Real \omega_\rho ( z ) \big( \mathfrak a( s - z, v ) + \mathfrak a( t + z, v ) - \mathfrak a( \frac{ s - t }{2} - z, v ) - \mathfrak a( \frac{ t - s }{2} + z, v ) \big) dz \ge 0.
 \end{multline*}
-So $\mathfrak a_\rho(\cdot, v)$ is even.
-Passing to the limit with $\rho \to 0$, we obtain that $\mathfrak a(\cdot, v)$ is even.
+So $\mathfrak a_\rho(\cdot, v)$ is even on $[-1+\rho, 1-\rho]$.
+Pushing $\rho \to 0$, we obtain that $\mathfrak a(\cdot, v)$ is even.
 
 Finally, for any $s$, $t$ and $v$, we have
 $$\mathfrak a( s, v ) + \mathfrak a( t, v ) = \mathfrak a( s, v ) + \mathfrak a( -t, v ) \ge 2 \mathfrak a\big( \frac{ s + t }{2}, v \big).$$
