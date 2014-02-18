@@ -15,7 +15,7 @@ the following inequalities hold
 \end{align*}
 
 {\bf 2.}
-Assume that in addition the function $\mathfrak a$ is even.
+Assume that, in addition, the function $\mathfrak a$ is even.
 Then the following inequalities also hold:
 \begin{align*}
 \sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
@@ -58,8 +58,8 @@ and the period is a divisor of $1 - x_0$.
 
 \begin{proof}
 {\bf 1.}
-Note that if $\mathfrak a(s) = \mathfrak a(t) = 0$ for some $s \le t$
-then the inequality (\ref{almostConcave}) implies
+Note that if $\mathfrak a(s) = \mathfrak a(t) = 0$ for some $s \le t$,
+then inequality (\ref{almostConcave}) implies
 $$0 = \mathfrak a(s) + \mathfrak a(t) \ge \mathfrak a( 1 - (t - s) ) \ge 0$$
 i.e. $\mathfrak a(1 - (t - s)) = 0$.
 Substituting $s = t = x_0$, we obtain $\mathfrak a(1) = 0$.
@@ -68,8 +68,8 @@ Similarly, if $s \le 1 - t$ and $\mathfrak a(s) = \mathfrak a(1 - t) = 0$, then 
 
 Thus, the set of roots of $\mathfrak a$ is symmetric on the segment $[x_0, 1]$ and
 whenever $s$ and $s + \Delta$ ($\Delta \ge 0$) are roots of $\mathfrak a$,
-values $s + k\Delta$ are roots of $\mathfrak a$ too provided $s + k\Delta \le 1$.
-This implies the set of roots of $\mathfrak a$ is periodic on $[x_0, 1]$
+values $s + k\Delta$ are roots of $\mathfrak a$ too, provided $s + k\Delta \le 1$.
+This implies that the set of roots of $\mathfrak a$ is periodic on $[x_0, 1]$
 or coincides with it.
 
 {\bf 2.} The periodicity of zeros of the function $\mathfrak a$ follows from its evenness and from the first assertion of the lemma.
@@ -112,7 +112,7 @@ also satisfies $(\ref{almostConcave})$.
 \begin{proof}
 {\bf 1.}
 Let $s = -1 + \frac{2i}{k}$, $t = -1 + \frac{2j}{k}$.
-Then the inequality $(\ref{almostConcave})$ holds for $\mathfrak a_k$, because it does for $\mathfrak a$,
+Then inequality $(\ref{almostConcave})$ holds for $\mathfrak a_k$, because it does for $\mathfrak a$,
 and their values at these points coincide.
 
 {\bf 2.}
@@ -127,15 +127,15 @@ Thus, the inequality holds for every $s = -1 + \frac{2i}{k}$ and $t \in [-1, 1]$
 Let $s$ and $t$ satisfy $1 - t + s = \frac{2j}{k}$.
 
 Consider the function $h_2(y) = \mathfrak a_k(\frac{2j}{k}) - \mathfrak a_k(s + y) - \mathfrak a_k(t + y)$.
-If we choose $y_0$ such that $s + y_0$ is one of the nodes then $t + y_0$ is also a node.
+If we choose $y_0$ such that $s + y_0$ is one of the nodes, then $t + y_0$ is also a node.
 Therefore, $h_2(y_0) = \mathfrak a(\frac{2j}{k}) - \mathfrak a(s + y_0) - \mathfrak a(t + y_0) \le 0$.
 Since $h_2$ is linear between such $y_0$'s, we obtain $h_2(y) \le 0$ for all admissible $y$.
 
 {\bf 4.}
-Finally, consider $h_3(s) = \mathfrak a_k( 1 - t + s ) - \mathfrak a_k(t) - \mathfrak a_k(s)$ for arbitrary given $t \in [-1, 1]$.
-Note that parts 2 and 3 imply $h_3(s) \le 0$ for any $s$
+Finally, consider $h_3(s) = \mathfrak a_k( 1 - t + s ) - \mathfrak a_k(t) - \mathfrak a_k(s)$ for an arbitrary given $t \in [-1, 1]$.
+Note that the parts 2 and 3 above imply $h_3(s) \le 0$ for any $s$
 such that either $s$ or $1 - t + s$ is a node.
 Since $h_3$ is linear between these points, $h_3(s) \le 0$ for all admissible $s$,
-and the statement follows.
+and the statement follows therefrom.
 \end{proof}
 

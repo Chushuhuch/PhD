@@ -1,12 +1,12 @@
-\section{The conditions necessary for the inequality (\ref{toprove})}
+\section{The conditions necessary for inequality (\ref{toprove})}
 
 \begin{thm}
 \label{necessary}
-{\bf 1}. Let the inequality (\ref{toprove}) hold for some $F \in \mathfrak {F}$
-and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ is even with respect to the first argument,
+{\bf 1}. Let inequality (\ref{toprove}) hold for some $F \in \mathfrak {F}$
+and an arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ is even with respect to the first argument,
 that is $\mathfrak a(x, v) \equiv \mathfrak a(-x, v)$.
 
-{\bf 2}. Let the inequality (\ref{toprove}) hold for arbitrary $F \in \mathfrak{F}$
+{\bf 2}. Let inequality (\ref{toprove}) hold for arbitrary $F \in \mathfrak{F}$
 and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ satisfies
 \begin{equation}
 \label{almostConcave}
@@ -16,7 +16,7 @@ and arbitrary piecewise linear $u$. Then the weight function $\mathfrak a$ satis
 
 \begin{proof}
 {\bf 1.} Suppose that $\mathfrak a(x, v) \not \equiv \mathfrak a(-x, v)$.
-Then there are $\bar{x} \in (-1, 1 )$ and $\bar{v} \in \Real_+$ such that
+Then there is $\bar{x} \in (-1, 1 )$ and $\bar{v} \in \Real_+$ such that
 $$\mathfrak a(\bar{x}, \bar{v}) < \mathfrak a(-\bar{x}, \bar{v}).$$
 Therefore, there is $\eps> 0$ such that
 $$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \quad \Longrightarrow \quad \mathfrak a(x, v) < \mathfrak a(-x, v).$$
@@ -40,12 +40,12 @@ F\big( \bar{v} + \bar{x} - x, \mathfrak a(-x, \bar{v} + \bar{x} - x) \big) \big)
 \end{multline*}
 which contradicts the assumption. Thus, the first statement is proved.
 
-{\bf 2.} Suppose that the assumption (\ref{almostConcave}) is not satisfied.
+{\bf 2.} Suppose that assumption (\ref{almostConcave}) is not satisfied.
 Then, by continuity of $\mathfrak a$, there exist $-1 \le s \le t \le 1$, $\eps, \delta> 0$ and $\bar{v} \in \Real_+$, such that
 for any $0 \le y \le \eps$ and $\bar{v} \le v \le \bar{v} + \eps$ the following inequality holds:
 $$\mathfrak a(s + y, v) + \mathfrak a(t - y, v) + \delta < \mathfrak a( 1 - t + s + 2y, v).$$
 
-Consider the function $u$ (see fig. \ref{uGraph}):
+Consider the function $u$ (see Fig. \ref{uGraph}):
 \begin{equation}
 \label{parLinU}
 \left\{     
@@ -93,7 +93,7 @@ u^*(x) &= \bar{v} + \eps, & x \in [1 - t + s + 2\eps, 1]
 \end{aligned}
 \right.
 $$
-(see fig. \ref{uStarGraph}).
+(see Fig. \ref{uStarGraph}).
 
 \begin{center}
 \begin{picture}(200,90)
@@ -140,7 +140,7 @@ where
 \label{weightMax}
 A=\max \limits_{(x, v)} \mathfrak a,\qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
 \end{equation}
-Therefore, there is an $\alpha> 1$, for which the inequality (\ref{anticonvex})
+Therefore, there is an $\alpha> 1$, for which inequality (\ref{anticonvex})
 still holds.
 For example, any $1 < \alpha < (\log_2 \frac{ 2 A}{A + \delta})^{-1}$ is suitable.
 
@@ -150,14 +150,14 @@ for which $J \le 0$. This contradiction proves the second statement.
 
 \begin{rem}
 \label{landesNecessary}
-It can be seen that proving the second statement of Theorem \ref{necessary}
+It can be seen that, proving the second statement of Theorem \ref{necessary},
 one can replace the function $u$ on the interval $[-1, s]$ by any increasing function.
-Thus, in the case where $u$ is pinned at the left end {\rm ($u(-1) = 0$)}
-the assumption (\ref{almostConcave}) is also necessary for the inequality (\ref{toprove}) to hold.
+Thus, in the case where $u$ is pinned at the left end {\rm ($u(-1) = 0$)},
+assumption (\ref{almostConcave}) is also necessary for inequality (\ref{toprove}) to hold.
 \end{rem}
 
 \begin{rem}
 Let $\mathfrak a(\cdot, v)$ be even.
-Then the assumption (\ref{almostConcave}) is equivalent to subadditivity of the function $\mathfrak a(1 - \cdot, v)$.
-In particular, if a non-negative function $\mathfrak a$ is even and concave with respect to the first argument then it satisfies the assumption (\ref{almostConcave}).
+Then assumption (\ref{almostConcave}) is equivalent to subadditivity of the function $\mathfrak a(1 - \cdot, v)$.
+In particular, if a nonnegative function $\mathfrak a$ is even and concave with respect to the first argument, then it satisfies assumption (\ref{almostConcave}).
 \end{rem}

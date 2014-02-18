@@ -1,15 +1,15 @@
 \section{The inequality for $u \in \W(-1, 1)$ with an additional restriction on weight}
 \label{ASC}
 
-In this section we prove the inequality (\ref{toprove}) under the additional condition:
-weight is monotonic in $x$ for $x \in [-1, 0]$ and $x \in [0, 1]$.
+In this section we prove inequality (\ref{toprove}) under the additional condition:
+the weight is monotonic in $x$ for $x \in [-1, 0]$ and $x \in [0, 1]$.
 
 \begin{lm}
 \label{Wapprox}
 Let $\mathfrak a$ be a continuous function
 and let $\mathfrak a(\cdot, u)$ be increasing on $[-1, 0]$ and decreasing on $[0, 1]$ for all $u \ge 0$.
 Then for any function $u \in \W(-1, 1)$, $u \ge 0$,
-there exists a sequence $\{u_k\} \subset Lip[-1, 1]$, such that the relation $(\ref{convergence})$ holds.
+there exists a sequence $\{u_k\} \subset Lip[-1, 1]$, such that relation $(\ref{convergence})$ holds.
 \end{lm}
 
 \begin{proof}
@@ -17,7 +17,7 @@ We can assume that $I( \mathfrak a, u ) < \infty$.
 
 We prove the assertion for the functional
 $$I_1( u ) = \int\limits_0^1 F\big( u(x), \mathfrak a(x, u(x)) |u'(x)| \big) \, dx,$$
-and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing variable.
+and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing the variable.
 
 We modify the scheme from \cite[Theorem 2.4]{ASC}.
 A part of the proof overlaps with \cite{ASC}, but we present a complete proof here for the reader's convenience.
@@ -34,7 +34,7 @@ Then for any $f \in L_1(\Real)$ we have $f(\phi_h) \to f$ in $L_1(\Real)$.
 
 For $h \in \Nat$ we cover the set $\{ x \in [0, 1]: |u'(x)| > h \}$ with an open set $A_h$.
 Without loss of generality, we can assume that
-$A_{h + 1} \subset A_{h}$ and $\abs{A_h} \to 0$ for $h \to \infty$.
+$A_{h + 1} \subset A_{h}$, and $\abs{A_h} \to 0$ for $h \to \infty$.
 
 Denote by $v_h$ the nonnegative continuous function on $[0, 1]$,
 coinciding with $u$ on $[0, 1] \setminus A_h$ and
@@ -68,7 +68,7 @@ $$\int \abs{\phi_h' - 1} \, dx = \sum\limits_k \Big( \max \Big( \frac{\abs{\beta
 \sum\limits_k \abs{\beta_{h,k}} \to 0.$$
 Thus $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
 
-Consider now $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- the restriction to $[0, 1]$ of the inverse to $\phi_h$.
+Consider now $\phi_h^{-1}: [0, 1] \to [0, 1]$, the restriction to $[0, 1]$ of the inverse to $\phi_h$.
 Then
 $$
 \begin{aligned}
@@ -124,7 +124,7 @@ The last equality, generally speaking, does not make sense, since $\phi_h( z )$ 
 Let us define $\mathfrak a( z, u ) = \mathfrak a( 1, u )$ for $z > 1$. Now the expression is correct.
 Note that $\chi_{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ increases,
 since sets $\phi_h^{-1}( [0, 1] )$ increase and sets $A_h$ decay,
-that is $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ and $A_{h_1} \supset A_{h_2}$ for $h_1 \le h_2$.
+i.e. $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ and $A_{h_1} \supset A_{h_2}$ for $h_1 \le h_2$.
 Since $\mathfrak a$ is decreasing on $[0, 1]$ (in fact, on $\phi_h( [0, 1] )$) and $\phi_h( z )$ is decreasing in $h$,
 then $\mathfrak a( \phi_h( z ) )$ is increasing in $h$.
 We apply the monotone convergence theorem and get
@@ -135,7 +135,7 @@ $$\hat{P_h^1} \to \int\limits_{[0, 1]} F\big( u( z ), \mathfrak a( z, u( z ) ) |
 \begin{rem}
 Obviously, the proof works for any interval $[x_0, x_1]$ with function $u$ pinned at $x_0$,
 provided the weight $\mathfrak a$ is decreasing in $x$ on $[x_0, x_1]$.
-That is there exists $\{u_h\}$, such that
+This means that there exists $\{u_h\}$, such that
 \begin{gather*}
 u_h(x_0) = u(x_0); \qquad u_h \to u \text{ in } \W(x_0, x_1);\\
 \int\limits_{x_0}^{x_1} F\big( u_h(x), \mathfrak a(x, u_h(x)) \abs{u_h'(x)} \big) \to \int\limits_{x_0}^{x_1} F\big( u(x), \mathfrak a(x, u(x)) \abs{u'(x)} \big).
@@ -145,7 +145,7 @@ Similarly, if $\mathfrak a$ is increasing in $x$, the same works for functions $
 
 \begin{cor}
 Suppose that the function $\mathfrak a$ is continuous, even in $x$, decreasing on $[0, 1]$ and satisfies $(\ref{almostConcave})$.
-Then for every $u \in \W(-1, 1)$ the inequality (\ref{toprove}) holds.
+Then for every $u \in \W(-1, 1)$ inequality (\ref{toprove}) holds.
 \end{cor}
 
 \begin{proof}

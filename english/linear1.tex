@@ -1,20 +1,20 @@
 \section{The result for piecewise linear functions}
 
 \rm
-In this section we prove the inequality (\ref{toprove}) for piecewise linear functions.
+In this section we prove inequality (\ref{toprove}) for piecewise linear functions.
 Without loss of generality, we assume that $F(\cdot, 0) \equiv 0$.
 
 \begin{thm}
 \label{linth}
 Let the function $\mathfrak a$ be even and satisfy the condition $(\ref{almostConcave})$.
-If $u$ is a nonnegative piecewise linear function then $I(\mathfrak a, u) \ge I(\mathfrak a, u^*)$.
+If $u$ is a nonnegative piecewise linear function, then $I(\mathfrak a, u) \ge I(\mathfrak a, u^*)$.
 \end{thm}
 
 \begin{proof}
 Let $-1 = x_1 < x_2 < \dots < x_K = 1$ be the nodes of $u$.
 Consider the set $U$ equal to the range of $u$ with images of endpoints of linear pieces excluded:
 $U := u( [-1, 1] ) \setminus \{ u(x_1), \dots, u(x_K) \}$.
-It's obvious that the set $U$ is the union of a finite number of intervals $U = \cup_{j = 1}^N G_j$.
+It is obvious that the set $U$ is the union of a finite number of intervals $U = \cup_{j = 1}^N G_j$.
 
 We denote by $m_j$ the number of preimages for $u_0 \in G_j$,
 i.e. the number of solutions of the equation $u(y) = u_0$
@@ -39,7 +39,7 @@ Let $y^*(v) = (u^*)^{-1}(v)$.
 Then $y^*{}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ for $v \in G_j$, as the signs in the expression for
 $y^*$ and signs of $y_k^j{}'$ alternate, and $y^*{}'(v)\ge 0$.
 
-The sets of zeros of $u'(x)$ and $u^*{}'(x)$ can have nonzero measure.
+The sets of zeros of $u'(x)$ and $u^*{}'(x)$ can have a nonzero measure.
 However, they do not contribute to the integral, since $F\big(u(x), 0\big) = 0$.
 
 Consider the remaining parts of the integrals :
@@ -53,7 +53,7 @@ I(\mathfrak a, u^*) = \sum_{j=1}^N \,\int\limits_{(u^*)^{-1}(G_j)} F\big(u^*(x),
 \sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } \, dv.
 \end{multline*}
 
-We fix $j$ and $v$ in the right parts and prove the inequality for integrands.
+We fix $j$ and $v$ in the right parts and prove the inequality for the integrands.
 We denote $b_k := |y_k^j{}'(v)|$, $y_k := y_k^j(v)$, $y^* := y^*(v)$, $m := m_j$.
 Then the assertion takes the form:
 $$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ \mathfrak a(y_k, v) }{b_k} \Big)
@@ -65,12 +65,12 @@ Then it is sufficient to prove $\sum_{k=1}^m \mathfrak a(y_k, v) \ge \mathfrak a
 
 \begin{rem}
 \label{landesLinear}
-In the paper $\cite{Lan}$ the inequality $(\ref{toprove})$ is proved under the additional assumption $u(-1) = 0$
+In the paper $\cite{Lan}$ inequality $(\ref{toprove})$ is proved under the additional assumption $u(-1) = 0$
 for the weight functions $\mathfrak a$, decreasing in $x$.
 It is easy to see that under this assumption, the proof of Theorem $\ref{linth}$ works for weights satisfying
 $(\ref{almostConcave})$ without the evenness assumption,
-since in this case $u(-1) < u_0$, and we need only two of the four inequalities,
+since in this case $u(-1) < u_0$, and we only need two of the four inequalities,
 given by the first part of Lemma $\ref{weightSum}$.
-It is also obvious that the assumption $(\ref{almostConcave})$ is weaker than the assumption of $\mathfrak a$ decreasing in $x$.
+It is also obvious that assumption $(\ref{almostConcave})$ is weaker than the assumption of $\mathfrak a$ decreasing in $x$.
 \end{rem}
 

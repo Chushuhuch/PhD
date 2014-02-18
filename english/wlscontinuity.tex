@@ -8,19 +8,19 @@ Let the function $\mathfrak a$ be continuous. Then the functional $I(\mathfrak a
 
 \begin{proof}
 Let $u_m \rightharpoondown u$ in $\W(-1, 1)$.
-Let's denote $A = \varliminf I( \mathfrak a, u_m ) \ge 0$.
+Let us denote $A = \varliminf I( \mathfrak a, u_m ) \ge 0$.
 We are going to prove $I(\mathfrak a, u) \le A$.
 In the case $A = \infty$ the assertion is trivial, so we can assume $A < \infty$.
 Switching to a subsequence, we obtain $A = \lim I( \mathfrak a, u_m )$.
 
-Weak convergence implies, that there exists
+The weak convergence implies, that there exists
 $R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
 Moreover, switching to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
 and $u_m(x) \to u(x)$ almost everywhere.
 Then, by Egorov's theorem, for any $\eps$ there exists a set
 $G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$.
 
-Uniform convergence of $u_m$ implies there exists $K$ such that for each $m>K$
+The uniform convergence of $u_m$ implies that there exists $K$ such that for each $m>K$
 the inequality $\abs{u_m} \le \abs{u} + \eps$ holds in $[-1, 1] \setminus G_\eps^1$.
 Let $G_\eps^2 = \{x \in [-1, 1] \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
 Then
@@ -29,8 +29,8 @@ $$R_0 \ge \int\limits_{-1}^1 \abs{ u(x) } \, dx \ge \int\limits_{G_\eps^2} \abs{
 That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
 Thus, the functions $u_m$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
 
-Continuity of $F$ and $\mathfrak a$ implies that for any $\eps$ and $R$, there exists
-$N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$ then
+The continuity of $F$ and $\mathfrak a$ implies that for any $\eps$ and $R$, there exists
+$N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$, then
 $$| F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) M \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) | < \eps.$$
 
 Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
@@ -97,10 +97,10 @@ Since $\eps > 0$ is arbitrary, $A \ge I(\mathfrak a, u)$ follows.
 \begin{lm}
 \label{uplift}
 Let $B \subset A \subset \W(-1,1)$.
-Let the inequality (\ref{toprove}) hold for any $u \in B$.
+Let inequality (\ref{toprove}) hold for any $u \in B$.
 Suppose that for each $u \in A$
 there is a sequence $u_k \in B$ such that relation (\ref{convergence}) holds.
-Then the inequality (\ref{toprove}) holds for any $u \in A$.
+Then inequality (\ref{toprove}) holds for any $u \in A$.
 \end{lm}
 \begin{proof}
 Let us pick some $u \in A$ and find an appropriating sequence $\{u_k\} \subset B$.
@@ -114,13 +114,13 @@ $$I(\mathfrak a, u^*) \le \liminf I(\mathfrak a, u_k^*) \le \lim I(\mathfrak a, 
 \end{proof}
 
 \begin{cor}
-Let the weight $\mathfrak a$ be continuous, and let the inequality $(\ref{toprove})$ hold for non-negative piecewise linear functions $u$.
-Then it holds for all non-negative Lipschitz functions.
+Let the weight $\mathfrak a$ be continuous, and let inequality $(\ref{toprove})$ hold for nonnegative piecewise linear functions $u$.
+Then it holds for all nonnegative Lipschitz functions.
 \end{cor}
 \begin{proof}
 By Theorem 1 in Section 6.6 \cite{Gariepy}, any Lipschitz function $u$ can be approximated by $u_k \in C^1[-1, 1]$ such that
 $$u_k \rightrightarrows u, \qquad u_k' \to u' \text{ a.e.}, \qquad |u_k'| \le const.$$
-By the Lebesgue theorem relation (\ref{convergence}) holds.
+Relation (\ref{convergence}) holds by the Lebesgue theorem.
 In turn, $u_k$ can be approximated in the same way by piecewise linear functions.
 Using Theorem \ref{linth} and applying Lemma \ref{uplift}, we complete the proof.
 \end{proof}
