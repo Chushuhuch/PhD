@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1dimRus/1dimRus.iml" filepath="$PROJECT_DIR$/1dimRus/1dimRus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhD.iml" filepath="$PROJECT_DIR$/PhD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/english/english.iml" filepath="$PROJECT_DIR$/english/english.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi/multi.iml" filepath="$PROJECT_DIR$/multi/multi.iml" />
+    </modules>
+  </component>
+</project>
+
