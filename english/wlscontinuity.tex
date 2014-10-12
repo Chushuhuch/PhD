@@ -1,5 +1,7 @@
 \section{Extension of class of functions for which inequality (\ref{toprove}) holds}
-The next statement is rather standard. However, we give a full proof for the reader's convenience.
+The next statement is more or less standard, see e.g. \cite[??]{BGH}.
+However, the set $\{u: I(\mathfrak a, u) < \infty\}$ is not even convex subset of $\W(-1, 1)$.
+Thus we give here a full proof for the reader's convenience.
 
 \begin{lm}
 Let the function $\mathfrak a$ be continuous. Then the functional $I(\mathfrak a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$.
@@ -15,7 +17,7 @@ Switching to a subsequence, we obtain $A = \lim I( \mathfrak a, u_m )$.
 
 The weak convergence implies, that there exists
 $R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
-Moreover, switching to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
+Moreover, switching to a subsequence, we can assume that $u_m \to u$ in $\Ls(-1, 1)$
 and $u_m(x) \to u(x)$ almost everywhere.
 Then, by Egorov's theorem, for any $\eps$ there exists a set
 $G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$.
@@ -67,11 +69,11 @@ $$J_\eps( v ) = \int\limits_{-1}^1 \chi_{L_\eps}( x ) F\big( u( x ), \mathfrak a
 is convex.
 Switching to a subsequence $u_k$ again, we can assume that
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
-Since $u_k' \rightharpoondown u'$ in $L_1$, we can choose a sequence of convex combinations of $u_k'$,
+Since $u_k' \rightharpoondown u'$ in $\Ls$, we can choose a sequence of convex combinations of $u_k'$,
 which converges to $u'$ strongly (see \cite[Theorem 3.13]{Rudin}).
 Namely, there are $\alpha_{k,l} \ge 0$ for
 $k \in \Nat$, $l \le k$, such that $\sum_{l = 1}^k \alpha_{k,l} = 1$ for every $k$ and
-$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
+$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $\Ls$.
 Also, without loss of generality we can assume that the minimal index $l$ of a nonzero coefficient $\alpha_{k,l}$
 tends to infinity as $k$ tends to infinity.
 Then
@@ -80,7 +82,7 @@ $$\lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ).$$
 By the convexity of $J_\eps$, we have
 $$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
 
-Finally, since $w_k \to u'$ in $L_1(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
+Finally, since $w_k \to u'$ in $\Ls(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
 Moreover, since $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$ holds for $x \in L_\eps$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
 Hence,
 $$F\big( u( x ), \mathfrak a( x, u( x ) ) |w_k( x )| \big) \le \max\limits_{(x, M)} F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) < \infty,$$
@@ -103,7 +105,7 @@ there is a sequence $u_k \in B$ such that relation (\ref{convergence}) holds.
 Then inequality (\ref{toprove}) holds for any $u \in A$.
 \end{lm}
 \begin{proof}
-Let us pick some $u \in A$ and find an appropriating sequence $\{u_k\} \subset B$.
+Let us pick some $u \in A$ and find an approximating sequence $\{u_k\} \subset B$.
 By hypothesis, $I(\mathfrak a, u_k^*) \le I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
 By \cite[Theorem 1]{Br}
 $$u_k \to u \text{ in } \W(-1, 1) \quad \Longrightarrow \quad \overline{u_k} \rightharpoondown \overline{u} \text{ in } \W(-1, 1).$$

@@ -20,7 +20,7 @@ $$I_1( u ) = \int\limits_0^1 F\big( u(x), \mathfrak a(x, u(x)) |u'(x)| \big) \, 
 and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing the variable.
 
 We modify the scheme from \cite[Theorem 2.4]{ASC}.
-A part of the proof overlaps with \cite{ASC}, but we present a complete proof here for the reader's convenience.
+The first part of the proof overlaps with \cite{ASC}, but we present a complete proof here for the reader's convenience.
 
 We need the following auxiliary assertion.
 
@@ -29,7 +29,7 @@ We need the following auxiliary assertion.
 {\rm \cite[Lemma 2.7]{ASC}.}
 Let $\phi_h: [-1, 1] \to \Real_+$ be a sequence of Lipschitz functions satisfying the conditions:
 $\phi_h' \ge 1$ for almost every $x$ and all $h$, $\phi_h( x ) \to x$ for almost every $x$.
-Then for any $f \in L_1(\Real)$ we have $f(\phi_h) \to f$ in $L_1(\Real)$.
+Then for any $f \in \Ls(\Real)$ we have $f(\phi_h) \to f$ in $\Ls(\Real)$.
 \end{prop}
 
 For $h \in \Nat$ we cover the set $\{ x \in [0, 1]: |u'(x)| > h \}$ with an open set $A_h$.
@@ -48,7 +48,7 @@ $$\alpha_{h,k} := \abs{\Omega_{h,k}}, \quad
 \beta_{h,k} := v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-).$$
 Then $v'_h = \frac{\beta_{h,k}}{\alpha_{h,k}}$ in $\Omega_{h,k}$.
 Note that
-$$\sum_k \abs{\beta_{h,k}} \le \int\limits_{A_h} \abs{u'} \, dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
+$$\sum_k \abs{\beta_{h,k}} \le \int\limits_{A_h} \abs{u'} \, dx \le \norm{u'}_{\Ls(-1, 1)}< \infty,$$
 and hence
 $\sum_k \abs{\beta_{h,k}} \to 0$ as $h \to 0$ by the Lebesgue theorem.
 
@@ -63,7 +63,7 @@ $$
 
 Note that $\int_0^1 \abs{\phi_h'} \, dx \le 1 + \sum_k \abs{\beta_{h,k}} < \infty$.
 
-Next, $\phi_h' \to 1$ in $L_1(0, 1)$:
+Next, $\phi_h' \to 1$ in $\Ls(0, 1)$:
 $$\int \abs{\phi_h' - 1} \, dx = \sum\limits_k \Big( \max \Big( \frac{\abs{\beta_{h,k}}}{\alpha_{h,k}}, 1 \Big) - 1 \Big) \alpha_{h,k} \le
 \sum\limits_k \abs{\beta_{h,k}} \to 0.$$
 Thus $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
@@ -89,7 +89,7 @@ Thus, $u_h$ is Lipschitz since $u'$ is bounded in $[0, 1] \setminus A_h$.
 
 We claim that $u_h \to u$ in $\W(0, 1)$. Indeed, it is sufficient to estimate
 
-$$\norm{u_h' - u'}_{L_1} \le \int\limits_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} + 
+$$\norm{u_h' - u'}_{\Ls} \le \int\limits_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} +
 \int\limits_{[0, 1] \cap \phi_h(A_h)} \abs{u_h'} + \int\limits_{[0, 1] \cap \phi_h(A_h)} \abs{u'} =: P_h^1 + P_h^2 + P_h^3.$$
 $$P_h^1 = \int\limits_{[0, 1] \setminus \phi_h( A_h )} \abs{u'( \phi_h^{-1} ) - u'} \, dx =
 \int\limits_{\phi_h^{-1} ( [0, 1] ) \setminus A_h} \abs{u' - u'( \phi_h )} \, dz \le

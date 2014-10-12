@@ -30,6 +30,7 @@
 \newcommand{\To}{\longrightarrow}
 \newcommand{\Wf}{\stackrel{o\ }{W_1^1}}
 \newcommand{\W}{W_1^1}
+\newcommand{\Ls}{L_1}
 \newcommand{\sign}{\mathop{\rm sign}\nolimits}
 \newcommand{\dist}{\mathop{\rm dist}\nolimits}
 \newcounter{pictureCounter}
@@ -42,9 +43,14 @@ S.V.~Bankevich
 \and
 A.I.~Nazarov
 \footnote{St.Petersburg Dept of Steklov Institute and St.Petersburg State University; al.il.nazarov@gmail.com}
+\date{}
 }
 
 \maketitle
+
+\begin{center}
+{\it Dedicated to our Teacher, Nina N. Ural'tseva, in occasion of her jubilee.}
+\end{center}
 
 \section*{Abstract}
 
@@ -152,7 +158,7 @@ Section 7 is devoted to the proof of (\ref{toprove}) under necessary conditions 
 Finally, in Section 8, we deal with symmetric rearrangement.
 There we obtain necessary conditions on the weight and complete the proof of (\ref{toproveSymm}).
 
-\section{The conditions necessary for inequality (\ref{toprove})}
+\section{The necessary conditions for inequality (\ref{toprove})}
 
 \begin{thm}
 \label{necessary}
@@ -363,7 +369,7 @@ $$\mathfrak a( t_1 ) + \sum_{k = 2}^n \mathfrak a( t_k ) \ge \mathfrak a( t_1 ) 
 \label{periodicity}
 {\bf 1.} Let $\mathfrak a$ satisfy $(\ref{almostConcave})$.
 If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
-then either $\mathfrak a \Big|_{[x_0, 1]} \equiv 0$
+then either $\mathfrak a \equiv 0$ on $[x_0, 1]$
 or the set of zeros of $\mathfrak a$ is periodic on $[x_0, 1]$
 and the period is a divisor of $1 - x_0$.
 
@@ -536,7 +542,9 @@ It is also obvious that assumption $(\ref{almostConcave})$ is weaker than the as
 
 
 \section{Extension of class of functions for which inequality (\ref{toprove}) holds}
-The next statement is rather standard. However, we give a full proof for the reader's convenience.
+The next statement is more or less standard, see e.g. \cite[??]{BGH}.
+However, the set $\{u: I(\mathfrak a, u) < \infty\}$ is not even convex subset of $\W(-1, 1)$.
+Thus we give here a full proof for the reader's convenience.
 
 \begin{lm}
 Let the function $\mathfrak a$ be continuous. Then the functional $I(\mathfrak a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$.
@@ -552,7 +560,7 @@ Switching to a subsequence, we obtain $A = \lim I( \mathfrak a, u_m )$.
 
 The weak convergence implies, that there exists
 $R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
-Moreover, switching to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
+Moreover, switching to a subsequence, we can assume that $u_m \to u$ in $\Ls(-1, 1)$
 and $u_m(x) \to u(x)$ almost everywhere.
 Then, by Egorov's theorem, for any $\eps$ there exists a set
 $G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$.
@@ -604,11 +612,11 @@ $$J_\eps( v ) = \int\limits_{-1}^1 \chi_{L_\eps}( x ) F\big( u( x ), \mathfrak a
 is convex.
 Switching to a subsequence $u_k$ again, we can assume that
 $\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
-Since $u_k' \rightharpoondown u'$ in $L_1$, we can choose a sequence of convex combinations of $u_k'$,
+Since $u_k' \rightharpoondown u'$ in $\Ls$, we can choose a sequence of convex combinations of $u_k'$,
 which converges to $u'$ strongly (see \cite[Theorem 3.13]{Rudin}).
 Namely, there are $\alpha_{k,l} \ge 0$ for
 $k \in \Nat$, $l \le k$, such that $\sum_{l = 1}^k \alpha_{k,l} = 1$ for every $k$ and
-$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
+$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $\Ls$.
 Also, without loss of generality we can assume that the minimal index $l$ of a nonzero coefficient $\alpha_{k,l}$
 tends to infinity as $k$ tends to infinity.
 Then
@@ -617,7 +625,7 @@ $$\lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ).$$
 By the convexity of $J_\eps$, we have
 $$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
 
-Finally, since $w_k \to u'$ in $L_1(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
+Finally, since $w_k \to u'$ in $\Ls(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
 Moreover, since $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$ holds for $x \in L_\eps$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
 Hence,
 $$F\big( u( x ), \mathfrak a( x, u( x ) ) |w_k( x )| \big) \le \max\limits_{(x, M)} F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) < \infty,$$
@@ -640,7 +648,7 @@ there is a sequence $u_k \in B$ such that relation (\ref{convergence}) holds.
 Then inequality (\ref{toprove}) holds for any $u \in A$.
 \end{lm}
 \begin{proof}
-Let us pick some $u \in A$ and find an appropriating sequence $\{u_k\} \subset B$.
+Let us pick some $u \in A$ and find an approximating sequence $\{u_k\} \subset B$.
 By hypothesis, $I(\mathfrak a, u_k^*) \le I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
 By \cite[Theorem 1]{Br}
 $$u_k \to u \text{ in } \W(-1, 1) \quad \Longrightarrow \quad \overline{u_k} \rightharpoondown \overline{u} \text{ in } \W(-1, 1).$$
@@ -685,7 +693,7 @@ $$I_1( u ) = \int\limits_0^1 F\big( u(x), \mathfrak a(x, u(x)) |u'(x)| \big) \, 
 and the integral over $[-1, 0]$ can be reduced to $I_1$ by changing the variable.
 
 We modify the scheme from \cite[Theorem 2.4]{ASC}.
-A part of the proof overlaps with \cite{ASC}, but we present a complete proof here for the reader's convenience.
+The first part of the proof overlaps with \cite{ASC}, but we present a complete proof here for the reader's convenience.
 
 We need the following auxiliary assertion.
 
@@ -694,7 +702,7 @@ We need the following auxiliary assertion.
 {\rm \cite[Lemma 2.7]{ASC}.}
 Let $\phi_h: [-1, 1] \to \Real_+$ be a sequence of Lipschitz functions satisfying the conditions:
 $\phi_h' \ge 1$ for almost every $x$ and all $h$, $\phi_h( x ) \to x$ for almost every $x$.
-Then for any $f \in L_1(\Real)$ we have $f(\phi_h) \to f$ in $L_1(\Real)$.
+Then for any $f \in \Ls(\Real)$ we have $f(\phi_h) \to f$ in $\Ls(\Real)$.
 \end{prop}
 
 For $h \in \Nat$ we cover the set $\{ x \in [0, 1]: |u'(x)| > h \}$ with an open set $A_h$.
@@ -713,7 +721,7 @@ $$\alpha_{h,k} := \abs{\Omega_{h,k}}, \quad
 \beta_{h,k} := v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-).$$
 Then $v'_h = \frac{\beta_{h,k}}{\alpha_{h,k}}$ in $\Omega_{h,k}$.
 Note that
-$$\sum_k \abs{\beta_{h,k}} \le \int\limits_{A_h} \abs{u'} \, dx \le \norm{u'}_{L_1(-1, 1)}< \infty,$$
+$$\sum_k \abs{\beta_{h,k}} \le \int\limits_{A_h} \abs{u'} \, dx \le \norm{u'}_{\Ls(-1, 1)}< \infty,$$
 and hence
 $\sum_k \abs{\beta_{h,k}} \to 0$ as $h \to 0$ by the Lebesgue theorem.
 
@@ -728,7 +736,7 @@ $$
 
 Note that $\int_0^1 \abs{\phi_h'} \, dx \le 1 + \sum_k \abs{\beta_{h,k}} < \infty$.
 
-Next, $\phi_h' \to 1$ in $L_1(0, 1)$:
+Next, $\phi_h' \to 1$ in $\Ls(0, 1)$:
 $$\int \abs{\phi_h' - 1} \, dx = \sum\limits_k \Big( \max \Big( \frac{\abs{\beta_{h,k}}}{\alpha_{h,k}}, 1 \Big) - 1 \Big) \alpha_{h,k} \le
 \sum\limits_k \abs{\beta_{h,k}} \to 0.$$
 Thus $\phi_h$ satisfies the conditions of Proposition \ref{convToOne}.
@@ -754,7 +762,7 @@ Thus, $u_h$ is Lipschitz since $u'$ is bounded in $[0, 1] \setminus A_h$.
 
 We claim that $u_h \to u$ in $\W(0, 1)$. Indeed, it is sufficient to estimate
 
-$$\norm{u_h' - u'}_{L_1} \le \int\limits_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} + 
+$$\norm{u_h' - u'}_{\Ls} \le \int\limits_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} +
 \int\limits_{[0, 1] \cap \phi_h(A_h)} \abs{u_h'} + \int\limits_{[0, 1] \cap \phi_h(A_h)} \abs{u'} =: P_h^1 + P_h^2 + P_h^3.$$
 $$P_h^1 = \int\limits_{[0, 1] \setminus \phi_h( A_h )} \abs{u'( \phi_h^{-1} ) - u'} \, dx =
 \int\limits_{\phi_h^{-1} ( [0, 1] ) \setminus A_h} \abs{u' - u'( \phi_h )} \, dz \le
@@ -1010,7 +1018,7 @@ are separated by a stripe of $\frac{2}{\ell}$ width with zero values.
 The weight $b_{\ell}$ can change monotonicity along the graph of $u$
 either at the points $x = -1 + \frac{2 i}{k}$ or where the graph crosses a stripe of zero values.
 Note that only a finite number of such crossings can arise since
-$\int |u'|$ gains at least $\frac{2}{\ell}$ at any crossing and $u' \in L_1(-1, 1)$.
+$\int |u'|$ gains at least $\frac{2}{\ell}$ at any crossing and $u' \in \Ls(-1, 1)$.
 
 Thereby, each $\mathfrak b_{\ell}$ satisfies $(H1)-(H6)$. By Step 2, $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
@@ -1215,7 +1223,7 @@ Further steps are unchanged.
 \end{proof}
 
 
-\section{Appendix. The case of symmetric rearrangement}
+\section{The case of symmetric rearrangement}
 
 \subsection{Necessary conditions for the weight}
 
