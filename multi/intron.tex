@@ -1,9 +1,6 @@
 \section{Введение}
 Пусть $\Omega = \omega \times [-1,1] \subset \Real^n$.
 Обозначим $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
-Пусть $\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате.
-$i$ всегда меняется от $1$ до $n - 1$.
-$D_k$ будем обозначать частную производную по $k$-ой координате.
 Рассмотрим измеримую неотрицательную функцию $u$, заданную на $\Omega$.
 Для нее верна формула о послойном представлении.
 Именно, положим $\mathcal{A}_t(x') := \{ y \in [-1,1] :\ u( x', y ) > t \}$.
@@ -12,8 +9,8 @@ $D_k$ будем обозначать частную производную по $k$-ой координате.
 Определим монотонную перестановку измеримого множества $E \subset [-1, 1]$ и
 монотонную перестановку неотрицательной функции $u \in \W(\Omega)$:
 \begin{eqnarray*}
-E^* := [1 - \abs{E}, 1] \qquad
-u^*(x', y) = \int_0^\infty \chi_{\mathcal{A}_t(x')^*} dt
+E^* := [1 - \abs{E}, 1]; \qquad
+u^*(x', y) = \int_0^\infty \chi_{\mathcal{A}_t(x')^*} dt.
 \end{eqnarray*}
 
 Определим множество $\mathfrak{F}$ непрерывных функций $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$,
@@ -22,15 +19,19 @@ u^*(x', y) = \int_0^\infty \chi_{\mathcal{A}_t(x')^*} dt
 Рассмотрим функционал:
 \begin{equation}
 \label{functional}
-I( a, u ) = \int_\Omega F( x', u(x), \norm{ a_i( x', u( x ) ) D_i u( x ), a( x, u( x ) ) D_n u( x ) } ) dx,
+I( a, u ) = \int_\Omega F( x', u(x), \norm{ D u } ) dx,
 \end{equation}
-где $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real$ --- непрерывные функции,
-$F \in \mathfrak{F}$.
+где $F \in \mathfrak{F}$,
+$\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате,
+$$Du = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
+--- градиент $u$ с весом (обратите внимание, что только вес при производной по последней координате, зависит от переменной, по которой производится перестановка),
+$a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real$ --- непрерывные функции.
+Здесь и далее индекс $i$ пробегает от $1$ до $n - 1$.
 
 Хорошо известно, что при $a \equiv const$ справедливо неравенство
 \begin{eqnarray}
 \label{toprove}
-I(a, u^*) &\le& I(a, u), \qquad \qquad u \in \W(-1, 1); \\
+I(a, u^*) &\le& I(a, u), \qquad \qquad u \in \W(\Omega); \\
 \end{eqnarray}
 (см., например, \cite{Kawohl} и цитированную там литературу).
 Кроме того, одномерный случай данного неравенства доказан нами в работе \cite{1dim}.
