@@ -1,5 +1,6 @@
 \section{Введение}
-Пусть $\Omega = \omega \times [-1,1] \subset \Real^n$.
+Пусть $\Omega = \omega \times [-1,1]$,
+где $\omega$ --- ограниченная область в $\Real^{n - 1}$.
 Обозначим $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
 Рассмотрим измеримую неотрицательную функцию $u$, заданную на $\Omega$.
 Для нее верна формула о послойном представлении.
@@ -13,25 +14,25 @@ E^* := [1 - \abs{E}, 1]; \qquad
 u^*(x', y) = \int_0^\infty \chi_{\mathcal{A}_t(x')^*} dt.
 \end{eqnarray*}
 
-Определим множество $\mathfrak{F}$ непрерывных функций $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$,
-выпуклых и возрастающих по третьему аргументу.
+Определим множество $\mathfrak{F}$ непрерывных функций $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$
+(здесь и далее $\Real_+ = [0, \infty)$), выпуклых и возрастающих по третьему аргументу.
 
 Рассмотрим функционал:
 \begin{equation}
 \label{functional}
-I( a, u ) = \int_\Omega F( x', u(x), \norm{ D u } ) dx,
+I( a, u ) = \int_\Omega F( x', u(x), \norm{ D_a u } ) dx,
 \end{equation}
 где $F \in \mathfrak{F}$,
 $\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате,
-$$Du = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
+$$D_a u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
 --- градиент $u$ с весом (обратите внимание, что только вес при производной по последней координате, зависит от переменной, по которой производится перестановка),
 $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real$ --- непрерывные функции.
 Здесь и далее индекс $i$ пробегает от $1$ до $n - 1$.
 
 Хорошо известно, что при $a \equiv const$ справедливо неравенство
-\begin{eqnarray}
+\begin{equation}
 \label{toprove}
-I(a, u^*) &\le& I(a, u), \qquad \qquad u \in \W(\Omega); \\
-\end{eqnarray}
+I(a, u^*) \le I(a, u), \qquad \qquad u \in \W(\Omega)
+\end{equation}
 (см., например, \cite{Kawohl} и цитированную там литературу).
 Кроме того, одномерный случай данного неравенства доказан нами в работе \cite{1dim}.
