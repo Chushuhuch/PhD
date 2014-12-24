@@ -11,7 +11,7 @@
 \usepackage{multirow}
 \newcommand{\Real}{\mathbb R}
 \newcommand{\Nat}{\mathbb N}
-\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\norm}[1]{\pmb{|}#1\pmb{|}}
 \newcommand{\abs}[1]{\left\vert#1\right\vert}
 \newcommand{\bignorm}[1]{\bigl\Vert#1\bigr\Vert}
 \newcommand{\bigabs}[1]{\bigl\vert#1\bigr\vert}
@@ -43,13 +43,13 @@
 Рассмотрим измеримую неотрицательную функцию $u$, заданную на $\Omega$.
 Для нее верна формула о послойном представлении.
 Именно, положим $\mathcal{A}_t(x') := \{ y \in [-1,1] :\ u( x', y ) > t \}$.
-Тогда имеет место равенство $u(x', y) = \int_0^\infty \chi_{\mathcal{A}_t(x')} dt$.
+Тогда имеет место равенство $u(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}_t(x')\}(y) dt$.
 
 Определим монотонную перестановку измеримого множества $E \subset [-1, 1]$ и
 монотонную перестановку неотрицательной функции $u \in \W(\Omega)$:
 \begin{eqnarray*}
 E^* := [1 - \abs{E}, 1]; \qquad
-u^*(x', y) = \int_0^\infty \chi_{\mathcal{A}_t(x')^*} dt.
+u^*(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}^*_t(x')\}(y) dt.
 \end{eqnarray*}
 
 Определим множество $\mathfrak{F}$ непрерывных функций $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$
@@ -63,8 +63,8 @@ I( a, u ) = \int_\Omega F( x', u(x), \norm{ D_a u } ) dx,
 где $F \in \mathfrak{F}$,
 $\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате,
 $$D_a u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
---- градиент $u$ с весом (обратите внимание, что только вес при производной по последней координате, зависит от переменной, по которой производится перестановка),
-$a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real$ --- непрерывные функции.
+--- градиент $u$ с весом (обратите внимание, что только вес при $D_n$, зависит от $x_n$),
+$a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real_+$ --- непрерывные ограниченные функции.
 Здесь и далее индекс $i$ пробегает от $1$ до $n - 1$.
 
 Хорошо известно, что при $a \equiv const$ справедливо неравенство
@@ -73,7 +73,21 @@ $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \
 I(a, u^*) \le I(a, u), \qquad \qquad u \in \W(\Omega)
 \end{equation}
 (см., например, \cite{Kawohl} и цитированную там литературу).
-Кроме того, одномерный случай данного неравенства доказан нами в работе \cite{1dim}.
+В работе \cite{Br} неравенство (\ref{toprove}) рассматривалось для случая симметризации по $x_n$.
+Автор доказал неравенство для кусочно линейных функций $u$, после чего перешел к пределу.
+Однако, переход должным образом обоснован не был,
+и можно считать, что результат получен лишь для липшицевых функций $u$.
+В одномерном случае неравенство (\ref{toprove}) рассматривалось в работе \cite{1dim},
+где были получены необходимые и достаточные условия его выполнения.
+В частности, результат работы \cite{Br} был подтвержден для $n = 1$.
+В статье \cite{Lan} рассматривается неравенство (\ref{toprove}) с аналогичным функционалом в двумерном случае.
+Автор получает результат при условии полиномиального ограничения роста функции $F$???.
+В данной статье нам также не удается избавиться от подобных ограничений.
+
+Статья разделена на четыре параграфа.
+В \S2 приведены условия, необходимые для выполнения неравенства (\ref{toprove}).
+В \S3 приведено доказательство неравенства (\ref{toprove}) для кусочно линейных функций $u$.
+\S4 содержит доказательство неравенства в более общих случаях.
 
 \section{Условия, необходимые для выполнения неравенства (\ref{toprove})}
 
@@ -160,14 +174,14 @@ D_n y^*(x', u(x', y)) = \frac{1}{D_n u^*(x',y)}=\sum_{k=1}^{m_j}{|D_n y_k^j (x',
 \begin{multline}
 \label{intu}
 I(u)=\sum_{j=1}^N {
-    \int_{G_j}{
+    \int\limits_{G_j}{
         F( x', u(x), \norm{
             a_i(x',u(x)) D_i u(x), a(x,u(x)) D_n u(x)
         })
     dx}
-} =
-\\ \sum_{j=1}^N{
-    \int_{u(G_j)}{
+}
+\\ = \sum_{j=1}^N{
+    \int\limits_{u(G_j)}{
         \sum_{k=1}^{m_j}{
             F \Big( x', u, \frac{
                 \norm{
@@ -183,13 +197,13 @@ I(u)=\sum_{j=1}^N {
 \label{intus}
 I(u^*)=
 \sum_{j=1}^N{
-    \int_{G_j}{
+    \int\limits_{G_j}{
         F(x', u^*, \norm{
             a_i(x',u^*(x)) D_i u^*(x), a(x,u^*(x)) D_n u^*(x)
         })
     dx}
-} =
-\\ \sum_{j=1}^N {
+}
+\\ = \sum_{j=1}^N {
     \int\limits_{u(G_j)}{
         F \Big( x', u^*, \frac{
             \norm{
@@ -206,54 +220,62 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $c^*_i=D_i y^*$, $y_k=y_k^j(x',u)$,
 
 \begin{multline}
 \label{chain}
-\sum_{k=1}^m{ b_k F(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k}) }
-\overset{a}{\ge} F( \frac{ \sum_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum_{k=1}^m b_k } ) \sum_{k=1}^m b_k \\
-\overset{b}{=}  F( \frac{ \sum_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum_{k=1}^m b_k} ) \sum_{k=1}^m b_k
-\overset{c}{\ge}  F( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} ) \sum_{k=1}^m b_k \\
-\overset{d}{\ge} F( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} ) \sum_{k=1}^m b_k \\
-\overset{e}{=}   F( \frac{ \norm{ \pm a_i \sum_{k = 1}^m ( -1 )^k c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} ) \sum_{k=1}^m b_k
-= F( \frac{ \norm{ a_i c^*_i, a(y^*) } }{\sum_{k=1}^m b_k} ) \sum_{k=1}^m b_k.
+\sum_{k=1}^m{ b_k F\Big(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k}\Big) }
+\overset{a}{\ge} F\Big( \frac{ \sum_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k \\
+\overset{b}{=}  F\Big( \frac{ \sum_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
+\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
+\overset{d}{\ge} F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
+\overset{e}{=}   F\Big( \frac{ \norm{ \pm a_i \sum_{k = 1}^m ( -1 )^k c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
+= F\Big( \frac{ \norm{ a_i c^*_i, a(y^*) } }{\sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k.
 \end{multline}
 Здесь в переходе (a) применено неравенство Йенсена, в переходах (b) и (e) использована четность нормы, в (c) использовано неравенство треугольника,
 в (d) --- лемма \ref{weightSum}.
 
-Из (\ref{chain}) видно, что подынтегральное выражение в (\ref{intu}) больше, либо равно
-подынтегральному выражению в (\ref{intus}).
+Из (\ref{chain}) видно, что подынтегральное выражение в (\ref{intu}) не меньше
+подынтегрального выражения в (\ref{intus}).
 Тем самым, доказательство завершено.
-\end{proof}
+s\end{proof}
 
 \section{Переход к соболевским функциям}
 
 В лемме 1, \cite{1dim} показано, что функционал $I(a, u)$ слабо полунепрерывен снизу в одномерном случае.
-Доказательство многомерного случая ничем не отличается.
+Доказательство многомерного случая ничем не отличается?? (оценка множества большого градиента, непрерывность).
 
 \begin{prop}
 \label{uplift}
 {\rm \cite[Лемма 6]{1dim}.}
-Пусть $A \subset W^1_q(\Omega)$. И пусть $B \subset A$ таково, что
+Пусть $A \subset W^1_1(\Omega)$. И пусть $B \subset A$ таково, что
 $\forall v \in B$ выполнено $I(a, v^*) \le I(a, v)$. Предположим, что для каждого $u \in A$
-найдется последовательность $u_k \in B$ такая, что $u_k \to u$ в $W^1_q(\Omega)$ и
+найдется последовательность $u_k \in B$ такая, что $u_k \to u$ в $W^1_1(\Omega)$ и
 $I(a, u_k) \to I(a, u)$. Тогда $\forall u \in A$ будет выполнено $I(a, u^*) \le I(a, u)$.
 \end{prop}
 
 \begin{thm}
 Пусть функция $a(x', \cdot, u)$ четна и удовлетворяет условию $(\ref{almostConcave})$ для всех $x'$ и $u$.
-Предположим, что для $x' \in \omega, z \in \Real_+, p \in \Real$ для функции $F$ выполнено неравенство $F( x', z, p ) \le C ( 1 + |p|^{q^*} + |z|^q )$.
+
+{\bf 1.} Неравенство (\ref{toprove}) верно для произвольной неотрицательной $u \in Lip(\Omega)$.
+
+{\bf 2.} Предположим, что $\partial \omega \in Lip$ и
+для любых $x' \in \omega, z \in \Real_+, p \in \Real$
+функция $F$ удовлетворяет неравенству $F( x', z, p ) \le C ( 1 + |z|^{q^*} + |p|^q )$, где
+$\frac{1}{q^*} = \frac{1}{q} - \frac{1}{n}$, если $q < n$, либо $q^*$ любое в противном случае.
 Тогда неравенство (\ref{toprove}) верно для произвольной неотрицательной $u \in W^1_q(\Omega)$.
 \end{thm}
 \begin{proof}
-Рассмотрим произвольную $u \in W^1_q(\Omega)$.
+{\bf 1.} Подынтегральное выражение ограничено, тем самым, утверждение очевидно.
+
+{\bf 2.} Рассмотрим произвольную $u \in W^1_q(\Omega)$.
 Для нее можно построить последовательность кусочно линейных функций $u_k$, приближающих ее в $W^1_q(\Omega)$.
 Например, этого можно добиться, приблизив $u$ гладкими функциями, которые, в свою очередь приблизить кусочно линейными.
 
 Тогда, ввиду предложения \ref{uplift}, достаточно добиться $I(a, u_k) \to I(a, u)$.
 
 Переходя к подпоследовательности, можем считать, что $u_k \to u$ и $\nabla u_k \to \nabla u$ почти всюду.
-$u(x)$ ограничена, значит веса $a_i(x', u(x))$ и $a(x, u(x))$ тоже ограничены.
-Тем самым, $\norm{ D_a u } \le C_1 \norm{ \nabla u }$.
-$$F(x', u(x), \norm{ D_a u }) \le C ( 1 + |u(x)|^{q^*} + \norm{ D_a u }^q ) \le C \cdot C_1^q ( 1 + |u(x)|^{q^*} + \norm{ \nabla u }^q )$$
+Веса $a_i(x', u(x))$ и $a(x, u(x))$ ограничены, значит $\norm{ D_a u } \le C_1 \Vert \nabla u \Vert$.
+То есть,
+$$F(x', u(x), \norm{ D_a u }) \le C ( 1 + |u(x)|^{q^*} + \norm{ D_a u }^q ) \le C \cdot C_1^q ( 1 + |u(x)|^{q^*} + \Vert \nabla u \Vert^q )$$
 является мажорантой для $F(x', u(x), \norm{ D_a u })$.
-По неравенству Гальярдо--Ниренберга $\norm{u}_{q^*}^{q^*} \le C_2 \norm{\nabla u}_q^{q^*}$.
+По теореме вложения $\norm{u}_{q^*} \le C_2 \Vert\nabla u\Vert_{W^1_q}$.
 Значит, наша мажоранта суммируема и применима теорема Лебега. Тем самым, сходимость $I(a, u_k) \to I(a, u)$ доказана.
 \end{proof}
 
@@ -261,6 +283,10 @@ $$F(x', u(x), \norm{ D_a u }) \le C ( 1 + |u(x)|^{q^*} + \norm{ D_a u }^q ) \le 
 \bibitem{Kawohl} B.~Kawohl: Rearrangements and convexity of level sets in PDE,
 Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~pp.
 \bibitem{1dim} S.~V.~Bankevich, A.~I.~Nazarov: On monotonicity of some functionals under rearrangements, Calc. Var. and PDEs, 2014, 10.1007/s00526-014-0761-6
+\bibitem{Br} F.~Brock: Weighted Dirichlet-type inequalities for Steiner symmetrization,
+Calc. Var. and PDEs~{\bf8}, p.~15--25, 1999
+\bibitem{Lan} R.~Landes: Some remarks on rearrangements and functionals with non-constant density,
+Math.~Nachr.~{\bf280}, N5--6, p.~560--570, 2007
 \end{thebibliography}
 
 \end{document}
