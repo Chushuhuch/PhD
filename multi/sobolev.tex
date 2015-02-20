@@ -48,11 +48,23 @@ $$F( x', z, p ) \le C ( 1 + |z|^{q^*} + |p|^q ),$$
 тем самым, $u_k(x)$ равномерно ограничены, а значит, и $a_i(x', u_k(x))$ и $a(x, u_k(x))$ равномерно ограничены.
 Поэтому $\norm{ D_a u_k } \le C_1 |\nabla u_k|$.
 То есть,
-$$F(x', u_k(x), \norm{ D_a u_k }) \le C \cdot C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k|^q ) \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u|^q ).$$
-Последнее неравенство выполнено, начиная с некоторого $k$.
-Тем самым, мы получили, что $2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u|^q )$ --- мажоранта для $F(x', u_k(x), \norm{ D_a u_k })$.
+$$F(x', u_k(x), \norm{ D_a u_k }) \le C \cdot C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k|^q ).$$ % \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u|^q ).$$
+
+Рассмотрим множества $A_K$, состоящие из $x$, для которых при всех $k \ge K$ выполнено
+$C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k|^q ) \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u|^q ) \}$.
+Очевидно, что $A_K \subset A_{K + 1}$. Кроме того, поскольку $u_k$ сходятся почти всюду вместе с производными к $u$, то
+$|A_K| \to |\Omega|$. Введем множества $B_K = A_K \setminus A_{K - 1}$ ($B_1 = A_1$).
 По теореме вложения $\Vert u_k \Vert_{q^*} \le C_2 \Vert u_k \Vert_{W^1_q}$.
-Значит, наша мажоранта суммируема, и применима теорема Лебега. Тем самым, сходимость $I(a, u_k) \to I(a, u)$ доказана.
+Тогда на любом $A_K$ и, следовательно, $B_K$, у $F(x', u_k(x), \norm{ D_a u_k })$ есть суммируемая мажоранта и
+$$\int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx \to \int_{B_K} F(x', u(x), \norm{ D_a u }) dx.$$
+Имеем
+\begin{multline*}
+I( a, u ) = \sum_K \int_{B_K} F(x', u(x), \norm{ D_a u }) dx =
+ \sum_K \lim\limits_{k \to \infty} \int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx \\ =
+ \lim\limits_{k \to \infty} \sum_K \int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx =
+ \lim\limits_{k \to \infty} I( a, u_k ) dx.
+\end{multline*}
+Тем самым, сходимость $I(a, u_k) \to I(a, u)$ доказана.
 \end{proof}
 
 Аналогично, с учетом замечаний (\ref{lanNec}) и (\ref{lanLin}), доказывается
