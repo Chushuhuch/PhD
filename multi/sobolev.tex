@@ -3,21 +3,22 @@
 Следующие утверждения доказаны в одномерном случае в работе \cite{1dim}.
 Доказательства в многомерном случае совершенно аналогичны.
 \begin{prop} {\rm \cite[Лемма 5]{1dim}.}
-Функционал $I(a, u)$ слабо полунепрерывен снизу в $W^1_1(\Omega)$.
+Функционал $I( u )$ слабо полунепрерывен снизу в $W^1_1(\Omega)$.
 \end{prop}
 
 \begin{prop}
 \label{uplift}
 {\rm \cite[Лемма 6]{1dim}.}
 Пусть $A \subset W^1_1(\Omega)$. И пусть $B \subset A$ таково, что
-$\forall v \in B$ выполнено $I(a, v^*) \le I(a, v)$. Предположим, что для каждого $u \in A$
+$\forall v \in B$ выполнено $I( v^* ) \le I( v )$. Предположим, что для каждого $u \in A$
 найдется последовательность $u_k \in B$ такая, что $u_k \to u$ в $W^1_1(\Omega)$ и
-$I(a, u_k) \to I(a, u)$. Тогда $\forall u \in A$ будет выполнено $I(a, u^*) \le I(a, u)$.
+$I( u_k ) \to I( u )$. Тогда $\forall u \in A$ будет выполнено $I( u^* ) \le I( u )$.
 \end{prop}
 
 \begin{thm}
 \label{mainThm}
 Пусть функция $a(x', \cdot, u)$ четна и удовлетворяет условию $(\ref{almostConcave})$ для всех $x'$ и $u$.
+Тогда
 
 {\bf 1.} Неравенство (\ref{toprove}) верно для произвольной неотрицательной $u \in Lip(\Omega)$.
 
@@ -32,39 +33,58 @@ $$F( x', z, p ) \le C ( 1 + |z|^{q^*} + |p|^q ),$$
 \begin{proof}
 {\bf 1.} Мы можем приблизить липшицевы $u$ кусочно линейными функциями $u_k$ вместе с производными почти всюду.
 Поскольку $u_k$ равномерно ограничены вместе с производными,
-то и $F(x', u_k(x), \norm{D_a u_k})$ равномерно ограничены.
-Тогда мы можем воспользоваться теоремой Лебега, получив $u_k \to u$ в $W^1_1(\Omega)$ и $I(a, u_k) \to I(a, u)$.
+то и $F(x', u_k(x), \norm{\mathcal{D} u_k})$ равномерно ограничены.
+Тогда мы можем воспользоваться теоремой Лебега, получив $u_k \to u$ в $W^1_1(\Omega)$ и $I( u_k ) \to I( u )$.
 Воспользовавшись предложением \ref{uplift}, получаем требуемое.
 
 {\bf 2.} Рассмотрим произвольную $u \in W^1_q(\Omega)$.
 Для нее можно построить последовательность кусочно линейных функций $u_k$, приближающих ее в $W^1_q(\Omega)$.
 Например, этого можно добиться, приблизив $u$ гладкими функциями, которые, в свою очередь приблизить кусочно линейными.
 
-Тогда, ввиду предложения \ref{uplift}, достаточно добиться $I(a, u_k) \to I(a, u)$.
+Тогда, ввиду предложения \ref{uplift}, достаточно добиться $I( u_k ) \to I( u )$.
 
 Переходя к подпоследовательности, можем считать, что $u_k \to u$ и $\nabla u_k \to \nabla u$ почти всюду.
 Покажем, что веса $a_i(x', u(x))$ и $a(x, u(x))$ ограничены.
 Если $q \le n$, то это выполнено по предположению теоремы. Если же нет, то $W^1_q(\Omega)$ вкладывается в $C(\Omega)$,
 тем самым, $u_k(x)$ равномерно ограничены, а значит, и $a_i(x', u_k(x))$ и $a(x, u_k(x))$ равномерно ограничены.
-Поэтому $\norm{ D_a u_k( x ) } \le C_1 |\nabla u_k( x )|$.
+Поэтому $\norm{ \mathcal{D} u_k( x ) } \le C_1 |\nabla u_k( x )|$.
 То есть,
-$$F(x', u_k(x), \norm{ D_a u_k( x ) }) \le C \cdot C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k|^q ).$$ % \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ).$$
+$$F(x', u_k(x), \norm{ \mathcal{D} u_k( x ) }) \le C \cdot C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k|^q ).$$ % \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ).$$
 
-Рассмотрим множества $A_K$, состоящие из $x$, для которых при всех $k \ge K$ выполнено
-$C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q ) \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ) \}$.
-Очевидно, что $A_K \subset A_{K + 1}$. Кроме того, поскольку $u_k$ сходятся почти всюду вместе с производными к $u$, то
-$|A_K| \to |\Omega|$. Введем множества $B_K = A_K \setminus A_{K - 1}$ ($B_1 = A_1$).
-По теореме вложения $\Vert u_k \Vert_{q^*} \le C_2 \Vert u_k \Vert_{W^1_q}$.
-Тогда на любом $A_K$ и, следовательно, $B_K$, у $F(x', u_k(x), \norm{ D_a u_k })$ есть суммируемая мажоранта и
-$$\int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx \to \int_{B_K} F(x', u(x), \norm{ D_a u }) dx.$$
-Имеем
+Рассмотрим множества $A_m$, состоящие из $x$, для которых при всех $k \ge m$ выполнено
+$1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q \le 2 C ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ) \}$.
+Очевидно, что $A_m \subset A_{m + 1}$. Кроме того, поскольку $u_k$ сходятся почти всюду вместе с производными к $u$, то
+$|A_m| \to |\Omega|$. По теореме вложения $\Vert u_k \Vert_{q^*} \le C_2 \Vert u_k \Vert_{W^1_q}$.
+Тогда на любом $A_K$ у $F(x', u_k(x), \norm{ \mathcal{D} u_k })$ есть суммируемая мажоранта.
+
+Оценим разность
 \begin{multline*}
-I( a, u ) = \sum_K \int_{B_K} F(x', u(x), \norm{ D_a u }) dx =
- \sum_K \lim\limits_{k \to \infty} \int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx \\ =
- \lim\limits_{k \to \infty} \sum_K \int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx =
- \lim\limits_{k \to \infty} I( a, u_k ).
+\Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{\Omega} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big | \\
+\le \Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big |
++ \int_{\Omega \setminus A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx
 \end{multline*}
-Тем самым, сходимость $I(a, u_k) \to I(a, u)$ доказана.
+
+Оценим слагаемые отдельно
+\begin{multline}
+\label{est}
+\Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big | \\
+\le \Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u( x ), \norm{\mathcal{D} u} ) dx \Big | \\
++ \Big | \int_{A_m} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big |
+\end{multline}
+
+Выберем $m(k)$ так, чтобы $\int_{\Omega \setminus A_{m(k)}} F( x', u( x ), \norm{\mathcal{D} u} ) dx < \frac{1}{k}$.
+Тем самым первое слагаемое правой части (\ref{est}) будет стремиться к нулю.
+Второе слагаемое (\ref{est}) будет стремиться к нулю по теореме Лебега.
+
+Осталось оценить
+\begin{multline*}
+\int_{\Omega \setminus A_m( k )} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx
+\le \int_{\Omega \setminus A_m( k )} F( x', u( x ), \norm{\mathcal{D} u} ) dx \\
++ \int_{\Omega \setminus A_m( k )} C \cdot C_1^q ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u( x ) - u_k( x ) )|^q ) dx \\
+\le \frac{1}{k} + C \cdot C_1^q ( | \Omega \setminus A_m( k ) | + \Vert u - u_k \Vert_{W^1_q} ) \to 0.
+\end{multline*}
+
+Тем самым, сходимость $I( u_k ) \to I( u )$ доказана.
 \end{proof}
 
 Аналогично, с учетом замечаний (\ref{lanNec}) и (\ref{lanLin}), доказывается

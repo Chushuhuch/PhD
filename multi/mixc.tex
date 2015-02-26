@@ -48,11 +48,13 @@
 Пусть $\Omega = \omega \times [-1,1]$,
 где $\omega$ --- ограниченная область в $\Real^{n - 1}$.
 Обозначим $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
+
 Напомним теорему о послойном представлении измеримой неотрицательной функции $u$, заданной на $\Omega$
-(см. \cite[Теорему 1.13]{LL}).
+(см. \cite[Теорема 1.13]{LL}).
 Положим $\mathcal{A}_t(x') := \{ y \in [-1,1] :\ u( x', y ) > t \}$.
-Тогда имеет место равенство $u(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}_t(x')\}(y) dt$,
-где $\mathcal{X}\{A\}$ --- характеристическая функция множеста $A$.
+Тогда имеет место равенство
+$$u(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}_t(x')\}(y) dt,$$
+где $\mathcal{X}\{A\}$ --- характеристическая функция множества $A$.
 
 Определим монотонную перестановку измеримого множества $E \subset [-1, 1]$ и
 монотонную перестановку неотрицательной функции $u \in \W(\Omega)$:
@@ -67,19 +69,19 @@ u^*(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}^*_t(x')\}(y) dt.
 Рассмотрим функционал:
 \begin{equation}
 \label{functional}
-I( a, u ) = \int_\Omega F( x', u(x), \norm{ D_a u } ) dx,
+I( u ) = \int_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
 \end{equation}
 где $F \in \mathfrak{F}$,
 $\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате,
-$$D_a u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
+$$\mathcal{D} u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
 --- градиент $u$ с весом (обратите внимание, что только вес при $D_n u$ зависит от $y$),
 $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real_+$ --- непрерывные ограниченные функции.
 Здесь и далее индекс $i$ пробегает от $1$ до $n - 1$.
 
-Хорошо известно, что при $a \equiv const$ справедливо неравенство
+Хорошо известно, что при $a_i = a \equiv 1$ справедливо неравенство
 \begin{equation}
 \label{toprove}
-I(a, u^*) \le I(a, u), \qquad \qquad u \in \W(\Omega), u \ge 0
+I( u^* ) \le I( u ), \qquad \qquad u \in \W(\Omega), u \ge 0
 \end{equation}
 (см., например, \cite{Kawohl} и цитированную там литературу).
 
@@ -90,7 +92,7 @@ I(a, u^*) \le I(a, u), \qquad \qquad u \in \W(\Omega), u \ge 0
 А именно,
 \begin{equation}
 \label{breq}
-I(a, \overline{u}) \le I(a, u), \qquad \qquad u \in \W(\Real^n), u \ge 0,
+I( \overline{u} ) \le I( u ), \qquad \qquad u \in \W(\Real^n), u \ge 0,
 \end{equation}
 где $\overline{u}$ --- симметризация по Штейнеру (симметричная перестановка) функции $u$ по переменной $y$.
 Автор \cite{Br} доказывает неравенство в случае, когда вес $a$ --- четная и выпуклая по $y$ функция.
@@ -102,6 +104,7 @@ I(a, \overline{u}) \le I(a, u), \qquad \qquad u \in \W(\Real^n), u \ge 0,
 В одномерном случае неравенства (\ref{toprove}) и (\ref{breq}) рассматриваются в работе \cite{1dim},
 где получены необходимые и достаточные условия их выполнения.
 В частности, пробел в работе \cite{Br} был закрыт для $n = 1$.
+При некоторых дополнительных ограничениях этот результат был анонсирован в \cite{DAN}
 
 В статье \cite{Lan} рассматривается неравенство (\ref{toprove}) с аналогичным функционалом в двумерном случае
 при дополнительном ограничении $u(\cdot, -1) \equiv 0$.
@@ -167,7 +170,7 @@ a( s ) + a( t ) \ge a( 1 - t + s ), \qquad -1 \le s \le t \le 1.
 
 \begin{lm}
 Пусть функция $a(x', \cdot, u)$ четна и удовлетворяет условию $(\ref{almostConcave})$ для всех $(x', u)$.
-Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I(a, u) \ge I(a, u^*)$.
+Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I( u ) \ge I( u^* )$.
 \end{lm}
 
 \begin{proof}
@@ -203,7 +206,7 @@ D_n y^*(x', u(x', y)) = \frac{1}{D_n u^*(x',y)}=\sum_{k=1}^{m_j}{|D_n y_k^j (x',
 Тогда 
 \begin{multline}
 \label{intu}
-I(u)=\sum_{j=1}^N {
+I( u )=\sum_{j=1}^N {
     \int\limits_{G_j}{
         F( x', u(x), \norm{
             a_i(x',u(x)) D_i u(x), a(x,u(x)) D_n u(x)
@@ -225,7 +228,7 @@ I(u)=\sum_{j=1}^N {
 \end{multline}
 \begin{multline}
 \label{intus}
-I(u^*)=
+I( u^* )=
 \sum_{j=1}^N{
     \int\limits_{G_j}{
         F(x', u^*, \norm{
@@ -279,21 +282,22 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $c^*_i=D_i y^*$, $y_k=y_k^j(x',u)$,
 Следующие утверждения доказаны в одномерном случае в работе \cite{1dim}.
 Доказательства в многомерном случае совершенно аналогичны.
 \begin{prop} {\rm \cite[Лемма 5]{1dim}.}
-Функционал $I(a, u)$ слабо полунепрерывен снизу в $W^1_1(\Omega)$.
+Функционал $I( u )$ слабо полунепрерывен снизу в $W^1_1(\Omega)$.
 \end{prop}
 
 \begin{prop}
 \label{uplift}
 {\rm \cite[Лемма 6]{1dim}.}
 Пусть $A \subset W^1_1(\Omega)$. И пусть $B \subset A$ таково, что
-$\forall v \in B$ выполнено $I(a, v^*) \le I(a, v)$. Предположим, что для каждого $u \in A$
+$\forall v \in B$ выполнено $I( v^* ) \le I( v )$. Предположим, что для каждого $u \in A$
 найдется последовательность $u_k \in B$ такая, что $u_k \to u$ в $W^1_1(\Omega)$ и
-$I(a, u_k) \to I(a, u)$. Тогда $\forall u \in A$ будет выполнено $I(a, u^*) \le I(a, u)$.
+$I( u_k ) \to I( u )$. Тогда $\forall u \in A$ будет выполнено $I( u^* ) \le I( u )$.
 \end{prop}
 
 \begin{thm}
 \label{mainThm}
 Пусть функция $a(x', \cdot, u)$ четна и удовлетворяет условию $(\ref{almostConcave})$ для всех $x'$ и $u$.
+Тогда
 
 {\bf 1.} Неравенство (\ref{toprove}) верно для произвольной неотрицательной $u \in Lip(\Omega)$.
 
@@ -308,39 +312,58 @@ $$F( x', z, p ) \le C ( 1 + |z|^{q^*} + |p|^q ),$$
 \begin{proof}
 {\bf 1.} Мы можем приблизить липшицевы $u$ кусочно линейными функциями $u_k$ вместе с производными почти всюду.
 Поскольку $u_k$ равномерно ограничены вместе с производными,
-то и $F(x', u_k(x), \norm{D_a u_k})$ равномерно ограничены.
-Тогда мы можем воспользоваться теоремой Лебега, получив $u_k \to u$ в $W^1_1(\Omega)$ и $I(a, u_k) \to I(a, u)$.
+то и $F(x', u_k(x), \norm{\mathcal{D} u_k})$ равномерно ограничены.
+Тогда мы можем воспользоваться теоремой Лебега, получив $u_k \to u$ в $W^1_1(\Omega)$ и $I( u_k ) \to I( u )$.
 Воспользовавшись предложением \ref{uplift}, получаем требуемое.
 
 {\bf 2.} Рассмотрим произвольную $u \in W^1_q(\Omega)$.
 Для нее можно построить последовательность кусочно линейных функций $u_k$, приближающих ее в $W^1_q(\Omega)$.
 Например, этого можно добиться, приблизив $u$ гладкими функциями, которые, в свою очередь приблизить кусочно линейными.
 
-Тогда, ввиду предложения \ref{uplift}, достаточно добиться $I(a, u_k) \to I(a, u)$.
+Тогда, ввиду предложения \ref{uplift}, достаточно добиться $I( u_k ) \to I( u )$.
 
 Переходя к подпоследовательности, можем считать, что $u_k \to u$ и $\nabla u_k \to \nabla u$ почти всюду.
 Покажем, что веса $a_i(x', u(x))$ и $a(x, u(x))$ ограничены.
 Если $q \le n$, то это выполнено по предположению теоремы. Если же нет, то $W^1_q(\Omega)$ вкладывается в $C(\Omega)$,
 тем самым, $u_k(x)$ равномерно ограничены, а значит, и $a_i(x', u_k(x))$ и $a(x, u_k(x))$ равномерно ограничены.
-Поэтому $\norm{ D_a u_k( x ) } \le C_1 |\nabla u_k( x )|$.
+Поэтому $\norm{ \mathcal{D} u_k( x ) } \le C_1 |\nabla u_k( x )|$.
 То есть,
-$$F(x', u_k(x), \norm{ D_a u_k( x ) }) \le C \cdot C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k|^q ).$$ % \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ).$$
+$$F(x', u_k(x), \norm{ \mathcal{D} u_k( x ) }) \le C \cdot C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k|^q ).$$ % \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ).$$
 
-Рассмотрим множества $A_K$, состоящие из $x$, для которых при всех $k \ge K$ выполнено
-$C_1^q ( 1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q ) \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ) \}$.
-Очевидно, что $A_K \subset A_{K + 1}$. Кроме того, поскольку $u_k$ сходятся почти всюду вместе с производными к $u$, то
-$|A_K| \to |\Omega|$. Введем множества $B_K = A_K \setminus A_{K - 1}$ ($B_1 = A_1$).
-По теореме вложения $\Vert u_k \Vert_{q^*} \le C_2 \Vert u_k \Vert_{W^1_q}$.
-Тогда на любом $A_K$ и, следовательно, $B_K$, у $F(x', u_k(x), \norm{ D_a u_k })$ есть суммируемая мажоранта и
-$$\int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx \to \int_{B_K} F(x', u(x), \norm{ D_a u }) dx.$$
-Имеем
+Рассмотрим множества $A_m$, состоящие из $x$, для которых при всех $k \ge m$ выполнено
+$1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q \le 2 C ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ) \}$.
+Очевидно, что $A_m \subset A_{m + 1}$. Кроме того, поскольку $u_k$ сходятся почти всюду вместе с производными к $u$, то
+$|A_m| \to |\Omega|$. По теореме вложения $\Vert u_k \Vert_{q^*} \le C_2 \Vert u_k \Vert_{W^1_q}$.
+Тогда на любом $A_K$ у $F(x', u_k(x), \norm{ \mathcal{D} u_k })$ есть суммируемая мажоранта.
+
+Оценим разность
 \begin{multline*}
-I( a, u ) = \sum_K \int_{B_K} F(x', u(x), \norm{ D_a u }) dx =
- \sum_K \lim\limits_{k \to \infty} \int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx \\ =
- \lim\limits_{k \to \infty} \sum_K \int_{B_K} F(x', u_k(x), \norm{ D_a u_k }) dx =
- \lim\limits_{k \to \infty} I( a, u_k ).
+\Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{\Omega} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big | \\
+\le \Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big |
++ \int_{\Omega \setminus A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx
 \end{multline*}
-Тем самым, сходимость $I(a, u_k) \to I(a, u)$ доказана.
+
+Оценим слагаемые отдельно
+\begin{multline}
+\label{est}
+\Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big | \\
+\le \Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u( x ), \norm{\mathcal{D} u} ) dx \Big | \\
++ \Big | \int_{A_m} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big |
+\end{multline}
+
+Выберем $m(k)$ так, чтобы $\int_{\Omega \setminus A_{m(k)}} F( x', u( x ), \norm{\mathcal{D} u} ) dx < \frac{1}{k}$.
+Тем самым первое слагаемое правой части (\ref{est}) будет стремиться к нулю.
+Второе слагаемое (\ref{est}) будет стремиться к нулю по теореме Лебега.
+
+Осталось оценить
+\begin{multline*}
+\int_{\Omega \setminus A_m( k )} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx
+\le \int_{\Omega \setminus A_m( k )} F( x', u( x ), \norm{\mathcal{D} u} ) dx \\
++ \int_{\Omega \setminus A_m( k )} C \cdot C_1^q ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u( x ) - u_k( x ) )|^q ) dx \\
+\le \frac{1}{k} + C \cdot C_1^q ( | \Omega \setminus A_m( k ) | + \Vert u - u_k \Vert_{W^1_q} ) \to 0.
+\end{multline*}
+
+Тем самым, сходимость $I( u_k ) \to I( u )$ доказана.
 \end{proof}
 
 Аналогично, с учетом замечаний (\ref{lanNec}) и (\ref{lanLin}), доказывается
@@ -354,11 +377,13 @@ I( a, u ) = \sum_K \int_{B_K} F(x', u(x), \norm{ D_a u }) dx =
 Я признателен профессору А.~И.~Назарову за постановку задачи, многочисленные ценные замечания и мотивацию.
 
 \hyphenation{СПбГУ}
-Работа поддержана грантом РФФИ 15-01-07650.???
+Работа поддержана грантом РФФИ 15-01-07650.
 
 \begin{thebibliography}{99}
 \bibitem{LL} Э.~Либ, М.~Лосс: Анализ, Научная книга, Новосибирск, 1998. 276~с.
 \bibitem{1dim} S.~V.~Bankevich, A.~I.~Nazarov: On monotonicity of some functionals under rearrangements, Calc. Var. and PDEs, 2014, 10.1007/s00526-014-0761-6
+\bibitem{DAN} С.~Банкевич, А.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
+Доклады Академии Наук~{\bf438}, \No1, с.~11--13, 2011
 \bibitem{Br} F.~Brock: Weighted Dirichlet-type inequalities for Steiner symmetrization,
 Calc. Var. and PDEs~{\bf8}, p.~15--25, 1999
 \bibitem{Kawohl} B.~Kawohl: Rearrangements and convexity of level sets in PDE,

@@ -2,11 +2,13 @@
 Пусть $\Omega = \omega \times [-1,1]$,
 где $\omega$ --- ограниченная область в $\Real^{n - 1}$.
 Обозначим $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
+
 Напомним теорему о послойном представлении измеримой неотрицательной функции $u$, заданной на $\Omega$
-(см. \cite[Теорему 1.13]{LL}).
+(см. \cite[Теорема 1.13]{LL}).
 Положим $\mathcal{A}_t(x') := \{ y \in [-1,1] :\ u( x', y ) > t \}$.
-Тогда имеет место равенство $u(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}_t(x')\}(y) dt$,
-где $\mathcal{X}\{A\}$ --- характеристическая функция множеста $A$.
+Тогда имеет место равенство
+$$u(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}_t(x')\}(y) dt,$$
+где $\mathcal{X}\{A\}$ --- характеристическая функция множества $A$.
 
 Определим монотонную перестановку измеримого множества $E \subset [-1, 1]$ и
 монотонную перестановку неотрицательной функции $u \in \W(\Omega)$:
@@ -21,19 +23,19 @@ u^*(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}^*_t(x')\}(y) dt.
 Рассмотрим функционал:
 \begin{equation}
 \label{functional}
-I( a, u ) = \int_\Omega F( x', u(x), \norm{ D_a u } ) dx,
+I( u ) = \int_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
 \end{equation}
 где $F \in \mathfrak{F}$,
 $\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате,
-$$D_a u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
+$$\mathcal{D} u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
 --- градиент $u$ с весом (обратите внимание, что только вес при $D_n u$ зависит от $y$),
 $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real_+$ --- непрерывные ограниченные функции.
 Здесь и далее индекс $i$ пробегает от $1$ до $n - 1$.
 
-Хорошо известно, что при $a \equiv const$ справедливо неравенство
+Хорошо известно, что при $a_i = a \equiv 1$ справедливо неравенство
 \begin{equation}
 \label{toprove}
-I(a, u^*) \le I(a, u), \qquad \qquad u \in \W(\Omega), u \ge 0
+I( u^* ) \le I( u ), \qquad \qquad u \in \W(\Omega), u \ge 0
 \end{equation}
 (см., например, \cite{Kawohl} и цитированную там литературу).
 
@@ -44,7 +46,7 @@ I(a, u^*) \le I(a, u), \qquad \qquad u \in \W(\Omega), u \ge 0
 А именно,
 \begin{equation}
 \label{breq}
-I(a, \overline{u}) \le I(a, u), \qquad \qquad u \in \W(\Real^n), u \ge 0,
+I( \overline{u} ) \le I( u ), \qquad \qquad u \in \W(\Real^n), u \ge 0,
 \end{equation}
 где $\overline{u}$ --- симметризация по Штейнеру (симметричная перестановка) функции $u$ по переменной $y$.
 Автор \cite{Br} доказывает неравенство в случае, когда вес $a$ --- четная и выпуклая по $y$ функция.
@@ -56,6 +58,7 @@ I(a, \overline{u}) \le I(a, u), \qquad \qquad u \in \W(\Real^n), u \ge 0,
 В одномерном случае неравенства (\ref{toprove}) и (\ref{breq}) рассматриваются в работе \cite{1dim},
 где получены необходимые и достаточные условия их выполнения.
 В частности, пробел в работе \cite{Br} был закрыт для $n = 1$.
+При некоторых дополнительных ограничениях этот результат был анонсирован в \cite{DAN}
 
 В статье \cite{Lan} рассматривается неравенство (\ref{toprove}) с аналогичным функционалом в двумерном случае
 при дополнительном ограничении $u(\cdot, -1) \equiv 0$.
