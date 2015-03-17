@@ -53,42 +53,32 @@ $$F(x', u_k(x), \norm{ \mathcal{D} u_k( x ) }) \le C_2 ( 1 + |u_k(x)|^{q^*} + |\
 
 Рассмотрим множества $A_m$, состоящие из $x$, для которых при всех $k \ge m$ выполнено
 $1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q \le 2 ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q )$.
-Очевидно, что $A_m \subset A_{m + 1}$. Кроме того, поскольку $u_k$ сходятся почти всюду вместе с производными к $u$, то
-$|A_m| \to |\Omega|$. По теореме вложения $\Vert u_k \Vert_{q^*} \le C_3 \Vert u_k \Vert_{W^1_q}$.
-Тогда на любом $A_K$ у $F(x', u_k(x), \norm{ \mathcal{D} u_k })$ есть суммируемая мажоранта.
+Очевидно, что $A_m \subset A_{m + 1}$.
+Кроме того, поскольку $u_k$ сходятся к $u$ почти всюду вместе с производными, имеем
+$|A_m| \to |\Omega|$.
+Тогда
+\begin{eqnarray*}
+\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\le& 2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ), \\
+\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\to& F( x', u( x ), \norm{ \mathcal{D} u_k( x ) } )
+\end{eqnarray*}
+почти всюду.
+По теореме вложения $\Vert u_k \Vert_{q^*} \le C_3 \Vert u_k \Vert_{W^1_q}$.
+Тем самым, мы нашли суммируемую мажоранту и получаем
+$\int_{A_k} \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) dx \to I( u )$ по теореме Лебега .
 
-Покажем, что
+Теперь оценим остаток:
 \begin{multline*}
-\int_{\Omega} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx =
-\int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \\
-+ \int_{\Omega \setminus A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \to
-\int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx.
+\int_{\Omega \setminus A_k} F( x', u_k( x ), \norm{\mathcal{D} u_k( x )} ) dx
+\le \int_{\Omega \setminus A_k} C_2 ( 1 + |u_k( x )|^{q^*} + |\nabla u_k( x )|^q ) dx \\
+\le C_4 \Big( \int_{\Omega \setminus A_k} C_2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ) dx
++ \int_{\Omega \setminus A_k} ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u - u_k )( x )|^q ) \Big) dx.
 \end{multline*}
 
-Имеем
-\begin{multline}
-\label{est}
-\Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big | \\
-\le \Big | \int_{\Omega} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u( x ), \norm{\mathcal{D} u} ) dx \Big | \\
-+ \Big | \int_{A_m} F( x', u( x ), \norm{\mathcal{D} u} ) dx - \int_{A_m} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx \Big |
-\end{multline}
-
-Выберем для определенности $m(k)$ так, чтобы $\int_{\Omega \setminus A_{m(k)}} F( x', u( x ), \norm{\mathcal{D} u} ) dx < \frac{1}{k}$.
-Тем самым первое слагаемое правой части (\ref{est}) будет стремиться к нулю.
-Второе слагаемое (\ref{est}) стремится к нулю по теореме Лебега (на множестве $A_{m(k)}$ мы нашли суммируемую мажоранту).
-
-Осталось оценить
-\begin{multline*}
-\int_{\Omega \setminus A_m( k )} F( x', u_k( x ), \norm{\mathcal{D} u_k} ) dx
-\le \int_{\Omega \setminus A_m( k )} C_2 ( 1 + |u_k( x )|^{q^*} + |\nabla u_k( x )|^q ) dx \\
-\le \int_{\Omega \setminus A_m( k )} C_2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q )) dx \\
-+ \int_{\Omega \setminus A_m( k )} C_2 ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u( x ) - u_k( x ) )|^q ) dx.
-\end{multline*}
 Первое слагаемое стремится к нулю по абсолютной непрерывности интеграла.
 Для второго слагаемого выполнено
 \begin{multline*}
-\int_{\Omega \setminus A_m( k )} C_2 ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u( x ) - u_k( x ) )|^q ) dx \\
-\le C_2 ( | \Omega \setminus A_m( k ) | + \Vert u - u_k \Vert_{W^1_q}^{q^*} + \Vert u - u_k \Vert_{W^1_q}^q ) \to 0
+\int_{\Omega \setminus A_k} ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u - u_k )( x ) )|^q ) dx \\
+\le ( | \Omega \setminus A_m( k ) | + \Vert u - u_k \Vert_{W^1_q}^{q^*} + \Vert u - u_k \Vert_{W^1_q}^q ) \to 0.
 \end{multline*}
 
 Тем самым, сходимость $I( u_k ) \to I( u )$ доказана.
