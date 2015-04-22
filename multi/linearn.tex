@@ -1,7 +1,6 @@
 \section{Доказательство неравенства (\ref{toprove}) для кусочно ли\-ней\-ных функций}
 
 В этом параграфе мы докажем неравенство (\ref{toprove}) для кусочно линейных функций.
-Не умаляя общности, будем считать, что $F(\cdot, \cdot, 0) \equiv 0$.
 
 \begin{lm}
 Пусть функция $a(x', \cdot, u)$ четна и удовлетворяет условию $(\ref{almostConcave})$ для всех $(x', u)$.
@@ -10,7 +9,7 @@
 
 \begin{proof}
 Доказательство следует схеме доказательства теоремы 2 в \cite{1dim}.
-Пусть функция $u$ имеет изломы на множестве $C \subset \Omega$.
+Пусть функция $u$ имеет изломы на множестве $\partial \Omega \subset C \subset \Omega$.
 Возьмем $$U := \{ ( x', u( x', y ) ): y \in (-1, 1), (x', y) \not\in C \}.$$
 Тогда открытое множество $U$ разбивается в объединение конечного числа связных открытых множеств $G_j$.
 Обозначим $m_j$ число прообразов значения $( x', u_0 ) \in G_j$, то есть число решений уравнения $u( x', y ) = u_0$
@@ -91,7 +90,8 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $c^*_i=D_i y^*$, $y_k=y_k^j(x',u)$,
 \sum_{k=1}^m{ b_k F\Big(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k}\Big) }
 \overset{a}{\ge} F\Big( \frac{ \sum_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k \\
 \overset{b}{=}  F\Big( \frac{ \sum_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
-\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
+\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum_{k = 1}^m ( ( -1 )^k a_i c_{ki}, a( y_k ) ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
+= F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
 \overset{d}{\ge} F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
 \overset{e}{=}   F\Big( \frac{ \norm{ \pm a_i \sum_{k = 1}^m ( -1 )^k c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
 = F\Big( \frac{ \norm{ a_i c^*_i, a(y^*) } }{\sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k.

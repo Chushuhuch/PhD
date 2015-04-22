@@ -18,7 +18,8 @@ u^*(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}^*_t(x')\}(y) dt.
 \end{eqnarray*}
 
 ќпределим множество $\mathfrak{F}$ непрерывных функций $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$
-(здесь и далее $\Real_+ = [0, \infty)$), выпуклых и возрастающих по третьему аргументу.
+(здесь и далее $\Real_+ = [0, \infty)$), выпуклых и возрастающих по третьему аргументу,
+удовлетвор€ющих $F( \cdot, \cdot, 0 ) \equiv 0$.
 
 –ассмотрим функционал:
 \begin{equation}
@@ -27,6 +28,7 @@ I( u ) = \int_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
 \end{equation}
 где $F \in \mathfrak{F}$,
 $\norm{\cdot}$ --- некотора€ норма в $\Real^n$, симметрична€ по последней координате,
+то есть удовлетвор€юща€ $\norm{( x', y )} = \norm{( x', -y )}$,
 $$\mathcal{D} u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
 --- градиент $u$ с весом (обратите внимание, что только вес при $D_n u$ зависит от $y$),
 $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real_+$ --- непрерывные функции.

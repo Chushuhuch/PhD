@@ -64,7 +64,8 @@ u^*(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}^*_t(x')\}(y) dt.
 \end{eqnarray*}
 
 Определим множество $\mathfrak{F}$ непрерывных функций $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$
-(здесь и далее $\Real_+ = [0, \infty)$), выпуклых и возрастающих по третьему аргументу.
+(здесь и далее $\Real_+ = [0, \infty)$), выпуклых и возрастающих по третьему аргументу,
+удовлетворяющих $F( \cdot, \cdot, 0 ) \equiv 0$.
 
 Рассмотрим функционал:
 \begin{equation}
@@ -73,6 +74,7 @@ I( u ) = \int_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
 \end{equation}
 где $F \in \mathfrak{F}$,
 $\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате,
+то есть удовлетворяющая $\norm{( x', y )} = \norm{( x', -y )}$,
 $$\mathcal{D} u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
 --- градиент $u$ с весом (обратите внимание, что только вес при $D_n u$ зависит от $y$),
 $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real_+$ --- непрерывные функции.
@@ -122,6 +124,7 @@ I( \overline{u} ) \le I( u ), \qquad \qquad u \in \Wf( \Omega ), u \ge 0,
 
 Кроме того, в данном параграфе мы для простоты опускаем параметры $x'$ и $v$ у функции $a$,
 подразумевая, что все неравенства выполняются для любых $x' \in \omega, v \in \Real_+$.
+В рамках этой договоренности положим $a( x', y, v ) \equiv a( y )$.
 
 \begin{prop}
 {\rm \cite[Теорема 1]{1dim}.}
@@ -166,7 +169,6 @@ a( s ) + a( t ) \ge a( 1 - t + s ), \qquad -1 \le s \le t \le 1.
 \section{Доказательство неравенства (\ref{toprove}) для кусочно ли\-ней\-ных функций}
 
 В этом параграфе мы докажем неравенство (\ref{toprove}) для кусочно линейных функций.
-Не умаляя общности, будем считать, что $F(\cdot, \cdot, 0) \equiv 0$.
 
 \begin{lm}
 Пусть функция $a(x', \cdot, u)$ четна и удовлетворяет условию $(\ref{almostConcave})$ для всех $(x', u)$.
@@ -175,7 +177,7 @@ a( s ) + a( t ) \ge a( 1 - t + s ), \qquad -1 \le s \le t \le 1.
 
 \begin{proof}
 Доказательство следует схеме доказательства теоремы 2 в \cite{1dim}.
-Пусть функция $u$ имеет изломы на множестве $C \subset \Omega$.
+Пусть функция $u$ имеет изломы на множестве $\partial \Omega \subset C \subset \Omega$.
 Возьмем $$U := \{ ( x', u( x', y ) ): y \in (-1, 1), (x', y) \not\in C \}.$$
 Тогда открытое множество $U$ разбивается в объединение конечного числа связных открытых множеств $G_j$.
 Обозначим $m_j$ число прообразов значения $( x', u_0 ) \in G_j$, то есть число решений уравнения $u( x', y ) = u_0$
@@ -256,7 +258,8 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $c^*_i=D_i y^*$, $y_k=y_k^j(x',u)$,
 \sum_{k=1}^m{ b_k F\Big(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k}\Big) }
 \overset{a}{\ge} F\Big( \frac{ \sum_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k \\
 \overset{b}{=}  F\Big( \frac{ \sum_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
-\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
+\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum_{k = 1}^m ( ( -1 )^k a_i c_{ki}, a( y_k ) ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
+= F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
 \overset{d}{\ge} F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
 \overset{e}{=}   F\Big( \frac{ \norm{ \pm a_i \sum_{k = 1}^m ( -1 )^k c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
 = F\Big( \frac{ \norm{ a_i c^*_i, a(y^*) } }{\sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k.
@@ -319,22 +322,38 @@ $$F( x', z, p ) \le C ( 1 + |z|^{q^*} + |p|^q ),$$
 {\bf 2.} Рассмотрим произвольную $u \in W^1_q(\Omega)$.
 Для нее можно построить последовательность кусочно линейных функций $u_k$, приближающих ее в $W^1_q(\Omega)$.
 Например, этого можно добиться, приблизив $u$ гладкими функциями, которые, в свою очередь приблизить кусочно линейными.
+Поясним построение кусочно линейного приближения гладкой функции.
+Поскольку $\partial \Omega \in Lip$,
+гладкую функицию $u$ можно продолжить финитным образом на внутренность большого шара в $\Real^n$.
+Далее шар триангулируется, и значения функции линейно интерполируются.
+Очевидно, в процессе все функции остаются неотрицательными.
 
 Тогда, ввиду предложения \ref{uplift}, достаточно добиться $I( u_k ) \to I( u )$.
+Доказательство этой сходимости можно свести к теореме Красносельского о непрерывности
+оператора Немыцкого (см. \cite[глава 5, параграф 17]{Kr}).
+Однако, для удобства читателя мы приводим здесь рассуждение целиком.
 
-Переходя к подпоследовательности, можем считать, что $u_k \to u$ и $\nabla u_k \to \nabla u$ почти всюду.
 Покажем, что веса $a_i(x', u(x))$ и $a(x, u(x))$ ограничены.
 Если $q \le n$, то это выполнено по предположению теоремы. Если же нет, то $W^1_q(\Omega)$ вкладывается в $C(\Omega)$,
 тем самым, $u_k(x)$ равномерно ограничены, а значит, и $a_i(x', u_k(x))$ и $a(x, u_k(x))$ равномерно ограничены.
 Поэтому $\norm{ \mathcal{D} u_k( x ) } \le C_1 |\nabla u_k( x )|$.
 То есть,
-$$F(x', u_k(x), \norm{ \mathcal{D} u_k( x ) }) \le C_2 ( 1 + |u_k(x)|^{q^*} + |\nabla u_k|^q ).$$ % \le 2 C \cdot C_1^q ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ).$$
+$$F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) \le C_2 ( 1 + |u_k( x )|^{q^*} + |\nabla u_k( x )|^q ).$$
 
-Рассмотрим множества $A_m$, состоящие из $x$, для которых при всех $k \ge m$ выполнено
+%Обозначим
+%$$H( x, ( f( x ), g_i( x ), h( x ) ) ) := F( x', f( x ), \norm{ ( a_i( x', f( x ) ) g_i( x ), a( x, f( x ) ) h( x ) ) } ).$$
+%Заметим, что $( f( x ), g_i( x ), h( x ) ) \mapsto H( x, ( f( x ), g_i( x ), h( x ) ) )$
+%суть оператор Немыцкого,
+%а также $H( x, ( u( x ), D_i u( x ), D_n( x ) ) ) = F( x', u( x ), \norm{ \mathcal{D} u( x ) } )$.
+%Ввиду неравенства (\ref{Fbound}) мы попадаем в условия теоремы Красносельского.
+%Тем самым, $H$ непрерывно действует из $L_{q^*}( \Omega ) \times ( L_q( \Omega ) )^n$ в $L_1( \Omega )$.
+%А значит, $I( u_k ) \to I( u )$.
+
+Рассмотрим множества $A_m$, состоящие из $x \in \Omega$, для которых при всех $k \ge m$ выполнено
 $1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q \le 2 ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q )$.
 Очевидно, что $A_m \subset A_{m + 1}$.
-Кроме того, поскольку $u_k$ сходятся к $u$ почти всюду вместе с производными, имеем
-$|A_m| \to |\Omega|$.
+Переходя к подпоследовательности, можем считать, что $u_k \to u$ и $\nabla u_k \to \nabla u$ почти всюду.
+А значит $|A_m| \to |\Omega|$.
 Тогда
 \begin{eqnarray*}
 \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\le& 2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ), \\
@@ -349,7 +368,7 @@ $\int_{A_k} \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) 
 \begin{multline*}
 \int_{\Omega \setminus A_k} F( x', u_k( x ), \norm{\mathcal{D} u_k( x )} ) dx
 \le \int_{\Omega \setminus A_k} C_2 ( 1 + |u_k( x )|^{q^*} + |\nabla u_k( x )|^q ) dx \\
-\le C_4 \Big( \int_{\Omega \setminus A_k} C_2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ) dx
+\le C_4 \Big( \int_{\Omega \setminus A_k} ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ) dx
 + \int_{\Omega \setminus A_k} ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u - u_k )( x )|^q ) \Big) dx.
 \end{multline*}
 
@@ -372,21 +391,24 @@ $\int_{A_k} \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) 
 \vskip 40pt
 
 Я признателен профессору А.~И.~Назарову за постановку задачи, многочисленные ценные замечания и мотивацию.
+Также я признателен профессору В.~Г.~Осмоловскому за замечания, позволившие улучшить текст статьи.
 
 \hyphenation{СПбГУ}
 Работа поддержана грантом РФФИ 15-01-07650.
 
 \begin{thebibliography}{99}
+\bibitem{DAN} С.~В.~Банкевич, А.~И.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
+Доклады Академии Наук~{\bf438}, \No1, с.~11--13, 2011
+\bibitem{Kr} М.~А.~Красносельский, П.~П.~Забрейко, Е.~И.~Пустыльник, П.~Е.~Соболевский:
+Интегральные операторы в пространствах суммируемых функций, Наука, М., 1966. 500~с.
 \bibitem{LL} Э.~Либ, М.~Лосс: Анализ, Научная книга, Новосибирск, 1998. 276~с.
 \bibitem{1dim} S.~V.~Bankevich, A.~I.~Nazarov: On monotonicity of some functionals under rearrangements, Calc. Var. and PDEs, 2014, 10.1007/s00526-014-0761-6
-\bibitem{DAN} С.~Банкевич, А.~Назаров: Об обобщении неравенства Пойа-Сеге для одномерных функционалов,
-Доклады Академии Наук~{\bf438}, \No1, с.~11--13, 2011
 \bibitem{Br} F.~Brock: Weighted Dirichlet-type inequalities for Steiner symmetrization,
 Calc. Var. and PDEs~{\bf8}, p.~15--25, 1999
 \bibitem{Kawohl} B.~Kawohl: Rearrangements and convexity of level sets in PDE,
 Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 1985. 134~pp.
 \bibitem{Lan} R.~Landes: Some remarks on rearrangements and functionals with non-constant density,
-Math.~Nachr.~{\bf280}, N5--6, p.~560--570, 2007
+Math.~Nachr.~{\bf280}, \No5--6, p.~560--570, 2007
 \end{thebibliography}
 
 \end{document}
