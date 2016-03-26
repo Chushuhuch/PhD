@@ -1,0 +1,85 @@
+\documentclass[12pt,russian]{article}
+\renewcommand{\baselinestretch}{1}
+%\renewcommand{\baselinestretch}{1.5}
+\textwidth=158mm
+\textheight=232mm
+\voffset=-24mm
+%\pagestyle{empty}
+
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{multirow}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\Nat}{\mathbb N}
+\newcommand{\norm}[1]{\pmb{\Vert}#1\pmb{\Vert}}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\bignorm}[1]{\bigl\Vert#1\bigr\Vert}
+\newcommand{\bigabs}[1]{\bigl\vert#1\bigr\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\liminf}{\underline{\lim}}
+\newcommand{\grad}{\triangledown}
+\newcommand{\card}{{\rm card}}
+\newtheorem{thm}{Теорема}
+\newtheorem{prop}{Предложение}
+\newtheorem{lm}{Лемма}
+\newtheorem{rem}{Замечание}
+\newtheorem{cor}{Следствие}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\Wf}{\stackrel{o\ }{W_1^1}}
+\newcommand{\W}{W_1^1}
+\newcommand{\sign}{\mathop{\rm sign}\nolimits}
+\newcommand{\dist}{\mathop{\rm dist}\nolimits}
+\newcounter{pictureCounter}
+\begin{document}
+
+\section{Постановка задачи}
+
+Функционал:
+\begin{equation}
+\label{functional}
+I(u) = \int\limits_{\Real^n} ( 1 + | \grad u(x) |^2 )^{p(y)},
+\end{equation}
+
+где $x = (x_1, \dots, x_{n - 1}, y)$, $p(y) > 0$.
+
+Неравенство:
+\begin{equation}
+\label{toprove}
+I(u^*) \le I(u)
+\end{equation}
+
+\section{Необходимые условия}
+
+Если (\ref{toprove}) выполнено на кусочно линейных одномерных функциях, то функция $$K(u, x) = u ( 1 + { 1 \over u^2 } )^{p(x)}$$ выпукла.
+То есть $K(u, x_1) + K(v, x_2) \ge 2 K({ u + v \over 2 }, { x_1 + x_2 \over 2 } )$.
+
+Если взять $u = v$ и устремить к бесконечности, получим $p(x_1) + p(x_2) \ge p({ x_1 - x_2 \over 2 }) + p({ x_2 - x_1 \over 2 })$.
+Из этого следует четность (см. прошлые работы).
+
+И, опять же, аналогично доказывается выпуклость $p$.
+
+Однако, выпуклось $K$ --- несколько больше.
+В достаточно гладком случае она равносильна неравенству на определитель матрицы вторых производных.
+Которое после преобразований приводится к следующему виду:
+$$q''(x) \ge q'(x)^2 A(q(x), w)$$.
+
+Здесь $q(x) = 2 p(x) - 1$, а $w = {1 \over u^2}$.
+
+%\begin{lm}
+%Если для некоторой константы $k$ выполнено $q''(x) \ge k { q'(x)^2 \over q(x) }$,
+%то функция $
+%\end{lm}
+
+\section{Доказательство в одномерном случае}
+
+\begin{lm}
+Если функция $K$ выпукла, то неравенство (\ref{toprove}) выполнено.
+\end{lm}
+
+
+
+\end{document}
