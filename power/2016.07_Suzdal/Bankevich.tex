@@ -7,8 +7,16 @@
 \textheight=232mm
 \voffset=-24mm
 \pagestyle{empty}
+
+\usepackage{amssymb}
+
+\newcommand{\Wf}{\stackrel{o\ }{W_1^1}}
+\newcommand{\Real}{\mathbb R}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+
 \begin{document}
-\centerline{\large\bf О монотонности некоторых функционалов с переменной нелинейностью Лагранжиана при симметризации}
+\centerline{\large\bf Неравенство типа Пойа-Сеге с переменным показателем суммирования}
 \medskip
 \centerline{\bf Банкевич С.В.}
 \medskip
@@ -16,5 +24,32 @@
 \centerline{\it Sergey.Bankevich@gmail.com}
 \bigskip
 
+Пусть $u \in \Wf([-1,1])$ --- неотрицательная функция.
+Обозначим $u^*$ ее симметричную перестановку.
+Хорошо известно классическое неравенство Пойя-Сегё \cite{PS}:
+для функционала
+$$I(u) = \int\limits_{-1}^1 |u'(x)|^p dx$$
+выполнено
+\begin{equation}
+\label{ineq}
+I(u) \ge I(u^*).
+\end{equation}
 
+Мы рассматриваем функционал
+\begin{equation}
+\label{func}
+I(u) = \int\limits_{-1}^1 ( 1 + |u'(x)|^2 )^{p(x) \over 2} dx \qquad p \in C(-1, 1),\ p(x) \ge 1.
+\end{equation}
+Положим
+$$K(v, x) = |v| \Big(1 + {1 \over v^2}\Big)^{p(x) \over 2} \qquad v \in \Real,\ x \in [-1, 1].$$
+Выпуклость функции $K$ оказывается необходимой для выполнения неравенства (\ref{ineq}) для функционала (\ref{func}).
+Мы показываем достаточность этого условия.
+
+Работа поддержана грантом ???
+
+\begin{thebibliography}{100}
+\bibitem{PS} {\it P\'olya--Szeg\"o}
+Inequalities for the Capacity of a Condenser
+\\ American Journal of Mathematics Vol. 67, No. 1 (Jan., 1945), pp. 1-32
+\end{thebibliography}
 \end{document}
