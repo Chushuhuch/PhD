@@ -1,0 +1,78 @@
+%This is LaTeX2e, MS Windows cp1251 encoding
+\documentclass[draft,reqno,11pt,a4paper]{amsart}
+\usepackage{amscd,amsfonts,amssymb,multicol}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{euscript}
+\newcommand{\abstr}[2]{\hphantom{#1}\bigskip\begin{center}{\bf #1}\\{\sl #2}\protect\nopagebreak\end{center}\protect\nopagebreak\bigskip}
+\oddsidemargin 7,0mm
+\topmargin -12,0mm \textwidth 150mm \textheight 225mm
+\binoppenalty=10000
+\relpenalty=10000
+\newtheorem{Theorem}{Теорема}
+\newtheorem{Lemma}{Лемма}
+\newtheorem{Corollary}{Следствие}
+\newtheorem{Proposition}{Утверждение}
+\theoremstyle{definition}
+\newtheorem{Definition}{Определение}
+\theoremstyle{remark}
+\newtheorem{Remark}{Замечание}
+\newtheorem{Example}{Пример}
+
+\begin{document}
+
+\abstr{
+    О минимизации интегральных функционалов энергетического вида
+}{
+    Банкевич~С.~В. (Sergey.Bankevich@gmail.com, Санкт-Петербургский государственный университет, Россия),
+    Назаров~А.~И. (al.il.nazarov@gmail.com, Санкт-Петербургский государственный университет, Россия),
+}
+
+Пусть $u\in W_1^1([-1,1])$ --- неотрицательная функция. Обозначим $\overline{u}$
+возрастающую перестановку функции $u$, $u^*$ --- ее симметричную перестановку.
+Пусть $F:{\mathbb R} _+\times {\mathbb R}_+ \rightarrow {\mathbb R}$ ---
+неубывающая и выпуклая по второму аргументу непрерывная функция.
+
+Хорошо известно, что если взять $I(u)=\int_{-1}^1 F( u, |u'| )dx$, то
+$I(u^*) \leq I(u)$, равно как и $I(\overline{u}) \leq I(u)$.
+
+В работе \cite{Br} неравенство $I(u^*) \leq I(u)$ доказано для функционалов
+вида
+\begin{equation}
+\label{functional}
+I(u)=\int_{-1}^1 F (u, |a(x,u)u'|)dx
+\end{equation}
+и его многомерных аналогов. При этом функция $a$ предполагается четной и
+выпуклой.
+
+Мы рассматриваем случай монотонной перестановки. Пусть функция $a$ четная по первому
+аргументу и удовлетворяет условию
+\begin{equation*}
+\forall u \in {\mathbb R}, \forall s, t \in [-1, 1] : 1 + s + t \in [-1, 1]
+\end{equation*}
+\begin{equation}
+\label{almostConcave}
+a(s, u) + a(t, u) \ge a(1 + s + t, u).
+\end{equation}
+
+Развивая технику, предложенную в \cite{ASC}, мы устанавливаем неравенство
+$I(\overline{u}) \le I(u)$ для достаточно широкого класса функций $u$.
+Отметим, что наши условия на $a$ и $F$ значительно слабее, чем в \cite{Lan}.
+
+Работа поддержана грантом ...
+
+\begin{thebibliography}{100}
+\bibitem{Br} {\it Brock~F.}
+Weighted Dirichlet-type inequalities for Steiner symmetrization
+// Calc. Var. 8 (1999), p.~15--25
+\bibitem{ASC} {\it Alberti~G., Serra~Cassano~F.}
+Non-occurrence of gap for one-dimentional autonomous functionals
+\\ Proceedings of "Calc. Var., Homogen. and Cont. Mech.",
+Bouchitt\'e~G., Buttazzo~G., Suquet~P., ed.: World Sci., Singapore, 1994, p.~1--17
+\bibitem{Lan} \it{Landes~R.}
+Some remarks on rearrangements and functionals with non-constant density
+\\ Math. Nachr. 280, No.~5--6 (2007), p.~560--570
+\end{thebibliography}
+
+\end{document}
