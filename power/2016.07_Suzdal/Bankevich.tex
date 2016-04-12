@@ -10,46 +10,54 @@
 
 \usepackage{amssymb}
 
+\newtheorem{thm}{Theorem}
 \newcommand{\Wf}{\stackrel{o\ }{W_1^1}}
 \newcommand{\Real}{\mathbb R}
 \renewcommand{\ge}{\geqslant}
 \renewcommand{\le}{\leqslant}
 
 \begin{document}
-\centerline{\large\bf Неравенство типа Пойа-Сеге с переменным показателем суммирования}
+\centerline{\large\bf P\'olya-Szeg\"o type inequality with variable exponent}
 \medskip
-\centerline{\bf Банкевич С.В.}
+\centerline{\bf Bankevich S.}
 \medskip
-\centerline{\it Санкт-Петербургский государственный университет}
+\centerline{\it St. Petersburg State University}
 \centerline{\it Sergey.Bankevich@gmail.com}
 \bigskip
 
-Пусть $u \in \Wf([-1,1])$ --- неотрицательная функция.
-Обозначим $u^*$ ее симметричную перестановку.
-Хорошо известно классическое неравенство Пойя-Сегё \cite{PS}:
-для функционала
-$$I(u) = \int\limits_{-1}^1 |u'(x)|^p dx$$
-выполнено
+Let $u \in \Wf([-1,1])$ be nonnegative.
+Denote its symmetrization as $u^*$.
+Recall classical P\'olya-Szeg\"o \cite{PS} inequality:
 \begin{equation}
 \label{ineq}
-I(u) \ge I(u^*).
+I(u) \ge I(u^*), \quad \mbox{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.
 \end{equation}
+%where
+%$$I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.$$
 
-Мы рассматриваем функционал
+Consider the functionals
 \begin{equation}
-\label{func}
-I(u) = \int\limits_{-1}^1 ( 1 + |u'(x)|^2 )^{p(x) \over 2} dx \qquad p \in C(-1, 1),\ p(x) \ge 1.
+I_1(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \quad
+I_2(u) = \int\limits_{-1}^1 ( 1 + |u'(x)|^2 )^{p(x) \over 2} dx \qquad
+p \in C(-1, 1),\ p(x) \ge 1.
 \end{equation}
-Положим
-$$K(v, x) = |v| \Big(1 + {1 \over v^2}\Big)^{p(x) \over 2} \qquad v \in \Real,\ x \in [-1, 1].$$
-Выпуклость функции $K$ оказывается необходимой для выполнения неравенства (\ref{ineq}) для функционала (\ref{func}).
-Мы показываем достаточность этого условия.
 
-Работа поддержана грантом ???
+\begin{thm}
+Let the inequality $I_1(u) \ge I_1(u^*)$ hold for any piecewise linear function $u$.
+Then ...
+\end{thm}
+
+\begin{thm}
+Let
+$$K(v, x) = |v| \Big(1 + {1 \over v^2}\Big)^{p(x) \over 2} \qquad v \in \Real,\ x \in [-1, 1].$$
+The inequality $I_2(u) \ge I_2(u^*)$ holds for any nonnegative $u \in \Wf([-1, 1])$ if and only if $K$ is convex.
+\end{thm}
+
+The work is supported by 15-01-07650-a grant.
 
 \begin{thebibliography}{100}
 \bibitem{PS} {\it P\'olya--Szeg\"o}
-Inequalities for the Capacity of a Condenser
-\\ American Journal of Mathematics Vol. 67, No. 1 (Jan., 1945), pp. 1-32
+Isoperimetric Inequalities in Mathematical Physics
+\\ Issue 27 of Annals of mathematics studies
 \end{thebibliography}
 \end{document}
