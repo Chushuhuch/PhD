@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
-\usepackage[T2A]{fontenc}
-\usepackage[cp1251]{inputenc}
-\usepackage[russian]{babel}
+%\usepackage[T2A]{fontenc}
+%\usepackage[cp1251]{inputenc}
+%\usepackage[russian]{babel}
 \renewcommand{\baselinestretch}{1.5}
 \textwidth=158mm
 \textheight=232mm
@@ -11,7 +11,7 @@
 \usepackage{amssymb}
 
 \newtheorem{thm}{Theorem}
-\newcommand{\Wf}{\stackrel{o\ }{W_1^1}}
+\newcommand{\Wf}{\stackrel{o\ }{W{}_1^1}}
 \newcommand{\Real}{\mathbb R}
 \renewcommand{\ge}{\geqslant}
 \renewcommand{\le}{\leqslant}
@@ -39,12 +39,12 @@ Consider the functionals
 \begin{equation}
 I_1(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \quad
 I_2(u) = \int\limits_{-1}^1 ( 1 + |u'(x)|^2 )^{p(x) \over 2} dx \qquad
-p \in C(-1, 1),\ p(x) \ge 1.
+p \in C([-1, 1]),\ p(x) \ge 1.
 \end{equation}
 
 \begin{thm}
 Let the inequality $I_1(u) \ge I_1(u^*)$ hold for any piecewise linear function $u$.
-Then ...
+Then $p(x) \equiv const$.
 \end{thm}
 
 \begin{thm}
