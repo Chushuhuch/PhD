@@ -17,7 +17,7 @@
 \renewcommand{\le}{\leqslant}
 
 \begin{document}
-\centerline{\large\bf P\'olya-Szeg\"o type inequality with variable exponent}
+\centerline{\large\bf The P\'olya-Szeg\"o type inequality with variable exponent}
 \medskip
 \centerline{\bf Bankevich S.}
 \medskip
@@ -25,9 +25,9 @@
 \centerline{\it Sergey.Bankevich@gmail.com}
 \bigskip
 
-Let $u \in \Wf([-1,1])$ be nonnegative.
-Denote its symmetrization as $u^*$.
-Recall classical P\'olya-Szeg\"o \cite{PS} inequality:
+Let $u \in \Wf[-1,1]$ be nonnegative.
+Denote its symmetric rearrangement by $u^*$.
+Recall the classical P\'olya-Szeg\"o \cite{PS} inequality:
 \begin{equation}
 \label{ineq}
 I(u) \ge I(u^*), \quad \mbox{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.
@@ -35,11 +35,10 @@ I(u) \ge I(u^*), \quad \mbox{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.
 %where
 %$$I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.$$
 
-Consider the functionals
+Consider the functionals ($p \in C[-1, 1]$, $p(x) \ge 1$)
 \begin{equation}
-I_1(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \quad
-I_2(u) = \int\limits_{-1}^1 ( 1 + |u'(x)|^2 )^{p(x) \over 2} dx \qquad
-p \in C([-1, 1]),\ p(x) \ge 1.
+I_1(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad
+I_2(u) = \int\limits_{-1}^1 ( 1 + |u'(x)|^2 )^{p(x) \over 2} dx.
 \end{equation}
 
 \begin{thm}
@@ -49,15 +48,17 @@ Then $p(x) \equiv const$.
 
 \begin{thm}
 Let
-$$K(v, x) = |v| \Big(1 + {1 \over v^2}\Big)^{p(x) \over 2} \qquad v \in \Real,\ x \in [-1, 1].$$
-The inequality $I_2(u) \ge I_2(u^*)$ holds for any nonnegative $u \in \Wf([-1, 1])$ if and only if $K$ is convex.
+$$K(v, x) = |v| \Big(1 + {1 \over v^2}\Big)^{p(x) \over 2}, \qquad \qquad v \in \Real,\ x \in [-1, 1].$$
+The inequality $I_2(u) \ge I_2(u^*)$ holds for any nonnegative $u \in \Wf[-1, 1]$ if and only if $K$ is convex.
 \end{thm}
+
+We also give simple sufficient conditions for convexity of $K$.
 
 The work is supported by 15-01-07650-a grant.
 
 \begin{thebibliography}{100}
-\bibitem{PS} {\it P\'olya--Szeg\"o}
-Isoperimetric Inequalities in Mathematical Physics
-\\ Issue 27 of Annals of mathematics studies
+\bibitem{PS} {\it G.~P\'olya, G.~Szeg\"o}
+Isoperimetric Inequalities in Mathematical Physics, chapter VII.
+Ann. Math. Studies, 27. Princeton: Princeton University Press. XVI, 279 p. (1951)
 \end{thebibliography}
 \end{document}
