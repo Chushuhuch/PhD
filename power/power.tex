@@ -29,7 +29,7 @@
 \newtheorem{rem}{Замечание}
 \newtheorem{cor}{Следствие}
 \newcommand{\To}{\longrightarrow}
-\newcommand{\Wf}{\stackrel{o\ }{W_1^1}}
+\newcommand{\Wf}{\stackrel{o\ }{W{}_1^1}}
 \newcommand{\W}{W_1^1}
 \newcommand{\sign}{\mathop{\rm sign}\nolimits}
 \newcommand{\dist}{\mathop{\rm dist}\nolimits}
@@ -41,10 +41,9 @@
 Рассмотрим функционал:
 \begin{equation}
 \label{functional}
-I(u) = \int\limits_{\Real^n} ( 1 + | \grad u(x) |^2 )^{p(y)},
+I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{p(x)},
 \end{equation}
-
-где $x = (x_1, \dots, x_{n - 1}, y) \in \Omega = \omega \times [-1, 1]$, $\omega$ --- ограниченная область, $p(y) > 0$, $u \in \W(\Omega)$.
+где $p(x) > 0$ --- непрерывная функция, $u \in \Wf(\Omega)$.
 
 Неравенство:
 \begin{equation}
@@ -54,8 +53,56 @@ I(u^*) \le I(u)
 
 \section{Необходимые условия}
 
-Если (\ref{toprove}) выполнено на кусочно линейных одномерных функциях, то функция $$K(u, x) = u ( 1 + { 1 \over u^2 } )^{p(x)}$$ выпукла.
+\begin{prop}
+Предположим, неравенство (\ref{toprove}) выполнено на кусочно линейных функциях.
+Тогда функция $$K(u, x) = u ( 1 + { 1 \over u^2 } )^{p(x)}$$ выпукла.
 То есть $K(u, x_1) + K(v, x_2) \ge 2 K({ u + v \over 2 }, { x_1 + x_2 \over 2 } )$.
+\end{prop}
+
+\begin{proof}
+Зафиксируем две точки на отрезке $-1 < x_1 < x_2 < 1$
+и рассмотрим финитную кусочно линейную функцию с ненулевыми производными только в окрестностях $x_1$ и $x_2$.
+А именно, для достаточно малого $\eps$:
+\begin{equation}
+\left\{
+\begin{aligned}
+u(x) &= 0, & x \in [-1, x_1 - s \eps] \cup [x_2 + t \eps, 1]\\
+u(x) &= 2 \eps, & x \in [x_1 + s \eps, x_2 - t \eps]\\
+u(x) &= \eps + ( x - x_1 ) s, & x \in [x_1 - s \eps, x_1 + s \eps]\\
+u(x) &= \eps - ( x - x_2 ) s, & x \in [x_2 - t \eps, x_2 + t \eps]
+\end{aligned}
+\right.
+\end{equation}
+
+
+
+\begin{center}
+\begin{picture}(200,90)
+\refstepcounter{pictureCounter}
+\label{uGraph}
+\put(10,65){\line(1,0){50}}
+\put(60,65){\line(1,1){10}}
+\put(70,75){\line(1,0){40}}
+\put(110,75){\line(1,-1){10}}
+\put(120,65){\line(1,0){70}}
+\put(0,25){\vector(1,0){200}}
+\put(100,15){\vector(0,1){80}}
+\put(99,65){\line(1,0){2}}
+\put(92,62){$\bar{v}$}
+\put(60,24){\line(0,1){2}}
+\put(58,14){$s$}
+\put(120,24){\line(0,1){2}}
+\put(119,14){$t$}
+\put(10,24){\line(0,1){2}}
+\put(6,14){$-1$}
+\put(190,24){\line(0,1){2}}
+\put(188,14){$1$}
+\put(20,70){$u(x)$}
+\put(85,1){Fig. \arabic{pictureCounter}}
+\end{picture}
+\end{center}
+
+\end{proof}
 
 Если взять $u = v$ и устремить к бесконечности, получим $p(x_1) + p(x_2) \ge p({ x_1 - x_2 \over 2 }) + p({ x_2 - x_1 \over 2 })$.
 Из этого следует четность (см. прошлые работы).
