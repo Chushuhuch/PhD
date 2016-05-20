@@ -9,6 +9,8 @@
 \usepackage[russian]{babel}
 \usepackage{amsmath,amssymb,amsthm,amsfonts}
 \usepackage{multirow}
+\usepackage{color}
+
 \newcommand{\Real}{\mathbb R}
 \newcommand{\Nat}{\mathbb N}
 \newcommand{\norm}[1]{\pmb{\Vert}#1\pmb{\Vert}}
@@ -33,6 +35,7 @@
 \newcommand{\W}{W_1^1}
 \newcommand{\sign}{\mathop{\rm sign}\nolimits}
 \newcommand{\dist}{\mathop{\rm dist}\nolimits}
+\newcommand{\comment}[1]{\colorbox{yellow}{#1}}
 \newcounter{pictureCounter}
 \begin{document}
 
@@ -54,9 +57,11 @@ I(u^*) \le I(u)
 \section{Необходимые условия}
 
 \begin{prop}
-Предположим, неравенство (\ref{toprove}) выполнено на кусочно линейных функциях.
-Тогда функция $$K(u, x) = u ( 1 + { 1 \over u^2 } )^{p(x)}$$ выпукла.
-То есть $K(u, x_1) + K(v, x_2) \ge 2 K({ u + v \over 2 }, { x_1 + x_2 \over 2 } )$.
+Предположим, неравенство (\ref{toprove}) выполнено для любой кусочно линейной функции $u$.
+Тогда функция
+$$K(s, x) = s ( 1 + { 1 \over s^2 } )^{p(x)} \qquad s > 0,\ x \in [-1, 1]$$
+выпукла.
+То есть $K(s, x_1) + K(t, x_2) \ge 2 K({ s + t \over 2 }, { x_1 + x_2 \over 2 } )$ для любых $s, t, x_1, x_2$.
 \end{prop}
 
 \begin{proof}
@@ -66,15 +71,15 @@ I(u^*) \le I(u)
 \begin{equation}
 \left\{
 \begin{aligned}
-u(x) &= 0, & x \in [-1, x_1 - s \eps] \cup [x_2 + t \eps, 1]\\
-u(x) &= 2 \eps, & x \in [x_1 + s \eps, x_2 - t \eps]\\
-u(x) &= \eps + ( x - x_1 ) s, & x \in [x_1 - s \eps, x_1 + s \eps]\\
-u(x) &= \eps - ( x - x_2 ) s, & x \in [x_2 - t \eps, x_2 + t \eps]
+u(x) &= 0, & x &\in [-1, x_1 - s \eps] \cup [x_2 + t \eps, 1]\\
+u(x) &= 2 \eps, & x &\in [x_1 + s \eps, x_2 - t \eps]\\
+u(x) &= \eps + { x - x_1 \over s }, & x &\in [x_1 - s \eps, x_1 + s \eps]\\
+u(x) &= \eps - { x - x_2 \over s }, & x &\in [x_2 - t \eps, x_2 + t \eps]
 \end{aligned}
 \right.
 \end{equation}
 
-
+\comment{update picture}
 
 \begin{center}
 \begin{picture}(200,90)
