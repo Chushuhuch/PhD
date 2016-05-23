@@ -79,7 +79,7 @@ u(x) &= \eps - { x - x_2 \over s }, & x &\in [x_2 - t \eps, x_2 + t \eps]
 \right.
 \end{equation}
 
-\comment{update picture}
+\comment{update graph}
 
 \begin{center}
 \begin{picture}(200,90)
@@ -106,6 +106,50 @@ u(x) &= \eps - { x - x_2 \over s }, & x &\in [x_2 - t \eps, x_2 + t \eps]
 \put(85,1){Fig. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
+
+Тогда функция $u^*$ имеет следующий вид:
+\begin{equation}
+\left\{
+\begin{aligned}
+u(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
+u(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
+u(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
+u(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
+\end{aligned}
+\right.
+\end{equation}
+
+\comment{add graph}
+
+Тогда, если выполнено неравенство (\ref{toprove}), верно следующее:
+\begin{multline*}
+\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } ( 1 + { 1 \over s^2 } )^{p(x)} dx
++ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } ( 1 + { 1 \over t^2 } )^{p(x)} dx
+\\ \ge \int\limits_{ { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps }^{ { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x)} dx
+     + \int\limits_{ { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps }^{ { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x)} dx
+\end{multline*}
+
+Или, переходя к $\eps \to 0$,
+\begin{equation}
+\label{preConv}
+s ( 1 + { 1 \over s^2 } )^{p(x_1)} + t ( 1 + { 1 \over t^2 } )^{p(x_2)}
+\ge { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_2 - x_1 \over 2 } )}
+  + { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_1 - x_2 \over 2 } )}.
+\end{equation}
+
+Положим в неравенстве (\ref{preConv}) $s = t$:
+$$( 1 + { 1 \over s^2 } )^{p(x_1)} + ( 1 + { 1 \over s^2 } )^{p(x_2)}
+\ge ( 1 + { 1 \over s^2 } )^{p( { x_2 - x_1 \over 2 } )} + ( 1 + { 1 \over s^2 } )^{p( { x_1 - x_2 \over 2 } )}.$$
+
+Устремив $s \to \infty$ и воспользовавшись разложением в ряд Тейлора, получим
+$${ 1 \over s^2 } p(x_1) + { 1 \over s^2 } p(x_2) \ge { 1 \over s^2 } p( { x_2 - x_1 \over 2 } ) + { 1 \over s^2 } p( { x_1 - x_2 \over 2 } ) + o({ 1 \over s^2 }).$$
+
+То есть,
+$$p(x_1) + p(x_2) \ge p( { x_2 - x_1 \over 2 } ) + p( { x_1 - x_2 \over 2 } ).$$
+
+Воспользовавшись леммой 10 из \cite{1dim}, получаем, что $p$ четна и выпукла.
+Тем самым, подставив в (\ref{preConv}) $x_1$ и $-x_2$ и воспользовавшись четностью $p$, получаем
+$K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 
 \end{proof}
 
@@ -177,5 +221,7 @@ K({1 \over 2} \sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k}, {1 \over 2} \sum\l
 А это следует из выпуклости $K(u, x)$ и леммы из статьи Брока (которая дословно распространяется на функции двух переменных).
 
 \end{proof}
+
+\input bibliography
 
 \end{document}
