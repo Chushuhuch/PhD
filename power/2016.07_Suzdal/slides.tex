@@ -142,7 +142,7 @@ I(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx.
 \end{equation}
 }
 
-Here $p \in C[-1, 1]$, $p(x) > 0$, $u \in \Wf[-1, 1]$.
+Here $p \in C[-1, 1]$, $p(x) \ge 1$, $u \in \Wf[-1, 1]$.
 
 \pause
 
@@ -189,7 +189,7 @@ I(u) = \int\limits_{-1}^1 \big(1 + u'(x)^2 \big)^{p(x) \over 2} dx.
 
 \begin{prop}
 Suppose inequality (\ref{ineq}) with functional (\ref{func}) holds for any piecewise linear function $u$.
-Then $p(x) \ge 1$, $p$ is even and convex,
+Then $p$ is even and convex,
 and the function
 $$K(s, x) = s ( 1 + { 1 \over s^2 } )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1]$$
 is convex.
@@ -217,7 +217,7 @@ Then $(p(x) - 1)^{0.37}$ is convex.
 \begin{frame}{Proof sketch}
 
 \begin{theorem}
-Suppose $K$ is convex.
+Suppose $p$ is even and $K$ is convex.
 Then the inequality (\ref{ineq}) holds for any $u \in \Wf[-1, 1]$, for which $I(u) < \infty$.
 \end{theorem}
 
