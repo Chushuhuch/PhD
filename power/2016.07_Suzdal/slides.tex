@@ -1,0 +1,227 @@
+\PassOptionsToPackage{table}{xcolor}
+\documentclass{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+
+}
+
+\beamertemplatenavigationsymbolsempty
+
+\usepackage[]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{grffile}
+\usepackage{hyperref}
+\usepackage{beamerthemesplit}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+%\setsansfont[Ligatures={Common,TeX}]{TeX Gyre Heros}
+
+{\renewcommand{\arraystretch}{1.1}
+
+%\AtBeginSection[]
+%{
+%  \begin{frame}
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+   \oldmacro\hfill%
+   \insertframenumber\,/\,\inserttotalframenumber}
+
+\setbeamertemplate{headline}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+%    \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+%  \end{beamercolorbox}
+  }%
+  \vskip0pt%
+}
+
+\title{The P\'olya-Szeg\"o type inequality with variable exponent}
+
+    \author{Sergey Bankevich}
+\institute{Saint Petersburg State University, Russia}
+%\date {
+%February 12, 2016
+%}
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm} % Horizontale Einheit
+\setlength{\TPVertModule}{1cm} % Vertikale Einheit
+\addtobeamertemplate{title page}{
+}{}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\newcommand{\Wf}{\stackrel{o\ }{W{}_1^1}}
+\newtheorem{prop}{Proposition}
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%\section{Problem statement}
+
+\begin{frame}{Problem statement}
+
+Consider functional
+{\Large 
+\begin{equation}
+I(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx.
+\label{sfunc}
+\end{equation}
+}
+
+Here $p \in C[-1, 1]$, $p(x) > 0$, $u \in \Wf[-1, 1]$.
+
+\pause
+
+\bigskip
+We'd like to prove that
+{\Large 
+\begin{equation}
+I(u^*) \le I(u).
+\label{ineq}
+\end{equation}
+}
+
+\end{frame}
+
+
+\begin{frame}{Symmetrization}
+
+$u^*$ is a Steiner symmetrization of $u$.
+
+\end{frame}
+
+
+\begin{frame}{Results}
+
+It appears, that if the inequality (\ref{ineq}) holds for the functional (\ref{sfunc}) for any piecewise linear function $u$,
+then $p \equiv const$.
+
+Thus the inequality (\ref{ineq}) reduces to a classical one.
+
+\end{frame}
+
+\begin{frame}{Fixed functional}
+To avoid exponentiating values from different side of $1$ we consider the following functional
+{\Large
+\begin{equation}
+I(u) = \int\limits_{-1}^1 \big(1 + u'(x)^2 \big)^{p(x) \over 2} dx.
+\label{func}
+\end{equation}
+}
+
+\end{frame}
+
+\begin{frame}{Necessary conditions}
+
+\begin{prop}
+Suppose inequality (\ref{ineq}) with functional (\ref{func}) holds for any piecewise linear function $u$.
+Then $p(x) \ge 1$, $p$ is even and convex,
+and the function
+$$K(s, x) = s ( 1 + { 1 \over s^2 } )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1]$$
+is convex.
+\end{prop}
+
+In sufficiently smooth conditions the convexity of the function $K$ is equivalent to 
+$D^2 K$ matrix of second derivatives to be positive definite.
+
+\end{frame}
+
+\begin{frame}{Necessary conditions: further analysis}
+The fact that $D^2 K$ is positive definite reduces to an inequality
+$$p''(x) \ge {p'(x)^2 \over p(x) - 1} A(s, p(x) - 1)$$
+for some function $A(s, q)$.
+
+We find that $A(s, q) < 0.63$, thus we get
+\begin{prop}
+Suppose inequality (\ref{ineq}) with functional (\ref{func}) holds for any piecewise linear function $u$,
+and the function $p$ is smooth enough.
+Then $(p(x) - 1)^{0.37}$ is convex.
+\end{prop}
+
+\end{frame}
+
+\begin{frame}{Proof sketch}
+
+\begin{theorem}
+Suppose $K$ is convex.
+Then the inequality (\ref{ineq}) holds for any $u \in \Wf[-1, 1]$, for which $I(u) < \infty$.
+\end{theorem}
+
+\end{frame}
+
+
+\end{document}
