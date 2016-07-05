@@ -130,11 +130,19 @@
   \titlepage
 \end{frame}
 
-%\section{Problem statement}
+\begin{frame}{The P\'olya-Szeg\"o inequality}
+
+Let $u \in \Wf[-1, 1]$, $u \ge 0$.
+Denote its symmetric rearrangement by $u^*$.
+Recall the classical P\'olya-Szeg\"o inequality:
+$$I(u^*) \le I(u), \quad \mbox{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.$$
+
+\end{frame}
+
 
 \begin{frame}{Problem statement}
 
-Consider functional
+Now consider the functional
 {\Large 
 \begin{equation}
 I(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx.
@@ -147,7 +155,7 @@ Here $p \in C[-1, 1]$, $p(x) \ge 1$, $u \in \Wf[-1, 1]$.
 \pause
 
 \bigskip
-We'd like to prove that
+What can we say about the same inequality?
 {\Large 
 \begin{equation}
 I(u^*) \le I(u).
@@ -158,21 +166,23 @@ I(u^*) \le I(u).
 \end{frame}
 
 
-\begin{frame}{Symmetrization}
+\begin{frame}{}
 
-$u^*$ is a Steiner symmetrization of $u$.
+\begin{prop}
+Suppose inequality (\ref{ineq}) with functional $\int\limits_{-1}^1 |u'(x)|^{p(x)} dx$ holds for any piecewise linear function $u$.
+Then $p(x) \equiv const$.
+\end{prop}
+
+To show this consider the following function $u$.
+\begin{figure}
+	\includegraphics[width = .9\textwidth]{necessary_condition_1.pdf}
+\end{figure}
+We get $t^{p(x)} \ge t^{p(0)}$, which gives us opposite inequalities for $t < 1$ and $t > 1$.
+
+%Thus the inequality (\ref{ineq}) reduces to a classical one.
 
 \end{frame}
 
-
-\begin{frame}{Results}
-
-It appears, that if the inequality (\ref{ineq}) holds for the functional (\ref{sfunc}) for any piecewise linear function $u$,
-then $p \equiv const$.
-
-Thus the inequality (\ref{ineq}) reduces to a classical one.
-
-\end{frame}
 
 \begin{frame}{Fixed functional}
 To avoid exponentiating values from different side of $1$ we consider the following functional
@@ -185,20 +195,22 @@ I(u) = \int\limits_{-1}^1 \big(1 + u'(x)^2 \big)^{p(x) \over 2} dx.
 
 \end{frame}
 
+
 \begin{frame}{Necessary conditions}
 
 \begin{prop}
 Suppose inequality (\ref{ineq}) with functional (\ref{func}) holds for any piecewise linear function $u$.
 Then $p$ is even and convex,
 and the function
-$$K(s, x) = s ( 1 + { 1 \over s^2 } )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1]$$
+$$K(s, x) = s \Big( 1 + { 1 \over s^2 } \Big)^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1]$$
 is convex.
 \end{prop}
 
-In sufficiently smooth conditions the convexity of the function $K$ is equivalent to 
-$D^2 K$ matrix of second derivatives to be positive definite.
+If $p$ is sufficiently smooth the convexity of the function $K$ is equivalent to 
+$D^2 K$ matrix of second derivatives being positive definite.
 
 \end{frame}
+
 
 \begin{frame}{Necessary conditions: further analysis}
 The fact that $D^2 K$ is positive definite reduces to an inequality
@@ -214,6 +226,7 @@ Then $(p(x) - 1)^{0.37}$ is convex.
 
 \end{frame}
 
+
 \begin{frame}{Proof sketch}
 
 \begin{theorem}
@@ -224,7 +237,10 @@ Then the inequality (\ref{ineq}) holds for any $u \in \Wf[-1, 1]$, for which $I(
 \begin{itemize}
 \item The inequality is proved for piecewise linear functions $u$.
 
-\item ...
+\item Due to convexity of function $p$ the integrand is regular (Zhikov, 1994),
+and there's a sequence of piecewise linear functions $u_n \to u$: $I(u_n) \to I(u)$.
+
+Then, since $I$ is weakly lower semicontinuous, we have $I(u^*) \le \varliminf I(u_n^*) \le \lim I(u_n) = I(u)$.
 \end{itemize}
 
 \end{frame}
