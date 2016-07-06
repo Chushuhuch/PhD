@@ -107,11 +107,13 @@
 
 \title{The P\'olya-Szeg\"o type inequality with variable exponent}
 
-    \author{Sergey Bankevich}
-\institute{Saint Petersburg State University, Russia}
-%\date {
+\author{Sergey Bankevich}
+\institute{Saint Petersburg State University, Russia\\
+\bigskip
+Suzdal}
+\date {
 %February 12, 2016
-%}
+}
 
 \usepackage[absolute,overlay]{textpos}
 \setlength{\TPHorizModule}{1cm} % Horizontale Einheit
@@ -124,6 +126,7 @@
 \renewcommand{\le}{\leqslant}
 \newcommand{\Wf}{\stackrel{o\ }{W{}_1^1}}
 \newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
 
 \begin{document}
 \begin{frame}
@@ -142,7 +145,7 @@ $$I(u^*) \le I(u), \quad \mbox{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.$$
 
 \begin{frame}{Problem statement}
 
-Now consider the functional
+Now we consider the functional
 {\Large 
 \begin{equation}
 I(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx.
@@ -169,15 +172,16 @@ I(u^*) \le I(u).
 \begin{frame}{}
 
 \begin{prop}
-Suppose inequality (\ref{ineq}) with functional $\int\limits_{-1}^1 |u'(x)|^{p(x)} dx$ holds for any piecewise linear function $u$.
+Suppose that inequality $I(u^*) \le I(u)$ holds for any piecewise linear function $u$.
 Then $p(x) \equiv const$.
 \end{prop}
 
 To show this consider the following function $u$.
 \begin{figure}
-	\includegraphics[width = .9\textwidth]{necessary_condition_1.pdf}
+	\includegraphics[width = .8\textwidth]{necessary_condition_1.pdf}
 \end{figure}
-We get $t^{p(x)} \ge t^{p(0)}$, which gives us opposite inequalities for $t < 1$ and $t > 1$.
+$I(u^*) \le I(u)$ implies $t^{p(x)} \ge t^{p(0)}$ when passing support of $u$ to $0$.
+This gives us opposite inequalities for $t < 1$ and $t > 1$.
 
 %Thus the inequality (\ref{ineq}) reduces to a classical one.
 
@@ -185,63 +189,64 @@ We get $t^{p(x)} \ge t^{p(0)}$, which gives us opposite inequalities for $t < 1$
 
 
 \begin{frame}{Fixed functional}
-To avoid exponentiating values from different side of $1$ we consider the following functional
-{\Large
+Now we consider another functional
+{\large
 \begin{equation}
-I(u) = \int\limits_{-1}^1 \big(1 + u'(x)^2 \big)^{p(x) \over 2} dx.
+J(u) = \int\limits_{-1}^1 \big(1 + u'(x)^2 \big)^{p(x) \over 2} dx.
 \label{func}
 \end{equation}
 }
 
-\end{frame}
-
-
-\begin{frame}{Necessary conditions}
-
-\begin{prop}
-Suppose inequality (\ref{ineq}) with functional (\ref{func}) holds for any piecewise linear function $u$.
+\begin{theorem}
+Suppose that inequality $J(u^*) \le J(u)$ holds for any piecewise linear function $u$.
 Then $p$ is even and convex,
 and the function
 $$K(s, x) = s \Big( 1 + { 1 \over s^2 } \Big)^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1]$$
 is convex.
-\end{prop}
+\end{theorem}
 
-If $p$ is sufficiently smooth the convexity of the function $K$ is equivalent to 
-$D^2 K$ matrix of second derivatives being positive definite.
-
-\end{frame}
-
-
-\begin{frame}{Necessary conditions: further analysis}
-The fact that $D^2 K$ is positive definite reduces to an inequality
-$$p''(x) \ge {p'(x)^2 \over p(x) - 1} A(s, p(x) - 1)$$
-for some function $A(s, q)$.
-
-We find that $A(s, q) < 0.63$, thus we get
-\begin{prop}
-Suppose inequality (\ref{ineq}) with functional (\ref{func}) holds for any piecewise linear function $u$,
-and the function $p$ is smooth enough.
-Then $(p(x) - 1)^{0.37}$ is convex.
-\end{prop}
+Note that convexity of $K$ implies convexity of $p$.
 
 \end{frame}
 
 
-\begin{frame}{Proof sketch}
+\begin{frame}{Necessary and sufficient conditions}
 
 \begin{theorem}
 Suppose $p$ is even and $K$ is convex.
-Then the inequality (\ref{ineq}) holds for any $u \in \Wf[-1, 1]$, for which $I(u) < \infty$.
+Then the inequality $J(u^*) \le J(u)$ holds for any $u \in \Wf[-1, 1]$, for which $J(u) < \infty$.
 \end{theorem}
 
 \begin{itemize}
 \item The inequality is proved for piecewise linear functions $u$.
+This is done by direct calculations.
 
 \item Due to convexity of function $p$ the integrand is regular (Zhikov, 1994),
-and there's a sequence of piecewise linear functions $u_n \to u$: $I(u_n) \to I(u)$.
+and there's a sequence of piecewise linear functions $u_n \to u$: $J(u_n) \to J(u)$.
 
-Then, since $I$ is weakly lower semicontinuous, we have $I(u^*) \le \varliminf I(u_n^*) \le \lim I(u_n) = I(u)$.
+\item $u_n \to u$ in $\Wf[-1, 1]$ implies $u_n^* \rightharpoondown u^*$ in $\Wf[-1, 1]$ (Brock, 1999).
+
+\item $J$ is weakly lower semicontinuous in $\Wf[-1, 1]$ as the integrand is convex and power bounded.
+
+\item $J(u^*) \le \varliminf J(u_n^*) \le \lim J(u_n) = J(u)$.
 \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Sufficient conditions for convexity of $K$}
+
+The fact that $D^2 K$ is positive definite reduces to an inequality
+$$q''(x) \ge {q'(x)^2 \over A(s, q(x))}$$
+for some function $A(s, q)$, $q(x) = p(x) - 1$.
+
+Note that \quad $q''(x) \ge {q'^2(x) \over \alpha q(x)} \quad \Longleftrightarrow \quad q^{1 - {1 \over \alpha}}$ is convex.
+
+Numeric calculations show that $A(s, q) > 1.59 q$, thus we get
+\begin{cor}
+Suppose $(p(x) - 1)^{0.37}$ is convex.
+Then the inequality $J(u^*) \le J(u)$ holds for any $u \in \Wf[-1, 1]$, for which $J(u) < \infty$.
+\end{cor}
 
 \end{frame}
 

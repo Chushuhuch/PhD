@@ -2,7 +2,7 @@
  * Created by serg on 10.01.16.
  */
 
-fun maximizeqASomehow() {
+private fun maximizeqASomehow() {
     val k = 1.1
     var rStep = 1.0
     var phiN = 20
@@ -21,10 +21,7 @@ fun maximizeqASomehow() {
     }
 }
 
-fun Complex.q() = re
-fun Complex.w() = im
-
-fun toExtremum( c: Complex ): Extremum<Complex, Double> {
+private fun toExtremum( c: Complex ): Extremum<Complex, Double> {
     val d = Complex( Math.max( 0.0, c.re ), Math.max( 0.0, c.im ) )
     return Extremum( d, qA( d.q(), d.w() ) )
 }

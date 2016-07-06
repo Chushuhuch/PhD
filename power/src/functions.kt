@@ -15,3 +15,6 @@ fun A( q: Double, w: Double ): Double =
                 ( ( q + 1 ) * ( q * w + 1 ) )
 
 fun qA( q: Double, w: Double ): Double = q * A( q, w )
+
+fun Complex.q() = re
+fun Complex.w() = im
