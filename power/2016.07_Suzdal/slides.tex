@@ -66,6 +66,7 @@
 \usepackage{grffile}
 \usepackage{hyperref}
 \usepackage{beamerthemesplit}
+\usepackage{graphicx, subfigure}
 \definecolor{links}{HTML}{2A1B81}
 \hypersetup{colorlinks,linkcolor=,urlcolor=links}
 %\setsansfont[Ligatures={Common,TeX}]{TeX Gyre Heros}
@@ -110,7 +111,7 @@
 \author{Sergey Bankevich}
 \institute{Saint Petersburg State University, Russia\\
 \bigskip
-Suzdal}
+Suzdal, 2016}
 \date {
 %February 12, 2016
 }
@@ -138,7 +139,21 @@ Suzdal}
 Let $u \in \Wf[-1, 1]$, $u \ge 0$.
 Denote its symmetric rearrangement by $u^*$.
 Recall the classical P\'olya-Szeg\"o inequality:
-$$I(u^*) \le I(u), \quad \mbox{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.$$
+$$I(u^*) \le I(u), \quad \mbox{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx, \quad p \ge 1.$$
+
+\begin{figure}
+  %\nonumber
+  \begin{center}
+    \mbox{
+        \subfigure{
+            \includegraphics[width = .5\textwidth]{symmetrization_exmpl_u.pdf}
+        }
+        \subfigure{
+            \includegraphics[width = .5\textwidth]{symmetrization_exmpl_us.pdf}
+        }
+    }
+  \end{center}
+\end{figure}
 
 \end{frame}
 
@@ -147,23 +162,23 @@ $$I(u^*) \le I(u), \quad \mbox{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx.$$
 
 Now we consider the functional
 {\Large 
-\begin{equation}
+\begin{equation*}
 I(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx.
 \label{sfunc}
-\end{equation}
+\end{equation*}
 }
 
 Here $p \in C[-1, 1]$, $p(x) \ge 1$, $u \in \Wf[-1, 1]$.
 
-\pause
+%\pause
 
 \bigskip
 What can we say about the same inequality?
 {\Large 
-\begin{equation}
+\begin{equation*}
 I(u^*) \le I(u).
 \label{ineq}
-\end{equation}
+\end{equation*}
 }
 
 \end{frame}
@@ -191,10 +206,10 @@ This gives us opposite inequalities for $t < 1$ and $t > 1$.
 \begin{frame}{Fixed functional}
 Now we consider another functional
 {\large
-\begin{equation}
+\begin{equation*}
 J(u) = \int\limits_{-1}^1 \big(1 + u'(x)^2 \big)^{p(x) \over 2} dx.
 \label{func}
-\end{equation}
+\end{equation*}
 }
 
 \begin{theorem}
@@ -211,6 +226,8 @@ Note that convexity of $K$ implies convexity of $p$.
 
 
 \begin{frame}{Necessary and sufficient conditions}
+
+\vskip -0.5cm
 
 \begin{theorem}
 Suppose $p$ is even and $K$ is convex.
@@ -237,12 +254,13 @@ and there's a sequence of piecewise linear functions $u_n \to u$: $J(u_n) \to J(
 \begin{frame}{Sufficient conditions for convexity of $K$}
 
 The fact that $D^2 K$ is positive definite reduces to an inequality
-$$q''(x) \ge {q'(x)^2 \over A(s, q(x))}$$
-for some function $A(s, q)$, $q(x) = p(x) - 1$.
+$$q''(x) \ge {q'(x)^2 \over q} \cdot A(s, q(x))$$
+for certain function $A(s, q)$, $q(x) = p(x) - 1$.
 
-Note that \quad $q''(x) \ge {q'^2(x) \over \alpha q(x)} \quad \Longleftrightarrow \quad q^{1 - {1 \over \alpha}}$ is convex.
+Note that \quad
+$q''(x) \ge {q'^2(x) \over q(x)} \alpha \quad \Longleftrightarrow \quad q^{1 - \alpha}$ is convex, $\alpha \neq 1$.
 
-Numeric calculations show that $A(s, q) > 1.59 q$, thus we get
+Numeric calculations show that $A(s, q) < 0.63$, thus we get
 \begin{cor}
 Suppose $(p(x) - 1)^{0.37}$ is convex.
 Then the inequality $J(u^*) \le J(u)$ holds for any $u \in \Wf[-1, 1]$, for which $J(u) < \infty$.
