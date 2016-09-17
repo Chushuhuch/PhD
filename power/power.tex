@@ -39,25 +39,90 @@
 \newcounter{pictureCounter}
 \begin{document}
 
-\section{Постановка задачи}
+\section{Введение}
 
-Рассмотрим функционал:
-\begin{equation}
-\label{functional}
-I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{p(x)} dx,
-\end{equation}
-где $p(x) > 0$ --- непрерывная функция на $[-1, 1]$, $u \in \Wf[-1, 1]$.
+Положим $u \in \Wf[-1, 1]$, $u \ge 0$.
+Обозначим через $u^*$ симметричную перестановку функции $u$.
+Тогда выполнено классическое неравенство Пойя-Сеге:
 
-Неравенство:
 \begin{equation}
-\label{toprove}
-I(u^*) \le I(u)
+\label{PS}
+\mathcal{I}(u^*) \le \mathcal{I}(u), \qquad \text{где } \mathcal{I}(u) = \int\limits_{-1}^1 u'(x)^p dx, \quad p \ge 1
 \end{equation}
+
+В нескольких работах уже обсуждались обобщения неравенства (\ref{PS}).
+В статье \cite{Br} показано, что неравенство (\ref{PS}) выполняется для функционалов вида
+$$\int_{-1}^1 F( u(x), a( x, u( x ) ) \abs{ u'( x ) } ) dx,$$
+где $a$ выпукла, а $F$ непрерывна и выпукла по второму аргументу, а также для многомерного аналога.
+В статье \cite{1dim} результат статьи \cite{Br} доказан для естественного класса функций $u$.
+Кроме того, доказано аналогичное неравенство для монотонной перестановки.
+
+В этой работе мы вводим в функционал зависимость степени $p$ от $x$:
+\begin{equation}
+J(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{p(x) \over 2} dx.
+\end{equation}
+Здесь $p(x) > 0$ --- непрерывная функция на $[-1, 1]$, $u \in \Wf[-1, 1]$.
 
 \section{Необходимые условия}
 
 \begin{prop}
-Предположим, неравенство (\ref{toprove}) выполнено для любой кусочно линейной функции $u$.
+Предположим, неравенство $J(u^*) \le J(u)$ выполнено для любой кусочно линейной функции $u$.
+Тогда $p(x) \equiv const$.
+\end{prop}
+\begin{proof}
+Зафиксируем произвольное $x_0 \in (-1, 1)$.
+Для каждого $\alpha > 0$ и $\eps > 0$ такого, что $[x_0 - \eps, x_0 + \eps] \subset [-1, 1]$,
+определим функцию
+$$
+\left\{
+\begin{aligned}
+u_{\alpha,\eps}(x) &= 0, & x & \in [-1, x_0 - \eps] \cup [x_0 + \eps, 1] \\
+u_{\alpha,\eps}(x) &= \alpha \cdot (x - (x_0 - \eps)), & x & \in [x_0 - \eps, x_0] \\
+u_{\alpha,\eps}(x) &= -\alpha \cdot ((x_0 + \eps) - x), & x & \in [x_0, x_0 + \eps].
+\end{aligned}
+\right.
+$$
+
+Тогда
+$$
+\left\{
+\begin{aligned}
+u_{\alpha,\eps}^*(x) &= 0, & x & \in [-1, -\eps] \cup [\eps, 1] \\
+u_{\alpha,\eps}^*(x) &= \alpha \cdot (x + \eps), & x & \in [-\eps, 0] \\
+u_{\alpha,\eps}^*(x) &= -\alpha \cdot (x - \eps), & x & \in [0, \eps].
+\end{aligned}
+\right.
+$$
+
+Заметим, что почти всюду
+\begin{eqnarray*}
+\begin{aligned}
+& |u_{\alpha,\eps}'(x)|     = 0,      & x & \in [-1, x_0 - \eps] \cup [x_0 + \eps, 1] \\
+& |u_{\alpha,\eps}'(x)|     = \alpha, & x & \in [x_0 - \eps, x_0 + \eps] \\
+& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x & \in [-1, -\eps] \cup [\eps, 1] \\
+& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x & \in [-\eps, \eps] \\
+\end{aligned}
+\end{eqnarray*}
+
+Тогда
+$$
+J(u_{\alpha, \eps}) = \int\limits_{x_0 - \eps}^{x_0 + \eps} \alpha^{p(x)} dx, \qquad
+J(u_{\alpha, \eps}^*) = \int\limits_{-\eps}^{\eps} \alpha^{p(x)} dx.
+$$
+
+Перейдя к пределу при $\eps \to 0$ в неравенстве
+$$
+{J(u_{\alpha, \eps}^*) \over 2 \eps} \le {J(u_{\alpha, \eps}) \over 2 \eps},
+$$
+получим $\alpha^{p(0)} \le \alpha^{p(x_0)}$, в силу непрерывности $\alpha^{p(x)}$.
+Заметим, что при $\alpha > 1$ и $\alpha < 1$ это дает неравенства $p(0) \le p(x_0)$ и $p(0) \ge p(x_0)$ соответственно.
+Тем самым, $p(x) \equiv const$.
+\end{proof}
+
+Заметим, что ввиду предложения дальнейшее изучение неравенства $J(u^*) \le J(u)$ теряет интерес.
+
+\begin{prop}
+Предположим, неравенство $I(u^*) \le I(u)$ выполнено для любой кусочно линейной функции $u$.
 Тогда функция $p$ четна и выпукла, а также выпукла функция
 $$K(s, x) = s ( 1 + { 1 \over s^2 } )^{p(x)} \qquad s > 0,\ x \in [-1, 1].$$
 То есть $K(s, x_1) + K(t, x_2) \ge 2 K({ s + t \over 2 }, { x_1 + x_2 \over 2 } )$ для любых $s, t > 0, x_1, x_2 \in [-1, 1]$.
@@ -120,7 +185,7 @@ u(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in
 
 \comment{add graph}
 
-Тогда, если выполнено неравенство (\ref{toprove}), верно следующее:
+Тогда, в силу предположений предложения, верно следующее:
 \begin{multline*}
 \int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } ( 1 + { 1 \over s^2 } )^{p(x)} dx
 + \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } ( 1 + { 1 \over t^2 } )^{p(x)} dx
@@ -151,27 +216,25 @@ $$p(x_1) + p(x_2) \ge p( { x_2 - x_1 \over 2 } ) + p( { x_1 - x_2 \over 2 } ).$$
 $K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 \end{proof}
 
-Однако, выпуклось $K$ не следует из четности и выпуклости $p$.
+Заметим, что выпуклось $K$ не следует из четности и выпуклости $p$.
 В достаточно гладком случае она равносильна неравенству на определитель матрицы вторых производных:
 $D_{ss} K(s, x) D_{xx} K(s, x) - (D_{sx} K(s, x))^2 \ge 0$.
-Распишем это неравенство.
-Обозначим $H(s) = 1 + {1 \over s^2}$.
-Тогда $K(s, x) = s H(s)^{p(x)}$, $H'(s) = -{2 \over s^3}$, $H''(s) = {6 \over s^4}$.
-\begin{eqnarray*}
-D_s K(s, x) & =  & H(s)^{p(x)} + s p(x) H(s)^{p(x) - 1} H'(s) = H(s)^{p(x)} - 2 p(x) H(s)^{p(x) - 1} ( H(s) - 1 ) \\
-D_x K(s, x) & = & s H(s)^{p(x)} p'(x) \ln{H(s)}
-\end{eqnarray*}
-\begin{eqnarray*}
-D_{ss} K(s, x) = p(x) H(s)^{p(x) - 1} H'(s) - 2p(x) (p(x) - 1) H(s)^{p(x) - 2} H'(s) (H(s) - 1) - 2p(x) H(s)^{p(x) - 1} H'(s)
-\end{eqnarray*}
+%Распишем это неравенство.
+%Обозначим $H(s) = 1 + {1 \over s^2}$.
+%Тогда $K(s, x) = s H(s)^{p(x)}$, $H'(s) = -{2 \over s^3}$, $H''(s) = {6 \over s^4}$.
+%\begin{eqnarray*}
+%D_s K(s, x) & =  & H(s)^{p(x)} + s p(x) H(s)^{p(x) - 1} H'(s) = H(s)^{p(x)} - 2 p(x) H(s)^{p(x) - 1} ( H(s) - 1 ) \\
+%D_x K(s, x) & = & s H(s)^{p(x)} p'(x) \ln{H(s)}
+%\end{eqnarray*}
+%\begin{eqnarray*}
+%D_{ss} K(s, x) = p(x) H(s)^{p(x) - 1} H'(s) - 2p(x) (p(x) - 1) H(s)^{p(x) - 2} H'(s) (H(s) - 1) - 2p(x) H(s)^{p(x) - 1} H'(s)
+%\end{eqnarray*}
 
 Которое после преобразований приводится к следующему виду:
 \begin{equation}
 \label{KconvexIneq}
-p''(x) \ge p'(x)^2 A(q(x), w).
+p''(x) \ge p'(x)^2 A(q(x), w), \qquad \text{где } q(x) = 2 p(x) - 1, w = {1 \over u^2}
 \end{equation}
-
-Здесь $q(x) = 2 p(x) - 1$, а $w = {1 \over u^2}$.
 
 \begin{lm}
 Для любого $\alpha \in (0, 1)$ выпуклость гладкой функции $q(x)^\alpha$
@@ -190,7 +253,7 @@ p''(x) \ge p'(x)^2 A(q(x), w).
 \section{Доказательство в одномерном случае}
 
 \begin{lm}
-Если функция $K$ выпукла, то неравенство (\ref{toprove}) выполнено.
+Если функция $K$ выпукла, то выполнено неравенство $I(u^*) \le I(u)$.
 \end{lm}
 
 \begin{proof}
@@ -220,12 +283,33 @@ I(u^*) = \sum\limits_j \int\limits_{\Omega_j^*} (1 + u^*{}'^2(x))^{p(x)} dx
 \end{multline}
 
 Зафиксируем $j$ и $y$.
-Тогда для доказательства неравенства (\ref{toprove}) достаточно выполнения
+Тогда для доказательства леммы достаточно выполнения
 $$\sum\limits_{k = 1}^{m_j} K({1 \over b_j^k}, (y_j^k)^{-1}(y)) \ge
 K({1 \over 2} \sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y)).$$
 А это следует из выпуклости $K(u, x)$ и леммы из статьи Брока (которая дословно распространяется на функции двух переменных).
 
 \end{proof}
+
+\begin{thm}
+Пусть $p$ четна, а $K$ выпукла.
+Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $I(u^*) \le I(u)$.
+\end{thm}
+
+\begin{proof}
+Зафиксируем некоторую функцию $u \in \Wf[-1, 1]$.
+Тогда найдется последовательность кусочно линейных функций $u_n \to u$ в $\Wf[-1, 1]$ таких, что $I(u_n) \to I(u)$.
+Это верно в силу того, что функционал регулярен (\cite{Zh} \comment{нормальную ссылку с нормальным комментарием}).
+
+В статье \cite{Br} доказано, что из $u_n \to u$ в $\Wf[-1, 1]$ следует $u_n^* \rightharpoondown u^*$ в $\Wf[-1, 1]$.
+
+Поскольку $p$ непрерывна, она ограничена, тем самым функционал $I$ слабо полунепрерывен снизу (\comment{ссылку}).
+
+Тогда, перейдя к нижнему пределу в неравенстве $I(u_n^*) \le I(u_n)$, получаем
+$$
+I(u^*) \le \liminf I(u_n^*) \le \lim I(u_n) = I(u).
+$$
+\end{proof}
+
 
 \input bibliography
 
