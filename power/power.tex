@@ -125,7 +125,7 @@ $$
 \begin{prop}
 Предположим, неравенство $I(u^*) \le I(u)$ выполнено для любой кусочно линейной функции $u$.
 Тогда функция $p$ четна и выпукла, а также выпукла функция двух переменных
-$$K(s, x) = s ( 1 + { 1 \over s^2 } )^{p(x)} \qquad s > 0,\ x \in [-1, 1].$$
+$$K(s, x) = s ( 1 + { 1 \over s^2 } )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1].$$
 \end{prop}
 
 Нам потребуется
@@ -198,23 +198,23 @@ u(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in
 
 Тогда, в силу сделанных предположений, верно следующее:
 \begin{multline*}
-\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } ( 1 + { 1 \over s^2 } )^{p(x)} dx
-+ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } ( 1 + { 1 \over t^2 } )^{p(x)} dx
-\\ \ge \int\limits_{ { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps }^{ { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x)} dx
-     + \int\limits_{ { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps }^{ { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x)} dx
+\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } ( 1 + { 1 \over s^2 } )^{p(x) \over 2} dx
++ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } ( 1 + { 1 \over t^2 } )^{p(x) \over 2} dx
+\\ \ge \int\limits_{ { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps }^{ { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
+     + \int\limits_{ { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps }^{ { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
 \end{multline*}
 
 Или, переходя к $\eps \to 0$,
 \begin{equation}
 \label{preConv}
-s ( 1 + { 1 \over s^2 } )^{p(x_1)} + t ( 1 + { 1 \over t^2 } )^{p(x_2)}
-\ge { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_2 - x_1 \over 2 } )}
-  + { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_1 - x_2 \over 2 } )}.
+s ( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + t ( 1 + { 1 \over t^2 } )^{p(x_2) \over 2}
+\ge { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2}
+  + { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.
 \end{equation}
 
 Положим в неравенстве (\ref{preConv}) $s = t$:
-$$( 1 + { 1 \over s^2 } )^{p(x_1)} + ( 1 + { 1 \over s^2 } )^{p(x_2)}
-\ge ( 1 + { 1 \over s^2 } )^{p( { x_2 - x_1 \over 2 } )} + ( 1 + { 1 \over s^2 } )^{p( { x_1 - x_2 \over 2 } )}.$$
+$$( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + ( 1 + { 1 \over s^2 } )^{p(x_2) \over 2}
+\ge ( 1 + { 1 \over s^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2} + ( 1 + { 1 \over s^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.$$
 
 Обозначив $\sigma = {1 \over s^2}$ и воспользовавшись разложением в ряд Тейлора по $\sigma$ в точке $\sigma = 0$, получим
 $$\sigma p(x_1) + \sigma p(x_2) \ge \sigma p( { x_2 - x_1 \over 2 } ) + \sigma p( { x_1 - x_2 \over 2 } ) + r(\sigma),$$
@@ -234,38 +234,41 @@ $K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 \end{lm}
 
 \begin{proof}
-Разобьем носитель функции $u(x)$ на конечное число областей $\Omega_j$ так,
-чтобы каждая из них разбивалась на интервалы, на которых функция $u(x)$ линейна,
-а также образы интервалов внутри области совпадали.
-Положим, $\Omega_j$ разбивается на $m_j$ интервалов,
-на которых функция $u(x)$ совпадает с линейными функциями $y_j^k$, $k = 1, \dots, m_j$.
+Положим $L \subset [-1, 1]$ --- множество точек перелома (включая концы отрезка) функции $u$.
+Возьмем $U = u([-1, 1]) \setminus u(L)$, образ функции $u$ без образов точек излома.
+Это открытое множество и его можно разбить на конечное число интервалов $U = \cup_j U_j$.
+Заметим, что для каждого $j$ множество $u^{-1}(U_j)$ разбивается на четное число интервалов,
+на каждом из которых функция $u$ совпадает с некоторой линейной функцией $y_j^k$, $k = 1, \dots, m_j$.
+Для удобства считаем, что носители $y_j^k$ для каждого $j$ идут по порядку,
+то есть $\sup dom(y_j^k) \le \inf dom(y_j^{k + 1})$.
 Обозначим $b_j^k = y_j^k{}'(x)$.
 Тогда
 \begin{multline}
-I(u) = \sum\limits_j \int\limits_{\Omega_j} (1 + u'^2(x))^{p(x)} dx
-= \sum\limits_j \sum\limits_k \int\limits_{dom(y_j^k)} (1 + {y_j^k}'^2(x))^{p(x)} dx
-\\ = \sum\limits_j \int\limits_{u(\Omega_j)} \sum\limits_k {1 \over |b_j^k|} (1 + (b_j^k)^2)^{p((y_j^k)^{-1}(y))} dy
+I(u) = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
+= \sum\limits_j \sum\limits_k \int\limits_{dom(y_j^k)} (1 + {y_j^k}'^2(x))^{p(x) \over 2} dx
+\\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over |b_j^k|} (1 + (b_j^k)^2)^{p((y_j^k)^{-1}(y)) \over 2} dy
 \end{multline}
 
-Заметим, что при симметризации участки функции $u(x)$ при $x \in \Omega_j$
-объединяются в два линейных симметричных куска, причем их образ сохраняется (переписать).
-$$(y_j^*)^{-1} (\pm y) = \pm {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y),
-\ {1 \over b_{\pm}^*} = \pm {1 \over 2} \sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k}.$$
+Поскольку функция $u^*$ четна и монотонна с любой стороны от нуля, для удобства обозначим за $(u^*)^{-1}$
+обратную к функции $u^*$, ограниченной на отрезок $[0, 1]$.
+Тогда для каждого $j$ можно, используя функции $y_j^k$, выразить функцию $(u^*)^{-1}$ на участке $U_j$ следующим образом
+(здесь $y \in U_j$):
+$$(u^*)^{-1} (y) = {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y),
+\ |((u^*)^{-1})'(y)| = {1 \over |u^*{}'((u^*)^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k} =: { 1 \over b_j^* }.$$
 Тогда
 \begin{multline}
-I(u^*) = \sum\limits_j \int\limits_{\Omega_j^*} (1 + u^*{}'^2(x))^{p(x)} dx
-= \sum\limits_j \sum\limits_k \int\limits_{dom(y_j^*)} (1 + {y_j^*}'^2(x))^{p(x)} dx
-\\ = \sum\limits_j \int\limits_{u(\Omega_j)} \big|{1 \over 2} \sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k}\big|
-\Big(1 + \frac{1}{ {1 \over 4} (\sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k})^2 } \Big)^{p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y)\big)} dy
+I(u^*) = 2 \int\limits_0^1 (1 + u^*{}'^2(x))^{p(x)} dx
+= 2 \int\limits_U {1 \over |(u^*)'(y)|} ( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } ) dy
+\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over |b_j^*|}
+\Big(1 + b_j^*{}^2 \Big)^{p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y)\big)} dy
 \end{multline}
 
 Зафиксируем $j$ и $y$.
 Тогда для доказательства леммы достаточно выполнения
 $$\sum\limits_{k = 1}^{m_j} K({1 \over b_j^k}, (y_j^k)^{-1}(y)) \ge
 K({1 \over 2} \sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y)).$$
-А это следует из выпуклости $K(u, x)$ и леммы из статьи Брока (которая дословно распространяется на функции двух переменных).
 
-\comment{Это лажа. По крайней мере, без использования финитности $u$.}
+\comment{Написать лемму, почему это верно}
 
 \end{proof}
 
