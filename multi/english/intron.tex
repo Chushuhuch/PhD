@@ -1,0 +1,73 @@
+\section{Introduction}
+Let $\Omega = \omega \times [-1,1]$
+where $\omega$ is a bounded domain in $\Real^{n - 1}$.
+Also let $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
+
+Recall the layer cake representation for a measurable function $u: \Omega \to \Real_+$
+(see \cite[Theorem 1.13]{LL}).
+Let $\mathcal{A}_t(x') := \{ y \in [-1,1]:\ u( x', y ) > t \}$.
+Then
+$$u(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}_t(x')\}(y) dt,$$
+where $\mathcal{X}\{A\}$ is a characteristic function of a set $A$.
+
+Define the monotone rearrangement of a measurable set $E \subset [-1, 1]$ and
+the monotone rearrangement of a nonnegative function $u \in \W(\Omega)$ as follows
+\begin{eqnarray*}
+E^* := [1 - \abs{E}, 1]; \qquad
+u^*(x', y) = \int_0^\infty \mathcal{X}\{ ( \mathcal{A}_t(x') )^* \}(y) dt.
+\end{eqnarray*}
+
+We define the set $\mathfrak{F}$ of continuous functions $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$
+(MOVE EARLIER hereinafter $\Real_+ = [0, \infty)$) which are convex and increasing on the third argument and
+satisfy $F( \cdot, \cdot, 0 ) \equiv 0$.
+
+Consider the following functional:
+\begin{equation}
+\label{functional}
+I( u ) = \int_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
+\end{equation}
+where $F \in \mathfrak{F}$,
+$\norm{\cdot}$ is a norm in $\Real^n$ symmetric in the last coordinate,
+i.e. satisfying $\norm{( x', y )} = \norm{( x', -y )}$ for any $( x',  y ) \in \Real^n$,
+$$\mathcal{D} u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
+is a weighted gradient of $u$ (note that only the weight of $D_n u$ depends on $y$),
+$a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ and $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real_+$ are continuous functions.
+Hereinafter, the index $i$ runs from $1$ to $n - 1$.
+
+It is well known that for $a_i = a \equiv 1$ the following inequality holds 
+\begin{equation}
+\label{toprove}
+I( u^* ) \le I( u ), \qquad \qquad u \in \W(\Omega), u \ge 0
+\end{equation}
+(see e.g. \cite{Kawohl} and references therein).
+
+FIX In this paper we present the necessary conditions on the weight of $a$ for the inequality (\ref{toprove})
+and we prove inequality (\ref{toprove}) under certain additional restrictions.
+
+The author of paper \cite{Br} considered an inequality similar to (\ref{toprove}).
+Namely,
+\begin{equation}
+\label{breq}
+I( \overline{u} ) \le I( u ), \qquad \qquad u \in \Wf( \Omega ), u \ge 0,
+\end{equation}
+where $\overline{u}$ stands for Steiner symmetrization (symmetrical rearrangement) function $u$ with respect to $y$.
+Author of \cite{Br} proves the inequality in the case where the weight of $a$ is even and convex with respect to $y$.
+To do this inequality (\ref{breq}) is proved for piecewise linear functions $u$
+and FIX it states that, in general, the inequality is obtained by approximation.
+However, the limit in \cite{Br} is not properly justified,
+and it can be assumed that the result was obtained only for Lipschitz functions $u$.
+Note that in the article \cite{Br} and only weight $D_n u$ depend on the $y$, to get rid of this restriction, you can not.
+
+In the case of the one-dimensional inequality (\ref{toprove}) and (\ref{breq}) are considered in the work \cite{1dim},
+where the necessary and sufficient conditions for their implementation.
+In particular, the gap in \cite{Br} was closed for $n = 1$.
+Under certain additional restrictions the result was announced in \cite{DAN}.
+
+The article \cite{Lan} considered inequality (\ref{toprove}) with similar functionality in the two-dimensional case
+with the additional restriction of $u(\cdot, -1) \equiv 0$.
+We note that our conditions on weight functions weaker than in \cite{Lan}.
+
+The article is divided into four sections.
+In \S2 contains prerequisites for the inequality (\ref{toprove}).
+In \S3 shows the proof of inequality (\ref{toprove}) for piecewise linear functions $u$.
+\S4 contains the proof of inequality in more general cases.

@@ -1,0 +1,48 @@
+\section{The conditions necessary for the inequality (\ref{toprove})}
+
+Hereafter, we will refer to some of the assertions in \cite{1dim},
+that the evidence in the multidimensional case, literally coincide with the evidence in the one-dimensional case.
+
+In addition, in this section we will for simplicity omit the parameters $x'$ and $v$ of the function $a$,
+implying that all inequalities hold for any $x' \in \omega, v \in \Real_+$.
+As part of this agreement will put $a( x', y, v ) \equiv a( y )$.
+
+\begin{prop}
+{\rm \cite[Theorem 1]{1dim}.}
+{\bf 1.} If the inequality $(\ref{toprove})$ holds for a $F \in \mathfrak{F}$
+and arbitrary piecewise linear $u$, the weight of $a$ is even on the $y$,
+ie $a(y) \equiv a(-y)$.
+
+{\bf 2.} If the inequality $(\ref{toprove})$ holds for arbitrary $F \in \mathfrak{F}$
+and arbitrary piecewise linear $u$, the weight of $a$ satisfies
+\begin{equation}
+\label{almostConcave}
+a( s ) + a( t ) \ge a( 1 - t + s ), \qquad -1 \le s \le t \le 1.
+\end{equation}
+\end{prop}
+
+\begin{rem}
+If the function $a$ is non-negative, and even and concave with respect to the first argument, it satisfies the condition $(\ref{almostConcave})$.
+Indeed: for such a function in all $(s, t)$ holds $a( 1 ) - a( s ) \le a( t ) - a( -1 + t - s )$.
+Since $a( 1 ) \ge 0$, then
+We receive $a( s ) + a( t ) \ge a( -1 + t - s ) = a( 1 - t + s )$.
+The converse is not true in general, that is not any kind of an even
+negative function satisfying the $(\ref{almostConcave})$, is concave.
+\end{rem}
+
+\begin{rem}
+\label{lanNec}
+If you put $u(\cdot, -1) \equiv 0$, then the condition (\ref{almostConcave}) is necessary for the inequality (\ref{toprove}).
+\end{rem}
+
+\begin{prop}
+\label{weightSum}
+{\rm \cite[Lemma 1]{1dim}.}
+Consider a continuous function $a \ge 0$ defined on $[-1,1]$
+and satisfying the condition (\ref{almostConcave}).
+Then for any $-1 \le t_1 \le t_2 \le \ldots \le t_m \le 1$ right
+\begin{align*}
+\sum_{k=1}^m a(t_k) & \ge a( 1 - \sum_{k = 1}^m (-1)^k t_k ), & \text{ для четных $m$},&\\
+\sum_{k=1}^m a(t_k) & \ge a( -\sum_{k = 1}^m (-1)^k t_k ),    & \text{ для нечетных $m$}.&
+\end{align*}
+\end{prop}

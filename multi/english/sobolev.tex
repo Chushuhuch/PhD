@@ -1,0 +1,97 @@
+\section{Transition to Sobolev functions}
+
+The following assertions are proved in the one in \cite{1dim}.
+Evidence in the multidimensional case are quite similar.
+\begin{prop} {\rm \cite[Lemma 5]{1dim}.}
+Functional $I( u )$ is weakly lower semicontinuous in $W^1_1(\Omega)$.
+\end{prop}
+
+\begin{prop}
+\label{uplift}
+{\rm \cite[Lemma 6]{1dim}.}
+Let $A \subset W^1_1(\Omega)$. Let $B \subset A$ such that
+$\forall v \in B$ выполнено $I( v^* ) \le I( v )$. Suppose that for every $u \in A$
+there is a sequence $u_k \in B$ such that $u_k \to u$ in $W^1_1(\Omega)$ and
+$I( u_k ) \to I( u )$. Then $\forall u \in A$ will be executed $I( u^* ) \le I( u )$.
+\end{prop}
+
+\begin{thm}
+\label{mainThm}
+Let the function $a(x', \cdot, u)$ is even and satisfies the condition $(\ref{almostConcave})$ for all $x'$ and $u$.
+Then
+
+{\bf 1.} The inequality (\ref{toprove}) is true for any non-negative $u \in Lip(\Omega)$.
+
+{\bf 2.} Suppose that $\partial \omega \in Lip$ and
+for any $x' \in \omega, z \in \Real_+, p \in \Real$
+function $F$ satisfies
+$$F( x', z, p ) \le C ( 1 + |z|^{q^*} + |p|^q ),$$
+where $\frac{1}{q^*} = \frac{1}{q} - \frac{1}{n}$, if $q < n$, or $q^*$, any otherwise.
+If $q \le n$, then we assume that the weight $a$ and $a_i$ limited.
+Then inequality (\ref{toprove}) is true for any non-negative $u \in W^1_q(\Omega)$.
+\end{thm}
+\begin{proof}
+{\bf 1.} We can bring Lipschitz $u$ piecewise linear functions $u_k$ along with the derivatives almost everywhere.
+Since $u_k$ uniformly bounded together with its derivatives,
+then $F(x', u_k(x), \norm{\mathcal{D} u_k})$ are uniformly bounded.
+Then we can use the theorem of Lebesgue, we received $u_k \to u$ in $W^1_1(\Omega)$ and $I( u_k ) \to I( u )$.
+Using Proposition \ref{uplift}, we obtain the required result.
+
+{\bf 2.} Consider a $u \in W^1_q(\Omega)$.
+For it is possible to construct a sequence of piecewise linear functions $u_k$, approximating it in $W^1_q(\Omega)$.
+In fact, since $\partial \Omega \in Lip$,
+$u$ finite way, you can continue on the inside of a large bowl in the $\Real^n$
+and bring smooth finite functions.
+Next ball is triangulated, and the values ??of the function are linearly interpolated.
+Obviously, all the process functions are nonnegative.
+
+Then, by Proposition \ref{uplift}, it is enough to achieve $I( u_k ) \to I( u )$.
+The proof of this convergence can be reduced to the theorem on the continuity of Krasnoselsky
+Nemytskij operator (see. \cite[гл. 5, \textsection 17]{Kr}).
+However, for the reader's convenience, we present here the whole argument.
+
+We show that the weight $a_i(x', u(x))$ and $a(x, u(x))$ restricted.
+If $q \le n$, it is performed on the assumption of the theorem. If not, then $W^1_q(\Omega)$ imbedded in $C(\overline{\Omega})$,
+thus, $u_k(x)$ are uniformly bounded, and hence $a_i(x', u_k(x))$ and $a(x, u_k(x))$ uniformly bounded.
+Therefore $\norm{ \mathcal{D} u_k( x ) } \le C_1 |\nabla u_k( x )|$.
+I.e,
+$$F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) \le C_2 ( 1 + |u_k( x )|^{q^*} + |\nabla u_k( x )|^q ).$$
+
+Consider the sets $A_m$, consisting of $x \in \Omega$, that for all $k \ge m$ fulfilled
+$1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q \le 2 ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q )$.
+Obviously, $A_m \subset A_{m + 1}$.
+Passing to a subsequence, we can assume that $u_k \to u$ и $\nabla u_k \to \nabla u$ almost everywhere.
+So $|A_m| \to |\Omega|$.
+Then
+\begin{eqnarray*}
+\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\le& 2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ), \\
+\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\to& F( x', u( x ), \norm{ \mathcal{D} u( x ) } )
+\end{eqnarray*}
+almost everywhere.
+By embedding theorem $\Vert u_k \Vert_{q^*} \le C_3 \Vert u_k \Vert_{W^1_q}$.
+Thus, we found an integrable majorant and get
+$\int_{A_k} \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) dx \to I( u )$ by Theorem Lebesgue.
+
+We now estimate the content:
+\begin{multline*}
+\int_{\Omega \setminus A_k} F( x', u_k( x ), \norm{\mathcal{D} u_k( x )} ) dx
+\le \int_{\Omega \setminus A_k} C_2 ( 1 + |u_k( x )|^{q^*} + |\nabla u_k( x )|^q ) dx \\
+\le C_4 \Big( \int_{\Omega \setminus A_k} ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ) dx
++ \int_{\Omega \setminus A_k} ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u - u_k )( x )|^q ) \Big) dx.
+\end{multline*}
+
+The first term tends to zero in the absolute continuity of the integral.
+For the second term is made
+\begin{multline*}
+\int_{\Omega \setminus A_k} ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u - u_k )( x ) )|^q ) dx \\
+\le ( | \Omega \setminus A_m( k ) | + \Vert u - u_k \Vert_{W^1_q}^{q^*} + \Vert u - u_k \Vert_{W^1_q}^q ) \to 0.
+\end{multline*}
+
+Thus, the convergence of $I( u_k ) \to I( u )$ is proved.
+\end{proof}
+
+Similarly, based on the comments (\ref{lanNec}) and (\ref{lanLin}), proved
+\begin{thm}
+Let $u(\cdot, -1) \equiv 0$ and the function $a(x', \cdot, u)$ satisfies the condition $(\ref{almostConcave})$ for all $x'$ and $u$.
+Then the true conclusions of Theorem \ref{mainThm}.
+\end{thm}
