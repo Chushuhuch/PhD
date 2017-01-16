@@ -1,0 +1,400 @@
+\documentclass[12pt]{article}
+\renewcommand{\baselinestretch}{1}
+%\renewcommand{\baselinestretch}{1.5}
+\textwidth=158mm
+\textheight=232mm
+\voffset=-24mm
+%\pagestyle{empty}
+
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{multirow}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\Nat}{\mathbb N}
+\newcommand{\norm}[1]{\pmb{\Vert}#1\pmb{\Vert}}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\bignorm}[1]{\bigl\Vert#1\bigr\Vert}
+\newcommand{\bigabs}[1]{\bigl\vert#1\bigr\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\liminf}{\underline{\lim}}
+\newcommand{\grad}{\triangledown}
+\newcommand{\card}{{\rm card}}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{lm}{Lemma}
+\newtheorem{rem}{Remark}
+\newtheorem{cor}{Corollary}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\W}{W_1^1}
+\newcommand{\Wf}{\stackrel{o\ }{\W}}
+\newcommand{\sign}{\mathop{\rm sign}\nolimits}
+\newcommand{\dist}{\mathop{\rm dist}\nolimits}
+\newcounter{pictureCounter}
+\begin{document}
+
+\title{On monotonicity of some functionals under monotone rearrangement with respect to one variable}
+\author{
+S.~Bankevich
+\footnote{Sergey.Bankevich@gmail.com}
+}
+
+\maketitle
+
+\section{Introduction}
+Let $\Omega = \omega \times [-1,1]$
+where $\omega$ is a bounded domain in $\Real^{n - 1}$.
+Also let $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
+
+Recall the layer cake representation for a measurable function $u: \Omega \to \Real_+$
+(see \cite[Theorem 1.13]{LL}).
+Hereinafter $\Real_+ = [0, \infty)$.
+Let $\mathcal{A}_t(x') := \{ y \in [-1,1]:\ u( x', y ) > t \}$.
+Then
+$$u(x', y) = \int\limits_0^\infty \mathcal{X}\{\mathcal{A}_t(x')\}(y) dt,$$
+where $\mathcal{X}\{A\}$ is a characteristic function of a set $A$.
+
+Define the monotone rearrangement of a measurable set $E \subset [-1, 1]$ and
+the monotone rearrangement of a nonnegative function $u \in \W(\Omega)$ as follows:
+\begin{eqnarray*}
+E^* := [1 - \abs{E}, 1]; \qquad
+u^*(x', y) = \int\limits_0^\infty \mathcal{X}\{ ( \mathcal{A}_t(x') )^* \}(y) dt.
+\end{eqnarray*}
+
+We define the set $\mathfrak{F}$ of continuous functions $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$,
+which are convex and increasing in the third argument, and satisfy $F( \cdot, \cdot, 0 ) \equiv 0$.
+
+Consider the following functional:
+\begin{equation}
+\label{functional}
+I( u ) = \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx.
+\end{equation}
+Here $F \in \mathfrak{F}$ and
+$\norm{\cdot}$ is a norm in $\Real^n$, which is symmetric in the last coordinate,
+i.e. satisfying $\norm{( x', y )} = \norm{( x', -y )}$ for any $( x',  y ) \in \Real^n$.
+$$\mathcal{D} u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
+is a weighted gradient of $u$ (note that only the weight of $D_n u$ depends on $y$).
+$a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ and $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real_+$ are continuous functions.
+Hereinafter, the index $i$ runs from $1$ to $n - 1$.
+
+It is well known that for $a_i = a \equiv 1$ the following inequality holds
+\begin{equation}
+\label{toprove}
+I( u^* ) \le I( u ), \qquad \qquad u \in \W(\Omega),\ u \ge 0
+\end{equation}
+(see e.g. \cite{Kawohl} and references therein).
+
+In this paper we present the necessary conditions on weight $a$ for inequality (\ref{toprove}) to hold.
+Also we prove inequality (\ref{toprove}) under certain additional restrictions.
+
+The author of paper \cite{Br} considered an inequality similar to (\ref{toprove}).
+Namely,
+\begin{equation}
+\label{breq}
+I( \overline{u} ) \le I( u ), \qquad \qquad u \in \Wf( \Omega ),\ u \ge 0,
+\end{equation}
+where $\overline{u}$ stands for Steiner symmetrization (symmetrical rearrangement) of function $u$ with respect to $y$.
+The author of \cite{Br} proves the inequality for any weight $a$, which is even and convex with respect to $y$.
+To do this inequality (\ref{breq}) is proved for piecewise linear $u$.
+It is further claimed that in the general case the inequality is obtained by approximation.
+However, the passage to the limit is not properly justified in \cite{Br},
+and in fact the result was obtained only for Lipschitz $u$ functions.
+Note that the article \cite{Br} has only the weight of $D_n u$ depend on $y$ either,
+this restriction appears to be essential.
+
+Inequalities (\ref{toprove}) and (\ref{breq}) in a one-dimensional case are considered in work \cite{1dim}.
+It establishes the necessary and sufficient conditions for the inequalities.
+In particular, the gap in \cite{Br} was closed for $n = 1$.
+Under certain additional restrictions the result was announced in \cite{DAN}.
+
+The article \cite{Lan} considered inequality (\ref{toprove}) for a similar functional in the two-dimensional case
+with the additional restriction of $u(\cdot, -1) \equiv 0$.
+We note that our conditions on the weight functions are weaker than in \cite{Lan}.
+
+The article is divided into four sections.
+\S2 contains necessary conditions for inequality (\ref{toprove}).
+\S3 contains the proof of inequality (\ref{toprove}) for piecewise linear functions $u$.
+\S4 contains the proof of the inequality in more general cases.
+
+\section{The necessary conditions for inequality (\ref{toprove})}
+
+Here we refer to several assertions from \cite{1dim}.
+They are proved in \cite{1dim} for one-dimensional case, but the proofs of a multidimensional analogues are the same.
+
+For simplicity we omit parameters $x'$ and $v$ of the weight $a$ in this section.
+This means that all inequalities hold for any $x' \in \omega, v \in \Real_+$.
+Also $a( x', y, v ) \equiv a( y )$.
+
+\begin{prop}
+{\rm \cite[Theorem 1]{1dim}.}
+{\bf 1.} Suppose inequality $(\ref{toprove})$ holds for some $F \in \mathfrak{F}$
+and an arbitrary piecewise linear $u$.
+Then the weight $a$ is even in $y$.
+
+{\bf 2.} Suppose inequality $(\ref{toprove})$ holds for an arbitrary $F \in \mathfrak{F}$
+and an arbitrary piecewise linear $u$.
+Then the weight $a$ satisfies
+\begin{equation}
+\label{almostConcave}
+a( s ) + a( t ) \ge a( 1 - t + s ), \qquad -1 \le s \le t \le 1.
+\end{equation}
+\end{prop}
+
+\begin{rem}
+Any nonnegative weight $a$, which is even and concave with respect to $y$, satisfies condition $(\ref{almostConcave})$.
+Indeed, for any $(s, t)$ we have $a( 1 ) - a( s ) \le a( t ) - a( -1 + t - s )$.
+And since $a( 1 ) \ge 0$ we get $a( s ) + a( t ) \ge a( -1 + t - s ) = a( 1 - t + s )$.
+The converse in general is not true, that is there are even nonnegative functions satisfying $(\ref{almostConcave})$ which are not concave.
+\end{rem}
+
+\begin{rem}
+\label{lanNec}
+Suppose $u(\cdot, -1) \equiv 0$.
+Then condition (\ref{almostConcave}) is necessary for inequality (\ref{toprove}) to hold.
+\end{rem}
+
+\begin{prop}
+\label{weightSum}
+{\rm \cite[Lemma 1]{1dim}.}
+Consider a continuous function $a \ge 0$ defined on $[-1,1]$
+and satisfying (\ref{almostConcave}).
+Then for any $-1 \le t_1 \le t_2 \le \ldots \le t_m \le 1$ we have
+\begin{align*}
+\sum\limits_{k=1}^m a(t_k) & \ge a( 1 - \sum\limits_{k = 1}^m (-1)^k t_k ), & \text{ for even $m$},&\\
+\sum\limits_{k=1}^m a(t_k) & \ge a( -\sum\limits_{k = 1}^m (-1)^k t_k ),    & \text{ for odd $m$}.&
+\end{align*}
+\end{prop}
+
+\section{The proof of (\ref{toprove}) for piecewise linear functions}
+
+\begin{lm}
+Suppose the function $a(x', \cdot, u)$ is even and satisfies $(\ref{almostConcave})$ for any $(x', u)$.
+Then for any nonnegative piecewise linear $u$ we have $I( u ) \ge I( u^* )$.
+\end{lm}
+
+\begin{proof}
+The proof follows the scheme of proof of Theorem 2 in \cite{1dim}.
+Let $\partial \Omega \subset C \subset \Omega$ be a minimal closed set, such that on any connected subset of $\Omega \setminus C$ the function $u$ is linear.
+Define $$U := \{ ( x', u( x', y ) ): y \in (-1, 1), (x', y) \not\in C \}.$$
+Then the open set $U$ can be partitioned into a finite union of disjoint connected open sets $G_j$.
+Let $m_j$ be the number of inverse images of $( x', u_0 ) \in G_j$, that is the number of solutions to $u( x', y ) = u_0$
+(obviously, this number is same for any $( x', u_0 ) \in G_j$).
+It is easy to see that the inverse images themselves are linear functions of $( x', u_0 )$:
+$y = y_k^j( x', u_0 )$, $k = 1, \dots, m_j$,
+and $D_n y_k^j( x', u( x', y ) ) = \frac{1}{D_n u( x', y )}$.
+Without loss of generality, we assume that $y_1^j(x', u_0) < y_2^j(x', u_0) < \ldots < y_{m_j}^j(x', u_0)$.
+
+The equation $u^*(x'_0, y^*) = u_0$ defines $y^*$ as a function of $( x'_0, u_0 ) \in G_j$.
+The $y^*$ function can be expressed in terms of $y_k^j$ (in particular, $y^*$ is piecewise linear):
+
+\begin{center}
+\begin{tabular}{l|l|l}
+\multirow{2}{*}{$u( x'_0, -1 ) < u_0$ \rule[-34pt]{0pt}{65pt}} & even $m_j$ & $y^* = 1-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+                                                               & odd $m_j$  & $y^* = -\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ \hline
+\multirow{2}{*}{$u( x'_0, -1 ) > u_0$ \rule[-34pt]{0pt}{65pt}} & even $m_j$ & $y^* = -1+\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+                                                               & odd $m_j$  & $y^* = \sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+\end{tabular}
+\end{center}
+
+Hence it is clear that for $(x', y) \in G_j$
+\begin{equation*}
+D_n y^*(x', u(x', y)) = \frac{1}{D_n u^*(x',y)}=\sum\limits_{k=1}^{m_j}{|D_n y_k^j (x',u(x',y))|}
+\end{equation*}
+and $D_i u^*( x', y ) = \pm \sum\limits_{k = 1}^{m_j} ( -1 )^k D_i y_k^j( x', u( x', y ) )$, where the sign before the right-hand side depends only on $j$.
+
+Then
+\begin{multline}
+\label{intu}
+I( u )=\sum\limits_{j=1}^N {
+    \int\limits_{G_j}{
+        F( x', u(x), \norm{
+            a_i(x',u(x)) D_i u(x), a(x,u(x)) D_n u(x)
+        })
+    dx}
+}
+\\ = \sum\limits_{j=1}^N{
+    \int\limits_{u(G_j)}{
+        \sum\limits_{k=1}^{m_j}{
+            F \Big( x', u, \frac{
+                \norm{
+                    a_i(x',u) D_i y_k^j(x',u), a(x', y_k^j(x',u), u)
+                }
+            }{\abs{ D_n y_k^j (x',u) }} \Big)
+        }
+        }} {{\abs{ D_n y_k^j(x',u) }
+    dx' du}
+},
+\end{multline}
+\begin{multline}
+\label{intus}
+I( u^* )=
+\sum\limits_{j=1}^N{
+    \int\limits_{G_j}{
+        F(x', u^*, \norm{
+            a_i(x',u^*(x)) D_i u^*(x), a(x,u^*(x)) D_n u^*(x)
+        })
+    dx}
+}
+\\ = \sum\limits_{j=1}^N {
+    \int\limits_{u(G_j)}{
+        F \Big( x', u^*, \frac{
+            \norm{
+                a_i(x',u^*) D_i y^*(x',u^*), a(x',y^*(x',u^*),u^*)
+            }
+        }{\sum\limits_{k=1}^{m_j} \abs{ D_n y_k^j(x',u^*) }} \Big) }}
+        \\ \times {{ \sum\limits_{k=1}^{m_j} \abs{ D_n y_k^j(x',u^*) }
+    dx' du^*}
+}.
+\end{multline}
+Now we fix a $j$, $x'$ and $u$ and denote
+$b_k := \abs{ D_n y_k^j }$, $c_{ki} := D_i y_k^j$, $c^*_i := D_i y^*$, $y_k := y_k^j(x',u)$, $y^* := y^*(x',u)$, $m := m_j$.
+Then the following chain of inequalities holds:
+
+\begin{multline}
+\label{chain}
+\sum\limits_{k=1}^m{ b_k F\Big(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k}\Big) }
+\overset{a}{\ge} F\Big( \frac{ \sum\limits_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum\limits_{k=1}^m b_k } \Big) \sum\limits_{k=1}^m b_k \\
+\overset{b}{=}  F\Big( \frac{ \sum\limits_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k
+\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum\limits_{k = 1}^m ( ( -1 )^k a_i c_{ki}, a( y_k ) ) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k \\
+= F\Big( \frac{ \norm{ \sum\limits_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum\limits_{k = 1}^m a( y_k ) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k
+\overset{d}{\ge} F\Big( \frac{ \norm{ \sum\limits_{k = 1}^m ( -1 )^k a_i c_{ki}, a( y^* ) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k \\
+\overset{e}{=}   F\Big( \frac{ \norm{ \pm a_i \sum\limits_{k = 1}^m ( -1 )^k c_{ki}, a( y^* ) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k
+= F\Big( \frac{ \norm{ a_i c^*_i, a(y^*) } }{\sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k.
+\end{multline}
+Here, in (a) we applied Jensen's inequality, in (b) and (e) we applied evenness of the norm, in (c) we used the triangle inequality,
+in (d) we applied proposition \ref{weightSum} and evenness of the weight $a$.
+
+(\ref{chain}) shows that the integrand in (\ref{intu}) is not less than the integrand in (\ref{intus}).
+This finishes the proof.
+\end{proof}
+
+\begin{rem}
+\label{lanLin}
+If $u(\cdot, -1) \equiv 0$ the lemma holds without the evenness of the weight.
+Indeed, the evenness is used only in (d) from (\ref{chain}).
+Since $u(\cdot, -1) \equiv 0$ implies $u(x'_0, -1) < u_0$, Proposition \ref{weightSum} alone is enough for (d) to be true.
+\end{rem}
+
+\section{Inequality (\ref{toprove}) for Sobolev functions}
+
+The following propositions are proved in \cite{1dim} in one-dimensional case.
+Their proofs in the multidimensional case do not differ.
+\begin{prop} {\rm \cite[Lemma 5]{1dim}.}
+Functional $I( u )$ is weakly lower semicontinuous in $W^1_1(\Omega)$.
+\end{prop}
+
+\begin{prop}
+\label{uplift}
+{\rm \cite[Lemma 6]{1dim}.}
+Let $A \subset W^1_1(\Omega)$. Let $B \subset A$ such that
+$\forall v \in B$ выполнено $I( v^* ) \le I( v )$. Suppose that for every $u \in A$
+there is a sequence $u_k \in B$ such that $u_k \to u$ in $W^1_1(\Omega)$ and $I( u_k ) \to I( u )$.
+Then $I( u^* ) \le I( u )$ for any $u \in A$.
+\end{prop}
+
+\begin{thm}
+\label{mainThm}
+Suppose function $a(x', \cdot, u)$ is even and satisfies condition $(\ref{almostConcave})$ for any $(x', u)$.
+Then
+
+{\bf 1.} Inequality (\ref{toprove}) holds for any nonnegative $u \in Lip(\Omega)$.
+
+{\bf 2.} Suppose in addition that $\partial \omega \in Lip$ and
+for any $x' \in \omega, z \in \Real_+, p \in \Real$
+$$F( x', z, p ) \le C ( 1 + |z|^{q^*} + |p|^q ),$$
+where $\frac{1}{q^*} = \frac{1}{q} - \frac{1}{n}$  if $q < n$, and $q^*$ is arbitrary otherwise.
+If $q \le n$ we also assume that the weights $a$ and $a_i$ are bounded.
+Then inequality (\ref{toprove}) holds for any nonnegative $u \in W^1_q(\Omega)$.
+\end{thm}
+
+\begin{proof}
+{\bf 1.} We can approximate a Lipschitz function $u$ with piecewise linear functions $u_k$ with its derivative almost everywhere.
+Since $u_k$ and their derivatives are uniformly bounded, $F(x', u_k(x), \norm{\mathcal{D} u_k})$ are uniformly bounded either.
+Then we can use Lebesgue's dominated convergence theorem, concluding $u_k \to u$ in $W^1_1(\Omega)$ and $I( u_k ) \to I( u )$.
+Applying Proposition \ref{uplift}, we obtain the required result.
+
+{\bf 2.} Consider an arbitrary $u \in W^1_q(\Omega)$.
+There exists a sequence of piecewise linear functions $u_k$, approximating it in $W^1_q(\Omega)$.
+Indeed, since $\partial \Omega \in Lip$, $u$ can be extended to a large ball to become a finite function.
+We approximate the extension by smooth finite functions.
+Next we triangulate the ball, and interpolate the function linearly.
+Obviously, all the functions in the process remain nonnegative.
+
+Thus, in view of Proposition \ref{uplift}, it is enough to achieve $I( u_k ) \to I( u )$.
+The proof of this convergence could be reduced to the Krasnoselsky's theorem on the continuity of Nemytskij operator (see. \cite[ch. 5, \textsection 17]{Kr}).
+However, we present here the full proof for the reader's convenience.
+
+Let us show that the weights $a_i(x', u(x))$ and $a(x, u(x))$ are bounded.
+If $q \le n$, it is stated by the theorem assumptions.
+Otherwise $W^1_q(\Omega)$ is embedded into $C(\overline{\Omega})$,
+hence $u_k(x)$ are uniformly bounded,
+and $a_i(x', u_k(x))$ and $a(x, u_k(x))$ are uniformly bounded either.
+Therefore $\norm{ \mathcal{D} u_k( x ) } \le C_1 |\nabla u_k( x )|$.
+In particular,
+$$F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) \le C_2 ( 1 + |u_k( x )|^{q^*} + |\nabla u_k( x )|^q ).$$
+
+Consider the sets $$A_m = \{ x \in \Omega: \forall k \ge m \quad 1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q \le 2 ( 1 + |u(x)|^{q^*} + |\nabla u( x )|^q ) \}.$$
+Obviously, $A_m \subset A_{m + 1}$.
+Passing to a subsequence, we can assume that $u_k \to u$ and $\nabla u_k \to \nabla u$ almost everywhere.
+Then $|A_m| \to |\Omega|$, and
+\begin{eqnarray*}
+\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\le& 2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ), \\
+\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\to& F( x', u( x ), \norm{ \mathcal{D} u( x ) } )
+\end{eqnarray*}
+almost everywhere.
+By the Sobolev embedding theorem we get $\Vert u_k \Vert_{q^*} \le C_3 \Vert u_k \Vert_{W^1_q}$.
+Thus, we found an integrable majorant for $\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } )$, and
+$$\int\limits_{A_k} \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) dx \to I( u )$$
+follows by Lebesgue's dominated convergence theorem.
+
+Next, we estimate the remainder:
+\begin{multline*}
+\int\limits_{\Omega \setminus A_k} F( x', u_k( x ), \norm{\mathcal{D} u_k( x )} ) dx
+\le \int\limits_{\Omega \setminus A_k} C_2 ( 1 + |u_k( x )|^{q^*} + |\nabla u_k( x )|^q ) dx \\
+\le C_4 \Big( \int\limits_{\Omega \setminus A_k} ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ) dx
++ \int\limits_{\Omega \setminus A_k} ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u - u_k )( x )|^q ) \Big) dx.
+\end{multline*}
+
+The first term tends to zero due to the absolute continuity of the integral.
+And the second term satisfies
+\begin{multline*}
+\int\limits_{\Omega \setminus A_k} ( 1 + |u( x ) - u_k( x )|^{q^*} + |\nabla ( u - u_k )( x ) )|^q ) dx \\
+\le ( | \Omega \setminus A_m( k ) | + \Vert u - u_k \Vert_{W^1_q}^{q^*} + \Vert u - u_k \Vert_{W^1_q}^q ) \to 0.
+\end{multline*}
+
+Thus, the convergence $I( u_k ) \to I( u )$ is proved.
+\end{proof}
+
+The following theorem is proved similarly taking into account Remarks (\ref{lanNec}) and (\ref{lanLin}).
+\begin{thm}
+Suppose $u(\cdot, -1) \equiv 0$ and the function $a(x', \cdot, u)$ satisfies condition $(\ref{almostConcave})$ for any $(x', u)$.
+Then the conclusions of Theorem \ref{mainThm} hold.
+\end{thm}
+
+\vskip 40pt
+
+I am grateful to Professor A.~I.~Nazarov for the problem statement, multiple valuable comments and for the encouragement.
+Also, I am grateful to Professor V.~G.~Osmolovsky for comments which helped to improve the text.
+
+This work was supported by RFBR grant 15-01-07650.
+
+\begin{thebibliography}{99}
+\bibitem{LL} E.~Lieb, M.~Loss: Analysis, second edition, American Mathematical Soc., 2001. 346~pp.
+\bibitem{Kawohl} B.~Kawohl, ``Rearrangements and convexity of level sets in PDE'',
+Lecture notes in mathematics {\bf1150}. Berlin; Springer Verlag, 134~p. (1985)
+\bibitem{Br} F.~Brock, ``Weighted Dirichlet-type inequalities for Steiner symmetrization'',
+Calc. Var. and PDEs~{\bf8}, 15--25 (1999)
+\bibitem{1dim} S.~V.~Bankevich, A.~I.~Nazarov, ``On monotonicity of some functionals under rearrangements'', Calc. Var. and PDEs, 10.1007/s00526-014-0761-6, 21~c. (2014)
+\bibitem{DAN} S.~Bankevich, A.~Nazarov, ``A generalization of the P\'olya--Szeg\"o inequality for one-dimensional functionals'',
+Doklady RAN~{\bf438}, N1, p.~11--13 (2011) (in Russian).
+English translation in:
+Doklady Mathematics~{\bf83}, N3, p.~287--289 (2011)
+\bibitem{Lan} R.~Landes, ``Some remarks on rearrangements and functionals with non-constant density'',
+Math.~Nachr.~{\bf280}, N5--6, 560--570 (2007)
+\bibitem{Kr} M.~A.~Krasnoselskii, E.~I.~Pustylnik, P.~E.~Sobolevskii, P.~P.~Zabreiko ``Integral Operators in Spaces of Summable Functions'',
+Noordhoff International Publishing, Leyden, 520~p. (1976)
+\end{thebibliography}
+
+\end{document}

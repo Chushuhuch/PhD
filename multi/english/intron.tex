@@ -24,9 +24,9 @@ which are convex and increasing in the third argument, and satisfy $F( \cdot, \c
 Consider the following functional:
 \begin{equation}
 \label{functional}
-I( u ) = \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
+I( u ) = \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx.
 \end{equation}
-where $F \in \mathfrak{F}$ and
+Here $F \in \mathfrak{F}$ and
 $\norm{\cdot}$ is a norm in $\Real^n$, which is symmetric in the last coordinate,
 i.e. satisfying $\norm{( x', y )} = \norm{( x', -y )}$ for any $( x',  y ) \in \Real^n$.
 $$\mathcal{D} u = ( a_1( x', u( x ) ) D_1 u, \dots, a_{n - 1}( x', u( x ) ) D_{n - 1} u, a( x, u( x ) ) D_n u )$$
@@ -37,7 +37,7 @@ Hereinafter, the index $i$ runs from $1$ to $n - 1$.
 It is well known that for $a_i = a \equiv 1$ the following inequality holds 
 \begin{equation}
 \label{toprove}
-I( u^* ) \le I( u ), \qquad \qquad u \in \W(\Omega), u \ge 0
+I( u^* ) \le I( u ), \qquad \qquad u \in \W(\Omega),\ u \ge 0
 \end{equation}
 (see e.g. \cite{Kawohl} and references therein).
 
@@ -51,15 +51,15 @@ Namely,
 I( \overline{u} ) \le I( u ), \qquad \qquad u \in \Wf( \Omega ),\ u \ge 0,
 \end{equation}
 where $\overline{u}$ stands for Steiner symmetrization (symmetrical rearrangement) of function $u$ with respect to $y$.
-The author of \cite{Br} proves the inequality for weight $a$, even and convex with respect to $y$.
+The author of \cite{Br} proves the inequality for any weight $a$, which is even and convex with respect to $y$.
 To do this inequality (\ref{breq}) is proved for piecewise linear $u$.
 It is further claimed that in the general case the inequality is obtained by approximation.
 However, the passage to the limit is not properly justified in \cite{Br},
-and in fact the result was obtained only for Lipschitz $u$.
+and in fact the result was obtained only for Lipschitz $u$ functions.
 Note that the article \cite{Br} has only the weight of $D_n u$ depend on $y$ either,
 this restriction appears to be essential.
 
-Inequalities (\ref{toprove}) and (\ref{breq}) in a one-dimensional case are considered in the work \cite{1dim}.
+Inequalities (\ref{toprove}) and (\ref{breq}) in a one-dimensional case are considered in work \cite{1dim}.
 It establishes the necessary and sufficient conditions for the inequalities.
 In particular, the gap in \cite{Br} was closed for $n = 1$.
 Under certain additional restrictions the result was announced in \cite{DAN}.

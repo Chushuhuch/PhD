@@ -20,37 +20,36 @@ Then $I( u^* ) \le I( u )$ for any $u \in A$.
 Suppose function $a(x', \cdot, u)$ is even and satisfies condition $(\ref{almostConcave})$ for any $(x', u)$.
 Then
 
-{\bf 1.} Inequality (\ref{toprove}) is true for any nonnegative $u \in Lip(\Omega)$.
+{\bf 1.} Inequality (\ref{toprove}) holds for any nonnegative $u \in Lip(\Omega)$.
 
 {\bf 2.} Suppose in addition that $\partial \omega \in Lip$ and
 for any $x' \in \omega, z \in \Real_+, p \in \Real$
 $$F( x', z, p ) \le C ( 1 + |z|^{q^*} + |p|^q ),$$
-for $\frac{1}{q^*} = \frac{1}{q} - \frac{1}{n}$  if $q < n$, and some arbitrary $q^*$ otherwise.
+where $\frac{1}{q^*} = \frac{1}{q} - \frac{1}{n}$  if $q < n$, and $q^*$ is arbitrary otherwise.
 If $q \le n$ we also assume that the weights $a$ and $a_i$ are bounded.
 Then inequality (\ref{toprove}) holds for any nonnegative $u \in W^1_q(\Omega)$.
 \end{thm}
 
 \begin{proof}
 {\bf 1.} We can approximate a Lipschitz function $u$ with piecewise linear functions $u_k$ with its derivative almost everywhere.
-Since $u_k$ and their derivatives are uniformly bounded
-$F(x', u_k(x), \norm{\mathcal{D} u_k})$ are uniformly bounded either.
+Since $u_k$ and their derivatives are uniformly bounded, $F(x', u_k(x), \norm{\mathcal{D} u_k})$ are uniformly bounded either.
 Then we can use Lebesgue's dominated convergence theorem, concluding $u_k \to u$ in $W^1_1(\Omega)$ and $I( u_k ) \to I( u )$.
 Applying Proposition \ref{uplift}, we obtain the required result.
 
-{\bf 2.} Consider arbitrary $u \in W^1_q(\Omega)$.
+{\bf 2.} Consider an arbitrary $u \in W^1_q(\Omega)$.
 There exists a sequence of piecewise linear functions $u_k$, approximating it in $W^1_q(\Omega)$.
-Indeed, $\partial \Omega \in Lip$ hence $u$ can be extended to a large ball to become a finite function.
+Indeed, since $\partial \Omega \in Lip$, $u$ can be extended to a large ball to become a finite function.
 We approximate the extension by smooth finite functions.
-Next the ball is triangulated, and the function is linearly interpolated.
+Next we triangulate the ball, and interpolate the function linearly.
 Obviously, all the functions in the process remain nonnegative.
 
 Thus, in view of Proposition \ref{uplift}, it is enough to achieve $I( u_k ) \to I( u )$.
-The proof of this convergence can be reduced to the Krasnoselsky's theorem on the continuity of Nemytskij operator (see. \cite[ch. 5, \textsection 17]{Kr}).
+The proof of this convergence could be reduced to the Krasnoselsky's theorem on the continuity of Nemytskij operator (see. \cite[ch. 5, \textsection 17]{Kr}).
 However, we present here the full proof for the reader's convenience.
 
 Let us show that the weights $a_i(x', u(x))$ and $a(x, u(x))$ are bounded.
 If $q \le n$, it is stated by the theorem assumptions.
-Else $W^1_q(\Omega)$ is embedded into $C(\overline{\Omega})$,
+Otherwise $W^1_q(\Omega)$ is embedded into $C(\overline{\Omega})$,
 hence $u_k(x)$ are uniformly bounded,
 and $a_i(x', u_k(x))$ and $a(x, u_k(x))$ are uniformly bounded either.
 Therefore $\norm{ \mathcal{D} u_k( x ) } \le C_1 |\nabla u_k( x )|$.
@@ -66,8 +65,8 @@ Then $|A_m| \to |\Omega|$, and
 \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\to& F( x', u( x ), \norm{ \mathcal{D} u( x ) } )
 \end{eqnarray*}
 almost everywhere.
-Applying the Sobolev embedding theorem we get $\Vert u_k \Vert_{q^*} \le C_3 \Vert u_k \Vert_{W^1_q}$.
-Thus, we found an integrable majorant, and
+By the Sobolev embedding theorem we get $\Vert u_k \Vert_{q^*} \le C_3 \Vert u_k \Vert_{W^1_q}$.
+Thus, we found an integrable majorant for $\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } )$, and
 $$\int\limits_{A_k} \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) dx \to I( u )$$
 follows by Lebesgue's dominated convergence theorem.
 

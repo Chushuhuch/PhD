@@ -1,7 +1,5 @@
 \section{The proof of (\ref{toprove}) for piecewise linear functions}
 
-In this section we prove inequality (\ref{toprove}) for piecewise linear functions.
-
 \begin{lm}
 Suppose the function $a(x', \cdot, u)$ is even and satisfies $(\ref{almostConcave})$ for any $(x', u)$.
 Then for any nonnegative piecewise linear $u$ we have $I( u ) \ge I( u^* )$.
@@ -9,7 +7,7 @@ Then for any nonnegative piecewise linear $u$ we have $I( u ) \ge I( u^* )$.
 
 \begin{proof}
 The proof follows the scheme of proof of Theorem 2 in \cite{1dim}.
-Let $\partial \Omega \subset C \subset \Omega$ be a closed set, such that on any connected subset of $\Omega \setminus C$ the function $u$ is linear.
+Let $\partial \Omega \subset C \subset \Omega$ be a minimal closed set, such that on any connected subset of $\Omega \setminus C$ the function $u$ is linear.
 Define $$U := \{ ( x', u( x', y ) ): y \in (-1, 1), (x', y) \not\in C \}.$$
 Then the open set $U$ can be partitioned into a finite union of disjoint connected open sets $G_j$.
 Let $m_j$ be the number of inverse images of $( x', u_0 ) \in G_j$, that is the number of solutions to $u( x', y ) = u_0$
@@ -17,7 +15,7 @@ Let $m_j$ be the number of inverse images of $( x', u_0 ) \in G_j$, that is the 
 It is easy to see that the inverse images themselves are linear functions of $( x', u_0 )$:
 $y = y_k^j( x', u_0 )$, $k = 1, \dots, m_j$,
 and $D_n y_k^j( x', u( x', y ) ) = \frac{1}{D_n u( x', y )}$.
-Without loss of generality, we assume that $y_1^j(x', u_0) < y_2^j(x', u_0) < \dots < y_{m_j}^j(x', u_0)$.
+Without loss of generality, we assume that $y_1^j(x', u_0) < y_2^j(x', u_0) < \ldots < y_{m_j}^j(x', u_0)$.
 
 The equation $u^*(x'_0, y^*) = u_0$ defines $y^*$ as a function of $( x'_0, u_0 ) \in G_j$.
 The $y^*$ function can be expressed in terms of $y_k^j$ (in particular, $y^*$ is piecewise linear):
@@ -31,25 +29,25 @@ The $y^*$ function can be expressed in terms of $y_k^j$ (in particular, $y^*$ is
 \end{tabular}
 \end{center}
 
-Hence it is clear that
+Hence it is clear that for $(x', y) \in G_j$
 \begin{equation*}
-D_n y^*(x', u(x', y)) = \frac{1}{D_n u^*(x',y)}=\sum_{k=1}^{m_j}{|D_n y_k^j (x',u(x',y))|}
+D_n y^*(x', u(x', y)) = \frac{1}{D_n u^*(x',y)}=\sum\limits_{k=1}^{m_j}{|D_n y_k^j (x',u(x',y))|}
 \end{equation*}
-and $D_i u^*( x', y ) = \pm \sum_{k = 1}^{m_j} ( -1 )^k D_i y_k^j( x', u( x', y ) )$, where the sign before the right-hand side depends only on $j$.
+and $D_i u^*( x', y ) = \pm \sum\limits_{k = 1}^{m_j} ( -1 )^k D_i y_k^j( x', u( x', y ) )$, where the sign before the right-hand side depends only on $j$.
 
 Then
 \begin{multline}
 \label{intu}
-I( u )=\sum_{j=1}^N {
+I( u )=\sum\limits_{j=1}^N {
     \int\limits_{G_j}{
         F( x', u(x), \norm{
             a_i(x',u(x)) D_i u(x), a(x,u(x)) D_n u(x)
         })
     dx}
 }
-\\ = \sum_{j=1}^N{
+\\ = \sum\limits_{j=1}^N{
     \int\limits_{u(G_j)}{
-        \sum_{k=1}^{m_j}{
+        \sum\limits_{k=1}^{m_j}{
             F \Big( x', u, \frac{
                 \norm{
                     a_i(x',u) D_i y_k^j(x',u), a(x', y_k^j(x',u), u)
@@ -63,38 +61,38 @@ I( u )=\sum_{j=1}^N {
 \begin{multline}
 \label{intus}
 I( u^* )=
-\sum_{j=1}^N{
+\sum\limits_{j=1}^N{
     \int\limits_{G_j}{
         F(x', u^*, \norm{
             a_i(x',u^*(x)) D_i u^*(x), a(x,u^*(x)) D_n u^*(x)
         })
     dx}
 }
-\\ = \sum_{j=1}^N {
+\\ = \sum\limits_{j=1}^N {
     \int\limits_{u(G_j)}{
         F \Big( x', u^*, \frac{
             \norm{
                 a_i(x',u^*) D_i y^*(x',u^*), a(x',y^*(x',u^*),u^*)
             }
-        }{\sum_{k=1}^{m_j} \abs{ D_n y_k^j(x',u^*) }} \Big) }} \times
-        \\ \times {{ \sum_{k=1}^{m_j} \abs{ D_n y_k^j(x',u^*) }
+        }{\sum\limits_{k=1}^{m_j} \abs{ D_n y_k^j(x',u^*) }} \Big) }}
+        \\ \times {{ \sum\limits_{k=1}^{m_j} \abs{ D_n y_k^j(x',u^*) }
     dx' du^*}
 }.
 \end{multline}
 Now we fix a $j$, $x'$ and $u$ and denote
-$b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $c^*_i=D_i y^*$, $y_k=y_k^j(x',u)$, $y^*=y^*(x',u)$, $m = m_j$.
+$b_k := \abs{ D_n y_k^j }$, $c_{ki} := D_i y_k^j$, $c^*_i := D_i y^*$, $y_k := y_k^j(x',u)$, $y^* := y^*(x',u)$, $m := m_j$.
 Then the following chain of inequalities holds:
 
 \begin{multline}
 \label{chain}
-\sum_{k=1}^m{ b_k F\Big(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k}\Big) }
-\overset{a}{\ge} F\Big( \frac{ \sum_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k \\
-\overset{b}{=}  F\Big( \frac{ \sum_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
-\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum_{k = 1}^m ( ( -1 )^k a_i c_{ki}, a( y_k ) ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
-= F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
-\overset{d}{\ge} F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
-\overset{e}{=}   F\Big( \frac{ \norm{ \pm a_i \sum_{k = 1}^m ( -1 )^k c_{ki}, a( y^* ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
-= F\Big( \frac{ \norm{ a_i c^*_i, a(y^*) } }{\sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k.
+\sum\limits_{k=1}^m{ b_k F\Big(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k}\Big) }
+\overset{a}{\ge} F\Big( \frac{ \sum\limits_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum\limits_{k=1}^m b_k } \Big) \sum\limits_{k=1}^m b_k \\
+\overset{b}{=}  F\Big( \frac{ \sum\limits_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k
+\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum\limits_{k = 1}^m ( ( -1 )^k a_i c_{ki}, a( y_k ) ) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k \\
+= F\Big( \frac{ \norm{ \sum\limits_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum\limits_{k = 1}^m a( y_k ) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k
+\overset{d}{\ge} F\Big( \frac{ \norm{ \sum\limits_{k = 1}^m ( -1 )^k a_i c_{ki}, a( y^* ) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k \\
+\overset{e}{=}   F\Big( \frac{ \norm{ \pm a_i \sum\limits_{k = 1}^m ( -1 )^k c_{ki}, a( y^* ) } }{ \sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k
+= F\Big( \frac{ \norm{ a_i c^*_i, a(y^*) } }{\sum\limits_{k=1}^m b_k} \Big) \sum\limits_{k=1}^m b_k.
 \end{multline}
 Here, in (a) we applied Jensen's inequality, in (b) and (e) we applied evenness of the norm, in (c) we used the triangle inequality,
 in (d) we applied proposition \ref{weightSum} and evenness of the weight $a$.
