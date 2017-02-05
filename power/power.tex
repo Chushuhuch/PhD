@@ -230,43 +230,80 @@ $K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 \section{Доказательство неравенства}
 
 \begin{lm}
+Положим, $m$ --- четное положительное число, $s_k > 0$ ($k = 1 \dots m$), $-1 \le x_1 \le \dots \le x_m \le 1$.
+Тогда
+$$\sum\limits_{k = 1}^{m} K(s_k, x_k) \ge
+2 K({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).$$
+\end{lm}
+
+\begin{proof}
+Докажем сперва неравенство в случае $m = 2$.
+В этом случае оно принимает следующий вид:
+$$K(s_1, x_1) + K(s_2, x_2) \ge 2 K({s_1 + s_2 \over 2}, {x_2 - x_1 \over 2}).$$
+Это неравенство немедленно следует из того, что функция $K$ четна по второму аргументу и выпукла как функция совокупности аргументов.
+
+Теперь докажем неравенство для произвольного четного $m > 2$.
+Введем новую функцию $L(s, x) = K(s, x) - s = s \big( (1 + {1 \over s^2})^{p(x) \over 2} - 1 \big)$.
+Заметим, что утверждение леммы равносильно аналогичному неравенству для $L$:
+$$\sum\limits_{k = 1}^{m} L(s_k, x_k) \ge
+2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).$$
+В частности, это неравенство уже доказано для $m = 2$.
+Также заметим, что функция $L$ убывает по $s$ ($L_s(s, x) = (1 + {1 \over s^2})^{{p(x) \over 2} - 1} ( 1 + {1 \over s^2} - 2 p ) - 1$).
+
+\begin{multline*}
+\sum\limits_{k = 1}^{m} L(s_k, x_k)
+\ge \sum\limits_{k = 1}^{m / 2} ( L(s_k, x_k) + L(s_{m - k + 1}, x_{m - k + 1}) ) \\
+\ge \sum\limits_{k = 1}^{m / 2} 2 L({s_k + s_{m - k + 1} \over 2}, {x_{m - k + 1} - x_k \over 2})
+\ge 2 L({s_1 + s_m \over 2}, {x_m - x_1 \over 2}) \\
+\ge 2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {x_m - x_1 \over 2})
+\ge 2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).
+\end{multline*}
+
+
+
+\end{proof}
+
+\begin{lm}
 Если функция $K$ выпукла, то для любой кусочно линейной функции $u$ выполнено неравенство $I(u^*) \le I(u)$.
 \end{lm}
 
 \begin{proof}
+\comment{Обосновать игнор константных кусков}
 Положим $L \subset [-1, 1]$ --- множество точек перелома (включая концы отрезка) функции $u$.
 Возьмем $U = u([-1, 1]) \setminus u(L)$, образ функции $u$ без образов точек излома.
 Это открытое множество и его можно разбить на конечное число интервалов $U = \cup_j U_j$.
 Заметим, что для каждого $j$ множество $u^{-1}(U_j)$ разбивается на четное число интервалов,
-на каждом из которых функция $u$ совпадает с некоторой линейной функцией $y_j^k$, $k = 1, \dots, m_j$.
-Для удобства считаем, что носители $y_j^k$ для каждого $j$ идут по порядку,
-то есть $\sup dom(y_j^k) \le \inf dom(y_j^{k + 1})$.
-Обозначим $b_j^k = y_j^k{}'(x)$.
+на каждом из которых функция $u$ совпадает с некоторой линейной функцией $y^j_k$, $k = 1, \dots, m_j$.
+Для удобства считаем, что носители $y^j_k$ для каждого $j$ идут по порядку,
+то есть $\sup dom(y^j_k) \le \inf dom(y^j_{k + 1})$.
+Обозначим $b^j_k = |y^j_k{}'(x)|$.
 Тогда
 \begin{multline}
 I(u) = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
-= \sum\limits_j \sum\limits_k \int\limits_{dom(y_j^k)} (1 + {y_j^k}'^2(x))^{p(x) \over 2} dx
-\\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over |b_j^k|} (1 + (b_j^k)^2)^{p((y_j^k)^{-1}(y)) \over 2} dy
+= \sum\limits_j \sum\limits_k \int\limits_{dom(y^j_k)} (1 + {y^j_k}'^2(x))^{p(x) \over 2} dx
+\\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over b^j_k} (1 + b^j_k{}^2)^{p((y^j_k)^{-1}(y)) \over 2} dy
 \end{multline}
 
 Поскольку функция $u^*$ четна и монотонна с любой стороны от нуля, для удобства обозначим за $(u^*)^{-1}$
 обратную к функции $u^*$, ограниченной на отрезок $[0, 1]$.
-Тогда для каждого $j$ можно, используя функции $y_j^k$, выразить функцию $(u^*)^{-1}$ на участке $U_j$ следующим образом
+Тогда для каждого $j$ можно, используя функции $y^j_k$, выразить функцию $(u^*)^{-1}$ на участке $U_j$ следующим образом
 (здесь $y \in U_j$):
-$$(u^*)^{-1} (y) = {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y),
-\ |((u^*)^{-1})'(y)| = {1 \over |u^*{}'((u^*)^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k} =: { 1 \over b_j^* }.$$
+\begin{eqnarray*}
+(u^*)^{-1} (y) & = & {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \\
+|((u^*)^{-1})'(y)| & = & {1 \over |u^*{}'((u^*)^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k} =: { 1 \over b_j^* }.
+\end{eqnarray*}
 Тогда
 \begin{multline}
 I(u^*) = 2 \int\limits_0^1 (1 + u^*{}'^2(x))^{p(x)} dx
-= 2 \int\limits_U {1 \over |(u^*)'(y)|} ( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } ) dy
-\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over |b_j^*|}
-\Big(1 + b_j^*{}^2 \Big)^{p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y)\big)} dy
+= 2 \int\limits_U |((u^*)^{-1})'(y)| ( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } ) dy
+\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*}
+\Big(1 + b_j^*{}^2 \Big)^{p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy
 \end{multline}
 
 Зафиксируем $j$ и $y$.
 Тогда для доказательства леммы достаточно выполнения
-$$\sum\limits_{k = 1}^{m_j} K({1 \over b_j^k}, (y_j^k)^{-1}(y)) \ge
-K({1 \over 2} \sum\limits_{k = 1}^{m_j} {(-1)^k \over b_j^k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y_j^k)^{-1}(y)).$$
+$$\sum\limits_{k = 1}^{m_j} K({1 \over b^j_k}, (y^j_k)^{-1}(y)) \ge
+2 K({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)).$$
 
 \comment{Написать лемму, почему это верно}
 
