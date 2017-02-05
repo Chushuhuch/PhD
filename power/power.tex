@@ -248,13 +248,17 @@ $$K(s_1, x_1) + K(s_2, x_2) \ge 2 K({s_1 + s_2 \over 2}, {x_2 - x_1 \over 2}).$$
 $$\sum\limits_{k = 1}^{m} L(s_k, x_k) \ge
 2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).$$
 В частности, это неравенство уже доказано для $m = 2$.
-Также заметим, что функция $L$ убывает по $s$ ($L_s(s, x) = (1 + {1 \over s^2})^{{p(x) \over 2} - 1} ( 1 + {1 \over s^2} - 2 p ) - 1$).
+Также заметим, что функция $L$ убывает по $s$.
+Это легко проверить посредством вычислений:
+$$L_{ss}(s, x) = {p(x) \over s^3} \Big( 1 + {1 \over s^2} \Big)^{{p \over 2} - 2} \Big( 1 + {p - 1 \over s^2} \Big) > 0,$$
+при этом $L_s(s, x) = (1 + {1 \over s^2})^{{p(x) \over 2} - 1} ( 1 - {p - 1 \over s^2} ) - 1 \xrightarrow[s \to \infty]{} 0$.
+Тогда
 
 \begin{multline*}
 \sum\limits_{k = 1}^{m} L(s_k, x_k)
-\ge \sum\limits_{k = 1}^{m / 2} ( L(s_k, x_k) + L(s_{m - k + 1}, x_{m - k + 1}) ) \\
+\ge \sum\limits_{k = 1}^{m / 2} ( L(s_k, x_k) + L(s_{m - k + 1}, x_{m - k + 1}) ) \ge \\
 \ge \sum\limits_{k = 1}^{m / 2} 2 L({s_k + s_{m - k + 1} \over 2}, {x_{m - k + 1} - x_k \over 2})
-\ge 2 L({s_1 + s_m \over 2}, {x_m - x_1 \over 2}) \\
+\ge 2 L({s_1 + s_m \over 2}, {x_m - x_1 \over 2}) \ge \\
 \ge 2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {x_m - x_1 \over 2})
 \ge 2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).
 \end{multline*}
