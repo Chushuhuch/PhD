@@ -301,11 +301,10 @@ $$L_s(s, x) = (1 + {1 \over s^2})^{{p(x) \over 2} - 1} ( 1 - {p(x) - 1 \over s^2
 
 \begin{lm}
 Если функция $K(s, x)$ четна по $x$ и выпукла по совокупности аргументов,
-то для любой кусочно линейной функции $u$ выполнено неравенство $I(u^*) \le I(u)$.
+то для любой кусочно линейной функции $u \in \Wf[-1, 1]$ выполнено неравенство $I(u^*) \le I(u)$.
 \end{lm}
 
 \begin{proof}
-\comment{Обосновать игнор константных кусков}
 Положим $L \subset [-1, 1]$ --- множество точек перелома (включая концы отрезка) функции $u$.
 Возьмем $U = u([-1, 1]) \setminus u(L)$, образ функции $u$ без образов точек излома.
 Это множество и представляется в виде объединения конечного числа непересекающихся интервалов $U = \cup_j U_j$.
@@ -314,9 +313,10 @@ $$L_s(s, x) = (1 + {1 \over s^2})^{{p(x) \over 2} - 1} ( 1 - {p(x) - 1 \over s^2
 Для удобства считаем, что носители $y^j_k$ для каждого $j$ идут по порядку,
 то есть $\sup dom(y^j_k) \le \inf dom(y^j_{k + 1})$.
 Обозначим $b^j_k = |y^j_k{}'(x)|$.
+Также заметим, что множества точек $x \in [-1, 1]$, на которых $u$ и $u^*$ имеют нулевую производную, имеют одинаковую меру $Z$.
 Тогда
 \begin{multline}
-I(u) = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
+I(u) - Z = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
 = \sum\limits_j \sum\limits_k \int\limits_{dom(y^j_k)} (1 + {y^j_k}'^2(x))^{p(x) \over 2} dx =
 \\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over b^j_k} (1 + b^j_k{}^2)^{p((y^j_k)^{-1}(y)) \over 2} dy
 \end{multline}
@@ -334,8 +334,8 @@ I(u) = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
 Тогда
 \begin{multline}
 I(u^*) = 2 \int\limits_0^1 (1 + u^*{}'^2(x))^{p(x)} dx
-= 2 \int\limits_U |((u^*)^{-1})'(y)| ( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } ) dy =
-\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*}
+= Z + 2 \int\limits_U |((u^*)^{-1})'(y)| ( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } ) dy =
+\\ = Z + 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*}
 \Big(1 + b_j^*{}^2 \Big)^{p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy
 \end{multline}
 
