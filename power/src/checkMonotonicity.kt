@@ -12,16 +12,17 @@ enum class Monotonicity {
 }
 
 fun main(args: Array<String>) {
+    val FN = ::B
     val range = genRange()
     for ( w in range ) {
         var state = Monotonicity.None
         val changes = ArrayList<Pair<Double, Monotonicity>>()
         val mon = EnumSet.noneOf( Monotonicity::class.java )
-        var value = qA( 0.0, w )
+        var value = FN( 0.0, w )
         var min = Extremum( 0.0, value )
         var max = Extremum( 0.0, value )
         for ( q in range ) {
-            val nextValue = qA( q, w )
+            val nextValue = FN( q, w )
             var nextState = if ( nextValue > value ) Monotonicity.Increasing else if ( nextValue < value ) Monotonicity.Decreasing else state
             mon.add( nextState )
             if ( nextState != state ) {

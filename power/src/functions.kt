@@ -16,5 +16,9 @@ fun A( q: Double, w: Double ): Double =
 
 fun qA( q: Double, w: Double ): Double = q * A( q, w )
 
+fun B( q: Double, w: Double ): Double =
+        ( q * ( 4 * w - ( w + 3 ) * Math.log1p( w ) ) + 4 / ln1pwOverW( w ) - 4 - ( w - 1 ) * ln1pwOverW( w ) ) /
+                ( q * w + 1 )
+
 fun Complex.q() = re
 fun Complex.w() = im
