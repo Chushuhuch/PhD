@@ -75,33 +75,20 @@ J(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad I(u) = \int\limits_{-1}^1 ( 
 Для каждого $\alpha > 0$ и $\eps > 0$ такого, что $[x_0 - \eps, x_0 + \eps] \subset [-1, 1]$,
 определим функцию
 $$
-\left\{
-\begin{aligned}
-u_{\alpha,\eps}(x) &= 0, & x & \in [-1, x_0 - \eps] \cup [x_0 + \eps, 1] \\
-u_{\alpha,\eps}(x) &= \alpha \cdot (x - (x_0 - \eps)), & x & \in [x_0 - \eps, x_0] \\
-u_{\alpha,\eps}(x) &= -\alpha \cdot ((x_0 + \eps) - x), & x & \in [x_0, x_0 + \eps].
-\end{aligned}
-\right.
+u_{\alpha,\eps}(x) = \alpha ( \eps - |x - x_0| )_+.
 $$
-
 Тогда
 $$
-\left\{
-\begin{aligned}
-u_{\alpha,\eps}^*(x) &= 0, & x & \in [-1, -\eps] \cup [\eps, 1] \\
-u_{\alpha,\eps}^*(x) &= \alpha \cdot (x + \eps), & x & \in [-\eps, 0] \\
-u_{\alpha,\eps}^*(x) &= -\alpha \cdot (x - \eps), & x & \in [0, \eps].
-\end{aligned}
-\right.
+u_{\alpha,\eps}^*(x) = \alpha ( \eps - |x| )_+.
 $$
 
-Кроме того, почти всюду
+Кроме того,
 \begin{eqnarray*}
 \begin{aligned}
-& |u_{\alpha,\eps}'(x)|     = 0,      & x & \in [-1, x_0 - \eps] \cup [x_0 + \eps, 1] \\
-& |u_{\alpha,\eps}'(x)|     = \alpha, & x & \in [x_0 - \eps, x_0 + \eps] \\
-& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x & \in [-1, -\eps] \cup [\eps, 1] \\
-& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x & \in [-\eps, \eps] \\
+& |u_{\alpha,\eps}'(x)|     = 0,      & x & \in (-1, x_0 - \eps) \cup (x_0 + \eps, 1) \\
+& |u_{\alpha,\eps}'(x)|     = \alpha, & x & \in (x_0 - \eps, x_0 + \eps) \\
+& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x & \in (-1, -\eps) \cup (\eps, 1) \\
+& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x & \in (-\eps, \eps) \\
 \end{aligned}
 \end{eqnarray*}
 
@@ -191,10 +178,10 @@ u(x) &= \eps - { x - x_2 \over s }, & x &\in [x_2 - t \eps, x_2 + t \eps]
 \begin{equation}
 \left\{
 \begin{aligned}
-u(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
-u(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
-u(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
-u(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
+u^*(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
+u^*(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
+u^*(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
+u^*(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
 \end{aligned}
 \right.
 \end{equation}
@@ -251,7 +238,7 @@ $$\sigma p(x_1) + \sigma p(x_2) \ge \sigma p( { x_2 - x_1 \over 2 } ) + \sigma p
 $$p(x_1) + p(x_2) \ge p( { x_2 - x_1 \over 2 } ) + p( { x_1 - x_2 \over 2 } ).$$
 
 Воспользовавшись предложением \ref{convProp}, получаем, что $p$ четна и выпукла.
-Тогда, подставив в (\ref{preConv}) $x_1$ и $-x_2$ и воспользовавшись четностью $p$, получаем
+Тогда, заменим в (\ref{preConv}) $x_2$ на $-x_2$ и воспользовавшись четностью $p$, получаем
 $K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 \end{proof}
 
@@ -259,8 +246,8 @@ $K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 
 \begin{lm}
 \label{quasiConv}
-Положим, $m$ --- четное положительное число, $s_k > 0$ ($k = 1 \dots m$), $-1 \le x_1 \le \dots \le x_m \le 1$.
-Тогда, если $K(s, x)$ четна по $x$ и выпукла по совокупности аргументов, выполнено
+Пусть $m$ --- четное положительное число, $s_k > 0$ ($k = 1 \dots m$), $-1 \le x_1 \le \dots \le x_m \le 1$.
+Тогда, если $K(s, x)$ четна по $x$ и выпукла по совокупности аргументов, то
 $$\sum\limits_{k = 1}^{m} K(s_k, x_k) \ge
 2 K({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).$$
 \end{lm}
@@ -315,25 +302,24 @@ $$L_s(s, x) = (1 + {1 \over s^2})^{{p(x) \over 2} - 1} ( 1 - {p(x) - 1 \over s^2
 \begin{multline}
 I(u) - Z = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
 = \sum\limits_j \sum\limits_k \int\limits_{dom(y^j_k)} (1 + {y^j_k}'^2(x))^{p(x) \over 2} dx =
+\\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k K({1 \over b^j_k}, (y^j_k)^{-1}(y)) dy
 \\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over b^j_k} (1 + b^j_k{}^2)^{p((y^j_k)^{-1}(y)) \over 2} dy
 \end{multline}
 
-Поскольку функция $u^*$ четна и монотонна с любой стороны от нуля, для удобства обозначим за $(u^*)^{-1}$
-обратную к функции $u^*$, ограниченной на отрезок $[0, 1]$.
-В тех точках, где обратная функция не определена, возьмем любое значение.
-Все дальнейшие соотношения на значения функций и их производных верны почти всюду.
+На множестве $u([-1, 1]) \setminus u(L)$ можно однозначно определить функцию, обратную к $u^*$ на $[0, 1]$.
+Обозначим ее $(u^*)^{-1}$.
 Тогда для каждого $j$ можно, используя функции $y^j_k$, выразить функцию $(u^*)^{-1}$ на участке $U_j$ следующим образом
 (здесь $y \in U_j$):
 \begin{eqnarray*}
 (u^*)^{-1} (y) & = & {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \\
 |((u^*)^{-1})'(y)| & = & {1 \over |u^*{}'((u^*)^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k} =: { 1 \over b_j^* }.
 \end{eqnarray*}
-Тогда
+Тогда, ввиду четности $u^*$,
 \begin{multline}
-I(u^*) = 2 \int\limits_0^1 (1 + u^*{}'^2(x))^{p(x)} dx
-= Z + 2 \int\limits_U |((u^*)^{-1})'(y)| ( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } ) dy =
-\\ = Z + 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*}
-\Big(1 + b_j^*{}^2 \Big)^{p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy
+I(u^*) - Z = 2 \int\limits_{(u^*)^{-1}(U)} (1 + u^*{}'^2(x))^{p(x) \over 2} dx =
+\\ = 2 \int\limits_U |((u^*)^{-1})'(y)| ( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } )^{p((u^*)^{-1}(y)) \over 2} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*} \Big(1 + b_j^*{}^2 \Big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy
+\\ = 2 \sum\limits_j \int\limits_{U_j} K({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)) dy
 \end{multline}
 
 Зафиксируем $j$ и $y$.
@@ -351,7 +337,7 @@ $$\sum\limits_{k = 1}^{m_j} K({1 \over b^j_k}, (y^j_k)^{-1}(y)) \ge
 Пусть модуль непрерывности $\omega(\eps)$ функции $p$ удовлетворяет условию
 \begin{equation}
 \label{logCont}
-- \lim\limits_{\eps \to 0} \omega(\eps) \log \eps < \infty.
+\lim\limits_{\eps \to 0} \omega(\eps) |\log \eps| < \infty.
 \end{equation}
 Тогда для любой $u \in \Wf[-1, 1]$ такой, что $I(u) < \infty$,
 найдется последовательность кусочно линейных функций $u_n$, определенных на $[-1, 1]$, для которых
@@ -383,16 +369,17 @@ $$
 \end{thm}
 
 \begin{proof}
-Обозначим $$I_{\eps}(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{p(x) \over 2} \chi\{-1 + \eps, 1 - \eps\} dx,$$
-где $\chi\{A\}$ --- характеристическая функция множества $A$, $0 < \eps < 1$.
-Заметим, что для любого $0 < \eps < 1$ функция $p$, ограниченная на $[-1 + \eps, 1 - \eps]$, удовлетворяет условию (\ref{logCont}).
-Тем самым, ограничив $p$ и $u$ на $[-1 + \eps, 1 - \eps]$ и применив Лемму \ref{logContIneq}, получим
-$I_{\eps}(u^*) \le I_{\eps}(u)$.
+Для каждого $0 < \eps < 1$ зададим на отрезке $[-1, 1]$ непрерывную четную функцию, заданную следующими условиями:
+$p_\eps(x)$ совпадает с $p(x)$ при $x \in [-1 + \eps, 1 - \eps]$,
+а также $p_\eps'(x)$ при $x > 1 - \eps$ совпадает с левой производной $p$ в точке $1 - \eps$.
 
-Из теоремы о монотонной сходимости следует, что для любой $u \in {\Wf[-1, 1]}$ выполнено $I_{\eps}(u) \to I(u)$.
-Действительно, интегранты монотонны и сходятся почти всюду к предельному.
-
-Тем самым, получаем $I(u^*) \le I(u)$.
+Обозначим $F_\eps(x) = ( 1 + | u'(x) |^2 )^{p_\eps(x) \over 2}$.
+Очевидно, что $p_\eps \nearrow p$ и, тем самым, $F_\eps(x) \nearrow ( 1 + | u'(x) |^2 )^{p \over 2}$.
+Кроме того, $p_\eps$ удовлетворяют условиям леммы (\ref{logContIneq}).
+Тем самым, для интегралов вида $I_{\eps}(u) = \int\limits_{-1}^1 F_\eps(x) dx$
+выполнено $I_\eps(u^*) \le I_\eps(u)$.
+В силу теоремы о монотонной сходимости, $I_\eps(u^*) \to I(u^*)$ и $I_\eps(u) \to I(u)$ при $\eps \to 0$.
+Значит в пределе также получим $I(u^*) \le I(u)$.
 \end{proof}
 
 \section{Уточнение необходимых условий}
