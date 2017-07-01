@@ -11,6 +11,7 @@
           <option name="jvmTarget" value="1.6" />
           <option name="languageVersion" value="1.0" />
           <option name="apiVersion" value="1.0" />
+          <option name="coroutinesWarn" value="true" />
         </compilerArguments>
       </configuration>
     </facet>
