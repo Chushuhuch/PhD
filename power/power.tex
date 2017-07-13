@@ -33,11 +33,18 @@
 \newcommand{\To}{\longrightarrow}
 \newcommand{\Wf}{\stackrel{o\ }{W{}_1^1}}
 \newcommand{\W}{W_1^1}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\J}{\mathcal{J}}
 \newcommand{\sign}{\mathop{\rm sign}\nolimits}
 \newcommand{\dist}{\mathop{\rm dist}\nolimits}
 \newcommand{\comment}[1]{\colorbox{yellow}{#1}}
 \newcounter{pictureCounter}
+
+\title{О неравенстве Пойа-Сеге для функционалов с переменным показателем суммирования}
+\date{}
+
 \begin{document}
+\maketitle
 
 \section{Введение}
 
@@ -47,29 +54,32 @@
 
 \begin{equation}
 \label{PS}
-\mathcal{I}(u^*) \le \mathcal{I}(u), \qquad \text{где } \mathcal{I}(u) = \int\limits_{-1}^1 |u'(x)|^p dx, \quad p \ge 1
+I(u^*) \le I(u), \qquad \text{где } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx, \quad p \ge 1
 \end{equation}
 
-Обобщения неравенства (\ref{PS}) обсуждаются в большом количестве работ (см. \cite{Tal} и ссылки оттуда).
-В статье \cite{Br} показано, что неравенство (\ref{PS}) выполняется для функционалов вида
+Обобщения неравенства (\ref{PS}) обсуждаются в большом количестве работ (см., напр., обзор \cite{Tal} и цитированную в нем литературу).
+В частности, в статье \cite{Br} показано, что неравенство (\ref{PS}) выполняется для функционалов вида
 $$\int_{-1}^1 F( u(x), a( x, u( x ) ) \abs{ u'( x ) } ) dx,$$
 где $a$ выпукла, а $F$ непрерывна и выпукла по второму аргументу, а также для многомерного аналога.
-В статье \cite{1dim} результат статьи \cite{Br} доказан для естественного класса функций $u$.
-Кроме того, доказано аналогичное неравенство для монотонной перестановки.
+В работе \cite{1dim} результат \cite{Br} доказан для естественного класса функций $u$.
+Аналогичные результаты для монотонной перестановки также получены в \cite{DAN} и \cite{1dim}.
 
-В этой работе мы вводим в функционал зависимость степени $p$ от $x$:
+Мы рассмотрим функционал с переменным показателем суммирования:
 \begin{equation}
-J(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{p(x) \over 2} dx.
+\J(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad \I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{p(x) \over 2} dx.
 \end{equation}
 Здесь $p(x) \ge 1$ --- непрерывная функция на $[-1, 1]$, $u \in \Wf[-1, 1]$.
+Подобные функционалы встречаются в некоторых задачах математической физики,
+в частности при моделировании электрореологических жидкостей.
+Более подробное описание задач и связанных с ними подходов может быть найдено в книгах \cite{Ruz} и \cite{ZhB}.
 
 \section{Необходимые условия}
 
-\begin{lm}
+\begin{thm}
 \label{uniform}
-Предположим, неравенство $J(u^*) \le J(u)$ выполнено для любой кусочно линейной функции $u$.
+Предположим, что неравенство $\J(u^*) \le \J(u)$ выполнено для любой кусочно линейной функции $u$.
 Тогда $p(x) \equiv const$.
-\end{lm}
+\end{thm}
 \begin{proof}
 Зафиксируем произвольное $x_0 \in (-1, 1)$.
 Для каждого $\alpha > 0$ и $\eps > 0$ такого, что $[x_0 - \eps, x_0 + \eps] \subset [-1, 1]$,
@@ -94,39 +104,40 @@ $$
 
 Тогда
 $$
-J(u_{\alpha, \eps}) = \int\limits_{x_0 - \eps}^{x_0 + \eps} \alpha^{p(x)} dx, \qquad
-J(u_{\alpha, \eps}^*) = \int\limits_{-\eps}^{\eps} \alpha^{p(x)} dx.
+\J(u_{\alpha, \eps}) = \int\limits_{x_0 - \eps}^{x_0 + \eps} \alpha^{p(x)} dx, \qquad
+\J(u_{\alpha, \eps}^*) = \int\limits_{-\eps}^{\eps} \alpha^{p(x)} dx.
 $$
 
 Перейдя к пределу при $\eps \to 0$ в неравенстве
 $$
-{J(u_{\alpha, \eps}^*) \over 2 \eps} \le {J(u_{\alpha, \eps}) \over 2 \eps},
+{\J(u_{\alpha, \eps}^*) \over 2 \eps} \le {\J(u_{\alpha, \eps}) \over 2 \eps},
 $$
 получим $\alpha^{p(0)} \le \alpha^{p(x_0)}$, в силу непрерывности $\alpha^{p(x)}$.
 Заметим, что при $\alpha > 1$ и $\alpha < 1$ это дает неравенства $p(0) \le p(x_0)$ и $p(0) \ge p(x_0)$ соответственно.
 Тем самым, в силу непрерывности $p$, $p(x) \equiv const$.
 \end{proof}
 
-Заметим, что ввиду леммы \ref{uniform} дальнейшее изучение неравенства $J(u^*) \le J(u)$ теряет интерес.
+Таким образом, прямое обобщение неравенства (\ref{PS}) невозможно.
 
-\begin{lm}
-Предположим, неравенство $I(u^*) \le I(u)$ выполнено для любой кусочно линейной функции $u$.
-Тогда функция $p$ четна и выпукла, а также выпукла функция двух переменных
-$$K(s, x) = s ( 1 + { 1 \over s^2 } )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1].$$
-\end{lm}
+\begin{thm}
+\label{necessary}
+Предположим, что неравенство $\I(u^*) \le \I(u)$ выполнено для любой кусочно линейной функции $u$.
+Тогда функция $p$ четна и выпукла. Более того, выпукла функция двух переменных
+$$K(s, x) = s ( 1 + s^{-2} )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1].$$
+\end{thm}
 
-Нам потребуется
-\begin{prop}
-\label{convProp}
-{\rm \cite[лемма 10]{1dim}.}
-Предположим, функция $p$ непрерывна на $[-1, 1]$, и для нее выполнено
-$$
-\forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p({s - t \over 2}) + p({t - s \over 2}).
-$$
-Тогда функция $p$ четна и выпукла.
-\end{prop}
+%Для доказательства нам потребуется
+%\begin{prop}
+%\label{convProp}
+%{\rm \cite[лемма 10]{1dim}.}
+%Предположим, что функция $p$ непрерывна на $[-1, 1]$, и для нее выполнено
+%$$
+%\forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p\big({s - t \over 2}\big) + p\big({t - s \over 2}\big).
+%$$
+%Тогда функция $p$ четна и выпукла.
+%\end{prop}
 
-\begin{proof}
+\begin{proof}[Набросок доказательства]
 Зафиксируем две точки на отрезке $-1 < x_1 < x_2 < 1$
 и рассмотрим финитную кусочно линейную функцию с ненулевыми производными только в окрестностях $x_1$ и $x_2$.
 А именно, для достаточно малого $\eps$:
@@ -136,201 +147,197 @@ $$
 u(x) &= 0, & x &\in [-1, x_1 - s \eps] \cup [x_2 + t \eps, 1]\\
 u(x) &= 2 \eps, & x &\in [x_1 + s \eps, x_2 - t \eps]\\
 u(x) &= \eps + { x - x_1 \over s }, & x &\in [x_1 - s \eps, x_1 + s \eps]\\
-u(x) &= \eps - { x - x_2 \over s }, & x &\in [x_2 - t \eps, x_2 + t \eps]
+u(x) &= \eps - { x - x_2 \over t }, & x &\in [x_2 - t \eps, x_2 + t \eps]
 \end{aligned}
 \right.
 \end{equation}
 
-\begin{center}
-\begin{picture}(200,90)
-\refstepcounter{pictureCounter}
-\label{uGraph}
+%\begin{center}
+%\begin{picture}(200,90)
+%\refstepcounter{pictureCounter}
+%\label{uGraph}
+%
+%\put(0,25){\vector(1,0){200}}
+%\put(100,15){\vector(0,1){80}}
+%\put(10,24){\line(0,1){2}}
+%\put(0,14){$-1$}
+%\put(190,24){\line(0,1){2}}
+%\put(188,14){$1$}
+%
+%\put(38,25){\line(1,1){48}}
+%\put(38,24){\line(0,1){2}}
+%\put(20,14){$x_1 - s$}
+%\put(86,24){\line(0,1){2}}
+%\put(68,30){$x_1 + s$}
+%
+%\put(86,73){\line(1,0){48}}
+%
+%\put(134,73){\line(2,-3){32}}
+%\put(134,24){\line(0,1){2}}
+%\put(116,30){$x_2 - t$}
+%\put(166,24){\line(0,1){2}}
+%\put(148,14){$x_2 + t$}
+%
+%\put(110,77){$2 \eps$}
+%\put(45,70){$u(x)$}
+%
+%\put(85,1){Fig. \arabic{pictureCounter}}
+%\end{picture}
+%\end{center}
 
-\put(0,25){\vector(1,0){200}}
-\put(100,15){\vector(0,1){80}}
-\put(10,24){\line(0,1){2}}
-\put(0,14){$-1$}
-\put(190,24){\line(0,1){2}}
-\put(188,14){$1$}
+%Тогда функция $u^*$ имеет следующий вид:
+%\begin{equation}
+%\left\{
+%\begin{aligned}
+%u^*(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
+%u^*(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
+%u^*(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
+%u^*(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
+%\end{aligned}
+%\right.
+%\end{equation}
+%
+%\begin{center}
+%\begin{picture}(200,90)
+%\refstepcounter{pictureCounter}
+%\label{uGraph}
+%
+%\put(0,25){\vector(1,0){200}}
+%\put(100,15){\vector(0,1){80}}
+%\put(10,24){\line(0,1){2}}
+%\put(0,14){$-1$}
+%\put(190,24){\line(0,1){2}}
+%\put(188,14){$1$}
+%
+%\put(36,25){\line(5,6){40}}
+%
+%\put(76,73){\line(1,0){48}}
+%
+%\put(124,73){\line(5,-6){40}}
+%
+%\put(110,77){$2 \eps$}
+%\put(35,70){$u^*(x)$}
+%
+%\put(85,1){Fig. \arabic{pictureCounter}}
+%\end{picture}
+%\end{center}
 
-\put(38,25){\line(1,1){48}}
-\put(38,24){\line(0,1){2}}
-\put(20,14){$x_1 - s$}
-\put(86,24){\line(0,1){2}}
-\put(68,30){$x_1 + s$}
-
-\put(86,73){\line(1,0){48}}
-
-\put(134,73){\line(2,-3){32}}
-\put(134,24){\line(0,1){2}}
-\put(116,30){$x_2 - t$}
-\put(166,24){\line(0,1){2}}
-\put(148,14){$x_2 + t$}
-
-\put(110,77){$2 \eps$}
-\put(45,70){$u(x)$}
-
-\put(85,1){Fig. \arabic{pictureCounter}}
-\end{picture}
-\end{center}
-
-Тогда функция $u^*$ имеет следующий вид:
-\begin{equation}
-\left\{
-\begin{aligned}
-u^*(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
-u^*(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
-u^*(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
-u^*(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
-\end{aligned}
-\right.
-\end{equation}
-
-\begin{center}
-\begin{picture}(200,90)
-\refstepcounter{pictureCounter}
-\label{uGraph}
-
-\put(0,25){\vector(1,0){200}}
-\put(100,15){\vector(0,1){80}}
-\put(10,24){\line(0,1){2}}
-\put(0,14){$-1$}
-\put(190,24){\line(0,1){2}}
-\put(188,14){$1$}
-
-\put(36,25){\line(5,6){40}}
-
-\put(76,73){\line(1,0){48}}
-
-\put(124,73){\line(5,-6){40}}
-
-\put(110,77){$2 \eps$}
-\put(35,70){$u^*(x)$}
-
-\put(85,1){Fig. \arabic{pictureCounter}}
-\end{picture}
-\end{center}
-
-Тогда, в силу сделанных предположений, верно следующее:
-\begin{multline*}
-\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } ( 1 + { 1 \over s^2 } )^{p(x) \over 2} dx
-+ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } ( 1 + { 1 \over t^2 } )^{p(x) \over 2} dx \ge
-\\ \ge \int\limits_{ { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps }^{ { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
-     + \int\limits_{ { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps }^{ { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
-\end{multline*}
-
-Или, переходя к $\eps \to 0$,
-\begin{equation}
-\label{preConv}
-s ( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + t ( 1 + { 1 \over t^2 } )^{p(x_2) \over 2}
-\ge { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2}
-  + { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.
-\end{equation}
-
-Положим в неравенстве (\ref{preConv}) $s = t$:
-$$( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + ( 1 + { 1 \over s^2 } )^{p(x_2) \over 2}
-\ge ( 1 + { 1 \over s^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2} + ( 1 + { 1 \over s^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.$$
-
-Обозначив $\sigma = {1 \over s^2}$ и воспользовавшись разложением в ряд Тейлора по $\sigma$ в точке $\sigma = 0$, получим
-$$\sigma p(x_1) + \sigma p(x_2) \ge \sigma p( { x_2 - x_1 \over 2 } ) + \sigma p( { x_1 - x_2 \over 2 } ) + r(\sigma),$$
-
-где $r(s) = o(\sigma)$ при $\sigma \to 0$. То есть, для любых $x_1, x_2 \in [-1, 1]$ выполнено
-$$p(x_1) + p(x_2) \ge p( { x_2 - x_1 \over 2 } ) + p( { x_1 - x_2 \over 2 } ).$$
-
-Воспользовавшись предложением \ref{convProp}, получаем, что $p$ четна и выпукла.
-Тогда, заменим в (\ref{preConv}) $x_2$ на $-x_2$ и воспользовавшись четностью $p$, получаем
-$K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
+Полагая $s = t$, из неравенства $\I(u^*) \le \I(u)$ получаем, что $p$ четна и выпукла.
+Далее, рассматривая произвольные $s$ и $t$, получаем выпуклость $K$.
+%Тогда, в силу сделанных предположений, верно следующее:
+%\begin{multline*}
+%\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } ( 1 + { 1 \over s^2 } )^{p(x) \over 2} dx
+%+ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } ( 1 + { 1 \over t^2 } )^{p(x) \over 2} dx \ge
+%\\ \ge \int\limits_{ { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps }^{ { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
+%     + \int\limits_{ { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps }^{ { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
+%\end{multline*}
+%
+%Или, переходя к пределу при $\eps \to 0$,
+%\begin{equation}
+%\label{preConv}
+%s ( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + t ( 1 + { 1 \over t^2 } )^{p(x_2) \over 2}
+%\ge { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2}
+%  + { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.
+%\end{equation}
+%
+%Положим в неравенстве (\ref{preConv}) $s = t$:
+%$$( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + ( 1 + { 1 \over s^2 } )^{p(x_2) \over 2}
+%\ge ( 1 + { 1 \over s^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2} + ( 1 + { 1 \over s^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.$$
+%
+%Обозначив $\sigma = {1 \over s^2}$ и воспользовавшись разложением в ряд Тейлора по $\sigma$ в точке $\sigma = 0$, получим
+%$$\sigma p(x_1) + \sigma p(x_2) \ge \sigma p( { x_2 - x_1 \over 2 } ) + \sigma p( { x_1 - x_2 \over 2 } ) + r(\sigma),$$
+%
+%где $r(s) = o(\sigma)$ при $\sigma \to 0$. То есть, для любых $x_1, x_2 \in [-1, 1]$ выполнено
+%$$p(x_1) + p(x_2) \ge p( { x_2 - x_1 \over 2 } ) + p( { x_1 - x_2 \over 2 } ).$$
+%
+%Воспользовавшись предложением \ref{convProp}, получаем, что $p$ четна и выпукла.
+%Тогда, заменим в (\ref{preConv}) $x_2$ на $-x_2$ и воспользовавшись четностью $p$, получаем
+%$K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 \end{proof}
 
-\section{Доказательство неравенства $I(u^*) \le I(u)$}
+\section{Доказательство неравенства $\I(u^*) \le \I(u)$}
+
+В этом параграфе мы покажем, что условия, приведенные в теореме \ref{necessary} являются не только необходимыми, но и достаточными.
 
 \begin{lm}
 \label{quasiConv}
 Пусть $m$ --- четное положительное число, $s_k > 0$ ($k = 1 \dots m$), $-1 \le x_1 \le \dots \le x_m \le 1$.
 Тогда, если $K(s, x)$ четна по $x$ и выпукла по совокупности аргументов, то
-$$\sum\limits_{k = 1}^{m} K(s_k, x_k) \ge
-2 K({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).$$
+\begin{equation}
+\label{K_ineq}
+\sum\limits_{k = 1}^{m} K(s_k, x_k) \ge
+2 K\Big({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k\Big).
+\end{equation}
 \end{lm}
 
 \begin{proof}
-Докажем сперва неравенство в случае $m = 2$.
-В этом случае оно принимает следующий вид:
-$$K(s_1, x_1) + K(s_2, x_2) \ge 2 K({s_1 + s_2 \over 2}, {x_2 - x_1 \over 2}).$$
-Это неравенство немедленно следует из условий леммы.
-
-Теперь докажем неравенство для произвольного четного $m > 2$.
-Введем новую функцию $L(s, x) = K(s, x) - s = s \big( (1 + {1 \over s^2})^{p(x) \over 2} - 1 \big)$.
-Заметим, что утверждение леммы равносильно аналогичному неравенству для $L$:
-$$\sum\limits_{k = 1}^{m} L(s_k, x_k) \ge
-2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).$$
-В частности, это неравенство уже доказано для $m = 2$.
-Также заметим, что функция $L$ убывает по $s$.
-Это следует из того, что $L$ выпукла, а также
-$$L_s(s, x) = (1 + {1 \over s^2})^{{p(x) \over 2} - 1} ( 1 - {p(x) - 1 \over s^2} ) - 1 \xrightarrow[s \to \infty]{} 0.$$
+Заметим, что неравенство (\ref{K_ineq}) равносильно такому же неравенству для функции $M(s, x) = K(s, x) - s$.
+Прямое вычисление показывает, что функция $M$ убывает по $s$.
 Тогда
-
 \begin{multline*}
-\sum\limits_{k = 1}^{m} L(s_k, x_k)
-\ge L(s_1, x_1) + L(s_m, x_m)
-\overset{a}{\ge} 2 L({s_1 + s_m \over 2}, {x_m - x_1 \over 2}) \ge \\
-\overset{b}{\ge} 2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {x_m - x_1 \over 2})
-\overset{c}{\ge} 2 L({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k).
+\sum\limits_{k = 1}^{m} M(s_k, x_k)
+\ge M(s_1, x_1) + M(s_m, x_m)
+\overset{a}{\ge} 2 M\big({s_1 + s_m \over 2}, {x_m - x_1 \over 2}\big) \ge \\
+\overset{b}{\ge} 2 M\Big({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {x_m - x_1 \over 2}\Big)
+\overset{c}{\ge} 2 M\Big({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k\Big).
 \end{multline*}
 
-Здесь в переходе (a) мы воспользовались выпуклостью $L$,
-в переходе (b) убыванием $L(s, x)$ по $s$,
-а в переходе (c) --- возрастанием $L(s, x)$ по $x$ при $x \ge 0$.
-
+Неравенство (a) сделует из того, что $M$ четна по $x$ и выпукла,
+(b) --- из убывания $M$ по $s$,
+(c) --- из возрастания $M$ по $x$ при $x \ge 0$.
 \end{proof}
 
 \begin{lm}
-Если функция $K(s, x)$ четна по $x$ и выпукла по совокупности аргументов,
-то для любой кусочно линейной функции $u \in \Wf[-1, 1]$ выполнено неравенство $I(u^*) \le I(u)$.
+\label{linear}
+Пусть функция $K(s, x)$ четна по $x$ и выпукла по совокупности аргументов.
+Тогда $\I(u^*) \le \I(u)$ для любой кусочно линейной функции $u \in \Wf[-1, 1]$.
 \end{lm}
 
 \begin{proof}
-Положим $L \subset [-1, 1]$ --- множество точек перелома (включая концы отрезка) функции $u$.
+Обозначим $L \subset [-1, 1]$ множество точек перелома функции $u$ (включая концы отрезка).
 Возьмем $U = u([-1, 1]) \setminus u(L)$, образ функции $u$ без образов точек излома.
-Это множество и представляется в виде объединения конечного числа непересекающихся интервалов $U = \cup_j U_j$.
+Это множество представляется в виде объединения конечного числа непересекающихся интервалов $U = \cup_j U_j$.
 Заметим, что для каждого $j$ множество $u^{-1}(U_j)$ разбивается на четное число интервалов,
 на каждом из которых функция $u$ совпадает с некоторой линейной функцией $y^j_k$, $k = 1, \dots, m_j$.
 Для удобства считаем, что носители $y^j_k$ для каждого $j$ идут по порядку,
 то есть $\sup dom(y^j_k) \le \inf dom(y^j_{k + 1})$.
 Обозначим $b^j_k = |y^j_k{}'(x)|$.
-Также заметим, что множества точек $x \in [-1, 1]$, на которых $u$ и $u^*$ имеют нулевую производную, имеют одинаковую меру $Z$.
+Также обозначим
+$$
+Z = {\rm meas}\{ x \in (-1, 1) | u'(x) = 0 \} = {\rm meas}\{ x \in (-1, 1) | u^*{}'(x) = 0 \}.
+$$
 Тогда
 \begin{multline}
-I(u) - Z = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
+\I(u) - Z = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
 = \sum\limits_j \sum\limits_k \int\limits_{dom(y^j_k)} (1 + {y^j_k}'^2(x))^{p(x) \over 2} dx =
-\\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k K({1 \over b^j_k}, (y^j_k)^{-1}(y)) dy
 \\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over b^j_k} (1 + b^j_k{}^2)^{p((y^j_k)^{-1}(y)) \over 2} dy
+= \sum\limits_j \int\limits_{U_j} \sum\limits_k K\Big({1 \over b^j_k}, (y^j_k)^{-1}(y)\Big) dy.
 \end{multline}
 
-На множестве $u([-1, 1]) \setminus u(L)$ можно однозначно определить функцию, обратную к $u^*$ на $[0, 1]$.
-Обозначим ее $(u^*)^{-1}$.
-Тогда для каждого $j$ можно, используя функции $y^j_k$, выразить функцию $(u^*)^{-1}$ на участке $U_j$ следующим образом
-(здесь $y \in U_j$):
+Любая точка $y \in U$ имеет два прообраза относительно функции $u^*$,
+поэтому на множестве $U$ можно определить $(u^*)^{-1}: U \to [0, 1]$.
+Для каждого $j$ можно выразить $(u^*)^{-1}$ и модуль ее производной на участке $U_j$ следующим образом:
 \begin{eqnarray*}
-(u^*)^{-1} (y) & = & {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \\
+(u^*)^{-1} (y) & = & {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y); \\
 |((u^*)^{-1})'(y)| & = & {1 \over |u^*{}'((u^*)^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k} =: { 1 \over b_j^* }.
 \end{eqnarray*}
-Тогда, ввиду четности $u^*$,
+Ввиду четности $u^*$ имеем
 \begin{multline}
-I(u^*) - Z = 2 \int\limits_{(u^*)^{-1}(U)} (1 + u^*{}'^2(x))^{p(x) \over 2} dx =
-\\ = 2 \int\limits_U |((u^*)^{-1})'(y)| ( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } )^{p((u^*)^{-1}(y)) \over 2} dy =
-\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*} \Big(1 + b_j^*{}^2 \Big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy
-\\ = 2 \sum\limits_j \int\limits_{U_j} K({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)) dy
+\I(u^*) - Z = 2 \int\limits_{(u^*)^{-1}(U)} (1 + u^*{}'^2(x))^{p(x) \over 2} dx =
+\\ = 2 \int\limits_U |((u^*)^{-1})'(y)| \cdot \big( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } \big)^{p((u^*)^{-1}(y)) \over 2} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*} \big(1 + b_j^*{}^2 \big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big) dy.
 \end{multline}
-
 Зафиксируем $j$ и $y$.
 Тогда для доказательства леммы достаточно выполнения
-$$\sum\limits_{k = 1}^{m_j} K({1 \over b^j_k}, (y^j_k)^{-1}(y)) \ge
-2 K({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)).$$
-
-Но это неравенство обеспечивается леммой \ref{quasiConv}
+$$
+\sum\limits_{k = 1}^{m_j} K\Big({1 \over b^j_k}, (y^j_k)^{-1}(y)\Big) \ge
+2 K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big).
+$$
+Но это неравенство обеспечивается леммой \ref{quasiConv}.
 \end{proof}
 
-Для снятия условия кусочной линейности с функций $u$ нам понадобится следующая
+Чтобы доказать неравенство для функций $u$ общего вида, нам понадобится
 
 \begin{prop}[\cite{Zh1}, Теорема 2.2]
 \label{regAppr}
@@ -339,33 +346,34 @@ $$\sum\limits_{k = 1}^{m_j} K({1 \over b^j_k}, (y^j_k)^{-1}(y)) \ge
 \label{logCont}
 \lim\limits_{\eps \to 0} \omega(\eps) |\log \eps| < \infty.
 \end{equation}
-Тогда для любой $u \in \Wf[-1, 1]$ такой, что $I(u) < \infty$,
+Тогда для любой $u \in \Wf[-1, 1]$ такой, что $\I(u) < \infty$,
 найдется последовательность кусочно линейных функций $u_n$, определенных на $[-1, 1]$, для которых
-$u_n \to u$ в $\Wf[-1, 1]$ и $I(u_n) \to I(u)$.
+$u_n \to u$ в $\Wf[-1, 1]$ и $\I(u_n) \to \I(u)$.
 \end{prop}
 
 \begin{lm}
 \label{logContIneq}
 Пусть $p$ четна и удовлетворяет условию (\ref{logCont}), а $K$ выпукла.
-Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $I(u^*) \le I(u)$.
+Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $\I(u^*) \le \I(u)$.
 \end{lm}
 
 \begin{proof}
 Зафиксируем некоторую функцию $u \in \Wf[-1, 1]$.
-Тогда, в силу предложения \ref{regAppr} найдется последовательность кусочно линейных функций $u_n \to u$ в $\Wf[-1, 1]$ таких, что $I(u_n) \to I(u)$.
+Тогда, в силу предложения \ref{regAppr} найдется последовательность кусочно линейных функций $u_n \to u$ в $\Wf[-1, 1]$ таких, что $\I(u_n) \to \I(u)$.
+По лемме \ref{linear} имеем $\I(u_n^*) \le \I(u_n)$.
 
-В статье \cite{Br} доказано (Теорема 1), что из $u_n \to u$ в $\Wf[-1, 1]$ следует $u_n^* \rightharpoondown u^*$ в $\Wf[-1, 1]$.
-Кроме того, поскольку $p$ непрерывна, она ограничена, тем самым функционал $I$ слабо полунепрерывен снизу (\comment{ссылку}).
-
-Тогда, перейдя к нижнему пределу в неравенстве $I(u_n^*) \le I(u_n)$, получаем
+Согласно \cite[Theorem 1]{Br}, из $u_n \to u$ в $\Wf[-1, 1]$ следует $u_n^* \rightharpoondown u^*$ в $\Wf[-1, 1]$.
+Кроме того, функционал $\I$ секвенциально слабо полунепрерывен снизу по теореме Тонелли (см., напр., \cite[Теорема 3.5]{BGH}).
+Поэтому
 $$
-I(u^*) \le \liminf I(u_n^*) \le \lim I(u_n) = I(u).
+\I(u^*) \le \liminf \I(u_n^*) \le \lim \I(u_n) = \I(u).
 $$
 \end{proof}
 
 \begin{thm}
+\label{mainThm}
 Пусть $p$ четна, а $K$ выпукла.
-Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $I(u^*) \le I(u)$.
+Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $\I(u^*) \le \I(u)$.
 \end{thm}
 
 \begin{proof}
@@ -374,19 +382,19 @@ $p_\eps(x)$ совпадает с $p(x)$ при $x \in [-1 + \eps, 1 - \eps]$,
 а также $p_\eps'(x)$ при $x > 1 - \eps$ совпадает с левой производной $p$ в точке $1 - \eps$.
 
 Обозначим $F_\eps(x) = ( 1 + | u'(x) |^2 )^{p_\eps(x) \over 2}$.
-Очевидно, что $p_\eps \nearrow p$ и, тем самым, $F_\eps(x) \nearrow ( 1 + | u'(x) |^2 )^{p \over 2}$.
-Кроме того, $p_\eps$ удовлетворяют условиям леммы (\ref{logContIneq}).
-Тем самым, для интегралов вида $I_{\eps}(u) = \int\limits_{-1}^1 F_\eps(x) dx$
-выполнено $I_\eps(u^*) \le I_\eps(u)$.
-В силу теоремы о монотонной сходимости, $I_\eps(u^*) \to I(u^*)$ и $I_\eps(u) \to I(u)$ при $\eps \to 0$.
-Значит в пределе также получим $I(u^*) \le I(u)$.
+Очевидно, что $p_\eps \nearrow p$ и, тем самым, $F_\eps(x) \nearrow ( 1 + | u'(x) |^2 )^{p(x) \over 2}$.
+Кроме того, $p_\eps$ удовлетворяют условиям леммы \ref{logContIneq}.
+Тем самым, для интегралов вида $\I_{\eps}(u) = \int\limits_{-1}^1 F_\eps(x) dx$
+выполнено $\I_\eps(u^*) \le \I_\eps(u)$.
+Переходя к пределу при $\eps \to 0$, по теореме о монотонной сходимости получим $\I(u^*) \le \I(u)$.
 \end{proof}
 
 \section{Некоторые достаточные условия}
 
-Заметим, что выпуклость $K$ не следует из четности и выпуклости $p$.
-Она равносильна выполнению неравенства на определитель матрицы вторых производных почти всюду:
-$D_{ss} K(s, x) D_{xx} K(s, x) - (D_{sx} K(s, x))^2 \ge 0$.
+Вычисление показывает, что функция $K$ выпукла по $s$.
+Если $p$ выпукла, то $K$ выпукла также по $x$.
+А выпуклость $K$ по совокупности переменных равносильна выполнению неравенства
+$D_{ss} K(s, x) D_{xx} K(s, x) - (D_{sx} K(s, x))^2 \ge 0$ в смысле мер.
 %Распишем это неравенство.
 %Обозначим $H(s) = 1 + {1 \over s^2}$.
 %Тогда $K(s, x) = s H(s)^{p(x)}$, $H'(s) = -{2 \over s^3}$, $H''(s) = {6 \over s^4}$.
@@ -417,7 +425,7 @@ q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - {w - 1 \over w} \ln( w + 1 ) + 4 {w \over \
 
 \begin{lm}
 Для любого $\alpha > 0$ и $q \in C[-1, 1]$ выпуклость функции $q^\alpha$
-равносильна выполнению неравенства $q''(x) \ge (1 - \alpha) {q'(x)^2 \over q(x)}$ почти всюду.
+равносильна выполнению неравенства $q''(x) \ge (1 - \alpha) {q'(x)^2 \over q(x)}$ в смысле мер.
 \end{lm}
 
 Лемма доказывается прямым вычислением.
@@ -425,16 +433,22 @@ q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - {w - 1 \over w} \ln( w + 1 ) + 4 {w \over \
 Из леммы следует, что если $A(q, w) \le M$, где $M < 1$ --- некоторая константа,
 то неравенство (\ref{KconvexIneq}) следует из выпуклости функции $(p(x) - 1)^{1 - M}$.
 
-Численные исследования показывают, что при всех $q \ge 0$ и $w > 0$ выполнено неравенство $A(q, w) < 0,63$.
-Если же дополнительно $q < 1,36$, то $A(q, w) < 0,5$.
-Отсюда следует
+Численное исследование показывает, что при всех $q \ge 0$ и $w > 0$ выполнено неравенство $A(q, w) < 0.63$.
+Если же дополнительно $q < 1.36$, то $A(q, w) < 0.5$.
+Отсюда с учетом теоремы \ref{mainThm} следует
 \begin{thm}
-1) Пусть функция $(p(x) - 1)^{0,37}$ выпукла. Тогда выпукла функция $K(s, x)$.
-2) Пусть $p(x) < 2,36$ и функция $\sqrt{p(x) - 1}$ выпукла. Тогда выпукла функция $K(s, x)$.
+Пусть функция $p(x)$ четна.
+
+1) Если $(p(x) - 1)^{0.37}$ --- выпуклая функция, то для всех $u \in \Wf[-1, 1]$ справедливо неравенство $\I(u^*) \le \I(u)$.
+
+2) Если $p(x) < 2.36$ и $\sqrt{p(x) - 1}$ --- выпуклая функция, то для всех $u \in \Wf[-1, 1]$ справедливо неравенство $\I(u^*) \le \I(u)$.
 \end{thm}
 
 %\comment{Add a story about which function of p should be convex}
 
+
+грант
+15-01-07650
 
 \input bibliography
 
