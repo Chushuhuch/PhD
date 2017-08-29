@@ -69,9 +69,9 @@ $$\int_{-1}^1 F( u(x), a( x, u( x ) ) \abs{ u'( x ) } ) dx,$$
 Аналогичные результаты для монотонной перестановки также получены в \cite{DAN} и \cite{1dim}.
 
 Мы рассмотрим функционал с переменным показателем суммирования:
-\begin{equation}
+\begin{equation*}
 \J(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad \I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{p(x) \over 2} dx.
-\end{equation}
+\end{equation*}
 Здесь $p(x) \ge 1$ --- непрерывная функция на $[-1, 1]$, $u \in \Wf[-1, 1]$.
 Подобные функционалы встречаются в некоторых задачах математической физики,
 в частности при моделировании электрореологических жидкостей.
@@ -91,22 +91,19 @@ $$\int_{-1}^1 F( u(x), a( x, u( x ) ) \abs{ u'( x ) } ) dx,$$
 $$
 u_{\alpha,\eps}(x) = \alpha ( \eps - |x - x_0| )_+.
 $$
-Тогда
-$$
-u_{\alpha,\eps}^*(x) = \alpha ( \eps - |x| )_+.
-$$
+Тогда $u_{\alpha,\eps}^*(x) = \alpha ( \eps - |x| )_+$, и
 
-Кроме того,
-\begin{eqnarray*}
-\begin{aligned}
-& |u_{\alpha,\eps}'(x)|     = 0,      & x & \in (-1, x_0 - \eps) \cup (x_0 + \eps, 1) \\
-& |u_{\alpha,\eps}'(x)|     = \alpha, & x & \in (x_0 - \eps, x_0 + \eps) \\
-& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x & \in (-1, -\eps) \cup (\eps, 1) \\
-& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x & \in (-\eps, \eps) \\
-\end{aligned}
-\end{eqnarray*}
+%Кроме того,
+%\begin{eqnarray*}
+%\begin{aligned}
+%& |u_{\alpha,\eps}'(x)|     = 0,      & x & \in (-1, x_0 - \eps) \cup (x_0 + \eps, 1) \\
+%& |u_{\alpha,\eps}'(x)|     = \alpha, & x & \in (x_0 - \eps, x_0 + \eps) \\
+%& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x & \in (-1, -\eps) \cup (\eps, 1) \\
+%& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x & \in (-\eps, \eps) \\
+%\end{aligned}
+%\end{eqnarray*}
 
-Тогда
+%Тогда
 $$
 \J(u_{\alpha, \eps}) = \int\limits_{x_0 - \eps}^{x_0 + \eps} \alpha^{p(x)} dx, \qquad
 \J(u_{\alpha, \eps}^*) = \int\limits_{-\eps}^{\eps} \alpha^{p(x)} dx.
@@ -118,7 +115,6 @@ $$
 $$
 получим $\alpha^{p(0)} \le \alpha^{p(x_0)}$, в силу непрерывности $\alpha^{p(x)}$.
 Заметим, что при $\alpha > 1$ и $\alpha < 1$ это дает неравенства $p(0) \le p(x_0)$ и $p(0) \ge p(x_0)$ соответственно.
-Тем самым, в силу непрерывности $p$, $p(x) \equiv const$.
 \end{proof}
 
 Таким образом, прямое обобщение неравенства (\ref{PS}) невозможно.
@@ -145,16 +141,23 @@ $$K(s, x) = s ( 1 + s^{-2} )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1].$$
 Зафиксируем две точки на отрезке $-1 < x_1 < x_2 < 1$
 и рассмотрим финитную кусочно линейную функцию с ненулевыми производными только в окрестностях $x_1$ и $x_2$.
 А именно, для достаточно малого $\eps$:
-\begin{equation}
-\left\{
-\begin{aligned}
-u(x) &= 0, & x &\in [-1, x_1 - s \eps] \cup [x_2 + t \eps, 1]\\
-u(x) &= 2 \eps, & x &\in [x_1 + s \eps, x_2 - t \eps]\\
-u(x) &= \eps + { x - x_1 \over s }, & x &\in [x_1 - s \eps, x_1 + s \eps]\\
-u(x) &= \eps - { x - x_2 \over t }, & x &\in [x_2 - t \eps, x_2 + t \eps]
-\end{aligned}
-\right.
-\end{equation}
+$$
+u_\eps(x) = \min\big( 2 \eps, ( \eps + s^{-1} (x - x_1))_+, ( \eps + t^{-1} (x_2 - x) )_+\big).
+$$
+Тогда
+$$
+u_\eps^*(x) = \min\big( 2 \eps, ( \eps + ( t + s )^{-1} ( x_2 - x_1 - 2 |x| ) )_+ \big).
+$$
+%\begin{equation}
+%\left\{
+%\begin{aligned}
+%u(x) &= 0, & x &\in [-1, x_1 - s \eps] \cup [x_2 + t \eps, 1]\\
+%u(x) &= 2 \eps, & x &\in [x_1 + s \eps, x_2 - t \eps]\\
+%u(x) &= \eps + { x - x_1 \over s }, & x &\in [x_1 - s \eps, x_1 + s \eps]\\
+%u(x) &= \eps - { x - x_2 \over t }, & x &\in [x_2 - t \eps, x_2 + t \eps]
+%\end{aligned}
+%\right.
+%\end{equation}
 
 %\begin{center}
 %\begin{picture}(200,90)
@@ -226,7 +229,8 @@ u(x) &= \eps - { x - x_2 \over t }, & x &\in [x_2 - t \eps, x_2 + t \eps]
 %\end{picture}
 %\end{center}
 
-Полагая $s = t$, из неравенства $\I(u^*) \le \I(u)$ получаем, что $p$ четна и выпукла.
+Полагая $s = t$, из неравенства $\I(u^*) \le \I(u)$ получим $p(x_1) + p(x_2) \le p({ x_1 - x_2 \over 2 }) + p({ x_2 - x_1 \over 2 })$.
+Можно проверить (\cite[Lemma 10]{1dim}), что отсюда следует четность и выпуклость функции $p$.
 Далее, рассматривая произвольные $s$ и $t$, получаем выпуклость $K$.
 %Тогда, в силу сделанных предположений, верно следующее:
 %\begin{multline*}
@@ -311,12 +315,12 @@ $$
 Z = {\rm meas}\{ x \in (-1, 1) | u'(x) = 0 \} = {\rm meas}\{ x \in (-1, 1) | u^*{}'(x) = 0 \}.
 $$
 Тогда
-\begin{multline}
+\begin{multline*}
 \I(u) - Z = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
 = \sum\limits_j \sum\limits_k \int\limits_{dom(y^j_k)} (1 + {y^j_k}'^2(x))^{p(x) \over 2} dx =
 \\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over b^j_k} (1 + b^j_k{}^2)^{p((y^j_k)^{-1}(y)) \over 2} dy
 = \sum\limits_j \int\limits_{U_j} \sum\limits_k K\Big({1 \over b^j_k}, (y^j_k)^{-1}(y)\Big) dy.
-\end{multline}
+\end{multline*}
 
 Любая точка $y \in U$ имеет два прообраза относительно функции $u^*$,
 поэтому на множестве $U$ можно определить $(u^*)^{-1}: U \to [0, 1]$.
@@ -326,12 +330,12 @@ $$
 |((u^*)^{-1})'(y)| & = & {1 \over |u^*{}'((u^*)^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k} =: { 1 \over b_j^* }.
 \end{eqnarray*}
 Ввиду четности $u^*$ имеем
-\begin{multline}
+\begin{multline*}
 \I(u^*) - Z = 2 \int\limits_{(u^*)^{-1}(U)} (1 + u^*{}'^2(x))^{p(x) \over 2} dx =
 \\ = 2 \int\limits_U |((u^*)^{-1})'(y)| \cdot \big( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } \big)^{p((u^*)^{-1}(y)) \over 2} dy =
 \\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*} \big(1 + b_j^*{}^2 \big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy =
 \\ = 2 \sum\limits_j \int\limits_{U_j} K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big) dy.
-\end{multline}
+\end{multline*}
 Зафиксируем $j$ и $y$.
 Тогда для доказательства леммы достаточно выполнения
 $$
@@ -341,39 +345,7 @@ $$
 Но это неравенство обеспечивается леммой \ref{quasiConv}.
 \end{proof}
 
-Чтобы доказать неравенство для функций $u$ общего вида, нам понадобится
-
-\begin{prop}[\cite{Zh1}, Теорема 2.2]
-\label{regAppr}
-Пусть модуль непрерывности $\omega(\eps)$ функции $p$ удовлетворяет условию
-\begin{equation}
-\label{logCont}
-\lim\limits_{\eps \to 0} \omega(\eps) |\log \eps| < \infty.
-\end{equation}
-Тогда для любой $u \in \Wf[-1, 1]$ такой, что $\I(u) < \infty$,
-найдется последовательность функций $u_n \in C_0^\infty( -1, 1 )$, для которых
-$u_n \to u$ в $\Wf[-1, 1]$ и $\I(u_n) \to \I(u)$.
-\end{prop}
-Легко видеть, что можно считать функции $u_n$ кусочно линейными.
-
-\begin{lm}
-\label{logContIneq}
-Пусть $p$ четна и удовлетворяет условию (\ref{logCont}), а $K$ выпукла.
-Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $\I(u^*) \le \I(u)$.
-\end{lm}
-
-\begin{proof}
-Зафиксируем некоторую функцию $u \in \Wf[-1, 1]$.
-Тогда, в силу предложения \ref{regAppr} найдется последовательность кусочно линейных функций $u_n \to u$ в $\Wf[-1, 1]$ таких, что $\I(u_n) \to \I(u)$.
-По лемме \ref{linear} имеем $\I(u_n^*) \le \I(u_n)$.
-
-Согласно \cite[Theorem 1]{Br}, из $u_n \to u$ в $\Wf[-1, 1]$ следует $u_n^* \rightharpoondown u^*$ в $\Wf[-1, 1]$.
-Кроме того, функционал $\I$ секвенциально слабо полунепрерывен снизу по теореме Тонелли (см., напр., \cite[Теорема 3.5]{BGH}).
-Поэтому
-$$
-\I(u^*) \le \liminf \I(u_n^*) \le \lim \I(u_n) = \I(u).
-$$
-\end{proof}
+Теперь можно доказать неравенство для функций $u$ общего вида.
 
 \begin{thm}
 \label{mainThm}
@@ -382,16 +354,39 @@ $$
 \end{thm}
 
 \begin{proof}
-Для каждого $0 < \eps < 1$ зададим на отрезке $[-1, 1]$ непрерывную четную функцию, заданную следующими условиями:
-$p_\eps(x)$ совпадает с $p(x)$ при $x \in [-1 + \eps, 1 - \eps]$,
-а также $p_\eps'(x)$ при $x > 1 - \eps$ совпадает с левой производной $p$ в точке $1 - \eps$.
+В доказательстве мы используем несколько фактов про пространства Орлича $L^{p(x)}$,
+все они могут быть найдены в главе~1 книги \cite{Shar}.
 
-Обозначим $F_\eps(x) = ( 1 + | u'(x) |^2 )^{p_\eps(x) \over 2}$.
-Очевидно, что $p_\eps \nearrow p$ и, тем самым, $F_\eps(x) \nearrow ( 1 + | u'(x) |^2 )^{p(x) \over 2}$.
-Кроме того, $p_\eps$ удовлетворяют условиям леммы \ref{logContIneq}.
-Тем самым, для интегралов вида $\I_{\eps}(u) = \int\limits_{-1}^1 F_\eps(x) dx$
-выполнено $\I_\eps(u^*) \le \I_\eps(u)$.
-Переходя к пределу при $\eps \to 0$, по теореме о монотонной сходимости получим $\I(u^*) \le \I(u)$.
+Поскольку $p(x)$ ограничена, кусочно постоянные функции всюду плотны в $L^{p(x)}$.
+Воспользовавшись этим фактом для функции $u'$, получим последовательность функций $v_n$.
+Обозначим $w_n(x) = v_n(x) - \int\limits_{-1}^1 v_n(x) dx$ и $u_n \in \Wf[-1, 1]$ --- первообразные функций $w_n$.
+
+Покажем, что $w_n \to u'$ в $L^{p(x)}$:
+\begin{multline*}
+\norm{ w_n - u' }_{L^{p(x)}}
+\le \norm{ v_n - u' }_{L^{p(x)}} + \norm{ \int\limits_{-1}^1 v_n( x ) dx }_{L^{p(x)}} = \\
+= \norm{ v_n - u' }_{L^{p(x)}} + \norm{ \int\limits_{-1}^1 v_n( x ) - u'( x ) dx }_{L^{p(x)}}
+\le \norm{ v_n - u' }_{L^{p(x)}} + \norm{ \norm{ v_n - u' }_{L^1} }_{L^{p(x)}} \le \\
+\le \norm{ v_n - u' }_{L^{p(x)}} + \norm{ С \norm{ v_n - u' }_{L^{p(x)}} }_{L^{p(x)}} \to 0
+\end{multline*}
+В последнем неравенстве мы воспользовались вложением $L^{q(x)}$ в $L^{p(x)}$ при $q(x) \le p(x)$ для $q \equiv 1$.
+Тем самым, $u_n' \to u'$ в $L^{p(x)}$, а значит, $u_n \to u$ в $\Wf[-1, 1]$
+и $\sqrt{ 1 + u_n'^2 } \to \sqrt{ 1 + u'^2 }$ в $L^{p(x)}$, так как $\sqrt{ 1 + x^2 }$ --- сжимающее отображение.
+Последнее равносильно
+$$
+A( \sqrt{ 1 + u_n'^2 } - \sqrt{ 1 + u'^2 } ) \to 0, \text{\ где\ }
+\norm{ f }_{L^{p(x)}} = \inf\{ \lambda: A\Big( { f \over \lambda } \Big) \le 1 \},
+$$
+поскольку функция $A$ задает метрику, согласованную с нормой в $L^{p(x)}$.
+Отсюда следует, что $A( \sqrt{ 1 + u_n'^2 } ) \to A( \sqrt{ 1 + u'^2 } )$,
+что совпадает с утверждением $\I(u_n) \to \I(u)$.
+
+Согласно \cite[Theorem 1]{Br}, из $u_n \to u$ в $\Wf[-1, 1]$ следует $u_n^* \rightharpoondown u^*$ в $\Wf[-1, 1]$.
+Кроме того, функционал $\I$ секвенциально слабо полунепрерывен снизу по теореме Тонелли (см., напр., \cite[Теорема 3.5]{BGH}).
+Поэтому
+$$
+\I(u^*) \le \liminf \I(u_n^*) \le \lim \I(u_n) = \I(u).
+$$
 \end{proof}
 
 \section{Некоторые достаточные условия}
