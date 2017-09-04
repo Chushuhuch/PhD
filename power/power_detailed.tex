@@ -93,17 +93,17 @@ u_{\alpha,\eps}(x) = \alpha ( \eps - |x - x_0| )_+.
 $$
 Тогда $u_{\alpha,\eps}^*(x) = \alpha ( \eps - |x| )_+$, и
 
-%Кроме того,
-%\begin{eqnarray*}
-%\begin{aligned}
-%& |u_{\alpha,\eps}'(x)|     = 0,      & x & \in (-1, x_0 - \eps) \cup (x_0 + \eps, 1) \\
-%& |u_{\alpha,\eps}'(x)|     = \alpha, & x & \in (x_0 - \eps, x_0 + \eps) \\
-%& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x & \in (-1, -\eps) \cup (\eps, 1) \\
-%& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x & \in (-\eps, \eps) \\
-%\end{aligned}
-%\end{eqnarray*}
+Кроме того,
+\begin{eqnarray*}
+\begin{aligned}
+& |u_{\alpha,\eps}'(x)|     = 0,      & x & \in (-1, x_0 - \eps) \cup (x_0 + \eps, 1) \\
+& |u_{\alpha,\eps}'(x)|     = \alpha, & x & \in (x_0 - \eps, x_0 + \eps) \\
+& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x & \in (-1, -\eps) \cup (\eps, 1) \\
+& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x & \in (-\eps, \eps) \\
+\end{aligned}
+\end{eqnarray*}
 
-%Тогда
+Тогда
 $$
 \J(u_{\alpha, \eps}) = \int\limits_{x_0 - \eps}^{x_0 + \eps} \alpha^{p(x)} dx, \qquad
 \J(u_{\alpha, \eps}^*) = \int\limits_{-\eps}^{\eps} \alpha^{p(x)} dx.
@@ -126,16 +126,16 @@ $$
 $$K(s, x) = s ( 1 + s^{-2} )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1].$$
 \end{thm}
 
-%Для доказательства нам потребуется
-%\begin{prop}
-%\label{convProp}
-%{\rm \cite[лемма 10]{1dim}.}
-%Предположим, что функция $p$ непрерывна на $[-1, 1]$, и для нее выполнено
-%$$
-%\forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p\big({s - t \over 2}\big) + p\big({t - s \over 2}\big).
-%$$
-%Тогда функция $p$ четна и выпукла.
-%\end{prop}
+Для доказательства нам потребуется
+\begin{prop}
+\label{convProp}
+{\rm \cite[лемма 10]{1dim}.}
+Предположим, что функция $p$ непрерывна на $[-1, 1]$, и для нее выполнено
+$$
+\forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p\big({s - t \over 2}\big) + p\big({t - s \over 2}\big).
+$$
+Тогда функция $p$ четна и выпукла.
+\end{prop}
 
 \begin{proof}[Набросок доказательства]
 Зафиксируем две точки на отрезке $-1 < x_1 < x_2 < 1$
@@ -148,119 +148,36 @@ $$
 $$
 u_\eps^*(x) = \min\big( 2 \eps, ( \eps + ( t + s )^{-1} ( x_2 - x_1 - 2 |x| ) )_+ \big).
 $$
-%\begin{equation}
-%\left\{
-%\begin{aligned}
-%u(x) &= 0, & x &\in [-1, x_1 - s \eps] \cup [x_2 + t \eps, 1]\\
-%u(x) &= 2 \eps, & x &\in [x_1 + s \eps, x_2 - t \eps]\\
-%u(x) &= \eps + { x - x_1 \over s }, & x &\in [x_1 - s \eps, x_1 + s \eps]\\
-%u(x) &= \eps - { x - x_2 \over t }, & x &\in [x_2 - t \eps, x_2 + t \eps]
-%\end{aligned}
-%\right.
-%\end{equation}
 
-%\begin{center}
-%\begin{picture}(200,90)
-%\refstepcounter{pictureCounter}
-%\label{uGraph}
-%
-%\put(0,25){\vector(1,0){200}}
-%\put(100,15){\vector(0,1){80}}
-%\put(10,24){\line(0,1){2}}
-%\put(0,14){$-1$}
-%\put(190,24){\line(0,1){2}}
-%\put(188,14){$1$}
-%
-%\put(38,25){\line(1,1){48}}
-%\put(38,24){\line(0,1){2}}
-%\put(20,14){$x_1 - s$}
-%\put(86,24){\line(0,1){2}}
-%\put(68,30){$x_1 + s$}
-%
-%\put(86,73){\line(1,0){48}}
-%
-%\put(134,73){\line(2,-3){32}}
-%\put(134,24){\line(0,1){2}}
-%\put(116,30){$x_2 - t$}
-%\put(166,24){\line(0,1){2}}
-%\put(148,14){$x_2 + t$}
-%
-%\put(110,77){$2 \eps$}
-%\put(45,70){$u(x)$}
-%
-%\put(85,1){Fig. \arabic{pictureCounter}}
-%\end{picture}
-%\end{center}
+Тогда, в силу сделанных предположений, верно следующее:
+\begin{multline*}
+\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } ( 1 + { 1 \over s^2 } )^{p(x) \over 2} dx
++ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } ( 1 + { 1 \over t^2 } )^{p(x) \over 2} dx \ge
+\\ \ge \int\limits_{ { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps }^{ { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
+     + \int\limits_{ { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps }^{ { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
+\end{multline*}
 
-%Тогда функция $u^*$ имеет следующий вид:
-%\begin{equation}
-%\left\{
-%\begin{aligned}
-%u^*(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
-%u^*(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
-%u^*(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
-%u^*(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
-%\end{aligned}
-%\right.
-%\end{equation}
-%
-%\begin{center}
-%\begin{picture}(200,90)
-%\refstepcounter{pictureCounter}
-%\label{uGraph}
-%
-%\put(0,25){\vector(1,0){200}}
-%\put(100,15){\vector(0,1){80}}
-%\put(10,24){\line(0,1){2}}
-%\put(0,14){$-1$}
-%\put(190,24){\line(0,1){2}}
-%\put(188,14){$1$}
-%
-%\put(36,25){\line(5,6){40}}
-%
-%\put(76,73){\line(1,0){48}}
-%
-%\put(124,73){\line(5,-6){40}}
-%
-%\put(110,77){$2 \eps$}
-%\put(35,70){$u^*(x)$}
-%
-%\put(85,1){Fig. \arabic{pictureCounter}}
-%\end{picture}
-%\end{center}
+Или, переходя к пределу при $\eps \to 0$,
+\begin{equation}
+\label{preConv}
+s ( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + t ( 1 + { 1 \over t^2 } )^{p(x_2) \over 2}
+\ge { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2}
+  + { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.
+\end{equation}
 
-Полагая $s = t$, из неравенства $\I(u^*) \le \I(u)$ получим $p(x_1) + p(x_2) \le p({ x_1 - x_2 \over 2 }) + p({ x_2 - x_1 \over 2 })$.
-Можно проверить (\cite[Lemma 10]{1dim}), что отсюда следует четность и выпуклость функции $p$.
-Далее, рассматривая произвольные $s$ и $t$, получаем выпуклость $K$.
-%Тогда, в силу сделанных предположений, верно следующее:
-%\begin{multline*}
-%\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } ( 1 + { 1 \over s^2 } )^{p(x) \over 2} dx
-%+ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } ( 1 + { 1 \over t^2 } )^{p(x) \over 2} dx \ge
-%\\ \ge \int\limits_{ { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps }^{ { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
-%     + \int\limits_{ { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps }^{ { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p(x) \over 2} dx
-%\end{multline*}
-%
-%Или, переходя к пределу при $\eps \to 0$,
-%\begin{equation}
-%\label{preConv}
-%s ( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + t ( 1 + { 1 \over t^2 } )^{p(x_2) \over 2}
-%\ge { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2}
-%  + { s + t \over 2 } ( 1 + \frac{1}{ ( { s + t \over 2 } )^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.
-%\end{equation}
-%
-%Положим в неравенстве (\ref{preConv}) $s = t$:
-%$$( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + ( 1 + { 1 \over s^2 } )^{p(x_2) \over 2}
-%\ge ( 1 + { 1 \over s^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2} + ( 1 + { 1 \over s^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.$$
-%
-%Обозначив $\sigma = {1 \over s^2}$ и воспользовавшись разложением в ряд Тейлора по $\sigma$ в точке $\sigma = 0$, получим
-%$$\sigma p(x_1) + \sigma p(x_2) \ge \sigma p( { x_2 - x_1 \over 2 } ) + \sigma p( { x_1 - x_2 \over 2 } ) + r(\sigma),$$
-%
-%где $r(s) = o(\sigma)$ при $\sigma \to 0$. То есть, для любых $x_1, x_2 \in [-1, 1]$ выполнено
-%$$p(x_1) + p(x_2) \ge p( { x_2 - x_1 \over 2 } ) + p( { x_1 - x_2 \over 2 } ).$$
-%
-%Воспользовавшись предложением \ref{convProp}, получаем, что $p$ четна и выпукла.
-%Тогда, заменим в (\ref{preConv}) $x_2$ на $-x_2$ и воспользовавшись четностью $p$, получаем
-%$K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
+Положим в неравенстве (\ref{preConv}) $s = t$:
+$$( 1 + { 1 \over s^2 } )^{p(x_1) \over 2} + ( 1 + { 1 \over s^2 } )^{p(x_2) \over 2}
+\ge ( 1 + { 1 \over s^2 } )^{p( { x_2 - x_1 \over 2 } ) \over 2} + ( 1 + { 1 \over s^2 } )^{p( { x_1 - x_2 \over 2 } ) \over 2}.$$
+
+Обозначив $\sigma = {1 \over s^2}$ и воспользовавшись разложением в ряд Тейлора по $\sigma$ в точке $\sigma = 0$, получим
+$$\sigma p(x_1) + \sigma p(x_2) \ge \sigma p( { x_2 - x_1 \over 2 } ) + \sigma p( { x_1 - x_2 \over 2 } ) + r(\sigma),$$
+
+где $r(s) = o(\sigma)$ при $\sigma \to 0$. То есть, для любых $x_1, x_2 \in [-1, 1]$ выполнено
+$$p(x_1) + p(x_2) \ge p( { x_2 - x_1 \over 2 } ) + p( { x_1 - x_2 \over 2 } ).$$
+
+Воспользовавшись предложением \ref{convProp}, получаем, что $p$ четна и выпукла.
+Тогда, заменим в (\ref{preConv}) $x_2$ на $-x_2$ и воспользовавшись четностью $p$, получаем
+$K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 \end{proof}
 
 \section{Доказательство неравенства $\I(u^*) \le \I(u)$}
@@ -357,11 +274,11 @@ $$
 В доказательстве мы используем несколько фактов про пространства Орлича $L^{p(x)}$,
 все они могут быть найдены в главе~1 книги \cite{Shar}.
 
-Поскольку $p(x)$ ограничена, можно построить последовательность кусочно постоянных функций $v_n$, сходящуюся к $u'$ в $L^{p(x)}$.
+Поскольку $p(x)$ ограничена, кусочно постоянные функции всюду плотны в $L^{p(x)}$.
+Воспользовавшись этим фактом для функции $u'$, получим последовательность функций $v_n$.
 Обозначим $u_n$ первообразные к $v_n$.
-Изменяя, если необходимо, $v_n$ в окрестности концов отрезка, можно считать, что $u_n \ge 0$ и $u_n(\pm 1) = 0$.
-
-Из вложения $L^{p(x)}[-1, 1]$ в $L^1[-1, 1]$ следует $u_n \to u$ в $\Wf[-1, 1]$.
+Модифицируя $v_n$ в окрестности границ отрезка, добьемся того, что $u_n$ финитны и неотрицательны.
+Из вложения $L^1[-1, 1]$ в $L^{p(x)}[-1, 1]$ следует $u_n \to u$ в $\Wf[-1, 1]$.
 Также, поскольку $| \sqrt{ 1 + x^2 } - \sqrt{ 1 + y^2 } | \le | x - y |$ для любых аргументов,
 из $v_n \to u'$ в $L^{p(x)}$ следует сходимость $\I( u_n ) \to \I( u )$.
 
@@ -458,7 +375,6 @@ q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - {w - 1 \over w} \ln( w + 1 ) + 4 {w \over \
 \vskip 40pt
 
 Я признателен А.~И.~Назарову за многочисленные ценные замечания и мотивацию.
-Также я признателен М.~Д.~Сурначеву за совет, позволивший упростить доказательство теоремы 3.
 
 Работа поддержана грантом РФФИ 15-01-07650.
 
