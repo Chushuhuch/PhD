@@ -1,0 +1,95 @@
+\documentclass[12pt,russian]{article}
+\renewcommand{\baselinestretch}{1}
+%\renewcommand{\baselinestretch}{1.5}
+\textwidth=158mm
+\textheight=232mm
+\voffset=-24mm
+%\pagestyle{empty}
+
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{multirow}
+\usepackage{color}
+
+\newcommand{\Real}{\mathbb R}
+\newcommand{\Nat}{\mathbb N}
+\newcommand{\norm}[1]{\pmb{\Vert}#1\pmb{\Vert}}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\bignorm}[1]{\bigl\Vert#1\bigr\Vert}
+\newcommand{\bigabs}[1]{\bigl\vert#1\bigr\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\liminf}{\underline{\lim}}
+\newcommand{\grad}{\triangledown}
+\newcommand{\card}{{\rm card}}
+\newtheorem{thm}{Теорема}
+\newtheorem{prop}{Предложение}
+\newtheorem{lm}{Лемма}
+\newtheorem{rem}{Замечание}
+\newtheorem{cor}{Следствие}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\Wf}{\stackrel{o\ }{W{}_1^1}}
+\newcommand{\W}{W_1^1}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\sign}{\mathop{\rm sign}\nolimits}
+\newcommand{\dist}{\mathop{\rm dist}\nolimits}
+\newcommand{\comment}[1]{\colorbox{yellow}{#1}}
+\newcounter{pictureCounter}
+
+\title{О неравенстве Пойа-Сеге для функционалов с переменным показателем суммирования}
+\author{
+С.~В.~Банкевич
+\footnote{Санкт-Петербургский государственный университет; Sergey.Bankevich@gmail.com}
+}
+\author{
+А.~И.~Назаров
+\footnote{ПОМИ РАН и Санкт-Петербургский госуниверситет; al.il.nazarov@gmail.com}
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Введение}
+
+Пусть $\Omega = \omega \times [-1, 1] \subset \Real^n$,
+где \omega --- ограниченная область.
+Обозначим $x = ( x_1, \dots, x_n ) = ( x', x_n )$.
+
+Для функций $u \in W_1^{p(x)}$ рассмотрим функционал
+$$
+\I(u) = \int\limits_\Omega ( 1 + | \nabla u(x) |^2 )^{p(x) \over 2} dx.
+$$
+
+\begin{equation}
+\label{toprove}
+\I( u ) \ge \I( u^* )
+\end{equation}
+
+\section{Необходимые условия}
+
+В работе \cite{power} показано,
+что если в одномерном случае неравенство \ref{toprove} выполнено для любой кусочно линейной функции $u$,
+то $p$ должна быть четной, а функция
+$$
+K( x, s ) = s ( 1 + { 1 \over s^2 } )^{ p(x) \over 2 }
+$$
+должна быть выпуклой относительно совокупности переменных.
+Заметим, что из выпуклости $K$ следует выпуклость $p$.
+
+Очевидно, в многомерном случае
+
+\section{Кусочно линейный случай}
+
+\begin{lm}
+
+\end{lm}
+
+\section{Общий случай}
+
+
+\end{document}
