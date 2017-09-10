@@ -1,4 +1,4 @@
-\documentclass[12pt,russian]{article}
+\documentclass[12pt]{article}
 \renewcommand{\baselinestretch}{1}
 %\renewcommand{\baselinestretch}{1.5}
 \textwidth=158mm
@@ -6,7 +6,6 @@
 \voffset=-24mm
 %\pagestyle{empty}
 
-\usepackage[russian]{babel}
 \usepackage{amsmath,amssymb,amsthm,amsfonts}
 \usepackage{multirow}
 \usepackage{color}
@@ -25,42 +24,47 @@
 \renewcommand{\liminf}{\underline{\lim}}
 \newcommand{\grad}{\triangledown}
 \newcommand{\card}{{\rm card}}
-\newtheorem{thm}{Теорема}
-\newtheorem{prop}{Предложение}
-\newtheorem{lm}{Лемма}
-\newtheorem{rem}{Замечание}
-\newtheorem{cor}{Следствие}
+\newtheorem{thm}{Theorem}
+%\newtheorem{prop}{Предложение}
+\newtheorem{lm}{Lemma}
+%\newtheorem{rem}{Замечание}
+%\newtheorem{cor}{Следствие}
 \newcommand{\To}{\longrightarrow}
 \newcommand{\Wf}{\stackrel{o\ }{W{}_1^1}}
+\newcommand{\Wfp}{
+\stackrel{o\ \ \ \ } {W{}_{\!p(x)}^1}
+}
 \newcommand{\W}{W_1^1}
 \newcommand{\I}{\mathcal{I}}
 \newcommand{\J}{\mathcal{J}}
+\newcommand{\K}{\mathcal{K}}
 \newcommand{\sign}{\mathop{\rm sign}\nolimits}
 \newcommand{\dist}{\mathop{\rm dist}\nolimits}
 \newcommand{\comment}[1]{\colorbox{yellow}{#1}}
 \newcounter{pictureCounter}
 
-\title{О неравенстве Пойа-Сеге для функционалов с переменным показателем суммирования}
+\title{On monotonicity of some functionals with variable exponent under symmetrization}
 \author{
-С.~В.~Банкевич
-\footnote{Санкт-Петербургский государственный университет; Sergey.Bankevich@gmail.com}
-}
-\author{
-А.~И.~Назаров
-\footnote{ПОМИ РАН и Санкт-Петербургский госуниверситет; al.il.nazarov@gmail.com}
+S.~Bankevich
+\footnote{SPbU, Russia; Sergey.Bankevich@gmail.com}
+%}
+%\author{
+\and
+A.~I.~Nazarov
+\footnote{PDMI RAS and SPbU, Russia; al.il.nazarov@gmail.com}
 }
 \date{}
 
 \begin{document}
 \maketitle
 
-\section{Введение}
+\section{Introduction}
 
-Пусть $\Omega = \omega \times [-1, 1] \subset \Real^n$,
-где \omega --- ограниченная область.
-Обозначим $x = ( x_1, \dots, x_n ) = ( x', x_n )$.
+Let $\Omega = \omega \times [-1, 1] \subset \Real^n$,
+where $\omega$ is a bounded domain.
+We denote $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
 
-Для функций $u \in W_1^{p(x)}$ рассмотрим функционал
+We consider the functional on $\Wfp$
 $$
 \I(u) = \int\limits_\Omega ( 1 + | \nabla u(x) |^2 )^{p(x) \over 2} dx.
 $$
@@ -70,26 +74,122 @@ $$
 \I( u ) \ge \I( u^* )
 \end{equation}
 
-\section{Необходимые условия}
+\section{Necessary conditions}
 
-В работе \cite{power} показано,
-что если в одномерном случае неравенство \ref{toprove} выполнено для любой кусочно линейной функции $u$,
-то $p$ должна быть четной, а функция
+Let
 $$
-K( x, s ) = s ( 1 + { 1 \over s^2 } )^{ p(x) \over 2 }
+K_{x'}( y, s ) = s ( 1 + { 1 \over s^2 } )^{ p(x', y) \over 2 }.
 $$
-должна быть выпуклой относительно совокупности переменных.
-Заметим, что из выпуклости $K$ следует выпуклость $p$.
-
-Очевидно, в многомерном случае
-
-\section{Кусочно линейный случай}
-
+In \cite{power} we showed the following in the one dimensional case (here we write $K$ instead of $K_{x'}$).
 \begin{lm}
+Suppose inequality \ref{toprove} holds for any piecewise linear $u$.
+Then $p$ is convex and $K$ is convex with respect to both variables.
+\end{lm}
+Note, that convexity of $K$ implies convexity of $p$.
 
+\section{Piecewise linear case}
+
+We will need the following
+\begin{lm}
+\label{quasiConv}
+Let
+$$
+\K_{x'}( y, b_i, b_n ) = b_n \Big( 1 + { 1 + \sum b_i^2 \over b_n^2 } \Big) ^{p(x', y) \over 2}.
+$$
+Hereinafter, the index $i$ runs from $1$ to $n - 1$.
+Suppose $K_{x'}$ is convex.
+Then
+$$
+\sum\limits_1^k \K_{x'} ( y_k, b_i^k, b_n^k ) \ge 2 \K_{x'}( { 1 \over 2 } \sum\limits_1^k (-1)^k y_k, { 1 \over 2 } \sum\limits_1^k (-1)^k b_i^k, \sum\limits_1^k b_n^k ).
+$$
 \end{lm}
 
-\section{Общий случай}
+\begin{proof}
+Let $\overline{\K}_{x'} ( y, b, s ) = s ( 1 + { 1 + b^2 \over s^2 } ) ^{p(x', y) \over 2}$.
+\end{proof}
+
+\begin{thm}
+Suppose $\K_{x'}$ is convex with respect to all arguments.
+Then for any piecewise linear $u$ the inequality $\I(u^*) \le \I(u)$ holds.
+\end{thm}
+
+\begin{proof}
+Let $\partial \Omega \subset C \subset \Omega$ be a minimal closed set, such that on any connected subset of $\Omega \setminus C$ the function $u$ is linear.
+Define
+$$
+U := u(\Omega) \setminus \{ ( x', u( x', y ) ): y \in (-1, 1), (x', y) \in C \}.
+$$
+Then the open set $U$ can be partitioned into a finite union of disjoint connected open sets $G_j$.
+Let $m_j$ be the number of inverse images of $( x', u_0 ) \in G_j$, that is the number of solutions to $u( x', y ) = u_0$
+(obviously, this number is same for any $( x', u_0 ) \in G_j$).
+It is easy to see that the inverse images themselves are linear functions of $( x', u_0 )$:
+$y = y_k^j( x', u_0 )$, $k = 1, \dots, m_j$,
+and for $( x', y ) \in G_j$
+$$
+D_n u( x', y ) = \frac{1}{D_n y_k^j( x', u( x', y ) )},\qquad D_i u( x', y ) = -\frac{D_i y_k^j( x', u( x', y ) )}{D_n y_k^j( x', u( x', y ) )}.
+%D_n y_k^j( x', u( x', y ) ) = \frac{1}{D_n u( x', y )},\qquad D_i y_k^j( x', u( x', y ) ) = -\frac{D_i u( x', y )}{D_n u( x', y )}.
+$$
+Without loss of generality, we assume that $y_1^j(x', u_0) < y_2^j(x', u_0) < \ldots < y_{m_j}^j(x', u_0)$.
+
+The equation $u^*(x'_0, y^*) = u_0$ defines $y^*$ as a function of $( x'_0, u_0 ) \in G_j$ if we restrict $y^* \ge 0$.
+The $y^*$ function can be expressed in terms of $y_k^j$ (in particular, $y^*$ is piecewise linear):
+$$
+y^*( x', u ) = {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k y_k^j.
+$$
+Hence it is clear that for $(x', y) \in G_j$
+\begin{eqnarray*}
+D_n y^*(x', u(x', y))
+& = & \frac{1}{D_n u^*(x',y)}
+= { 1 \over 2 } \sum\limits_{k=1}^{m_j}{|D_n y_k^j (x',u(x',y))|} \\
+D_i y^*( x', y )
+& = & { 1 \over 2 } \sum\limits_{k = 1}^{m_j} ( -1 )^k D_i y_k^j( x', u( x', y ) ).
+\end{eqnarray*}
+
+{\color{red} subtract zero derivative}
+
+Then
+\begin{multline*}
+I(u)
+= \int\limits_\Omega ( 1 + D_i u(x)^2 + D_n u(x)^2 )^{ p(x) \over 2 } dx' dy \\
+= \sum\limits_j \int\limits_{G_j} \sum\limits_{k = 1}^{m_j} \Big(
+    1 + { D_i y_k^j(x', u)^2 + 1 \over D_n y_k^j(x', u)^2 }
+\Big) ^{ p( x', y_k^j(x,' u) ) \over 2 }
+\times | D_n y_k^j(x', u)| dx' du \\
+= \sum\limits_j \int\limits_{G_j} \sum\limits_{k = 1}^{m_j} \K_{x'} \big( y_k^j(x', u), D_i y_k^j(x', u), |D_n y_k^j(x', u)| \big) dx' du,
+\end{multline*}
+
+\begin{multline*}
+I(u^*)
+= 2 \int\limits_{ \{ ( x', y ) | ( x', y ) \in \Omega, y > 0 \} } ( 1 + D_i u^*(x)^2 + D_n u^*(x)^2 )^{ p(x) \over 2 } dx' dy \\
+= 2 \sum\limits_j \int\limits_{G_j} \bigg(
+    1 + { \big( {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k D_i y_k^j(x', u) \big)^2 + 1
+    \over
+    ( {1 \over 2} \sum\limits_{k = 1}^{m_j} |D_n y_k^j(x', u)| )^2 }
+\bigg) ^{ p( x', y^*(x,' u) ) \over 2 }
+\times {1 \over 2} \sum\limits_{k = 1}^{m_j} | D_n y_k^j(x', u) | dx' du \\
+= 2 \sum\limits_j \int\limits_{G_j} \K_{x'} \Big(
+    {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k y_k^j(x', u), {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k D_i y_k^j(x', u), {1 \over 2} \sum\limits_{k = 1}^{m_j} |D_n y_k^j(x', u)|
+\Big) dx' du.
+\end{multline*}
+
+It is sufficient to settle the inequality for the integrants, thus, we need to settle
+\begin{multline*}
+\sum\limits_{k = 1}^{m_j} \K_{x'} \big( y_k^j(x', u), D_i y_k^j(x', u), |D_n y_k^j(x', u)| \big)
+\\ \ge
+\K_{x'} \Big(
+    {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k y_k^j(x', u), {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k D_i y_k^j(x', u), {1 \over 2} \sum\limits_{k = 1}^{m_j} |D_n y_k^j(x', u)|
+\Big).
+\end{multline*}
+But this inequality is secured by Lemma \ref{quasiConv}.
+\end{proof}
+
+Note, that necessary properties of $\K$ are inherited from similar properties of $K$:
+\begin{lm}
+Suppose $K( x, s )$ is convex.
+Then $\K_{x'}( y, b_i, b_n )$ is also convex.
+\end{lm}
+
+\section{General case}
 
 
 \end{document}
