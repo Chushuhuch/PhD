@@ -38,6 +38,7 @@
 \newcommand{\I}{\mathcal{I}}
 \newcommand{\J}{\mathcal{J}}
 \newcommand{\K}{\mathcal{K}}
+\newcommand{\B}{{\bf b}}
 \newcommand{\sign}{\mathop{\rm sign}\nolimits}
 \newcommand{\dist}{\mathop{\rm dist}\nolimits}
 \newcommand{\comment}[1]{\colorbox{yellow}{#1}}
@@ -64,8 +65,10 @@ Let $\Omega = \omega \times [-1, 1] \subset \Real^n$,
 where $\omega$ is a bounded domain.
 We denote $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
 
-We consider the functional on $\Wfp$
+We consider two functionals on $\Wfp$
 $$
+\J(u) = \int\limits_\Omega | \nabla u(x) |^{p(x)} dx
+\qquad
 \I(u) = \int\limits_\Omega ( 1 + | \nabla u(x) |^2 )^{p(x) \over 2} dx.
 $$
 
@@ -76,31 +79,76 @@ $$
 
 \section{Necessary conditions}
 
+\begin{thm}
+\label{uniform}
+Suppose the inequality $\J(u^*) \le \J(u)$ holds for any Lipschitz function $u$.
+Then $p(x', \cdot) \equiv const$.
+\end{thm}
+\begin{proof}
+Take arbitrary $x_0 = (x_0', y_0) \in \omega \times (-1, 1)$.
+For each $\alpha > 0$ and $\eps > 0$ such that $B( x_0, \eps ) \subset \Omega$,
+we define
+$$
+u_{\alpha,\eps}(x) = \alpha ( \eps - |x - x_0| )_+.
+$$
+Then $u_{\alpha,\eps}^*(x) = \alpha ( \eps - |x - (x_0', 0)| )_+$ and
+
+\begin{eqnarray*}
+\begin{aligned}
+& |u_{\alpha,\eps}'(x)|     = 0,      & x \in \Omega \setminus B( x_0, \eps ) \\
+& |u_{\alpha,\eps}'(x)|     = \alpha, & x \in B( x_0, \eps ) \\
+& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x \in \Omega \setminus B( (x_0', 0), \eps ) \\
+& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x \in B( (x_0', 0), \eps ) \\
+\end{aligned}
+\end{eqnarray*}
+
+Thus, we have
+$$
+\J(u_{\alpha, \eps}) = \int\limits_{B( x_0, \eps )} \alpha^{p(x)} dx, \qquad
+\J(u_{\alpha, \eps}^*) = \int\limits_{B( (x_0', 0), \eps )} \alpha^{p(x)} dx.
+$$
+
+From the theorem assumptions we have
+$$
+{\J(u_{\alpha, \eps}^*) \over |{B((x_0', 0), \eps)}|} \le {\J(u_{\alpha, \eps}) \over |{B(x_0, \eps)}|}.
+$$
+Passing to the limit $\eps \to 0$ in this inequality we have $\alpha^{p(x_0', 0)} \le \alpha^{p(x_0)}$ since $\alpha^{p(x)}$ is continuous.
+Note, that $\alpha > 1$ and $\alpha < 1$ lead to $p(x_0', 0) \le p(x_0)$ and $p(x_0', 0) \ge p(x_0)$ conclusions respectively.
+This concludes the proof of the theorem.
+
+Note, that we can restrict functions $u$ to be piecewise linear.
+\end{proof}
+
+The theorem makes the direct generalization of inequality (\ref{PS}) impossible.
+
 Let
 $$
 K_{x'}( y, s ) = s ( 1 + { 1 \over s^2 } )^{ p(x', y) \over 2 }.
 $$
-In \cite{power} we showed the following in the one dimensional case (here we write $K$ instead of $K_{x'}$).
-\begin{lm}
+In \cite{power} we proved the following necessary condition for the one dimensional case (here we write $K$ instead of $K_{x'}$).
+\begin{thm}
 Suppose inequality \ref{toprove} holds for any piecewise linear $u$.
-Then $p$ is convex and $K$ is convex with respect to both variables.
-\end{lm}
+Then $p$ is even and convex in $y$, and $K$ is convex with respect to both variables.
+\end{thm}
+
+\begin{proof}
+\end{proof}
 Note, that convexity of $K$ implies convexity of $p$.
 
 \section{Piecewise linear case}
 
-We will need the following
+We will need the following notations and lemma.
+\begin{eqnarray*}
+&& \B = ( b_1, \dots, b_{n - 1}, c ) = ( \B', c ) \\
+&& \K_{x'}( y, \B', c ) = c \Big( 1 + { 1 + |\B'|^2 \over c^2 } \Big) ^{p(x', y) \over 2}.
+\end{eqnarray*}
 \begin{lm}
 \label{quasiConv}
-Let
-$$
-\K_{x'}( y, b_i, b_n ) = b_n \Big( 1 + { 1 + \sum b_i^2 \over b_n^2 } \Big) ^{p(x', y) \over 2}.
-$$
-Hereinafter, the index $i$ runs from $1$ to $n - 1$.
 Suppose $K_{x'}$ is convex.
 Then
 $$
-\sum\limits_1^k \K_{x'} ( y_k, b_i^k, b_n^k ) \ge 2 \K_{x'}( { 1 \over 2 } \sum\limits_1^k (-1)^k y_k, { 1 \over 2 } \sum\limits_1^k (-1)^k b_i^k, \sum\limits_1^k b_n^k ).
+\sum\limits_{k = 1}^{m_j} \K_{x'} ( y_k, \B_k', c_k )
+\ge 2 \K_{x'} \Big( { 1 \over 2 } \sum\limits_{k = 1}^{m_j} (-1)^k y_k, { 1 \over 2 } \sum\limits_{k = 1}^{m_j} (-1)^k \B_k', \sum\limits_{k = 1}^{m_j} c_k \Big).
 $$
 \end{lm}
 
@@ -109,7 +157,7 @@ Let $\overline{\K}_{x'} ( y, b, s ) = s ( 1 + { 1 + b^2 \over s^2 } ) ^{p(x', y)
 \end{proof}
 
 \begin{thm}
-Suppose $\K_{x'}$ is convex with respect to all arguments.
+Suppose $K_{x'}$ is convex with respect to both arguments.
 Then for any piecewise linear $u$ the inequality $\I(u^*) \le \I(u)$ holds.
 \end{thm}
 
