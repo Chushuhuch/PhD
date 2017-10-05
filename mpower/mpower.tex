@@ -72,12 +72,11 @@ $$
 \I(u) = \int\limits_\Omega ( 1 + | \nabla u(x) |^2 )^{p(x) \over 2} dx.
 $$
 
-\begin{equation}
-\label{toprove}
-\I( u ) \ge \I( u^* )
-\end{equation}
-
 \section{Necessary conditions}
+
+The following necessary conditions were announced in \cite{power} for one dimensional case.
+However, the constructions for the multidimentional case are different,
+thus we put full proofs here for the reader's convenience.
 
 \begin{thm}
 \label{uniform}
@@ -123,15 +122,14 @@ The theorem makes the direct generalization of inequality (\ref{PS}) impossible.
 
 Let
 $$
-K_{x'}( y, s ) = s ( 1 + { 1 \over s^2 } )^{ p(x', y) \over 2 }.
+K((x', y), s) = K_{x'}( y, s ) = s ( 1 + { 1 \over s^2 } )^{ p(x', y) \over 2 }.
 $$
-In \cite{power} we proved the following necessary condition for the one dimensional case (here we write $K$ instead of $K_{x'}$).
 \begin{thm}
-Suppose inequality \ref{toprove} holds for any piecewise linear $u$.
-Then $p$ is even and convex in $y$, and $K$ is convex with respect to both variables.
+Suppose inequality $\I(u^*) \le \I(u)$ holds for any piecewise linear $u$.
+Then $p$ is even and convex in $y$, and $K_{x'}$ is convex with respect to both variables for each $x' \in \omega$.
 \end{thm}
 
-We will need the following
+To prove the theorem we will need the following
 \begin{prop}
 \label{convProp}
 {\rm \cite[Lemma 10]{1dim}.}
@@ -144,33 +142,37 @@ Then $p$ is even and convex.
 
 \begin{proof}
 Let $x_1 = (x'_0, y_1), x_2 = (x'_0, y_2)$ where $-1 < y_1 < y_2 < 1$ and $x'_0 \in \omega$.
-We construct the function with support on a cylinder with the segment $[x_1, x_2]$ as an axis, and with nonzero derivatives only in circumferences of the border of the cylinder.
+We construct the function with support on a cylinder with the segment $[x_1, x_2]$ as an axis and radius $w$,
+and with nonzero derivatives only in circumferences of the border of the cylinder.
 Namely,
 $$
-u(x', y) = \min\Big( \big( {y - y_1 \over s} \big)_+, \big( {y_2 - y \over t} \big)_+, \delta ( w - |x' - x'_0| )_+, h \Big).
+u(x', y) = \min\Big( \big( {y - y_1 \over s} \big)_+, \big( {y_2 - y \over t} \big)_+, \delta ( w - |x' - x'_0| )_+, h \Big),
 $$
+where $s, t > 0$.
 We suppose that $y_2 - y_1$ is much greater than $\delta$ and $h$ as well as the width of non-zero derivative area on the side of the cylinder $\varkappa = {h \over \delta}$.
+We set $\varkappa = {w \over 2}$.
 Also we suppose that derivative $\delta$ near the side of the cylinder is much less than derivatives ${1 \over s}$ and ${1 \over t}$ near its bases.
 In particular, $h = \delta \varkappa < \min( {1 \over s}, {1 \over t } ) {y_2 - y_1 \over 2}$.
-It is easy to see that $u^*$ has similar shape with $y_1, y_2$ becoming ${y_1 - y_2 \over 2}, {y_2 - y_1 \over 2}$, and both $s$ and $t$ changed to ${s + t \over 2}$.
+It is easy to see that $u^*$ has similar shape with $y_1, y_2$ substituted by ${y_1 - y_2 \over 2}, {y_2 - y_1 \over 2}$, and both $s$ and $t$ changed to ${s + t \over 2}$.
 
-To evaluate $I(u)$ and $I(u^*)$ we calculate areas $A_s$ with derivative ${1 \over s}$ (for ${1 \over t}$ and ${2 \over s + t}$ it is calculated the same way)
-and $A_\delta$ with derivative $\delta$:
+To evaluate $I(u)$ and $I(u^*)$ we calculate areas $A_s$ with gradient ${1 \over s}$ (for ${1 \over t}$ and ${2 \over s + t}$ it is calculated the same way)
+and $A_\delta$ with gradient $\delta$:
 \begin{multline*}
 \begin{split}
-& A_s & = & \delta s \int\limits_{w - \varkappa}^w |B^{n - 1}_r| dr = C \delta s ( w^n - ( w - \varkappa )^n ) \\
-& A_\delta & = & \int\limits_{w - \varkappa}^w |S^{n - 1}_r| ( y_2 - y_1 - (w - r) \delta (s + t) ) dv
+& A_s & = & \delta s \int\limits_{ w \over 2}^w |B^{n - 1}_r| dr = C \delta s \big( w^n - \big({ w \over 2}\big)^n \big) \\
+& A_\delta & = & \int\limits_{ w \over 2}^w |S^{n - 1}_r| ( y_2 - y_1 - (w - r) \delta (s + t) ) dr
 \end{split}
 \\
-= C (y_2 - y_1) ( w^{n - 1} - ( w - \varkappa )^{n - 1}
-- C \delta (s + t) ( { w^n - w (w - \varkappa)^{n - 1} \over n - 1 } - { w^n - ( w - \varkappa )^n \over n } )
+= C (y_2 - y_1) \big( w^{n - 1} - \big({ w \over 2}\big)^{n - 1} \big)
+- C \delta (s + t) \big( { w^n - w ({ w \over 2})^{n - 1} \over n - 1 } - { w^n - ({ w \over 2})^n \over n } \big)
 \\
-= C (y_2 - y_1) ( w^{n - 1} - ( w - \varkappa )^{n - 1}
-- C \delta (s + t) ( w^n - (w - \varkappa)^{n - 1} ( w + \varkappa (n - 1) ) )
+= C (y_2 - y_1) \big( w^{n - 1} - \big({ w \over 2}\big)^{n - 1} \big)
+- C \delta (s + t) \big( w^n - \big({ w \over 2}\big)^{n - 1} ( w + { w \over 2} (n - 1) ) \big)
 \end{multline*}
 for some absolute constants $C$.
+Note, that $A_\delta$ is the area of gradient $\delta$ for $u^*$ as well.
 
-Take $\varkappa = {w \over 2}$, ${1 \over s} = {1 \over t} = w^2$, $\delta = w^4$ and set $w \to 0$.
+Take ${1 \over s} = {1 \over t} = w^2$, $\delta = w^4$ and set $w \to 0$.
 Then
 \begin{eqnarray*}
 & A_s & = C w^{n + 2} \\
@@ -183,10 +185,10 @@ and
 + ( ( 1 + w^8 )^{P \over 2} - 1 ) A_\delta
 \\- ( ( 1 + w^4 )^{p(\hat{x}_1) \over 2} - 1 + ( 1 + w^4 )^{p(\hat{x}_2) \over 2} - 1 ) A_{s + t \over 2}
 - ( ( 1 + w^8 )^{1 \over 2} - 1 ) A_\delta
-\\ = ( w^4 ( {p(\bar{x}_1) \over 2} + o(1) ) + w^4 ( {p(\bar{x}_2) \over 2} + o(1) ) C w^{n + 2}
-+ ( w^8 {P \over 2} + o(1) ) C w^{n - 1} ( 1 + o(1) )
-\\ -( w^4 ( {p(\hat{x}_1) \over 2} + o(1) ) + w^4 ( {p(\hat{x}_2) \over 2} + o(1) ) C w^{n + 2}
-- ( w^8 {1 \over 2} + o(1) ) C w^{n - 1} ( 1 + o(1) )
+\\ = \Big( w^4 \big( {p(\bar{x}_1) \over 2} + o(1) \big) + w^4 \big( {p(\bar{x}_2) \over 2} + o(1) \big) \Big) C w^{n + 2}
++ w^8 \big( {P \over 2} + o(1) \big) C w^{n - 1} ( 1 + o(1) )
+\\ -\Big( w^4 \big( {p(\hat{x}_1) \over 2} + o(1) \big) + w^4 \big( {p(\hat{x}_2) \over 2} + o(1) \big) \Big) C w^{n + 2}
+- w^8 \big( {1 \over 2} + o(1) \big) C w^{n - 1} ( 1 + o(1) )
 \\ = C w^{n + 6} ( p(\bar{x}_1) + p(\bar{x}_2) - p(\hat{x}_1) - p(\hat{x}_2) + o(1) ).
 \end{multline*}
 Here $P = \max p(x', y)$,
@@ -195,12 +197,26 @@ $w$-circumference of $x_1$, $x_2$, $(x'_0, {y_1 - y_2 \over 2})$, $(x'_0, {y_2 -
 Passing to the limit $w \to 0$ and applying Lemma \ref{convProp}
 we conclude that $p(x', \cdot)$ is even and convex.
 
-Now take arbitrary $s$ and $t$, $\varkappa = {w \over 2}$, $\delta = w^2$ and set $w \to 0$.
+Now take arbitrary $s$ and $t$, $\delta = w^2$ and set $w \to 0$.
 Then
 \begin{eqnarray*}
 & A_s & = C s w^{n + 2} \\
 & A_\delta & = C w^{n - 1} ( 1 + o(1) )
 \end{eqnarray*}
+and
+\begin{multline*}
+0 \le ( I(u) - (y_2 - y_1) |B^{n - 1}| ) - ( I(u^*) - (y_2 - y_1) |B^{n - 1}| )
+\\ \le ( ( 1 + s^2 )^{p(\bar{x}_1) \over 2} - 1 ) A_s + ( ( 1 + t^2 )^{p(\bar{x}_2) \over 2} - 1 ) A_t
++ ( ( 1 + w^4 )^{P \over 2} - 1 ) A_\delta
+\\- \Big( \Big( 1 + \big({s + t \over 2}\big)^2 \Big)^{p(\hat{x}_1) \over 2} - 1 + \Big( 1 + \big({s + t \over 2}\big)^2 \Big)^{p(\hat{x}_2) \over 2} - 1 \Big) A_{s + t \over 2}
+- ( ( 1 + w^4 )^{1 \over 2} - 1 ) A_\delta
+\\ = ( K(\bar{x}_1, s) + K(\bar{x}_2, t) - K(\hat{x}_1, {s + t \over 2}) - K(\hat{x}_2, {s + t \over 2}) ) C w^{n + 2}
++ ( 2 A_{s + t \over 2} - A_s - A_t )
+\\ + C w^{n + 3} (1 + o(1))
+= ( K(\bar{x}_1, s) + K(\bar{x}_2, t) - K(\hat{x}_1, {s + t \over 2}) - K(\hat{x}_2, {s + t \over 2}) ) C w^{n + 2} ( 1 + o(1) ).
+\end{multline*}
+Here $P$, $\bar{x}_1$, $\bar{x}_2$, $\hat{x}_1$, $\hat{x}_2$ are as earlier.
+Passing to the limit $w \to 0$ and applying evenness of $p$ in $y$ we obtain the convexity of $K_{x_0'}$.
 
 \end{proof}
 Note, that convexity of $K$ implies convexity of $p$.
