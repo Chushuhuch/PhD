@@ -185,7 +185,7 @@ and
 + ( ( 1 + w^8 )^{P \over 2} - 1 ) A_\delta
 \\- ( ( 1 + w^4 )^{p(\hat{x}_1) \over 2} - 1 + ( 1 + w^4 )^{p(\hat{x}_2) \over 2} - 1 ) A_{s + t \over 2}
 - ( ( 1 + w^8 )^{1 \over 2} - 1 ) A_\delta
-\\ = \Big( w^4 \big( {p(\bar{x}_1) \over 2} + o(1) \big) + w^4 \big( {p(\bar{x}_2) \over 2} + o(1) \big) \Big) C w^{n + 2}
+\\ \le \Big( w^4 \big( {p(\bar{x}_1) \over 2} + o(1) \big) + w^4 \big( {p(\bar{x}_2) \over 2} + o(1) \big) \Big) C w^{n + 2}
 + w^8 \big( {P \over 2} + o(1) \big) C w^{n - 1} ( 1 + o(1) )
 \\ -\Big( w^4 \big( {p(\hat{x}_1) \over 2} + o(1) \big) + w^4 \big( {p(\hat{x}_2) \over 2} + o(1) \big) \Big) C w^{n + 2}
 - w^8 \big( {1 \over 2} + o(1) \big) C w^{n - 1} ( 1 + o(1) )
@@ -234,7 +234,7 @@ Suppose $K_{x'}$ is convex.
 Then
 $$
 \sum\limits_{k = 1}^{m_j} \K_{x'} ( y_k, \B_k', c_k )
-\ge 2 \K_{x'} \Big( { 1 \over 2 } \sum\limits_{k = 1}^{m_j} (-1)^k y_k, { 1 \over 2 } \sum\limits_{k = 1}^{m_j} (-1)^k \B_k', \sum\limits_{k = 1}^{m_j} c_k \Big).
+\ge 2 \K_{x'} \Big( { 1 \over 2 } \sum\limits_{k = 1}^{m_j} (-1)^k y_k, { 1 \over 2 } \sum\limits_{k = 1}^{m_j} (-1)^k \B_k', { 1 \over 2 } \sum\limits_{k = 1}^{m_j} c_k \Big).
 $$
 \end{lm}
 
@@ -306,7 +306,7 @@ I(u^*)
 \Big) dx' du.
 \end{multline*}
 
-It is sufficient to settle the inequality for the integrants, thus, we need to settle
+It is sufficient to settle the inequality for the integrants, thus, we need to prove
 \begin{multline*}
 \sum\limits_{k = 1}^{m_j} \K_{x'} \big( y_k^j(x', u), D_i y_k^j(x', u), |D_n y_k^j(x', u)| \big)
 \\ \ge
