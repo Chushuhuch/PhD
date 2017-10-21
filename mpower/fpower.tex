@@ -382,18 +382,20 @@ $$
 
 \section{Multidimensional case}
 
+%Описание области
+
 \begin{thm}
-Suppose $I(u^*) \le I(u)$ for any $u \in \Wf$.
+Suppose $I(u^*) \le I(u)$ for any $u \in \Wf(\Omega)$.
 Then $p$ is even and convex in $y$, and function
 $$
-\K_{x'}(y, \B', c) = c \big(1 + {1 + |\B'|^2 \over c^2} \big)^{p(x', y) \over 2}
+\K_{x'}(y, d, c) = c \big(1 + {1 + d^2 \over c^2} \big)^{p(x', y) \over 2}
 $$
 is jointly convex.
 \end{thm}
 
 \begin{proof}
 Consider two points $x_1 = (x_0', y_1), x_2 = (x_0', y_2)$ ($x_0' \in \omega, -1 < y_1 < y_2 < 1$).
-We construct a function $u \in \Wf$ with nonzero gradient only in circumferences of $x_1, x_2$ and around the border of a cylinder with axis $[x_1, x_2]$.
+We construct a function $u \in \Wf$ with nonzero gradient only in circumferences of $x_1, x_2$ and around the lateral boundary of a cylinder with axis $[x_1, x_2]$.
 Namely,
 $$
 u(x) = \min\Big(
@@ -401,23 +403,24 @@ u(x) = \min\Big(
   \big( {y_2 - y \over c_2} + (x' - x_0') \cdot \B_2' \big)_+,
   \delta \big( w - |x' - x_0'| \big)_+,
   h
-\Big)
+\Big).
 $$
-for some $c_1, c_2 > 0$ as inverse base derivatives along $y$,
-$\B_1', \B_2' \in \Real^{n - 1}$ as base derivatives along $x'$,
-$\delta > 0$ as side gradient magnitude,
-$w > 0$ as cylinder width,
-and $h > 0$ as highest function value.
-We suppose that $y_2 - y_1$ is much greater than $\delta$ and $h$ as well as the width of non-zero derivative area on the side of the cylinder $\varkappa = {h \over \delta}$.
-We set $\varkappa = {w \over 2}$.
-Also we suppose that there is an area of positive measure in $\Omega$ where $u$ is constant and nonzero.
-In particular, $h = \delta \varkappa < \min( {1 \over c_1}, {1 \over c_2 } ) {y_2 - y_1 \over 2}$.
+Here the parameters $c_1, c_2 > 0$ are inverse derivatives w.r.t. $y$ at the ``bases'' of the cylinder,
+$\B_1', \B_2' \in \Real^{n - 1}$ are gradients w.r.t. $x'$ at the ``bases'',
+$\delta > 0$ is the absolute value of the gradient at the lateral boundary, $w > 0$ is the cylinder radius,
+while $h > 0$ is the maximal function value.
 
-The left base of $S = \supp u$ is the set of solutions to equation system
+Given $y_1$, $y_2$, $c_1$, $c_2$, $\B_1'$, $\B_2'$, we choose $h$ and $\delta$ as functions of small parameter $w$.
+%We suppose that $y_2 - y_1$ is much greater than $\delta$ and $h$ as well as the width of non-zero derivative area on the side of the cylinder $\varkappa = {h \over \delta}$.
+We set $\varkappa\equiv {h \over \delta} := {w \over 2}$ ($\varkappa$ is the width of the lateral layer with non-zero gradient).
+%Also we suppose that there is an area of positive measure in $\Omega$ where $u$ is constant and nonzero.
+%In particular, $h = \delta \varkappa < \min( {1 \over c_1}, {1 \over c_2 } ) {y_2 - y_1 \over 2}$.
+
+The left base of the set $S = \supp u$ is given by the system
 $$
-{y - y_1 \over c_1} + (x' - x_0') \cdot \B_1' = 0; \qquad |x' - x_0'| \le w,
+{y - y_1 \over c_1} + (x' - x_0') \cdot \B_1' = 0; \qquad |x' - x_0'| \le w.
 $$
-which is an $n-1$-dimensional ball of radius $w$ stretched in one direction to measure $\sqrt{w^2 + c_1^2 w^2 |\B_1'|^2}$ instead of $w$ in radius.
+Thus, it is an $(n-1)$-dimensional prolate ellipsoid of revolution with the major semiaxis $\sqrt{w^2 + c_1^2 w^2 |\B_1'|^2}$ and radius $w$.
 Denote $A_1$ the set of points with gradient magnitude of $\frac{1}{c_1}$.
 Suppose $\B_1' = 0$.
 Then $A_1$ is trapezium-like body with $n - 1$-balls of radia $w$ and $\frac{w}{2}$ as bases and measuring $h c_1$ in height.
