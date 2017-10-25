@@ -41,6 +41,7 @@
 \newcommand{\sign}{\mathop{\rm sign}\nolimits}
 \newcommand{\dist}{\mathop{\rm dist}\nolimits}
 \newcommand{\supp}{\mathop{\rm supp}}
+\newcommand{\Ln}{\mathop{\rm ln}}
 \newcommand{\comment}[1]{\colorbox{yellow}{#1}}
 \newcounter{pictureCounter}
 
@@ -69,7 +70,7 @@ I(u^*) \le I(u), \qquad \text{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx, \q
 \begin{equation*}
 \J(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad \I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{\frac {p(x)}{2}} dx,
 \end{equation*}
-Where $p(x) \ge 1$ is a continuous function defined on $[-1, 1]$, $u \in \Wf[-1, 1]$.
+Where $p(x) \ge 1$ is a continuous function defined on $[-1, 1]$, $u \in \Wf[-1, 1]$, $u \ge 0$.
 
 
 \section{Necessary conditions}
@@ -379,6 +380,38 @@ $$
 $$
 \end{proof}
 
+
+\section{On some sufficient conditions}
+The condition of joint convexity of function $K$ is in fact certain condition on function $p$.
+Let us compute Hessian of $K$.
+We write $K$ in term of $q = q(x) = p(x) - 1$ and $w = w(s) = \frac{1}{s^2}$: $K(s, x) = s (1 + w)^\frac{q + 1}{2}$.
+Also we will denote $\Ln = \ln(1 + w)$. Then
+\begin{eqnarray*}
+K_s & = & (1 + w)^\frac{q + 1}{2} + s \frac{q + 1}{2} (1 + w)^\frac{q - 1}{2} w' = (1 + w)^\frac{q - 1}{2} (1 - w q) \\
+K_x & = & s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln.
+\end{eqnarray*}
+Further,
+\begin{align*}
+K_{ss} &= (1 + w)^\frac{q - 3}{2} \frac{q - 1}{2} w' (1 - w q) - (1 + w)^\frac{q - 1}{2} w' q
+= \frac{w}{s} (1 + w)^\frac{q - 3}{2} (w q + 1) (q + 1)
+\\ K_{sx} &= (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln,
++ s (1 + w)^\frac{q - 1}{2} \frac{q - 1}{2} \cdot \frac{-2 w}{s} \cdot \frac{q'}{2} \Ln
++ s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \cdot \frac{w'}{1 + w}
+\\ & = \frac{1}{2} (1 + w)^\frac{q - 1}{2} q' ( (1 - q w) \Ln - 2 w),
+\\ K_{xx} &= s ( (1 + w)^\frac{q + 1}{2} ( \Ln \frac{q'}{2} )^2 + (1 + w)^\frac{q + 1}{2} \frac{q''}{2} \Ln )
+= s \Ln (1 + w)^\frac{q + 1}{2} ( \frac{q'^2 \Ln}{4} + \frac{q''}{2} ).
+\end{align*}
+Hence Hessian of $K$ is
+$$
+{\bf H} = \frac{(1 + w)^{q - 1}}{4} \Big( w (w q + 1) (q + 1) \Ln (q'^2 \Ln + 2 q'') - q'^2 ( (1 - q w) \Ln - 2 w )^2 \Big).
+$$
+Note, that $K$ is always convex in $s$, and provided $p$ is convex, $K$ is convex in $x$ as well.
+Then convexity of $K$ is equivalent to ${\bf H} \ge 0$.
+It leads to the condition
+$$
+q q'' \ge q'^2 \frac{q}{q + 1} \cdot \frac{ ( (1 - q w) \Ln - 2 w )^2 - w (w q + 1) (q + 1) \Ln^2 }{ 2 w (w q + 1) \Ln }
+=: q'^2 A(q, w).
+$$
 
 \section{Multidimensional case}
 
