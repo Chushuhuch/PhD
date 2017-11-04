@@ -67,7 +67,7 @@ fun evalTopLeft() {
                     - ExpressionNode( "r ln / (w + r)" ) { wr: WR -> wr.r * wr.w.log1p() / ( wr.w + wr.r ) }.withValue( WR( 0.0, 0.0 ), Number( 0.0 ) )
                     + ExpressionNode( "(w + r ln / w) / (w + r)" ) { wr: WR -> ( wr.w + wr.r / wr.w.vOverLog1p() ) / ( wr.w + wr.r ) }.withValue( WR( 0.0, 0.0 ), Number( 1.0 ) )
             ) /
-            ExpressionNode( "2" ) { wr: WR -> Number( 2.0 ) }
+            ExpressionNode( "2 (1 + r)" ) { wr: WR -> 2.0 * ( 1.0 + wr.r ) }
     proveInequality( Ai, WR( 0.0, 0.0 ), WR( 1.0, 1.0 ), Direction.Max, Number( 0.62 ), minParts = 1 )
 
 //    Done: Ai_r, w = 1..6, r = 0..1, max < 0, parts = 10^3
