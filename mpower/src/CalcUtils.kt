@@ -5,9 +5,16 @@ enum class DEBUG_LEVEL( val level: Int ) {
     PRINT_EVERY_CELL( 10 ),
     REPORT_CELL_OPTIMUM( 20 ),
     REPORT_ALL_CELL_CORNER_VALUES( 30 ),
+    REPORT_EVALUATIONS( 40 ),
 }
 
 val debug_level: DEBUG_LEVEL = DEBUG_LEVEL.NO_DEBUG
+fun log(level: DEBUG_LEVEL, msg: String ) {
+    if ( level <= debug_level ) {
+        println( msg )
+        System.out.flush()
+    }
+}
 
 val MIN_MARGIN = Number( 1E-5 )
 
@@ -27,6 +34,13 @@ class Number( val v : Double ) : Comparable<Number> {
     override fun compareTo( other: Number ) = v.compareTo( other.v )
 
     override fun toString() = v.toString()
+
+    override fun equals( other: Any? ): Boolean {
+        if ( other !is Number ) return false
+        return v == other.v
+    }
+
+    override fun hashCode() = v.hashCode()
 
     fun abs() = Number( Math.abs( v ) )
     fun log1p() = Number( Math.log1p( v ) )
@@ -99,7 +113,7 @@ abstract class Expression<VS : VariableSet> {
     abstract fun optimize( from: VS, to: VS, dir: Direction ): Number
     override abstract fun toString(): String
 
-    fun reportOptimum( optimum: Number, dir: Direction ) = if ( debug_level >= DEBUG_LEVEL.REPORT_CELL_OPTIMUM ) println("$dir to $this: $optimum") else Unit
+    fun reportOptimum( optimum: Number, dir: Direction ) = log( DEBUG_LEVEL.REPORT_CELL_OPTIMUM, "$dir to $this: $optimum")
 
     operator fun plus( e: Expression<VS> ) = SumExpression( this, e )
     operator fun minus( e: Expression<VS> ) = SubtExpression( this, e )
@@ -108,27 +122,36 @@ abstract class Expression<VS : VariableSet> {
 }
 
 open class ExpressionNode<VS : VariableSet>( private val s: String, private val f: ( VS ) -> Number ) : Expression<VS>() {
-    override fun eval( v: VS, dir: Direction ) = f( v )
+    override fun eval(v: VS, dir: Direction ) = f( v )
     override fun toString() = s
 
     override fun optimize( from: VS, to: VS, dir: Direction ): Number {
         var optimum: Number? = null
-//        println( "Combining $from and $to" )
+//        log( "Combining $from and $to" )
         for ( vs in from.combine( to ) ) {
             val result = eval( vs, dir )
             result.sanityCheck()
-//            println( "Evaluated $vs -> $result" )
+//            log( "Evaluated $vs -> $result" )
             optimum = dir.get( optimum, result )
         }
         optimum!!.sanityCheck()
         reportOptimum( optimum, dir )
         return optimum
     }
-
-    fun withValue( key: VS, value: Number ) : ExpressionNode<VS> = object : ExpressionNode<VS>( s, f ) {
-        override fun eval( v: VS, dir: Direction ) = if ( v == key ) value else super.eval( v, dir )
-    }
 }
+
+fun <VS : VariableSet> Expression<VS>.withValue( key: VS, value: Number )
+        = object : ExpressionNode<VS>( toString() + " {$key -> $value}", { v: VS ->
+    log( DEBUG_LEVEL.REPORT_EVALUATIONS, "v: $v, key: $key, value: $value, v == key: ${v == key}" )
+    if ( v == key ) {
+        value
+    } else eval( v )
+} ) {}
+
+//class WithValueExpression<VS : VariableSet> private constructor( private val expr: Expression<VS>, private val key: VS, private val value: Number )
+//    : ExpressionNode<VS>( expr.toString(), { v: VS -> if ( v == key ) value else expr.eval( v ) } ) {
+//
+//}
 
 class SumExpression<VS : VariableSet>( private val left: Expression<VS>, private val right: Expression<VS> ) : Expression<VS>() {
     override fun eval( v: VS, dir: Direction ) = left.eval( v, dir ) + right.eval( v, dir )
@@ -174,11 +197,11 @@ class DivExpression<VS : VariableSet>( private val left: Expression<VS>, private
 fun <VS : VariableSet> proveInequality( f: Expression<VS>, from: VS, to: VS, dir: Direction, bound: Number, minParts: Long = 1, maxParts: Long = Long.MAX_VALUE ) {
     var parts = minParts
     while ( true ) {
-        println( "Trying with $parts parts" )
+        log( DEBUG_LEVEL.NO_DEBUG, "Trying with $parts parts" )
         var optimum: Number? = null
         var where: VS? = null
         for ( ( localFrom, localTo ) in from.split( to, parts ) ) {
-            if ( debug_level >= DEBUG_LEVEL.PRINT_EVERY_CELL ) println( "Optimizing on $localFrom - $localTo" )
+            log( DEBUG_LEVEL.PRINT_EVERY_CELL, "Optimizing on $localFrom - $localTo" )
             val localOptimum = f.optimize( localFrom, localTo, dir )
             val newOptimum = dir.get( optimum, localOptimum )
             if ( newOptimum != optimum ) {
@@ -187,10 +210,10 @@ fun <VS : VariableSet> proveInequality( f: Expression<VS>, from: VS, to: VS, dir
             }
         }
         if ( dir.get( optimum, bound ) == bound && ( optimum!! - bound ).abs() > MIN_MARGIN ) {
-            println( "Using partition into $parts parts got optimum $optimum near $where which is better than desired $bound" )
+            log( DEBUG_LEVEL.NO_DEBUG, "Using partition into $parts parts got optimum $optimum near $where which is better than desired $bound" )
             return
         }
-        println( "Best: $optimum near $where" )
+        log( DEBUG_LEVEL.NO_DEBUG, "Best: $optimum near $where" )
         parts *= 10
         if ( parts > maxParts ) return
     }
