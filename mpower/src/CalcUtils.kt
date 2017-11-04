@@ -11,6 +11,7 @@ enum class DEBUG_LEVEL( val level: Int ) {
 }
 
 val debug_level: DEBUG_LEVEL = DEBUG_LEVEL.NO_DEBUG
+
 fun log(level: DEBUG_LEVEL, msg: String ) {
     if ( level <= debug_level ) {
         println( msg )
@@ -56,6 +57,7 @@ class Number( val v : Double ) : Comparable<Number> {
 
     fun abs() = Number( Math.abs( v ) )
     fun log1p() = Number( Math.log1p( v ) )
+    fun log1pi() = Number( Math.log1p( v ) - Math.log( v ) )
     fun vOverLog1p() = Number( if ( v == 0.0 ) 1.0 else v / Math.log1p( v ) )
     fun pow( p: Double ) = Number( Math.pow( v, p ) )
 }
@@ -211,8 +213,16 @@ open class ExpressionNode<VS : VariableSet>( private val s: String, private val 
 
 fun <VS : VariableSet> Expression<VS>.withValue( key: VS, value: Number )
         = object : ExpressionNode<VS>( toString() + " {$key -> $value}", { v: VS ->
-    log( DEBUG_LEVEL.REPORT_EVALUATIONS, "v: $v, key: $key, value: $value, v == key: ${v == key}" )
+    log( DEBUG_LEVEL.REPORT_EVALUATIONS, "expr: $this, v: $v, key: $key, value: $value, v == key: ${v == key}" )
     if ( v == key ) {
+        value
+    } else eval( v )
+} ) {}
+
+fun <VS : VariableSet> Expression<VS>.withValues( keyCondition: ( VS ) -> Boolean, value: Number )
+        = object : ExpressionNode<VS>( toString() + " {conditioned -> $value}", { v: VS ->
+    log( DEBUG_LEVEL.REPORT_EVALUATIONS, "expr: $this, v: $v, value: $value, condition holds: ${keyCondition( v )}" )
+    if ( keyCondition( v ) ) {
         value
     } else eval( v )
 } ) {}

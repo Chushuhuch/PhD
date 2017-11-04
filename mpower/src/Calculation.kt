@@ -1,19 +1,28 @@
 import Number.Constants.ZERO
 
 fun main(args: Array<String> ) {
-    evalTopLeft()
-    evalTopMid()
-    evalBotLeft()
+//    evalTopLeft()
+//    evalTopMid()
+//    evalBotLeft()
+    evalBotRight()
 }
 
-//fun evalBotRight() {
-//    val VQ0 = VQ(0.0, 0.0)
-//    val vln = ExpressionNode( "v ln" ) { vq: VQ -> vq.v * vq.v.log1pi() }.withValue( VQ0, ZERO )
-//    val Aj = ExpressionNode( "4 q^2 / (v + q)" ) { vq: VQ -> 4.0 * vq.q * vq.q / ( vq.v + vq.q ) }.withValue( VQ0, ZERO ) -
-//                ExpressionNode( "q^2 (1 + 3 v) ln / (v + q)" ) { vq: VQ -> vq.q * vq.q * ( 1.0 + 3.0 * vq.v ) * vq.v.log1pi() / ( vq.v + vq.q ) }
-//                        .withValue(VQ0, Number( Double.POSITIVE_INFINITY ) ) -
-//                ExpressionNode( "v q ln / (v + q)" ) { vq: VQ -> vq.v * vq.q * vq.v.log1pi() / ( vq.v + vq.q ) }.withValue(VQ0, )
-//}
+fun evalBotRight() {
+    val VQ0 = VQ(0.0, 0.0)
+    val vln = ExpressionNode( "v ln" ) { vq: VQ -> vq.v * vq.v.log1pi() }.withValues( { vq: VQ -> vq.v == ZERO }, ZERO )
+    val nominator = (
+            ExpressionNode( "4 q" ) { vq: VQ -> 4.0 * vq.q } -
+            // even if it is not zero in origin, it's ok, since we seek upper boundary
+            ExpressionNode( "q (1 + 3 v) ln" ) { vq: VQ -> vq.q * ( 1.0 + 3.0 * vq.v ) * vq.v.log1pi() }.withValue( VQ0, ZERO ) -
+            vln +
+            ExpressionNode( "v" ) { vq: VQ -> vq.v } * vln +
+            ExpressionNode( "4 / ln" ) { vq: VQ -> 4.0 / vq.v.log1pi() } -
+            ExpressionNode( "4 v" ) { vq: VQ -> 4.0 * vq.v }
+            )
+    val Aj = ( nominator * ExpressionNode( "q" ) { vq: VQ -> vq.q } / ExpressionNode( "v + q" ) { vq: VQ -> vq.v + vq.q } ).withValue( VQ0, ZERO ) /
+            ExpressionNode( "2 (q + 1)" ) { vq: VQ -> 2.0 * ( vq.q + 1.0 ) }
+    proveInequality( Aj, VQ( 0.0, 0.0 ), VQ( 0.2, 10.0 ), Direction.Max, Number( 0.62 ) )
+}
 
 fun evalTopMid() {
     // Done: Ai_r, w = 1..6, r = 0..1, max < 0, parts = 10^3
