@@ -1,8 +1,19 @@
-fun main( args: Array<String> ) {
+import Number.Constants.ZERO
+
+fun main(args: Array<String> ) {
     evalTopLeft()
     evalTopMid()
     evalBotLeft()
 }
+
+//fun evalBotRight() {
+//    val VQ0 = VQ(0.0, 0.0)
+//    val vln = ExpressionNode( "v ln" ) { vq: VQ -> vq.v * vq.v.log1pi() }.withValue( VQ0, ZERO )
+//    val Aj = ExpressionNode( "4 q^2 / (v + q)" ) { vq: VQ -> 4.0 * vq.q * vq.q / ( vq.v + vq.q ) }.withValue( VQ0, ZERO ) -
+//                ExpressionNode( "q^2 (1 + 3 v) ln / (v + q)" ) { vq: VQ -> vq.q * vq.q * ( 1.0 + 3.0 * vq.v ) * vq.v.log1pi() / ( vq.v + vq.q ) }
+//                        .withValue(VQ0, Number( Double.POSITIVE_INFINITY ) ) -
+//                ExpressionNode( "v q ln / (v + q)" ) { vq: VQ -> vq.v * vq.q * vq.v.log1pi() / ( vq.v + vq.q ) }.withValue(VQ0, )
+//}
 
 fun evalTopMid() {
     // Done: Ai_r, w = 1..6, r = 0..1, max < 0, parts = 10^3
@@ -12,7 +23,7 @@ fun evalTopMid() {
                     ( ExpressionNode( "r^2 + 2 r (3 + w) + 4 + 3 w + w^2" ) { wr: WR -> wr.r * wr.r + 2.0 * wr.r * ( 3.0 + wr.w ) + 4.0 + 3.0 * wr.w + wr.w * wr.w } - ExpressionNode( "r^2 / w" ) { wr: WR -> wr.r * wr.r / wr.w } ) *
                             ExpressionNode( "ln" ) { wr: WR -> wr.w.log1p() }
             ) / ExpressionNode( "2 (1 + r)^2 (w + r)^2" ) { wr: WR -> 2.0 * ( ( 1.0 + wr.r ) * ( wr.r + wr.w ) ).pow( 2.0 ) }
-    proveInequality( Air, WR( 1.0, 0.0 ), WR( 6.0, 1.0 ), Direction.Max, Number( 0.0 ) )
+    proveInequality( Air, WR( 1.0, 0.0 ), WR( 6.0, 1.0 ), Direction.Max, ZERO )
 }
 
 fun evalBotLeft() {
@@ -30,15 +41,17 @@ fun evalBotLeft() {
 
 fun evalTopLeft() {
 //    Done: Ai, w = 0..1, r = 0..1, max < 0.62, parts = 10^3
-    val Ai = (
-            ExpressionNode( "4 (w / ln - 1) r / (w + r)" ) { wr: WR -> 4.0 * ( wr.w.vOverLog1p() - 1.0 ) * wr.r / ( wr.w + wr.r ) }.withValue( WR( 0.0, 0.0 ), Number( 0.0 ) )
-                    + ExpressionNode( "3 (w - ln) / (w + r)" ) { wr: WR -> 3.0 * ( wr.w - wr.w.log1p() ) / ( wr.w + wr.r ) }.withValue( WR( 0.0, 0.0 ), Number( 0.0 ) )
-                    - ExpressionNode( "w ln / (w + r)" ) { wr: WR -> wr.w * wr.w.log1p() / ( wr.w + wr.r ) }.withValue( WR( 0.0, 0.0 ), Number( 0.0 ) )
-                    - ExpressionNode( "r ln / (w + r)" ) { wr: WR -> wr.r * wr.w.log1p() / ( wr.w + wr.r ) }.withValue( WR( 0.0, 0.0 ), Number( 0.0 ) )
-                    + ExpressionNode( "(w + r ln / w) / (w + r)" ) { wr: WR -> ( wr.w + wr.r / wr.w.vOverLog1p() ) / ( wr.w + wr.r ) }.withValue( WR( 0.0, 0.0 ), Number( 1.0 ) )
-            ) /
+    val WR0 = WR(0.0, 0.0)
+    val nominator = (
+            ExpressionNode( "4 (w / ln - 1) r" ) { wr: WR -> 4.0 * ( wr.w.vOverLog1p() - 1.0 ) * wr.r }
+                    + ExpressionNode( "3 (w - ln)" ) { wr: WR -> 3.0 * ( wr.w - wr.w.log1p() ) }
+                    - ExpressionNode( "w ln" ) { wr: WR -> wr.w * wr.w.log1p() }
+                    - ExpressionNode( "r ln" ) { wr: WR -> wr.r * wr.w.log1p() }
+                    + ExpressionNode( "w + r ln / w" ) { wr: WR -> wr.w + wr.r / wr.w.vOverLog1p() }
+            )
+    val Ai = ( nominator / ExpressionNode( "w + r" ) { wr: WR -> wr.w + wr.r } ).withValue( WR0, Number( 1.0 ) ) /
             ExpressionNode( "2 (1 + r)" ) { wr: WR -> 2.0 * ( 1.0 + wr.r ) }
-    proveInequality( Ai, WR( 0.0, 0.0 ), WR( 1.0, 1.0 ), Direction.Max, Number( 0.62 ), minParts = 1 )
+    proveInequality( Ai, WR0, WR( 1.0, 1.0 ), Direction.Max, Number( 0.62 ), minParts = 1 )
 }
 
 
@@ -52,12 +65,7 @@ fun evalTopLeft() {
 //                    ExpressionNode { wr: WR -> wr.w * wr.w.vOverLog1p() } -
 //                    ExpressionNode { wr: WR -> wr.w }
 //            ) / ExpressionNode { wr: WR -> ( wr.w + wr.r ) * ( wr.w + wr.r ) }
-//    proveInequality( Ai1r, WR( 0.0, 0.0 ), WR( 6.0, 0.1 ), Direction.Max, Number( 0.0 ) )
-
-//    val Aj = {
-//        ExpressionNode( "4 q" ) { vq: VQ -> 4.0 * vq.q }
-//        - ExpressionNode(Math.log())
-//    }
+//    proveInequality( Ai1r, WR( 0.0, 0.0 ), WR( 6.0, 0.1 ), Direction.Max, ZERO )
 
 //    val Air0 =
 //            ExpressionNode { w: W -> -4.0 * w.w * w.w } +
@@ -65,7 +73,7 @@ fun evalTopLeft() {
 //                    ExpressionNode { w: W -> w.w * w.w * w.w.log1p() } +
 //                    ExpressionNode { w: W -> 3.0 * w.w * w.w.log1p() } +
 //                    ExpressionNode { w: W -> 4.0 * ( w.w.log1p() - w.w ) }
-//    proveInequality( Air0, W( 0.0 ), W( 6.0 ), Direction.Max, Number( 0.0 ) )
+//    proveInequality( Air0, W( 0.0 ), W( 6.0 ), Direction.Max, ZERO )
 
 
 class W( var w: Number ) : VariableSet() {
@@ -138,7 +146,7 @@ val ZERO_FUNC = { _: WR -> Number(0.0) }
 class ROverRPWExpression: ExpressionNode<WR>( "r / (w + r)", ZERO_FUNC ) {
     override fun eval( v: WR, dir: Direction ): Number {
         if ( v.w < 0.0 || v.r < 0.0 ) throw RuntimeException( "Expression defined only on nonnegative arguments" )
-        if ( v.w.v == 0.0 && v.r.v == 0.0 ) return if ( dir == Direction.Max ) Number( 1.0 ) else Number( 0.0 )
+        if ( v.w.v == 0.0 && v.r.v == 0.0 ) return if ( dir == Direction.Max ) Number( 1.0 ) else ZERO
         return v.r / ( v.w + v.r )
     }
 }
@@ -146,7 +154,7 @@ class ROverRPWExpression: ExpressionNode<WR>( "r / (w + r)", ZERO_FUNC ) {
 class WOverRPWExpression: ExpressionNode<WR>( "w / (w + r)", ZERO_FUNC ) {
     override fun eval( v: WR, dir: Direction ): Number {
         if ( v.w < 0.0 || v.r < 0.0 ) throw RuntimeException( "Expression defined only on nonnegative arguments" )
-        if ( v.w.v == 0.0 && v.r.v == 0.0 ) return if ( dir == Direction.Max ) Number( 1.0 ) else Number( 0.0 )
+        if ( v.w.v == 0.0 && v.r.v == 0.0 ) return if ( dir == Direction.Max ) Number( 1.0 ) else ZERO
         return v.w / ( v.w + v.r )
     }
 }
