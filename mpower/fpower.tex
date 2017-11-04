@@ -20,7 +20,7 @@
 \newcommand{\eps}{\varepsilon}
 \renewcommand{\ge}{\geqslant}
 \renewcommand{\le}{\leqslant}
-\renewcommand{\liminf}{\underline{\lim}}
+%\renewcommand{\liminf}{\underline{\lim}}
 \newcommand{\card}{{\rm card}}
 \newtheorem{thm}{Theorem}
 \newtheorem{prop}{Proposition}
@@ -58,17 +58,64 @@ al.il.nazarov@gmail.com} }
 \begin{document}
 \maketitle
 
+\section*{Abstract}
+
+We give necessary and sufficient conditions for the Polya--Szeg\"o type inequality with variable exponent of summability.
+
+MSC classes: 49K05, 49N99
+
+
 \section{Introduction}
 
+First, we recall the layer cake representation for a measurable function $u: [-1, 1] \to \Real_+$
+(here and elsewhere $\Real_+ = [0,\infty)$).
+Namely, if we set $\mathcal{A}_t: = \{x \in [-1,1]:\ u(x)> t \}$
+then $u(x) = \int_0^\infty \chi_{\mathcal{A}_t} \, dt$.
+
+We define the symmetric rearrangement (symmetrization) of a measurable set $E \subset [-1, 1]$ and the
+symmetrization of a nonnegative function $u \in \Wf(-1, 1)$ as follows:
+\begin{eqnarray*}
+E^*: = [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}]; \qquad
+u^*(x): = \int\limits_0^\infty \chi_{\mathcal{A}_t^*} \, dt.
+\end{eqnarray*}
+
+The well-known Polya-Szeg\"o inequality for $u \in \Wf(-1, 1)$ reads
 \begin{equation}
 \label{PS}
 I(u^*) \le I(u), \qquad \text{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx, \quad p \ge 1
 \end{equation}
+(in particular $I(u^*)=\infty$ implies $I(u)=\infty$).
 
+The generalizations of the inequality (\ref{PS}) were considered in a number of papers, see, e.g., the survey \cite{Tal} and references therein.
+In particular, the paper \cite{Br} deals with functionals of the form
 \begin{equation*}
-\J(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad \I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{\frac {p(x)}{2}} dx,
+\label{functional}
+I(\mathfrak a, u) = \int\limits_{-1}^1 F\big(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}\big) \, dx
 \end{equation*}
-Where $p(x) \ge 1$ is a continuous function defined on $[-1, 1]$, $u \in \Wf[-1, 1]$, $u \ge 0$.
+and their multidimensional analogues. Here $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function convex w.r.t. the first variable
+while $F: \Real\times\Real \to \Real_+$ is a continuous function convex w.r.t. the second variable. A gap in the proof in \cite{Br} was filled in
+\cite{BN-CV} where the inequality $I(\mathfrak a, u^*)\le I(\mathfrak a, u)$ was proved for the natural class of functions $u$. Similar results
+for monotone rearrangement were also obtained in \cite{BN-DAN, BN-CV, B-ZNS}.
+
+In this paper we consider functionals with variable summability exponent
+\begin{equation*}
+\J(u) = \int\limits_{-1}^1 |u'(x)|^{p(x)} dx, \qquad \I(u) = \int\limits_{-1}^1 ( 1 + | u'(x) |^2 )^{\frac {p(x)}{2}} dx.
+\end{equation*}
+Here $p(x) \ge 1$ is a continuous function defined on $[-1, 1]$, $u \in \Wf[-1, 1]$, $u \ge 0$. Such functionals arise in some problems of mathematical physics,
+in particular in modeling of electrorheological fluids, see, e.g., \cite{Zh} and \cite{DHHR}.
+
+Our results were partially announced in \cite{B-FAA}.
+
+The article is divided into 6 sections. In Section 2 we deduce the necessary conditions for the Polya-Szeg\"o type inequalities.
+It turns out that for the functional $\J$ such inequality holds only in trivial case $p\equiv const$ while for the functional $\I$
+we have non-trivial conditions. In Section 3 we show that necessary conditions are also sufficient for the inequality $\I(u^*) \le \I(u)$.
+In Section 4 we give some simple assumptions on the exponent $p$ which ensure this inequality.
+
+In Section 5 we consider a multidimensional analogue of the inequality $\I(u^*) \le \I(u)$. Unexpectedly, such inequality can hold only for
+the exponent $p$ which is constant w.r.t. the variable of rearrangement.
+
+Section 6 (Appendix) contains a numerical-analytical proof of some inequalities in Section 4.
+
 
 
 \section{Necessary conditions}
@@ -110,8 +157,8 @@ $$K(s, x) = s ( 1 + s^{-2} )^{\frac {p(x)}{2}} \qquad s > 0,\ x \in [-1, 1].$$
 To prove Theorem \ref{necessary} we need the following
 \begin{prop}
 \label{convProp}
-{\rm \cite[Lemma 10]{1dim}.}
-Suppose $p$ is continuous function on $[-1, 1]$ and suppose
+{\rm \cite[Lemma 10]{BN-CV}.}
+Suppose $p$ is a continuous function on $[-1, 1]$ and suppose
 $$
 \forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p\big(\frac {s - t}{2}\big) + p\big(\frac{t - s}{2}\big).
 $$
@@ -201,7 +248,7 @@ $$
 %\end{center}
 
 %Полагая $s = t$, из неравенства $\I(u^*) \le \I(u)$ получим $p(x_1) + p(x_2) \le p({ x_1 - x_2 \over 2 }) + p({ x_2 - x_1 \over 2 })$.
-%Можно проверить (\cite[Lemma 10]{1dim}), что отсюда следует четность и выпуклость функции $p$.
+%Можно проверить (\cite[Lemma 10]{BN-CV}), что отсюда следует четность и выпуклость функции $p$.
 %Далее, рассматривая произвольные $s$ и $t$, получаем выпуклость функции $K$.
 
 Then $\I(u^*) \le \I(u)$ leads to
@@ -215,12 +262,12 @@ Then $\I(u^*) \le \I(u)$ leads to
 \end{multline*}
 
 Passage to the limit as $\eps \to 0$ gives
-\begin{equation}
+\begin{multline}
 \label{preConv}
-s \Big( 1 + { \frac 1 {s^2} } \Big)^{\frac {p(x_1)} 2} + t \Big( 1 + { \frac 1 {t^2} } \Big)^{\frac {p(x_2)} 2}
+s \Big( 1 + { \frac 1 {s^2} } \Big)^{\frac {p(x_1)} 2} + t \Big( 1 + { \frac 1 {t^2} } \Big)^{\frac {p(x_2)} 2}\\
 \ge { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_2 - x_1} 2 } )} 2}
   + { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_1 - x_2} 2 } )} 2}.
-\end{equation}
+\end{multline}
 
 First, we put $s = t$ in (\ref{preConv}). This gives
 \begin{equation}
@@ -338,7 +385,7 @@ Then for any $u \in \Wf[-1, 1]$ the inequality $\I(u^*) \le \I(u)$ holds.
 
 \begin{proof}
 Since $p(x)$ is bounded, we can choose a sequence of piecewise constant functions $v_n$ converging to $u'$ in $L^{p(x)}$,
-see \cite[Theorem~1.4.1]{Shar}). Denote by $u_n$ the primitive of $v_n$.
+see, e.g., \cite[Theorem~1.4.1]{Shar}. Denote by $u_n$ the primitive of $v_n$.
 Changing $v_n$ if necessary we can assume without loss of generality that $u_n \ge 0$ and $u_n(\pm 1) = 0$.
 
 By embedding $L^{p(x)}[-1, 1]\mapsto L^1[-1, 1]$ we have $u_n \to u$ in $\Wf[-1, 1]$.
@@ -374,57 +421,106 @@ By \cite[Theorem 1]{Br}, the convergence $u_n \to u$ in $\Wf[-1, 1]$ implies wea
 By the Tonelli theorem, the functional $\I$ is sequentially weakly lower semicontinuous (see, e.g., \cite[Theorem 3.5]{BGH}).
 Thus,
 $$
-\I(u^*) \le \liminf \I(u_n^*) \le \lim \I(u_n) = \I(u).
+\I(u^*) \le \liminf\limits_n \I(u_n^*) \le \lim\limits_n \I(u_n) = \I(u).
 $$
 \end{proof}
 
 
 \section{On some sufficient conditions}
-The condition of joint convexity of function $K$ is in fact certain condition on function $p$.
-Let us compute Hessian of $K$.
-We write $K$ in term of $q = q(x) = p(x) - 1$ and $w = w(s) = \frac{1}{s^2}$: $K(s, x) = s (1 + w)^\frac{q + 1}{2}$.
-Also we will denote $\Ln = \ln(1 + w)$. Then
-\begin{eqnarray*}
-K_s & = & (1 + w)^\frac{q + 1}{2} + s \frac{q + 1}{2} (1 + w)^\frac{q - 1}{2} w' = (1 + w)^\frac{q - 1}{2} (1 - w q) \\
-K_x & = & s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln.
-\end{eqnarray*}
-Further,
-\begin{align*}
-K_{ss} &= (1 + w)^\frac{q - 3}{2} \frac{q - 1}{2} w' (1 - w q) - (1 + w)^\frac{q - 1}{2} w' q
-= \frac{w}{s} (1 + w)^\frac{q - 3}{2} (w q + 1) (q + 1)
-\\ K_{sx} &= (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln,
-+ s (1 + w)^\frac{q - 1}{2} \frac{q - 1}{2} \cdot \frac{-2 w}{s} \cdot \frac{q'}{2} \Ln
-+ s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \cdot \frac{w'}{1 + w}
-\\ & = \frac{1}{2} (1 + w)^\frac{q - 1}{2} q' ( (1 - q w) \Ln - 2 w),
-\\ K_{xx} &= s ( (1 + w)^\frac{q + 1}{2} ( \Ln \frac{q'}{2} )^2 + (1 + w)^\frac{q + 1}{2} \frac{q''}{2} \Ln )
-= s \Ln (1 + w)^\frac{q + 1}{2} ( \frac{q'^2 \Ln}{4} + \frac{q''}{2} ).
-\end{align*}
-Hence Hessian of $K$ is
+The condition of joint convexity of function $K$ is in fact certain assumption on function $p$. It is easy to see that
+$K_{ss}>0$, and $K_{xx}\ge0$ since $p$ is convex. Thus, the convexity of $K$ is equivalent to $\det(K'')\ge0$ in the sense of distributions. Direct calculation gives
+%Let us compute Hessian of $K$.
+%We write $K$ in term of $q = q(x) = p(x) - 1$ and $w = w(s) = \frac{1}{s^2}$: $K(s, x) = s (1 + w)^\frac{q + 1}{2}$.
+%Also we will denote $\Ln = \ln(1 + w)$. Then
+%\begin{eqnarray*}
+%K_s & = & (1 + w)^\frac{q + 1}{2} + s \frac{q + 1}{2} (1 + w)^\frac{q - 1}{2} w' = (1 + w)^\frac{q - 1}{2} (1 - w q) \\
+%K_x & = & s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln.
+%\end{eqnarray*}
+%Further,
+%\begin{align*}
+%K_{ss} &= (1 + w)^\frac{q - 3}{2} \frac{q - 1}{2} w' (1 - w q) - (1 + w)^\frac{q - 1}{2} w' q
+%= \frac{w}{s} (1 + w)^\frac{q - 3}{2} (w q + 1) (q + 1)
+%\\ K_{sx} &= (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln,
+%+ s (1 + w)^\frac{q - 1}{2} \frac{q - 1}{2} \cdot \frac{-2 w}{s} \cdot \frac{q'}{2} \Ln
+%+ s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \cdot \frac{w'}{1 + w}
+%\\ & = \frac{1}{2} (1 + w)^\frac{q - 1}{2} q' ( (1 - q w) \Ln - 2 w),
+%\\ K_{xx} &= s ( (1 + w)^\frac{q + 1}{2} ( \Ln \frac{q'}{2} )^2 + (1 + w)^\frac{q + 1}{2} \frac{q''}{2} \Ln )
+%= s \Ln (1 + w)^\frac{q + 1}{2} ( \frac{q'^2 \Ln}{4} + \frac{q''}{2} ).
+%\end{align*}
+%Hence Hessian of $K$ is
+\begin{multline*}
+\det(K'') = \frac{(1 + w)^{q - 1}}{4}\\
+\times\Big( w (w q + 1) (q + 1) \Ln(1 + w) (q'^2 \Ln(1 + w) + 2 q'') - q'^2 ( (1 - q w) \Ln(1 + w) - 2 w )^2 \Big),
+\end{multline*}
+where $q = q(x) = p(x) - 1$ and $w = w(s) = \frac{1}{s^2}$.
+
+Thus, we arrive at the inequality for the function $q$
+\begin{equation}
+\label{qq''}
+q q'' \ge q'^2 {\cal A}(q)\equiv q'^2\cdot\sup\limits_{w>0} A(q, w),
+%\frac{q}{q + 1} \cdot \frac{ ( (1 - q w) \Ln - 2 w )^2 - w (w q + 1) (q + 1) \Ln^2 }{ 2 w (w q + 1) \Ln }
+\end{equation}
+where
 $$
-{\bf H} = \frac{(1 + w)^{q - 1}}{4} \Big( w (w q + 1) (q + 1) \Ln (q'^2 \Ln + 2 q'') - q'^2 ( (1 - q w) \Ln - 2 w )^2 \Big).
-$$
-Note, that $K$ is always convex in $s$, and provided $p$ is convex, $K$ is convex in $x$ as well.
-Then convexity of $K$ is equivalent to ${\bf H} \ge 0$.
-It leads to the condition
-$$
-q q'' \ge q'^2 \frac{q}{q + 1} \cdot \frac{ ( (1 - q w) \Ln - 2 w )^2 - w (w q + 1) (q + 1) \Ln^2 }{ 2 w (w q + 1) \Ln }
-=: q'^2 A(q, w).
+A(q, w) = \frac{
+q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - {w - 1 \over w} \ln( w + 1 ) + 4 {w \over \ln( w + 1 )} - 4
+}{
+2 ( q w + 1 )
+} \cdot {q \over q + 1}.
 $$
 
+The following statement is evident.
+
+\begin{lm}
+\label{conv}
+Let $q\ge0$ is a continuous function on $[-1, 1]$. Then the inequality $q q'' \ge q'^2 M$ in the sense of distributions with $M\in(0,1)$ is equivalent to convexity
+of the function $q^{1-M}$.
+\end{lm}
+
+Now we can give a simple sufficient condition for the monotonicity of the functional $\cal I$ under symmetrization.
+
+\begin{thm}
+ Let $p(x)\ge1$ be an even continuous function on $[-1, 1]$.
+
+ {\bf 1}. If the function $(p(x)-1)^{0.37}$ is convex then the inequality $\I(u^*) \le \I(u)$ holds for any $u\in\Wf[-1,1]$.
+
+ {\bf 2}. If $p(x)\le 2.36$ for $x\in[-1,1]$ and the function $\sqrt{p(x)-1}$ is convex then the inequality $\I(u^*) \le \I(u)$ holds for any $u\in\Wf[-1,1]$.
+ \end{thm}
+
+\begin{proof}
+The following inequalities are proved in Appendix:
+\begin{eqnarray}
+&& \sup\limits_{q\ge0}{\cal A}(q)=\limsup\limits_{q\to+\infty}{\cal A}(q)\le0.63;\\
+&& \sup\limits_{0\le q\le1.36}{\cal A}(q)\le0.5.
+\end{eqnarray}
+By Lemma \ref{conv} the inequality (\ref{qq''}) holds in both cases {\bf 1} and {\bf 2}. Theorem \ref{mainThm} completes the proof.
+\end{proof}
+
+
+
 \section{Multidimensional case}
+
+In this section we assume that $\Omega=\omega\times (-1,1)$ is a cylindrical domain in $\Real^n$, and $x=(x',y)$ where $x'\in\omega$, $y\in(-1,1)$.
+For $u\in\Wf(\Omega)$ we denote by $u^*$ the Steiner symmetrization of $u$ along $y$ that is one-dimensional symmetrization w.r.t. $y$ for every $x'$.
+
+We introduce a multidimensional analogue of the functional $\I$:
+$$
+\widehat\I(u)=\int\limits_{\Omega} ( 1 + | \nabla u(x) |^2 )^{\frac {p(x)}{2}} dx.
+$$
+
 
 %Описание области
 
 \begin{thm}
-Suppose $I(u^*) \le I(u)$ for any $u \in \Wf(\Omega)$.
+Suppose that $\widehat\I(u^*) \le \widehat\I(u)$ for any $u \in \Wf(\Omega)$.
 Then $p(x',y)$ is independent on $y$.
 \end{thm}
 
 \begin{proof}
-First of all, we claim, similar to Theorem \ref{necessary} that
-$p$ should be even and convex in $y$, and function
+First of all, we claim, similar to Theorem \ref{necessary}, that
+$p$ should be even and convex in $y$, and the function
 $$
-\K_{x'}(y, d, c) = c \big({\textstyle1 + {1 + d^2 \over c^2}}
+\K_{x'}(c, d, y) = c \big({\textstyle1 + {1 + d^2 \over c^2}}
 \big)^{p(x', y) \over 2}
 $$
 should be jointly convex on $(-1,1)\times\Real\times\Real_+$.
@@ -460,7 +556,7 @@ $$
 Thus, it is an $(n-1)$-dimensional prolate ellipsoid of revolution
 with the major semi-axis $\sqrt{w^2 + c_1^2 w^2 |\B_1'|^2}$ and
 radius $w$. Therefore, the set $A_1$ of points where $|\nabla
-w|=\frac{1}{c_1}$ is truncated cone above this ellipsoid. Direct
+w|=\frac{1}{c_1}$ is truncated cone based on this ellipsoid. Direct
 computation gives
 % Suppose $\B_1' = 0$. Then $A_1$ is trapezium-like body with $n - 1$-balls of radius $w$ and
 %$\frac{w}{2}$ as bases and measuring $h c_1$ in height. Hence
@@ -502,7 +598,7 @@ $$
 Setting $\frac{1}{c_1} = \frac{1}{c_2} = w^2$, $\delta = w^4$ and
 $\B_1' = \B_2' = 0$, the theorem assumptions imply
 \begin{eqnarray*}
-0 &\le& (I(u) - Z ) - (I(u^*) - Z )
+0 &\le& (\widehat\I(u) - Z ) - (\widehat\I(u^*) - Z )
 \\ &\le& \big( (1 + w^4)^{\frac{p(\bar{x}_1)}{2}} - 1 \big) |A_1| + \big( (1 + w^4)^{\frac{p(\bar{x}_2)}{2}} - 1 \big) |A_2|
 + \big( (1 + w^8)^{\frac{P}{2}} - 1 \big) |A_\delta|
 \\ &&- \big( (1 + w^4)^{\frac{p(\hat{x}_1)}{2}} - 1 + (1 + w^4)^{\frac{p(\hat{x}_2)}{2}} - 1 \big) |A_1'|
@@ -527,15 +623,15 @@ $\B_1'=\frac {d_1}{c_1}\, {\bf e}$, $\B_2'=\frac {d_2}{c_2}\, {\bf
 e}$ (here ${\bf e}$ is arbitrary unit vector in $x'$ plane) and
 set $\delta = w^2$. Then we obtain
 \begin{eqnarray*}
-0 &\le& (I(u) - Z) - (I(u^*) - Z)
-\\ &\le& \big( \K_{\bar{x}_1'}(\bar{y}_1, d_1, c_1)-1\big) |A_1| + \big(\K_{\bar{x}_2'}(\bar{y}_2, d_2, c_2)-1\big) |A_2|
+0 &\le& (\widehat\I(u) - Z) - (\widehat\I(u^*) - Z)
+\\ &\le& \big( \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1)-1\big) |A_1| + \big(\K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)-1\big) |A_2|
 + \big( (1 + w^4)^{\frac{P}{2}} - 1 \big) |A_\delta|
-\\ &&-\big( {\textstyle\K_{\hat{x}_1'}(\hat{y}_1, \frac{d_1 + d_2}{2}, \frac{c_1 + c_2}{2})-1 + \K_{\hat{x}_2'}(\hat{y}_2, \frac{d_1 + d_2}{2},
-\frac{c_1 + c_2}{2})-1 }\big) |A_1'|
-\\ &\le& \big( {\textstyle \K_{\bar{x}_1'}(\bar{y}_1, d_1, c_1) + \K_{\bar{x}_2'}(\bar{y}_2, d_2, c_2)} \big) C_1 w^{n + 2}
+\\ &&-\big( {\textstyle\K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1)-1 + \K_{\hat{x}_2'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2},
+\hat{y}_2)-1 }\big) |A_1'|
+\\ &\le& \big( {\textstyle \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1) + \K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)} \big) C_1 w^{n + 2}
 + ({\textstyle\frac{P}{2} + o_w(1)}) C (y_2 - y_1) w^{n + 3}
-\\ &&-\big( {\textstyle\K_{\hat{x}_1'}(\hat{y}_1, \frac{d_1 + d_2}{2}, \frac{c_1 + c_2}{2}) +\K_{\hat{x}_2'}(\hat{y}_2, \frac{d_1 + d_2}{2}, \frac{c_1 +
-c_2}{2})} \big) C_1 w^{n + 2}.
+\\ &&-\big( {\textstyle\K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1) +\K_{\hat{x}_2'}(\frac{c_1 +c_2}{2},
+\frac{d_1 + d_2}{2}, \hat{y}_2)} \big) C_1 w^{n + 2}.
 \end{eqnarray*}
 Here $P = \max p(x', y)$, $(\bar{x}_1', \bar{y}_1)\in A_1$,
 $(\bar{x}_2', \bar{y}_2) \in A_2$, $(\hat{x}_1', \hat{y}_1) \in
@@ -545,10 +641,9 @@ A_1'$, $(\hat{x}_2', \hat{y}_2) \in A_2'$.
 Pushing $w$ to $0$, we obtain
 $$
 %\begin{multline*}
-\K_{x_0'}(y_1, d_1, c_1) + \K_{x_0'}(y_2, d_2, c_2) \ge
-\K_{x_0'}\big({\textstyle\frac{y_1 - y_2}{2}, \frac{d_1 + d_2}{2},
-\frac{c_1 + c_2}{2}}\big) + \K_{x_0'}\big({\textstyle\frac{y_2 -
-y_1}{2}, \frac{d_1 + d_2}{2}, \frac{c_1 + c_2}{2}}\big),
+\K_{x_0'}(c_1, d_1, y_1) + \K_{x_0'}(c_2, d_2, y_2) \ge
+\K_{x_0'}\big({\textstyle \frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2},\frac{y_1 - y_2}{2}
+}\big) + \K_{x_0'}\big({\textstyle \frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \frac{y_2 -y_1}{2}}\big),
 $$
 %\end{multline*}
 which implies $\K_{x_0'}$ is convex since it is even in $y$, and the claim follows.
@@ -556,31 +651,47 @@ which implies $\K_{x_0'}$ is convex since it is even in $y$, and the claim follo
 Finally, for the sake of brevity, we omit $x'$ in the notation $\K_{x'}$ and notice that
 $$
 \textstyle
-\K(y, d, c)=K(y,\frac c{\sqrt{1+d^2}})\cdot \sqrt{1+d^2},
+\K(c,d,y)=K(\frac c{\sqrt{1+d^2}},y)\cdot \sqrt{1+d^2},
 $$
 where the function $K$ is introduced in Theorem \ref{necessary}. Direct calculation gives
 $$
-\det(\K''(y, d, c))=\frac 1{(1+d^2)^{\frac 32}}\cdot\big[(K_{yy}K_{ss}-K_{sy}^2)(K-K_ss)-K_{ss}K_y^2d^2\big]
+\det(\K''(c, d, y))=\frac 1{(1+d^2)^{\frac 32}}\cdot\big[(K_{yy}K_{ss}-K_{sy}^2)(K-K_s s)-K_{ss}K_y^2d^2\big]
 $$
-(here $s=\frac c{\sqrt{1+d^2}}$). Therefore, if $K_y\not\equiv0$ we can choose $d$ sufficiently large so that  $\det(\K''(y, d, c))<0$, a contradiction.
+(here $s=\frac c{\sqrt{1+d^2}}$). Therefore, if $K_y\not\equiv0$ we can choose $d$ sufficiently large so that  $\det(\K''(c, d, y))<0$, a contradiction.
 \end{proof}
 
 
 \begin{thebibliography}{99}
 
-\bibitem{1dim} S.~V.~Bankevich, A.~I.~Nazarov, ``On monotonicity of some functionals under rearrangements'',
-Calc. Var. and PDEs~{\bf53}, 627--647 (2015)
+\bibitem{B-ZNS} S.~V.~Bankevich, ``On monotonicity of some functionals under monotone rearrangement with respect to one variable'',
+ZNS POMI, {\bf 444} (2016), 5--14 (Russian); English transl.: J. Math. Sci. {\bf 224} (2017), N3, 385--390.
+
+\bibitem{B-FAA} S.~V.~Bankevich, ``On the P\'olya--Szeg\"o inequality for functionals with variable exponent of summability'',
+Funk. an. i prilozh. {\bf 52} (2018), to appear (Russian).
+
+\bibitem{BN-DAN} S.~V.~Bankevich, A.~I.~Nazarov, ``On the P\'olya--Szeg\"o inequality generalization for one-dimensional
+functionals'', Doklady RAN, {\bf 438} (2011), N1, 11--13 (Russian); English transl.: Doklady Math. {\bf 83}
+(2011), N3, 287--289.
+
+\bibitem{BN-CV} S.~V.~Bankevich, A.~I.~Nazarov, ``On monotonicity of some functionals under rearrangements'',
+Calc. Var. and PDEs~{\bf53} (2015), 627--647.
 
 \bibitem{Br} F.~Brock, ``Weighted Dirichlet-type inequalities for Steiner symmetrization'',
-Calc. Var. and PDEs~{\bf8}, 15--25 (1999)
+Calc. Var. and PDEs~{\bf8} (1999), 15--25.
 
 \bibitem{BGH} G.~Buttazzo, M.~Giaquinta, S.~Hildebrandt, ``One-Dimentional Variational Problems. An Introduction'',
-Oxford Lecture Series in Mathematics and Its Applications~{\bf15},
-Oxford University Press, New York (1998)
+Oxford Lecture Series in Mathematics and Its Applications~{\bf15}, Oxford University Press, New York (1998).
 
-\bibitem{Shar} I.~I.~Sharapudinov, ``On certain problems of approximation theory in variable-exponent Lebesgue spaces'',
-Mathematics monographs series~{\bf5},
-Vladikavkaz (2012) (in Russian)
+\bibitem{DHHR} L.~Diening, P.~Harjulehto, P.~H\"ast\"o, M.~Ru\v{z}i\v{c}ka, ``Lebesgue and Sobolev spaces with
+Variable Exponents'', Lecture Notes in Mathematics~{\bf2017}, Springer, Berlin (2011).
+
+\bibitem{Shar} I.~I.~Sharapudinov, ``On certain problems of approximation theory in the Lebesgue spaces with variable exponent'',
+Mathematics monographs series~{\bf5}, Vladikavkaz (2012) (Russian).
+
+\bibitem{Tal} G.~Talenti, ``The art of rearranging'', Milan Journ. of Math.~{\bf84} (2016), N1, 105--157.
+
+\bibitem{Zh} V.~V.~Zhikov, ``On variational problems and nonlinear elliptic equations with nonstandard growth conditions'',
+Probl. Math. An.~{\bf54} (2011), 23--112 (Russian); English transl.: J. Math. Sci. {\bf173} (2011) N5, 463--570.
 
 \end{thebibliography}
 
