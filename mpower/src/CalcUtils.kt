@@ -1,3 +1,5 @@
+import Number.Constants.ZERO
+import Segment.Companion.EMPTY
 import kotlin.coroutines.experimental.buildSequence
 
 enum class DEBUG_LEVEL( val level: Int ) {
@@ -19,9 +21,15 @@ fun log(level: DEBUG_LEVEL, msg: String ) {
 val MIN_MARGIN = Number( 1E-5 )
 
 class Number( val v : Double ) : Comparable<Number> {
+
+    init {
+        if ( v.isNaN() ) throw RuntimeException( "NaN in the computations" )
+    }
+
     constructor( n: Int ) : this( n.toDouble() )
     constructor( n: Long ) : this( n.toDouble() )
 
+    operator fun unaryMinus() = Number( -v )
     operator fun plus( n: Number ) = Number( v + n.v )
     operator fun plus( d: Double ) = Number( v + d )
     operator fun minus( n: Number ) = Number( v - n.v )
@@ -42,13 +50,14 @@ class Number( val v : Double ) : Comparable<Number> {
 
     override fun hashCode() = v.hashCode()
 
+    companion object Constants {
+        val ZERO = Number( 0.0 )
+    }
+
     fun abs() = Number( Math.abs( v ) )
     fun log1p() = Number( Math.log1p( v ) )
     fun vOverLog1p() = Number( if ( v == 0.0 ) 1.0 else v / Math.log1p( v ) )
     fun pow( p: Double ) = Number( Math.pow( v, p ) )
-    fun sanityCheck() {
-        if ( v.isNaN() ) throw RuntimeException( "NaN in computations" )
-    }
 }
 
 operator fun Double.plus( n: Number ) = Number( this + n.v )
@@ -108,12 +117,70 @@ enum class Direction( val get: ( Number?, Number? ) -> Number? ) { Min( ::min ),
 
 fun Direction.opposite() = if ( this == Direction.Min) Direction.Max else Direction.Min
 
+class Segment( from: Number, to: Number ) {
+    val from = if ( from == ZERO ) ZERO else from
+    val to = if ( to == ZERO ) -ZERO else to
+
+    companion object {
+        val EMPTY = Segment( Number( 1.0 ), Number( 0.0 ) )
+    }
+
+//    operator fun get( dir: Direction ) = if ( dir == Direction.Min ) from else to
+
+    operator fun plus( s: Segment ) : Segment {
+        checkNonEmpty()
+        s.checkNonEmpty()
+        return Segment( from + s.from, to + s.to )
+    }
+    operator fun minus( s: Segment ) : Segment{
+        checkNonEmpty()
+        s.checkNonEmpty()
+        return Segment( from - s.to, to - s.from )
+    }
+    operator fun times( s: Segment ) : Segment {
+        checkNonEmpty()
+        s.checkNonEmpty()
+        val candidates = listOf( from * s.from, from * s.to, to * s.from, to * s.to )
+        return Segment( candidates.min()!!, candidates.max()!! )
+    }
+    operator fun div( s: Segment ) : Segment {
+        checkNonEmpty()
+        s.checkNonEmpty()
+        if ( s.from < 0.0 && s.to > 0.0 ) throw RuntimeException()
+        val candidates = ArrayList<Number>()
+        for ( x in listOf(from, to ) ) {
+            for ( y in listOf( s.from, s.to ) ) {
+                if ( x == ZERO && y == ZERO ) throw RuntimeException( "0/0 not supported" )
+                candidates += x / y
+            }
+        }
+        // candidates are empty iff both intervals are [0, 0]
+        return Segment( candidates.min()!!, candidates.max()!! )
+    }
+    operator fun get( dir: Direction ) = if ( dir == Direction.Min ) from else to
+
+    fun unite( s: Segment ) = if ( this == EMPTY ) s else Segment( minOf( from, s.from ), maxOf( to, s.to ) )
+
+    private fun checkNonEmpty() {
+        if ( this == EMPTY ) throw RuntimeException( "Empty range unexpected" )
+    }
+
+    override fun toString() = "[$from, $to]"
+
+    override fun equals( other: Any? ): Boolean {
+        if ( other !is Segment ) return false
+        return from == other.from && to == other.to
+    }
+
+    override fun hashCode() = from.hashCode() xor to.hashCode()
+}
+
 abstract class Expression<VS : VariableSet> {
     abstract fun eval( v: VS, dir: Direction = Direction.Max ): Number
-    abstract fun optimize( from: VS, to: VS, dir: Direction ): Number
+    abstract fun optimize( from: VS, to: VS ): Segment
     override abstract fun toString(): String
 
-    fun reportOptimum( optimum: Number, dir: Direction ) = log( DEBUG_LEVEL.REPORT_CELL_OPTIMUM, "$dir to $this: $optimum")
+    fun reportOptimum( optimum: Segment) = log( DEBUG_LEVEL.REPORT_CELL_OPTIMUM, "$this: ${optimum.from} .. ${optimum.to}")
 
     operator fun plus( e: Expression<VS> ) = SumExpression( this, e )
     operator fun minus( e: Expression<VS> ) = SubtExpression( this, e )
@@ -122,21 +189,23 @@ abstract class Expression<VS : VariableSet> {
 }
 
 open class ExpressionNode<VS : VariableSet>( private val s: String, private val f: ( VS ) -> Number ) : Expression<VS>() {
-    override fun eval(v: VS, dir: Direction ) = f( v )
+    override fun eval( v: VS, dir: Direction ) = f( v )
     override fun toString() = s
 
-    override fun optimize( from: VS, to: VS, dir: Direction ): Number {
-        var optimum: Number? = null
+    override fun optimize( from: VS, to: VS ): Segment {
+        var min: Number? = null
+        var max: Number? = null
 //        log( "Combining $from and $to" )
         for ( vs in from.combine( to ) ) {
-            val result = eval( vs, dir )
-            result.sanityCheck()
+            val resultMin = eval( vs, Direction.Min )
+            val resultMax = eval( vs, Direction.Max )
 //            log( "Evaluated $vs -> $result" )
-            optimum = dir.get( optimum, result )
+            min = Direction.Min.get( min, resultMin )
+            max = Direction.Max.get( max, resultMax )
         }
-        optimum!!.sanityCheck()
-        reportOptimum( optimum, dir )
-        return optimum
+        val result = Segment( min!!, max!! )
+        reportOptimum( result )
+        return result
     }
 }
 
@@ -156,9 +225,9 @@ fun <VS : VariableSet> Expression<VS>.withValue( key: VS, value: Number )
 class SumExpression<VS : VariableSet>( private val left: Expression<VS>, private val right: Expression<VS> ) : Expression<VS>() {
     override fun eval( v: VS, dir: Direction ) = left.eval( v, dir ) + right.eval( v, dir )
     override fun toString() = "$left + $right"
-    override fun optimize( from: VS, to: VS, dir: Direction ): Number {
-        val optimum = left.optimize( from, to, dir ) + right.optimize( from, to, dir )
-        reportOptimum( optimum, dir )
+    override fun optimize( from: VS, to: VS ): Segment {
+        val optimum = left.optimize( from, to ) + right.optimize( from, to )
+        reportOptimum( optimum )
         return optimum
     }
 }
@@ -166,9 +235,9 @@ class SumExpression<VS : VariableSet>( private val left: Expression<VS>, private
 class SubtExpression<VS : VariableSet>( private val left: Expression<VS>, private val right: Expression<VS> ) : Expression<VS>() {
     override fun eval( v: VS, dir: Direction ) = left.eval( v, dir ) - right.eval( v, dir.opposite() )
     override fun toString() = "$left - ($right)"
-    override fun optimize( from: VS, to: VS, dir: Direction ): Number {
-        val optimum = left.optimize( from, to, dir ) - right.optimize( from, to, dir.opposite() )
-        reportOptimum( optimum, dir )
+    override fun optimize( from: VS, to: VS ): Segment {
+        val optimum = left.optimize( from, to ) - right.optimize( from, to )
+        reportOptimum( optimum )
         return optimum
     }
 }
@@ -176,9 +245,9 @@ class SubtExpression<VS : VariableSet>( private val left: Expression<VS>, privat
 class TimesExpression<VS : VariableSet>( private val left: Expression<VS>, private val right: Expression<VS> ) : Expression<VS>() {
     override fun eval( v: VS, dir: Direction ) = left.eval( v, dir ) * right.eval( v, dir )
     override fun toString() = "[$left] * [$right]"
-    override fun optimize( from: VS, to: VS, dir: Direction ): Number {
-        val optimum = left.optimize( from, to, dir ) * right.optimize( from, to, dir )
-        reportOptimum( optimum, dir )
+    override fun optimize( from: VS, to: VS ): Segment {
+        val optimum = left.optimize( from, to ) * right.optimize( from, to )
+        reportOptimum( optimum )
         return optimum
     }
 }
@@ -186,9 +255,9 @@ class TimesExpression<VS : VariableSet>( private val left: Expression<VS>, priva
 class DivExpression<VS : VariableSet>( private val left: Expression<VS>, private val right: Expression<VS> ) : Expression<VS>() {
     override fun eval( v: VS, dir: Direction ) = left.eval( v, dir ) / right.eval( v, dir.opposite() )
     override fun toString() = "[$left] / [$right]"
-    override fun optimize( from: VS, to: VS, dir: Direction ): Number {
-        val optimum = left.optimize( from, to, dir ) / right.optimize( from, to, dir.opposite() )
-        reportOptimum( optimum, dir )
+    override fun optimize( from: VS, to: VS ): Segment {
+        val optimum = left.optimize( from, to ) / right.optimize( from, to )
+        reportOptimum( optimum )
         return optimum
     }
 }
@@ -198,22 +267,22 @@ fun <VS : VariableSet> proveInequality( f: Expression<VS>, from: VS, to: VS, dir
     var parts = minParts
     while ( true ) {
         log( DEBUG_LEVEL.NO_DEBUG, "Trying with $parts parts" )
-        var optimum: Number? = null
+        var range: Segment = EMPTY
         var where: VS? = null
         for ( ( localFrom, localTo ) in from.split( to, parts ) ) {
             log( DEBUG_LEVEL.PRINT_EVERY_CELL, "Optimizing on $localFrom - $localTo" )
-            val localOptimum = f.optimize( localFrom, localTo, dir )
-            val newOptimum = dir.get( optimum, localOptimum )
-            if ( newOptimum != optimum ) {
-                optimum = newOptimum
+            val localRange = f.optimize( localFrom, localTo )
+            val newRange = range.unite( localRange )
+            if ( newRange != range ) {
+                range = newRange
                 where = localFrom
             }
         }
-        if ( dir.get( optimum, bound ) == bound && ( optimum!! - bound ).abs() > MIN_MARGIN ) {
-            log( DEBUG_LEVEL.NO_DEBUG, "Using partition into $parts parts got optimum $optimum near $where which is better than desired $bound" )
+        if ( dir.get( range[dir], bound ) == bound && ( range[dir] - bound ).abs() > MIN_MARGIN ) {
+            log( DEBUG_LEVEL.NO_DEBUG, "Using partition into $parts parts got optimum $range near $where which is better than desired $bound" )
             return
         }
-        log( DEBUG_LEVEL.NO_DEBUG, "Best: $optimum near $where" )
+        log( DEBUG_LEVEL.NO_DEBUG, "Best: $range near $where" )
         parts *= 10
         if ( parts > maxParts ) return
     }
