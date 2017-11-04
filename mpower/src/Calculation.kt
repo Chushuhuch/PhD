@@ -4,7 +4,17 @@ fun main(args: Array<String> ) {
 //    evalTopLeft()
 //    evalTopMid()
 //    evalBotLeft()
-    evalBotRight()
+//    evalBotRight()
+    evalTopRight()
+}
+
+fun evalTopRight() {
+    val Aij = (
+            ExpressionNode( "4 r / ln" ) { vr: VR -> 4.0 * vr.r / vr.v.log1pi() } +
+                    ExpressionNode( "4 (1 - rv)" ) { vr: VR -> 4.0 * ( 1.0 - vr.r * vr.v ) } -
+                    ExpressionNode( "(r (v - v^2) + 3 v + 1) ln") { vr: VR -> ( vr.r * vr.v * ( 1.0 - vr.v ) + 3.0 * vr.v + 1.0 ) * vr.v.log1pi() }
+            ) / ExpressionNode( "2 (1 + r) (1 + rv)" ) { vr: VR -> 2.0 * ( 1.0 + vr.r ) * ( 1.0 + vr.r * vr.v ) }
+    proveInequality( Aij, VR( 0.0, 0.0 ), VR( 0.2, 1.0 ), Direction.Max, Number( 0.62 ) )
 }
 
 fun evalBotRight() {
@@ -148,6 +158,23 @@ class VQ( var v: Number, var q: Number ) : VariableSet() {
     }
 
     override fun hashCode() = v.hashCode() xor q.hashCode()
+}
+
+class VR( var v: Number, var r: Number ) : VariableSet() {
+    constructor( vd: Double, rd: Double ) : this( Number( vd ), Number( rd ) )
+    override fun getComponents() = listOf( v, r )
+    override fun setComponent( i: Int, value: Number ) {
+        if ( i == 0 ) v = value
+        else r = value
+    }
+    override fun <VS : VariableSet> copy() = VR( v, r ) as VS
+
+    override fun equals( other: Any? ): Boolean {
+        if ( other !is VR ) return false
+        return v == other.v && r == other.r
+    }
+
+    override fun hashCode() = v.hashCode() xor r.hashCode()
 }
 
 val ZERO_FUNC = { _: WR -> Number(0.0) }
