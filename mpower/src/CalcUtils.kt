@@ -1,6 +1,8 @@
 import Number.Constants.ZERO
 import Segment.Companion.EMPTY
 import kotlin.coroutines.experimental.buildSequence
+//import kotlin.system.exitProcess
+//import kotlin.test.currentStackTrace
 
 enum class DEBUG_LEVEL( val level: Int ) {
     NO_DEBUG( 0 ),
@@ -12,9 +14,9 @@ enum class DEBUG_LEVEL( val level: Int ) {
 
 val debug_level: DEBUG_LEVEL = DEBUG_LEVEL.NO_DEBUG
 
-fun log(level: DEBUG_LEVEL, msg: String ) {
+fun log(level: DEBUG_LEVEL, msg: () -> String ) {
     if ( level <= debug_level ) {
-        println( msg )
+        println( msg() )
         System.out.flush()
     }
 }
@@ -42,7 +44,25 @@ class Number( val v : Double ) : Comparable<Number> {
 
     override fun compareTo( other: Number ) = v.compareTo( other.v )
 
-    override fun toString() = v.toString()
+    override fun toString() : String {
+//        toStringRuns ++
+//        val s = currentStackTrace().joinToString( "\n" )
+//        val v = toStringStacks[s] ?: 0
+//        if ( toStringStacks.containsKey( s ) ) {
+//            toStringStacks[s] = toStringStacks[s]!! + 1
+//        } else {
+//            toStringStacks[s] = 1
+//        }
+//
+//        if ( toStringRuns == 100000 ) {
+//            val max = toStringStacks.values.max()!!
+//            println( "Share ${max.toDouble() / toStringRuns}")
+//            println( toStringStacks.keys.first { toStringStacks[it] == max } )
+//            exitProcess( 0 )
+//        }
+
+        return v.toString()
+    }
 
     override fun equals( other: Any? ): Boolean {
         if ( other !is Number ) return false
@@ -53,12 +73,16 @@ class Number( val v : Double ) : Comparable<Number> {
 
     companion object Constants {
         val ZERO = Number( 0.0 )
+        val log1pValues = HashMap<Double, Number>()
+        val vOverLog1pValues = HashMap<Double, Number>()
+//        val toStringStacks = HashMap<String, Int>()
+//        var toStringRuns = 0
     }
 
     fun abs() = Number( Math.abs( v ) )
-    fun log1p() = Number( Math.log1p( v ) )
+    fun log1p() = log1pValues.getOrPut( v, { Number( Math.log1p( v ) ) } )
     fun log1pi() = Number( Math.log1p( v ) - Math.log( v ) )
-    fun vOverLog1p() = Number( if ( v == 0.0 ) 1.0 else v / Math.log1p( v ) )
+    fun vOverLog1p() = vOverLog1pValues.getOrPut( v, { Number( if ( v == 0.0 ) 1.0 else v / Math.log1p( v ) ) } )
     fun pow( p: Double ) = Number( Math.pow( v, p ) )
 }
 
@@ -74,10 +98,11 @@ fun max( a: Number?, b: Number? ) = if ( a == null ) b else if ( b == null ) a e
 abstract class VariableSet {
     abstract fun getComponents(): List<Number>
     abstract fun setComponent( i: Int, value: Number )
-    private fun size() = getComponents().size
-    private operator fun get(i: Int ) = if ( i >= 0 && i < size() ) getComponents()[i] else throw IndexOutOfBoundsException()
-    private operator fun set(i: Int, value: Number ) = if ( i >= 0 && i < size() ) setComponent( i, value ) else throw IndexOutOfBoundsException()
+    abstract protected fun size(): Int
+    abstract operator protected fun get( i: Int ): Number
+    private operator fun set( i: Int, value: Number ) = if ( i >= 0 && i < size() ) setComponent( i, value ) else throw IndexOutOfBoundsException()
     abstract fun <VS : VariableSet> copy(): VS
+    abstract fun name(): String
 
     fun <VS : VariableSet> combine( with: VS ) = buildSequence {
         for ( m in 0 until ( 1 shl size() ) ) {
@@ -177,12 +202,14 @@ class Segment( from: Number, to: Number ) {
     override fun hashCode() = from.hashCode() xor to.hashCode()
 }
 
+operator fun Direction.get( s: Segment ) = if ( this == Direction.Min ) s.from else s.to
+
 abstract class Expression<VS : VariableSet> {
     abstract fun eval( v: VS, dir: Direction = Direction.Max ): Number
     abstract fun optimize( from: VS, to: VS ): Segment
     override abstract fun toString(): String
 
-    fun reportOptimum( optimum: Segment) = log( DEBUG_LEVEL.REPORT_CELL_OPTIMUM, "$this: ${optimum.from} .. ${optimum.to}")
+    fun reportOptimum( optimum: Segment) = log( DEBUG_LEVEL.REPORT_CELL_OPTIMUM, { "$this: ${optimum.from} .. ${optimum.to}" } )
 
     operator fun plus( e: Expression<VS> ) = SumExpression( this, e )
     operator fun minus( e: Expression<VS> ) = SubtExpression( this, e )
@@ -213,7 +240,7 @@ open class ExpressionNode<VS : VariableSet>( private val s: String, private val 
 
 fun <VS : VariableSet> Expression<VS>.withValue( key: VS, value: Number )
         = object : ExpressionNode<VS>( toString() + " {$key -> $value}", { v: VS ->
-    log( DEBUG_LEVEL.REPORT_EVALUATIONS, "expr: $this, v: $v, key: $key, value: $value, v == key: ${v == key}" )
+    log( DEBUG_LEVEL.REPORT_EVALUATIONS, { "expr: $this, v: $v, key: $key, value: $value, v == key: ${v == key}" } )
     if ( v == key ) {
         value
     } else eval( v )
@@ -221,7 +248,7 @@ fun <VS : VariableSet> Expression<VS>.withValue( key: VS, value: Number )
 
 fun <VS : VariableSet> Expression<VS>.withValues( keyCondition: ( VS ) -> Boolean, value: Number )
         = object : ExpressionNode<VS>( toString() + " {conditioned -> $value}", { v: VS ->
-    log( DEBUG_LEVEL.REPORT_EVALUATIONS, "expr: $this, v: $v, value: $value, condition holds: ${keyCondition( v )}" )
+    log( DEBUG_LEVEL.REPORT_EVALUATIONS, { "expr: $this, v: $v, value: $value, condition holds: ${keyCondition( v )}" } )
     if ( keyCondition( v ) ) {
         value
     } else eval( v )
@@ -274,25 +301,32 @@ class DivExpression<VS : VariableSet>( private val left: Expression<VS>, private
 
 // proves dir /min/max/ f is bound or more strict
 fun <VS : VariableSet> proveInequality( f: Expression<VS>, from: VS, to: VS, dir: Direction, bound: Number, minParts: Long = 1, maxParts: Long = Long.MAX_VALUE ) {
+    println( "Proving for ${from.name()} from $from to $to")
     var parts = minParts
     while ( true ) {
-        log( DEBUG_LEVEL.NO_DEBUG, "Trying with $parts parts" )
+        log( DEBUG_LEVEL.NO_DEBUG, { "Trying with $parts parts" } )
         var range: Segment = EMPTY
         var where: VS? = null
+        var cnt = 0
+        val start = System.currentTimeMillis()
         for ( ( localFrom, localTo ) in from.split( to, parts ) ) {
-            log( DEBUG_LEVEL.PRINT_EVERY_CELL, "Optimizing on $localFrom - $localTo" )
+            log( DEBUG_LEVEL.PRINT_EVERY_CELL, { "Optimizing on $localFrom - $localTo" } )
             val localRange = f.optimize( localFrom, localTo )
             val newRange = range.unite( localRange )
-            if ( newRange != range ) {
+            if ( dir[newRange] != dir[range] ) {
                 range = newRange
                 where = localFrom
             }
+            cnt ++
+            if ( cnt and ( ( 1 shl 20 ) - 1 ) == 0 ) {
+                println( "$cnt rectangles processed. ${System.currentTimeMillis() - start} passed.")
+            }
         }
         if ( dir.get( range[dir], bound ) == bound && ( range[dir] - bound ).abs() > MIN_MARGIN ) {
-            log( DEBUG_LEVEL.NO_DEBUG, "Using partition into $parts parts got optimum $range near $where which is better than desired $bound" )
+            log( DEBUG_LEVEL.NO_DEBUG, { "Using partition into $parts parts got optimum $range near $where which is better than desired $bound" } )
             return
         }
-        log( DEBUG_LEVEL.NO_DEBUG, "Best: $range near $where" )
+        log( DEBUG_LEVEL.NO_DEBUG, { "Best: $range near $where" } )
         parts *= 10
         if ( parts > maxParts ) return
     }
