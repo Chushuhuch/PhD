@@ -6,3 +6,5 @@
 *.class
 *.7z
 **/out/
+.idea
+literature/
