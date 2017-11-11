@@ -9,16 +9,33 @@ fun main(args: Array<String> ) {
 //    proveInequality( Ai, WR0, WR( 1.0, 1.0 ), Direction.Max, Number( 0.62 ), minParts = 1 )
     // R3
     // Done: Ai_r, w = 1..6, r = 0..1, max < 0, parts = 10^3
-//    proveInequality( Air, WR( 1.0, 0.0 ), WR( 6.0, 1.0 ), Direction.Max, ZERO )
+//    proveInequality( Air, WR( 1.0, 0.0 ), WR( 4.0, 1.0 ), Direction.Max, ZERO )
     // R4
 //    proveInequality( Aj, VQ( 0.0, 0.0 ), VQ( 0.2, 1.0 ), Direction.Max, Number( 0.62 ) )
     // R5
-//    proveInequality( Aij, VR( 0.0, 0.0 ), VR( 0.2, 1.0 ), Direction.Max, Number( 0.62 ) )
+//    proveInequality( Aij, VR( 0.0, 0.0 ), VR( 0.25, 1.0 ), Direction.Max, Number( 0.62 ) )
 
     // max on infinity
 //    proveInequality( Ainf, W( 1.0 ), W( 6.0 ), Direction.Max, Number( 0.63 ) )
 
-    proveInequality( A, WQ( 0.0, 0.0 ), WQ( 6.0, 1.35 ), Direction.Max, Number( 0.5 ) )
+
+    // 10000 parts got optimum [0.0, 0.49960283638133507] near (3.936, 1.349865) which is better than desired 0.5
+//    proveInequality( A, WQ( 0.0, 0.0 ), WQ( 6.0, 1.35 ), Direction.Max, Number( 0.5 ) )
+
+    // 1000 parts got optimum [0.0, 0.497881469097823] near (2.997, 1.35864) which is better than desired 0.5
+//    proveInequality( A, WQ( 0.0, 0.0 ), WQ( 3.0, 1.36 ), Direction.Max, Number( 0.5 ) )
+
+    // 100 parts got optimum [-Infinity, 0.49915167986200665] near (0.198, 1.3464) which is better than desired 0.5
+//    proveInequality( Aj, VQ( 0.0, 0.0 ), VQ( 0.2, 1.36 ), Direction.Max, Number( 0.5 ) )
+
+    // 1000 parts got optimum [0.0, 0.49798943321683664] near (4.014, 1.2987) which is better than desired 0.5
+//    proveInequality( A, WQ( 3.0, 0.0 ), WQ( 5.0, 1.3 ), Direction.Max, Number( 0.5 ) )
+
+    // 10000 parts got optimum [0.49125063601847496, 0.49995960404443324] near (3.9228, 1.3599940000000001) which is better than desired 0.5
+//    proveInequality( A, WQ( 3.0, 1.3 ), WQ( 5.0, 1.36 ), Direction.Max, Number( 0.5 ) )
+
+//    proveInequality( A, WQ( 3.921, 0.0 ), WQ( 3.922, 1.36 ), Direction.Max, Number( 0.5 ), minParts = 1000 )
+
 }
 
 val Ainf = (
