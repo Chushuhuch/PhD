@@ -38,6 +38,7 @@ class Number( val v : Double ) : Comparable<Number> {
     operator fun minus( n: Number ) = Number( v - n.v )
     operator fun minus( d: Double ) = Number( v - d )
     operator fun times( n: Number ) = Number( v * n.v )
+    operator fun times( d: Double ) = Number( v * d )
     operator fun div( n: Number ) = Number( v / n.v )
     operator fun div( d: Double ) = Number( v / d )
     operator fun compareTo( d: Double ) = v.compareTo( d )
@@ -98,7 +99,7 @@ fun max( a: Number?, b: Number? ) = if ( a == null ) b else if ( b == null ) a e
 abstract class VariableSet {
     abstract fun getComponents(): List<Number>
     abstract fun setComponent( i: Int, value: Number )
-    abstract protected fun size(): Int
+    abstract fun size(): Int
     abstract operator protected fun get( i: Int ): Number
     private operator fun set( i: Int, value: Number ) = if ( i >= 0 && i < size() ) setComponent( i, value ) else throw IndexOutOfBoundsException()
     abstract fun <VS : VariableSet> copy(): VS

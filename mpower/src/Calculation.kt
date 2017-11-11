@@ -18,9 +18,10 @@ fun main(args: Array<String> ) {
     // max on infinity
 //    proveInequality( Ainf, W( 1.0 ), W( 6.0 ), Direction.Max, Number( 0.63 ) )
 
+//    proveInequality( D2AinfNominator, W( 1.0 ), W( 4.0 ), Direction.Max, ZERO  )
 
-    // 10000 parts got optimum [0.0, 0.49960283638133507] near (3.936, 1.349865) which is better than desired 0.5
-//    proveInequality( A, WQ( 0.0, 0.0 ), WQ( 6.0, 1.35 ), Direction.Max, Number( 0.5 ) )
+    val w_max = ternarySearchOptimum( Ainf, Number( 1.0 ), Number( 4.0 ), Direction.Max, Number( 1E-12 ) )
+    println( "max is for w = ${w_max} and equals to ${Ainf.eval( W( w_max ) )}")
 
     // 1000 parts got optimum [0.0, 0.497881469097823] near (2.997, 1.35864) which is better than desired 0.5
 //    proveInequality( A, WQ( 0.0, 0.0 ), WQ( 3.0, 1.36 ), Direction.Max, Number( 0.5 ) )
@@ -34,14 +35,19 @@ fun main(args: Array<String> ) {
     // 10000 parts got optimum [0.49125063601847496, 0.49995960404443324] near (3.9228, 1.3599940000000001) which is better than desired 0.5
 //    proveInequality( A, WQ( 3.0, 1.3 ), WQ( 5.0, 1.36 ), Direction.Max, Number( 0.5 ) )
 
-//    proveInequality( A, WQ( 3.921, 0.0 ), WQ( 3.922, 1.36 ), Direction.Max, Number( 0.5 ), minParts = 1000 )
-
 }
 
 val Ainf = (
         ExpressionNode( "4 w" ) { w: W -> 4.0 * w.w }
         - ExpressionNode( "(w + 3) ln" ) { w: W -> ( w.w + 3.0 ) * w.w.log1p() }
     ) / ExpressionNode( "2 w" ) { w: W -> 2.0 * w.w }
+
+val D2AinfNominator =
+        ExpressionNode( "w (w^2 + 9w + 6)" ) { w: W -> w.w * ( w.w * w.w + 9.0 * w.w + 6.0 ) } /
+        ExpressionNode( "(w + 1)^2" ) { w: W -> ( w.w + 1.0 ).pow( 2.0 ) } -
+        ExpressionNode( "6 ln" ) { w: W -> 6.0 * w.w.log1p() }
+
+val D2Ainf = D2AinfNominator / ExpressionNode( "2 w^3" ) { w: W -> 2.0 * w.w.pow( 3.0 ) }
 
 val Aij = (
         ExpressionNode( "4 r / ln" ) { vr: VR -> 4.0 * vr.r / vr.v.log1pi() } +
@@ -100,3 +106,19 @@ val Ai_nominator = (
 val Ai = ( Ai_nominator / ExpressionNode( "w + r" ) { wr: WR -> wr.w + wr.r } ).withValue( WR0, Number( 1.0 ) ) /
         ExpressionNode( "2 (1 + r)" ) { wr: WR -> 2.0 * ( 1.0 + wr.r ) }
 
+fun ternarySearchOptimum( f: Expression<W>, from: Number, to: Number, dir: Direction, eps: Number ): Number {
+    var left = from
+    var right = to
+    while ( right - left > eps ) {
+        val l = ( left * 2.0 + right ) / 3.0;
+        val r = ( left + right * 2.0 ) / 3.0;
+        val lv = f.eval( W( l ) )
+        val rv = f.eval( W( r ) )
+        if ( dir.get( lv, rv ) == lv ) {
+            right = r
+        } else {
+            left = l
+        }
+    }
+    return ( left + right ) * 0.5
+}

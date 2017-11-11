@@ -495,6 +495,7 @@ The following inequalities are proved in Appendix:
 \begin{eqnarray}
 \label{calc}
 && \sup\limits_{q\ge0}{\cal A}(q)=\limsup\limits_{q\to+\infty}{\cal A}(q)\le0.63;\\
+\label{calcHalf}
 && \sup\limits_{0\le q\le1.36}{\cal A}(q)\le0.5.
 \end{eqnarray}
 By Lemma \ref{conv} the inequality (\ref{qq''}) holds in both cases {\bf 1} and {\bf 2}. Theorem \ref{mainThm} completes the proof.
@@ -669,7 +670,7 @@ $$
 \section{Appendix}
 
 To prove inequality (\ref{calc}) we split the positive quadrant
-$(w,q) \in \Real_+ \times \Real_+$ into five regions, see Fig. 1:
+$(w,q) \in \Real_+ \times \Real_+$ into five regions, see Fig.~1:
 \begin{eqnarray*}
  &&R_1 = [0, 6] \times [0, 1],\quad R_2 =[0, 1] \times [1,\infty],
 \quad R_3 = [1, 4] \times [1, \infty],\\
@@ -782,7 +783,64 @@ digits. This gives the following result.
 Thus, the claim follows, and $A(w,{1 \over r})$ attains its
 maximum in $R_3$ at the line $r=0$.
 
-To
+To find the actual maximum we take
+$A_\infty(w) = A(w, \infty) = 2 - {1 \over 2} ( \ln(w + 1) + 3 {\ln(w + 1) \over w} ).$
+We prove the maximum is unique by ensuring that $A_\infty$ is convex upwards for $w \in [1, 4]$.
+Further, we use standard computational methods to find the extremum.
+Estimating $A_\infty''(w)$ results in
+\begin{center}
+\begin{tabular} {|c|c|c|c|}
+\hline Region & & Mesh step & Inequality
+\\
+\hline $[1, 4]$ & & $3 \cdot 10^{-3}$ & $A_\infty''|_{[1, 4]} \le -0.13$ \\
+\hline\end{tabular}
+\end{center}
+The maximum is achieved for $w \approx 1.816960565240$ and equals approximately to $0.627178211634$.
+
+To prove the inequality (\ref{calcHalf}) we split $(w, q) \in \Real_+ \times [0, 1.36]$
+into four regions, see Fig.~2:
+\begin{eqnarray*}
+ &&R_6 = [0, 3] \times [0, 1.36],\quad R_7 =[5, \infty] \times [0,1.36], \\
+ && R_8 = [3, 5] \times [0, 1.3],\quad R_9 = [3,5] \times [1.3, 1.36].
+\end{eqnarray*}
+
+\begin{figure}[ht]
+\begin{picture}(400,120)
+
+\put(390,5){\large $w$} \put(30,5){$0$} \put(165,5){$3$} \put(255,5){$5$}
+
+\put(19,20){$0$} \put(11,70){$1.3$} \put(5,80){$1.36$} \put(10,110){\large $q$}
+
+\put(30,20){\vector(1,0){370}}
+\put(30,80){\line(1,0){360}} \put(165,75){\line(1,0){90}}
+
+\put(30,20){\vector(0,1){90}}
+\put(165,20){\line(0,1){60}} \put(255,20){\line(0,1){60}}
+
+\put(90,43){\LARGE $R_6$}
+\put(315,43){\LARGE $R_7$}
+\put(201,40){\LARGE $R_8$}
+\put(201,85){\LARGE $R_9$}
+
+\end{picture}
+
+\caption{To the proof of (\ref{calc})}
+\end{figure}
+
+On each of these regions we prove the inequality in the same was as for inequality (\ref{calc}),
+and get the following results.
+
+\begin{center}
+\begin{tabular} {|c|c|c|c|c|}
+\hline Region & & Mesh step in $w(v)$ & Mesh step in $q$ &
+Inequality
+\\
+\hline $R_6$ & & $3 \cdot 10^{-3}$ & $1.36 \cdot 10^{-3}$ & $A_1 \le 0.498$ \\
+\hline $R_7$ & & $2 \cdot 10^{-3}$ & $1.36 \cdot 10^{-2}$  & $A_4 \le 0.4992$ \\
+\hline $R_8$ & & $2 \cdot 10^{-3}$ & $1.3 \cdot 10^{-3}$  & $A_1 \le 0.498$ \\
+\hline $R_9$ & & $2 \cdot 10^{-4}$ & $6 \cdot 10^{-6}$  & $A_1 \le 0.49996$ \\
+\hline\end{tabular}
+\end{center}
 
 \begin{thebibliography}{99}
 
