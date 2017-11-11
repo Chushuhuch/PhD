@@ -216,8 +216,10 @@ $$
 %\begin{aligned}
 %u^*(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
 %u^*(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
-%u^*(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
-%u^*(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
+%u^*(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 }
+%\eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
+%u^*(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 }
+%\eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
 %\end{aligned}
 %\right.
 %\end{equation}
@@ -428,23 +430,24 @@ $$
 
 \section{On some sufficient conditions}
 The condition of joint convexity of function $K$ is in fact certain assumption on function $p$. It is easy to see that
-$K_{ss}>0$, and $K_{xx}\ge0$ since $p$ is convex. Thus, the convexity of $K$ is equivalent to $\det(K'')\ge0$ in the sense of distributions. Direct calculation gives
+$\partial^2_{ss}K>0$, and $\partial^2_{xx}K\ge0$ since $p$ is convex. Thus, the convexity of $K$ is equivalent to $\det(K'')\ge0$ in the sense of distributions.
+Direct calculation gives
 %Let us compute Hessian of $K$.
 %We write $K$ in term of $q = q(x) = p(x) - 1$ and $w = w(s) = \frac{1}{s^2}$: $K(s, x) = s (1 + w)^\frac{q + 1}{2}$.
 %Also we will denote $\Ln = \ln(1 + w)$. Then
 %\begin{eqnarray*}
-%K_s & = & (1 + w)^\frac{q + 1}{2} + s \frac{q + 1}{2} (1 + w)^\frac{q - 1}{2} w' = (1 + w)^\frac{q - 1}{2} (1 - w q) \\
-%K_x & = & s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln.
+%\partial_sK & = & (1 + w)^\frac{q + 1}{2} + s \frac{q + 1}{2} (1 + w)^\frac{q - 1}{2} w' = (1 + w)^\frac{q - 1}{2} (1 - w q) \\
+%\partial_xK & = & s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln.
 %\end{eqnarray*}
 %Further,
 %\begin{align*}
-%K_{ss} &= (1 + w)^\frac{q - 3}{2} \frac{q - 1}{2} w' (1 - w q) - (1 + w)^\frac{q - 1}{2} w' q
+%\partial^2_{ss}K &= (1 + w)^\frac{q - 3}{2} \frac{q - 1}{2} w' (1 - w q) - (1 + w)^\frac{q - 1}{2} w' q
 %= \frac{w}{s} (1 + w)^\frac{q - 3}{2} (w q + 1) (q + 1)
-%\\ K_{sx} &= (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln,
+%\\ \partial^2_{sx}K &= (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \Ln,
 %+ s (1 + w)^\frac{q - 1}{2} \frac{q - 1}{2} \cdot \frac{-2 w}{s} \cdot \frac{q'}{2} \Ln
 %+ s (1 + w)^\frac{q + 1}{2} \frac{q'}{2} \cdot \frac{w'}{1 + w}
 %\\ & = \frac{1}{2} (1 + w)^\frac{q - 1}{2} q' ( (1 - q w) \Ln - 2 w),
-%\\ K_{xx} &= s ( (1 + w)^\frac{q + 1}{2} ( \Ln \frac{q'}{2} )^2 + (1 + w)^\frac{q + 1}{2} \frac{q''}{2} \Ln )
+%\\ \partial^2_{xx}K &= s ( (1 + w)^\frac{q + 1}{2} ( \Ln \frac{q'}{2} )^2 + (1 + w)^\frac{q + 1}{2} \frac{q''}{2} \Ln )
 %= s \Ln (1 + w)^\frac{q + 1}{2} ( \frac{q'^2 \Ln}{4} + \frac{q''}{2} ).
 %\end{align*}
 %Hence Hessian of $K$ is
@@ -456,13 +459,13 @@ where $q = q(x) = p(x) - 1$ and $w = w(s) = \frac{1}{s^2}$.
 
 Thus, we arrive at the inequality for the function $q$
 \begin{equation}
-\label{qq''}
-q q'' \ge q'^2 {\cal A}(q)\equiv q'^2\cdot\sup\limits_{w>0} A(q, w),
+\label{qq''} q q'' \ge q'^2 {\cal A}(q)\equiv
+q'^2\cdot\sup\limits_{w>0} A(w,q),
 %\frac{q}{q + 1} \cdot \frac{ ( (1 - q w) \Ln - 2 w )^2 - w (w q + 1) (q + 1) \Ln^2 }{ 2 w (w q + 1) \Ln }
 \end{equation}
 where
 $$
-A(q, w) = \frac{
+A(w, q) = \frac{
 q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - {w - 1 \over w} \ln( w + 1 ) + 4 {w \over \ln( w + 1 )} - 4
 }{
 2 ( q w + 1 )
@@ -638,7 +641,8 @@ Here $P = \max p(x', y)$, $(\bar{x}_1', \bar{y}_1)\in A_1$,
 $(\bar{x}_2', \bar{y}_2) \in A_2$, $(\hat{x}_1', \hat{y}_1) \in
 A_1'$, $(\hat{x}_2', \hat{y}_2) \in A_2'$.
 
-%Here $P$, $\bar{x}_1 = (\bar{x}_1', \bar{y}_1)$, $\bar{x}_2 =(\bar{x}_2', \bar{y}_2)$, $\hat{x}_1 = (\hat{x}_1', \hat{y}_1)$, $\hat{x}_2 = (\hat{x}_2', \hat{y}_2)$ are as earlier.
+%Here $P$, $\bar{x}_1 = (\bar{x}_1', \bar{y}_1)$, $\bar{x}_2 =(\bar{x}_2', \bar{y}_2)$, $\hat{x}_1 = (\hat{x}_1', \hat{y}_1)$, $\hat{x}_2 = (\hat{x}_2', \hat{y}_2)$
+%are as earlier.
 Pushing $w$ to $0$, we obtain
 $$
 %\begin{multline*}
@@ -656,140 +660,129 @@ $$
 $$
 where the function $K$ is introduced in Theorem \ref{necessary}. Direct calculation gives
 $$
-\det(\K''(c, d, y))=\frac 1{(1+d^2)^{\frac 32}}\cdot\big[(K_{yy}K_{ss}-K_{sy}^2)(K-K_s s)-K_{ss}K_y^2d^2\big]
+\det(\K''(c, d, y))=\frac 1{(1+d^2)^{\frac 32}}\cdot\big[(\partial^2_{yy}K\partial^2_{ss}K-\partial^2_{sy}K^2)(K-s\partial_sK)-\partial^2_{ss}K\partial_yK^2d^2\big]
 $$
-(here $s=\frac c{\sqrt{1+d^2}}$). Therefore, if $K_y\not\equiv0$ we can choose $d$ sufficiently large so that  $\det(\K''(c, d, y))<0$, a contradiction.
+(here $s=\frac c{\sqrt{1+d^2}}$). Therefore, if $\partial_y K \not\equiv 0$ we can choose $d$ sufficiently large so that  $\det(\K''(c, d, y))<0$, a contradiction.
 \end{proof}
 
 
 \section{Appendix}
 
-To prove inequality (\ref{calc}) we divide all the values $(q, w) \in \Real_+ \times \Real_+$ into the following five regions.
-$R_1 = [0, 1] \times [0, 6]$,
-$R_2 = [1, \infty] \times [0, 1]$,
-$R_3 = [1, \infty] \times [1, 6]$,
-$R_4 = [0, 1] \times [6, \infty]$,
-$R_5 = [1, \infty] \times [6, \infty]$.
-On each of these regions we numerically prove the inequality.
+To prove inequality (\ref{calc}) we split the positive quadrant
+$(w,q) \in \Real_+ \times \Real_+$ into five regions, see Fig. 1:
+\begin{eqnarray*}
+ &&R_1 = [0, 6] \times [0, 1],\quad R_2 =[0, 1] \times [1,\infty],
+\quad R_3 = [1, 4] \times [1, \infty],\\
+&&R_4 = [6,\infty]\times [0,1], \quad
+R_5=[4,\infty]\times[1,\infty].
+\end{eqnarray*}
+ On each of these regions we prove the inequality in numerical-analytical way.
 
-If a region spans up to infinity in some variable we calculate the function of the inverse variable.
-In particular, we invert both variables to analyze $R_5$.
-The supremum of $A$ is achieved for $q = \infty$, $w \in [1, 3]$.
-This makes possible to estimate direct values of $A$ on all regions except for $R_3$.
-On $R_3$ we ensure $A_q$ is positive.
+\begin{figure}[ht]
+\begin{picture}(400,200)
 
-For $(q, w) \in R_1$ we have
-\begin{multline*}
-A(q, w) = \frac{
-q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - (1 - {1 \over w}) \ln( w + 1 ) + 4 {w \over \ln( w + 1 )} - 4
-}{
-2 ( q w + 1 )
-} \cdot {q \over q + 1}
-\\ = \frac{
-[4 q w] - [q (w + 3) \ln(w + 1)] - [\ln(w + 1)] + [{\ln(w + 1) \over w}] + [4 {w \over \ln(w + 1)}] - [4]
-}{
-[2 (q w + 1)]
-} \cdot [{q \over q + 1}].
-\end{multline*}
-Since every function in brackets is monotone on $R_1$ in both variables,
-we can estimate value of $A$ by estimating values of each of the monotone functions.
-Also, we can present $R_1$ as a union of subregions $S_i$,
-and estimate $A$ separately on each of them as follows.
+\put(390,5){\large $w$} \put(20,5){$0$} \put(60,5){$1$}
+\put(260,5){$6$} \put(180,5){$4$}
 
-\begin{multline*}
-\max\limits_{A_1} A \le
-\max\limits_i \Big\{
-\Big(
-    \max\limits_{S_i} [4 q w]
-    - \min\limits_{S_i} [q (w + 3) \ln(w + 1)]
-    - \min\limits_{S_i} [\ln(w + 1)] \\
-    + \max\limits_{S_i} [\textstyle{\ln(w + 1) \over w}]
-    + \max\limits_{S_i} [4 \textstyle{w \over \ln(w + 1)}]
-    - [4]
-\Big)
-/ \min\limits_{S_i} [2 (q w + 1)]
-\cdot \max\limits_{S_i} [{q \over q + 1}]
-\Big\}
-\end{multline*}
-If $S_i$ is a rectangle,
-an optimum of a monotone function can be estimated through values in the corners of $S_i$.
+\put(10,20){$0$} \put(10,60){$1$} \put(10,185){\large $q$}
 
-Thus, for every region $R_1, R_2, R_4, R_5$ we take function $A$
-with inverted variables as described above,
-and extract monotone parts in the formula.
-Further, we invert corresponding components of a region
-and partition it in $10^k$ parts in each variable obtaining $10^{2k}$ rectangular subregions.
-We take $k$ large enough to achieve inequality $\sup\limits_{R_j} A < 0.62$ using described technique.
+\put(20,20){\vector(1,0){380}} \put(20,60){\line(1,0){370}}
+%\put(100,110){\line(1,0){310}} \put(20,120){\line(1,0){390}}
 
-For each of the regions we provide monotone terms extraction and partition fineness parameter $10^k$.
+\put(20,20){\vector(0,1){170}} \put(60,60){\line(0,1){120}}
+\put(260,20){\line(0,1){40}} \put(180,60){\line(0,1){120}}
 
-For $R_2$ we take $r = {1 \over q}$ and
-\begin{multline*}
-A(\textstyle{1 \over r}, w) =: A^q(r, w)
-= \Big(
-    [4 ({w \over \ln(w + 1)} - 1) r]
-    + [3 (w - \ln(w + 1)]
-    - [w \ln(w + 1)] \\
-    - [r \ln(w + 1)]
-    + [w]
-    + [r {\ln(w + 1) \over w}]
-\Big)
-/ [w + r]
-/ [2 (1 + r)].
-\end{multline*}
-To avoid division by zero we evaluate it as $0.5$ at origin.
+\put(120,35){\LARGE $R_1$} %\put(180,40){\vector(-1,-1){15}}
+\put(25,120){\LARGE $R_2$} \put(110,120){\LARGE $R_3$}
+%\put(230,130){\vector(-1,-1){15}}
+\put(320,35){\LARGE $R_4$}
+%\put(390,130){\vector(-1,-1){15}} \put(55,70){\LARGE $V$}
+\put(280,120){\LARGE $R_5$} %\put(80,130){\vector(-1,-1){55}}
 
-For $R_4$ we take $v = {1 \over w}$ and
-\begin{multline*}
-A(q, {\textstyle{1 \over v}}) =: A^w(q, v)
-= \Big(
-    [ 4 q ]
-    - [ q ( 1 + 3v ) \ln(1 + {\textstyle{1 \over v}}) ]
-    - [ v \ln(1 + {\textstyle{1 \over v}}) ]
-    + [ v ] \cdot [ v \ln(1 + {\textstyle{1 \over v}}) ] \\
-    + [ \textstyle\frac{4}{\ln(1 + {\textstyle{1 \over v}})} ]
-    - [ 4 v ]
-\Big)
-* \frac{[ q ]}{[ v + q ]}
-/ [ 2 (q + 1) ].
-\end{multline*}
-To avoid divisioin by zero we estimate the function as zero
-since senior term of the nominator $-q ( 1 + 3v ) \ln(1 + {\textstyle{1 \over v}})$ is negative.
+\end{picture}
 
-For $R_5$ we take
+\caption{To the proof of (\ref{calc})}
+\end{figure}
+
+
+%If a region spans up to infinity in some variable we calculate the function of the inverse variable.
+%In particular, we invert both variables to analyze $R_5$.
+%The supremum of $A$ is achieved for $q = \infty$, $w \in [1, 3]$.
+%This makes possible to estimate direct values of $A$ on all regions except for $R_3$.
+%On $R_3$ we ensure $A_q$ is positive.
+
+For $(w, q) \in R_1$ we construct appropriate piece-wise constant
+function $A_1(w,q)$ estimating $A(w,q)$ from above. To do this we
+take a rectangle
 $$
-A(\textstyle{1 \over r}, {\textstyle{1 \over v}}) =: A^{qw}(r, v)
-= \frac{
-    \big[ 4 {r \over \ln(1 + {\textstyle{1 \over v}})} \big]
-    + [ 4 (1 - r v) ]
-    - [ r (v - v^2) + 3 v + 1) \ln(1 + {\textstyle{1 \over v}}) ]
-}{
-[ 2 (1 + r) (1 + r v) ]
-}.
+Q\equiv\{w_0\le w\le w_1;\quad q_0\le q\le q_1\}\subset R_1
 $$
-
-Finally, on $R_3$ we numerically prove that $A^q_r < 0$ using
+and obtain the constant value for $A_1$ on this rectangle
+replacing arguments in the formula of $A(w,q)$ by their extremal
+values in this rectangle:
 \begin{multline*}
-A^q_r(r, w) =
-\Big(
-    [ 4 \textstyle{w \over \ln(w + 1)} ]
-    \cdot [ w - r^2 ]
-    + [4] * ( [ r^2 ] - [ 2 r w + w^2 + 2 w ] ) \\
-    + ( [ r^2 + 2 r (3 + w) + 4 + 3 w + w^2 ] - [ \textstyle{r^2 \over w} ] )
-    * [ \ln(1 + w) ]
-\Big)
-/ [ 2 (1 + r)^2 (w + r)^2 ].
+A(w,q) = \frac{ q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - (1 - {1 \over
+w}) \ln( w + 1 ) + 4 {w \over \ln( w + 1 )} - 4 }{ 2 ( q w + 1 ) }
+\cdot {q \over q + 1}
+\\ \le \frac{
+[4 q_1 w_1] - [q_0 (w_0 + 3) \ln(w_0 + 1)] - [\ln(w_0 + 1)] +
+[{\ln(w_0 + 1) \over w_0}] + [4 {w_1 \over \ln(w_1 + 1)}] - 4 }{
+[2 (q_0 w_0 + 1)] }
+\\ \times [{q_1 \over q_1 + 1}]=:A_1|_Q.
 \end{multline*}
+Here we used the fact that every function in square brackets is
+monotone on $R_1$ in both variables.
 
-We used the following partition parameter values:
+
+For $(w,q) \in R_2$ we put $r = {1 \over q}$ and construct
+appropriate piece-wise constant function $A_2(w,r)$ estimating
+$A(w,{1 \over r})$ from above.
+
+In a similar way, for $(w,q) \in R_4$ we put $v = {1 \over w}$ and
+construct appropriate piece-wise constant function $A_4(v,q)$
+estimating $A({1 \over v},q)$ from above.
+
+Finally, for $(w,q) \in R_5$ we put $v = {1 \over w}$, $r = {1
+\over q}$ and construct appropriate piece-wise constant function
+$A_5(v,r)$ estimating $A({1 \over v},{1 \over r})$ from above.
+
+The estimating functions $A_1$, $A_2$, $A_4$, $A_5$ were
+calculated on proper meshes with $15$ valid digits. This gives the
+following results.
+
 \begin{center}
-\begin{tabular}{ l | c | c | c | r }
-$R_1$   & $R_2$     & $R_3$     & $R_4$     & $R_5$ \\
-\hline
-$10^2$  & $10^2$    & $10^3$    & $10^1$    & $10^2$
-\end{tabular}
+\begin{tabular} {|c|c|c|c|c|}
+\hline Region & & Mesh step in $w(v)$ & Mesh step in $q(r)$ &
+Inequality
+\\
+\hline $R_1$ & & $6\cdot10^{-2}$ & $10^{-1}$ & $A_1\le0.51$ \\
+\hline $R_2$ & & $10^{-2}$ & $10^{-2}$  & $A_2\le0.617$ \\
+\hline $R_4$ & & $2\cdot10^{-2}$ & $10^{-1}$  & $A_4\le0.50$ \\
+\hline $R_5$ & & $2\cdot10^{-3}$ & $10^{-2}$  & $A_5\le0.605$ \\
+\hline\end{tabular}
 \end{center}
+\medskip
+In all cases we obtain $A(w,q)\le 0.62$.
 
+The analysis of $A(w,q)$ in $R_3$ is more careful. We again put $r
+= {1 \over q}$ and claim that $A(w,{1 \over r})$ is decreasing in
+$r$. To prove this we construct appropriate piece-wise constant
+function $A_3(w,r)$ estimating $\partial_rA(w,{1 \over r})$ from
+above. This function was calculated on proper mesh with $15$ valid
+digits. This gives the following result.
+
+\begin{center}
+\begin{tabular} {|c|c|c|c|c|}
+\hline Region & & Mesh step in $w$ & Mesh step in $r$ & Inequality
+\\
+\hline $R_3$ & & $5\cdot10^{-3}$ & $10^{-3}$ & $A_3\le-0.08$ \\
+\hline\end{tabular}
+\end{center}
+\medskip
+Thus, the claim follows, and $A(w,{1 \over r})$ attains its
+maximum in $R_3$ at the line $r=0$.
+
+To
 
 \begin{thebibliography}{99}
 
