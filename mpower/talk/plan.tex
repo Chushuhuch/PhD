@@ -1,0 +1,319 @@
+\documentclass[12pt,russian]{article}
+\renewcommand{\baselinestretch}{1}
+%\renewcommand{\baselinestretch}{1.5}
+\textwidth=158mm
+\textheight=232mm
+\voffset=-24mm
+%\pagestyle{empty}
+
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{multirow}
+\usepackage{color}
+
+\newcommand{\Real}{\mathbb R}
+\newcommand{\Nat}{\mathbb N}
+\newcommand{\norm}[1]{\pmb{\Vert}#1\pmb{\Vert}}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\bignorm}[1]{\bigl\Vert#1\bigr\Vert}
+\newcommand{\bigabs}[1]{\bigl\vert#1\bigr\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+%\renewcommand{\liminf}{\underline{\lim}}
+\newcommand{\card}{{\rm card}}
+\newtheorem{thm}{Теорема}
+\newtheorem{prop}{Предложение}
+\newtheorem{lm}{Лемма}
+\newtheorem{rem}{Замечание}
+\newtheorem{cor}{Следствие}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\Wf}{\stackrel{o\ }{W{}_1^1}}
+\newcommand{\Wfp}{
+\stackrel{o\ \ \ \ } {W{}_{\!p(x)}^1}
+}
+\newcommand{\W}{W_1^1}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\B}{{\bf b}}
+\newcommand{\sign}{\mathop{\rm sign}\nolimits}
+\newcommand{\dist}{\mathop{\rm dist}\nolimits}
+\newcommand{\supp}{\mathop{\rm supp}}
+\newcommand{\Ln}{\mathop{\rm ln}}
+\newcommand{\comment}[1]{\colorbox{yellow}{#1}}
+\newcounter{pictureCounter}
+
+\begin{document}
+
+История, тут же определения перестановок, послойное представление, изопериметрические задачи, задачи с функционалом
+
+Штейнер сер. 19в. - изопер. нер.: фигуры
+
+Неравенство Крана-Фабера 22-24гг. с.ч. упругой мембраны ~ первое применение для ф-лов, не для геом фигур
+
+Интеграл квадрата, степени, произвольной вып. функции (пойа-сегё изопериметрические нер-ва мф 1952).
+
+Дальше добавляется зависимость от u, сначала в виде произведения, далее внутрь.
+
+От свободной переменной не получается, только от остальных координат.
+
+
+$$
+\J(u) = \int\limits_\Omega | \nabla u(x) |^{p(x)} dx
+\qquad
+\I(u) = \int\limits_\Omega ( 1 + | \nabla u(x) |^2 )^{p(x) \over 2} dx.
+$$
+
+\section{Necessary conditions}
+$$u_{\alpha,\eps}(x) = \alpha ( \eps - |x - x_0| )_+.$$
+
+$$K(s, x) = s ( 1 + s^{-2} )^{\frac {p(x)}{2}} \qquad s > 0,\ x \in [-1, 1].$$
+
+$$
+u_\eps(x) = \min\big( 2 \eps, ( \eps + s^{-1} (x - x_1))_+, ( \eps + t^{-1} (x_2 - x) )_+\big).
+$$
+
+Then $\I(u^*) \le \I(u)$ leads to
+\begin{multline*}
+\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } \big( 1 + \frac 1 {s^2 } \big)^{\frac {p(x)} 2} dx
++ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } \big( 1 + \frac 1 {t^2 } \big)^{\frac {p(x)} 2} dx \ge
+\\ \ge \int\limits_{ \frac { x_2 - x_1} 2  - \frac {s + t}2 \eps }^{ { \frac {x_2 - x_1}2 } + { \frac {s + t} 2 } \eps }
+\Big( 1 + \frac{1}{ ( {\frac { s + t} 2 } )^2 } \Big)^{\frac {p(x)} 2} dx
+     + \int\limits_{ {\frac { x_1 - x_2} 2 } - { \frac {s + t} 2 } \eps }^{ { \frac {x_1 - x_2} 2 } + { \frac {s + t} 2 } \eps }
+     \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p(x)} 2} dx
+\end{multline*}
+
+If $p$ is even and convex this is convexity of $K$.
+
+Taylor for $\sigma: = {\frac 1 {s^2}} = 0$
+
+$$
+p(x_1) + p(x_2) \ge p( { \frac {x_2 - x_1} 2 } ) + p( { \frac {x_1 - x_2} 2 } ).
+$$
+
+for $C^1$: fix $s$.
+$$b(x) := \mathfrak a( s, v ) + \mathfrak a( x, v ) - \mathfrak a( \frac{ s - x }{2}, v ) - \mathfrak a( \frac{ x - s }{2}, v ) \ge 0.$$
+$x = -s$ is the minimum point of $b$, since $b(-s) = 0$.
+$$b'(-s) = \mathfrak a'_x( -s, v ) + \frac{1}{2} \mathfrak a'_x( s, v ) - \frac{1}{2} \mathfrak a'_x( -s, v ) = 0,$$
+for $C$ smoothing.
+
+\section{Proof}
+
+\begin{equation}
+\label{K_ineq}
+\sum\limits_{k = 1}^{m} K(s_k, x_k) \ge
+2 K\Big({\frac 1 2} \sum\limits_{k = 1}^{m} s_k, {\frac 1 2} \sum\limits_{k = 1}^{m} (-1)^k x_k\Big).
+\end{equation}
+
+$M(s, x) = K(s, x) - s$.
+Decreases in $s$ since $M$ is convex in $s$ and
+$$
+M_s(s, x) = (1 + {\frac 1 {s^2}})^{{\frac {p(x)} 2} - 1} (1 + {\frac 1 {s^2}} - {\frac {p(x)}{ s^2}}) - 1 \rightarrow 0 \qquad {\rm as} \quad s \to \infty.
+$$
+
+\begin{multline*}
+\sum\limits_{k = 1}^{m} M(s_k, x_k)
+\ge M(s_1, x_1) + M(s_m, x_m)
+\overset{a}{\ge} 2 M\big({\frac {s_1 + s_m} 2}, {\frac {x_m - x_1} 2}\big) \ge \\
+\overset{b}{\ge} 2 M\Big({\frac 1 2} \sum\limits_{k = 1}^{m} s_k, {\frac {x_m - x_1} 2}\Big)
+\overset{c}{\ge} 2 M\Big({\frac 1 2} \sum\limits_{k = 1}^{m} s_k, {\frac 1 2} \sum\limits_{k = 1}^{m} (-1)^k x_k\Big).
+\end{multline*}
+
+Piecewise linear functions.
+
+$Z$ zero derivative.
+$y^j_k : dom \to U_j$ --- $j$ vertical, $k$ horizontal up to $m_j$.
+
+\begin{multline*}
+\I(u) - Z = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{\frac {p(x)} 2} dx
+= \sum\limits_j \sum\limits_k \int\limits_{dom(y^j_k)} (1 + {y^j_k}'^2(x))^{\frac {p(x)} 2} dx =
+\\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {\frac 1 {b^j_k}} (1 + b^j_k{}^2)^{\frac {p((y^j_k)^{-1}(y))} 2} dy
+= \sum\limits_j \int\limits_{U_j} \sum\limits_k K\Big({\frac 1 {b^j_k}}, (y^j_k)^{-1}(y)\Big) dy.
+\end{multline*}
+
+$(u^*)^{-1}: U \to [0, 1]$
+\begin{eqnarray*}
+(u^*)^{-1} (y) & = & {\frac 1 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y); \\
+|((u^*)^{-1})'(y)| & = & {\frac 1 {|u^*{}'((u^*)^{-1}(y))|}} = {\frac 1 2} \sum\limits_{k = 1}^{m_j} {\frac 1 {b^j_k}} =: { \frac 1 {b_j^*} }.
+\end{eqnarray*}
+
+\begin{multline*}
+\I(u^*) - Z = 2 \int\limits_{(u^*)^{-1}(U)} (1 + u^*{}'^2(x))^{p(x) \over 2} dx =
+\\ = 2 \int\limits_U |((u^*)^{-1})'(y)| \cdot \big( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } \big)^{p((u^*)^{-1}(y)) \over 2} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*} \big(1 + b_j^*{}^2 \big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big) dy.
+\end{multline*}
+
+\begin{thm}
+\label{mainThm}
+Suppose that $p$ is even and $K$ is jointly convex in both arguments.
+Then for any $u \in \Wf[-1, 1]$ the inequality $\I(u^*) \le \I(u)$ holds.
+\end{thm}
+
+
+$p(x)$ is bounded -> piecewise constant $v_n \to u'$ in $L^{p(x)}$
+
+$u_n' := v_n$
+
+Changing $v_n$ around $\pm 1$ assume $u_n \ge 0$ and $u_n(\pm 1) = 0$.
+
+By embedding $L^{p(x)}[-1, 1]\mapsto L^1[-1, 1]$ we have $u_n \to u$ in $\Wf[-1, 1]$.
+
+$| \sqrt{ 1 + x^2 } - \sqrt{ 1 + y^2 } | \le | x - y |$
+
+$v_n \to u'$ in $L^{p(x)}$ -> $\I( u_n ) \to \I( u )$.
+
+$u_n \to u$ in $\Wf[-1, 1]$ -> $u_n^* \rightharpoondown u^*$ in $\Wf[-1, 1]$
+
+Tonelli theorem: $\I$ sequentially weakly lower semicontinuous
+
+$$
+\I(u^*) \le \liminf\limits_n \I(u_n^*) \le \lim\limits_n \I(u_n) = \I(u).
+$$
+
+\section{Sufficient conditions}
+
+$\partial^2_{ss}K>0$, $\partial^2_{xx}K\ge0$ since $p$ is convex
+
+\begin{equation}
+\label{qq''} q q'' \ge q'^2 {\cal A}(q)\equiv
+q'^2\cdot\sup\limits_{w>0} A(w,q),
+%\frac{q}{q + 1} \cdot \frac{ ( (1 - q w) \Ln - 2 w )^2 - w (w q + 1) (q + 1) \Ln^2 }{ 2 w (w q + 1) \Ln }
+\end{equation}
+
+$$
+A(w, q) = \frac{
+q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - {w - 1 \over w} \ln( w + 1 ) + 4 {w \over \ln( w + 1 )} - 4
+}{
+2 ( q w + 1 )
+} \cdot {q \over q + 1}.
+$$
+
+\begin{lm}
+\label{conv}
+$q\ge0$ $ \in C[-1, 1]$. Then $q q'' \ge q'^2 M$ in the sense of distributions with $M\in(0,1)$ is equivalent to convexity
+of $q^{1-M}$.
+\end{lm}
+
+\begin{thm}
+ Let $p(x)\ge1$ be an even continuous function on $[-1, 1]$.
+
+ {\bf 1}. If the function $(p(x)-1)^{0.37}$ is convex then the inequality $\I(u^*) \le \I(u)$ holds for any $u\in\Wf[-1,1]$.
+
+ {\bf 2}. If $p(x)\le 2.36$ for $x\in[-1,1]$ and the function $\sqrt{p(x)-1}$ is convex then the inequality $\I(u^*) \le \I(u)$ holds for any $u\in\Wf[-1,1]$.
+ \end{thm}
+
+
+\section{$\Real^n$}
+
+\begin{thm}
+Suppose that $\widehat\I(u^*) \le \widehat\I(u)$ for any $u \in \Wf(\Omega)$.
+Then $p(x',y)$ is independent on $y$.
+\end{thm}
+
+$$
+\K_{x'}(c, d, y) = c \big({\textstyle1 + {1 + d^2 \over c^2}}
+\big)^{p(x', y) \over 2}
+$$
+
+$x_1 = (x_0', y_1), x_2 = (x_0', y_2)$ ($x_0' \in \omega, -1 < y_1 < y_2 < 1$)
+
+$$
+u(x) = \min\Big(
+  \big( {y - y_1 \over c_1} + (x' - x_0') \cdot \B_1' \big)_+,
+  \big( {y_2 - y \over c_2} + (x' - x_0') \cdot \B_2' \big)_+,
+  \delta \big( w - |x' - x_0'| \big)_+, h
+\Big).
+$$
+
+The left base of the set $S = \supp u$ is given by the system
+$$
+{y - y_1 \over c_1} + (x' - x_0') \cdot \B_1' = 0; \qquad |x' - x_0'| \le w.
+$$
+prolate ellipsoid of revolution
+with the major semi-axis $\sqrt{w^2 + c_1^2 w^2 |\B_1'|^2}$ and
+radius $w$.
+
+Therefore, the set $A_1$ of points where $|\nabla
+w|=\frac{1}{c_1}$ is truncated cone based on this ellipsoid.
+
+$$
+|A_1| = %\frac{h c_1}{\frac{w}{2}} \int\limits_{\frac{w}{2}}^w |B^{n - 1}_r| dr =
+C_1 \delta c_1 w^n
+$$
+
+gradients of $u^*$ at the bases are equal
+to $(\frac{c_1 \B_1' + c_2 \B_2'}{c_1 + c_2}, \frac{2}{c_1 +
+c_2})$. Hence the sets $A_1$ and $A_2$ become $A_1'$ and $A_2'$
+with $|A_1'| = |A_2'| = C_1 \delta \frac{c_1 + c_2}{2} w^n$.
+
+$$
+|A_\delta|
+%\le (y_2 - y_1 + c_1 w |\B_1'| + c_2 w |\B_2'| ) \int\limits_{\frac{w}{2}}^w |S^{n - 2}_r| dr
+\le C\big((y_2 - y_1) w^{n - 1} + (c_1 |\B_1'| + c_2 w
+|\B_2'|)w^n\big).
+$$
+$$ Z = {\rm meas}\{ x \in \Omega \,|\, \nabla u(x) = 0 \} = {\rm
+meas}\{ x \in \Omega \,|\, \nabla u^*(x) = 0 \}.
+$$
+
+$\frac{1}{c_1} = \frac{1}{c_2} = w^2$, $\delta = w^4$ and
+$\B_1' = \B_2' = 0$
+
+\begin{eqnarray*}
+0 &\le& (\widehat\I(u) - Z ) - (\widehat\I(u^*) - Z )
+\\ &\le& \big( (1 + w^4)^{\frac{p(\bar{x}_1)}{2}} - 1 \big) |A_1| + \big( (1 + w^4)^{\frac{p(\bar{x}_2)}{2}} - 1 \big) |A_2|
++ \big( (1 + w^8)^{\frac{P}{2}} - 1 \big) |A_\delta|
+\\ &&- \big( (1 + w^4)^{\frac{p(\hat{x}_1)}{2}} - 1 + (1 + w^4)^{\frac{p(\hat{x}_2)}{2}} - 1 \big) |A_1'|
+\\ &\le& w^4 \big({\textstyle\frac{p(\bar{x}_1)}{2} + \frac{p(\bar{x}_2)}{2} + o_w(1)}\big) C_1 w^{n + 2}
++ w^8 \big({\textstyle\frac{P}{2} + o_w(1)} \big) (y_2 - y_1 ) C
+w^{n-1}
+\\ &&- w^4 \big({\textstyle\frac{p(\hat{x}_1)}{2} + \frac{p(\hat{x}_2)}{2} + o_w(1)}\big) C_1 w^{n + 2}.
+\end{eqnarray*}
+
+We push $w$ to $0$ and arrive at the inequality
+$$
+0 \le p(x_0',y_1) + p(x_0', y_2) - p(x_0', \frac{y_1 - y_2}{2}) -
+p(x_0', \frac{y_2 - y_1}{2}).
+$$
+-> $p$ is convex and even in $y$
+
+arbitrary positive $c_1$, $c_2$, $d_1$ and $d_2$, take
+$\B_1'=\frac {d_1}{c_1}\, {\bf e}$, $\B_2'=\frac {d_2}{c_2}\, {\bf
+e}$ (here ${\bf e}$ is arbitrary unit vector in $x'$ plane) and
+set $\delta = w^2$
+
+\begin{eqnarray*}
+0 &\le& (\widehat\I(u) - Z) - (\widehat\I(u^*) - Z)
+\\ &\le& \big( \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1)-1\big) |A_1| + \big(\K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)-1\big) |A_2|
++ \big( (1 + w^4)^{\frac{P}{2}} - 1 \big) |A_\delta|
+\\ &&-\big( {\textstyle\K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1)-1 + \K_{\hat{x}_2'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2},
+\hat{y}_2)-1 }\big) |A_1'|
+\\ &\le& \big( {\textstyle \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1) + \K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)} \big) C_1 w^{n + 2}
++ ({\textstyle\frac{P}{2} + o_w(1)}) C (y_2 - y_1) w^{n + 3}
+\\ &&-\big( {\textstyle\K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1) +\K_{\hat{x}_2'}(\frac{c_1 +c_2}{2},
+\frac{d_1 + d_2}{2}, \hat{y}_2)} \big) C_1 w^{n + 2}.
+\end{eqnarray*}
+
+Pushing $w$ to $0$, we obtain
+$$
+%\begin{multline*}
+\K_{x_0'}(c_1, d_1, y_1) + \K_{x_0'}(c_2, d_2, y_2) \ge
+\K_{x_0'}\big({\textstyle \frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2},\frac{y_1 - y_2}{2}
+}\big) + \K_{x_0'}\big({\textstyle \frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \frac{y_2 -y_1}{2}}\big),
+$$
+
+$$
+\textstyle
+\K(c,d,y)=K(\frac c{\sqrt{1+d^2}},y)\cdot \sqrt{1+d^2},
+$$
+
+$$
+\det(\K''(c, d, y))=\frac 1{(1+d^2)^{\frac 32}}\cdot\big[(\partial^2_{yy}K\partial^2_{ss}K-\partial^2_{sy}K^2)(K-s\partial_sK)-\partial^2_{ss}K\partial_yK^2d^2\big]
+$$
+(here $s=\frac c{\sqrt{1+d^2}}$). Therefore, if $\partial_y K \not\equiv 0$ we can choose $d$ sufficiently large so that  $\det(\K''(c, d, y))<0$, a contradiction.
+
+\end{document}
