@@ -1,5 +1,8 @@
 import Number.Constants.ZERO
+import Number.Constants.mContext
 import Segment.Companion.EMPTY
+import java.math.BigDecimal
+import java.math.MathContext
 import kotlin.coroutines.experimental.buildSequence
 //import kotlin.system.exitProcess
 //import kotlin.test.currentStackTrace
@@ -23,47 +26,87 @@ fun log(level: DEBUG_LEVEL, msg: () -> String ) {
 
 val MIN_MARGIN = Number( 1E-5 )
 
-class Number( val v : Double ) : Comparable<Number> {
+//class NumberDouble( val v : Double ) : Comparable<Number> {
+//
+//    init {
+//        if ( v.isNaN() ) throw RuntimeException( "NaN in the computations" )
+//    }
+//
+//    constructor( n: Int ) : this( n.toDouble() )
+//    constructor( n: Long ) : this( n.toDouble() )
+//
+//    operator fun unaryMinus() = Number( -v )
+//    operator fun plus( n: Number ) = Number( v + n.v )
+//    operator fun plus( d: Double ) = Number( v + d )
+//    operator fun minus( n: Number ) = Number( v - n.v )
+//    operator fun minus( d: Double ) = Number( v - d )
+//    operator fun times( n: Number ) = Number( v * n.v )
+//    operator fun times( d: Double ) = Number( v * d )
+//    operator fun div( n: Number ) = Number( v / n.v )
+//    operator fun div( d: Double ) = Number( v / d )
+//    operator fun compareTo( d: Double ) = v.compareTo( d )
+//
+//    override fun compareTo( other: Number ) = v.compareTo( other.v )
+//
+//    override fun toString() = v.toString()
+//
+//    override fun equals( other: Any? ): Boolean {
+//        if ( other !is Number ) return false
+//        return v == other.v
+//    }
+//
+//    override fun hashCode() = v.hashCode()
+//
+//    companion object Constants {
+//        val ZERO = Number( 0.0 )
+//        val log1pValues = HashMap<Double, Number>()
+//        val vOverLog1pValues = HashMap<Double, Number>()
+//    }
+//
+//    fun abs() = Number( Math.abs( v ) )
+//    fun log1p() = log1pValues.getOrPut( v, { Number( Math.log1p( v ) ) } )
+//    fun log1pi() = Number( Math.log1p( v ) - Math.log( v ) )
+//    fun vOverLog1p() = vOverLog1pValues.getOrPut( v, { Number( if ( v == 0.0 ) 1.0 else v / Math.log1p( v ) ) } )
+//    fun pow( p: Double ) = Number( Math.pow( v, p ) )
+//}
+//
+//operator fun Double.plus( n: NumberDouble ) = NumberDouble( this + n.v )
+//operator fun Double.minus( n: NumberDouble ) = NumberDouble( this - n.v )
+//operator fun Double.times( n: NumberDouble ) = NumberDouble( this * n.v )
+//operator fun Double.div( n: NumberDouble ) = NumberDouble( this / n.v )
 
-    init {
-        if ( v.isNaN() ) throw RuntimeException( "NaN in the computations" )
+class Number( val v : BigDecimal ) : Comparable<Number> {
+
+    constructor( n: Double ) : this( BigDecimal( n.toString(), mContext ) )
+    constructor( n: Int ) : this( BigDecimal( n, mContext ) )
+    constructor( n: Long ) : this( BigDecimal( n, mContext ) )
+
+    companion object Constants {
+        val mContext = MathContext( 17 )
+//        val mContext = MathContext( 18 )
+//        val mContext = MathContext( 20 )
+//        val mContext = MathContext.DECIMAL128
+        val ZERO = Number( 0.0 )
+        val log1pValues = HashMap<Number, Number>()
+        val vOverLog1pValues = HashMap<Number, Number>()
+        val LN10 = BigDecimal( "2.30258509299404568401799145468436420760110148862877", mContext )
+        val LN4 = BigDecimal( "1.3862943611198906188344642429163531361510002687205105", mContext )
     }
 
-    constructor( n: Int ) : this( n.toDouble() )
-    constructor( n: Long ) : this( n.toDouble() )
-
-    operator fun unaryMinus() = Number( -v )
-    operator fun plus( n: Number ) = Number( v + n.v )
-    operator fun plus( d: Double ) = Number( v + d )
-    operator fun minus( n: Number ) = Number( v - n.v )
-    operator fun minus( d: Double ) = Number( v - d )
-    operator fun times( n: Number ) = Number( v * n.v )
-    operator fun times( d: Double ) = Number( v * d )
-    operator fun div( n: Number ) = Number( v / n.v )
-    operator fun div( d: Double ) = Number( v / d )
-    operator fun compareTo( d: Double ) = v.compareTo( d )
+    operator fun unaryMinus() = Number( v.negate( mContext ) )
+    operator fun plus( n: Number ) = Number( v.add( n.v, mContext ) )
+    operator fun plus( d: Int ) = Number( v.add( BigDecimal( d ), mContext ) )
+    operator fun minus( n: Number ) = Number( v.subtract( n.v, mContext ) )
+//    operator fun minus( d: Double ) = Number( v - d )
+    operator fun times( n: Number ) = Number( v.multiply( n.v, mContext ) )
+//    operator fun times( d: Double ) = Number( v * d )
+    operator fun div( n: Number ) = Number( v.divide( n.v, mContext ) )
+//    operator fun div( d: Double ) = Number( v / d )
+//    operator fun compareTo( d: Double ) = v.compareTo( d )
 
     override fun compareTo( other: Number ) = v.compareTo( other.v )
 
-    override fun toString() : String {
-//        toStringRuns ++
-//        val s = currentStackTrace().joinToString( "\n" )
-//        val v = toStringStacks[s] ?: 0
-//        if ( toStringStacks.containsKey( s ) ) {
-//            toStringStacks[s] = toStringStacks[s]!! + 1
-//        } else {
-//            toStringStacks[s] = 1
-//        }
-//
-//        if ( toStringRuns == 100000 ) {
-//            val max = toStringStacks.values.max()!!
-//            println( "Share ${max.toDouble() / toStringRuns}")
-//            println( toStringStacks.keys.first { toStringStacks[it] == max } )
-//            exitProcess( 0 )
-//        }
-
-        return v.toString()
-    }
+    override fun toString() = v.toString()
 
     override fun equals( other: Any? ): Boolean {
         if ( other !is Number ) return false
@@ -72,26 +115,54 @@ class Number( val v : Double ) : Comparable<Number> {
 
     override fun hashCode() = v.hashCode()
 
-    companion object Constants {
-        val ZERO = Number( 0.0 )
-        val log1pValues = HashMap<Double, Number>()
-        val vOverLog1pValues = HashMap<Double, Number>()
-//        val toStringStacks = HashMap<String, Int>()
-//        var toStringRuns = 0
-    }
-
-    fun abs() = Number( Math.abs( v ) )
-    fun log1p() = log1pValues.getOrPut( v, { Number( Math.log1p( v ) ) } )
-    fun log1pi() = Number( Math.log1p( v ) - Math.log( v ) )
-    fun vOverLog1p() = vOverLog1pValues.getOrPut( v, { Number( if ( v == 0.0 ) 1.0 else v / Math.log1p( v ) ) } )
-    fun pow( p: Double ) = Number( Math.pow( v, p ) )
+    fun abs() = Number( v.abs( mContext ) )
+    fun log1p() = log1pValues.getOrPut( this, {
+        var sum = BigDecimal( 0, mContext )
+        val x = v.subtract( BigDecimal( 3 ), mContext ).divide( BigDecimal( 4 ), mContext )
+        val y = x.divide( x.add( BigDecimal( 2 ), mContext ), mContext )
+        val y2 = y.multiply( y, mContext )
+        var term = y
+        for ( p in 1 .. Int.MAX_VALUE step 2 ) {
+            val prevSum = sum
+            sum = sum.add( term.divide( BigDecimal( p ), mContext), mContext)
+            if ( sum == prevSum ) break
+            term = term.multiply( y2, mContext )
+        }
+        return Number( sum.multiply( BigDecimal( 2 ), mContext )
+                .add( LN4, mContext ) )
+//        var sum = BigDecimal( 0, mContext )
+//        var pow = 0
+//        val y = if ( v <= BigDecimal.ONE ) {
+//            v.divide( v.add( BigDecimal( 2 ), mContext ), mContext )
+//        } else {
+//            val x = v.add( BigDecimal.ONE, mContext )
+//            while ( x >= BigDecimal.TEN ) {
+//                x.scaleByPowerOfTen( -1 )
+//                pow ++
+//            }
+//            x.subtract( BigDecimal.ONE, mContext ).divide( x.add( BigDecimal.ONE, mContext ), mContext )
+//        }
+//        val y2 = y.multiply( y, mContext )
+//        var term = y
+//        for ( p in 1 .. Int.MAX_VALUE step 2 ) {
+//            val prevSum = sum
+//            sum = sum.add( term.divide( BigDecimal( p ), mContext), mContext)
+//            if ( sum == prevSum ) break
+//            term = term.multiply( y2, mContext )
+//        }
+//        return Number( sum.multiply( BigDecimal( 2 ), mContext )
+//                .add( LN10.multiply( BigDecimal( pow ), mContext ), mContext ) )
+    } )
+//    fun log1pi() = Number( Math.log1p( v ) - Math.log( v ) )
+    fun vOverLog1p() = vOverLog1pValues.getOrPut( this, {
+        if ( v == BigDecimal.ZERO ) Number( BigDecimal.ONE ) else this / log1p()
+        } )
+//    fun pow( p: Double ) = Number( Math.pow( v, p ) )
 }
 
-operator fun Double.plus( n: Number ) = Number( this + n.v )
-operator fun Double.minus( n: Number ) = Number( this - n.v )
-operator fun Double.times( n: Number ) = Number( this * n.v )
-operator fun Double.div( n: Number ) = Number( this / n.v )
-
+operator fun Int.plus( n: Number ) = Number( n.v.add( BigDecimal( this ), mContext ) )
+operator fun Int.times( n: Number ) = Number( n.v.multiply( BigDecimal( this ), mContext ) )
+operator fun Int.div( n: Number ) = Number( BigDecimal( this, mContext ).divide( n.v, mContext ) )
 
 fun min( a: Number?, b: Number? ) = if ( a == null ) b else if ( b == null ) a else minOf( a, b )
 fun max( a: Number?, b: Number? ) = if ( a == null ) b else if ( b == null ) a else maxOf( a, b )
@@ -174,7 +245,7 @@ class Segment( from: Number, to: Number ) {
     operator fun div( s: Segment ) : Segment {
         checkNonEmpty()
         s.checkNonEmpty()
-        if ( s.from < 0.0 && s.to > 0.0 ) throw RuntimeException()
+        if ( s.from < ZERO && s.to > ZERO ) throw RuntimeException()
         val candidates = ArrayList<Number>()
         for ( x in listOf(from, to ) ) {
             for ( y in listOf( s.from, s.to ) ) {
