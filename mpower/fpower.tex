@@ -58,12 +58,16 @@ al.il.nazarov@gmail.com} }
 \begin{document}
 \maketitle
 
+\hfill {\it To the memory of V.V. Zhikov}
+
+{\small
 \section*{Abstract}
 
 We give necessary and sufficient conditions for the P\'olya--Szeg\"o type inequality with variable exponent of summability.
 
 MSC classes: 49K05, 49N99
 
+}
 
 \section{Introduction}
 
@@ -92,8 +96,9 @@ In particular, the paper \cite{Br} deals with functionals of the form
 \label{functional}
 I(\mathfrak a, u) = \int\limits_{-1}^1 F\big(u(x), \mathfrak a(x, u(x)) \abs{u'(x)}\big) \, dx
 \end{equation*}
-and their multidimensional analogues. Here $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function convex w.r.t. the first variable
-while $F: \Real\times\Real \to \Real_+$ is a continuous function convex w.r.t. the second variable. A gap in the proof in \cite{Br} was filled in
+and their multidimensional analogues. Here $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is a continuous function convex w.r.t. the first argument
+while $F: \Real_+ \times \Real_+ \to \Real_+$ is a continuous function convex w.r.t. the second argument, $F( \cdot, 0 ) \equiv 0$.
+A gap in the proof in \cite{Br} was filled in
 \cite{BN-CV} where the inequality $I(\mathfrak a, u^*)\le I(\mathfrak a, u)$ was proved for the natural class of functions $u$. Similar results
 for monotone rearrangement were also obtained in \cite{BN-DAN, BN-CV, B-ZNS}.
 
@@ -109,7 +114,7 @@ Our results were partially announced in \cite{B-FAA}.
 The article is divided into 6 sections. In Section 2 we deduce the necessary conditions for the P\'olya-Szeg\"o type inequalities.
 It turns out that for the functional $\J$ such inequality holds only in trivial case $p\equiv const$ while for the functional $\I$
 we have non-trivial conditions. In Section 3 we show that necessary conditions are also sufficient for the inequality $\I(u^*) \le \I(u)$.
-In Section 4 we give some simple assumptions on the exponent $p$ which ensure this inequality.
+In Section 4 we give some explicit sufficient conditions for the exponent $p$ which ensure this inequality.
 
 In Section 5 we consider a multidimensional analogue of the inequality $\I(u^*) \le \I(u)$. Unexpectedly, such inequality can hold only for
 the exponent $p$ which is constant w.r.t. the variable of rearrangement.
@@ -122,7 +127,7 @@ Section 6 (Appendix) contains a numerical-analytical proof of some inequalities 
 
 \begin{thm}
 \label{uniform}
-Suppose $\J(u^*) \le \J(u)$ holds for any piecewise linear $u$.
+Suppose $\J(u^*) \le \J(u)$ holds for any piecewise linear function $u\ge0$.
 Then $p(x) \equiv const$.
 \end{thm}
 
@@ -148,7 +153,7 @@ Taking $\alpha > 1$ and $\alpha < 1$ we arrive at $p(0) \le p(x_0)$ and $p(0) \g
 
 \begin{thm}
 \label{necessary}
-Suppose inequality $\I(u^*) \le \I(u)$ holds for any piecewise linear $u$.
+Suppose inequality $\I(u^*) \le \I(u)$ holds for any piecewise linear function $u\ge0$.
 Then $p$ is even and convex.
 Moreover, the following function is convex:
 $$K(s, x) = s ( 1 + s^{-2} )^{\frac {p(x)}{2}} \qquad s > 0,\ x \in [-1, 1].$$
@@ -158,7 +163,8 @@ To prove Theorem \ref{necessary} we need the following
 \begin{prop}
 \label{convProp}
 {\rm \cite[Lemma 10]{BN-CV}.}
-Suppose $p$ is a continuous function on $[-1, 1]$ and suppose
+Let $p$ be a continuous function on $[-1, 1]$.
+Suppose that
 $$
 \forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p\big(\frac {s - t}{2}\big) + p\big(\frac{t - s}{2}\big).
 $$
@@ -167,8 +173,8 @@ Then $p$ is even and convex.
 
 \begin{proof}[Proof of Theorem \ref{necessary}]
 Fix two points $-1 < x_1 < x_2 < 1$
-and consider a finite piecewise linear function with nonzero derivative only in $x_1$ and $x_2$ circumferences.
-Namely, for arbitrary $s, t > 0$ and a small enough $\eps > 0$,
+and consider a finite piecewise linear function with nonzero derivative only in circumferences of $x_1$ and $x_2$.
+Namely, for arbitrary $s, t > 0$ and a small enough $\eps > 0$, we set
 $$
 u_\eps(x) = \min\big( 2 \eps, ( \eps + s^{-1} (x - x_1))_+, ( \eps + t^{-1} (x_2 - x) )_+\big).
 $$
@@ -253,22 +259,24 @@ $$
 %Можно проверить (\cite[Lemma 10]{BN-CV}), что отсюда следует четность и выпуклость функции $p$.
 %Далее, рассматривая произвольные $s$ и $t$, получаем выпуклость функции $K$.
 
-Then $\I(u^*) \le \I(u)$ leads to
+The sets where $u_\eps' = 0$ and $u_\eps^*{}' = 0$ have equal measures.
+Therefore, the inequality $\I(u_\eps^*) \le \I(u_\eps)$ can be rewritten as follows:
 \begin{multline*}
 \int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } \big( 1 + \frac 1 {s^2 } \big)^{\frac {p(x)} 2} dx
 + \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } \big( 1 + \frac 1 {t^2 } \big)^{\frac {p(x)} 2} dx \ge
-\\ \ge \int\limits_{ \frac { x_2 - x_1} 2  - \frac {s + t}2 \eps }^{ { \frac {x_2 - x_1}2 } + { \frac {s + t} 2 } \eps }
+\\ \ge \int\limits_{ \frac {x_1 - x_2} 2  - \frac {s + t}2 \eps }^{ { \frac {x_1 - x_2} 2 } + { \frac {s + t} 2 } \eps }
 \Big( 1 + \frac{1}{ ( {\frac { s + t} 2 } )^2 } \Big)^{\frac {p(x)} 2} dx
-     + \int\limits_{ {\frac { x_1 - x_2} 2 } - { \frac {s + t} 2 } \eps }^{ { \frac {x_1 - x_2} 2 } + { \frac {s + t} 2 } \eps }
-     \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p(x)} 2} dx
+     + \int\limits_{ {\frac {x_2 - x_1} 2 } - { \frac {s + t} 2 } \eps }^{ { \frac {x_2 - x_1} 2 } + { \frac {s + t} 2 } \eps }
+     \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p(x)} 2} dx.
 \end{multline*}
 
-Passage to the limit as $\eps \to 0$ gives
+We divide this inequality by $2 \eps$ and push $\eps \to 0$.
+This gives
 \begin{multline}
 \label{preConv}
 s \Big( 1 + { \frac 1 {s^2} } \Big)^{\frac {p(x_1)} 2} + t \Big( 1 + { \frac 1 {t^2} } \Big)^{\frac {p(x_2)} 2}\\
-\ge { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_2 - x_1} 2 } )} 2}
-  + { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_1 - x_2} 2 } )} 2}.
+\ge { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_1 - x_2} 2 } )} 2}
+  + { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_2 - x_1} 2 } )} 2}.
 \end{multline}
 
 First, we put $s = t$ in (\ref{preConv}). This gives
@@ -301,7 +309,7 @@ In this section we show that necessary conditions from Theorem \ref{necessary} a
 \begin{lm}
 \label{quasiConv}
 Let $m$ be an even positive number, let $s_k > 0$ ($k = 1 \dots m$), and let $-1 \le x_1 \le \dots \le x_m \le 1$.
-Suppose that $K(s, x)$ is even in $x$ and jointly convex in both arguments.
+Suppose that $K(s, x)$ is even in $x$ and jointly convex in $s$ and $x$.
 Then
 \begin{equation}
 \label{K_ineq}
@@ -331,8 +339,8 @@ Here (a) follows from evenness of $M$ in $x$ and its convexity,
 
 \begin{lm}
 \label{linear}
-Suppose that $K(s, x)$ is even in $x$ and jointly convex in both arguments.
-Then $\I(u^*) \le \I(u)$ for any piecewise linear $u \in \Wf[-1, 1]$.
+Suppose that $K(s, x)$ is even in $x$ and jointly convex in $s$ and $x$.
+Then $\I(u^*) \le \I(u)$ for any piecewise linear nonnegative function $u \in \Wf[-1, 1]$.
 \end{lm}
 
 \begin{proof}
@@ -369,7 +377,7 @@ Since $u^*$ is even, we obtain
 \\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*} \big(1 + b_j^*{}^2 \big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy =
 \\ = 2 \sum\limits_j \int\limits_{U_j} K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big) dy.
 \end{multline*}
-To complete the proof, it is sufficient to show the following inequality for each $j$ and $y \in U$:
+To complete the proof, it is sufficient to show the following inequality for each $j$ and $y \in U_j$:
 $$
 \sum\limits_{k = 1}^{m_j} K\Big({1 \over b^j_k}, (y^j_k)^{-1}(y)\Big) \ge
 2 K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big).
@@ -381,12 +389,13 @@ Now we can prove the result in general case.
 
 \begin{thm}
 \label{mainThm}
-Suppose that $p$ is even and $K$ is jointly convex in both arguments.
-Then for any $u \in \Wf[-1, 1]$ the inequality $\I(u^*) \le \I(u)$ holds.
+Suppose that $p$ is even and $K$ is jointly convex in $s$ and $x$.
+Then for any nonnegative function $u \in \Wf[-1, 1]$ the inequality $\I(u^*) \le \I(u)$ holds.
 \end{thm}
 
 \begin{proof}
-Since $p(x)$ is bounded, we can choose a sequence of piecewise constant functions $v_n$ converging to $u'$ in $L^{p(x)}$,
+Without loss of generality, we can assume $I(u) < \infty$.
+Since $p(x)$ is bounded, we can choose a sequence of piecewise constant functions $v_n$ converging to $u'$ in Orlicz space $L^{p(x)}[-1, 1]$,
 see, e.g., \cite[Theorem~1.4.1]{Shar}. Denote by $u_n$ the primitive of $v_n$.
 Changing $v_n$ if necessary we can assume without loss of generality that $u_n \ge 0$ and $u_n(\pm 1) = 0$.
 
@@ -476,8 +485,8 @@ The following statement is evident.
 
 \begin{lm}
 \label{conv}
-Let $q\ge0$ is a continuous function on $[-1, 1]$. Then the inequality $q q'' \ge q'^2 M$ in the sense of distributions with $M\in(0,1)$ is equivalent to convexity
-of the function $q^{1-M}$.
+Let $q\ge0$ is a continuous function on $[-1, 1]$. Then the inequality $q q'' \ge q'^2 \mathcal M$ in the sense of distributions with $\mathcal M\in(0,1)$ is equivalent to convexity
+of the function $q^{1-\mathcal M}$.
 \end{lm}
 
 Now we can give a simple sufficient condition for the monotonicity of the functional $\cal I$ under symmetrization.
@@ -485,9 +494,9 @@ Now we can give a simple sufficient condition for the monotonicity of the functi
 \begin{thm}
  Let $p(x)\ge1$ be an even continuous function on $[-1, 1]$.
 
- {\bf 1}. If the function $(p(x)-1)^{0.37}$ is convex then the inequality $\I(u^*) \le \I(u)$ holds for any $u\in\Wf[-1,1]$.
+ {\bf 1}. If the function $(p(x)-1)^{0.37}$ is convex then the inequality $\I(u^*) \le \I(u)$ holds for any nonnegative function $u\in\Wf[-1,1]$.
 
- {\bf 2}. If $p(x)\le 2.36$ for $x\in[-1,1]$ and the function $\sqrt{p(x)-1}$ is convex then the inequality $\I(u^*) \le \I(u)$ holds for any $u\in\Wf[-1,1]$.
+ {\bf 2}. If $p(x)\le 2.36$ for $x\in[-1,1]$ and the function $\sqrt{p(x)-1}$ is convex then the inequality $\I(u^*) \le \I(u)$ holds for any nonnegative function $u\in\Wf[-1,1]$.
  \end{thm}
 
 \begin{proof}
@@ -517,7 +526,7 @@ $$
 %Описание области
 
 \begin{thm}
-Suppose that $\widehat\I(u^*) \le \widehat\I(u)$ for any $u \in \Wf(\Omega)$.
+Suppose that $\widehat\I(u^*) \le \widehat\I(u)$ for any nonnegative function $u \in \Wf(\Omega)$.
 Then $p(x',y)$ is independent on $y$.
 \end{thm}
 
@@ -550,19 +559,19 @@ while $h > 0$ is the maximal function value.
 
 Given $y_1$, $y_2$, $c_1$, $c_2$, $\B_1'$, $\B_2'$, we choose $h$ and $\delta$ as functions of small parameter $w$.
 %We suppose that $y_2 - y_1$ is much greater than $\delta$ and $h$ as well as the width of non-zero derivative area on the side of the cylinder $\varkappa = {h \over \delta}$.
-We set $\varkappa\equiv {h \over \delta} := {w \over 2}$ ($\varkappa$ is the width of the lateral layer with non-zero gradient).
+We set $\varkappa\equiv {h \over \delta} := {w \over 2}$ ($\varkappa$ is the width o    f the lateral layer with non-zero gradient).
 %Also we suppose that there is an area of positive measure in $\Omega$ where $u$ is constant and nonzero.
 %In particular, $h = \delta \varkappa < \min( {1 \over c_1}, {1 \over c_2 } ) {y_2 - y_1 \over 2}$.
 
-The left base of the set $S = \supp u$ is given by the system
+The left base of the support of $u$ is given by the system
 $$
 {y - y_1 \over c_1} + (x' - x_0') \cdot \B_1' = 0; \qquad |x' - x_0'| \le w.
 $$
 Thus, it is an $(n-1)$-dimensional prolate ellipsoid of revolution
 with the major semi-axis $\sqrt{w^2 + c_1^2 w^2 |\B_1'|^2}$ and
-radius $w$. Therefore, the set $A_1$ of points where $|\nabla
-w|=\frac{1}{c_1}$ is truncated cone based on this ellipsoid. Direct
-computation gives
+radius $w$.
+Therefore, $\nabla w = (\B_1', \frac{1}{c_1})$ on the set $A_1$ that is a truncated cone based on this ellipsoid.
+Direct computation gives
 % Suppose $\B_1' = 0$. Then $A_1$ is trapezium-like body with $n - 1$-balls of radius $w$ and
 %$\frac{w}{2}$ as bases and measuring $h c_1$ in height. Hence
 $$
@@ -575,11 +584,12 @@ $$
 %factor of $\sqrt{w^2 + c_1^2 w^2 |\B_1'|^2}$. But at the same time
 %its height becomes smaller by the same factor. This means that
 %$|A_1|$ does not depend on $\B_1'$.
-Similarly, $|A_2| = C_1 \delta c_1 w^n$.
 
-After symmetrization the gradients of $u^*$ at the bases are equal
-to $(\frac{c_1 \B_1' + c_2 \B_2'}{c_1 + c_2}, \frac{2}{c_1 +
-c_2})$. Hence the sets $A_1$ and $A_2$ become $A_1'$ and $A_2'$
+Similarly, $\nabla w = (\B_2', -\frac{1}{c_2})$ on the set $A_2$ with $|A_2| = C_1 \delta c_2 w^n$.
+
+After symmetrization the gradients of $u^*$ at the ``bases'' are equal
+to $(\frac{c_1 \B_1' + c_2 \B_2'}{c_1 + c_2}, \pm \frac{2}{c_1 + c_2})$.
+Hence the sets $A_1$ and $A_2$ become $A_1'$ and $A_2'$
 with $|A_1'| = |A_2'| = C_1 \delta \frac{c_1 + c_2}{2} w^n$.
 
 Next, denote by $A_\delta$ the lateral layer with non-zero
@@ -625,7 +635,7 @@ Applying Proposition
 
 Now choose arbitrary positive $c_1$, $c_2$, $d_1$ and $d_2$, take
 $\B_1'=\frac {d_1}{c_1}\, {\bf e}$, $\B_2'=\frac {d_2}{c_2}\, {\bf
-e}$ (here ${\bf e}$ is arbitrary unit vector in $x'$ plane) and
+e}$ (here ${\bf e}$ is arbitrary unit vector in $x'$ hyperplane) and
 set $\delta = w^2$. Then we obtain
 \begin{eqnarray*}
 0 &\le& (\widehat\I(u) - Z) - (\widehat\I(u^*) - Z)
@@ -649,10 +659,10 @@ $$
 %\begin{multline*}
 \K_{x_0'}(c_1, d_1, y_1) + \K_{x_0'}(c_2, d_2, y_2) \ge
 \K_{x_0'}\big({\textstyle \frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2},\frac{y_1 - y_2}{2}
-}\big) + \K_{x_0'}\big({\textstyle \frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \frac{y_2 -y_1}{2}}\big),
+}\big) + \K_{x_0'}\big({\textstyle \frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \frac{y_2 -y_1}{2}}\big).
 $$
 %\end{multline*}
-which implies $\K_{x_0'}$ is convex since it is even in $y$, and the claim follows.
+This implies $\K_{x_0'}$ is convex since it is even in $y$, and the claim follows.
 
 Finally, for the sake of brevity, we omit $x'$ in the notation $\K_{x'}$ and notice that
 $$
@@ -712,7 +722,7 @@ R_5=[4,\infty]\times[1,\infty].
 %This makes possible to estimate direct values of $A$ on all regions except for $R_3$.
 %On $R_3$ we ensure $A_q$ is positive.
 
-For $(w, q) \in R_1$ we construct appropriate piece-wise constant
+For $(w, q) \in R_1$ we construct appropriate piecewise constant
 function $A_1(w,q)$ estimating $A(w,q)$ from above. To do this we
 take a rectangle
 $$
@@ -736,15 +746,15 @@ monotone on $R_1$ in both variables.
 
 
 For $(w,q) \in R_2$ we put $r = {1 \over q}$ and construct
-appropriate piece-wise constant function $A_2(w,r)$ estimating
+appropriate piecewise constant function $A_2(w,r)$ estimating
 $A(w,{1 \over r})$ from above.
 
 In a similar way, for $(w,q) \in R_4$ we put $v = {1 \over w}$ and
-construct appropriate piece-wise constant function $A_4(v,q)$
+construct appropriate piecewise constant function $A_4(v,q)$
 estimating $A({1 \over v},q)$ from above.
 
 Finally, for $(w,q) \in R_5$ we put $v = {1 \over w}$, $r = {1
-\over q}$ and construct appropriate piece-wise constant function
+\over q}$ and construct appropriate piecewise constant function
 $A_5(v,r)$ estimating $A({1 \over v},{1 \over r})$ from above.
 
 The estimating functions $A_1$, $A_2$, $A_4$, $A_5$ were
@@ -767,7 +777,7 @@ In all cases we obtain $A(w,q)\le 0.62$.
 
 The analysis of $A(w,q)$ in $R_3$ is more careful. We again put $r
 = {1 \over q}$ and claim that $A(w,{1 \over r})$ is decreasing in
-$r$. To prove this we construct appropriate piece-wise constant
+$r$. To prove this we construct appropriate piecewise constant
 function $A_3(w,r)$ estimating $\partial_rA(w,{1 \over r})$ from
 above. This function was calculated on proper mesh with $15$ valid
 digits. This gives the following result.
@@ -783,25 +793,33 @@ digits. This gives the following result.
 Thus, the claim follows, and $A(w,{1 \over r})$ attains its
 maximum in $R_3$ at the line $r=0$.
 
-To find the actual maximum we take
-$A_\infty(w) = A(w, \infty) = 2 - {1 \over 2} ( \ln(w + 1) + 3 {\ln(w + 1) \over w} ).$
-We prove the maximum is unique by ensuring that $A_\infty$ is convex upwards for $w \in [1, 4]$.
-Further, we use standard computational methods to find the extremum.
-Estimating $A_\infty''(w)$ results in
+To find the actual maximum we consider
+$$
+A(w, \infty) = 2 - {1 \over 2} ( \ln(w + 1) + 3 {\ln(w + 1) \over
+w} )
+$$
+and claim that that $A(w, \infty)$ is concave for $w \in [1, 4]$.
+To prove this we construct appropriate piecewise constant
+function $A_\infty(w)$ estimating $A_\infty''(w)$ from above. This
+function was calculated on proper mesh with $15$ valid digits.
+This gives the following result.
+
 \begin{center}
 \begin{tabular} {|c|c|c|c|}
 \hline Region & & Mesh step & Inequality
 \\
-\hline $[1, 4]$ & & $3 \cdot 10^{-3}$ & $A_\infty''|_{[1, 4]} \le -0.13$ \\
+\hline $1\le w\le 4$ & & $3 \cdot 10^{-3}$ & $A_\infty \le -0.13$ \\
 \hline\end{tabular}
 \end{center}
-The maximum is achieved for $w \approx 1.816960565240$ and equals approximately to $0.627178211634$.
+Thus, the maximum is unique. Using standard computational methods
+we find that it is achieved for $w \approx 1.816960565240$, $\max
+A(w,\infty)\approx 0.627178211634$, and (\ref{calc}) follows.
 
-To prove the inequality (\ref{calcHalf}) we split $(w, q) \in \Real_+ \times [0, 1.36]$
-into four regions, see Fig.~2:
+To prove inequality (\ref{calcHalf}) we split $(w, q) \in \Real_+
+\times [0, 1.36]$ into four regions, see Fig.~2:
 \begin{eqnarray*}
- &&R_6 = [0, 3] \times [0, 1.36],\quad R_7 =[5, \infty] \times [0,1.36], \\
- && R_8 = [3, 5] \times [0, 1.3],\quad R_9 = [3,5] \times [1.3, 1.36].
+ &&R_6 = [0, 3] \times [0, 1.36],\quad R_7 = [3, 5] \times [0, 1.3], \\
+ && R_8 = [3,5] \times [1.3, 1.36],\quad R_9 =[5, \infty] \times [0,1.36].
 \end{eqnarray*}
 
 \begin{figure}[ht]
@@ -817,18 +835,22 @@ into four regions, see Fig.~2:
 \put(30,20){\vector(0,1){90}}
 \put(165,20){\line(0,1){60}} \put(255,20){\line(0,1){60}}
 
-\put(90,43){\LARGE $R_6$}
-\put(315,43){\LARGE $R_7$}
-\put(201,40){\LARGE $R_8$}
-\put(201,85){\LARGE $R_9$}
+\put(90,43){\LARGE $R_6$} \put(315,43){\LARGE $R_9$}
+\put(201,40){\LARGE $R_7$} \put(225,85){\LARGE $R_8$}
+
+\put(225,95){\vector(-1,-1){15}}
 
 \end{picture}
 
-\caption{To the proof of (\ref{calc})}
+\caption{To the proof of (\ref{calcHalf})}
 \end{figure}
 
-On each of these regions we prove the inequality in the same was as for inequality (\ref{calc}),
-and get the following results.
+In these regions we used piecewise constant functions $A_1$ and
+$A_4$ introduced earlier. These functions were calculated on
+proper meshes with $15$ valid digits.
+In $R_8$ we need to use the mesh step less then
+$10^{-5}$, so we repeated calculations with $18$ valid digits.
+ This gives the following results.
 
 \begin{center}
 \begin{tabular} {|c|c|c|c|c|}
@@ -836,11 +858,19 @@ and get the following results.
 Inequality
 \\
 \hline $R_6$ & & $3 \cdot 10^{-3}$ & $1.36 \cdot 10^{-3}$ & $A_1 \le 0.498$ \\
-\hline $R_7$ & & $2 \cdot 10^{-3}$ & $1.36 \cdot 10^{-2}$  & $A_4 \le 0.4992$ \\
-\hline $R_8$ & & $2 \cdot 10^{-3}$ & $1.3 \cdot 10^{-3}$  & $A_1 \le 0.498$ \\
-\hline $R_9$ & & $2 \cdot 10^{-4}$ & $6 \cdot 10^{-6}$  & $A_1 \le 0.49996$ \\
+\hline $R_7$ & & $2 \cdot 10^{-3}$ & $1.3 \cdot 10^{-3}$  & $A_1 \le 0.498$ \\
+\hline $R_8$ & & $2 \cdot 10^{-4}$ & $6 \cdot 10^{-6}$  & $A_1 \le 0.49996$ \\
+\hline $R_9$ & & $2 \cdot 10^{-3}$ & $1.36 \cdot 10^{-2}$  & $A_4 \le 0.4992$ \\
 \hline\end{tabular}
 \end{center}
+
+The proof is complete.
+
+\section*{Acknowledgements}
+
+Authors are grateful to M.~Surnachev for simplification of the proof of Theorem \ref{mainThm}.
+
+%The paper is supported by RFBR grant 18-01-00472.
 
 \begin{thebibliography}{99}
 
