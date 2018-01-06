@@ -4,6 +4,7 @@
 \documentclass{gAPA2e}
 
 \usepackage{subfigure}% Support for small, `sub' figures and tables
+\usepackage{color}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
@@ -98,7 +99,7 @@ I(u^*) \le I(u), \qquad \text{where } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx, \q
 \end{equation}
 (in particular $I(u^*)=\infty$ implies $I(u)=\infty$).
 
-The generalizations of the inequality (\ref{PS}) were considered in a number of papers, see, e.g., the survey \cite{Tal} and references therein.
+The generalizations of inequality (\ref{PS}) were considered in a number of papers, see, e.g., the survey \cite{Tal} and references therein.
 In particular, the paper \cite{Br} deals with functionals of the form
 \begin{equation*}
 \label{functional}
@@ -121,7 +122,7 @@ Our results were partially announced in \cite{B-FAA}.
 
 The article is divided into 6 sections. In Section 2 we deduce the necessary conditions for the P\'olya-Szeg\"o type inequalities.
 It turns out that for the functional $\J$ such inequality holds only in trivial case $p\equiv const$ while for the functional $\I$
-we have non-trivial conditions. In Section 3 we show that necessary conditions are also sufficient for the inequality $\I(u^*) \le \I(u)$.
+we have non-trivial conditions. In Section 3 we show that {\color{red}these} necessary conditions are also sufficient for the inequality $\I(u^*) \le \I(u)$.
 In Section 4 we give some explicit sufficient conditions for the exponent $p$ which ensure this inequality.
 
 In Section 5 we consider a multidimensional analogue of the inequality $\I(u^*) \le \I(u)$. Unexpectedly, such inequality can hold only for
@@ -162,7 +163,7 @@ Taking $\alpha > 1$ and $\alpha < 1$ we arrive at $p(0) \le p(x_0)$ and $p(0) \g
 Suppose inequality $\I(u^*) \le \I(u)$ holds for any piecewise linear function $u\ge0$.
 Then $p$ is even and convex.
 Moreover, the following function is convex:
-$$K(s, x) = s ( 1 + s^{-2} )^{\frac {p(x)}{2}} \qquad s > 0,\ x \in [-1, 1].$$
+$$K(s, x) = s ( 1 + s^{-2} )^{\frac {p(x)}{2}}, \qquad s > 0,\ x \in [-1, 1].$$
 \end{theorem}
 
 To prove Theorem \ref{necessary} we need the following
@@ -171,9 +172,11 @@ To prove Theorem \ref{necessary} we need the following
 {\rm \cite[Lemma 10]{BN-CV}.}
 Let $p$ be a continuous function on $[-1, 1]$.
 Suppose that
+{\color{red}
 $$
-\forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p\big(\frac {s - t}{2}\big) + p\big(\frac{t - s}{2}\big).
+p(s) + p(t) \ge p\big(\frac {s - t}{2}\big) + p\big(\frac{t - s}{2}\big) \qquad \forall s, t \in [-1, 1].
 $$
+}
 Then $p$ is even and convex.
 \end{proposition}
 
@@ -320,12 +323,12 @@ Now we can prove the result in general case.
 \begin{theorem}
 \label{mainThm}
 Suppose that $p$ is even and $K$ is jointly convex in $s$ and $x$.
-Then for any nonnegative function $u \in \Wf(-1, 1)$ the inequality $\I(u^*) \le \I(u)$ holds.
+{\color{red}Then the inequality $\I(u^*) \le \I(u)$ holds for any nonnegative function $u \in \Wf(-1, 1)$.}
 \end{theorem}
 
 \begin{proof}
 Without loss of generality, we can assume $I(u) < \infty$.
-Since $p(x)$ is bounded, we can choose a sequence of piecewise constant functions $v_n$ converging to $u'$ in Orlicz space $L^{p(x)}[-1, 1]$,
+Since $p(x)$ is bounded, we can choose a sequence of piecewise constant functions $v_n$ converging to $u'$ in {\color{red}the} Orlicz space $L^{p(x)}[-1, 1]$,
 see, e.g., \cite[Theorem~1.4.1]{Shar}. Denote by $u_n$ the primitive of $v_n$.
 Changing $v_n$ if necessary we can assume without loss of generality that $u_n \ge 0$ and $u_n(\pm 1) = 0$.
 
@@ -353,11 +356,11 @@ Direct calculation gives
 where $q = q(x) = p(x) - 1$ and $w = w(s) = \frac{1}{s^2}$.
 
 Thus, we arrive at the inequality for the function $q$
+{\color{red}
 \begin{equation}
-\label{qq''} q q'' \ge q'^2 {\cal B}(q)\equiv
-q'^2\cdot\sup\limits_{w>0} B(w,q),
+\label{qq''} q q'' \ge q'^2 {\cal B}(q)
 \end{equation}
-where
+where ${\cal B}(q) \equiv \sup\limits_{w>0} B(w,q)$ and}
 $$
 B(w, q) = \frac{
 q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - {w - 1 \over w} \ln( w + 1 ) + 4 {w \over \ln( w + 1 )} - 4
@@ -410,7 +413,7 @@ $$
 
 \begin{theorem}
 Let $\widehat\I(u^*) \le \widehat\I(u)$ for any nonnegative function $u \in \Wf(\Omega)$.
-Then $p(x',y)$ is independent on $y$.
+Then $p(x',y)$ {\color{red} does not depend on} $y$.
 \end{theorem}
 
 \begin{proof}
@@ -424,9 +427,11 @@ should be jointly convex on $(-1,1)\times\Real\times\Real_+$.
 
 
 Indeed, consider two points
+{\color{red}
 $$
-x_1 = (x_0', y_1),\ x_2 = (x_0', y_2) \qquad (x_0' \in \omega, -1 < y_1 < y_2 < 1).
+x_1 = (x_0', y_1),\ x_2 = (x_0', y_2), \qquad \text{where} \quad x_0' \in \omega,\ -1 < y_1 < y_2 < 1.
 $$
+}
 We construct a function $u \in \Wf(\Omega)$ with nonzero gradient only in circumferences of $x_1,
 x_2$ and around the lateral boundary of a cylinder with axis
 $[x_1, x_2]$. Namely,
@@ -442,7 +447,7 @@ $\B_1', \B_2' \in \Real^{n - 1}$ are gradients w.r.t. $x'$ at the ``bases'',
 $\delta > 0$ is the absolute value of the gradient at the lateral boundary, $w > 0$ is the cylinder radius,
 while $h > 0$ is the maximal function value.
 
-Given $y_1$, $y_2$, $c_1$, $c_2$, $\B_1'$, $\B_2'$, we choose $h$ and $\delta$ as functions of small parameter $w$.
+Given $y_1$, $y_2$, $c_1$, $c_2$, $\B_1'$, $\B_2'$, we choose $h$ and $\delta$ as functions of {\color{red} the} small parameter $w$.
 We set $\varkappa\equiv {h \over \delta} := {w \over 2}$ ($\varkappa$ is the width of the lateral layer with non-zero gradient).
 
 The left base of the support of $u$ is given by the system
@@ -452,14 +457,14 @@ $$
 Thus, it is an $(n-1)$-dimensional prolate ellipsoid of revolution
 with the major semi-axis $\sqrt{w^2 + c_1^2 w^2 |\B_1'|^2}$ and
 radius $w$.
-Therefore, $\nabla w = (\B_1', \frac{1}{c_1})$ on the set $A_1$ that is a truncated cone based on this ellipsoid.
+Therefore, $\nabla {\color{red} u} = (\B_1', \frac{1}{c_1})$ on the set $A_1$ that is a truncated cone based on this ellipsoid.
 Direct computation gives
 $$
 {\rm meas} (A_1) = C_1 \delta c_1 w^n
 $$
-(hereinafter $C$ with or without indices are absolute constants).
+(hereinafter $C$ with or without indices are {\color{red} some constants depending only on $n$}).
 
-Similarly, $\nabla w = (\B_2', -\frac{1}{c_2})$ on the set $A_2$ with ${\rm meas} (A_2) = C_1 \delta c_2 w^n$.
+Similarly, $\nabla {\color{red} u} = (\B_2', -\frac{1}{c_2})$ on the set $A_2$ with ${\rm meas} (A_2) = C_1 \delta c_2 w^n$.
 
 After symmetrization the gradients of $u^*$ at the ``bases'' are equal
 to $(\frac{c_1 \B_1' + c_2 \B_2'}{c_1 + c_2}, \pm \frac{2}{c_1 + c_2})$.
@@ -488,10 +493,10 @@ $\B_1' = \B_2' = 0$, the theorem assumptions imply
 &+& \big( (1 + w^4)^{\frac{p(\bar{x}_2)}{2}} - 1 \big) \cdot {\rm meas} (A_2)
 + \big( (1 + w^8)^{\frac{P}{2}} - 1 \big) \cdot {\rm meas} (A_\delta)
 \\ &- &\big( (1 + w^4)^{\frac{p(\hat{x}_1)}{2}} - 1 + (1 + w^4)^{\frac{p(\hat{x}_2)}{2}} - 1 \big) \cdot {\rm meas} (A_1')
-\\ &\le& w^4 \big({\textstyle\frac{p(\bar{x}_1)}{2} + \frac{p(\bar{x}_2)}{2} + o_w(1)}\big) C_1 w^{n + 2}
-+ w^8 \big({\textstyle\frac{P}{2} + o_w(1)} \big) (y_2 - y_1 ) C
+\\ &\le& w^4 \big({\textstyle\frac{p(\bar{x}_1)}{2} + \frac{p(\bar{x}_2)}{2} + {\color{red} o(w)}}\big) C_1 w^{n + 2}
++ w^8 \big({\textstyle\frac{P}{2} + {\color{red} o(w)}} \big) (y_2 - y_1 ) C
 w^{n-1}
-\\ &&- w^4 \big({\textstyle\frac{p(\hat{x}_1)}{2} + \frac{p(\hat{x}_2)}{2} + o_w(1)}\big) C_1 w^{n + 2}.
+\\ &&- w^4 \big({\textstyle\frac{p(\hat{x}_1)}{2} + \frac{p(\hat{x}_2)}{2} + {\color{red} o(w)}}\big) C_1 w^{n + 2}.
 \end{eqnarray*}
 Here $P = \max p(x', y)$, $\bar{x}_1 \in A_1$, $\bar{x}_2 \in
 A_2$, $\hat{x}_1 \in A_1'$, $\hat{x}_2 \in A_2'$.
@@ -506,20 +511,22 @@ Applying Proposition
 
 Now we choose arbitrary positive $c_1$, $c_2$, $d_1$ and $d_2$, take
 $\B_1'=\frac {d_1}{c_1}\, {\bf e}$, $\B_2'=\frac {d_2}{c_2}\, {\bf
-e}$ (here ${\bf e}$ is arbitrary unit vector in $x'$ hyperplane) and
+e}$ (here ${\bf e}$ is {\color{red} a} unit vector in $x'$ hyperplane) and
 set $\delta = w^2$. Then we obtain
+{\color{red}
 \begin{eqnarray*}
 0 &\le& (\widehat\I(u) - Z) - (\widehat\I(u^*) - Z)
-\le \big( \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1)-1\big) \cdot  {\rm meas} (A_1) 
-\\ &+& \big(\K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)-1\big) \cdot {\rm meas} (A_2)
+\le \big( \textstyle{ \frac{1}{c_1} \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1)-1 } \big) \cdot  {\rm meas} (A_1)
+\\ &+& \big( \textstyle{ \frac{1}{c_2} \K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)-1 } \big) \cdot {\rm meas} (A_2)
   + \big( (1 + w^4)^{\frac{P}{2}} - 1 \big) \cdot {\rm meas} (A_\delta)
-\\ &-& \big( {\textstyle\K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1)-1 + \K_{\hat{x}_2'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2},
-\hat{y}_2)-1 }\big) \cdot {\rm meas} (A_1')
+\\ &-& \big( \textstyle{ \frac{2}{c_1 + c_2} \K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1) - 1 )}\big) \cdot {\rm meas} (A_1')
+\\ &-& \big( \textstyle{ \frac{2}{c_1 + c_2} \K_{\hat{x}_2'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_2) - 1 )}\big) \cdot {\rm meas} (A_2')
 \\ &\le& \big( {\textstyle \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1) + \K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)} \big) C_1 w^{n + 2}
-+ ({\textstyle\frac{P}{2} + o_w(1)}) C (y_2 - y_1) w^{n + 3}
++ ({\textstyle\frac{P}{2} + o(w)}) C (y_2 - y_1) w^{n + 3}
 \\ &-& \big( {\textstyle\K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1) +\K_{\hat{x}_2'}(\frac{c_1 +c_2}{2},
 \frac{d_1 + d_2}{2}, \hat{y}_2)} \big) C_1 w^{n + 2}.
 \end{eqnarray*}
+}
 Here $P = \max p(x', y)$, $(\bar{x}_1', \bar{y}_1)\in A_1$,
 $(\bar{x}_2', \bar{y}_2) \in A_2$, $(\hat{x}_1', \hat{y}_1) \in
 A_1'$, $(\hat{x}_2', \hat{y}_2) \in A_2'$.
