@@ -130,7 +130,7 @@ the exponent $p$ which is constant w.r.t. the variable of rearrangement.
 
 Section 6 (Appendix) contains a numerical-analytical proof of some inequalities in Section 4.
 
-We use the notation $f_+ = \max( f, 0 )$.
+We use the notation $f_\pm = \max( \pm f, 0 )$.
 
 \section{Necessary conditions}
 
@@ -329,18 +329,64 @@ Suppose that $p$ is even and $K$ is jointly convex in $s$ and $x$.
 \begin{proof}
 Without loss of generality, we can assume $I(u) < \infty$.
 Since $p(x)$ is bounded, we can choose a sequence of piecewise constant functions $v_n$ converging to $u'$ in {\color{red}the} Orlicz space $L^{p(x)}[-1, 1]$,
-see, e.g., \cite[Theorem~1.4.1]{Shar}. Denote by $u_n$ the primitive of $v_n$.
-Changing $v_n$ if necessary we can assume without loss of generality that $u_n \ge 0$ and $u_n(\pm 1) = 0$.
+see, e.g., \cite[Theorem~1.4.1]{Shar}.
+Denote by $u_n$ the primitive of $v_n$ such that $u_n(-1)=0$.
 
-By embedding $L^{p(x)}[-1, 1]\mapsto L^1(-1, 1)$ we have $u_n \to u$ in $\Wf(-1, 1)$.
+{\color{red}
+It is easy to see that $u_n \rightrightarrows u$, and thus $\eps_n := -\inf u_n \to 0$.
+Define $\delta_n$ by the relation
+\begin{equation}
+\label{left_delta}
+\int\limits_{-1}^{-1 + \delta_n}(v_n)_- = \eps_n
+\end{equation}
+and set
+$$
+\tilde v_n = (v_n)_+ - (v_n)_- \cdot \chi_{[-1 + \delta_n, 1]}.
+$$
+We claim that $\|\tilde v_n - v_n\|_{L^{p(x)}(-1, 1)} \to 0$.
+Indeed, by (\ref{left_delta}) the measure of the set
+$$
+{\cal A}_n=\{ x \in [-1, -1 + \delta_n] \,:\, (v_n)_- \ge \sqrt{\eps_n} \}
+$$
+tends to $0$ as $n \to \infty$.
+Since $v_n \to u'$ in $L^{p(x)}$, we have
+$$
+\|(v_n)_-\|_{L^{p(x)}({\cal A}_n)} \le \|u'\|_{L^{p(x)}({\cal A}_n)} + \|v_n - u'\|_{L^{p(x)}({\cal A}_n)} \to 0.
+$$
+Since evidently
+$$
+\|(v_n)_-\|_{L^{p(x)}([-1, -1 + \delta_n] \setminus {\cal A}_n)} \to 0,
+$$
+we have
+$$
+\|\tilde v_n - v_n\|_{L^{p(x)}(-1, 1)} = \|(v_n)_-\|_{L^{p(x)}(-1, -1 + \delta_n)} \to 0,
+$$
+and the claim follows.
+Denote by $\tilde u_n$ the primitive of $\tilde v_n$ such that $\tilde u_n(-1) = 0$.
+By construction, $\tilde u_n \ge 0$.
+Set $\tilde\eps_n = \tilde u_n(1) \to 0$, define $\tilde\delta_n$ by the relation
+$$
+\int\limits_{1 - \tilde\delta_n}^1(\tilde v_n)_+ = \tilde\eps_n
+$$
+and set
+$$
+\hat v_n = (\tilde v_n)_+ \cdot \chi_{[-1, 1 - \tilde\delta_n]} - (\tilde v_n)_-.
+$$
+By the same reason as above, $\|\hat v_n - \tilde v_n\|_{L^{p(x)}(-1, 1)} \to 0$.
+
+Denote by $\hat u_n$ the primitive of $\hat v_n$ such that $\hat u_n(-1) = 0$.
+By construction, $\hat u_n \ge 0$, $\hat u_n(1) = 0$, and $\hat u_n' \to u'$ in $L^{p(x)}(-1, 1)$.
+}
+
+By embedding $L^{p(x)}[-1, 1]\mapsto L^1(-1, 1)$ we have $\hat u_n \to u$ in $\Wf(-1, 1)$.
 Further, since $| \sqrt{ 1 + x^2 } - \sqrt{ 1 + y^2 } | \le | x - y |$ for all $x$ and $y$,
-the relation $v_n \to u'$ in $L^{p(x)}$ implies $\I( u_n ) \to \I( u )$.
+the relation $\hat u_n' \to u'$ in $L^{p(x)}$ implies $\I( \hat u_n ) \to \I( u )$.
 
-By \cite[Theorem 1]{Br}, the convergence $u_n \to u$ in $\Wf(-1, 1)$ implies weak convergence $u_n^* \rightharpoondown u^*$ in $\Wf(-1, 1)$.
+By \cite[Theorem 1]{Br}, the convergence $\hat u_n \to u$ in $\Wf(-1, 1)$ implies weak convergence $\hat u_n^* \rightharpoondown u^*$ in $\Wf(-1, 1)$.
 By the Tonelli theorem, the functional $\I$ is sequentially weakly lower semicontinuous (see, e.g., \cite[Theorem 3.5]{BGH}).
 Thus,
 $$
-\I(u^*) \le \liminf\limits_n \I(u_n^*) \le \lim\limits_n \I(u_n) = \I(u).
+\I(u^*) \le \liminf\limits_n \I(\hat u_n^*) \le \lim\limits_n \I(\hat u_n) = \I(u).
 $$
 \end{proof}
 
@@ -355,10 +401,10 @@ Direct calculation gives
 \end{multline*}
 where $q = q(x) = p(x) - 1$ and $w = w(s) = \frac{1}{s^2}$.
 
-Thus, we arrive at the inequality for the function $q$
+Thus, we arrive at the inequality for the function $q$:
 {\color{red}
 \begin{equation}
-\label{qq''} q q'' \ge q'^2 {\cal B}(q)
+\label{qq''} q q'' \ge q'^2 {\cal B}(q),
 \end{equation}
 where ${\cal B}(q) \equiv \sup\limits_{w>0} B(w,q)$ and}
 $$
@@ -519,8 +565,8 @@ set $\delta = w^2$. Then we obtain
 \le \big( \textstyle{ \frac{1}{c_1} \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1)-1 } \big) \cdot  {\rm meas} (A_1)
 \\ &+& \big( \textstyle{ \frac{1}{c_2} \K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)-1 } \big) \cdot {\rm meas} (A_2)
   + \big( (1 + w^4)^{\frac{P}{2}} - 1 \big) \cdot {\rm meas} (A_\delta)
-\\ &-& \big( \textstyle{ \frac{2}{c_1 + c_2} \K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1) - 1 )}\big) \cdot {\rm meas} (A_1')
-\\ &-& \big( \textstyle{ \frac{2}{c_1 + c_2} \K_{\hat{x}_2'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_2) - 1 )}\big) \cdot {\rm meas} (A_2')
+\\ &-& \big( \textstyle{ \frac{2}{c_1 + c_2} \K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1) - 1 }\big) \cdot {\rm meas} (A_1')
+\\ &-& \big( \textstyle{ \frac{2}{c_1 + c_2} \K_{\hat{x}_2'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_2) - 1 }\big) \cdot {\rm meas} (A_2')
 \\ &\le& \big( {\textstyle \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1) + \K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)} \big) C_1 w^{n + 2}
 + ({\textstyle\frac{P}{2} + o(w)}) C (y_2 - y_1) w^{n + 3}
 \\ &-& \big( {\textstyle\K_{\hat{x}_1'}(\frac{c_1 + c_2}{2}, \frac{d_1 + d_2}{2}, \hat{y}_1) +\K_{\hat{x}_2'}(\frac{c_1 +c_2}{2},
@@ -546,7 +592,7 @@ $$
 $$
 where the function $K$ is introduced in Theorem \ref{necessary}. Direct calculation gives
 $$
-\det(\K''(c, d, y))=\frac 1{(1+d^2)^{\frac 32}}\cdot\big[(\partial^2_{yy}K\partial^2_{ss}K-\partial^2_{sy}K^2)(K-s\partial_sK)-\partial^2_{ss}K\partial_yK^2d^2\big]
+\det(\K''(c, d, y))=\frac 1{(1+d^2)^{\frac 32}}\cdot\big[(\partial^2_{yy}K\partial^2_{ss}K-(\partial^2_{sy}K)^2)(K-s\partial_sK)-\partial^2_{ss}K(\partial_yK)^2d^2\big]
 $$
 (here $s=\frac c{\sqrt{1+d^2}}$). Therefore, if $\partial_y K \not\equiv 0$ we can choose $d$ sufficiently large so that  $\det(\K''(c, d, y))<0$, a contradiction.
 \end{proof}
@@ -667,7 +713,7 @@ w} )
 $$
 and claim that that $B(w, \infty)$ is concave for $w \in [1, 4]$.
 To prove this we construct appropriate piecewise constant
-function $B_\infty(w)$ estimating $B_\infty''(w)$ from above. This
+function $B_\infty(w)$ estimating $\partial^2_{ww} B(w, \infty)$ from above. This
 function was calculated on proper mesh with $15$ valid digits.
 This gives the following result.
 
@@ -736,7 +782,8 @@ The proof is complete.
 
 \section*{Acknowledgements}
 
-We are grateful to M.~Surnachev for simplification of the proof of Theorem \ref{mainThm}.
+We are grateful to M.~Surnachev for simplification of the proof of Theorem \ref{mainThm}
+and to an anonymous referee for important advices.
 
 The paper is supported by RFBR grant 18-01-00472.
 
