@@ -2,7 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-      <configuration sdkName="Python 2.7.6 (/usr/bin/python2.7)" />
+      <configuration sdkName="" />
     </facet>
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="2" platform="JVM 1.8" useProjectSettings="false">
@@ -17,7 +17,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="false">
+  <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/out" />
     <output-test url="file://$MODULE_DIR$/test" />
     <exclude-output />
@@ -27,6 +27,5 @@
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
-    <orderEntry type="library" name="Python 2.7.6 (/usr/bin/python2.7) interpreter library" level="application" />
   </component>
 </module>
