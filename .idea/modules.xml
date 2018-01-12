@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/mpower/mpower.iml" filepath="$PROJECT_DIR$/mpower/mpower.iml" />
       <module fileurl="file://$PROJECT_DIR$/multi/multi.iml" filepath="$PROJECT_DIR$/multi/multi.iml" />
       <module fileurl="file://$PROJECT_DIR$/power/power.iml" filepath="$PROJECT_DIR$/power/power.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis/thesis.iml" filepath="$PROJECT_DIR$/thesis/thesis.iml" />
     </modules>
   </component>
 </project>
