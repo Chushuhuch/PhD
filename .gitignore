@@ -14,6 +14,6 @@
 *.class
 *.7z
 **/out/
-.idea
 .idea/workspace.xml
+.idea/shelf
 literature/
