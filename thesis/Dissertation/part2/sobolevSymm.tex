@@ -1,0 +1,25 @@
+\subsection{The proof of inequality (\ref{toproveSymm})}
+\label{sobolevSymm}
+
+\begin{thm}
+\label{symmThm}
+Suppose that $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative,
+and the continuous weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$
+is even and convex with respect to the first argument.
+Then inequality $(\ref{toproveSymm})$ holds.
+\end{thm}
+
+\begin{proof}
+As we mentioned in the introduction,
+the statement is proved for Lipschitz functions $u$ in paper \cite{Brock}.
+Thus, we need only to extend it to $\W$-functions.
+
+The case of convex weight is much simpler than the case considered in Section \ref{moveForth}.
+Namely, the function $\mathfrak a$ decreases for $x < 0$ and increases for $x > 0$ regardless of $v$.
+Thus, assumption $(H6)$ of Theorem \ref{mainThm} is satisfied.
+To fulfil assumption $(H7)$, we apply Lemma \ref{zeroApprox} with $W = \{ u(0) \}$.
+Then we can use immediately Step 1 of the proof of Theorem \ref{mainThm}.
+This gives us (\ref{toproveSymm}).
+Since Step 1 uses assumptions $(H1)$, $(H6)$, $(H7)$ only,
+we do not need to check $(H2)-(H5)$.
+\end{proof}

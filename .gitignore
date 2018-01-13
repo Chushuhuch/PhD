@@ -10,6 +10,8 @@
 *.dvi
 *.log
 *.fdb_latexmk
+*.bbl
+*.blg
 *.fls
 *.class
 *.7z

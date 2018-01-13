@@ -1,0 +1,141 @@
+\section{Properties of the weight function}
+
+For brevity, in this section we omit the second argument of the function $\mathfrak a$.
+Thus, we assume, that $\mathfrak a \in C[-1, 1]$ and $\mathfrak a \ge 0$.
+
+\begin{lm}
+\label{weightSum}
+Let $\mathfrak a$ satisfy (\ref{almostConcave}).
+
+\textbf{1.} For any $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$
+the following inequalities hold
+\begin{align*}
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a( 1 - \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(- \sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
+\end{align*}
+
+\textbf{2.}
+Assume that, in addition, the function $\mathfrak a$ is even.
+Then the following inequalities also hold:
+\begin{align*}
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ for even $n$}, & \\
+\sum_{k = 1}^n \mathfrak a(t_k) & \ge \mathfrak a(\sum_{k = 1}^n (-1)^k t_k), & \text{ for odd $n$}. &
+\end{align*}
+\end{lm}
+
+\begin{proof}
+\textbf{1.}
+We prove the lemma by induction.
+For $n = 1$ the assertion is trivial.
+Now let $n$ be even. Then, by the induction hypothesis,
+$$\sum_{k=1}^{n - 1} \mathfrak a(t_k) \ge \mathfrak a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ).$$
+Then
+$$\sum_{k = 1}^{n - 1} \mathfrak a( t_k ) + \mathfrak a( t_n ) \ge \mathfrak a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ) + \mathfrak a( t_n ) \ge
+\mathfrak a( 1 - \sum_{k = 1}^{n} (-1)^k t_k ).$$
+In the case of odd $n$ we have the following induction hypothesis:
+$$\sum_{k=2}^n \mathfrak a(t_k) \ge \mathfrak a( 1 + \sum_{k = 2}^n (-1)^k t_k ).$$
+Then
+$$\mathfrak a( t_1 ) + \sum_{k = 2}^n \mathfrak a( t_k ) \ge \mathfrak a( t_1 ) + \mathfrak a( 1 + \sum_{k = 2}^{n} (-1)^k t_k ) \ge
+\mathfrak a( -\sum_{k = 2}^{n} (-1)^k t_k + t_1 ) = \mathfrak a( -\sum_{k = 1}^{n} (-1)^k t_k ).$$
+
+\textbf{2.} The proof of this part is trivial.
+\end{proof}
+
+\begin{lm}
+\label{periodicity}
+\textbf{1.} Let $\mathfrak a$ satisfy $(\ref{almostConcave})$.
+If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
+then either $\mathfrak a \equiv 0$ on $[x_0, 1]$
+or the set of zeros of $\mathfrak a$ is periodic on $[x_0, 1]$
+and the period is a divisor of $1 - x_0$.
+
+\textbf{2.} Let $\mathfrak a$ be even and satisfy $(\ref{almostConcave})$.
+If there is $x_0 \in [-1, 1]$, such that $\mathfrak a(x_0) = 0$,
+then either $\mathfrak a \equiv 0$
+or the function $\mathfrak a$ is periodic on $[-1, 1]$
+and the period is a divisor of $1 - x_0$.
+\end{lm}
+
+\begin{proof}
+\textbf{1.}
+Note that if $\mathfrak a(s) = \mathfrak a(t) = 0$ for some $s \le t$,
+then inequality (\ref{almostConcave}) implies
+$$0 = \mathfrak a(s) + \mathfrak a(t) \ge \mathfrak a( 1 - (t - s) ) \ge 0$$
+i.e. $\mathfrak a(1 - (t - s)) = 0$.
+Substituting $s = t = x_0$, we obtain $\mathfrak a(1) = 0$.
+
+Similarly, if $s \le 1 - t$ and $\mathfrak a(s) = \mathfrak a(1 - t) = 0$, then $\mathfrak a(s + t) = 0$.
+
+Thus, the set of roots of $\mathfrak a$ is symmetric on the segment $[x_0, 1]$ and
+whenever $s$ and $s + \Delta$ ($\Delta \ge 0$) are roots of $\mathfrak a$,
+values $s + k\Delta$ are roots of $\mathfrak a$ too, provided $s + k\Delta \le 1$.
+This implies that the set of roots of $\mathfrak a$ is periodic on $[x_0, 1]$
+or coincides with it.
+
+\textbf{2.} The periodicity of zeros of the function $\mathfrak a$ follows from its evenness and from the first assertion of the lemma.
+Denote the distance between consecutive zeros by $\Delta$.
+
+Then for $-1 \le x \le 1 - \Delta$ the following holds
+$$\mathfrak a(x) = \mathfrak a(x) + \mathfrak a(1 - \Delta) \ge \mathfrak a(x + \Delta).$$
+
+On the other hand, $-1 \le -(x + \Delta) \le 1 - \Delta$, and
+$$\mathfrak a(x + \Delta) = \mathfrak a(-(x + \Delta)) + \mathfrak a(1 - \Delta) \ge \mathfrak a(-x) = \mathfrak a(x).$$
+
+Thus, $\mathfrak a(x) = \mathfrak a(x + \Delta)$.
+\end{proof}
+
+\begin{lm}
+\label{maxSumConcave}
+Suppose that $\mathfrak a_1$ and $\mathfrak a_2$ satisfy $(\ref{almostConcave})$.
+Then the functions $\max (\mathfrak a_1(x), \mathfrak a_2(x))$ and $\mathfrak a_1(x) + \mathfrak a_2(x)$ also satisfy $(\ref{almostConcave})$.
+\end{lm}
+\begin{proof}
+Set $\mathfrak a(x) = \max (\mathfrak a_1(x), \mathfrak a_2(x))$. Then
+\begin{multline*}
+\mathfrak a(1 - t + s) = \max(\mathfrak a_1( 1 - t + s), \mathfrak a_2(1 - t + s)) \le
+\max(\mathfrak a_1(s) + \mathfrak a_1(t), \mathfrak a_2(s) + \mathfrak a_2(t)) \\
+\le \max(\mathfrak a_1(s), \mathfrak a_2(s)) + \max(\mathfrak a_1(t), \mathfrak a_2(t)) =
+\mathfrak a(s) + \mathfrak a(t).
+\end{multline*}
+
+The second part is obvious.
+\end{proof}
+
+\begin{lm}
+\label{piecewiseLinearConcave}
+Let the function $\mathfrak a$ satisfy $(\ref{almostConcave})$, $k \in \Nat$.
+Then a piecewise linear function $\mathfrak a_k$,
+interpolating $\mathfrak a$ using the nodes
+$(-1 + \frac{2i}{k})$, $i = 0, 1, \dots, k$,
+also satisfies $(\ref{almostConcave})$.
+\end{lm}
+\begin{proof}
+\textbf{1.}
+Let $s = -1 + \frac{2i}{k}$, $t = -1 + \frac{2j}{k}$.
+Then inequality $(\ref{almostConcave})$ holds for $\mathfrak a_k$, because it does for $\mathfrak a$,
+and their values at these points coincide.
+
+\textbf{2.}
+Now let $s = -1 + \frac{2i}{k}$ and $t \in [-1 + \frac{2j}{k}, -1 + \frac{2(j + 1)}{k}]$.
+
+Consider the linear function $h_1(t) = \mathfrak a_k( 1 - t + s ) - \mathfrak a_k(t) - \mathfrak a_k(s)$.
+It follows from part 1 that $h_1(-1 + \frac{2j}{k}) \le 0$ and $h_1(-1 + \frac{2(j + 1)}{k}) \le 0$.
+Since $h_1$ is linear, $h_1(t) \le 0$.
+Thus, the inequality holds for every $s = -1 + \frac{2i}{k}$ and $t \in [-1, 1]$.
+
+\textbf{3.}
+Let $s$ and $t$ satisfy $1 - t + s = \frac{2j}{k}$.
+
+Consider the function $h_2(y) = \mathfrak a_k(\frac{2j}{k}) - \mathfrak a_k(s + y) - \mathfrak a_k(t + y)$.
+If we choose $y_0$ such that $s + y_0$ is one of the nodes, then $t + y_0$ is also a node.
+Therefore, $h_2(y_0) = \mathfrak a(\frac{2j}{k}) - \mathfrak a(s + y_0) - \mathfrak a(t + y_0) \le 0$.
+Since $h_2$ is linear between such $y_0$'s, we obtain $h_2(y) \le 0$ for all admissible $y$.
+
+\textbf{4.}
+Finally, consider $h_3(s) = \mathfrak a_k( 1 - t + s ) - \mathfrak a_k(t) - \mathfrak a_k(s)$ for an arbitrary given $t \in [-1, 1]$.
+Note that the parts 2 and 3 above imply $h_3(s) \le 0$ for any $s$
+such that either $s$ or $1 - t + s$ is a node.
+Since $h_3$ is linear between these points, $h_3(s) \le 0$ for all admissible $s$,
+and the statement follows.
+\end{proof}
+
