@@ -1,4 +1,3 @@
-
 \section{Условия, необходимые для выполнения неравенства (\ref{toprove})}
 \begin{thm}
 \label{necessary_conditions_constant}
@@ -30,9 +29,9 @@ u(x) &= \bar{v}, & x \in [\bar{x}, 1]
 \end{aligned}
 \right.
 $$
-Then $u^*(x, v) = u(-x, v)$ and
+Then $\mon{u}(x, v) = u(-x, v)$ and
 \begin{multline*}
-I(\mathfrak a, u)-I(\mathfrak a, u^*) \\
+I(\mathfrak a, u)-I(\mathfrak a, \mon{u}) \\
 = \int\limits_{\bar{x}-\eps}^{\bar{x}} F\big( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) \big) \, dx -
 \int\limits_{-\bar{x}}^{-\bar{x}+\eps} F\big( \bar{v} + \bar{x} + x, \mathfrak a(x, \bar{v} + \bar{x} + x) \big) \, dx \\
 = \int\limits_{\bar{x}-\eps}^{\bar{x}} \big( F\big( \bar{v} + \bar{x} - x, \mathfrak a(x, \bar{v} + \bar{x} - x) \big) -
@@ -87,9 +86,9 @@ Then
 $$
 \left\{
 \begin{aligned}
-u^*(x) &= \bar{v}, & x \in [-1, 1 - t + s]\\
-u^*(x) &= \bar{v} + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]\\
-u^*(x) &= \bar{v} + \eps, & x \in [1 - t + s + 2\eps, 1]
+\mon{u}(x) &= \bar{v}, & x \in [-1, 1 - t + s]\\
+\mon{u}(x) &= \bar{v} + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]\\
+\mon{u}(x) &= \bar{v} + \eps, & x \in [1 - t + s + 2\eps, 1]
 \end{aligned}
 \right.
 $$
@@ -112,16 +111,16 @@ $$
 \put(6,14){$-1$}
 \put(190,24){\line(0,1){2}}
 \put(188,14){$1$}
-\put(20,70){$u^*(x)$}
+\put(20,70){$\mon{u}(x)$}
 \put(85,1){Fig. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
 
 We have
 \begin{multline*}
-I(\mathfrak a, u^*) = \int\limits_0^{2\eps} F \big( u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2} \big) \, dz\\
+I(\mathfrak a, \mon{u}) = \int\limits_0^{2\eps} F \big( u(1 - t + s + z), \frac{\mathfrak a(1 - t + s + z, u(1 - t + s + z))}{2} \big) \, dz\\
 = \int\limits_0^\eps 2 F \big(\bar{v} + y, \frac{\mathfrak a(1 - t + s + 2y, \bar{v} + y)}{2} \big) \, dy\\
-0 \le I( \mathfrak a, u ) - I( \mathfrak a, u^* ) =
+0 \le I( \mathfrak a, u ) - I( \mathfrak a, \mon{u} ) =
 \int\limits_0^\eps \big( F\big(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)\big) + F\big(\bar{v} + y, \mathfrak a( t - y, \bar{v} + y)\big)\\
 - 2 F \big(\bar{v} + y, \frac{ \mathfrak a(1 - t + s + 2y, \bar{v} + y) }{2} \big) \big) \, dy\\
 < \int\limits_0^\eps \big( F\big(\bar{v} + y, \mathfrak a(s + y, \bar{v} + y)\big) + F\big(\bar{v} + y, \mathfrak a(t - y, \bar{v} + y)\big)\\

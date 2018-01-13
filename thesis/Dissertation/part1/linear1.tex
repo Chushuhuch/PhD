@@ -6,7 +6,7 @@
 \begin{theorem}
 \label{linth}
 Пусть функция $a$ четна и удовлетворяет условию $(\ref{almostConcave})$.
-Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I(a, u) \ge I(a, u^*)$.
+Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I(a, u) \ge I(a, \mon{u})$.
 \end{theorem}
 
 \begin{proof}
@@ -23,22 +23,22 @@ $y = y_k^j(u_0)$, $k = 1, \dots, m_j$,
 и $y_k^j{}'(u(y)) = \frac{1}{u'(u)}$.
 Мы будем считать, что $y_1^j(u_0) < y_2^j(u_0) < \dots < y_{m_j}^j(u_0)$.
 
-Решение уравнения $u^*(y^*)=u_0$ ($u_0 \in U$) можно выразить через $y_k^j$:
+Решение уравнения $\mon{u}(\mon{y})=u_0$ ($u_0 \in U$) можно выразить через $y_k^j$:
 
 \begin{center}
 \begin{tabular}{l|l|l} 
-\multirow{2}{*}{$u(-1)<u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ четно   & $y^*=1-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
-                                                     & $m_j$ нечетно & $y^*=-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ \hline
-\multirow{2}{*}{$u(-1)>u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ четно   & $y^*=-1+\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
-                                                     & $m_j$ нечетно & $y^*=\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ 
+\multirow{2}{*}{$u(-1)<u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ четно   & $\mon{y}=1-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+                                                     & $m_j$ нечетно & $\mon{y}=-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ \hline
+\multirow{2}{*}{$u(-1)>u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ четно   & $\mon{y}=-1+\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+                                                     & $m_j$ нечетно & $\mon{y}=\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
 \end{tabular}
 \end{center}
 
-Положим $y^*(v) = (u^*)^{-1}(v)$.
-Тогда $y^*{}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ при $u \in G_j$, поскольку знаки в выражении для
-$y^*$ и знаки $y_k^j{}'$ чередуются, и $y^*{}'(v)\ge 0$.
+Положим $\mon{y}(v) = (\mon{u})^{-1}(v)$.
+Тогда $\mon{y}'(v) = \sum_{k=1}^{m_j} \abs{y_k^j{}'(v)}$ при $u \in G_j$, поскольку знаки в выражении для
+$\mon{y}$ и знаки $y_k^j{}'$ чередуются, и $\mon{y}'(v)\ge 0$.
 
-Множества нулей $u'(x)$ и $u^*{}'(x)$ могут иметь ненулевую меру.
+Множества нулей $u'(x)$ и $\mon{u}'(x)$ могут иметь ненулевую меру.
 Однако, они не вносят вклада в интеграл, поскольку $F(u(x), 0) = 0$.
 
 Рассмотрим оставшиеся части интегралов:
@@ -47,18 +47,18 @@ I(a, u) = \sum_{j=1}^N \int_{u^{-1}(G_j)} F(u(x), a(x, u(x)) \abs{u'(x)}) dx
 \\ = \sum_{j=1}^N \int_{G_j} \sum_{k=1}^{m_j} F\Big(v, \frac{a(y_k^j(v), v)}{\bigabs{y_k^j{}'(v)}}\Big) \bigabs{y_k^j{}'(v)} dv,
 \end{multline*}
 \begin{multline*}
-I(a, u^*) = \sum_{j=1}^N \int_{(u^*)^{-1}(G_j)} F(u^*(x), \bigabs{a(x, u(x)) u^*{}'(x)}) dx
-\\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{a(y^*(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
+I(a, \mon{u}) = \sum_{j=1}^N \int_{(\mon{u})^{-1}(G_j)} F(\mon{u}(x), \bigabs{a(x, u(x)) \mon{u}'(x)}) dx
+\\ = \sum_{j=1}^N \int_{G_j} F\Big(v, \frac{a(\mon{y}(v), v)}{\sum_{k=1}^{m_j} \bigabs{y_k^j{}'(v)}}\Big)
 \sum_{k=1}^{m_j} \bigabs{ y_k^j{}'(v) } dv.
 \end{multline*}
 
 Зафиксируем $j$ и $v$ в правых частях и докажем неравенство для подынтегральных выражений.
-Обозначим $b_k := |y_k^j{}'(v)|$, $y_k := y_k^j(v)$, $y^* := y^*(v)$, $m := m_j$. Тогда
+Обозначим $b_k := |y_k^j{}'(v)|$, $y_k := y_k^j(v)$, $\mon{y} := \mon{y}(v)$, $m := m_j$. Тогда
 требуемое утверждение имеет вид:
-$$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ a(y_k, v) }{b_k} \Big) \ge F\Big( v, \frac{ a(y^*, v) }{ \sum_{k=1}^m b_k  } \Big) \sum_{k=1}^m b_k$$
+$$T:=\sum_{k=1}^m b_k F\Big( v, \frac{ a(y_k, v) }{b_k} \Big) \ge F\Big( v, \frac{ a(\mon{y}, v) }{ \sum_{k=1}^m b_k  } \Big) \sum_{k=1}^m b_k$$
 С помощью неравенства Йенсена для функции $F(v, \cdot)$ получаем
 $$T \ge F\Big( v, \frac{ \sum_{k=1}^m a(y_k, v) }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k.$$
-Тогда нам достаточно установить $\sum_{k=1}^m a(y_k, v) \ge a(y^*, v)$, что верно с учетом леммы \ref{weightSum} и замечания
+Тогда нам достаточно установить $\sum_{k=1}^m a(y_k, v) \ge a(\mon{y}, v)$, что верно с учетом леммы \ref{weightSum} и замечания
 \ref{almostConcaveMultRem}.
 \end{proof}
 

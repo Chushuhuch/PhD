@@ -58,13 +58,13 @@ $1 + |u_k(x)|^{q^*} + |\nabla u_k( x )|^q \le 2 ( 1 + |u(x)|^{q^*} + |\nabla u( 
 А значит $|A_m| \to |\Omega|$.
 Тогда
 \begin{eqnarray*}
-\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\le& 2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ), \\
-\mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\to& F( x', u( x ), \norm{ \mathcal{D} u( x ) } )
+\charf{A_k} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\le& 2 ( 1 + |u( x )|^{q^*} + |\nabla u( x )|^q ), \\
+\charf{A_k} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) &\to& F( x', u( x ), \norm{ \mathcal{D} u( x ) } )
 \end{eqnarray*}
 почти всюду.
 По теореме вложения $\Vert u_k \Vert_{q^*} \le C_3 \Vert u_k \Vert_{W^1_q}$.
 Тем самым, мы нашли суммируемую мажоранту и получаем
-$\int_{A_k} \mathcal{X}\{A_k\} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) dx \to I( u )$ по теореме Лебега .
+$\int_{A_k} \charf{A_k} F( x', u_k( x ), \norm{ \mathcal{D} u_k( x ) } ) dx \to I( u )$ по теореме Лебега .
 
 Теперь оценим остаток:
 \begin{multline*}

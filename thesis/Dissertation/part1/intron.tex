@@ -1,22 +1,4 @@
 \section{Введение}
-Пусть $\Omega = \omega \times [-1,1]$,
-где $\omega$ --- ограниченная область в $\Real^{n - 1}$.
-Обозначим $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
-
-Напомним теорему о послойном представлении измеримой неотрицательной функции $u$, заданной на $\Omega$
-(см. \cite[Теорема 1.13]{LiebLoss}).
-Положим $\mathcal{A}_t(x') := \{ y \in [-1,1] :\ u( x', y ) > t \}$.
-Тогда имеет место равенство
-$$u(x', y) = \int_0^\infty \mathcal{X}\{\mathcal{A}_t(x')\}(y) dt,$$
-где $\mathcal{X}\{A\}$ --- характеристическая функция множества $A$.
-
-Определим монотонную перестановку измеримого множества $E \subset [-1, 1]$ и
-монотонную перестановку неотрицательной функции $u \in \W(\Omega)$:
-\begin{eqnarray*}
-E^* := [1 - \abs{E}, 1]; \qquad
-u^*(x', y) = \int_0^\infty \mathcal{X}\{ ( \mathcal{A}_t(x') )^* \}(y) dt.
-\end{eqnarray*}
-
 Определим множество $\mathfrak{F}$ непрерывных функций $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$
 (здесь и далее $\Real_+ = [0, \infty)$), выпуклых и возрастающих по третьему аргументу,
 удовлетворяющих $F( \cdot, \cdot, 0 ) \equiv 0$.
@@ -37,7 +19,7 @@ $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): 
 Хорошо известно, что при $a_i = a \equiv 1$ справедливо неравенство
 \begin{equation}
 \label{toprove}
-I( u^* ) \le I( u ), \qquad \qquad u \in \W(\Omega), u \ge 0
+I( \symm{u} ) \le I( u ), \qquad \qquad u \in \W(\Omega), u \ge 0
 \end{equation}
 (см., например, \cite{Kawohl} и цитированную там литературу).
 

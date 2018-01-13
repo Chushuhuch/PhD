@@ -98,20 +98,21 @@ Since $\eps > 0$ is arbitrary, $A \ge I(\mathfrak a, u)$ follows.
 
 \begin{lm}
 \label{uplift}
-Пусть $A \subset W^1_1(\Omega)$. И пусть $B \subset A$ таково, что
-$\forall v \in B$ выполнено $I( v^* ) \le I( v )$. Предположим, что для каждого $u \in A$
-найдется последовательность $u_k \in B$ такая, что $u_k \to u$ в $W^1_1(\Omega)$ и
-$I( u_k ) \to I( u )$. Тогда $\forall u \in A$ будет выполнено $I( u^* ) \le I( u )$.
+Пусть $A \subset W^1_1(\Omega)$.
+И пусть $B \subset A$ таково, что $\forall v \in B$ выполнено $I( \mon{v} ) \le I( v )$.
+Предположим, что для каждого $u \in A$ найдется последовательность $u_k \in B$ такая,
+что $u_k \to u$ в $W^1_1(\Omega)$ и $I( u_k ) \to I( u )$.
+Тогда $\forall u \in A$ будет выполнено $I( \mon{u} ) \le I( u )$.
 \end{lm}
 \begin{proof}
 Let us pick some $u \in A$ and find an approximating sequence $\{u_k\} \subset B$.
-By hypothesis, $I(\mathfrak a, u_k^*) \le I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
+By hypothesis, $I(\mathfrak a, \mon{u_k}) \le I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
 By \cite[Theorem 1]{Brock}
 $$u_k \to u \text{ in } \W(-1, 1) \quad \Longrightarrow \quad \overline{u_k} \rightharpoondown \overline{u} \text{ in } \W(-1, 1).$$
-Since $u_k^*( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and $u^*( x ) = \overline{u}( \frac{x - 1}{2} )$,
-we have $u_k^* \rightharpoondown u^*$ in $\W(-1, 1)$.
+Since $\mon{u_k}( x ) = \overline{u_k}( \frac{x - 1}{2} )$ and $\mon{u}( x ) = \overline{u}( \frac{x - 1}{2} )$,
+we have $\mon{u_k} \rightharpoondown \mon{u}$ in $\W(-1, 1)$.
 By Lemma \ref{lowersemi}, we obtain 
-$$I(\mathfrak a, u^*) \le \liminf I(\mathfrak a, u_k^*) \le \lim I(\mathfrak a, u_k) = I(\mathfrak a, u).$$
+$$I(\mathfrak a, \mon{u}) \le \liminf I(\mathfrak a, \mon{u_k}) \le \lim I(\mathfrak a, u_k) = I(\mathfrak a, u).$$
 \end{proof}
 
 \begin{cor}

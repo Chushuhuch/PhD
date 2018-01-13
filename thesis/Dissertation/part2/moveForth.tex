@@ -5,7 +5,7 @@ Now we want to get rid of the monotonicity restriction on the weight.
 We do this in several steps.
 
 To begin, we note that all properties of the function $\mathfrak a$ are of interest
-only in the neighborhood of the graphs of functions $u$ and $u^*$.
+only in the neighborhood of the graphs of functions $u$ and $\mon{u}$.
 
 We introduce the following conditions, each of which, when added to the previous ones, defines a smaller class of weight functions:
 
@@ -95,7 +95,7 @@ Then there exists an increasing sequence of weights $\mathfrak b_{\ell}$, which 
 
 2) $\mathfrak b_{\ell}(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighborhood depends on $\ell$);
 
-3) $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$ and $I(\mathfrak b_{\ell}, u^*) \to I(\mathfrak a, u^*)$.
+3) $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$ and $I(\mathfrak b_{\ell}, \mon{u}) \to I(\mathfrak a, \mon{u})$.
 \end{lm}
 
 \begin{rem}
@@ -163,7 +163,7 @@ the set of all $v$, at which the graph of $u(x)$ traverses from a rectangle,
 in which the weight decreases in $x$,
 to a rectangle in which the weight increases.
 Obviously, the resulting functions $\mathfrak b_{\ell}$ satisfy $(H1)-(H7)$.
-By Step 1, $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$.
+By Step 1, $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
@@ -192,7 +192,7 @@ either at the points $x = -1 + \frac{2 i}{k}$ or where the graph crosses a strip
 Note that only a finite number of such crossings can arise since
 $\int |u'|$ gains at least $\frac{2}{\ell}$ at any crossing and $u' \in \Ls(-1, 1)$.
 
-Thereby, each $\mathfrak b_{\ell}$ satisfies $(H1)-(H6)$. By Step 2, $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$.
+Thereby, each $\mathfrak b_{\ell}$ satisfies $(H1)-(H6)$. By Step 2, $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$.
 Passing to the limit, we obtain (\ref{toprove}).
 
 \bigskip
@@ -276,8 +276,8 @@ $$
 We have $\card(A_i) = \card(\{ \alpha \in [0, 1]: \meas \{ v \in [\min u, \max u]: h_i(v) \pm \frac{2}{k} \alpha = 0 \} > 0 \}).$
 Then $\card(A_i) \le \aleph_0$, and $\card(\cup_i A_i) \le \aleph_0$.
 Thus, there exists a sequence of weights $\mathfrak d_{\alpha_j} \searrow \mathfrak c$, satisfying $(H1)-(H5)$.
-By Step 3, $I(\mathfrak d_{\alpha_j}, u^*) \le I(\mathfrak d_{\alpha_j}, u)$.
-Passing to the limit, we get $I(\mathfrak c, u^*) \le I(\mathfrak c, u)$.
+By Step 3, $I(\mathfrak d_{\alpha_j}, \mon{u}) \le I(\mathfrak d_{\alpha_j}, u)$.
+Passing to the limit, we get $I(\mathfrak c, \mon{u}) \le I(\mathfrak c, u)$.
 
 Further, for $x \in [-1, 1]$ we have
 \begin{equation}
@@ -288,7 +288,7 @@ as $k \to \infty$.
 Moreover, $F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)$ is an integrable majorant
 for the left-hand side in (\ref{step4Conv}).
 By the Lebesgue theorem, we have $I(\mathfrak c_k, u) \to I(\mathfrak a, u)$.
-Since $I(\mathfrak c_k, u^*) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves inequality (\ref{toprove}).
+Since $I(\mathfrak c_k, \mon{u}) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves inequality (\ref{toprove}).
 
 \bigskip
 \textbf{Step 5.} \textit{Let the weight $\mathfrak a$ satisfy only the condition $(H1)$.
@@ -321,7 +321,7 @@ It follows from $(H2)$ that there exists a set $T \subset [-1, 1]$
 consisting of a finite number of elements, such that
 if $x \not\in T$ and $\mathfrak b(x, v) = 0$ for some $v$, then $\mathfrak b(\cdot, v) \equiv 0$.
 
-We use Lemma \ref{zeroApprox} with $W = u(T) \cup u^*(T)$.
+We use Lemma \ref{zeroApprox} with $W = u(T) \cup \mon{u}(T)$.
 The weights $\mathfrak c_j$, given by the Lemma, satisfy $(H1)-(H2)$,
 since they are just $\mathfrak b$ multiplied by a factor less than one, which depends only on $v$.
 
@@ -346,8 +346,8 @@ $$D_k(\mathfrak c_j, U(\mathfrak c_j)) = D_k(\mathfrak b, U(\mathfrak c_j)) \le 
 as $k \to \infty$.
 
 Thus, the weights $\mathfrak c_{j(k)}$ satisfy $(H1)-(H3)$.
-By Step 4, $I(\mathfrak c_{j(k)}, u^*) \le I(\mathfrak c_{j(k)}, u)$.
-Passing to the limit, we get $I(\mathfrak b_{\ell}, u^*) \le I(\mathfrak b_{\ell}, u)$,
+By Step 4, $I(\mathfrak c_{j(k)}, \mon{u}) \le I(\mathfrak c_{j(k)}, u)$.
+Passing to the limit, we get $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$,
 and consequently inequality (\ref{toprove}).
 
 Thus, Theorem \ref{unbounded_growth_thm} is proved.

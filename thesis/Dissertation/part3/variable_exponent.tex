@@ -1,12 +1,12 @@
 \section{Введение}
 
 Положим $u \in \Wf[-1, 1]$, $u \ge 0$.
-Обозначим через $u^*$ симметричную перестановку функции $u$.
+Обозначим через $symm{u}$ симметричную перестановку функции $u$.
 Тогда выполнено классическое неравенство Пойя-Сеге:
 
 \begin{equation}
 \label{PS}
-I(u^*) \le I(u), \qquad \text{где } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx, \quad p \ge 1
+I(\symm{u}) \le I(u), \qquad \text{где } I(u) = \int\limits_{-1}^1 |u'(x)|^p dx, \quad p \ge 1
 \end{equation}
 
 Обобщения неравенства (\ref{PS}) обсуждаются в большом количестве работ (см. обзор \cite{Tal} и цитированную в нем литературу).
@@ -29,7 +29,7 @@ $$\int_{-1}^1 F( u(x), a( x, u( x ) ) \abs{ u'( x ) } ) dx,$$
 
 \begin{thm}
 \label{uniform}
-Предположим, что неравенство $\J(u^*) \le \J(u)$ выполнено для любой кусочно линейной функции $u$.
+Предположим, что неравенство $\J(\symm{u}) \le \J(u)$ выполнено для любой кусочно линейной функции $u$.
 Тогда $p(x) \equiv const$.
 \end{thm}
 \begin{proof}
@@ -39,27 +39,27 @@ $$\int_{-1}^1 F( u(x), a( x, u( x ) ) \abs{ u'( x ) } ) dx,$$
 $$
 u_{\alpha,\eps}(x) = \alpha ( \eps - |x - x_0| )_+.
 $$
-Тогда $u_{\alpha,\eps}^*(x) = \alpha ( \eps - |x| )_+$, и
+Тогда $symm{u_{\alpha,\eps}}(x) = \alpha ( \eps - |x| )_+$, и
 
 %Кроме того,
 %\begin{eqnarray*}
 %\begin{aligned}
 %& |u_{\alpha,\eps}'(x)|     = 0,      & x & \in (-1, x_0 - \eps) \cup (x_0 + \eps, 1) \\
 %& |u_{\alpha,\eps}'(x)|     = \alpha, & x & \in (x_0 - \eps, x_0 + \eps) \\
-%& |u_{\alpha,\eps}^*{}'(x)| = 0,      & x & \in (-1, -\eps) \cup (\eps, 1) \\
-%& |u_{\alpha,\eps}^*{}'(x)| = \alpha, & x & \in (-\eps, \eps) \\
+%& |\symm{u_{\alpha,\eps}}'(x)| = 0,      & x & \in (-1, -\eps) \cup (\eps, 1) \\
+%& |\symm{u_{\alpha,\eps}}'(x)| = \alpha, & x & \in (-\eps, \eps) \\
 %\end{aligned}
 %\end{eqnarray*}
 
 %Тогда
 $$
 \J(u_{\alpha, \eps}) = \int\limits_{x_0 - \eps}^{x_0 + \eps} \alpha^{p(x)} dx, \qquad
-\J(u_{\alpha, \eps}^*) = \int\limits_{-\eps}^{\eps} \alpha^{p(x)} dx.
+\J(\symm{u_{\alpha, \eps}}) = \int\limits_{-\eps}^{\eps} \alpha^{p(x)} dx.
 $$
 
 Перейдя к пределу при $\eps \to 0$ в неравенстве
 $$
-{\J(u_{\alpha, \eps}^*) \over 2 \eps} \le {\J(u_{\alpha, \eps}) \over 2 \eps},
+{\J(\symm{u_{\alpha, \eps}}) \over 2 \eps} \le {\J(u_{\alpha, \eps}) \over 2 \eps},
 $$
 получим $\alpha^{p(0)} \le \alpha^{p(x_0)}$, в силу непрерывности $\alpha^{p(x)}$.
 Заметим, что при $\alpha > 1$ и $\alpha < 1$ это дает неравенства $p(0) \le p(x_0)$ и $p(0) \ge p(x_0)$ соответственно.
@@ -69,7 +69,7 @@ $$
 
 \begin{thm}
 \label{necessary_conditions_variable}
-Предположим, что неравенство $\I(u^*) \le \I(u)$ выполнено для любой кусочно линейной функции $u$.
+Предположим, что неравенство $\I(\symm{u}) \le \I(u)$ выполнено для любой кусочно линейной функции $u$.
 Тогда функция $p$ четна и выпукла. Более того, выпукла функция двух переменных
 $$K(s, x) = s ( 1 + s^{-2} )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1].$$
 \end{thm}
@@ -94,7 +94,7 @@ u_\eps(x) = \min\big( 2 \eps, ( \eps + s^{-1} (x - x_1))_+, ( \eps + t^{-1} (x_2
 $$
 Тогда
 $$
-u_\eps^*(x) = \min\big( 2 \eps, ( \eps + ( t + s )^{-1} ( x_2 - x_1 - 2 |x| ) )_+ \big).
+\symm{u_\eps}(x) = \min\big( 2 \eps, ( \eps + ( t + s )^{-1} ( x_2 - x_1 - 2 |x| ) )_+ \big).
 $$
 %\begin{equation}
 %\left\{
@@ -140,14 +140,14 @@ $$
 %\end{picture}
 %\end{center}
 
-%Тогда функция $u^*$ имеет следующий вид:
+%Тогда функция $symm{u}$ имеет следующий вид:
 %\begin{equation}
 %\left\{
 %\begin{aligned}
-%u^*(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
-%u^*(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
-%u^*(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
-%u^*(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
+%\symm{u}(x) &= 0, & x &\in [-1, { x_2 - x_1 \over 2 } - { s + t \over 2 } \eps] \cup [{ x_1 - x_2 \over 2 } + { s + t \over 2 } \eps, 1]\\
+%\symm{u}(x) &= 2 \eps, & x &\in [{ x_2 - x_1 \over 2 } + { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } - { s + t \over 2 } \eps]\\
+%\symm{u}(x) &= \eps + \frac{ x - { x_2 - x_1 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_2 - x_1 \over 2 } - { s + t \over 2 } \eps, { x_2 - x_1 \over 2 } + { s + t \over 2 } \eps]\\
+%\symm{u}(x) &= \eps - \frac{ x - { x_1 - x_2 \over 2 } }{ { s + t \over 2 } }, & x &\in [{ x_1 - x_2 \over 2 } - { s + t \over 2 } \eps, { x_1 - x_2 \over 2 } + { s + t \over 2 } \eps]\\
 %\end{aligned}
 %\right.
 %\end{equation}
@@ -171,13 +171,13 @@ $$
 %\put(124,73){\line(5,-6){40}}
 %
 %\put(110,77){$2 \eps$}
-%\put(35,70){$u^*(x)$}
+%\put(35,70){$symm{u}(x)$}
 %
 %\put(85,1){Fig. \arabic{pictureCounter}}
 %\end{picture}
 %\end{center}
 
-Полагая $s = t$, из неравенства $\I(u^*) \le \I(u)$ получим $p(x_1) + p(x_2) \le p({ x_1 - x_2 \over 2 }) + p({ x_2 - x_1 \over 2 })$.
+Полагая $s = t$, из неравенства $\I(\symm{u}) \le \I(u)$ получим $p(x_1) + p(x_2) \le p({ x_1 - x_2 \over 2 }) + p({ x_2 - x_1 \over 2 })$.
 Можно проверить (\cite[Lemma 10]{1dim}), что отсюда следует четность и выпуклость функции $p$.
 Далее, рассматривая произвольные $s$ и $t$, получаем выпуклость функции $K$.
 %Тогда, в силу сделанных предположений, верно следующее:
@@ -211,7 +211,7 @@ $$
 %$K(s, x_1) + K(t, x_2) \ge 2 K( { s + t \over 2 }, { x_1 + x_2 \over 2 } )$.
 \end{proof}
 
-\section{Доказательство неравенства $\I(u^*) \le \I(u)$}
+\section{Доказательство неравенства $\I(\symm{u}) \le \I(u)$}
 
 В этом параграфе мы покажем, что условия, приведенные в теореме \ref{necessary_conditions_variable} являются не только необходимыми, но и достаточными.
 
@@ -246,7 +246,7 @@ $$
 \begin{lm}
 \label{linear}
 Пусть функция $K(s, x)$ четна по $x$ и выпукла по совокупности аргументов.
-Тогда $\I(u^*) \le \I(u)$ для любой кусочно линейной функции $u \in \Wf[-1, 1]$.
+Тогда $\I(\symm{u}) \le \I(u)$ для любой кусочно линейной функции $u \in \Wf[-1, 1]$.
 \end{lm}
 
 \begin{proof}
@@ -260,7 +260,7 @@ $$
 Обозначим $b^j_k = |y^j_k{}'(x)|$.
 Также обозначим
 $$
-Z = \meas\{ x \in (-1, 1) | u'(x) = 0 \} = \textrm{meas}\{ x \in (-1, 1) | u^*{}'(x) = 0 \}.
+Z = \meas\{ x \in (-1, 1) | u'(x) = 0 \} = \textrm{meas}\{ x \in (-1, 1) | \symm{u}'(x) = 0 \}.
 $$
 Тогда
 \begin{multline*}
@@ -270,18 +270,18 @@ $$
 = \sum\limits_j \int\limits_{U_j} \sum\limits_k K\Big({1 \over b^j_k}, (y^j_k)^{-1}(y)\Big) dy.
 \end{multline*}
 
-Любая точка $y \in U$ имеет два прообраза относительно функции $u^*$,
-поэтому на множестве $U$ можно определить $(u^*)^{-1}: U \to [0, 1]$.
-Для каждого $j$ можно выразить $(u^*)^{-1}$ и модуль ее производной на участке $U_j$ следующим образом:
+Любая точка $y \in U$ имеет два прообраза относительно функции $symm{u}$,
+поэтому на множестве $U$ можно определить $(\symm{u})^{-1}: U \to [0, 1]$.
+Для каждого $j$ можно выразить $(\symm{u})^{-1}$ и модуль ее производной на участке $U_j$ следующим образом:
 \begin{eqnarray*}
-(u^*)^{-1} (y) & = & {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y); \\
-|((u^*)^{-1})'(y)| & = & {1 \over |u^*{}'((u^*)^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k} =: { 1 \over b_j^* }.
+(\symm{u})^{-1} (y) & = & {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y); \\
+|((\symm{u})^{-1})'(y)| & = & {1 \over |\symm{u}'((\symm{u})^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k} =: { 1 \over \symm{b_j} }.
 \end{eqnarray*}
-Ввиду четности $u^*$ имеем
+Ввиду четности $symm{u}$ имеем
 \begin{multline*}
-\I(u^*) - Z = 2 \int\limits_{(u^*)^{-1}(U)} (1 + u^*{}'^2(x))^{p(x) \over 2} dx =
-\\ = 2 \int\limits_U |((u^*)^{-1})'(y)| \cdot \big( 1 + { 1 \over ((u^*)^{-1})'(y)^2 } \big)^{p((u^*)^{-1}(y)) \over 2} dy =
-\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over b_j^*} \big(1 + b_j^*{}^2 \big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy =
+\I(\symm{u}) - Z = 2 \int\limits_{(\symm{u})^{-1}(U)} (1 + \symm{u}'^2(x))^{p(x) \over 2} dx =
+\\ = 2 \int\limits_U |((\symm{u})^{-1})'(y)| \cdot \big( 1 + { 1 \over ((\symm{u})^{-1})'(y)^2 } \big)^{p((\symm{u})^{-1}(y)) \over 2} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over \symm{b_j}} \big(1 + \symm{b_j}^2 \big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy =
 \\ = 2 \sum\limits_j \int\limits_{U_j} K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big) dy.
 \end{multline*}
 Зафиксируем $j$ и $y$.
@@ -298,7 +298,7 @@ $$
 \begin{thm}
 \label{variable_exponent_thm}
 Пусть $p$ четна, а $K$ выпукла.
-Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $\I(u^*) \le \I(u)$.
+Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $\I(\symm{u}) \le \I(u)$.
 \end{thm}
 
 \begin{proof}
@@ -336,11 +336,11 @@ $$
 %Отсюда следует, что $A( \sqrt{ 1 + u_n'^2 } ) \to A( \sqrt{ 1 + u'^2 } )$,
 %что совпадает с утверждением $\I(u_n) \to \I(u)$.
 
-Согласно \cite[Theorem 1]{Brock}, из $u_n \to u$ в $\Wf[-1, 1]$ следует $u_n^* \rightharpoondown u^*$ в $\Wf[-1, 1]$.
+Согласно \cite[Theorem 1]{Brock}, из $u_n \to u$ в $\Wf[-1, 1]$ следует $symm{u_n} \rightharpoondown \symm{u}$ в $\Wf[-1, 1]$.
 Кроме того, функционал $\I$ секвенциально слабо полунепрерывен снизу по теореме Тонелли (см., напр., \cite[Теорема 3.5]{BGH}).
 Поэтому
 $$
-\I(u^*) \le \liminf \I(u_n^*) \le \lim \I(u_n) = \I(u).
+\I(\symm{u}) \le \liminf \I(\symm{u_n}) \le \lim \I(u_n) = \I(u).
 $$
 \end{proof}
 
@@ -394,7 +394,7 @@ q ( 4 w - ( w + 3 ) \ln( w + 1 ) ) - {w - 1 \over w} \ln( w + 1 ) + 4 {w \over \
 \begin{thm}
 Пусть функция $p(x)$ четна.
 
-1) Если $(p(x) - 1)^{0.37}$ --- выпуклая функция, то для всех $u \in \Wf[-1, 1]$ справедливо неравенство $\I(u^*) \le \I(u)$.
+1) Если $(p(x) - 1)^{0.37}$ --- выпуклая функция, то для всех $u \in \Wf[-1, 1]$ справедливо неравенство $\I(\symm{u}) \le \I(u)$.
 
-2) Если $p(x) < 2.36$ и $\sqrt{p(x) - 1}$ --- выпуклая функция, то для всех $u \in \Wf[-1, 1]$ справедливо неравенство $\I(u^*) \le \I(u)$.
+2) Если $p(x) < 2.36$ и $\sqrt{p(x) - 1}$ --- выпуклая функция, то для всех $u \in \Wf[-1, 1]$ справедливо неравенство $\I(\symm{u}) \le \I(u)$.
 \end{thm}
