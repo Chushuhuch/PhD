@@ -69,10 +69,10 @@ Now we can formulate the main assertion of our work.
 Suppose $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative,
 and the weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is continuous
 and admissible for $u$.
-Then inequality $(\ref{toprove})$ holds.
+Then inequality $(\ref{toprove_weighted})$ holds.
 \end{thm}
 
-We prove inequality (\ref{toprove}) under conditions $(H1)-(H7)$,
+We prove inequality (\ref{toprove_weighted}) under conditions $(H1)-(H7)$,
 and then get rid of extra conditions one by one.
 
 To prove it, we need the following facts.
@@ -131,7 +131,7 @@ We proceed to the proof of the theorem.
 
 \bigskip
 \textbf{Step 1.} \textit{Let $u \in \W(-1, 1)$ and let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H7)$.
-Then inequality (\ref{toprove}) holds.}
+Then inequality (\ref{toprove_weighted}) holds.}
 
 Divide the segment $[-1, 1]$ into touching subsegments $\Delta_j$, each consisting of two parts.
 On the left part of each $\Delta_j$ the weight $\mathfrak a$ increases in $x$ in a neighborhood
@@ -151,12 +151,12 @@ making $u_n$ continuous on $[-1, 1]$.
 In view of the above, this does not change the integrals $I(\Delta_j, \mathfrak a, u_n)$,
 and we get $I(\mathfrak a, u_n) \to I(\mathfrak a, u)$.
 
-By Lemma \ref{uplift} we obtain (\ref{toprove}).
+By Lemma \ref{uplift} we obtain (\ref{toprove_weighted}).
 
 \bigskip
 
 \textbf{Step 2.} \textit{Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H6)$.
-Then inequality (\ref{toprove}) holds.}
+Then inequality (\ref{toprove_weighted}) holds.}
 
 We apply Lemma \ref{zeroApprox} using the following set $W$:
 the set of all $v$, at which the graph of $u(x)$ traverses from a rectangle,
@@ -164,12 +164,12 @@ in which the weight decreases in $x$,
 to a rectangle in which the weight increases.
 Obviously, the resulting functions $\mathfrak b_{\ell}$ satisfy $(H1)-(H7)$.
 By Step 1, $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$.
-Passing to the limit, we obtain (\ref{toprove}).
+Passing to the limit, we obtain (\ref{toprove_weighted}).
 
 \bigskip
 
 \textbf{Step 3.} \textit{Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H5)$.
-Then inequality (\ref{toprove}) holds.}
+Then inequality (\ref{toprove_weighted}) holds.}
 
 Consider abscissas of nodes of $\mathfrak a$
 and ordinates, for which $\mathfrak a$ has constant pieces.
@@ -193,11 +193,11 @@ Note that only a finite number of such crossings can arise since
 $\int |u'|$ gains at least $\frac{2}{\ell}$ at any crossing and $u' \in \Ls(-1, 1)$.
 
 Thereby, each $\mathfrak b_{\ell}$ satisfies $(H1)-(H6)$. By Step 2, $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$.
-Passing to the limit, we obtain (\ref{toprove}).
+Passing to the limit, we obtain (\ref{toprove_weighted}).
 
 \bigskip
 \textbf{Step 4.} \textit{Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H3)$.
-Then inequality (\ref{toprove}) holds.}
+Then inequality (\ref{toprove_weighted}) holds.}
 
 Suppose that the function $\mathfrak a$ satisfies $(H1)-(H3)$, in particular $I(\mathfrak a, u) < \infty$.
 
@@ -288,11 +288,11 @@ as $k \to \infty$.
 Moreover, $F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)$ is an integrable majorant
 for the left-hand side in (\ref{step4Conv}).
 By the Lebesgue theorem, we have $I(\mathfrak c_k, u) \to I(\mathfrak a, u)$.
-Since $I(\mathfrak c_k, \mon{u}) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves inequality (\ref{toprove}).
+Since $I(\mathfrak c_k, \mon{u}) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves inequality (\ref{toprove_weighted}).
 
 \bigskip
 \textbf{Step 5.} \textit{Let the weight $\mathfrak a$ satisfy only the condition $(H1)$.
-Then inequality (\ref{toprove}) holds.}
+Then inequality (\ref{toprove_weighted}) holds.}
 
 We approximate $\mathfrak a$ by weights satisfying $(H1)-(H2)$.
 To do this we apply Lemma \ref{zeroApprox} with $W = \{ v \in \Real_+: \mathfrak a(\cdot, v) \equiv 0 \}$.
@@ -348,7 +348,7 @@ as $k \to \infty$.
 Thus, the weights $\mathfrak c_{j(k)}$ satisfy $(H1)-(H3)$.
 By Step 4, $I(\mathfrak c_{j(k)}, \mon{u}) \le I(\mathfrak c_{j(k)}, u)$.
 Passing to the limit, we get $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$,
-and consequently inequality (\ref{toprove}).
+and consequently inequality (\ref{toprove_weighted}).
 
 Thus, Theorem \ref{unbounded_growth_thm} is proved.
 \hfill $\square$
@@ -360,7 +360,7 @@ Now we consider the case where the function $u$ satisfies the additional conditi
 Suppose that $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative, $u(-1) = 0$,
 and the weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is continuous
 and satisfies $(\ref{almostConcave})$.
-Then inequality $(\ref{toprove})$ holds.
+Then inequality $(\ref{toprove_weighted})$ holds.
 \end{thm}
 
 \begin{proof}
@@ -377,14 +377,14 @@ $(H7')$ Assumption $(H7)$ is satisfied and $\mathfrak a(\cdot, v) \equiv 0$ in s
 
 \bigskip
 \textbf{Step 1.} \textit{Let $u \in \W(-1, 1)$, $u(-1) = 0$ and let the weight $\mathfrak a$ satisfy the conditions $(H1'), (H2)-(H6), (H7')$.
-Then inequality (\ref{toprove}) holds.}
+Then inequality (\ref{toprove_weighted}) holds.}
 
 To prove this, we approximate the function $u$ in the same way as in the first step in the proof of Theorem \ref{unbounded_growth_thm},
 changing $u$ in a neighborhood of $x = -1$ to a linear function with $u_n(-1) = 0$ preserved.
 
 \bigskip
 \textbf{Step 2.} \textit{Let the weight $\mathfrak a$ satisfy conditions $(H1'), (H2)-(H6)$.
-Then inequality (\ref{toprove}) holds.}
+Then inequality (\ref{toprove_weighted}) holds.}
 
 To prove this, we add zero to the set $W$ from the second step in the proof of Theorem \ref{unbounded_growth_thm},
 and repeat the rest of the proof.

@@ -76,7 +76,7 @@ $$
 Рассмотрим функционал:
 \begin{equation}
 \label{weighted_functional}
-\IWg( u ) = \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
+\IWg( u ) = \IWg( a, u ) = \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
 \end{equation}
 где $F \in \mathfrak{F}$,
 $\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате,
@@ -90,6 +90,7 @@ $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): 
 В первой главе мы рассматриваем аналог неравенства Пойа-Сегё для монотонной перестановки с функционалом (\ref{weighted_functional}):
 \begin{equation}
 \label{toprove_weighted}
+\IWg( \mon{u} ) \le \IWg( u )
 \end{equation}
 Мы устанавливаем необходимые для выполнения неравенства условия на весовую функцию $a$.
 Также мы доказываем неравенство при необходимых условиях и дополнительном ограничении на рост интегранта по производной.
