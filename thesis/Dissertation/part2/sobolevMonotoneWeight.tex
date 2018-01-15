@@ -1,0 +1,172 @@
+\section{Доказательство неравенства (\ref{toprove_weighted}) для монотонных весов}
+\label{ASC}
+
+В этом параграфе мы получим неравенство (\ref{toprove_weighted}) при дополнительном условии
+монотонности весовой функции при $x \in [-1, 0]$ и при $x \in [0, 1]$.
+
+\begin{lm}
+\label{Wapprox}
+Пусть $a$ --- непрерывная функция, $a(\cdot, u)$ возрастает на $[-1, 0]$ и убывает на $[0, 1]$ для всех $u \ge 0$.
+Тогда для любой функции $u \in \W(-1, 1)$, $u \ge 0$, найдётся последовательность $\{u_k\} \subset Lip[-1, 1]$, удовлетворяющая
+\begin{equation}
+%\label{convergence}
+u_k \to u \text{ в } \W(-1, 1) \quad \text{ и } \quad \IWg(a, u_k) \to \IWg(a, u).
+\end{equation}
+\end{lm}
+
+\begin{proof}
+Можно считать, что $\IWg( a, u ) < \infty$.
+
+Мы докажем утверждение для функционала
+$$
+\IWg_1( u ) = \int\limits_0^1 F \bigl( u(x), a(x, u(x)) |u'(x)| \bigr) \, dx.
+$$
+Вторая часть с интегрированием по $[-1, 0]$ сводится к $\IWg_1$ заменой переменной.
+
+Для доказательства мы модифицируем схему из \cite[Теорема 2.4]{ASC}.
+Частично доказательство совпадает с \cite{ASC}, но для удобства читателя мы приводим здесь его полностью.
+
+Нам потребуется следующее вспомогательное утверждение.
+
+\begin{prop}
+\label{convToOne}
+\textrm{\cite[Lemma 2.7]{ASC}.}
+Пусть $\phi_h: [-1, 1] \to \Real$ --- последовательность липшицевых функций, удовлетворяющих условиям:
+$\phi_h' \ge 1$ для почти всех $x$ и всех $h$, $\phi_h( x ) \to x$ для почти каждого $x$.
+Тогда для любой $f \in \Ls(\Real)$ выполнено $f(\phi_h) \to f$ в $\Ls(\Real)$.
+\end{prop}
+
+Для $h \in \Nat$ покроем множество $\{ x \in [0, 1]: |u'(x)| > h \}$ открытым множеством $A_h$.
+Не умаляя общности, можно считать, что $A_{h + 1} \subset A_{h}$ и $\abs{A_h} \to 0$ при $h \to \infty$.
+
+Обозначим $v_h$ неотрицательную непрерывную функцию, заданную на $[0, 1]$,
+совпадающую с $u$ на множестве $[0, 1] \setminus A_h$, и линейную на интервалах, составляющих $A_h$.
+Тогда $v_h \to u$ в $\W(-1, 1)$.
+Теперь изменим $v_h$ так, чтобы сделать их липшицевыми.
+
+Представим $A_h = \cup_k \Omega_{h,k}$, где $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$.
+Обозначим
+$$
+\alpha_{h,k} := \abs{\Omega_{h,k}}, \quad
+\beta_{h,k} := v_h(b_{h,k}^+) - v_h(b_{h,k}^-) = u(b_{h,k}^+) - u(b_{h,k}^-).
+$$
+Тогда $v'_h = \frac{\beta_{h,k}}{\alpha_{h,k}}$ в $\Omega_{h,k}$.
+Заметим, что
+$$
+\sum_k \abs{\beta_{h,k}} \le \int\limits_{A_h} \abs{u'} \, dx \le \norm{u'}_{\Ls(-1, 1)} < \infty,
+$$
+а значит,
+$\sum_k \abs{\beta_{h,k}} \to 0$ при $h \to 0$ по теореме Лебега.
+
+Определим функцию $\phi_h \in \W(0, 1)$ следующим образом:
+$$
+\begin{aligned}
+\phi_h( 0 ) &= 0 & & \\
+\phi_h' &=  1 & \text{ в } & [0, 1] \setminus A_h,\\
+\phi_h' &=  \max \Bigl( \frac{ \abs{\beta_{h,k}} }{ \alpha_{h,k} }, 1 \Bigr) & \text{ в } & \Omega_{h,k}.
+\end{aligned}
+$$	
+
+Заметим, что $\int_0^1 \abs{\phi_h'} \, dx \le 1 + \sum_k \abs{\beta_{h,k}} < \infty$.
+
+Покажем, что $\phi_h' \to 1$ в $\Ls(0, 1)$:
+$$
+\int \abs{\phi_h' - 1} \, dx = \sum\limits_k \Bigl( \max \Bigl( \frac{ \abs{\beta_{h,k}} }{ \alpha_{h,k} }, 1 \Bigr) - 1 \Bigr) \alpha_{h,k} \le
+\sum\limits_k \abs{\beta_{h,k}} \to 0.
+$$
+Отсюда следует, что $\phi_h$ удовлетворяет условиям предложения \ref{convToOne}.
+
+Рассмотрим теперь $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- ограничение обратной к $\phi_h$ функции на $[0, 1]$.
+Тогда $0 \le ( \phi_h^{-1} )' \le 1$ и
+$$
+\begin{aligned}
+\phi_h^{-1} ( 0 ) &= 0 & & \\
+( \phi_h^{-1} )' &=  1 & \text{ в } & [0, 1] \setminus \phi_h( A_h ),\\
+( \phi_h^{-1} )' &=  \min \Bigl( \frac{ \alpha_{h,k} }{ \abs{ \beta_{h,k} } }, 1 \Bigr) & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
+\end{aligned}
+$$
+
+Возьмем $u_h = v_h( \phi_h^{-1} )$.
+Заметим, что $u_h(0) = u(0)$, и
+\begin{align*}
+u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = u'( \phi_h^{-1} ) & \text{ в } & [0, 1] \setminus \phi_h( A_h ),\\
+u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' = 
+\sign{ \beta_{h,k} } \cdot \min \Bigl( 1, \frac{ \abs{ \beta_{h,k} } }{ \alpha_{h,k} } \Bigr) & \text{ в } & [0, 1] \cap \phi_h( \Omega_{h,k} ).
+\end{align*}
+Тем самым, $u_h$ липшицева, поскольку $u'$ ограничена в $[0, 1] \setminus A_h$.
+
+Покажем, что $u_h \to u$ в $\W(0, 1)$.
+Для этого достаточно оценить
+
+$$
+\norm{u_h' - u'}_{\Ls} \le \int\limits_{[0, 1] \setminus \phi_h(A_h)} \abs{u_h' - u'} +
+\int\limits_{[0, 1] \cap \phi_h(A_h)} \abs{u_h'} + \int\limits_{[0, 1] \cap \phi_h(A_h)} \abs{u'} =: P_h^1 + P_h^2 + P_h^3.
+$$
+$$
+P_h^1 = \int\limits_{[0, 1] \setminus \phi_h( A_h )} \abs{u'( \phi_h^{-1} ) - u'} \, dx =
+\int\limits_{\phi_h^{-1} ( [0, 1] ) \setminus A_h} \abs{u' - u'( \phi_h )} \, dz \le
+\int\limits_{[0, 1]} \abs{u' - u'( \phi_h )} \, dz.
+$$
+В силу предложения \ref{convToOne}, $P_h^1 \to 0$.
+Далее,
+$$
+P_h^2 \le \abs{\phi_h( A_h )} = \sum\limits_k \abs{\phi_h( \Omega_{h,k} )} = \sum\limits_k \max (\abs{\beta_{h,k}}, \alpha_{h,k})
+\le \sum\limits_k \alpha_{h,k} + \sum\limits_k \abs{\beta_{h,k}} \to 0.
+$$
+Наконец, $P_h^3 \to 0$ по абсолютной непрерывности интеграла, и утверждение доказано.
+
+Осталось показать, что $I_2( u_h ) \to I_2( u )$.
+
+\begin{multline*}
+\IWg_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F \bigl( u_h( x ), a( x, u_h(x) ) |u_h'( x )| \bigr) \, dx +\\
+\int\limits_{[0, 1] \cap \phi_h( A_h )} F \bigl( u_h( x ), a( x, u_h(x) ) |u_h'( x )| \bigr) \, dx =: \hat{P_h^1} + \hat{P_h^2}.
+\end{multline*}
+Поскольку $u \in \W(0, 1)$, имеем $u \in L_\infty( [0, 1] )$.
+Обозначим $\norm{u}_\infty = r$,
+тогда $\norm{u_h}_\infty < 2r$ при достаточно больших $h$.
+Кроме того, $\abs{u_h'} \le 1$ почти всюду в $\phi_h( A_h )$.
+Тогда $\hat{P_h^2} \le M_F \abs{\phi_h( A_h )} \to 0$, где
+$$
+M_F = \max\limits_{[-2r, 2r] \times [-M_a, M_a]} F;\quad M_a = \max\limits_{[0, 1] \times [-2r, 2r]} a.
+$$
+
+Далее,
+\begin{multline*}
+\hat{P_h^1} = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) }
+	F \bigl( u( \phi_h^{-1}( x ) ), a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) \bigr) \, dx
+\\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F \bigl( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| \bigr) \, dz
+\\ = \int\limits_{ [0, 1] } F \bigl( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| \bigr) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } \, dz.
+\end{multline*}
+Последнее равенство, вообще говоря, не имеет смысла, так как $\phi_h( z )$ может принимать значения вне $[0, 1]$.
+Определим $a( z, u ) = a( 1, u )$ при $z > 1$, теперь выражение корректно.
+Заметим, что $\chi_{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ возрастают,
+так как множества $\phi_h^{-1}( [0, 1] )$ возрастают и $A_h$ убывают,
+то есть $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ и $A_{h_1} \supset A_{h_2}$ при $h_1 \le h_2$.
+На отрезке $[0, 1]$ (и даже $\phi_h( [0, 1] )$) функция $a$ убывает, а также $\phi_h( z )$ убывает по $h$,
+значит $a( \phi_h( z ) )$ будет расти по $h$.
+В таком случае можно применить теорему о монотонной сходимости и получить
+$$
+\hat{P_h^1} \to \int\limits_{[0, 1]} F \bigl( u( z ), a( z, u( z ) ) |u'( z )| \bigr) \, dz.
+$$
+
+\end{proof}
+
+\begin{rem}
+Очевидно, что те же рассуждения с закреплением функции $u$ на левом конце можно провести на любом интервале $[x_0, x_1]$,
+где вес $a$ убывает по $x$.
+То есть можно получить последовательность $\{u_h\}$, удовлетворяющую
+\begin{gather*}
+u_h(x_0) = u(x_0); \qquad u_h \to u \text{ в } \W(x_0, x_1);\\
+\int\limits_{x_0}^{x_1} F \bigl( u_h(x), a(x, u_h(x)) \abs{u_h'(x)} \bigr) \to \int\limits_{x_0}^{x_1} F \bigl( u(x), a(x, u(x)) \abs{u'(x)} \bigr).
+\end{gather*}
+Аналогично, если $a$ возрастает по $x$, можно аппроксимировать $u$ с закреплением на правом конце.
+\end{rem}
+
+\begin{cor}
+Пусть функция $a$ непрерывна, чётна, убывает на $[0, 1]$ и удовлетворяет неравенству $(\ref{almostConcave})$.
+Тогда для любой $u \in \W(-1, 1)$ выполнено $I( a, u^* ) \le I( a, u )$.
+\end{cor}
+
+\begin{proof}
+Неравенство немедленно следует из лемм \ref{uplift} и \ref{Wapprox}.
+\end{proof}
