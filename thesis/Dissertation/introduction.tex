@@ -25,3 +25,74 @@
 \formbytotal{totalcount@figure}{рисун}{ок}{ка}{ков} и
 \formbytotal{totalcount@table}{таблиц}{у}{ы}{}.   Список литературы содержит  
 \formbytotal{citenum}{наименован}{ие}{ия}{ий}.
+
+
+\todo{Make use of \textbackslash norm, \textbackslash abs, \textbackslash meas, \textbackslash set and other commands}
+
+\todo{ё}
+
+\todo{fix discontinuity in graphs}
+
+Пусть $\Omega = \omega \times [-1,1]$,
+где $\omega$ --- ограниченная область в $\Real^{n - 1}$.
+Обозначим $x = ( x_1, \dots, x_{n - 1}, y ) = ( x', y )$.
+
+Напомним теорему о послойном представлении измеримой неотрицательной функции $u$, заданной на $\Omega$
+(см. \cite[Теорема 1.13]{LiebLoss}).
+Положим $\mathcal{A}_t(x') := \{ y \in [-1,1] :\ u( x', y ) > t \}$.
+Тогда имеет место равенство
+$$
+u(x', y) = \int_0^\infty \charf{\mathcal{A}_t(x')}(y) dt,
+$$
+где $\charf{A}$ --- характеристическая функция множества $A$.
+
+Определим симметричную перестановку измеримого множества $E \subset [-1, 1]$ и
+симметричную перестановку (симметризацию по Штейнеру) неотрицательной функции $u \in \W(\Omega)$:
+\begin{eqnarray*}
+\symm{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}]; \qquad
+\symm{u}(x', y) = \int\limits_0^\infty \charf{ \symm{( \mathcal{A}_t(x') )} }(y) dt.
+\end{eqnarray*}
+
+В тех же условиях определим монотонную перестановку множества $E$ и функции $u \in \W(\Omega)$:
+\begin{eqnarray*}
+\mon{E} := [1 - \meas E, 1]; \qquad
+\mon{u}(x', y) = \int\limits_0^\infty \charf{ \mon{ \mathcal{A}_t(x') } }(y) dt.
+\end{eqnarray*}
+
+Возьмём выпуклую чётную функцию $F$ и рассмотрим функционал
+\begin{equation}
+\label{PS_functional}
+\IPS( u ) = \int_\Omega F( \norm{ \nabla u } ) dx.
+\end{equation}
+Для такого функционала хорошо известно классическое неравенство Пойа-Сегё: $\IPS( \symm{u} ) \le \IPS( u )$.
+
+В данной диссертации мы рассматриваем обобщения неравенства Пойа-Сегё на более общие классы функционалов.
+В первой и второй главах мы рассматриваем взвешенные аналоги классического функционала.
+
+Определим множество $\mathfrak{F}$ непрерывных функций $F: \omega \times \Real_+ \times \Real_+ \to \Real_+$
+(здесь и далее $\Real_+ = [0, \infty)$ \todo{move to notations}),
+выпуклых и возрастающих по третьему аргументу, удовлетворяющих $F( \cdot, \cdot, 0 ) \equiv 0$.
+
+Рассмотрим функционал:
+\begin{equation}
+\label{weighted_functional}
+\IWg( u ) = \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
+\end{equation}
+где $F \in \mathfrak{F}$,
+$\norm{\cdot}$ --- некоторая норма в $\Real^n$, симметричная по последней координате,
+то есть удовлетворяющая $\norm{( x', y )} = \norm{( x', -y )}$,
+$$\mathcal{D} u = ( a_1( x', u( x ) ) D_1 u,\ \dots,\ a_{n - 1}( x', u( x ) ) D_{n - 1} u,\ a( x, u( x ) ) D_n u )$$
+--- градиент $u$ с весом (обратите внимание, что только вес при $D_n u$ зависит от $y$),
+$a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): \omega \times \Real_+ \to \Real_+$ --- непрерывные функции.
+Здесь и далее индекс $i$ пробегает от $1$ до $n - 1$.
+Очевидно, что при $a_i = a \equiv 1$ выполнено $\IWg \equiv \IPS$.
+
+В первой главе мы рассматриваем аналог неравенства Пойа-Сегё для монотонной перестановки с функционалом (\ref{weighted_functional}):
+\begin{equation}
+\label{toprove_weighted}
+\end{equation}
+Мы устанавливаем необходимые для выполнения неравенства условия на весовую функцию $a$.
+Также мы доказываем неравенство при необходимых условиях и дополнительном ограничении на рост интегранта по производной.
+
+Во второй главе мы снимаем требование ограничения роста,
+и также доказываем аналогичный результат для симметричной перестановки, тем самым закрывая пробел в работе \cite{Brock}.
