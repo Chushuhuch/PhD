@@ -36,10 +36,10 @@ $$
 Тогда $\mon{u}(x, v) = u(-x, v)$ и
 \begin{multline*}
 \IWg(a, u) - \IWg(a, \mon{u}) \\
-= \int\limits_{\bar{x}-\eps}^{\bar{x}} F\big( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) \big) \, dx -
-\int\limits_{-\bar{x}}^{-\bar{x}+\eps} F\big( \bar{v} + \bar{x} + x, a(x, \bar{v} + \bar{x} + x) \big) \, dx \\
-= \int\limits_{\bar{x}-\eps}^{\bar{x}} \big( F\big( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) \big) -
-F\big( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) \big) \big) \, dx < 0,
+= \int\limits_{\bar{x}-\eps}^{\bar{x}} F \bigl( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) \bigr) \, dx -
+\int\limits_{-\bar{x}}^{-\bar{x}+\eps} F \bigl( \bar{v} + \bar{x} + x, a(x, \bar{v} + \bar{x} + x) \bigr) \, dx \\
+= \int\limits_{\bar{x}-\eps}^{\bar{x}} \bigl( F \bigl( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) \bigr) -
+F \bigl( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) \bigr) \bigr) \, dx < 0,
 \end{multline*}
 что противоречит условию.
 Утверждение \textbf{1} доказано.
@@ -124,20 +124,20 @@ $$
 
 Имеем
 \begin{multline*}
-\IWg(a, \mon{u}) = \int\limits_0^{2\eps} F \big( u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2} \big) \, dz\\
-= \int\limits_0^\eps 2 F \big(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2} \big) \, dy\\
+\IWg(a, \mon{u}) = \int\limits_0^{2\eps} F \bigl( u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2} \bigr) \, dz\\
+= \int\limits_0^\eps 2 F \bigl(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2} \bigr) \, dy\\
 0 \le \IWg( a, u ) - \IWg( a, \mon{u} ) =
-\int\limits_0^\eps \big( F\big(\bar{v} + y, a(s + y, \bar{v} + y)\big) + F\big(\bar{v} + y, a( t - y, \bar{v} + y)\big)\\
-- 2 F \big(\bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2} \big) \big) \, dy\\
-< \int\limits_0^\eps \big( F\big(\bar{v} + y, a(s + y, \bar{v} + y)\big) + F\big(\bar{v} + y, a(t - y, \bar{v} + y)\big)\\
-- 2 F \big( \bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2} \big) \big) \, dy =: \Delta\IWg.
+\int\limits_0^\eps \bigl( F \bigl( \bar{v} + y, a(s + y, \bar{v} + y) \bigr) + F \bigl( \bar{v} + y, a( t - y, \bar{v} + y) \bigr)\\
+- 2 F \bigl( \bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2} \bigr) \bigr) \, dy\\
+< \int\limits_0^\eps \bigl( F \bigl( \bar{v} + y, a(s + y, \bar{v} + y) \bigr) + F \bigl( \bar{v} + y, a(t - y, \bar{v} + y) \bigr)\\
+- 2 F \bigl( \bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2} \bigr) \bigr) \, dy =: \Delta\IWg.
 \end{multline*}
 
 Рассмотрим теперь функцию $F(v, p) = p^\alpha$.
 Очевидно, что при $\alpha = 1$ выполнено неравенство
 \begin{equation}
 \label{anticonvex}
-\frac{F(v, p) + F(v, q)}{ 2 } - F\big(v, \frac{p + q}{ 2 } + \frac{\delta}{ 2 }\big) < 0.
+\frac{F(v, p) + F(v, q)}{ 2 } - F \bigl( v, \frac{p + q}{ 2 } + \frac{\delta}{ 2 } \bigr) < 0.
 \end{equation}
 Нас интересуют $p, q$, лежащие на компакте $[0, А]$, где
 \begin{equation*}

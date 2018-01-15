@@ -1,13 +1,14 @@
 \section{Доказательство неравенства (\ref{toprove_weighted}) для кусочно ли\-ней\-ных функций}
 
 \begin{lm}
+\label{weighted_linear_lm}
 Пусть функция $a(x', \cdot, u)$ четна и удовлетворяет условию $(\ref{almostConcave})$ для всех $(x', u)$.
 Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I( u ) \ge I( \mon{u} )$.
 \end{lm}
 
 \begin{proof}
 Пусть функция $u$ имеет изломы на множестве $C$ ($\partial \Omega \subset C \subset \Omega$).
-Возьмем
+Возьмём
 $$
 U := \{ ( x', u( x', y ) ): x' \in \omega, y \in (-1, 1), (x', y) \not\in C \}.
 $$
@@ -50,11 +51,11 @@ I( u )=\sum_{j=1}^N {
 \\ = \sum_{j=1}^N{
     \int\limits_{u(G_j)}{
         \sum_{k=1}^{m_j}{
-            F \Big( x', u, \frac{
+            F \Bigl( x', u, \frac{
                 \norm{
                     a_i(x',u) D_i y_k^j(x',u), a(x', y_k^j(x',u), u)
                 }
-            }{\abs{ D_n y_k^j (x',u) }} \Big)
+            }{\abs{ D_n y_k^j (x',u) }} \Bigr)
         }
         }} {{\abs{ D_n y_k^j(x',u) }
     dx' du}
@@ -72,11 +73,11 @@ I( \mon{u} )=
 }
 \\ = \sum_{j=1}^N {
     \int\limits_{u(G_j)}{
-        F \Big( x', \mon{u}, \frac{
+        F \Bigl( x', \mon{u}, \frac{
             \norm{
                 a_i(x', \mon{u}) D_i \mon{y}(x', \mon{u}), a(x', \mon{y}(x', \mon{u}), \mon{u})
             }
-        }{\sum_{k=1}^{m_j} \abs{ D_n y_k^j(x', \mon{u}) }} \Big) }} \times
+        }{\sum_{k=1}^{m_j} \abs{ D_n y_k^j(x', \mon{u}) }} \Bigr) }} \times
         \\ \times {{ \sum_{k=1}^{m_j} \abs{ D_n y_k^j(x', \mon{u}) }
     dx' d\mon{u}}
 }.
@@ -87,14 +88,14 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $\mon{c}_i=D_i \mon{y}$, $y_k=y_k^j
 
 \begin{multline}
 \label{chain}
-\sum_{k=1}^m{ b_k F\Big(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k}\Big) }
-\overset{a}{\ge} F\Big( \frac{ \sum_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum_{k=1}^m b_k } \Big) \sum_{k=1}^m b_k \\
-\overset{b}{=}  F\Big( \frac{ \sum_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
-\overset{c}{\ge}  F\Big( \frac{ \norm{ \sum_{k = 1}^m ( ( -1 )^k a_i c_{ki}, a( y_k ) ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
-= F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
-\overset{d}{\ge} F\Big( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, a( \mon{y} ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k \\
-\overset{e}{=}   F\Big( \frac{ \norm{ \pm a_i \sum_{k = 1}^m ( -1 )^k c_{ki}, a( \mon{y} ) } }{ \sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k
-= F\Big( \frac{ \norm{ a_i \mon{c}_i, a(\mon{y}) } }{\sum_{k=1}^m b_k} \Big) \sum_{k=1}^m b_k.
+\sum_{k=1}^m{ b_k F \Bigl(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k} \Bigr) }
+\overset{a}{\ge} F \Bigl( \frac{ \sum_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum_{k=1}^m b_k } \Bigr) \sum_{k=1}^m b_k \\
+\overset{b}{=}  F \Bigl( \frac{ \sum_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k
+\overset{c}{\ge}  F \Bigl( \frac{ \norm{ \sum_{k = 1}^m ( ( -1 )^k a_i c_{ki}, a( y_k ) ) } }{ \sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k \\
+= F \Bigl( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, \sum_{k = 1}^m a( y_k ) } }{ \sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k
+\overset{d}{\ge} F \Bigl( \frac{ \norm{ \sum_{k = 1}^m ( -1 )^k a_i c_{ki}, a( \mon{y} ) } }{ \sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k \\
+\overset{e}{=}   F \Bigl( \frac{ \norm{ \pm a_i \sum_{k = 1}^m ( -1 )^k c_{ki}, a( \mon{y} ) } }{ \sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k
+= F \Bigl( \frac{ \norm{ a_i \mon{c}_i, a(\mon{y}) } }{\sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k.
 \end{multline}
 Здесь в переходе (a) применено неравенство Йенсена, в переходах (b) и (e) использована четность нормы, в (c) использовано неравенство треугольника,
 в (d) --- предложение \ref{weightSum} и четность веса $a$ по $y$.

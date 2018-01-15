@@ -80,7 +80,7 @@ $$K(s, x) = s ( 1 + s^{-2} )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1].$$
 %\textrm{\cite[лемма 10]{1dim}.}
 %Предположим, что функция $p$ непрерывна на $[-1, 1]$, и для нее выполнено
 %$$
-%\forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p\big({s - t \over 2}\big) + p\big({t - s \over 2}\big).
+%\forall s, t \in [-1, 1] \qquad p(s) + p(t) \ge p \bigl( {s - t \over 2} \bigr) + p \bigl( {t - s \over 2} \bigr).
 %$$
 %Тогда функция $p$ четна и выпукла.
 %\end{prop}
@@ -90,11 +90,11 @@ $$K(s, x) = s ( 1 + s^{-2} )^{p(x) \over 2} \qquad s > 0,\ x \in [-1, 1].$$
 и рассмотрим финитную кусочно линейную функцию с ненулевыми производными только в окрестностях $x_1$ и $x_2$.
 А именно, для произвольных $s, t > 0$ и достаточно малого $\eps$ положим
 $$
-u_\eps(x) = \min\big( 2 \eps, ( \eps + s^{-1} (x - x_1))_+, ( \eps + t^{-1} (x_2 - x) )_+\big).
+u_\eps(x) = \min \bigl( 2 \eps, ( \eps + s^{-1} (x - x_1))_+, ( \eps + t^{-1} (x_2 - x) )_+ \bigr).
 $$
 Тогда
 $$
-\symm{u_\eps}(x) = \min\big( 2 \eps, ( \eps + ( t + s )^{-1} ( x_2 - x_1 - 2 |x| ) )_+ \big).
+\symm{u_\eps}(x) = \min \bigl( 2 \eps, ( \eps + ( t + s )^{-1} ( x_2 - x_1 - 2 |x| ) )_+ \bigr).
 $$
 %\begin{equation}
 %\left\{
@@ -222,7 +222,7 @@ $$
 \begin{equation}
 \label{K_ineq}
 \sum\limits_{k = 1}^{m} K(s_k, x_k) \ge
-2 K\Big({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k\Big).
+2 K \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k \Bigr).
 \end{equation}
 \end{lm}
 
@@ -233,9 +233,9 @@ $$
 \begin{multline*}
 \sum\limits_{k = 1}^{m} M(s_k, x_k)
 \ge M(s_1, x_1) + M(s_m, x_m)
-\overset{a}{\ge} 2 M\big({s_1 + s_m \over 2}, {x_m - x_1 \over 2}\big) \ge \\
-\overset{b}{\ge} 2 M\Big({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {x_m - x_1 \over 2}\Big)
-\overset{c}{\ge} 2 M\Big({1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k\Big).
+\overset{a}{\ge} 2 M \bigl( {s_1 + s_m \over 2}, {x_m - x_1 \over 2} \bigr) \ge \\
+\overset{b}{\ge} 2 M \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m} s_k, {x_m - x_1 \over 2} \Bigr)
+\overset{c}{\ge} 2 M \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k \Bigr).
 \end{multline*}
 
 Неравенство (a) сделует из того, что $M$ четна по $x$ и выпукла,
@@ -251,7 +251,7 @@ $$
 
 \begin{proof}
 Обозначим $L \subset [-1, 1]$ множество точек перелома функции $u$ (включая концы отрезка).
-Возьмем $U = u([-1, 1]) \setminus u(L)$, образ функции $u$ без образов точек излома.
+Возьмём $U = u([-1, 1]) \setminus u(L)$, образ функции $u$ без образов точек излома.
 Это множество представляется в виде объединения конечного числа непересекающихся интервалов $U = \cup_j U_j$.
 Заметим, что для каждого $j$ множество $u^{-1}(U_j)$ разбивается на четное число интервалов,
 на каждом из которых функция $u$ совпадает с некоторой линейной функцией $y^j_k$, $k = 1, \dots, m_j$.
@@ -267,7 +267,7 @@ $$
 \I(u) - Z = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
 = \sum\limits_j \sum\limits_k \int\limits_{dom(y^j_k)} (1 + {y^j_k}'^2(x))^{p(x) \over 2} dx =
 \\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over b^j_k} (1 + b^j_k{}^2)^{p((y^j_k)^{-1}(y)) \over 2} dy
-= \sum\limits_j \int\limits_{U_j} \sum\limits_k K\Big({1 \over b^j_k}, (y^j_k)^{-1}(y)\Big) dy.
+= \sum\limits_j \int\limits_{U_j} \sum\limits_k K \Bigl( {1 \over b^j_k}, (y^j_k)^{-1}(y) \Bigr) dy.
 \end{multline*}
 
 Любая точка $y \in U$ имеет два прообраза относительно функции $symm{u}$,
@@ -280,15 +280,15 @@ $$
 Ввиду четности $symm{u}$ имеем
 \begin{multline*}
 \I(\symm{u}) - Z = 2 \int\limits_{(\symm{u})^{-1}(U)} (1 + \symm{u}'^2(x))^{p(x) \over 2} dx =
-\\ = 2 \int\limits_U |((\symm{u})^{-1})'(y)| \cdot \big( 1 + { 1 \over ((\symm{u})^{-1})'(y)^2 } \big)^{p((\symm{u})^{-1}(y)) \over 2} dy =
-\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over \symm{b_j}} \big(1 + \symm{b_j}^2 \big)^{{1 \over 2} p\big({1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\big)} dy =
-\\ = 2 \sum\limits_j \int\limits_{U_j} K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big) dy.
+\\ = 2 \int\limits_U |((\symm{u})^{-1})'(y)| \cdot \bigl( 1 + { 1 \over ((\symm{u})^{-1})'(y)^2 } \bigr)^{p((\symm{u})^{-1}(y)) \over 2} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over \symm{b_j}} \bigl( 1 + \symm{b_j}^2 \bigr)^{{1 \over 2} p \bigl( {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \bigr)} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} K \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \Bigr) dy.
 \end{multline*}
 Зафиксируем $j$ и $y$.
 Тогда для доказательства леммы достаточно выполнения
 $$
-\sum\limits_{k = 1}^{m_j} K\Big({1 \over b^j_k}, (y^j_k)^{-1}(y)\Big) \ge
-2 K\Big({1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y)\Big).
+\sum\limits_{k = 1}^{m_j} K \Bigl( {1 \over b^j_k}, (y^j_k)^{-1}(y) \Bigr) \ge
+2 K \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \Bigr).
 $$
 Но это неравенство обеспечивается леммой \ref{quasiConv}.
 \end{proof}
@@ -312,7 +312,7 @@ $$
 из $v_n \to u'$ в $L^{p(x)}$ следует сходимость $\I( u_n ) \to \I( u )$.
 
 %Будем считать, что частичные интегралы функций $v_n$ на отрезках $[-1, x]$ неотрицательны,
-%иначе в качестве $v$ возьмем производные модуля первообразных $v_n$.
+%иначе в качестве $v$ возьмём производные модуля первообразных $v_n$.
 %Это не ухудшит сходимость ({\color{red} неочевидно !!!!!!!!!!}) и обеспечит требуемое.
 %Обозначим $w_n(x) = v_n(x) - \int\limits_{-1}^1 v_n(x) dx$ и $u_n \in \Wf[-1, 1]$ --- первообразные функций $w_n$.
 %
@@ -330,7 +330,7 @@ $$
 %Последнее равносильно
 %$$
 %A( \sqrt{ 1 + u_n'^2 } - \sqrt{ 1 + u'^2 } ) \to 0, \text{\ где\ }
-%\norm{ f }_{L^{p(x)}} = \inf\{ \lambda: A\Big( { f \over \lambda } \Big) \le 1 \},
+%\norm{ f }_{L^{p(x)}} = \inf\{ \lambda: A \Bigl( { f \over \lambda } \Bigr) \le 1 \},
 %$$
 %поскольку функция $A$ задает метрику, согласованную с нормой в $L^{p(x)}$.
 %Отсюда следует, что $A( \sqrt{ 1 + u_n'^2 } ) \to A( \sqrt{ 1 + u'^2 } )$,

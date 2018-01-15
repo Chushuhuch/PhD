@@ -117,12 +117,12 @@ Then
 $$
 \begin{aligned}
 I(u^{-1}(W_1), \mathfrak b_{\ell}, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
-I(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F\big(u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)|\big) \, dx.
+I(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F \bigl( u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)| \bigr) \, dx.
 \end{aligned}
 $$
 By Proposition \ref{levelDerivative}, $u'(x) = 0$ almost everywhere on $u^{-1}(W_2)$.
 Thus
-$$I(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F\big(u(x), 0\big) \, dx = 0.$$
+$$I(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F \bigl( u(x), 0 \bigr) \, dx = 0.$$
 Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$.
 The second relation in \textit{3)} is proved by the same arguments.
 \end{proof}
@@ -261,8 +261,8 @@ such that $\mathfrak d_{\alpha_j}(\cdot, v)$ has no segments of constant values,
 unless $\mathfrak d_{\alpha_j}(\cdot, v) \equiv 0$ or $v$ belongs to a zero measure set.
 We introduce the set of $\alpha$ which are ``bad'' on $[x_i, x_{i + 1}]$:
 \begin{multline*}
-A_i := \big \{\alpha \in [0, 1]: \\
-\meas \{v \in [\min u, \max u]: \frac{\mathfrak c(x_{i + 1}, v) - \mathfrak c(x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \big \},
+A_i := \bigl \{\alpha \in [0, 1]: \\
+\meas \{v \in [\min u, \max u]: \frac{\mathfrak c(x_{i + 1}, v) - \mathfrak c(x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \bigr \},
 \end{multline*}
 where $\chi_i = 1$ if $[x_i, x_{i + 1}] \subset [0, 1]$, and $\chi_i = -1$ if $[x_i, x_{i + 1}] \subset [-1, 0]$.
 
@@ -282,10 +282,10 @@ Passing to the limit, we get $I(\mathfrak c, \mon{u}) \le I(\mathfrak c, u)$.
 Further, for $x \in [-1, 1]$ we have
 \begin{equation}
 \label{step4Conv}
-F\big(u(x), \mathfrak c_k(x, u(x)) |u'(x)|\big) \to F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)
+F \bigl( u(x), \mathfrak c_k(x, u(x)) |u'(x)| \bigr) \to F \bigl( u(x), \mathfrak a(x, u(x)) |u'(x)| \bigr)
 \end{equation}
 as $k \to \infty$.
-Moreover, $F\big(u(x), \mathfrak a(x, u(x)) |u'(x)|\big)$ is an integrable majorant
+Moreover, $F \bigl( u(x), \mathfrak a(x, u(x)) |u'(x)| \bigr)$ is an integrable majorant
 for the left-hand side in (\ref{step4Conv}).
 By the Lebesgue theorem, we have $I(\mathfrak c_k, u) \to I(\mathfrak a, u)$.
 Since $I(\mathfrak c_k, \mon{u}) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves inequality (\ref{toprove_weighted}).
@@ -326,7 +326,7 @@ The weights $\mathfrak c_j$, given by the Lemma, satisfy $(H1)-(H2)$,
 since they are just $\mathfrak b$ multiplied by a factor less than one, which depends only on $v$.
 
 For any $k$ sufficiently large, there exists $j = j(k)$ such that
-$$u\Big( \Big\{ x \in [-1, 1]: dist(x, T) \le \frac{4}{k} \Big\} \Big) \subset \Big\{ v \in \Real_+: dist(v, u(T)) \le \frac{1}{2j} \Big\},$$
+$$u \Bigl( \Bigl\{ x \in [-1, 1]: dist(x, T) \le \frac{4}{k} \Bigr\} \Bigr) \subset \Bigl\{ v \in \Real_+: dist(v, u(T)) \le \frac{1}{2j} \Bigr\},$$
 and $j(k) \to \infty$ as $k \to \infty$ by continuity of $u$.
 This implies that $\min\limits_{dist(x, u^{-1}(v)) \le \frac{2}{k}} c_j(x, v) > 0$
 for all $v \in U(c_j)$.

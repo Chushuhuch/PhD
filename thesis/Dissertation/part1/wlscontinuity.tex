@@ -1,129 +1,147 @@
-\section{Extension of class of functions for which inequality (\ref{toprove_weighted}) holds}
-The next statement is more or less standard.
-However, the set $\{u: I(\mathfrak a, u) < \infty\}$ is not even convex subset of $\W(-1, 1)$.
-Thus we give here a full proof for the reader's convenience.
+\section{О расширении класса функций, для которых выполняется неравенство (\ref{toprove_weighted})}
+
+\todo{проверить ещё раз, что всё ок в многомерном случае}
+
+\todo{кое-где вместо 2 вылезет $\abs{\Omega}$}
+
+Следующее утверждение более-менее стандартно.
+Однако, множество $\{u: \IWg(u) < \infty\}$ даже не является выпуклым подмножеством $\W(\Omega)$.
+Поэтому здесь мы приводим полное доказательство для удобства читателя.
+\todo{это ок фраза для диссертации вообще?}
 
 \begin{lm}
-Let the function $\mathfrak a$ be continuous. Then the functional $I(\mathfrak a, u)$ is weakly lower semicontinuous in $\W(-1, 1)$.
+Пусть функция $a$ непрерывна.
+Тогда функционал $\IWg(u)$ слабо полунепрерывен снизу в $\W(\Omega)$.
 \label{lowersemi}
 \end{lm}
 
 \begin{proof}
-Let $u_m \rightharpoondown u$ in $\W(-1, 1)$.
-Let us denote $A = \varliminf I( \mathfrak a, u_m ) \ge 0$.
-We are going to prove $I(\mathfrak a, u) \le A$.
-In the case $A = \infty$ the assertion is trivial, so we can assume $A < \infty$.
-Switching to a subsequence, we obtain $A = \lim I( \mathfrak a, u_m )$.
+Пусть $u_m \rightharpoondown u$ в $\W(\Omega)$.
+Обозначим $A = \varliminf \IWg(u_m) \ge 0$.
+Наша задача --- доказать $\IWg(u) \le A$.
+Если $A = \infty$, то утверждение тривиально, поэтому можно считать $A < \infty$.
+Переходя к подпоследовательности, добиваемся $A = \lim \IWg(u_m)$.
+Из слабой сходимости $u_m \rightharpoondown u$ заключаем, что найдется $R_0$ такое, что $\norm{ u_m }_{\W(\Omega)} \le R_0$.
+Более того, переходя к подпроследовательности, можно считать,
+что $u_m \to u$ в $L_1(\Omega)$ и $u_m(x) \to u(x)$ почти всюду.
+Тогда по теореме Егорова для любого $\eps$ найдется множество
+$G_\eps^1$ такое, что $\abs{ G_\eps^1 } < \eps$ и $u_m \rightrightarrows u$ в $\Omega \setminus G_\eps^1$.
 
-The weak convergence implies, that there exists
-$R_0$ such that $\norm{ u_m }_{\W(-1, 1)} \le R_0$.
-Moreover, switching to a subsequence, we can assume that $u_m \to u$ in $L_1(-1, 1)$
-and $u_m(x) \to u(x)$ almost everywhere.
-Then, by Egorov's theorem, for any $\eps$ there exists a set
-$G_\eps^1$ such that $\abs{ G_\eps^1 } < \eps$ and $u_m \rightrightarrows u$ in $[-1, 1] \setminus G_\eps^1$.
+Из равномерной сходимости $u_m$ следует существование такого $K$, что для каждого $m > K$
+неравенство $\abs{u_m} \le \abs{u} + \eps$ выполнено для аргументов из $\Omega \setminus G_\eps^1$.
+Возьмём $G_\eps^2 = \{x \in \Omega \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
+Тогда
+$$
+R_0 \ge \int\limits_{\Omega} \abs{ u(x) } \, dx \ge \int\limits_{G_\eps^2} \abs{ u(x) } \, dx \ge
+\int\limits_{G_\eps^2} \frac{R_0 + \eps}{\eps} \, dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}.
+$$
+То есть $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
+Тем самым, последовательность $u_m$ равномерно сходится и равномерно ограничена вне множества $G_\eps := G_\eps^1 \cup G_\eps^2$.
 
-The uniform convergence of $u_m$ implies that there exists $K$ such that for each $m>K$
-the inequality $\abs{u_m} \le \abs{u} + \eps$ holds in $[-1, 1] \setminus G_\eps^1$.
-Let $G_\eps^2 = \{x \in [-1, 1] \setminus G_\eps^1 : \abs{u(x)} \ge \frac{R_0 + \eps}{\eps} \}$.
-Then
-$$R_0 \ge \int\limits_{-1}^1 \abs{ u(x) } \, dx \ge \int\limits_{G_\eps^2} \abs{ u(x) } \, dx \ge
-\int\limits_{G_\eps^2} \frac{R_0 + \eps}{\eps} \, dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}$$
-That is, $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
-Thus, the functions $u_m$ converge uniformly and are uniformly bounded outside the set $G_\eps := G_\eps^1 \cup G_\eps^2$.
+Из непрерывности $F$ и $a$ следует, что для произвольных $\eps$ и $R$ найдется такое
+$N( \eps, R )$, что если $x \in \Omega \setminus G_\eps$, $\abs{ M } \le R$ и $m > N( \eps, R )$, то
+$$
+| F \bigl( u_m( x ), a( x, u_m( x ) ) M \bigr) - F \bigl( u( x ), a( x, u( x ) ) M \bigr) | < \eps.
+$$
 
-The continuity of $F$ and $\mathfrak a$ implies that for any $\eps$ and $R$, there exists
-$N( \eps, R )$, such that if $x \in [-1, 1] \setminus G_\eps$, $\abs{ M } \le R$ and $m > N( \eps, R )$, then
-$$| F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) M \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) | < \eps.$$
-
-Let $E_{m,\eps} := \{ x \in [-1, 1]: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
-Then
-$$R_0 \ge \int\limits_{-1}^1 \abs{ u_m'( x ) } \, dx \ge \int\limits_{ E_{m,\eps} } \abs{ u_m'( x ) } \, dx \ge
+Рассмотрим множества $E_{m,\eps} := \{ x \in \Omega: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
+Имеем
+$$R_0 \ge \int\limits_{\Omega} \abs{ u_m'( x ) } \, dx \ge \int\limits_{ E_{m,\eps} } \abs{ u_m'( x ) } \, dx \ge
 \int\limits_{ E_{m,\eps} } \frac{ R_0 }{ \eps } \, dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$
-Therefore $\abs{ E_{m,\eps} } \le \eps$.
+Поэтому $\abs{ E_{m,\eps} } \le \eps$.
 
-Finally we set $L_{m,\eps} := [-1, 1] \setminus ( E_{m,\eps} \cup G_\eps )$.
-Note, that $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
+Теперь можно ввести $L_{m,\eps} := \Omega \setminus ( E_{m,\eps} \cup G_\eps )$.
+Тогда $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
 
-We put $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
-For any $\eps > 0$, $x \in L_{m,\eps}$ and $m > N( \eps )$ we have
-$$\Big | F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} \big) \Big | < \eps,$$
-thus
+Зафиксируем $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
+Для любых $\eps > 0$, $x \in L_{m,\eps}$ и $m > N( \eps )$ получим
+$$\Bigabs{ F \bigl( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} \bigr) - F \bigl( u( x ), a( x, u( x ) ) \abs{u_m'( x )} \bigr) } < \eps,$$
+откуда
 \begin{equation}
-\label{frDer}
-\int\limits_{L_{m,\eps}} \Big | F\big( u_m( x ), \mathfrak a( x, u_m( x ) ) \abs{u_m'( x )} \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) \abs{u_m'( x )} \big) \Big | \, dx < 2 \eps.
+\label{wls_appr_diff}
+\int\limits_{L_{m,\eps}} \Bigabs{ F \bigl( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} \bigr) - F \bigl( u( x ), a( x, u( x ) ) \abs{u_m'( x )} \bigr) } \, dx < 2 \eps.
 \end{equation}
 
-We put $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ and $L_\eps = \bigcap L_{m_j,\eps_j}$.
-Then $\sum \eps_j = \eps$ and therefore $\abs{ [-1, 1] \setminus L_\eps } < 3 \eps$.
-Since (\ref{frDer}) implies
-$$\int\limits_{L_\eps} \Big | F\big( u_{m_j}( x ), \mathfrak a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| \big) - F\big( u( x ), \mathfrak a( x, u( x ) ) |u_{m_j}'( x )| \big) \Big | \, dx < 2 \eps_j,$$
-we obtain
+Возьмём $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ и $L_\eps = \bigcap L_{m_j,\eps_j}$.
+Тогда $\sum \eps_j = \eps$ и, тем самым, $\abs{ \Omega \setminus L_\eps } < 3 \eps$.
+Поскольку из (\ref{wls_appr_diff}) следует
+$$\int\limits_{L_\eps} \Bigabs{ F \bigl( u_{m_j}( x ), a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| \bigr) - F \bigl( u( x ), a( x, u( x ) ) |u_{m_j}'( x )| \bigr) } \, dx < 2 \eps_j,$$
+мы получаем
 \begin{multline*}
-A = \lim I (\mathfrak a, u_{m_j}) = \lim \int\limits_{-1}^1 F\big(u_{m_j}(x), \mathfrak a(x, u_{m_j}(x)) | u_{m_j }'(x) |\big) \, dx \\
-\ge \varliminf \int\limits_{-1}^1 \chi_{L_\eps}(x) F\big(u (x), \mathfrak a(x, u(x)) | u_{m_j}'(x) |\big) \, dx
-=: \varliminf J_\eps(u_{m_j}').
+A = \lim \IWg (u_{m_j}) = \lim \int\limits_{\Omega} F \bigl( u_{m_j}(x), a(x, u_{m_j}(x)) | u_{m_j }'(x) | \bigr) \, dx \\
+\ge \varliminf \int\limits_{\Omega} \chi_{L_\eps}(x) F \bigl(u (x), a(x, u(x)) | u_{m_j}'(x) | \bigr) \, dx
+=: \varliminf \IWg_\eps(u_{m_j}').
 \end{multline*}
 
-The functional
-$$J_\eps( v ) = \int\limits_{-1}^1 \chi_{L_\eps}( x ) F\big( u( x ), \mathfrak a( x, u( x ) ) |v( x )| \big) \, dx$$
-is convex.
-Switching to a subsequence $u_k$ again, we can assume that
-$\varliminf J_\eps( u_{m_j}' ) = \lim J_\eps( u_k' )$.
-Since $u_k' \rightharpoondown u'$ in $L_1$, we can choose a sequence of convex combinations of $u_k'$,
-which converges to $u'$ strongly (see \cite[Theorem 3.13]{Rudin}).
-Namely, there are $\alpha_{k,l} \ge 0$ for
-$k \in \Nat$, $l \le k$, such that $\sum_{l = 1}^k \alpha_{k,l} = 1$ for every $k$ and
-$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ in $L_1$.
-Also, without loss of generality we can assume that the minimal index $l$ of a nonzero coefficient $\alpha_{k,l}$
-tends to infinity as $k$ tends to infinity.
-Then
-$$\lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ).$$
+Наш новый функционал
+$$
+\IWg_\eps( v ) = \int\limits_{\Omega} \chi_{L_\eps}( x ) F \bigl( u( x ), a( x, u( x ) ) |v( x )| \bigr) \, dx
+$$
+выпуклый.
+Вновь переходя к подпоследовательности $u_k$, можно считать, что
+$\varliminf \IWg_\eps( u_{m_j}' ) = \lim \IWg_\eps( u_k' )$.
+Так как $u_k' \rightharpoondown u'$ в $L_1$, то можно подобрать последовательность выпуклых комбинаций $u_k'$,
+которые будут сходиться к $u'$ сильно (см. \cite[Теорема 3.13]{Rudin}).
+А именно: найдутся $\alpha_{k,l} \ge 0$ для
+$k \in \Nat$, $l \le k$ такие, что $\sum_{l = 1}^k \alpha_{k,l} = 1$ для каждого $k$ и
+$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ в $L_1$.
+Кроме того, очевидно, можно потребовать, чтобы минимальный индекс $l$ ненулевого коэффициента $\alpha_{k,l}$
+стремился к бесконечности по $k$.
+Тогда
+$$\lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{l}' ).$$
 
-By the convexity of $J_\eps$, we have
-$$\sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge J_\eps( w_k ).$$
+В силу выпуклости $\IWg_\eps$ имеем
+$$\sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{l}' ) \ge \IWg_\eps( w_k ).$$
 
-Finally, since $w_k \to u'$ in $L_1(-1, 1)$, we can assume, by switching to a subsequence, that $w_k(x) \to u'(x)$ almost everywhere.
-Moreover, since $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$ holds for $x \in L_\eps$, then $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
-Hence,
-$$F\big( u( x ), \mathfrak a( x, u( x ) ) |w_k( x )| \big) \le \max\limits_{(x, M)} F\big( u( x ), \mathfrak a( x, u( x ) ) M \big) < \infty,$$
-where the maximum is taken over a compact set
-$(x,M) \in [-1, 1] \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
-Therefore, by the Lebesgue theorem, $\lim J_\eps(w_k) = J_\eps(u')$.
-Thus,
-$$A \ge \lim J_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} J_\eps( u_{l}' ) \ge
-\varliminf J_\eps( w_k ) = J_\eps( u' ).$$
+Наконец, поскольку $w_k \to u'$ в $L_1(\Omega)$, переходя к подпоследовательности, можем считать, что $w_k(x) \to u'(x)$ почти всюду.
+Кроме того, так как для  $x \in L_\eps$ выполнено $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$, то и $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
+Значит,
+$$F \bigl( u( x ), a( x, u( x ) ) |w_k( x )| \bigr) \le \max\limits_{(x, M)} F \bigl( u( x ), a( x, u( x ) ) M \bigr) < \infty,$$
+где максимум берется по компактному множеству
+$( x, M ) \in \Omega \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
+\todo{оно не компактно}
+Поэтому применима теорема Лебега, и мы получаем $\lim \IWg_\eps(w_k) = \IWg_\eps(u')$.
+Таким образом,
+$$A \ge \lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{l}' ) \ge
+\varliminf \IWg_\eps( w_k ) = \IWg_\eps( u' ).$$
 
-Since $\eps > 0$ is arbitrary, $A \ge I(\mathfrak a, u)$ follows.
+Ввиду произвольности $\eps > 0$ имеем $A \ge \IWg(u)$.
 \end{proof}
 
 \begin{lm}
 \label{uplift}
 Пусть $A \subset W^1_1(\Omega)$.
-И пусть $B \subset A$ таково, что $\forall v \in B$ выполнено $I( \mon{v} ) \le I( v )$.
+И пусть $B \subset A$ таково, что $\forall v \in B$ выполнено $\IWg( \mon{v} ) \le \IWg( v )$.
 Предположим, что для каждого $u \in A$ найдется последовательность $u_k \in B$ такая,
-что $u_k \to u$ в $W^1_1(\Omega)$ и $I( u_k ) \to I( u )$.
-Тогда $\forall u \in A$ будет выполнено $I( \mon{u} ) \le I( u )$.
+что $u_k \to u$ в $W^1_1(\Omega)$ и $\IWg( u_k ) \to \IWg( u )$.
+Тогда $\forall u \in A$ будет выполнено $\IWg( \mon{u} ) \le \IWg( u )$.
 \end{lm}
 \begin{proof}
-Let us pick some $u \in A$ and find an approximating sequence $\{u_k\} \subset B$.
-By hypothesis, $I(\mathfrak a, \mon{u_k}) \le I(\mathfrak a, u_k) \to I(\mathfrak a, u)$.
-By \cite[Theorem 1]{Brock}
-$$u_k \to u \text{ in } \W(-1, 1) \quad \Longrightarrow \quad \symm{u_k} \rightharpoondown \symm{u} \text{ in } \W(-1, 1).$$
-Since $\mon{u_k}( x ) = \symm{u_k}( \frac{x - 1}{2} )$ and $\mon{u}( x ) = \symm{u}( \frac{x - 1}{2} )$,
-we have $\mon{u_k} \rightharpoondown \mon{u}$ in $\W(-1, 1)$.
-By Lemma \ref{lowersemi}, we obtain 
-$$I(\mathfrak a, \mon{u}) \le \liminf I(\mathfrak a, \mon{u_k}) \le \lim I(\mathfrak a, u_k) = I(\mathfrak a, u).$$
+Возьмем некоторую $u \in A$ и для нее найдем приближающую последовательность $\set{u_k} \subset B$.
+По условию $\IWg(\mon{u_k}) \le \IWg(u_k) \to \IWg(u)$.
+В \cite[Theorem 1]{Brock} показано, что
+$$
+u_k \to u \text{ в } \W(\Omega) \quad \Longrightarrow \quad \symm{u_k} \rightharpoondown \symm{u} \text{ in } \W(\Omega).
+$$
+Поскольку $\mon{u_k}( x ) = \symm{u_k}( \frac{x - 1}{2} )$ and $\mon{u}( x ) = \symm{u}( \frac{x - 1}{2} )$,
+имеем $\mon{u_k} \rightharpoondown \mon{u}$ в $\W(\Omega)$.
+Из леммы \ref{lowersemi} получаем
+$$
+\IWg(\mon{u}) \le \liminf \IWg(\mon{u_k}) \le \lim \IWg(u_k) = \IWg(u).
+$$
 \end{proof}
 
 \begin{cor}
-Let the weight $\mathfrak a$ be continuous, and let inequality $(\ref{toprove_weighted})$ hold for nonnegative piecewise linear functions $u$.
-Then it holds for all nonnegative Lipschitz functions.
+Пусть вес $a$ непрерывен, и неравенство $(\ref{toprove_weighted})$ верно для неотрицательных кусочно линейных функций $u$.
+Тогда оно верно для всех неотрицательных липшицевых функций.
 \end{cor}
 \begin{proof}
-By Theorem 1 in Section 6.6 \cite{Gariepy}, any Lipschitz function $u$ can be approximated by $u_k \in C^1[-1, 1]$ such that
-$$u_k \rightrightarrows u, \qquad u_k' \to u' \text{ a.e.}, \qquad |u_k'| \le const.$$
-Relation (\ref{convergence}) holds by the Lebesgue theorem.
-In turn, $u_k$ can be approximated in the same way by piecewise linear functions.
-Using Theorem \ref{linth} and applying Lemma \ref{uplift}, we complete the proof.
+\todo{Не нужно ли тут что-то от границы $\Omega$?}
+Ввиду теоремы 1 из \S6.6 \cite{Gariepy}, любая липшицева функция $u$ может быть приближены последовательностью $u_k \in C^1(\overline(\Omega))$ в следующем смысле:
+$$
+u_k \rightrightarrows u, \qquad u_k' \to u' \text{ п.в.}, \qquad |u_k'| \le const.
+$$
+Тогда по теореме Лебега $u_k \to u$ в $\W(\Omega)$ и $\IWg( u_k ) \to \IWg( u )$.
+В свою очередь, $u_k$ могут быть аналогичным образом приближены кусочно линейными функциями.
+Применив лемму \ref{weighted_linear_lm} и лемму \ref{uplift}, получаем требуемое.
 \end{proof}
-
