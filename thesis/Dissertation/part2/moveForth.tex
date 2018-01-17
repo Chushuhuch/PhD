@@ -1,396 +1,368 @@
-\section{Случай монотонной перестановки}
+\section{Доказательство неравенства (\ref{toprove_weighted}) для произвольных весов}
 \label{moveForth}
 
-Now we want to get rid of the monotonicity restriction on the weight.
-We do this in several steps.
+Теперь мы хотим избавиться от условия монотонности веса по $x$.
+Будем это делать в несколько этапов.
 
-To begin, we note that all properties of the function $\mathfrak a$ are of interest
-only in the neighborhood of the graphs of functions $u$ and $\mon{u}$.
+Для начала отметим, что все свойства функции $a$ интересуют нас лишь в окрестности графиков функций $u$, $\mon{u}$.
 
-We introduce the following conditions, each of which, when added to the previous ones, defines a smaller class of weight functions:
+Мы вводим несколько ограничений на весовую функцию.
+Каждое следующее, будучи добавленным к предыдущим, задаёт более узкий класс весов. 
 
 \bigskip
 
 \smallskip
 \noindent
-$(H1)$ $\mathfrak a(x, v)$ satisfies (\ref{almostConcave}), is even in $x$ and $I(\mathfrak a, u) < \infty$.
+$(H1)$ $a(x, v)$ чётна по $x$ и удовлетворяет неравенству (\ref{almostConcave}), а также $\IWg(a, u) < \infty$.
 \smallskip
 
 \bigskip
 \noindent
-$(H2)$ the number of zeros of $\mathfrak a(\cdot, v)$ is bounded by a constant independent of $v$
-for all $v \in [\min u(x), \max u(x)]$ such that $\mathfrak a(\cdot, v) \not \equiv 0$.
+$(H2)$ На множестве $v \in [\min u(x), \max u(x)]$, для которых $a(\cdot, v) \not\equiv 0$,
+количество нулей функций $a(\cdot, v)$ ограничено константой, не зависящей от $v$.
 
 \bigskip
 \noindent
-$(H3)$ If $\mathfrak a(x_0, u(x_0)) = 0$ for some $x_0$, then $\mathfrak a(\cdot, u(x_0)) \equiv 0$.
-Moreover, $\lim\limits_{k \to \infty} D_k(\mathfrak a, U(\mathfrak a)) = 0$, where
-$$U(\mathfrak a) := \{ v \in [\min u(x), \max u(x)]: \mathfrak a(\cdot, v) \not \equiv 0 \},$$
+$(H3)$ Если $a(x_0, u(x_0)) = 0$ для некоторого $x_0$, то $a(\cdot, u(x_0)) \equiv 0$.
+Кроме того, выполнено $\lim_{k \to \infty} D_k(a, U(a)) = 0$, где
+$$U(a) := \{ v \in [\min u(x), \max u(x)]: a(\cdot, v) \not \equiv 0 \},$$
 \begin{equation}
 \label{bigD}
-D_k(\mathfrak a, U): = \sup \limits_{v \in U}
-\frac{\max \limits_{\abs{x_1 - x_2} \le \frac{2}{k}} \abs{\mathfrak a(x_1, v) - \mathfrak a(x_2, v)}}
-{\min \limits_{\dist (x, u^{-1} (v)) \le \frac{2}{k}} \mathfrak a(x, v)}.
+D_k(a, U) := \sup \limits_{v \in U}
+\frac{\max \limits_{\abs{x_1 - x_2} \le \frac{2}{k}} \abs{a(x_1, v) - a(x_2, v)}}
+{\min \limits_{\dist (x, u^{-1} (v)) \le \frac{2}{k}} a(x, v)}.
 \end{equation}
 
 \bigskip
 \noindent
-$(H4)$ There exists an even $k$, such that $\mathfrak a(\cdot, v)$ are linear for each $v$ on each of the segments
+$(H4)$ Найдется такое чётное $k$, что $a(\cdot, v)$ линейны для каждого $v$ на участках
 $[-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}]$.
 
 \bigskip
 \noindent
-$(H5)$ The difference between the
-set of $v \in \Real_+$, for which $\mathfrak a(\cdot, v)$ has segments of constant values,
-and the set of $v \in \Real_+$ such that $\mathfrak a(\cdot, v) \equiv 0$
-has zero measure.
+$(H5)$ Множество $v \in \Real$, для которых $a(\cdot, v)$ имеет участки постоянства,
+отличается от множества $v \in \Real$ таких, что $a(\cdot, v) \equiv 0$,
+лишь на множество меры $0$.
 
 \bigskip
 \noindent
-$(H6)$ The segment $[-1, 1]$ can be represented as a unity of touching segments
-on each of which $\mathfrak a$ does not change the monotonicity with respect to $x$ in a $v$-neighborhood of the graph of the function $u$.
+$(H6)$ Отрезок $[-1, 1]$ можно разбить на конечное число промежутков,
+на каждом из которых в $v$-окрестности графика $u(x)$ вес $a$ не меняет монотонности по $x$.
 
 \bigskip
 \noindent
-$(H7)$ Let $x_1 < x_2 < x_3$,
-let $\mathfrak a(\cdot, v)$ decrease for $x \in [x_1, x_2]$ in a $v$-neighborhood of the graph of the function $u$,
-and let $\mathfrak a(\cdot, v)$ increase for $x \in [x_2, x_3]$ in a $v$-neighborhood of the graph of the function $u$.
-Then we have $\mathfrak a(\cdot, v) \equiv 0$ in a $v$-neighborhood of $u(x_2)$.
+$(H7)$ Пусть $x_1 < x_2 < x_3$,
+и на $[x_1, x_2]$ вес $a(\cdot, v)$ в $v$-окрестности графика функции $u$ убывает,
+а на $[x_2, x_3]$ возрастает.
+Тогда в некоторой окрестности точки $u(x_2)$ имеем $a(\cdot, v) \equiv 0$.
+\todo{Выглядит как бред. Проверить. Вроде беда с параметрами $a$}
 
 \bigskip
 
-The weights satisfying $(H1)$ will be called \textit{admissible for a given $u$}.
+Вес, удовлетворяющий условию $(H1)$, мы будем называть допустимым для заданной функции $u(x)$.
 
 \medskip
 
-Now we can formulate the main assertion of our work.
+Теперь мы можем сформулировать основное утверждение.
 \begin{thm}
 \label{unbounded_growth_thm}
-Suppose $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative,
-and the weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is continuous
-and admissible for $u$.
-Then inequality $(\ref{toprove_weighted})$ holds.
+Пусть $F \in \mathfrak{F}$, функция $u \in \W(-1, 1)$ неотрицательна,
+и весовая функция $a: [-1, 1] \times \Real_+ \to \Real_+$ непрерывна
+и допустима для $u$.
+Тогда справедливо неравенство $(\ref{toprove})$.
 \end{thm}
 
-We prove inequality (\ref{toprove_weighted}) under conditions $(H1)-(H7)$,
-and then get rid of extra conditions one by one.
+Мы докажем неравенство (\ref{toprove}) при условиях $(H1)-(H7)$,
+а затем будем постепенно избавляться от них.
 
-To prove it, we need the following facts.
+Для доказательства нам потребуются следующие факты.
 
 \begin{prop}
 \label{levelDerivative}
 \textrm{\cite[Theorem 6.19]{LiebLoss} }
-For every $u \in \W(-1, 1)$ and for an arbitrary set $A \subset \Real_+$ of zero measure,
-$u'(x) = 0$ almost everywhere in $u^{-1}(A)$.
+Для любой $u \in \W(-1, 1)$ и произвольного множества $A \subset \Real$ нулевой меры выполнено
+$u'(x) = 0$ для почти всех $x \in u^{-1}(A)$.
 \end{prop}
 
 \begin{lm}
 \label{zeroApprox}
-Suppose that $u \in \W(-1, 1)$ is nonnegative.
-Let a closed set $W \subset \Real_+$ be such that
-the set of $v \in W$, for which $\mathfrak a(\cdot, v) \not\equiv 0$, has a zero measure.
-Then there exists an increasing sequence of weights $\mathfrak b_{\ell}$, which satisfy
+Пусть $u \in \W(-1, 1)$ неотрицательна.
+И пусть замкнутое множество $W \subset \Real_+$ таково, что множество всех $v \in W$, для которых $a(\cdot, v) \not\equiv 0$, имеет меру ноль.
+Тогда найдется возрастающая последовательность весов $\mathfrak b_{\ell}$ такая, что
 
-1) $\mathfrak b_{\ell}(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$;
+1) $\mathfrak b_{\ell}(\cdot, v) \rightrightarrows a(\cdot, v)$ для почти всех $v$;
 
-2) $\mathfrak b_{\ell}(\cdot, v) \equiv 0$ for every $v$ in some neighborhood of $W$ (the neighborhood depends on $\ell$);
+2) $\mathfrak b_{\ell}(\cdot, v) \equiv 0$ для каждого $v$ в некоторой (зависящей от $\ell$) окрестности $W$;
 
-3) $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$ and $I(\mathfrak b_{\ell}, \mon{u}) \to I(\mathfrak a, \mon{u})$.
+3) $\IWg(\mathfrak b_{\ell}, u) \to \IWg(a, u)$ и $\IWg(\mathfrak b_{\ell}, \mon{u}) \to \IWg(a, \mon{u})$.
 \end{lm}
 
 \begin{rem}
-If $a$ is admissible for $u$, then $b_{\ell}$ are also admissible.
+Если $a$ допустимы для $u$, то и $\mathfrak b_{\ell}$ тоже.
 \end{rem}
 
 \begin{proof}
-Take $\rho(d) := \min(1, \max(0, d))$,
-$$\mathfrak b_{\ell}(x, v) := \mathfrak a(x, v) \cdot \rho(\ell \dist(v, W) - 1) \le \mathfrak a(x, v).$$
-This weight is equal to zero in the $\left(\frac{1}{\ell}\right)$-neighborhood of $W$.
-In addition, $\mathfrak b_{\ell} \equiv \mathfrak a$ outside the $\left(\frac{2}{\ell}\right)$-neighborhood of $W$ and
-$\mathfrak b_{\ell}(x, v)$ increases in $\ell$.
-Thus, $\mathfrak b_{\ell}(\cdot, v) \rightrightarrows \mathfrak a(\cdot, v)$ for almost all $v$.
-By the monotone convergence theorem
-$I(u^{-1}(\Real_+ \setminus W), \mathfrak b_{\ell}, u) \nearrow I(u^{-1}(\Real_+ \setminus W), \mathfrak a, u)$.
+Возьмём $\rho(d) := \min(1, \max(0, d))$,
+$$
+\mathfrak b_{\ell}(x, v) := a(x, v) \cdot \rho(\ell \dist(v, W) - 1) \le a(x, v).
+$$
+Вес $\mathfrak b_{\ell}$ равен нулю в $\left(\frac{1}{\ell}\right)$-окрестности $W$.
+Кроме того, $\mathfrak b_{\ell} \equiv a$ вне $\left(\frac{2}{\ell}\right)$-окрестности $W$,
+а также $\mathfrak b_{\ell}(x, v)$ возрастает по $\ell$.
+Тем самым \todo{тем самым или это ещё один очевидный факт?}, $\mathfrak b_{\ell}(\cdot, v) \rightrightarrows a(\cdot, v)$ для почти всех $v$.
+По теореме о монотонной сходимости имеем
+$\IWg(u^{-1}(\Real_+ \setminus W), \mathfrak b_{\ell}, u) \nearrow \IWg(u^{-1}(\Real_+ \setminus W), a, u)$.
 
-Divide the set $W$ into $W_1 := \{v \in W: \mathfrak a(\cdot, v) \equiv 0\}$ and $W_2 = W \setminus W_1$.
-Then
+Разобьем множество $W$ на два: $W_1 := \{v \in W: a(\cdot, v) \equiv 0\}$ и $W_2 = W \setminus W_1$.
+Тогда
 $$
 \begin{aligned}
-I(u^{-1}(W_1), \mathfrak b_{\ell}, u) &= I(u^{-1}(W_1), \mathfrak a, u),\\
-I(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F \bigl( u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)| \bigr) \, dx.
+\IWg(u^{-1}(W_1), \mathfrak b_{\ell}, u) &= \IWg(u^{-1}(W_1), a, u),\\
+\IWg(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F \bigl( u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)| \bigr) \, dx.
 \end{aligned}
 $$
-By Proposition \ref{levelDerivative}, $u'(x) = 0$ almost everywhere on $u^{-1}(W_2)$.
-Thus
-$$I(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F \bigl( u(x), 0 \bigr) \, dx = 0.$$
-Similarly, $I(u^{-1}(W_2), \mathfrak a, u) = 0$. Hence $I(\mathfrak b_{\ell}, u) \to I(\mathfrak a, u)$.
-The second relation in \textit{3)} is proved by the same arguments.
+При этом, по предложению \ref{levelDerivative}, почти всюду на $u^{-1}(W_2)$ выполнено $u'(x) = 0$.
+То есть
+$$
+\IWg(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F \bigl( u(x), 0 \bigr) \, dx = 0.
+$$
+Аналогично $\IWg(u^{-1}(W_2), a, u) = 0$, откуда $\IWg(\mathfrak b_{\ell}, u) \to \IWg(a, u)$.
+Вторая часть пункта \textit{3)} доказывается так же.
 \end{proof}
 
-We proceed to the proof of the theorem.
+Перейдем к доказательству теоремы.
 
 \bigskip
-\textbf{Step 1.} \textit{Let $u \in \W(-1, 1)$ and let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H7)$.
-Then inequality (\ref{toprove_weighted}) holds.}
+\textbf{Шаг 1.}
+\textit{Пусть $u \in \W(-1, 1)$, и вес $a$ удовлетворяет условиям $(H1)-(H7)$.
+Тогда выполняется неравенство (\ref{toprove_weighted}).}
 
-Divide the segment $[-1, 1]$ into touching subsegments $\Delta_j$, each consisting of two parts.
-On the left part of each $\Delta_j$ the weight $\mathfrak a$ increases in $x$ in a neighborhood
-of the graph of $u(x)$. On the right part it decreases.
-On each $\Delta_j$, we can apply the construction from the previous section
-for approximating $u$ with Lipschitz functions $u_n$.
-This gives us $I(\Delta_j, \mathfrak a, u_n) \to I(\Delta_j, \mathfrak a, u)$.
+Разобьем отрезок $[-1, 1]$ на отрезки $\Delta_k = [\hat{x}_k, \hat{x}_{k + 1}]$, состоящие из двух частей.
+В левой части каждого отрезка вес $a$ будет возрастать по $x$ в окрестности графика $u(x)$,
+в правой же будет убывать.
+Согласно замечанию \ref{monotone_weight_appr_rem}
+на каждом таком отрезке можно повторить схему из леммы \ref{monotone_weight_appr_lm},
+приближая функцию $u$ липшицевыми функциями $u_n$.
+Это даёт $\IWg(\Delta_k, a, u_n) \to \IWg(\Delta_k, a, u)$.
 
-However, the approximating functions $u_n$ have discontinuities at the borders of the segments $\Delta_j$
-(denote them by $\hat{x}_j$).
+Однако при такой аппроксимации функции $u_n$ могут иметь разрывы в точках $\hat{x}_k$.
 
-Note that according to the condition $(H7)$ one can choose points $\hat{x}_j$ so
-that $\mathfrak a \equiv 0$ in $(x, v)$-neighborhoods of the points $(\hat{x}_j, u(\hat{x}_j))$.
+Заметим теперь, что согласно условию $(H7)$ можно выбрать точки $\hat{x}_k$ так,
+что $a \equiv 0$ в $(x, v)$-окрестности точек $(\hat{x}_k, u(\hat{x}_k))$.
 
-Next, substitute functions $u_n$ in these neighborhoods of $\hat{x}_j$ with linear pieces
-making $u_n$ continuous on $[-1, 1]$.
-In view of the above, this does not change the integrals $I(\Delta_j, \mathfrak a, u_n)$,
-and we get $I(\mathfrak a, u_n) \to I(\mathfrak a, u)$.
+Изменим теперь функции $u_n$ в окрестности точек $\hat{x}_k$ на линейные,
+сделав $u_n$ непрерывными на $[-1, 1]$.
+В силу вышесказанного, интегралов $\IWg(\Delta_k, a, u_n)$ это не изменит,
+и мы получаем $\IWg(a, u_n) \to \IWg(a, u)$ и $u_n \to u$ в $\W(-1, 1)$.
 
-By Lemma \ref{uplift} we obtain (\ref{toprove_weighted}).
-
-\bigskip
-
-\textbf{Step 2.} \textit{Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H6)$.
-Then inequality (\ref{toprove_weighted}) holds.}
-
-We apply Lemma \ref{zeroApprox} using the following set $W$:
-the set of all $v$, at which the graph of $u(x)$ traverses from a rectangle,
-in which the weight decreases in $x$,
-to a rectangle in which the weight increases.
-Obviously, the resulting functions $\mathfrak b_{\ell}$ satisfy $(H1)-(H7)$.
-By Step 1, $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$.
-Passing to the limit, we obtain (\ref{toprove_weighted}).
+По лемме \ref{uplift} получаем (\ref{toprove_weighted}).
 
 \bigskip
 
-\textbf{Step 3.} \textit{Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H5)$.
-Then inequality (\ref{toprove_weighted}) holds.}
+\textbf{Шаг 2.}
+\textit{Пусть вес $a$ удовлетворяет условиям $(H1)-(H6)$.
+Тогда выполняется неравенство (\ref{toprove_weighted}).}
 
-Consider abscissas of nodes of $\mathfrak a$
-and ordinates, for which $\mathfrak a$ has constant pieces.
-They define a division of the rectangle $[-1, 1] \times [\min u(x), \max u(x)]$
-into smaller rectangles, in each of which the weight $\mathfrak a$ is monotone in $x$.
-However, the number of rectangles can be infinite.
-Also, if the graph of $u$ crosses a horizontal boundary of some rectangle,
-monotonicity in the $v$-neighborhood of the point of intersection may change.
-
-Consider a set $W$ containing all $v$, for which the weight $\mathfrak a$ has constant pieces.
-Due to $(H5)$ the set of all  $v \in W$ such that $a(\cdot, v) \not\equiv 0$ has a zero measure.
-
-We apply Lemma \ref{zeroApprox} and obtain a sequence of weights $\mathfrak b_{\ell}$.
-We claim that each of them has only a finite number of monotonicity rectangles.
-Indeed, any two vertically adjacent rectangles with different monotonicities
-are separated by a stripe of $\frac{2}{\ell}$ width with zero values.
-
-The weight $b_{\ell}$ can change monotonicity along the graph of $u$
-either at the points $x = -1 + \frac{2 i}{k}$ or where the graph crosses a stripe of zero values.
-Note that only a finite number of such crossings can arise since
-$\int |u'|$ gains at least $\frac{2}{\ell}$ at any crossing and $u' \in \Ls(-1, 1)$.
-
-Thereby, each $\mathfrak b_{\ell}$ satisfies $(H1)-(H6)$. By Step 2, $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$.
-Passing to the limit, we obtain (\ref{toprove_weighted}).
+Применим лемму \ref{zeroApprox}.
+В качестве множества $W$ возьмем множество всех $v$,
+при которых происходит переход графика $u(x)$ из промежутка,
+в котором вес убывает по $x$, в промежуток, в котором вес возрастает.
+Очевидно, получившиеся функции $\mathfrak b_{\ell}$ удовлетворяют $(H1)-(H7)$.
+Из шага 1 имеем $\IWg(\mathfrak b_{\ell}, \mon{u}) \le \IWg(\mathfrak b_{\ell}, u)$.
+Переходя к пределу, получаем требуемое неравенство (\ref{toprove_weighted}).
 
 \bigskip
-\textbf{Step 4.} \textit{Let the weight $\mathfrak a$ satisfy the conditions $(H1)-(H3)$.
-Then inequality (\ref{toprove_weighted}) holds.}
 
-Suppose that the function $\mathfrak a$ satisfies $(H1)-(H3)$, in particular $I(\mathfrak a, u) < \infty$.
+\textbf{Шаг 3.}
+\textit{Пусть вес $a$ удовлетворяет условиям $(H1)-(H5)$.
+Тогда выполняется неравенство (\ref{toprove_weighted}).}
 
-We fix an arbitrary even $k$.
-For each $v$ we interpolate $\mathfrak a$ with piecewise linear functions
-with nodes $( -1 + \frac{2i}{k}, \mathfrak a(-1 + \frac{2i}{k}, v) )$.
-The resulting function $\mathfrak a_k(x, v)$ is continuous, even in $x$
-and satisfies (\ref{almostConcave}) by Lemma \ref{piecewiseLinearConcave}.
-In addition, $\mathfrak a_k \to \mathfrak a$ when $k \to \infty$,
-moreover the convergence is uniform on compact sets.
-However, the inequality $\mathfrak a_k(x, u(x)) \le \mathfrak a(x, u(x))$ can be violated,
-and thus $\mathfrak a_k$ may be non-admissible for $u$.
+Рассмотрим абсциссы точек излома функции $a$ и ординаты, для которых $a$ имеет участки постоянства.
+Эти абсциссы и ординаты определяют деление прямоугольника $[-1, 1] \times [\min u(x), \max u(x)]$
+на более мелкие, внутри которых вес $a$ не меняет монотонности.
+Однако, количество мелких прямоугольников может оказаться бесконечным.
+Кроме того, если функция пересекает горизонтальную границу прямоугольника,
+монотонность в $v$-окрестности точки пересечения может меняться.
 
-Set $\mathfrak c_k := (1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \mathfrak a_k$, where $D_k$ is defined in (\ref{bigD}).
-$D_k(\mathfrak a_k, U(\mathfrak a_k))$ are positive and tend to zero, thus $\mathfrak c_k \to \mathfrak a$ as $k \to \infty$.
-We claim that $\mathfrak c_k(x, u(x)) \le \mathfrak a(x, u(x))$.
+Возьмем множество $W$ точек $v$, для которых вес $a$ имеет участки постоянства по $x$.
+В соответствии с $(H5)$ множество $v \in W$, для которых $a(\cdot, v) \not\equiv 0$, имеет нулевую меру.
 
-Indeed, consider some
+Применив лемму \ref{zeroApprox}, построим последовательность весов $\mathfrak b_{\ell}$.
+У каждого из них количество участков монотонности конечно,
+поскольку между соседними по $v$ участками строгой монотонности
+присутствует полоса нулевых значений веса шириной по крайней мере $\frac{2}{k}$.
+
+Тем самым, вес $\mathfrak  b_{\ell}$ может менять монотонность вдоль графика $u$
+либо в точках $x = -1 + \frac{2 i}{k}$, либо в тех местах, где график пересекает полосу нулевых значений веса.
+Ясно, что таких пересечений может быть лишь конечное число, поскольку
+$\int |u'|$ увеличивается как минимум на $\frac{2}{\ell}$ во время такого перехода, а $u' \in \Ls(-1, 1)$.
+
+Мы получили, что $\mathfrak b_{\ell}$ удовлетворяют $(H1)-(H6)$.
+Из шага 2 имеем $\IWg(\mathfrak b_{\ell}, \mon{u}) \le \IWg(\mathfrak b_{\ell}, u)$.
+Переходя к пределу, получаем (\ref{toprove_weighted}).
+
+\bigskip
+\textbf{Шаг 4.}
+\textit{Пусть вес $a$ удовлетворяет условиям $(H1)-(H3)$.
+Тогда выполняется неравенство (\ref{toprove_weighted}).}
+
+Предположим, что функция  $a$ удовлетворяет $(H1)-(H3)$, в частности $\IWg(a, u) < \infty$.
+
+Зафиксируем произвольное четное $k$.
+По точкам $a(-1 + \frac{2i}{k}, v)$ для каждого $v$ построим кусочно линейную по $x$ интерполяцию.
+Получившаяся функция $a_k(x, v)$ непрерывна, четна по $x$
+и по лемме \ref{piecewiseLinearConcave} удовлетворяет неравенству (\ref{almostConcave}).
+Кроме того, $a_k \to a$ при $k \to \infty$, причем сходимость равномерная на компактах.
+Однако неравенство $a_k(x, u(x)) \le a(x, u(x))$ не обязано выполняться,
+и потому веса $a_k$ могут не быть допустимыми для $u$.
+
+Возьмем $\mathfrak c_k := (1 - D_k(a_k, U(a_k))) a_k$, где $D_k$ определены в (\ref{bigD}).
+Числа $D_k(a_k, U(a_k))$ положительны и стремятся к нулю, поэтому $\mathfrak c_k \to a$ при $k \to \infty$.
+Покажем, что $\mathfrak c_k(x, u(x)) \le a(x, u(x))$.
+Возьмем некоторое число
 $x \in [-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}] =: [x_i, x_{i + 1}]$.
-Then $\mathfrak c_k(x, u(x)) \le \max( \mathfrak c_k(x_i, u(x)), \mathfrak c_k(x_{i + 1}, u(x)) )$, because
-$\mathfrak c_k$ is piecewise linear in $x$. Moreover,
+Тогда $\mathfrak c_k(x, u(x)) \le \max( \mathfrak c_k(x_i, u(x)), \mathfrak c_k(x_{i + 1}, u(x)) )$,
+поскольку $\mathfrak c_k$ кусочно линейны по $x$.
+Далее,
 \begin{multline*}
-\mathfrak c_k(x_i, u(x)) = ( 1 - D_k(\mathfrak a_k, U(\mathfrak a_k))) \cdot \mathfrak a(x_i, u(x)) \\
-\le \mathfrak a(x_i, u(x)) - \frac{\mathfrak a(x_i, u(x)) - \mathfrak a(x, u(x))}{\mathfrak a(x_i, u(x))} \cdot \mathfrak a(x_i, u(x)) = \mathfrak a(x, u(x)).
+\mathfrak c_k(x_i, u(x)) = ( 1 - D_k(a_k, U(a_k))) \cdot a(x_i, u(x)) \\
+\le a(x_i, u(x)) - \frac{a(x_i, u(x)) - a(x, u(x))}{a(x_i, u(x))} \cdot a(x_i, u(x)) = a(x, u(x)).
 \end{multline*}
-Similarly, $\mathfrak c_k(x_{i + 1}, u(x)) \le \mathfrak a(x, u(x))$.
-Thus, $\mathfrak c_k(x, u(x)) \le \mathfrak a(x, u(x))$ for any $x$, and $\mathfrak c_k$ are admissible for $u$.
-Thereby the functions $\mathfrak c_k$ satisfy $(H1)-(H4)$.
+Аналогично, $\mathfrak c_k(x_{i + 1}, u(x)) \le a(x, u(x))$.
+Тем самым, $\mathfrak c_k(x, u(x)) \le a(x, u(x))$ для любого $x$, и $\mathfrak c_k$ являются допустимыми для $u$.
+То есть функции $\mathfrak c_k$ удовлетворяют $(H1)-(H4)$.
 
-For a given $k \in \Nat$, we approximate the function $\mathfrak c_k =: \mathfrak c$ with weights satisfying $(H1)-(H5)$.
-Consider the auxiliary function $\Lambda(x) = 1 - \abs{x}$, satisfying (\ref{almostConcave}).
+При заданном $k \in \Nat$, будем приближать функцию $\mathfrak c_k =: \mathfrak c$ весами, удовлетворяющими $(H1)-(H5)$.
+Рассмотрим вспомогательную функцию $\Lambda(x) = 1 - \abs{x}$, удовлетворяющую условию (\ref{almostConcave}).
 
-Take
-$$t(v):=D_k(\mathfrak c, U(\mathfrak c)) \cdot \max\{\tau \ge 0: \forall x \in u^{-1}(v) \quad \tau \Lambda(x) \le \mathfrak c(x, u(x))\}.$$
-The function $t$ depends on $k$, but we omit this fact in presentation.
+Возьмем
+$$
+t(v):=D_k(\mathfrak c, U(\mathfrak c)) \cdot \max\{\tau \ge 0: \forall x \in u^{-1}(v) \quad \tau \Lambda(x) \le \mathfrak c(x, u(x))\}.
+$$
+Функция $t$ зависит от $k$, но мы будем опускать это в записи.
 
-It is clear that the maximum $\tau$ is zero only if $\mathfrak c(\cdot, v) \equiv 0$,
-since otherwise the condition $(H3)$ is violated.
+Ясно, что максимальное $\tau$ равно нулю только если $c(\cdot, v) \equiv 0$, иначе нарушается условие $(H3)$.
+Функция $t$ может не быть непрерывной. Однако, несложно видеть, что она полунепрерывна снизу.
+Возьмем теперь
+$$
+\tilde{t}(v) := \inf_{w \in u([-1, 1])} \{t(w) + |v - w|\}.
+$$
+Очевидно, что $\tilde{t} \le t$, и множества нулей функций $t$ и $\tilde{t}$ совпадают.
 
-Function $t$ may be discontinuous. However, it is easy to see that it is lower semicontinuous.
-Next, we take
-$$\tilde{t}(v) := \inf_{w \in u([-1, 1])} \{t(w) + |v - w|\}.$$
-It is obvious that $\tilde{t} \le t$, and the set of zeros of $t$ and $\tilde{t}$ coincide.
+Покажем, что $\tilde{t}$ непрерывна (и даже липшицева).
+Зафиксируем некоторое $v_1$.
+Тогда найдутся сколь угодно малое $\eps > 0$ и $w_1 \in u([-1, 1])$,
+удовлетворяющие $\tilde{t}(v_1) = t(w_1) + |v_1 - w_1| - \eps$.
+Для любого $v_2$ имеем $\tilde{t}(v_2) \le t(w_1) + |v_2 - w_1|$.
+И, тем самым, $\tilde{t}(v_2) - \tilde{t}(v_1) \le |v_1 - v_2| + \eps$.
+В силу произвольности $v_1$, $v_2$ и $\eps$, получаем, что $\tilde{t}$ непрерывна.
 
-We claim that $\tilde{t}$ is continuous (and even Lipschitz).
-Indeed, take some $v_1$.
-Then there is an arbitrarily small $\eps > 0$ and $w_1 \in u([-1, 1])$
-satisfying $\tilde{t}(v_1) = t(w_1) + |v_1 - w_1| - \eps$.
-For every $v_2$, we have $\tilde{t}(v_2) \le t(w_1) + |v_2 - w_1|$.
-And thus $\tilde{t}(v_2) - \tilde{t}(v_1) \le |v_1 - v_2| + \eps$.
-By the arbitrariness of $v_1$, $v_2$ and $\eps$, the claim follows.
+При $\alpha \in [0, 1]$ функция $\mathfrak d_\alpha(x, v) := \mathfrak c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
+чётна $x$, удовлетворяет неравенству (\ref{almostConcave}) согласно лемме \ref{maxSumConcave},
+и не превосходит $a(x, v)$ по построению функции $\tilde{t}$.
+Таким образом, $\mathfrak d_\alpha$ --- допустимый вес.
+И теперь очевидно, что $\mathfrak d_\alpha$ удовлетворяет условиям $(H1)-(H4)$.
 
-For $\alpha \in [0, 1]$ the function $\mathfrak d_\alpha(x, v) := \mathfrak c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
-is even in $x$, satisfies (\ref{almostConcave}) in concordance with Lemma \ref{maxSumConcave},
-and does not exceed $\mathfrak a(x, v)$ due to the construction of the function $\tilde{t}$.
-Thus, $\mathfrak d_\alpha$ is an admissible weight.
-Also, it is obvious that $\mathfrak d_\alpha$ satisfies $(H1)-(H4)$.
-
-Let us show that there exists a sequence $\alpha_j \searrow 0$
-such that $\mathfrak d_{\alpha_j}(\cdot, v)$ has no segments of constant values,
-unless $\mathfrak d_{\alpha_j}(\cdot, v) \equiv 0$ or $v$ belongs to a zero measure set.
-We introduce the set of $\alpha$ which are ``bad'' on $[x_i, x_{i + 1}]$:
+Покажем, что найдется последовательность $\alpha_j \searrow 0$, что $\mathfrak d_{\alpha_j}$ не имеет горизонтальных участков,
+кроме $v$, для которых $\mathfrak d_{\alpha_j}(\cdot, v) \equiv 0$, и множества меры ноль.
+Обозначим множество $\alpha$, ``плохих'' на участке $[x_i, x_{i + 1}]$:
 \begin{multline*}
 A_i := \bigl \{\alpha \in [0, 1]: \\
 \meas \{v \in [\min u, \max u]: \frac{\mathfrak c(x_{i + 1}, v) - \mathfrak c(x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \bigr \},
 \end{multline*}
-where $\chi_i = 1$ if $[x_i, x_{i + 1}] \subset [0, 1]$, and $\chi_i = -1$ if $[x_i, x_{i + 1}] \subset [-1, 0]$.
+где $\chi_i = 1$ если $[x_i, x_{i + 1}] \subset [0, 1]$, и $\chi_i = -1$, если $[x_i, x_{i + 1}] \subset [-1, 0]$.
 
-Consider the following function
+Рассмотрим функцию
 $$
 \begin{aligned}
-h_i(v) = & \frac{\mathfrak c(x_{i + 1}, v) - \mathfrak c(x_i, v)}{\tilde{t} (v)} & \text{ if } \tilde{t} (v) \neq 0 & \\
-h_i(v) = & 0 & \text{ if } \tilde{t} (v) = 0 &.
+h_i(v) = & \frac{\mathfrak c(x_{i + 1}, v) - \mathfrak c(x_i, v)}{\tilde{t} (v)} & \text{ при } \tilde{t} (v) \neq 0 & \\
+h_i(v) = & 0 & \text{ при } \tilde{t} (v) = 0 &.
 \end{aligned}
 $$
-We have $\card(A_i) = \card(\{ \alpha \in [0, 1]: \meas \{ v \in [\min u, \max u]: h_i(v) \pm \frac{2}{k} \alpha = 0 \} > 0 \}).$
-Then $\card(A_i) \le \aleph_0$, and $\card(\cup_i A_i) \le \aleph_0$.
-Thus, there exists a sequence of weights $\mathfrak d_{\alpha_j} \searrow \mathfrak c$, satisfying $(H1)-(H5)$.
-By Step 3, $I(\mathfrak d_{\alpha_j}, \mon{u}) \le I(\mathfrak d_{\alpha_j}, u)$.
-Passing to the limit, we get $I(\mathfrak c, \mon{u}) \le I(\mathfrak c, u)$.
+Тогда $\card(A_i) = \card(\{ \alpha \in [0, 1]: \meas \{ v \in [\min u, \max u]: h_i(v) \pm \frac{2}{k} \alpha = 0 \} > 0 \}).$
+Значит $\card(A_i) \le \aleph_0$, а также $\card(\cup_i A_i) \le \aleph_0$.
+Тем самым, найдется последовательность весов $\mathfrak d_{\alpha_j} \searrow \mathfrak c$, удовлетворяющих $(H1)-(H5)$.
+Из шага 3 имеем $\IWg(\mathfrak d_{\alpha_j}, \mon{u}) \le \IWg(\mathfrak d_{\alpha_j}, u)$.
+Переходя к пределу, получаем $\IWg(\mathfrak c, \mon{u}) \le \IWg(\mathfrak c, u)$.
 
-Further, for $x \in [-1, 1]$ we have
+Далее, при $x \in [-1, 1]$ имеем
 \begin{equation}
 \label{step4Conv}
-F \bigl( u(x), \mathfrak c_k(x, u(x)) |u'(x)| \bigr) \to F \bigl( u(x), \mathfrak a(x, u(x)) |u'(x)| \bigr)
+F \bigl( u(x), \mathfrak c_k(x, u(x)) |u'(x)| \bigr) \to F \bigl( u(x), a(x, u(x)) |u'(x)| \bigr)
 \end{equation}
-as $k \to \infty$.
-Moreover, $F \bigl( u(x), \mathfrak a(x, u(x)) |u'(x)| \bigr)$ is an integrable majorant
-for the left-hand side in (\ref{step4Conv}).
-By the Lebesgue theorem, we have $I(\mathfrak c_k, u) \to I(\mathfrak a, u)$.
-Since $I(\mathfrak c_k, \mon{u}) \le I(\mathfrak c_k, u)$, Lemma \ref{uplift} proves inequality (\ref{toprove_weighted}).
+при $k \to \infty$.
+Кроме того, $F \bigl( u(x), a(x, u(x)) |u'(x)| \bigr)$ является суммируемой мажорантой для левой части соотношения (\ref{step4Conv}).
+По теореме Лебега о мажорируемой сходимости, получаем $\IWg(\mathfrak c_k, u) \to \IWg(a, u)$.
+Поскольку $\IWg(\mathfrak c_k, \mon{u}) \le \IWg(\mathfrak c_k, u)$, лемма \ref{uplift} даёт неравенство (\ref{toprove_weighted}).
 
 \bigskip
-\textbf{Step 5.} \textit{Let the weight $\mathfrak a$ satisfy only the condition $(H1)$.
-Then inequality (\ref{toprove_weighted}) holds.}
+\textbf{Шаг 5.}
+\textit{Пусть вес $a$ удовлетворяет лишь условию $(H1)$.
+Тогда выполняется неравенство (\ref{toprove_weighted}).}
 
-We approximate $\mathfrak a$ by weights satisfying $(H1)-(H2)$.
-To do this we apply Lemma \ref{zeroApprox} with $W = \{ v \in \Real_+: \mathfrak a(\cdot, v) \equiv 0 \}$.
-Let us introduce the notation $$Z_{\mathfrak a}(v) := \{ x \in [-1, 1]: \mathfrak a(x, v) = 0 \}.$$
-Note that the sets $Z_{\mathfrak b_{\ell}}(v)$ are either $Z_{\mathfrak a}(v)$ or $[-1, 1]$.
+Будем строить приближение для $a$ весами, удовлетворяющими $(H1)-(H2)$.
+Воспользуемся леммой \ref{zeroApprox} с множеством $W = \set{ v \in \Real_+: a(\cdot, v) \equiv 0 }$.
+Введем обозначение
+$$
+Z_a(v) := \{ x \in [-1, 1]: a(x, v) = 0 \}.
+$$
+Заметим, что множества $Z_{\mathfrak b_{\ell}}(v)$ совпадают либо с $Z_{a}(v)$, либо с $[-1, 1]$.
 
-Let us show that $\mathfrak b_{\ell}$ satisfies $(H2)$.
-Indeed, otherwise there is a sequence $v_m$, for which
+Покажем, что  $\mathfrak b_{\ell}$ удовлетворяет $(H2)$.
+Действительно, в противном случае найдется последовательность $v_m$, для которой
 $m < \card(Z_{\mathfrak b_{\ell}})(v_m) < \infty$.
-After passing to a subsequence, we have $v_m \to v_0$.
-Part 2 of Lemma \ref{periodicity} implies that the set $Z_{\mathfrak b_{\ell}}(v_m) = Z_{\mathfrak a}(v_m)$
-is periodic with a period less or equal to $\frac{2}{m - 1}$.
-Take some $x \in [-1, 1]$. For each $m$ there exists $x_m$ such that
-$\abs{x - x_m} \le \frac{1}{m - 1}$ and $\mathfrak a(x_m, v_m) = 0$.
-But $\mathfrak a(x_m, v_m) \to \mathfrak a(x, v_0)$.
-Therefore, $\mathfrak a(x, v_0) = 0$.
+После перехода к подпоследовательности имеем $v_m \to v_0$.
+Из части 2 леммы \ref{periodicity} следует,
+что множества $Z_{\mathfrak b_{\ell}}(v_m) = Z_{a}(v_m)$ периодические с периодом не более $\frac{2}{m - 1}$.
+Возьмем некоторый $x \in [-1, 1]$.
+Для каждого $m$ найдется $x_m$ такой, что
+$\abs{x - x_m} \le \frac{1}{m - 1}$ и $a(x_m, v_m) = 0$.
+Но $a(x_m, v_m) \to a(x, v_0)$.
+Тем самым, $a(x, v_0) = 0$.
 
-Thus $Z_{\mathfrak a}(v_0) = [-1, 1]$.
-But this means that for every $v$ such that $\abs{v - v_0} \le \frac{1}{\ell}$,
-we have $\mathfrak b_{\ell}(\cdot, v) \equiv 0$,
-which contradicts $\card(Z_{\mathfrak b_{\ell}})(v_m) < \infty$.
+Отсюда $Z_{a}(v_0) = [-1, 1]$.
+Но это означает, что для любого $v$, для которого $\abs{v - v_0} \le \frac{1}{\ell}$,
+выполнено $\mathfrak b_{\ell}(\cdot, v) \equiv 0$,
+что противоречит $\card(Z_{\mathfrak b_{\ell}})(v_m) < \infty$.
 
-Now we fix $\ell \in \Nat$ and denote $\mathfrak b_{\ell} =: \mathfrak b$.
-Let us approximate the function $\mathfrak b$ with weights satisfying $(H1)-(H3)$.
-It follows from $(H2)$ that there exists a set $T \subset [-1, 1]$
-consisting of a finite number of elements, such that
-if $x \not\in T$ and $\mathfrak b(x, v) = 0$ for some $v$, then $\mathfrak b(\cdot, v) \equiv 0$.
+Зафиксируем теперь $\ell \in \Nat$, обозначим $\mathfrak b_{\ell} =: \mathfrak b$
+и приблизим функцию $\mathfrak b$ весами, удовлетворяющими $(H1)-(H3)$.
+Из $(H2)$ следует, что найдётся множество $T \subset [-1, 1]$
+состоящее из конечного числа элементов, такое, что
+если $x \not\in T$ и $\mathfrak b(x, v) = 0$ для некоторого $v$, то $\mathfrak b(\cdot, v) \equiv 0$.
 
-We use Lemma \ref{zeroApprox} with $W = u(T) \cup \mon{u}(T)$.
-The weights $\mathfrak c_j$, given by the Lemma, satisfy $(H1)-(H2)$,
-since they are just $\mathfrak b$ multiplied by a factor less than one, which depends only on $v$.
+Вновь воспользуемся леммой \ref{zeroApprox} с множеством $W = u(T) \cup \mon{u}(T)$.
+Полученные при помощи леммы веса $\mathfrak c_j$ удовлетворяют $(H1)-(H2)$,
+поскольку отличаются от $\mathfrak b$ лишь домножением на непрерывный множитель,
+меньший единицы и зависящий только от $v$.
 
-For any $k$ sufficiently large, there exists $j = j(k)$ such that
-$$u \Bigl( \Bigl\{ x \in [-1, 1]: dist(x, T) \le \frac{4}{k} \Bigr\} \Bigr) \subset \Bigl\{ v \in \Real_+: dist(v, u(T)) \le \frac{1}{2j} \Bigr\},$$
-and $j(k) \to \infty$ as $k \to \infty$ by continuity of $u$.
-This implies that $\min\limits_{dist(x, u^{-1}(v)) \le \frac{2}{k}} c_j(x, v) > 0$
-for all $v \in U(c_j)$.
-Moreover, for $v \in U(c_j)$ we have
+Из непрерывности $u$ следует, что для достаточно больших $k$ найдутся $j = j(k)$ такие, что
+$$
+u \Bigl( \Bigl\{ x \in [-1, 1]: dist(x, T) \le \frac{4}{k} \Bigr\} \Bigr) \subset \Bigl\{ v \in \Real_+: dist(v, u(T)) \le \frac{1}{2j} \Bigr\},
+$$
+и $j(k) \to \infty$ при $k \to \infty$.
+Отсюда $\min\limits_{dist(x, u^{-1}(v)) \le \frac{2}{k}} c_j(x, v) > 0$ для всех $v \in U(c_j)$.
+Более того, при $v \in U(c_j)$
 $$
 \frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{k}} \abs{\mathfrak c_j(x_i, v) - \mathfrak c_j(x_{i + 1}, v)}}
 {\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{k}} \mathfrak c_j(x, v)}
 =\frac{\max\limits_{\abs{x_i - x_{i + 1}} \le \frac{2}{k}} \abs{\mathfrak b(x_i, v) - \mathfrak b(x_{i + 1}, v)}}
 {\min\limits_{\dist(x, u^{-1}(v)) \le \frac{2}{k}} \mathfrak b(x, v)}.
 $$
-Note, that the denominator of the right-hand side is separated from zero for $v \in U(\mathfrak c_j)$.
-Thus, $D_k(\mathfrak c_j, U(\mathfrak c_j))$ is bounded.
+При этом, знаменатель второй дроби при $v \in U(\mathfrak c_j)$ отделен от нуля.
+Тем самым, $D_k(\mathfrak c_j, U(\mathfrak c_j))$ ограничена.
 
-Since $D_k$ does not change if we multiply the first argument by a positive factor independent of $x$,
-and $U(\mathfrak c_j) \nearrow U(\mathfrak b)$, we have
-$$D_k(\mathfrak c_j, U(\mathfrak c_j)) = D_k(\mathfrak b, U(\mathfrak c_j)) \le D_k(\mathfrak b, U(\mathfrak b)) \to 0$$
-as $k \to \infty$.
+Поскольку $D_k$ не меняется при домножении первого аргумента на коэффициент, не зависящий от $x$,
+и $U(\mathfrak c_j) \nearrow U(\mathfrak b)$, имеем
+$$
+D_k(\mathfrak c_j, U(\mathfrak c_j)) = D_k(\mathfrak b, U(\mathfrak c_j)) \le D_k(\mathfrak b, U(\mathfrak b)) \to 0
+$$
+при $k \to \infty$.
 
-Thus, the weights $\mathfrak c_{j(k)}$ satisfy $(H1)-(H3)$.
-By Step 4, $I(\mathfrak c_{j(k)}, \mon{u}) \le I(\mathfrak c_{j(k)}, u)$.
-Passing to the limit, we get $I(\mathfrak b_{\ell}, \mon{u}) \le I(\mathfrak b_{\ell}, u)$,
-and consequently inequality (\ref{toprove_weighted}).
+Таким образом, веса $\mathfrak c_{j(k)}$ удовлетворяют $(H1)-(H3)$.
+Из шага 4 имеем $\IWg(\mathfrak c_{j(k)}, \mon{u}) \le \IWg(\mathfrak c_{j(k)}, u)$.
+Переходя к пределу, получаем $\IWg(\mathfrak b_{\ell}, \mon{u}) \le \IWg(\mathfrak b_{\ell}, u)$,
+а затем и неравенство (\ref{toprove_weighted}).
 
-Thus, Theorem \ref{unbounded_growth_thm} is proved.
+Тем самым, теорема \ref{unbounded_growth_thm} доказана.
 \hfill $\square$
-
-\medskip
-
-Now we consider the case where the function $u$ satisfies the additional condition $u(-1) = 0$.
-\begin{thm}
-Suppose that $F \in \mathfrak{F}$, the function $u \in \W(-1, 1)$ is nonnegative, $u(-1) = 0$,
-and the weight function $\mathfrak a: [-1, 1] \times \Real_+ \to \Real_+$ is continuous
-and satisfies $(\ref{almostConcave})$.
-Then inequality $(\ref{toprove_weighted})$ holds.
-\end{thm}
-
-\begin{proof}
-We follow the proof of Theorem \ref{unbounded_growth_thm},
-but we change $(H1)$ and $(H7)$ to the following conditions:
-
-\bigskip
-\noindent
-$(H1')$ $\mathfrak a(x, v)$ satisfies (\ref{almostConcave}), and $I(\mathfrak a, u) < \infty$.
-
-\bigskip
-\noindent
-$(H7')$ Assumption $(H7)$ is satisfied and $\mathfrak a(\cdot, v) \equiv 0$ in some $v$-neighborhood of zero.
-
-\bigskip
-\textbf{Step 1.} \textit{Let $u \in \W(-1, 1)$, $u(-1) = 0$ and let the weight $\mathfrak a$ satisfy the conditions $(H1'), (H2)-(H6), (H7')$.
-Then inequality (\ref{toprove_weighted}) holds.}
-
-To prove this, we approximate the function $u$ in the same way as in the first step in the proof of Theorem \ref{unbounded_growth_thm},
-changing $u$ in a neighborhood of $x = -1$ to a linear function with $u_n(-1) = 0$ preserved.
-
-\bigskip
-\textbf{Step 2.} \textit{Let the weight $\mathfrak a$ satisfy conditions $(H1'), (H2)-(H6)$.
-Then inequality (\ref{toprove_weighted}) holds.}
-
-To prove this, we add zero to the set $W$ from the second step in the proof of Theorem \ref{unbounded_growth_thm},
-and repeat the rest of the proof.
-
-\medskip
-
-Further steps are unchanged.
-\end{proof}
-

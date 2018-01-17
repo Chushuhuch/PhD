@@ -20,15 +20,15 @@ $y = y_k^j( x', u_0 )$, $k = 1, \dots, m_j$,
 и $D_n y_k^j( x', u( x', y ) ) = \frac{1}{D_n u( x', y )}$.
 Мы будем считать, что $y_1^j(x', u_0) < y_2^j(x', u_0) < \dots < y_{m_j}^j(x', u_0)$.
 
-Уравнение $\mon{u}(x'_0, \mon{y}) = u_0$ задает $\mon{y}$ как функцию $( x'_0, u_0 ) \in G_j$.
+Уравнение $\mon{u}(x'_0, \mon{y}) = u_0$ задаёт $\mon{y}$ как функцию $( x'_0, u_0 ) \in G_j$.
 Её можно выразить через $y_k^j$ (в частности, $\mon{y}$ кусочно линейна):
 
 \begin{center}
 \begin{tabular}{l|l|l}
-\multirow{2}{*}{$u( x'_0, -1 ) < u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ четно   & $\mon{y} = 1-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
-                                                               & $m_j$ нечетно & $\mon{y} = -\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ \hline
-\multirow{2}{*}{$u( x'_0, -1 ) > u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ четно   & $\mon{y} = -1+\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
-                                                               & $m_j$ нечетно & $\mon{y} = \sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+\multirow{2}{*}{$u( x'_0, -1 ) < u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ чётно   & $\mon{y} = 1-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+                                                               & $m_j$ нечётно & $\mon{y} = -\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ \hline
+\multirow{2}{*}{$u( x'_0, -1 ) > u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ чётно   & $\mon{y} = -1+\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
+                                                               & $m_j$ нечётно & $\mon{y} = \sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
 \end{tabular}
 \end{center}
 
@@ -97,8 +97,8 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $\mon{c}_i=D_i \mon{y}$, $y_k=y_k^j
 \overset{e}{=}   F \Bigl( \frac{ \norm{ \pm a_i \sum_{k = 1}^m ( -1 )^k c_{ki}, a( \mon{y} ) } }{ \sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k
 = F \Bigl( \frac{ \norm{ a_i \mon{c}_i, a(\mon{y}) } }{\sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k.
 \end{multline}
-Здесь в переходе (a) применено неравенство Йенсена, в переходах (b) и (e) использована четность нормы, в (c) использовано неравенство треугольника,
-в (d) --- предложение \ref{weightSum} и четность веса $a$ по $y$.
+Здесь в переходе (a) применено неравенство Йенсена, в переходах (b) и (e) использована чётность нормы, в (c) использовано неравенство треугольника,
+в (d) --- предложение \ref{weightSum} и чётность веса $a$ по $y$.
 
 Из (\ref{chain}) видно, что подынтегральное выражение в (\ref{intu}) не меньше
 подынтегрального выражения в (\ref{intus}).
@@ -107,8 +107,8 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $\mon{c}_i=D_i \mon{y}$, $y_k=y_k^j
 
 \begin{rem}
 \label{landesLinearRem}
-Если $u(\cdot, -1) \equiv 0$, то утверждение леммы верно без условия четности веса.
-Четность используется только в переходе (d) цепочки неравенств (\ref{chain}),
+Если $u(\cdot, -1) \equiv 0$, то утверждение леммы верно без условия чётности веса.
+Чётность используется только в переходе (d) цепочки неравенств (\ref{chain}),
 и, поскольку при $u(\cdot, -1) \equiv 0$ всегда выполнено $u(x'_0, -1) < u_0$,
 то предложение \ref{weightSum} как раз обеспечивает требуемые для перехода (d) неравенства.
 \end{rem}
