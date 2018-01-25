@@ -1,6 +1,9 @@
 \section{Условия, необходимые для выполнения неравенства (\ref{toprove_weighted})}
+
+\todo{add remark that we omit n-1 dimensions here}
+
 \begin{thm}
-\label{necessary_conditions_constant}
+\label{necessary_conditions_weighted}
 \textbf{1.}
 Если неравенство $(\ref{toprove_weighted})$ выполняется для некоторой $F \in \mathfrak{F}$
 и произвольной кусочно линейной $u$,
@@ -19,46 +22,46 @@ a(s, v) + a(t, v) \ge a(1 - t + s, v), \qquad -1 \le s \le t \le 1, v \in \Real_
 \begin{proof}
 \textbf{1.}
 Предположим, что $a(x, v) \not\equiv a(-x, v)$.
-Тогда найдутся такие $\bar{x} \in (-1, 1)$ и $\bar{v} \in \Real_+$, что
-$$a(\bar{x}, \bar{v}) < a(-\bar{x}, \bar{v}).$$
-Поэтому существует $\eps > 0$, такое, что
-$$\bar{x} - \eps \le x \le \bar{x}, \bar{v} \le v \le \bar{v} + \eps \quad \Longrightarrow \quad a(x, v) < a(-x, v),$$
+Тогда найдутся такие $x_0 \in (-1, 1)$ и $v_0 \in \Real_+$, что
+$$a(x_0, v_0) < a(-x_0, v_0).$$
+Поэтому существует $\eps > 0$ такое, что
+$$a(x, v) < a(-x, v), \qquad x_0 - \eps \le x \le x_0, v_0 \le v \le v_0 + \eps,$$
 и можно взять следующую функцию:
 $$
 \left\{
 \begin{aligned}
-u(x) &= \bar{v} + \eps, & x \in [-1,\bar{x}-\eps]\\
-u(x) &= \bar{v} + \bar{x} - x, & x \in (\bar{x} - \eps, \bar{x})\\
-u(x) &= \bar{v}, & x \in [\bar{x}, 1]
+u_1(x) &= v_0 + \eps, & x \in [-1,x_0-\eps]\\
+u_1(x) &= v_0 + x_0 - x, & x \in (x_0 - \eps, x_0)\\
+u_1(x) &= v_0, & x \in [x_0, 1]
 \end{aligned}
 \right.
 $$
-Тогда $\mon{u}(x, v) = u(-x, v)$ и
+Тогда $\mon{u_1}(x) = u_1(-x)$ и
 \begin{multline*}
-\IWg(a, u) - \IWg(a, \mon{u}) \\
-= \int\limits_{\bar{x}-\eps}^{\bar{x}} F \bigl( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) \bigr) \, dx -
-\int\limits_{-\bar{x}}^{-\bar{x}+\eps} F \bigl( \bar{v} + \bar{x} + x, a(x, \bar{v} + \bar{x} + x) \bigr) \, dx \\
-= \int\limits_{\bar{x}-\eps}^{\bar{x}} \bigl( F \bigl( \bar{v} + \bar{x} - x, a(x, \bar{v} + \bar{x} - x) \bigr) -
-F \bigl( \bar{v} + \bar{x} - x, a(-x, \bar{v} + \bar{x} - x) \bigr) \bigr) \, dx < 0,
+\IWg(a, u_1) - \IWg(a, \mon{u_1}) \\
+= \int\limits_{x_0-\eps}^{x_0} F \bigl( v_0 + x_0 - x, a(x, v_0 + x_0 - x) \bigr) \, dx -
+\int\limits_{-x_0}^{-x_0+\eps} F \bigl( v_0 + x_0 + x, a(x, v_0 + x_0 + x) \bigr) \, dx \\
+= \int\limits_{x_0-\eps}^{x_0} \bigl( F \bigl( v_0 + x_0 - x, a(x, v_0 + x_0 - x) \bigr) -
+F \bigl( v_0 + x_0 - x, a(-x, v_0 + x_0 - x) \bigr) \bigr) \, dx < 0,
 \end{multline*}
-что противоречит условию.
+что противоречит предположениям теоремы.
 Утверждение \textbf{1} доказано.
 
 \textbf{2.}
 Предположим, что условие (\ref{almostConcave}) не выполняется.
-Тогда в силу непрерывности функции $a$ найдутся такие $-1 \le s \le t \le 1$, $\eps, \delta> 0$ и $\bar{v} \in \Real_+$, что
-для любых $0 \le y \le \eps$ и $\bar{v} \le v \le \bar{v} + \eps$ справедливо неравенство
+Тогда в силу непрерывности функции $a$ найдутся такие $-1 \le s \le t \le 1$, $\eps, \delta> 0$ и $v_0 \in \Real_+$, что
+для любых $0 \le y \le \eps$ и $v_0 \le v \le v_0 + \eps$ справедливо неравенство
 $$a(s + y, v) + a(t - y, v) + \delta < a( 1 - t + s + 2y, v).$$
 
-Рассмотрим функцию $u$ (см. рис. \ref{uGraph}):
+Рассмотрим функцию $u_2$ (см. рис. \ref{uGraph}):
 \begin{equation}
 \label{parLinU}
 \left\{
 \begin{aligned}
-u(x) &= \bar{v}, & x \in [-1, s] \cup [t, 1]\\
-u(x) &= \bar{v} + x - s, & x \in [s, s + \eps]\\
-u(x) &= \bar{v} + \eps, & x \in [s + \eps, t - \eps]\\
-u(x) &= \bar{v} + t - x, & x \in [t - \eps, t]
+u_2(x) &= v_0, & x \in [-1, s] \cup [t, 1]\\
+u_2(x) &= v_0 + x - s, & x \in [s, s + \eps]\\
+u_2(x) &= v_0 + \eps, & x \in [s + \eps, t - \eps]\\
+u_2(x) &= v_0 + t - x, & x \in [t - \eps, t]
 \end{aligned}
 \right.
 \end{equation}
@@ -75,7 +78,7 @@ u(x) &= \bar{v} + t - x, & x \in [t - \eps, t]
 \put(0,25){\vector(1,0){200}}
 \put(100,15){\vector(0,1){80}}
 \put(99,65){\line(1,0){2}}
-\put(92,62){$\bar{v}$}
+\put(85,62){$v_0$}
 \put(60,24){\line(0,1){2}}
 \put(58,14){$s$}
 \put(120,24){\line(0,1){2}}
@@ -84,7 +87,7 @@ u(x) &= \bar{v} + t - x, & x \in [t - \eps, t]
 \put(6,14){$-1$}
 \put(190,24){\line(0,1){2}}
 \put(188,14){$1$}
-\put(20,70){$u(x)$}
+\put(20,70){$u_2(x)$}
 \put(85,1){рис. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
@@ -92,9 +95,9 @@ u(x) &= \bar{v} + t - x, & x \in [t - \eps, t]
 $$
 \left\{
 \begin{aligned}
-\mon{u}(x) &= \bar{v}, & x \in [-1, 1 - t + s]\\
-\mon{u}(x) &= \bar{v} + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]\\
-\mon{u}(x) &= \bar{v} + \eps, & x \in [1 - t + s + 2\eps, 1]
+\mon{u_2}(x) &= v_0, & x \in [-1, 1 - t + s]\\
+\mon{u_2}(x) &= v_0 + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]\\
+\mon{u_2}(x) &= v_0 + \eps, & x \in [1 - t + s + 2\eps, 1]
 \end{aligned}
 \right.
 $$
@@ -110,27 +113,27 @@ $$
 \put(0,25){\vector(1,0){200}}
 \put(100,15){\vector(0,1){80}}
 \put(99,65){\line(1,0){2}}
-\put(92,67){$\bar{v}$}
+\put(85,67){$v_0$}
 \put(130,24){\line(0,1){2}}
 \put(110,14){$1 - t + s$}
 \put(10,24){\line(0,1){2}}
 \put(6,14){$-1$}
 \put(190,24){\line(0,1){2}}
 \put(188,14){$1$}
-\put(20,70){$\mon{u}(x)$}
+\put(20,70){$\mon{u_2}(x)$}
 \put(85,1){рис. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
 
 Имеем
 \begin{multline*}
-\IWg(a, \mon{u}) = \int\limits_0^{2\eps} F \bigl( u(1 - t + s + z), \frac{a(1 - t + s + z, u(1 - t + s + z))}{2} \bigr) \, dz\\
-= \int\limits_0^\eps 2 F \bigl(\bar{v} + y, \frac{a(1 - t + s + 2y, \bar{v} + y)}{2} \bigr) \, dy\\
-0 \le \IWg( a, u ) - \IWg( a, \mon{u} ) =
-\int\limits_0^\eps \bigl( F \bigl( \bar{v} + y, a(s + y, \bar{v} + y) \bigr) + F \bigl( \bar{v} + y, a( t - y, \bar{v} + y) \bigr)\\
-- 2 F \bigl( \bar{v} + y, \frac{ a(1 - t + s + 2y, \bar{v} + y) }{2} \bigr) \bigr) \, dy\\
-< \int\limits_0^\eps \bigl( F \bigl( \bar{v} + y, a(s + y, \bar{v} + y) \bigr) + F \bigl( \bar{v} + y, a(t - y, \bar{v} + y) \bigr)\\
-- 2 F \bigl( \bar{v} + y, \frac{ a(s + y, \bar{v} + y) + a(t - y, \bar{v} + y) + \delta }{2} \bigr) \bigr) \, dy =: \Delta\IWg.
+\IWg(a, \mon{u_2}) = \int\limits_0^{2\eps} F \bigl( u_2(1 - t + s + z), \frac{a(1 - t + s + z, u_2(1 - t + s + z))}{2} \bigr) \, dz\\
+= \int\limits_0^\eps 2 F \bigl(v_0 + y, \frac{a(1 - t + s + 2y, v_0 + y)}{2} \bigr) \, dy\\
+0 \le \IWg( a, u_2 ) - \IWg( a, \mon{u_2} ) =
+\int\limits_0^\eps \bigl( F \bigl( v_0 + y, a(s + y, v_0 + y) \bigr) + F \bigl( v_0 + y, a( t - y, v_0 + y) \bigr)\\
+- 2 F \bigl( v_0 + y, \frac{ a(1 - t + s + 2y, v_0 + y) }{2} \bigr) \bigr) \, dy\\
+< \int\limits_0^\eps \bigl( F \bigl( v_0 + y, a(s + y, v_0 + y) \bigr) + F \bigl( v_0 + y, a(t - y, v_0 + y) \bigr)\\
+- 2 F \bigl( v_0 + y, \frac{ a(s + y, v_0 + y) + a(t - y, v_0 + y) + \delta }{2} \bigr) \bigr) \, dy =: \Delta\IWg.
 \end{multline*}
 
 Рассмотрим теперь функцию $F(v, p) = p^\alpha$.
@@ -139,12 +142,12 @@ $$
 \label{anticonvex}
 \frac{F(v, p) + F(v, q)}{ 2 } - F \bigl( v, \frac{p + q}{ 2 } + \frac{\delta}{ 2 } \bigr) < 0.
 \end{equation}
-Нас интересуют $p, q$, лежащие на компакте $[0, А]$, где
+Нас интересуют $p, q$, лежащие на компакте $[0, A]$, где
 \begin{equation*}
 %\label{weightMax}
-A = \max \limits_{(x, v)} a, \qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
+A = \max \limits_{(x, v)} a(x, v), \qquad (x, v) \in [-1, 1 ] \times u_2([-1, 1] ).
 \end{equation*}
-Значит найдётся такое $\alpha > 1$, что неравенство (\ref{anticonvex}) будет продолжать выполняться.
+Значит найдётся и $\alpha > 1$ такое, что неравенство (\ref{anticonvex}) будет выполняться.
 Например, подходит любое $1 < \alpha < ( \log_2 \frac{2 A}{A + \delta} )^{-1}$.
 
 Тем самым, мы подобрали строго выпуклую по второму аргументу функцию $F$, для которой $\Delta\IWg \le 0$.
@@ -152,15 +155,24 @@ A = \max \limits_{(x, v)} a, \qquad (x, v) \in [-1, 1 ] \times u([-1, 1] ).
 \end{proof}
 
 \begin{rem}
-\label{landesNecessaryRem}
-Видно, что в доказательстве второго пункта теоремы
-функцию $u$ на отрезке $[-1, s]$ можно заменить на любую возрастающую функцию.
-Тем самым, условие $(\ref{almostConcave})$ является необходимым и для выполнения неравенства $(\ref{toprove_weighted})$
-в случае закрепленных на левом конце функций: $u( -1 ) = 0$.
-\end{rem}
-
-\begin{rem}
 Пусть $a(\cdot, v)$ чётна.
 Тогда условие (\ref{almostConcave}) эквивалентно субаддитивности функции $a(1 - \cdot, v)$.
 В частности, если неотрицательная функция $a$ чётна и вогнута по первому аргументу, она удовлетворяет (\ref{almostConcave}).
 \end{rem}
+
+\begin{thm}
+\label{landesNecessaryRem}
+Если неравенство $(\ref{toprove_weighted})$ выполняется для произвольной $F \in \mathfrak{F}$
+и произвольной кусочно линейной $u$, закреплённой на левом конце: $u( -1 ) = 0$,
+то вес $a$ удовлетворяет неравенству $(\ref{almostConcave})$.
+\end{thm}
+
+\begin{proof}
+Будем следовать схеме доказательства пункта 2 теоремы \ref{necessary_conditions_weighted}.
+Мы ставим дополнительное ограничение $s > -1$ (ввиду непрерывности весовой функции от этого требования легко избавиться).
+Также в качестве функции $u$ берём функцию, возрастающую от нуля на отрезке $[-1, s]$,
+а на отрезке $[s, 1]$ совпадающую с $u_2$ из теоремы \ref{necessary_conditions_weighted}.
+Тогда функция $\mon{u}$ на отрезке $[-1, s]$ совпадает с $u$, а на отрезке $[s, 1]$ совпадает с $\mon{u_2}$.
+Тем самым, значения $\IWg(u)$ и $\IWg(\mon{u})$ увеличиваются на одну и ту же величину,
+и рассуждения, начиная с вычисления $\Delta \IWg$, полностью повторяются.
+\end{proof}

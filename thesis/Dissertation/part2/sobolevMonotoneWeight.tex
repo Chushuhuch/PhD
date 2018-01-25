@@ -114,7 +114,7 @@ P_h^2 \le \abs{\phi_h( A_h )} = \sum\limits_k \abs{\phi_h( \Omega_{h,k} )} = \su
 $$
 Наконец, $P_h^3 \to 0$ по абсолютной непрерывности интеграла, и утверждение доказано.
 
-Осталось показать, что $\IWg_2( u_h ) \to IWg_2( u )$.
+Осталось показать, что $\IWg_2( u_h ) \to \IWg_2( u )$.
 
 \begin{multline*}
 \IWg_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F \bigl( u_h( x ), a( x, u_h(x) ) |u_h'( x )| \bigr) \, dx +\\
@@ -164,7 +164,7 @@ u_h(x_0) = u(x_0); \qquad u_h \to u \text{ в } \W(x_0, x_1);\\
 
 \begin{cor}
 Пусть функция $a$ непрерывна, чётна, убывает на $[0, 1]$ и удовлетворяет неравенству $(\ref{almostConcave})$.
-Тогда для любой $u \in \W(-1, 1)$ выполнено $IWg( a, u^* ) \le IWg( a, u )$.
+Тогда для любой $u \in \W(-1, 1)$ выполнено $\IWg( a, u^* ) \le \IWg( a, u )$.
 \end{cor}
 
 \begin{proof}
