@@ -5,18 +5,18 @@
 Пусть $a$ удовлетворяет (\ref{almostConcave}).
 
 \textbf{\textup{i)}}
-Для любых $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$ выполнены следующие неравенства
+Для любых $x' \in \omega$, $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$, $v \in \Real_+$ выполнены следующие неравенства
 \begin{align*}
-\sum_{k = 1}^n a(t_k) & \ge a( 1 - \sum_{k = 1}^n (-1)^k t_k), & \text{ для чётных $n$}, & \\
-\sum_{k = 1}^n a(t_k) & \ge a(- \sum_{k = 1}^n (-1)^k t_k), & \text{ для нечётных $n$}. &
+\sum_{k = 1}^n a(x', t_k, v) & \ge a( x', 1 - \sum_{k = 1}^n (-1)^k t_k, v ), & \text{ для чётных $n$}, & \\
+\sum_{k = 1}^n a(x', t_k, v) & \ge a( x', - \sum_{k = 1}^n (-1)^k t_k, v ),   & \text{ для нечётных $n$}. &
 \end{align*}
 
 \textbf{\textup{ii)}}
 Предположим дополнительно, что функция $a$ чётна.
-Тогда также выполнены следующие неравенства
+Тогда для всех $x' \in \omega$, $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$, $v \in \Real_+$ также выполнены следующие неравенства
 \begin{align*}
-\sum_{k = 1}^n a(t_k) & \ge a(-1 + \sum_{k = 1}^n (-1)^k t_k), & \text{ для чётных $n$}, & \\
-\sum_{k = 1}^n a(t_k) & \ge a(\sum_{k = 1}^n (-1)^k t_k), & \text{ для нечётных $n$}. &
+\sum_{k = 1}^n a(t_k, v) & \ge a( x', -1 + \sum_{k = 1}^n (-1)^k t_k, v ), & \text{ для чётных $n$}, & \\
+\sum_{k = 1}^n a(t_k, v) & \ge a( x', \sum_{k = 1}^n (-1)^k t_k, v ),      & \text{ для нечётных $n$}. &
 \end{align*}
 \end{lm}
 
@@ -26,24 +26,32 @@
 Для $n = 1$ утверждение тривиально.
 Пусть теперь $n$ чётное.
 Тогда, по предположению индукции,
-$$\sum_{k=1}^{n - 1} a(t_k) \ge a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ).$$
+$$
+\sum_{k=1}^{n - 1} a(x', t_k, v) \ge a( x', -\sum_{k = 1}^{n - 1} (-1)^k t_k, v ).
+$$
 Значит
-$$\sum_{k = 1}^{n - 1} a( t_k ) + a( t_n ) \ge a( -\sum_{k = 1}^{n - 1} (-1)^k t_k ) + a( t_n ) \ge
-a( 1 - \sum_{k = 1}^{n} (-1)^k t_k ).$$
+\begin{multline*}
+\sum_{k = 1}^{n - 1} a( x', t_k, v ) + a( x', t_n, v )
+\ge a( x', -\sum_{k = 1}^{n - 1} (-1)^k t_k, v ) + a( x', t_n, v )
+\\ \ge a( x', 1 - \sum_{k = 1}^{n} (-1)^k t_k, v ).
+\end{multline*}
 В случае нечётного $n$ воспользуемся предположением индукции в следующем виде:
-$\sum_{k=2}^n a(t_k) \ge a( 1 + \sum_{k = 2}^n (-1)^k t_k )$.
+$$
+\sum_{k=2}^n a(x', t_k, v) \ge a( x', 1 + \sum_{k = 2}^n (-1)^k t_k, v ).
+$$
 Тогда
-$$
-a( t_1 ) + \sum_{k = 2}^n a( t_k ) \ge a( t_1 ) + a( 1 + \sum_{k = 2}^{n} (-1)^k t_k ) \ge
-a( -\sum_{k = 2}^{n} (-1)^k t_k + t_1 ) = a( -\sum_{k = 1}^{n} (-1)^k t_k ).
-$$
+\begin{multline*}
+a( x', t_1, v ) + \sum_{k = 2}^n a( x', t_k, v )
+\ge a( x', t_1, v ) + a( x', 1 + \sum_{k = 2}^{n} (-1)^k t_k, v )
+\\ \ge a( x', t_1 - \sum_{k = 2}^{n} (-1)^k t_k, v ) = a( x', -\sum_{k = 1}^{n} (-1)^k t_k, v ).
+\end{multline*}
 
 \textbf{\textup{ii)}} Доказательство этой части очевидно.
 \end{proof}
 
 \begin{lm}
 \label{weighted_linear_lm}
-Пусть функция $a(x', \cdot, u)$ чётна и удовлетворяет условию $(\ref{almostConcave})$ для всех $(x', u)$.
+Пусть функция $a(x', \cdot, u)$ чётна и удовлетворяет условию $(\ref{almostConcave})$.
 Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I( u ) \ge I( \mon{u} )$.
 \end{lm}
 
@@ -64,14 +72,15 @@ $y = y_k^j( x', u_0 )$, $k = 1, \dots, m_j$,
 Уравнение $\mon{u}(x'_0, \mon{y}) = u_0$ задаёт $\mon{y}$ как функцию $( x'_0, u_0 ) \in G_j$.
 Её можно выразить через $y_k^j$ (в частности, $\mon{y}$ кусочно линейна):
 
-\begin{center}
+\begin{equation}
+\label{rearranged_expression}
 \begin{tabular}{l|l|l}
 \multirow{2}{*}{$u( x'_0, -1 ) < u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ чётно   & $\mon{y} = 1-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
                                                                & $m_j$ нечётно & $\mon{y} = -\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ \hline
 \multirow{2}{*}{$u( x'_0, -1 ) > u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ чётно   & $\mon{y} = -1+\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
                                                                & $m_j$ нечётно & $\mon{y} = \sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
 \end{tabular}
-\end{center}
+\end{equation}
 
 Отсюда ясно, что
 \begin{equation*}
@@ -139,17 +148,22 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $\mon{c}_i=D_i \mon{y}$, $y_k=y_k^j
 = F \Bigl( \frac{ \norm{ a_i \mon{c}_i, a(\mon{y}) } }{\sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k.
 \end{multline}
 Здесь в переходе (a) применено неравенство Йенсена, в переходах (b) и (e) использована чётность нормы, в (c) использовано неравенство треугольника,
-в (d) --- предложение \ref{weightSum} и чётность веса $a$ по $y$.
+в (d) --- лемма \ref{weightSum} и чётность веса $a$ по $y$.
 
 Из (\ref{chain}) видно, что подынтегральное выражение в (\ref{intu}) не меньше
 подынтегрального выражения в (\ref{intus}).
 Тем самым, доказательство завершено.
 \end{proof}
 
-\begin{rem}
-\label{landesLinearRem}
-Если $u(\cdot, -1) \equiv 0$, то утверждение леммы верно без условия чётности веса.
-Чётность используется только в переходе (d) цепочки неравенств (\ref{chain}),
-и, поскольку при $u(\cdot, -1) \equiv 0$ всегда выполнено $u(x'_0, -1) < u_0$,
-то предложение \ref{weightSum} как раз обеспечивает требуемые для перехода (d) неравенства.
-\end{rem}
+\begin{lm}
+Пусть функция $a(x', \cdot, u)$ удовлетворяет условию $(\ref{almostConcave})$.
+Тогда, если $u$ --- неотрицательная кусочно линейная функция, удовлетворяющая $u(\cdot, -1) \equiv 0$,
+то $I( u ) \ge I( \mon{u} )$.
+\end{lm}
+
+\begin{proof}
+Заметим, что в доказательстве леммы \ref{weighted_linear_lm}
+мы используем чётность веса только в переходе (d) цепочки неравенств (\ref{chain}).
+Поскольку при $u(\cdot, -1) \equiv 0$ всегда выполнено $u(x'_0, -1) < u_0$,
+с учётом соотношений (\ref{rearranged_expression}) лемма \ref{weightSum} как раз обеспечивает требуемые для перехода (d) неравенства.
+\end{proof}
