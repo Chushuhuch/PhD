@@ -1,53 +1,58 @@
 \section{Условия, необходимые для выполнения неравенства (\ref{toprove_weighted})}
 
-\todo{add remark that we omit n-1 dimensions here}
 
 \begin{thm}
 \label{necessary_conditions_weighted}
 \textbf{1.}
-Если неравенство $(\ref{toprove_weighted})$ выполняется для некоторой $F \in \mathfrak{F}$
-и произвольной кусочно линейной $u$,
-то вес $a$ чётен по первому аргументу,
-то есть $a(x, v) \equiv a(-x, v)$.
+Если неравенство $(\ref{toprove_weighted})$ выполняется для некоторой $F \in \mathfrak{F}$ и произвольной кусочно линейной $u$,
+то вес $a$ чётен по $y$, то есть $a(x', y, v) \equiv a(x', -y, v)$.
 
-\textbf{2.}
+\textbf{\textup{ii)}}
 Если неравенство $(\ref{toprove_weighted})$ выполняется для произвольной $F \in \mathfrak{F}$
 и произвольной кусочно линейной $u$, то вес $a$ удовлетворяет неравенству
 \begin{equation}
 \label{almostConcave}
-a(s, v) + a(t, v) \ge a(1 - t + s, v), \qquad -1 \le s \le t \le 1, v \in \Real_+.
+a(x', s, v) + a(x', t, v) \ge a(x', 1 - t + s, v), \qquad \forall x' \in \omega,\ -1 \le s \le t \le 1,\ v \in \Real_+.
 \end{equation}
 \end{thm}
 
 \begin{proof}
-\textbf{1.}
-Предположим, что $a(x, v) \not\equiv a(-x, v)$.
-Тогда найдутся такие $x_0 \in (-1, 1)$ и $v_0 \in \Real_+$, что
-$$a(x_0, v_0) < a(-x_0, v_0).$$
+Ясно, что достаточно доказать утверждения теоремы для каждого $x'$ в отдельности.
+Поэтому далее в этом доказательстве мы по сути рассматриваем одномерный случай
+$u = u(y)$, $a = a(y, u)$, $\IWg(u) = \int\limits_{-1}^1 F( u(y), \abs{ a(y, u(y)) u'(y) } ) \, dy$.
+
+\textbf{\textup{i)}}
+Предположим, что $a(y, v) \not\equiv a(-y, v)$.
+Тогда найдутся такие $y_0 \in (-1, 1)$ и $v_0 \in \Real_+$, что
+$$
+a(y_0, v_0) < a(-y_0, v_0).
+$$
 Поэтому существует $\eps > 0$ такое, что
-$$a(x, v) < a(-x, v), \qquad x_0 - \eps \le x \le x_0, v_0 \le v \le v_0 + \eps,$$
+$$
+a(y, v) < a(-y, v), \quad \text{для всех } y_0 - \eps \le y \le y_0, \ v_0 \le v \le v_0 + \eps,
+$$
 и можно взять следующую функцию:
 $$
 \left\{
 \begin{aligned}
-u_1(x) &= v_0 + \eps, & x \in [-1,x_0-\eps]\\
-u_1(x) &= v_0 + x_0 - x, & x \in (x_0 - \eps, x_0)\\
-u_1(x) &= v_0, & x \in [x_0, 1]
+u_1(y) &= v_0 + \eps, & y \in [-1, y_0-\eps]\\
+u_1(y) &= v_0 + y_0 - y, & y \in (y_0 - \eps, y_0)\\
+u_1(y) &= v_0, & y \in [y_0, 1]
 \end{aligned}
 \right.
 $$
-Тогда $\mon{u_1}(x) = u_1(-x)$ и
+Тогда $\mon{u_1}(y) = u_1(-y)$ и
 \begin{multline*}
-\IWg(a, u_1) - \IWg(a, \mon{u_1}) \\
-= \int\limits_{x_0-\eps}^{x_0} F \bigl( v_0 + x_0 - x, a(x, v_0 + x_0 - x) \bigr) \, dx -
-\int\limits_{-x_0}^{-x_0+\eps} F \bigl( v_0 + x_0 + x, a(x, v_0 + x_0 + x) \bigr) \, dx \\
-= \int\limits_{x_0-\eps}^{x_0} \bigl( F \bigl( v_0 + x_0 - x, a(x, v_0 + x_0 - x) \bigr) -
-F \bigl( v_0 + x_0 - x, a(-x, v_0 + x_0 - x) \bigr) \bigr) \, dx < 0,
+\IWg(u_1) - \IWg(\mon{u_1}) \\
+= \int\limits_{y_0-\eps}^{y_0} F \bigl( v_0 + y_0 - y, a(y, v_0 + y_0 - y) \bigr) \, dy -
+\int\limits_{-y_0}^{-y_0+\eps} F \bigl( v_0 + y_0 + y, a(y, v_0 + y_0 + y) \bigr) \, dy \\
+= \int\limits_{y_0-\eps}^{y_0} \bigl( F \bigl( v_0 + y_0 - y, a(y, v_0 + y_0 - y) \bigr) -
+F \bigl( v_0 + y_0 - y, a(-y, v_0 + y_0 - y) \bigr) \bigr) \, dy < 0,
 \end{multline*}
 что противоречит предположениям теоремы.
-Утверждение \textbf{1} доказано.
+Утверждение \textbf{(i)} доказано.
 
-\textbf{2.}
+\textbf{\textup{ii)}}
 Предположим, что условие (\ref{almostConcave}) не выполняется.
 Тогда в силу непрерывности функции $a$ найдутся такие $-1 \le s \le t \le 1$, $\eps, \delta> 0$ и $v_0 \in \Real_+$, что
 для любых $0 \le y \le \eps$ и $v_0 \le v \le v_0 + \eps$ справедливо неравенство
@@ -58,10 +63,10 @@ $$a(s + y, v) + a(t - y, v) + \delta < a( 1 - t + s + 2y, v).$$
 \label{parLinU}
 \left\{
 \begin{aligned}
-u_2(x) &= v_0, & x \in [-1, s] \cup [t, 1]\\
-u_2(x) &= v_0 + x - s, & x \in [s, s + \eps]\\
-u_2(x) &= v_0 + \eps, & x \in [s + \eps, t - \eps]\\
-u_2(x) &= v_0 + t - x, & x \in [t - \eps, t]
+u_2(y) &= v_0, & y \in [-1, s] \cup [t, 1]\\
+u_2(y) &= v_0 + y - s, & y \in [s, s + \eps]\\
+u_2(y) &= v_0 + \eps, & y \in [s + \eps, t - \eps]\\
+u_2(y) &= v_0 + t - y, & y \in [t - \eps, t]
 \end{aligned}
 \right.
 \end{equation}
@@ -87,7 +92,7 @@ u_2(x) &= v_0 + t - x, & x \in [t - \eps, t]
 \put(6,14){$-1$}
 \put(190,24){\line(0,1){2}}
 \put(188,14){$1$}
-\put(20,70){$u_2(x)$}
+\put(20,70){$u_2(y)$}
 \put(85,1){рис. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
@@ -95,9 +100,9 @@ u_2(x) &= v_0 + t - x, & x \in [t - \eps, t]
 $$
 \left\{
 \begin{aligned}
-\mon{u_2}(x) &= v_0, & x \in [-1, 1 - t + s]\\
-\mon{u_2}(x) &= v_0 + \frac{ x - ( 1 - t + s ) }{2}, & x \in [1 - t + s, 1 - t + s + 2\eps]\\
-\mon{u_2}(x) &= v_0 + \eps, & x \in [1 - t + s + 2\eps, 1]
+\mon{u_2}(y) &= v_0, & y \in [-1, 1 - t + s]\\
+\mon{u_2}(y) &= v_0 + \frac{ y - ( 1 - t + s ) }{2}, & y \in [1 - t + s, 1 - t + s + 2\eps]\\
+\mon{u_2}(y) &= v_0 + \eps, & y \in [1 - t + s + 2\eps, 1]
 \end{aligned}
 \right.
 $$
@@ -120,7 +125,7 @@ $$
 \put(6,14){$-1$}
 \put(190,24){\line(0,1){2}}
 \put(188,14){$1$}
-\put(20,70){$\mon{u_2}(x)$}
+\put(20,70){$\mon{u_2}(y)$}
 \put(85,1){рис. \arabic{pictureCounter}}
 \end{picture}
 \end{center}
@@ -145,19 +150,19 @@ $$
 Нас интересуют $p, q$, лежащие на компакте $[0, A]$, где
 \begin{equation*}
 %\label{weightMax}
-A = \max \limits_{(x, v)} a(x, v), \qquad (x, v) \in [-1, 1 ] \times u_2([-1, 1] ).
+A = \max \limits_{(y, v)} a(y, v), \qquad (y, v) \in [-1, 1 ] \times u_2([-1, 1] ).
 \end{equation*}
 Значит найдётся и $\alpha > 1$ такое, что неравенство (\ref{anticonvex}) будет выполняться.
 Например, подходит любое $1 < \alpha < ( \log_2 \frac{2 A}{A + \delta} )^{-1}$.
 
 Тем самым, мы подобрали строго выпуклую по второму аргументу функцию $F$, для которой $\Delta\IWg \le 0$.
-Это противоречие доказывает утверждение \textbf{2}.
+Это противоречие доказывает утверждение \textbf{(ii)}.
 \end{proof}
 
 \begin{rem}
-Пусть $a(\cdot, v)$ чётна.
-Тогда условие (\ref{almostConcave}) эквивалентно субаддитивности функции $a(1 - \cdot, v)$.
-В частности, если неотрицательная функция $a$ чётна и вогнута по первому аргументу, она удовлетворяет (\ref{almostConcave}).
+Пусть $a(x', \cdot, v)$ чётна.
+Тогда условие (\ref{almostConcave}) эквивалентно субаддитивности функции $a(x', 1 - \cdot, v)$.
+В частности, если неотрицательная функция $a$ чётна и вогнута по $y$, она удовлетворяет (\ref{almostConcave}).
 \end{rem}
 
 \begin{thm}
@@ -169,10 +174,11 @@ A = \max \limits_{(x, v)} a(x, v), \qquad (x, v) \in [-1, 1 ] \times u_2([-1, 1]
 
 \begin{proof}
 Будем следовать схеме доказательства пункта 2 теоремы \ref{necessary_conditions_weighted}.
-Мы ставим дополнительное ограничение $s > -1$ (ввиду непрерывности весовой функции от этого требования легко избавиться).
-Также в качестве функции $u$ берём функцию, возрастающую от нуля на отрезке $[-1, s]$,
+Мы ставим дополнительное ограничение $s > -1$
+(ввиду непрерывности весовой функции от этого требования легко потом избавиться).
+Также в качестве функции $u_3$ берём функцию, возрастающую от нуля на отрезке $[-1, s]$,
 а на отрезке $[s, 1]$ совпадающую с $u_2$ из теоремы \ref{necessary_conditions_weighted}.
-Тогда функция $\mon{u}$ на отрезке $[-1, s]$ совпадает с $u$, а на отрезке $[s, 1]$ совпадает с $\mon{u_2}$.
-Тем самым, значения $\IWg(u)$ и $\IWg(\mon{u})$ увеличиваются на одну и ту же величину,
-и рассуждения, начиная с вычисления $\Delta \IWg$, полностью повторяются.
+Тогда функция $\mon{u_3}$ на отрезке $[-1, s]$ совпадает с $u_3$, а на отрезке $[s, 1]$ совпадает с $\mon{u_2}$.
+Тем самым, $\IWg(u_3) - \IWg(u_2) = \IWg(\mon{u_3}) - \IWg(\mon{u_2})$,
+и рассуждения теоремы \ref{necessary_conditions_weighted} начиная с вычисления $\Delta \IWg$ полностью повторяются.
 \end{proof}
