@@ -52,7 +52,7 @@ a( x', t_1, v ) + \sum_{k = 2}^n a( x', t_k, v )
 \begin{lm}
 \label{weighted_linear_lm}
 Пусть функция $a(x', \cdot, u)$ чётна и удовлетворяет условию $(\ref{almostConcave})$.
-Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $I( u ) \ge I( \mon{u} )$.
+Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $\IWg( u ) \ge \IWg( \mon{u} )$.
 \end{lm}
 
 \begin{proof}
@@ -91,7 +91,7 @@ D_n \mon{y}(x', u(x', y)) = \frac{1}{D_n \mon{u}(x',y)}=\sum_{k=1}^{m_j}{|D_n y_
 Тогда 
 \begin{multline}
 \label{intu}
-I( u )=\sum_{j=1}^N {
+\IWg( u )=\sum_{j=1}^N {
     \int\limits_{G_j}{
         F( x', u(x), \norm{
             a_i(x',u(x)) D_i u(x), a(x,u(x)) D_n u(x)
@@ -113,7 +113,7 @@ I( u )=\sum_{j=1}^N {
 \end{multline}
 \begin{multline}
 \label{intus}
-I( \mon{u} )=
+\IWg( \mon{u} )=
 \sum_{j=1}^N{
     \int\limits_{G_j}{
         F(x', \mon{u}, \norm{
@@ -158,7 +158,7 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $\mon{c}_i=D_i \mon{y}$, $y_k=y_k^j
 \begin{lm}
 Пусть функция $a(x', \cdot, u)$ удовлетворяет условию $(\ref{almostConcave})$.
 Тогда, если $u$ --- неотрицательная кусочно линейная функция, удовлетворяющая $u(\cdot, -1) \equiv 0$,
-то $I( u ) \ge I( \mon{u} )$.
+то $\IWg( u ) \ge \IWg( \mon{u} )$.
 \end{lm}
 
 \begin{proof}

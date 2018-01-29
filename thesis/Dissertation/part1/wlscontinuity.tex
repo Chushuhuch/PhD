@@ -108,27 +108,41 @@ $$A \ge \lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{
 Ввиду произвольности $\eps > 0$ имеем $A \ge \IWg(u)$.
 \end{proof}
 
-\begin{lm}
+\begin{thm}
 \label{uplift}
-Пусть $A \subset W^1_1(\Omega)$.
-И пусть $B \subset A$ таково, что $\forall v \in B$ выполнено $\IWg( \mon{v} ) \le \IWg( v )$.
+Пусть $B \subset A \subset W^1_1(\Omega)$.
 Предположим, что для каждого $u \in A$ найдётся последовательность $u_k \in B$ такая,
 что $u_k \to u$ в $W^1_1(\Omega)$ и $\IWg( u_k ) \to \IWg( u )$.
-Тогда $\forall u \in A$ будет выполнено $\IWg( \mon{u} ) \le \IWg( u )$.
-\end{lm}
+Тогда
+
+\textbf{\textup{i)}}
+Если $\forall v \in B$ выполнено $\IWg( \symm{v} ) \le \IWg( v )$,
+то $\forall u \in A$ будет выполнено $\IWg( \symm{u} ) \le \IWg( u )$.
+
+\textbf{\textup{ii)}}
+Если $\forall v \in B$ выполнено $\IWg( \mon{v} ) \le \IWg( v )$,
+то $\forall u \in A$ будет выполнено $\IWg( \mon{u} ) \le \IWg( u )$.
+\end{thm}
+
 \begin{proof}
+\textbf{\textup{i)}}
 Возьмём некоторую $u \in A$ и для нее найдем приближающую последовательность $\set{u_k} \subset B$.
-По условию $\IWg(\mon{u_k}) \le \IWg(u_k) \to \IWg(u)$.
+По условию $\IWg(\symm{u_k}) \le \IWg(u_k) \to \IWg(u)$.
 В \cite[теорема 1]{Brock} показано, что
 $$
 u_k \to u \text{ в } \W(\Omega) \quad \Longrightarrow \quad \symm{u_k} \rightharpoondown \symm{u} \text{ in } \W(\Omega).
 $$
-Поскольку $\mon{u_k}( x ) = \symm{u_k}( \frac{x - 1}{2} )$ and $\mon{u}( x ) = \symm{u}( \frac{x - 1}{2} )$,
-имеем $\mon{u_k} \rightharpoondown \mon{u}$ в $\W(\Omega)$.
 Из леммы \ref{lowersemi} получаем
 $$
 \IWg(\mon{u}) \le \liminf \IWg(\mon{u_k}) \le \lim \IWg(u_k) = \IWg(u).
 $$
+
+\textbf{\textup{ii)}}
+Поскольку $\mon{u_k}( x ) = \symm{u_k}( \frac{x - 1}{2} )$ и $\mon{u}( x ) = \symm{u}( \frac{x - 1}{2} )$, имеем
+$$
+u_k \to u \text{ в } \W(\Omega) \quad \Longrightarrow \quad \mon{u_k} \rightharpoondown \mon{u} \text{ in } \W(\Omega).
+$$
+Тем самым, рассуждения из доказательства предыдущего пункта могут быть дословно повторены.
 \end{proof}
 
 \todo{Это утверждение совпадает с первой частью следующей теоремы, но более подробно объяснено.
@@ -146,5 +160,5 @@ u_k \rightrightarrows u, \qquad u_k' \to u' \text{ п.в.}, \qquad |u_k'| \le co
 $$
 Тогда по теореме Лебега $u_k \to u$ в $\W(\Omega)$ и $\IWg( u_k ) \to \IWg( u )$.
 В свою очередь, $u_k$ могут быть аналогичным образом приближены кусочно линейными функциями.
-Применив лемму \ref{weighted_linear_lm} и лемму \ref{uplift}, получаем требуемое.
+Применив лемму \ref{weighted_linear_lm} и теорему \ref{uplift}, получаем требуемое.
 \end{proof}
