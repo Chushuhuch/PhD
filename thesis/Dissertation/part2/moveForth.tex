@@ -260,14 +260,15 @@ $$
 В силу произвольности $v_1$, $v_2$ и $\eps$, получаем, что $\tilde{t}$ непрерывна.
 
 При $\alpha \in [0, 1]$ функция $\mathfrak d_\alpha(x, v) := \mathfrak c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
-чётна $x$, удовлетворяет неравенству (\ref{almostConcave}) согласно лемме \ref{maxSumConcave},
+чётна по $x$, удовлетворяет неравенству (\ref{almostConcave}) согласно лемме \ref{maxSumConcave},
 и не превосходит $a(x, v)$ по построению функции $\tilde{t}$.
 Таким образом, $\mathfrak d_\alpha$ --- допустимый вес.
 И теперь очевидно, что $\mathfrak d_\alpha$ удовлетворяет условиям $(H1)-(H4)$.
 
-Покажем, что найдётся последовательность $\alpha_j \searrow 0$, что $\mathfrak d_{\alpha_j}$ не имеет горизонтальных участков,
-кроме $v$, для которых $\mathfrak d_{\alpha_j}(\cdot, v) \equiv 0$, и множества меры ноль.
-Обозначим множество $\alpha$, ``плохих'' на участке $[x_i, x_{i + 1}]$:
+Покажем, что для почти всех $\alpha \in [0, 1]$ выполнено следующее условие.
+$\mathfrak d_{\alpha}$ не имеет горизонтальных участков,
+за исключением $v$, для которых $\mathfrak d_{\alpha}(\cdot, v) \equiv 0$, и множества меры ноль.
+Введём обозначение для множества $\alpha$, ``плохих'' на участке $[x_i, x_{i + 1}]$:
 \begin{multline*}
 A_i := \bigl \{\alpha \in [0, 1]: \\
 \meas \{v \in [\min u, \max u]: \frac{\mathfrak c(x_{i + 1}, v) - \mathfrak c(x_i, v))}{\frac{2}{k}} + \alpha \chi_i \tilde{t} (v) = 0 \} > 0 \bigr \},
@@ -284,6 +285,7 @@ $$
 Тогда $\card(A_i) = \card(\{ \alpha \in [0, 1]: \meas \{ v \in [\min u, \max u]: h_i(v) \pm \frac{2}{k} \alpha = 0 \} > 0 \}).$
 Значит $\card(A_i) \le \aleph_0$, а также $\card(\cup_i A_i) \le \aleph_0$.
 Тем самым, найдётся последовательность весов $\mathfrak d_{\alpha_j} \searrow \mathfrak c$, удовлетворяющих $(H1)-(H5)$.
+
 Из шага 3 имеем $\IWg(\mathfrak d_{\alpha_j}, \mon{u}) \le \IWg(\mathfrak d_{\alpha_j}, u)$.
 Переходя к пределу, получаем $\IWg(\mathfrak c, \mon{u}) \le \IWg(\mathfrak c, u)$.
 
@@ -304,7 +306,7 @@ F \bigl( u(x), \mathfrak c_k(x, u(x)) |u'(x)| \bigr) \to F \bigl( u(x), a(x, u(x
 
 Будем строить приближение для $a$ весами, удовлетворяющими $(H1)-(H2)$.
 Воспользуемся леммой \ref{zeroApprox} с множеством $W = \set{ v \in \Real_+: a(\cdot, v) \equiv 0 }$.
-Введем обозначение
+Введём обозначение
 $$
 Z_a(v) := \{ x \in [-1, 1]: a(x, v) = 0 \}.
 $$
