@@ -1,0 +1,156 @@
+\section{Доказательство неравенства $\I(\symm{u}) \le \I(u)$}
+
+В этом параграфе мы показываем, что необходимые условия, установленные в теореме \ref{necessary}, являются также и достаточными.
+
+\begin{lm}
+\label{quasiConv}
+Пусть $m$ --- чётное положительное число, $s_k > 0$ ($k = 1 \dots m$), $-1 \le x_1 \le \dots \le x_m \le 1$.
+Тогда, если $K(s, x)$ чётна по $x$ и выпукла по совокупности аргументов, то
+\begin{equation}
+\label{K_ineq}
+\sum\limits_{k = 1}^{m} K(s_k, x_k) \ge
+2 K \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k \Bigr).
+\end{equation}
+\end{lm}
+
+\begin{proof}
+Заметим, что неравенство (\ref{K_ineq}) равносильно такому же неравенству для функции $M(s, x) = K(s, x) - s$.
+Также заметим, что $M$ убывает по $s$, поскольку $M$ выпукла по $s$ и
+$$
+M_s(s, x) = (1 + {\frac 1 {s^2}})^{{\frac {p(x)} 2} - 1} (1 + {\frac 1 {s^2}} - {\frac {p(x)}{ s^2}}) - 1 \rightarrow 0 \qquad \text{ при} \quad s \to \infty.
+$$
+Тогда
+\begin{multline*}
+\sum\limits_{k = 1}^{m} M(s_k, x_k)
+\ge M(s_1, x_1) + M(s_m, x_m)
+\overset{a}{\ge} 2 M \bigl( {s_1 + s_m \over 2}, {x_m - x_1 \over 2} \bigr) \ge \\
+\overset{b}{\ge} 2 M \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m} s_k, {x_m - x_1 \over 2} \Bigr)
+\overset{c}{\ge} 2 M \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k \Bigr).
+\end{multline*}
+
+Неравенство (a) следует из того, что $M$ чётна по $x$ и выпукла,
+(b) --- из убывания $M$ по $s$,
+(c) --- из возрастания $M$ по $x$ при $x \ge 0$.
+\end{proof}
+
+\begin{lm}
+\label{linear}
+Пусть функция $K(s, x)$ чётна по $x$ и выпукла по совокупности аргументов.
+Тогда $\I(\symm{u}) \le \I(u)$ для любой кусочно линейной функции $u \in \Wf[-1, 1]$.
+\end{lm}
+
+\begin{proof}
+Обозначим $L \subset [-1, 1]$ множество точек излома функции $u$ (включая концы отрезка).
+Возьмём $U = u([-1, 1]) \setminus u(L)$, образ функции $u$ без образов точек излома.
+Это множество представляется в виде объединения конечного числа непересекающихся интервалов $U = \cup_j U_j$.
+Заметим, что для каждого $j$ множество $u^{-1}(U_j)$ разбивается на чётное число интервалов (обозначим это количество $m_j$),
+на каждом из которых функция $u$ совпадает с некоторой линейной функцией $y^j_k$, $k = 1, \dots, m_j$.
+Для удобства считаем, что носители $y^j_k$ для каждого $j$ идут по порядку,
+то есть $\sup dom(y^j_k) \le \inf dom(y^j_{k + 1})$.
+Обозначим $b^j_k = |y^j_k{}'(x)|$.
+Также обозначим
+$$
+Z = \meas{\set{ x \in (-1, 1) | u'(x) = 0 }} = \meas{\set{ x \in (-1, 1) | \symm{u}'(x) = 0 }}.
+$$
+Тогда
+\begin{multline*}
+\I(u) - Z = \sum\limits_j \int\limits_{u^{-1}(U_j)} (1 + u'^2(x))^{p(x) \over 2} dx
+= \sum\limits_j \sum\limits_k \int\limits_{dom(y^j_k)} (1 + {y^j_k}'^2(x))^{p(x) \over 2} dx =
+\\ = \sum\limits_j \int\limits_{U_j} \sum\limits_k {1 \over b^j_k} (1 + b^j_k{}^2)^{p((y^j_k)^{-1}(y)) \over 2} dy
+= \sum\limits_j \int\limits_{U_j} \sum\limits_k K \Bigl( {1 \over b^j_k}, (y^j_k)^{-1}(y) \Bigr) dy.
+\end{multline*}
+
+Любая точка $y \in U$ имеет два прообраза относительно функции $\symm{u}$,
+поэтому на множестве $U$ можно определить $(\symm{u})^{-1}: U \to [0, 1]$.
+Для каждого $j$ можно выразить $(\symm{u})^{-1}$ и модуль её производной на участке $U_j$ следующим образом:
+\begin{eqnarray*}
+(\symm{u})^{-1} (y) & = & {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y); \\
+|((\symm{u})^{-1})'(y)| & = & {1 \over |\symm{u}'((\symm{u})^{-1}(y))|} = {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k} =: { 1 \over \symm{b_j} }.
+\end{eqnarray*}
+Ввиду чётности $\symm{u}$ имеем
+\begin{multline*}
+\I(\symm{u}) - Z = 2 \int\limits_{(\symm{u})^{-1}(U)} (1 + \symm{u}'^2(x))^{p(x) \over 2} dx =
+\\ = 2 \int\limits_U |((\symm{u})^{-1})'(y)| \cdot \bigl( 1 + { 1 \over ((\symm{u})^{-1})'(y)^2 } \bigr)^{p((\symm{u})^{-1}(y)) \over 2} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} {1 \over \symm{b_j}} \bigl( 1 + \symm{b_j}^2 \bigr)^{{1 \over 2} p \bigl( {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \bigr)} dy =
+\\ = 2 \sum\limits_j \int\limits_{U_j} K \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \Bigr) dy.
+\end{multline*}
+Зафиксируем $j$ и $y$.
+Тогда для доказательства леммы достаточно выполнения
+$$
+\sum\limits_{k = 1}^{m_j} K \Bigl( {1 \over b^j_k}, (y^j_k)^{-1}(y) \Bigr) \ge
+2 K \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \Bigr).
+$$
+Но это неравенство обеспечивается леммой \ref{quasiConv}.
+\end{proof}
+
+Теперь можно доказать неравенство для функций $u$ общего вида.
+
+\begin{thm}
+\label{variable_exponent_thm}
+Пусть $p$ чётна, а $K$ выпукла по совокупности переменных.
+Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $\I(\symm{u}) \le \I(u)$.
+\end{thm}
+
+\begin{proof}
+Без потери общности предполагаем, что $I(u) < \infty$.
+Поскольку $p(x)$ ограничена, существует последовательность кусочно постоянных функций $v_n$, сходящаяся к $u'$ в пространстве Орлича $L^{p(x)}$
+(см. \cite[Теорема~1.4.1]{Sharapudinov}).
+Обозначим $u_n$ первообразные $v_n$, удовлетворяющие $u_n(-1) = 0$.
+
+Легко видеть, что $u_n \rightrightarrows u$, а значит $\eps_n := -\inf u_n \to 0$.
+Определим $\delta_n$ через соотношение:
+\begin{equation}
+\label{left_delta}
+\int\limits_{-1}^{-1 + \delta_n}(v_n)_- = \eps_n
+\end{equation}
+и возьмём
+$$
+\tilde v_n = (v_n)_+ - (v_n)_- \cdot \chi_{[-1 + \delta_n, 1]}.
+$$
+Мы утверждаем, что $\|\tilde v_n - v_n\|_{L^{p(x)}(-1, 1)} \to 0$.
+Действительно, ввиду (\ref{left_delta}) мера множества
+$$
+{\mathcal A}_n=\{ x \in [-1, -1 + \delta_n] \,:\, (v_n)_- \ge \sqrt{\eps_n} \}
+$$
+стремится к $0$ при $n \to \infty$.
+Поскольку $v_n \to u'$ в $L^{p(x)}$, имеем
+$$
+\|(v_n)_-\|_{L^{p(x)}({\mathcal A}_n)} \le \|u'\|_{L^{p(x)}({\mathcal A}_n)} + \|v_n - u'\|_{L^{p(x)}({\mathcal A}_n)} \to 0.
+$$
+Поскольку
+$$
+\|(v_n)_-\|_{L^{p(x)}([-1, -1 + \delta_n] \setminus {\mathcal A}_n)} \to 0,
+$$
+имеем
+$$
+\|\tilde v_n - v_n\|_{L^{p(x)}(-1, 1)} = \|(v_n)_-\|_{L^{p(x)}(-1, -1 + \delta_n)} \to 0,
+$$
+как и заявлено.
+
+\todo{тут $\tilde u_n(+1) = 0$??}
+Обозначим $\tilde u_n$ первообразную $\tilde v_n$ Ю удовлетворяющую $\tilde u_n(-1) = 0$.
+По построению $\tilde u_n \ge 0$.
+Положим $\tilde\eps_n = \tilde u_n(1) \to 0$, определим $\tilde\delta_n$ через соотношение
+$$
+\int\limits_{1 - \tilde\delta_n}^1(\tilde v_n)_+ = \tilde\eps_n
+$$
+и обозначим
+$$
+\hat v_n = (\tilde v_n)_+ \cdot \chi_{[-1, 1 - \tilde\delta_n]} - (\tilde v_n)_-.
+$$
+Используя те же рассуждения, получаем $\|\hat v_n - \tilde v_n\|_{L^{p(x)}(-1, 1)} \to 0$.
+
+Обозначим $\hat u_n$ первообразную $\hat v_n$, удовлетворяющую $\hat u_n(-1) = 0$.
+По построению $\hat u_n \ge 0$, $\hat u_n(1) = 0$ и $\hat u_n' \to u'$ в $L^{p(x)}(-1, 1)$.
+
+Из вложения $L^{p(x)}[-1, 1]\mapsto L^1(-1, 1)$ следует $\hat u_n \to u$ в $\Wf(-1, 1)$.
+Далее, поскольку $\abs{ \sqrt{ 1 + x^2 } - \sqrt{ 1 + y^2 } } \le \abs{ x - y }$ для любых $x$ и $y$,
+из сходимости $\hat u_n' \to u'$ в $L^{p(x)}$ следует $\I( \hat u_n ) \to \I( u )$.
+
+По \cite[Theorem 1]{Brock} из сходимости $\hat u_n \to u$ в $\Wf(-1, 1)$ следует слабая сходимость $\hat u_n^* \rightharpoondown u^*$ в $\Wf(-1, 1)$.
+Кроме того, функционал $\I$ секвенциально слабо полунепрерывен снизу по теореме Тонелли (см., напр., \cite[Теорема 3.5]{BGH}).
+Поэтому
+$$
+\I(\symm{u}) \le \liminf\limits_n \I(\symm{\hat u_n}) \le \lim\limits_n \I(\hat u_n) = \I(u).
+$$
+\end{proof}
