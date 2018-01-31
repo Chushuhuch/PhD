@@ -1,0 +1,170 @@
+\section{Необходимые условия}
+
+\begin{thm}
+Пусть $\J(\symm{u}) \le \J(u)$ выполнено для любой кусочно линейной функции $u \ge 0$.
+Тогда $p(x) \equiv const$.
+\end{thm}
+
+\begin{proof}
+Рассмотрим $x_0 \in (-1, 1)$.
+Для любых $\alpha > 0$ и $\eps > 0$, удовлетворяющих $[x_0 - \eps, x_0 + \eps] \subset [-1, 1]$ определим
+$$
+u_{\alpha,\eps}(x) = \alpha ( \eps - |x - x_0| )_+.
+$$
+Тогда $\symm{u_{\alpha,\eps}}(x) = \alpha ( \eps - |x| )_+$, и
+$$
+\J(u_{\alpha, \eps}) = \int\limits_{x_0 - \eps}^{x_0 + \eps} \alpha^{p(x)} dx, \qquad
+\J(\symm{u_{\alpha, \eps}}) = \int\limits_{-\eps}^{\eps} \alpha^{p(x)} dx.
+$$
+Возьмём неравенство
+$$
+\frac {\J(\symm{u_{\alpha, \eps}})}{2 \eps} \le \frac {\J(u_{\alpha, \eps})} {2 \eps},
+$$
+и перейдём к пределу при $\eps \to 0$.
+Поскольку $p$ непрерывна, мы получим $\alpha^{p(0)} \le \alpha^{p(x_0)}$.
+При $\alpha > 1$ и $\alpha < 1$ это даёт $p(0) \le p(x_0)$ и $p(0) \ge p(x_0)$ соответственно.
+\end{proof}
+
+\begin{thm}
+\label{necessary}
+Если неравенство $\I(\symm{u}) \le \I(u)$ выполняется для всех кусочно линейных $u \ge 0$,
+то $p$ чётна и выпукла.
+Более того, выпукла следующая функция:
+$$
+K(s, x) = s ( 1 + s^{-2} )^{\frac {p(x)}{2}}, \qquad s > 0,\ x \in [-1, 1].
+$$
+\end{thm}
+
+\begin{proof}
+Возьмём две точки $-1 < x_1 < x_2 < 1$
+и рассмотрим финитную кусочно линейную функцию с ненулевой производной лишь в окрестностях $x_1$ и $x_2$.
+А именно, для произвольных $s, t > 0$ и достаточно малого $\eps > 0$
+$$
+\left\{
+\begin{aligned}
+u_\eps(x) &= 0,                        & x \in &[-1, x_1 - s \eps] \cup [x_2 + s \eps, 1] \\
+u_\eps(x) &= \eps + \frac{x - x_1}{s}, & x \in &[x_1 - s \eps, x_1 + s \eps] \\
+u_\eps(x) &= 2 \eps,                   & x \in &[x_1 + s \eps, x_2 + s \eps] \\
+u_\eps(x) &= \eps + \frac{x_2 - x}{t}, & x \in &[x_2 - t \eps, x_2 + t \eps].
+\end{aligned}
+\right.
+$$
+
+\medskip
+\begin{center}
+\begin{picture}(200,90)
+\refstepcounter{pictureCounter}
+\label{uGraph}
+
+\put(0,25){\vector(1,0){200}}
+\put(100,15){\vector(0,1){80}}
+\put(10,24){\line(0,1){2}}
+\put(0,14){$-1$}
+\put(190,24){\line(0,1){2}}
+\put(188,14){$1$}
+
+\put(38,25){\line(1,1){48}}
+\put(67,24){\line(0,1){2}}
+\put(60,14){$x_1$}
+
+\put(86,73){\line(1,0){48}}
+
+\put(134,73){\line(2,-3){32}}
+\put(150,24){\line(0,1){2}}
+\put(143,14){$x_2$}
+
+\put(110,77){$2 \eps$}
+\put(45,70){$u(x)$}
+
+\put(85,1){Рис. \arabic{pictureCounter}}
+\end{picture}
+\end{center}
+
+Тогда
+$$
+\left\{
+\begin{aligned}
+\symm{u_\eps}(x) &= 0,
+        & x \in &[-1, \frac{x_1 - x_2}{2} - \frac{s + t}{2} \eps] \cup [\frac{x_2 - x_1}{2} + \frac{s + t}{2} \eps, 1] \\
+\symm{u_\eps}(x) &= \eps + \frac{2 x - (x_2 - x_1)}{s + t},
+        & x \in &[\frac{x_1 - x_2}{2} - \frac{s + t}{2} \eps, \frac{x_1 - x_2}{2} + \frac{s + t}{2} \eps] \\
+\symm{u_\eps}(x) &= 2 \eps,
+        & x \in &[\frac{x_1 - x_2}{2} + \frac{s + t}{2} \eps, \frac{x_2 - x_1}{2} - \frac{s + t}{2} \eps] \\
+\symm{u_\eps}(x) &= \eps + \frac{(x_2 - x_1) - 2 x}{s + t},
+        & x \in &[\frac{x_2 - x_1}{2} - \frac{s + t}{2} \eps, \frac{x_2 - x_1}{2} + \frac{s + t}{2} \eps].
+\end{aligned}
+\right.
+%\symm{u_\eps}(x) = \min\big( 2 \eps, ( \eps + ( t + s )^{-1} ( x_2 - x_1 - 2 |x| ) )_+ \big).
+$$
+
+\medskip
+\begin{center}
+\begin{picture}(200,90)
+\refstepcounter{pictureCounter}
+\label{uGraph}
+
+\put(0,25){\vector(1,0){200}}
+\put(100,15){\vector(0,1){80}}
+\put(10,24){\line(0,1){2}}
+\put(0,14){$-1$}
+\put(190,24){\line(0,1){2}}
+\put(188,14){$1$}
+
+\put(36,25){\line(5,6){40}}
+%\put(56,24){\line(0,1){2}}
+
+\put(76,73){\line(1,0){48}}
+
+\put(124,73){\line(5,-6){40}}
+%\put(144,24){\line(0,1){2}}
+
+\put(110,77){$2 \eps$}
+\put(35,70){$\symm{u}(x)$}
+
+\put(85,1){Рис. \arabic{pictureCounter}}
+\end{picture}
+\end{center}
+
+Множества, на которых $u_\eps' = 0$ и $\symm{u_\eps}' = 0$ имеют одинаковую меру.
+Поэтому неравенство $\I(\symm{u_\eps}) \le \I(u_\eps)$ эквивалентно следующему:
+\begin{multline*}
+\int\limits_{ x_1 - s \eps }^{ x_1 + s \eps } \big( 1 + \frac 1 {s^2 } \big)^{\frac {p(x)} 2} dx
++ \int\limits_{ x_2 - t \eps }^{ x_2 + t \eps } \big( 1 + \frac 1 {t^2 } \big)^{\frac {p(x)} 2} dx
+\\ \ge \int\limits_{ \frac {x_1 - x_2} 2  - \frac {s + t}2 \eps }^{ { \frac {x_1 - x_2} 2 } + { \frac {s + t} 2 } \eps }
+\Big( 1 + \frac{1}{ ( {\frac { s + t} 2 } )^2 } \Big)^{\frac {p(x)} 2} dx
+     + \int\limits_{ {\frac {x_2 - x_1} 2 } - { \frac {s + t} 2 } \eps }^{ { \frac {x_2 - x_1} 2 } + { \frac {s + t} 2 } \eps }
+     \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p(x)} 2} dx.
+\end{multline*}
+
+Разделим это неравенство на $2 \eps$ и устремим $\eps \to 0$, получив в пределе
+\begin{multline}
+\label{preConv}
+s \Big( 1 + { \frac 1 {s^2} } \Big)^{\frac {p(x_1)} 2} + t \Big( 1 + { \frac 1 {t^2} } \Big)^{\frac {p(x_2)} 2}\\
+\ge { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_1 - x_2} 2 } )} 2}
+  + { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_2 - x_1} 2 } )} 2}.
+\end{multline}
+
+Для начала, положим $s = t$ в неравенстве (\ref{preConv}).
+Получаем
+\begin{equation}
+\label{s_eq_t}
+( 1 + { \frac 1 {s^2} } )^{\frac {p(x_1)} 2} + ( 1 + { \frac 1 {s^2} } )^{\frac {p(x_2)} 2}
+\ge ( 1 + { \frac 1 {s^2} } )^{\frac {p( { \frac {x_2 - x_1} 2 } )}  2}
++ ( 1 + { \frac 1 {s^2} } )^{\frac {p( { \frac {x_1 - x_2}2 } )} 2}.
+\end{equation}
+
+Обозначим $\sigma: = {\frac 1 {s^2}}$ и применим разложение по Тейлору к неравенству (\ref{s_eq_t}) в точке $\sigma = 0$:
+$$
+\sigma p(x_1) + \sigma p(x_2) \ge \sigma p( {\frac { x_2 - x_1}2 } ) + \sigma p( {\frac { x_1 - x_2} 2 } ) + r(\sigma),
+$$
+где $r(\sigma) = o(\sigma)$ при $\sigma \to 0$.
+Таким образом, для любых $x_1, x_2 \in [-1, 1]$ имеем
+$$
+p(x_1) + p(x_2) \ge p( { \frac {x_2 - x_1} 2 } ) + p( { \frac {x_1 - x_2} 2 } ).
+$$
+По лемме \ref{almostConvexLm} получаем, что $p$ чётна и выпукла.
+
+Теперь подставим $-x_2$ вместо $x_2$ в (\ref{preConv}).
+Поскольку $p$ чётна, получаем
+$K(s, x_1) + K(t, x_2) \ge 2 K( { \frac {s + t}2 }, {\frac { x_1 + x_2}2 } )$.
+\end{proof}
