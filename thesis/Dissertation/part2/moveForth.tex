@@ -1,5 +1,4 @@
-\section{Доказательство неравенства (\ref{toprove_weighted}) для произвольных весов}
-\label{moveForth}
+\section{Доказательство неравенства (\ref{eq:to_prove_weighted}) для произвольных весов}
 
 В этом параграфе мы избавимся от условия монотонности веса по $x$.
 Будем это делать в несколько этапов.
@@ -14,7 +13,7 @@
 
 \smallskip
 \noindent
-$(H1)$ $a(x, v)$ чётна по $x$ и удовлетворяет неравенству (\ref{almostConcave}), а также $\IWg(a, u) < \infty$.
+$(H1)$ $a(x, v)$ чётна по $x$ и удовлетворяет неравенству (\ref{eq:almostConcave}), а также $\IWg(a, u) < \infty$.
 \smallskip
 
 \bigskip
@@ -30,7 +29,7 @@ $$
 U(a) := \{ v \in [\min u(x), \max u(x)]: a(\cdot, v) \not \equiv 0 \},
 $$
 \begin{equation}
-\label{bigD}
+\label{eq:wgen_bigD}
 D_k(a, U) := \sup \limits_{v \in U}
 \frac{\max \limits_{\abs{x_1 - x_2} \le \frac{2}{k}} \abs{a(x_1, v) - a(x_2, v)}}
 {\min \limits_{\dist (x, u^{-1} (v)) \le \frac{2}{k}} a(x, v)}.
@@ -67,27 +66,27 @@ $(H7)$ Пусть $x_1 < x_2 < x_3$,
 
 Теперь мы можем сформулировать основное утверждение главы.
 \begin{thm}
-\label{unbounded_growth_thm}
+\label{thm:unbounded_growth}
 Пусть $F \in \mathfrak{F}$, функция $u \in \W(-1, 1)$ неотрицательна,
 и весовая функция $a: [-1, 1] \times \Real_+ \to \Real_+$ непрерывна
 и допустима для $u$.
-Тогда справедливо неравенство $(\ref{toprove_weighted})$.
+Тогда справедливо неравенство $(\ref{eq:to_prove_weighted})$.
 \end{thm}
 
-Мы докажем неравенство (\ref{toprove_weighted}) при условиях $(H1)-(H7)$,
+Мы докажем неравенство (\ref{eq:to_prove_weighted}) при условиях $(H1)-(H7)$,
 а затем будем постепенно избавляться от них.
 
 Для доказательства нам потребуются следующие факты.
 
 \begin{prop}
-\label{levelDerivative}
+\label{prop:level_derivative}
 \textrm{\cite[теорема 6.19]{LiebLoss} }
 Для любой $u \in \W(-1, 1)$ и произвольного множества $A \subset \Real$ нулевой меры выполнено
 $u'(x) = 0$ для почти всех $x \in u^{-1}(A)$.
 \end{prop}
 
 \begin{lm}
-\label{zeroApprox}
+\label{lm:approx_with_zero_stripe}
 Пусть $u \in \W(-1, 1)$ неотрицательна.
 И пусть замкнутое множество $W \subset \Real_+$ таково, что множество всех $v \in W$, для которых $a(\cdot, v) \not\equiv 0$, имеет меру ноль.
 Тогда найдётся возрастающая последовательность весов $\mathfrak b_{\ell}$ такая, что
@@ -123,7 +122,7 @@ $$
 \IWg(u^{-1}(W_2), \mathfrak b_{\ell}, u) &= \int\limits_{x \in u^{-1}(W_2)} F \bigl( u(x), \mathfrak b_{\ell}(x, u(x)) |u'(x)| \bigr) \, dx.
 \end{aligned}
 $$
-При этом, по предложению \ref{levelDerivative}, почти всюду на $u^{-1}(W_2)$ выполнено $u'(x) = 0$.
+При этом, по предложению \ref{prop:level_derivative}, почти всюду на $u^{-1}(W_2)$ выполнено $u'(x) = 0$.
 То есть
 $$
 \IWg(u^{-1}(W_2), \mathfrak b_{\ell}, u) = \int\limits_{x \in u^{-1}(W_2)} F \bigl( u(x), 0 \bigr) \, dx = 0.
@@ -132,18 +131,18 @@ $$
 Вторая часть пункта \textit{3)} доказывается так же.
 \end{proof}
 
-Перейдем к доказательству теоремы \ref{unbounded_growth_thm}.
+Перейдем к доказательству теоремы \ref{thm:unbounded_growth}.
 
 \bigskip
 \textbf{Шаг 1.}
 \textit{Пусть $u \in \W(-1, 1)$, и вес $a$ удовлетворяет условиям $(H1)-(H7)$.
-Тогда выполняется неравенство (\ref{toprove_weighted}).}
+Тогда выполняется неравенство (\ref{eq:to_prove_weighted}).}
 
 Разобьем отрезок $[-1, 1]$ на отрезки $\Delta_k = [\hat{x}_k, \hat{x}_{k + 1}]$, состоящие из двух частей.
 В левой части каждого отрезка вес $a$ будет возрастать по $x$ в окрестности графика $u(x)$,
 в правой же будет убывать.
-Согласно замечанию \ref{monotone_weight_appr_rem}
-на каждом таком отрезке можно повторить схему из леммы \ref{monotone_weight_appr_lm},
+Согласно замечанию \ref{rem:monotone_weight_appr}
+на каждом таком отрезке можно повторить схему из леммы \ref{lm:monotone_weight_appr},
 приближая функцию $u$ липшицевыми функциями $u_n$.
 Это даёт $\IWg(\Delta_k, a, u_n) \to \IWg(\Delta_k, a, u)$.
 
@@ -157,27 +156,27 @@ $$
 В силу вышесказанного, интегралов $\IWg(\Delta_k, a, u_n)$ это не изменит,
 и мы получаем $\IWg(a, u_n) \to \IWg(a, u)$ и $u_n \to u$ в $\W(-1, 1)$.
 
-По теореме \ref{uplift} получаем (\ref{toprove_weighted}).
+По теореме \ref{thm:uplift} получаем (\ref{eq:to_prove_weighted}).
 
 \bigskip
 
 \textbf{Шаг 2.}
 \textit{Пусть вес $a$ удовлетворяет условиям $(H1)-(H6)$.
-Тогда выполняется неравенство (\ref{toprove_weighted}).}
+Тогда выполняется неравенство (\ref{eq:to_prove_weighted}).}
 
-Применим лемму \ref{zeroApprox}.
+Применим лемму \ref{lm:approx_with_zero_stripe}.
 В качестве множества $W$ возьмем множество всех $v$,
 при которых происходит переход графика $u(x)$ из промежутка,
 в котором вес убывает по $x$, в промежуток, в котором вес возрастает.
 Очевидно, получившиеся функции $\mathfrak b_{\ell}$ удовлетворяют $(H1)-(H7)$.
 Из шага 1 имеем $\IWg(\mathfrak b_{\ell}, \mon{u}) \le \IWg(\mathfrak b_{\ell}, u)$.
-Переходя к пределу, получаем требуемое неравенство (\ref{toprove_weighted}).
+Переходя к пределу, получаем требуемое неравенство (\ref{eq:to_prove_weighted}).
 
 \bigskip
 
 \textbf{Шаг 3.}
 \textit{Пусть вес $a$ удовлетворяет условиям $(H1)-(H5)$.
-Тогда выполняется неравенство (\ref{toprove_weighted}).}
+Тогда выполняется неравенство (\ref{eq:to_prove_weighted}).}
 
 Рассмотрим абсциссы точек излома функции $a$ и ординаты, для которых $a$ имеет участки постоянства.
 Эти абсциссы и ординаты определяют деление прямоугольника $[-1, 1] \times [\min u(x), \max u(x)]$
@@ -189,7 +188,7 @@ $$
 Возьмем множество $W$ точек $v$, для которых вес $a$ имеет участки постоянства по $x$.
 В соответствии с $(H5)$ множество $v \in W$, для которых $a(\cdot, v) \not\equiv 0$, имеет нулевую меру.
 
-Применив лемму \ref{zeroApprox}, построим последовательность весов $\mathfrak b_{\ell}$.
+Применив лемму \ref{lm:approx_with_zero_stripe}, построим последовательность весов $\mathfrak b_{\ell}$.
 У каждого из них количество участков монотонности конечно,
 поскольку между соседними по $v$ участками строгой монотонности
 присутствует полоса нулевых значений веса шириной по крайней мере $\frac{2}{k}$.
@@ -201,24 +200,24 @@ $\int |u'|$ увеличивается как минимум на $\frac{2}{\ell
 
 Мы получили, что $\mathfrak b_{\ell}$ удовлетворяют $(H1)-(H6)$.
 Из шага 2 имеем $\IWg(\mathfrak b_{\ell}, \mon{u}) \le \IWg(\mathfrak b_{\ell}, u)$.
-Переходя к пределу, получаем (\ref{toprove_weighted}).
+Переходя к пределу, получаем (\ref{eq:to_prove_weighted}).
 
 \bigskip
 \textbf{Шаг 4.}
 \textit{Пусть вес $a$ удовлетворяет условиям $(H1)-(H3)$.
-Тогда выполняется неравенство (\ref{toprove_weighted}).}
+Тогда выполняется неравенство (\ref{eq:to_prove_weighted}).}
 
 Предположим, что функция  $a$ удовлетворяет $(H1)-(H3)$, в частности $\IWg(a, u) < \infty$.
 
 Зафиксируем произвольное четное $k$.
 По точкам $a(-1 + \frac{2i}{k}, v)$ для каждого $v$ построим кусочно линейную по $x$ интерполяцию.
 Получившаяся функция $a_k(x, v)$ непрерывна, четна по $x$
-и по лемме \ref{piecewiseLinearConcave} удовлетворяет неравенству (\ref{almostConcave}).
+и по лемме \ref{lm:weight_piecewise_linear_concave} удовлетворяет неравенству (\ref{eq:almostConcave}).
 Кроме того, $a_k \to a$ при $k \to \infty$, причем сходимость равномерная на компактах.
 Однако неравенство $a_k(x, u(x)) \le a(x, u(x))$ не обязано выполняться,
 и потому веса $a_k$ могут не быть допустимыми для $u$.
 
-Возьмем $\mathfrak c_k := (1 - D_k(a_k, U(a_k))) a_k$, где $D_k$ определены в (\ref{bigD}).
+Возьмем $\mathfrak c_k := (1 - D_k(a_k, U(a_k))) a_k$, где $D_k$ определены в (\ref{eq:wgen_bigD}).
 Числа $D_k(a_k, U(a_k))$ положительны и стремятся к нулю, поэтому $\mathfrak c_k \to a$ при $k \to \infty$.
 Покажем, что $\mathfrak c_k(x, u(x)) \le a(x, u(x))$.
 Возьмем некоторое число
@@ -235,7 +234,7 @@ $x \in [-1 + \frac{2i}{k}, -1 + \frac{2(i + 1)}{k}] =: [x_i, x_{i + 1}]$.
 То есть функции $\mathfrak c_k$ удовлетворяют $(H1)-(H4)$.
 
 При заданном $k \in \Nat$, будем приближать функцию $\mathfrak c_k =: \mathfrak c$ весами, удовлетворяющими $(H1)-(H5)$.
-Рассмотрим вспомогательную функцию $\Lambda(x) = 1 - \abs{x}$, удовлетворяющую условию (\ref{almostConcave}).
+Рассмотрим вспомогательную функцию $\Lambda(x) = 1 - \abs{x}$, удовлетворяющую условию (\ref{eq:almostConcave}).
 
 Возьмем
 $$
@@ -260,7 +259,7 @@ $$
 В силу произвольности $v_1$, $v_2$ и $\eps$, получаем, что $\tilde{t}$ непрерывна.
 
 При $\alpha \in [0, 1]$ функция $\mathfrak d_\alpha(x, v) := \mathfrak c(x, v) + \alpha \Lambda(x) \tilde{t}(v)$
-чётна по $x$, удовлетворяет неравенству (\ref{almostConcave}) согласно лемме \ref{maxSumConcave},
+чётна по $x$, удовлетворяет неравенству (\ref{eq:almostConcave}) согласно лемме \ref{lm:weight_max_sum_concave},
 и не превосходит $a(x, v)$ по построению функции $\tilde{t}$.
 Таким образом, $\mathfrak d_\alpha$ --- допустимый вес.
 И теперь очевидно, что $\mathfrak d_\alpha$ удовлетворяет условиям $(H1)-(H4)$.
@@ -291,21 +290,21 @@ $$
 
 Далее, при $x \in [-1, 1]$ имеем
 \begin{equation}
-\label{step4Conv}
+\label{eq:wgen_step4_convergence}
 F \bigl( u(x), \mathfrak c_k(x, u(x)) |u'(x)| \bigr) \to F \bigl( u(x), a(x, u(x)) |u'(x)| \bigr)
 \end{equation}
 при $k \to \infty$.
-Кроме того, $F \bigl( u(x), a(x, u(x)) |u'(x)| \bigr)$ является суммируемой мажорантой для левой части соотношения (\ref{step4Conv}).
+Кроме того, $F \bigl( u(x), a(x, u(x)) |u'(x)| \bigr)$ является суммируемой мажорантой для левой части соотношения (\ref{eq:wgen_step4_convergence}).
 По теореме Лебега о мажорируемой сходимости, получаем $\IWg(\mathfrak c_k, u) \to \IWg(a, u)$.
-Поскольку $\IWg(\mathfrak c_k, \mon{u}) \le \IWg(\mathfrak c_k, u)$, теорема \ref{uplift} даёт неравенство (\ref{toprove_weighted}).
+Поскольку $\IWg(\mathfrak c_k, \mon{u}) \le \IWg(\mathfrak c_k, u)$, теорема \ref{thm:uplift} даёт неравенство (\ref{eq:to_prove_weighted}).
 
 \bigskip
 \textbf{Шаг 5.}
 \textit{Пусть вес $a$ удовлетворяет лишь условию $(H1)$.
-Тогда выполняется неравенство (\ref{toprove_weighted}).}
+Тогда выполняется неравенство (\ref{eq:to_prove_weighted}).}
 
 Будем строить приближение для $a$ весами, удовлетворяющими $(H1)-(H2)$.
-Воспользуемся леммой \ref{zeroApprox} с множеством $W = \set{ v \in \Real_+: a(\cdot, v) \equiv 0 }$.
+Воспользуемся леммой \ref{lm:approx_with_zero_stripe} с множеством $W = \set{ v \in \Real_+: a(\cdot, v) \equiv 0 }$.
 Введём обозначение
 $$
 Z_a(v) := \{ x \in [-1, 1]: a(x, v) = 0 \}.
@@ -316,7 +315,7 @@ $$
 Действительно, в противном случае найдётся последовательность $v_m$, для которой
 $m < \card(Z_{\mathfrak b_{\ell}})(v_m) < \infty$.
 После перехода к подпоследовательности имеем $v_m \to v_0$.
-Из части 2 леммы \ref{periodicity} следует,
+Из части 2 леммы \ref{lm:weight_periodicity} следует,
 что множества $Z_{\mathfrak b_{\ell}}(v_m) = Z_{a}(v_m)$ периодические с периодом не более $\frac{2}{m - 1}$.
 Возьмем некоторый $x \in [-1, 1]$.
 Для каждого $m$ найдётся $x_m$ такой, что
@@ -335,7 +334,7 @@ $\abs{x - x_m} \le \frac{1}{m - 1}$ и $a(x_m, v_m) = 0$.
 состоящее из конечного числа элементов, такое, что
 если $x \not\in T$ и $\mathfrak b(x, v) = 0$ для некоторого $v$, то $\mathfrak b(\cdot, v) \equiv 0$.
 
-Вновь воспользуемся леммой \ref{zeroApprox} с множеством $W = u(T) \cup \mon{u}(T)$.
+Вновь воспользуемся леммой \ref{lm:approx_with_zero_stripe} с множеством $W = u(T) \cup \mon{u}(T)$.
 Полученные при помощи леммы веса $\mathfrak c_j$ удовлетворяют $(H1)-(H2)$,
 поскольку отличаются от $\mathfrak b$ лишь домножением на непрерывный множитель,
 меньший единицы и зависящий только от $v$.
@@ -366,7 +365,7 @@ $$
 Таким образом, веса $\mathfrak c_{j(k)}$ удовлетворяют $(H1)-(H3)$.
 Из шага 4 имеем $\IWg(\mathfrak c_{j(k)}, \mon{u}) \le \IWg(\mathfrak c_{j(k)}, u)$.
 Переходя к пределу, получаем $\IWg(\mathfrak b_{\ell}, \mon{u}) \le \IWg(\mathfrak b_{\ell}, u)$,
-а затем и неравенство (\ref{toprove_weighted}).
+а затем и неравенство (\ref{eq:to_prove_weighted}).
 
-Тем самым, теорема \ref{unbounded_growth_thm} доказана.
+Тем самым, теорема \ref{thm:unbounded_growth} доказана.
 \hfill $\square$

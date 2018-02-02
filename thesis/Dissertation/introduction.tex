@@ -72,7 +72,7 @@ $$
 
 Возьмём выпуклую чётную функцию $F$ и рассмотрим функционал
 \begin{equation}
-\label{PS_functional}
+\label{eq:PS_functional}
 \IPS( u ) = \int_\Omega F( \norm{ \nabla u } ) dx.
 \end{equation}
 Для такого функционала хорошо известно классическое неравенство Пойа-Сегё: $\IPS( \symm{u} ) \le \IPS( u )$.
@@ -87,6 +87,7 @@ $$
 
 Рассмотрим функционал:
 \begin{equation}
+\label{eq:intro_weighted_functional}
 \IWg( u ) = \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
 \end{equation}
 где $F \in \mathfrak{F}$,
@@ -99,7 +100,7 @@ $a( \cdot, \cdot ): \Omega \times \Real_+ \to \Real_+$ и $a_i( \cdot, \cdot ): 
 Очевидно, что при $a_i = a \equiv 1$ выполнено $\IWg \equiv \IPS$.
 
 \mytodo{fix}
-В первой главе мы рассматриваем аналог неравенства Пойа-Сегё для монотонной перестановки с функционалом (\ref{weighted_functional}):
+В первой главе мы рассматриваем аналог неравенства Пойа-Сегё для монотонной перестановки с функционалом (\ref{eq:intro_weighted_functional}):
 \begin{equation}
 \IWg( \mon{u} ) \le \IWg( u )
 \end{equation}

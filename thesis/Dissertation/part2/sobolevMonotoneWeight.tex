@@ -1,14 +1,13 @@
-\section{Доказательство неравенства (\ref{toprove_weighted}) для монотонных весов}
+\section{Доказательство неравенства (\ref{eq:to_prove_weighted}) для монотонных весов}
 
-В этом параграфе мы получим неравенство (\ref{toprove_weighted}) при дополнительном условии
+В этом параграфе мы получим неравенство (\ref{eq:to_prove_weighted}) при дополнительном условии
 монотонности весовой функции при $x \in [-1, 0]$ и при $x \in [0, 1]$.
 
 \begin{lm}
-\label{monotone_weight_appr_lm}
+\label{lm:monotone_weight_appr}
 Пусть $a$ --- непрерывная функция, $a(\cdot, u)$ возрастает на $[-1, 0]$ и убывает на $[0, 1]$ для всех $u \ge 0$.
 Тогда для любой функции $u \in \W(-1, 1)$, $u \ge 0$, найдётся последовательность $\{u_k\} \subset Lip[-1, 1]$, удовлетворяющая
 \begin{equation}
-%\label{convergence}
 u_k \to u \text{ в } \W(-1, 1) \quad \text{ и } \quad \IWg(a, u_k) \to \IWg(a, u).
 \end{equation}
 \end{lm}
@@ -18,14 +17,14 @@ u_k \to u \text{ в } \W(-1, 1) \quad \text{ и } \quad \IWg(a, u_k) \to \IWg(a,
 
 Нам потребуется следующее вспомогательное утверждение.
 \begin{prop}
-\label{convToOne}
+\label{prop:conv_to_one}
 \textrm{\cite[лемма 2.7]{ASC}.}
 Пусть $\phi_h: [-1, 1] \to \Real$ --- последовательность липшицевых функций, удовлетворяющих условиям:
 $\phi_h' \ge 1$ для почти всех $x$ и всех $h$, $\phi_h( x ) \to x$ для почти каждого $x$.
 Тогда для любой $f \in \Ls(\Real)$ выполнено $f(\phi_h) \to f$ в $\Ls(\Real)$.
 \end{prop}
 
-\begin{proof}[Доказательство леммы \ref{monotone_weight_appr_lm}]
+\begin{proof}[Доказательство леммы \ref{lm:monotone_weight_appr}]
 Можно считать, что $\IWg( a, u ) < \infty$.
 
 Мы докажем утверждение для функционала
@@ -72,7 +71,7 @@ $$
 \int \abs{\phi_h' - 1} \, dx = \sum\limits_k \Bigl( \max \Bigl( \frac{ \abs{\beta_{h,k}} }{ \alpha_{h,k} }, 1 \Bigr) - 1 \Bigr) \alpha_{h,k} \le
 \sum\limits_k \abs{\beta_{h,k}} \to 0.
 $$
-Отсюда следует, что $\phi_h$ удовлетворяет условиям предложения \ref{convToOne}.
+Отсюда следует, что $\phi_h$ удовлетворяет условиям предложения \ref{prop:conv_to_one}.
 
 Рассмотрим теперь $\phi_h^{-1}: [0, 1] \to [0, 1]$ --- ограничение обратной к $\phi_h$ функции на $[0, 1]$.
 Тогда $0 \le ( \phi_h^{-1} )' \le 1$ и
@@ -105,7 +104,7 @@ P_h^1 = \int\limits_{[0, 1] \setminus \phi_h( A_h )} \abs{u'( \phi_h^{-1} ) - u'
 \int\limits_{\phi_h^{-1} ( [0, 1] ) \setminus A_h} \abs{u' - u'( \phi_h )} \, dz \le
 \int\limits_{[0, 1]} \abs{u' - u'( \phi_h )} \, dz.
 $$
-В силу предложения \ref{convToOne}, $P_h^1 \to 0$.
+В силу предложения \ref{prop:conv_to_one}, $P_h^1 \to 0$.
 Далее,
 $$
 P_h^2 \le \abs{\phi_h( A_h )} = \sum\limits_k \abs{\phi_h( \Omega_{h,k} )} = \sum\limits_k \max (\abs{\beta_{h,k}}, \alpha_{h,k})
@@ -150,7 +149,7 @@ $$
 \end{proof}
 
 \begin{rem}
-\label{monotone_weight_appr_rem}
+\label{rem:monotone_weight_appr}
 Очевидно, что те же рассуждения с закреплением функции $u$ на левом конце можно провести на любом интервале $[x_0, x_1]$,
 где вес $a$ убывает по $x$.
 То есть можно получить последовательность $\{u_h\}$, удовлетворяющую
@@ -162,10 +161,10 @@ u_h(x_0) = u(x_0); \qquad u_h \to u \text{ в } \W(x_0, x_1);\\
 \end{rem}
 
 \begin{cor}
-Пусть функция $a$ непрерывна, чётна, убывает на $[0, 1]$ и удовлетворяет неравенству $(\ref{almostConcave})$.
+Пусть функция $a$ непрерывна, чётна, убывает на $[0, 1]$ и удовлетворяет неравенству $(\ref{eq:almostConcave})$.
 Тогда для любой $u \in \W(-1, 1)$ выполнено $\IWg( a, u^* ) \le \IWg( a, u )$.
 \end{cor}
 
 \begin{proof}
-Неравенство немедленно следует из теоремы \ref{uplift} и леммы \ref{monotone_weight_appr_lm}.
+Неравенство немедленно следует из теоремы \ref{thm:uplift} и леммы \ref{lm:monotone_weight_appr}.
 \end{proof}

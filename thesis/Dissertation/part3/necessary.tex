@@ -26,7 +26,7 @@ $$
 \end{proof}
 
 \begin{thm}
-\label{necessary_variable_thm}
+\label{thm:necessary_variable}
 Если неравенство $\I(\symm{u}) \le \I(u)$ выполняется для всех кусочно линейных $u \ge 0$,
 то $p$ чётна и выпукла.
 Более того, выпукла следующая функция:
@@ -54,7 +54,6 @@ $$
 \begin{center}
 \begin{picture}(200,90)
 \refstepcounter{pictureCounter}
-\label{uGraph}
 
 \put(0,25){\vector(1,0){200}}
 \put(100,15){\vector(0,1){80}}
@@ -101,7 +100,6 @@ $$
 \begin{center}
 \begin{picture}(200,90)
 \refstepcounter{pictureCounter}
-\label{uGraph}
 
 \put(0,25){\vector(1,0){200}}
 \put(100,15){\vector(0,1){80}}
@@ -138,22 +136,22 @@ $$
 
 Разделим это неравенство на $2 \eps$ и устремим $\eps \to 0$, получив в пределе
 \begin{multline}
-\label{preConv}
+\label{eq:var_nec_pre_conv}
 s \Big( 1 + { \frac 1 {s^2} } \Big)^{\frac {p(x_1)} 2} + t \Big( 1 + { \frac 1 {t^2} } \Big)^{\frac {p(x_2)} 2}\\
 \ge { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_1 - x_2} 2 } )} 2}
   + { \frac {s + t} 2 } \Big( 1 + \frac{1}{ ( { \frac {s + t} 2 } )^2 } \Big)^{\frac {p( { \frac {x_2 - x_1} 2 } )} 2}.
 \end{multline}
 
-Для начала, положим $s = t$ в неравенстве (\ref{preConv}).
+Для начала, положим $s = t$ в неравенстве (\ref{eq:var_nec_pre_conv}).
 Получаем
 \begin{equation}
-\label{s_eq_t}
+\label{eq:var_nec_s_eq_t}
 ( 1 + { \frac 1 {s^2} } )^{\frac {p(x_1)} 2} + ( 1 + { \frac 1 {s^2} } )^{\frac {p(x_2)} 2}
 \ge ( 1 + { \frac 1 {s^2} } )^{\frac {p( { \frac {x_2 - x_1} 2 } )}  2}
 + ( 1 + { \frac 1 {s^2} } )^{\frac {p( { \frac {x_1 - x_2}2 } )} 2}.
 \end{equation}
 
-Обозначим $\sigma: = {\frac 1 {s^2}}$ и применим разложение по Тейлору к неравенству (\ref{s_eq_t}) в точке $\sigma = 0$:
+Обозначим $\sigma: = {\frac 1 {s^2}}$ и применим разложение по Тейлору к неравенству (\ref{eq:var_nec_s_eq_t}) в точке $\sigma = 0$:
 $$
 \sigma p(x_1) + \sigma p(x_2) \ge \sigma p( {\frac { x_2 - x_1}2 } ) + \sigma p( {\frac { x_1 - x_2} 2 } ) + r(\sigma),
 $$
@@ -162,9 +160,9 @@ $$
 $$
 p(x_1) + p(x_2) \ge p( { \frac {x_2 - x_1} 2 } ) + p( { \frac {x_1 - x_2} 2 } ).
 $$
-По лемме \ref{almostConvexLm} получаем, что $p$ чётна и выпукла.
+По лемме \ref{lm:convex_even_criterion} получаем, что $p$ чётна и выпукла.
 
-Теперь подставим $-x_2$ вместо $x_2$ в (\ref{preConv}).
+Теперь подставим $-x_2$ вместо $x_2$ в (\ref{eq:var_nec_pre_conv}).
 Поскольку $p$ чётна, получаем
 $K(s, x_1) + K(t, x_2) \ge 2 K( { \frac {s + t}2 }, {\frac { x_1 + x_2}2 } )$.
 \end{proof}

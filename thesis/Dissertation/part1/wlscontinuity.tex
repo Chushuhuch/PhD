@@ -1,4 +1,4 @@
-\section{О расширении класса функций, для которых выполняется неравенство (\ref{toprove_weighted})}
+\section{О расширении класса функций, для которых выполняется неравенство (\ref{eq:to_prove_weighted})}
 
 \mytodo{проверить ещё раз, что всё ок в многомерном случае}
 
@@ -10,9 +10,9 @@
 \mytodo{это ок фраза для диссертации вообще?}
 
 \begin{lm}
+\label{lm:lowersemi}
 Пусть функция $a$ непрерывна.
 Тогда функционал $\IWg(u)$ слабо полунепрерывен снизу в $\W(\Omega)$.
-\label{lowersemi}
 \end{lm}
 
 \begin{proof}
@@ -58,13 +58,13 @@ $$R_0 \ge \int\limits_{\Omega} \abs{ u_m'( x ) } \, dx \ge \int\limits_{ E_{m,\e
 $$\Bigabs{ F \bigl( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} \bigr) - F \bigl( u( x ), a( x, u( x ) ) \abs{u_m'( x )} \bigr) } < \eps,$$
 откуда
 \begin{equation}
-\label{wls_appr_diff}
+\label{eq:wls_appr_diff}
 \int\limits_{L_{m,\eps}} \Bigabs{ F \bigl( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} \bigr) - F \bigl( u( x ), a( x, u( x ) ) \abs{u_m'( x )} \bigr) } \, dx < 2 \eps.
 \end{equation}
 
 Возьмём $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ и $L_\eps = \bigcap L_{m_j,\eps_j}$.
 Тогда $\sum \eps_j = \eps$ и, тем самым, $\abs{ \Omega \setminus L_\eps } < 3 \eps$.
-Поскольку из (\ref{wls_appr_diff}) следует
+Поскольку из (\ref{eq:wls_appr_diff}) следует
 $$\int\limits_{L_\eps} \Bigabs{ F \bigl( u_{m_j}( x ), a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| \bigr) - F \bigl( u( x ), a( x, u( x ) ) |u_{m_j}'( x )| \bigr) } \, dx < 2 \eps_j,$$
 мы получаем
 \begin{multline*}
@@ -109,7 +109,7 @@ $$A \ge \lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{
 \end{proof}
 
 \begin{thm}
-\label{uplift}
+\label{thm:uplift}
 Пусть $B \subset A \subset W^1_1(\Omega)$.
 Предположим, что для каждого $u \in A$ найдётся последовательность $u_k \in B$ такая,
 что $u_k \to u$ в $W^1_1(\Omega)$ и $\IWg( u_k ) \to \IWg( u )$.
@@ -132,7 +132,7 @@ $$A \ge \lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{
 $$
 u_k \to u \text{ в } \W(\Omega) \quad \Longrightarrow \quad \symm{u_k} \rightharpoondown \symm{u} \text{ in } \W(\Omega).
 $$
-Из леммы \ref{lowersemi} получаем
+Из леммы \ref{lm:lowersemi} получаем
 $$
 \IWg(\mon{u}) \le \varliminf \IWg(\mon{u_k}) \le \lim \IWg(u_k) = \IWg(u).
 $$
@@ -148,7 +148,7 @@ $$
 \mytodo{Это утверждение совпадает с первой частью следующей теоремы, но более подробно объяснено.
 Вставить формулировку теоремы, на которую ссылаемся, и перенести в следующий пункт}
 \begin{cor}
-Пусть вес $a$ непрерывен, и неравенство $(\ref{toprove_weighted})$ верно для неотрицательных кусочно линейных функций $u$.
+Пусть вес $a$ непрерывен, и неравенство $(\ref{eq:to_prove_weighted})$ верно для неотрицательных кусочно линейных функций $u$.
 Тогда оно верно для всех неотрицательных липшицевых функций.
 \end{cor}
 \begin{proof}
@@ -160,5 +160,5 @@ u_k \rightrightarrows u, \qquad u_k' \to u' \text{ п.в.}, \qquad |u_k'| \le co
 $$
 Тогда по теореме Лебега $u_k \to u$ в $\W(\Omega)$ и $\IWg( u_k ) \to \IWg( u )$.
 В свою очередь, $u_k$ могут быть аналогичным образом приближены кусочно линейными функциями.
-Применив лемму \ref{weighted_linear_lm} и теорему \ref{uplift}, получаем требуемое.
+Применив лемму \ref{lm:weighted_linear} и теорему \ref{thm:uplift}, получаем требуемое.
 \end{proof}

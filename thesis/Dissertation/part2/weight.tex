@@ -1,19 +1,19 @@
 \section{Свойства весовой функции}
 
-Здесь мы получаем несколько следствий из условия (\ref{almostConcave}) на вес.
+Здесь мы получаем несколько следствий из условия (\ref{eq:almostConcave}) на вес.
 Для удобства в пределах этого параграфа мы опускаем второй параметр веса: $a(x, v) = a(x)$;
 очевидно, что все полученные свойства буду выполняться для любых $v$.
 
 \begin{lm}
-\label{periodicity}
+\label{lm:weight_periodicity}
 \textbf{\textup{i)}}
-Пусть функция $a$ удовлетворяет условию $(\ref{almostConcave})$.
+Пусть функция $a$ удовлетворяет условию $(\ref{eq:almostConcave})$.
 Если найдётся такое $x_0 \in [-1, 1]$, что $a(x_0) = 0$,
 то либо $a \equiv 0$ на $[x_0, 1]$,
 либо множество нулей функции $a$ периодично на $[x_0, 1]$, причем период нацело делит $1 - x_0$.
 
 \textbf{\textup{ii)}}
-Пусть функция $a$ удовлетворяет условию $(\ref{almostConcave})$ и чётна.
+Пусть функция $a$ удовлетворяет условию $(\ref{eq:almostConcave})$ и чётна.
 Если найдётся такое $x_0 \in [-1, 1]$, что $a(x_0) = 0$,
 то либо $a \equiv 0$,
 либо функция $a$ периодична на отрезке $[-1, 1]$, причем период нацело делит $1 - x_0$.
@@ -22,7 +22,7 @@
 \begin{proof}
 \textbf{\textup{i)}}
 Прежде всего, заметим, что если для некоторых $s \le t$ выполнено $a(s) = a(t) = 0$,
-то неравенство (\ref{almostConcave}) влечёт
+то неравенство (\ref{eq:almostConcave}) влечёт
 $$
 0 = a(s) + a(t) \ge a(1 - (t - s)) \ge 0,
 $$
@@ -54,8 +54,8 @@ $$
 \end{proof}
 
 \begin{lm}
-\label{maxSumConcave}
-Пусть функции $a_1$ и $a_2$ удовлетворяют неравенству $(\ref{almostConcave})$.
+\label{lm:weight_max_sum_concave}
+Пусть функции $a_1$ и $a_2$ удовлетворяют неравенству $(\ref{eq:almostConcave})$.
 Тогда функции $\max (a_1(x), a_2(x))$ и $a_1(x) + a_2(x)$ тоже ему удовлетворяет.
 \end{lm}
 \begin{proof}
@@ -72,10 +72,10 @@ a(s) + a(t).
 \end{proof}
 
 \begin{lm}
-\label{piecewiseLinearConcave}
-Пусть функция $a$ удовлетворяет неравенству $(\ref{almostConcave})$, $k \in \Nat$.
+\label{lm:weight_piecewise_linear_concave}
+Пусть функция $a$ удовлетворяет неравенству $(\ref{eq:almostConcave})$, $k \in \Nat$.
 Тогда кусочно линейная функция $a_k$, интерполирующая функцию $a$ по узлам
-$(-1 + \frac{2i}{k})$, $i = 0, 1, \dots, k$, тоже удовлетворяет неравенству $(\ref{almostConcave})$.
+$(-1 + \frac{2i}{k})$, $i = 0, 1, \dots, k$, тоже удовлетворяет неравенству $(\ref{eq:almostConcave})$.
 \end{lm}
 \begin{proof}
 \textbf{1.}

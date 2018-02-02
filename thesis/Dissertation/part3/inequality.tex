@@ -1,20 +1,20 @@
 \section{Доказательство неравенства $\I(\symm{u}) \le \I(u)$}
 
-В этом параграфе мы показываем, что необходимые условия, установленные в теореме \ref{necessary_variable_thm}, являются также и достаточными.
+В этом параграфе мы показываем, что необходимые условия, установленные в теореме \ref{thm:necessary_variable}, являются также и достаточными.
 
 \begin{lm}
-\label{quasiConv}
+\label{lm:var_weight_sum}
 Пусть $m$ --- чётное положительное число, $s_k > 0$ ($k = 1 \dots m$), $-1 \le x_1 \le \dots \le x_m \le 1$.
 Тогда, если $K(s, x)$ чётна по $x$ и выпукла по совокупности аргументов, то
 \begin{equation}
-\label{K_ineq}
+\label{eq:var_weight_sum}
 \sum\limits_{k = 1}^{m} K(s_k, x_k) \ge
 2 K \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m} s_k, {1 \over 2} \sum\limits_{k = 1}^{m} (-1)^k x_k \Bigr).
 \end{equation}
 \end{lm}
 
 \begin{proof}
-Заметим, что неравенство (\ref{K_ineq}) равносильно такому же неравенству для функции $M(s, x) = K(s, x) - s$.
+Заметим, что неравенство (\ref{eq:var_weight_sum}) равносильно такому же неравенству для функции $M(s, x) = K(s, x) - s$.
 Также заметим, что $M$ убывает по $s$, поскольку $M$ выпукла по $s$ и
 $$
 M_s(s, x) = (1 + {\frac 1 {s^2}})^{{\frac {p(x)} 2} - 1} (1 + {\frac 1 {s^2}} - {\frac {p(x)}{ s^2}}) - 1 \rightarrow 0 \qquad \text{ при} \quad s \to \infty.
@@ -34,7 +34,6 @@ $$
 \end{proof}
 
 \begin{lm}
-\label{linear}
 Пусть функция $K(s, x)$ чётна по $x$ и выпукла по совокупности аргументов.
 Тогда $\I(\symm{u}) \le \I(u)$ для любой кусочно линейной функции $u \in \Wf[-1, 1]$.
 \end{lm}
@@ -80,13 +79,13 @@ $$
 \sum\limits_{k = 1}^{m_j} K \Bigl( {1 \over b^j_k}, (y^j_k)^{-1}(y) \Bigr) \ge
 2 K \Bigl( {1 \over 2} \sum\limits_{k = 1}^{m_j} {1 \over b^j_k}, {1 \over 2} \sum\limits_{k = 1}^{m_j} (-1)^k (y^j_k)^{-1}(y) \Bigr).
 $$
-Но это неравенство обеспечивается леммой \ref{quasiConv}.
+Но это неравенство обеспечивается леммой \ref{lm:var_weight_sum}.
 \end{proof}
 
 Теперь можно доказать неравенство для функций $u$ общего вида.
 
 \begin{thm}
-\label{variable_exponent_thm}
+\label{thm:variable_exponent}
 Пусть $p$ чётна, а $K$ выпукла по совокупности переменных.
 Тогда для любой функции $u \in \Wf[-1, 1]$ выполнено $\I(\symm{u}) \le \I(u)$.
 \end{thm}
@@ -100,7 +99,7 @@ $$
 Легко видеть, что $u_n \rightrightarrows u$, а значит $\eps_n := -\inf u_n \to 0$.
 Определим $\delta_n$ через соотношение:
 \begin{equation}
-\label{left_delta}
+\label{eq:var_left_delta}
 \int\limits_{-1}^{-1 + \delta_n}(v_n)_- = \eps_n
 \end{equation}
 и возьмём
@@ -108,7 +107,7 @@ $$
 \tilde v_n = (v_n)_+ - (v_n)_- \cdot \chi_{[-1 + \delta_n, 1]}.
 $$
 Мы утверждаем, что $\|\tilde v_n - v_n\|_{L^{p(x)}(-1, 1)} \to 0$.
-Действительно, ввиду (\ref{left_delta}) мера множества
+Действительно, ввиду (\ref{eq:var_left_delta}) мера множества
 $$
 {\mathcal A}_n=\{ x \in [-1, -1 + \delta_n] \,:\, (v_n)_- \ge \sqrt{\eps_n} \}
 $$

@@ -1,11 +1,11 @@
-\section{Условия, необходимые для выполнения неравенства (\ref{toprove_symm})}
+\section{Условия, необходимые для выполнения неравенства (\ref{eq:toprove_symm})}
 
 Нам потребуется вспомогательная
 \begin{lm}
-\label{almostConvexLm}
+\label{lm:convex_even_criterion}
 Если для функции $a \in C([-1, 1] \times \Real_+)$ выполнено соотношение
 \begin{equation}
-\label{almostConvex}
+\label{eq:convex_even_criterion}
 \forall s, t \in [-1, 1],\ \forall v \in \Real_+ \quad
 a( s, v ) + a( t, v ) \ge a\Bigl( \frac{ s - t }{2}, v \Bigr) + a\Bigl( \frac{ t - s }{2}, v \Bigr),
 \end{equation}
@@ -15,7 +15,9 @@ a( s, v ) + a( t, v ) \ge a\Bigl( \frac{ s - t }{2}, v \Bigr) + a\Bigl( \frac{ t
 \begin{proof}
 Предположим для начала, что $a(\cdot, v) \in C^1([-1, 1])$ при каждом $v$.
 Зафиксируем произвольные $s \in [-1, 1]$ и $v \in \Real_+$ и рассмотрим функцию
-$$b(x) := a( s, v ) + a( x, v ) - a( \frac{ s - x }{2}, v ) - a( \frac{ x - s }{2}, v ) \ge 0.$$
+$$
+b(x) := a( s, v ) + a( x, v ) - a( \frac{ s - x }{2}, v ) - a( \frac{ x - s }{2}, v ) \ge 0.
+$$
 $x = -s$ является точкой минимума функции $b$, поскольку $b(-s) = 0$.
 Значит,
 $$
@@ -47,23 +49,23 @@ $$
 \end{proof}
 
 \begin{thm}
-Если неравенство $(\ref{toprove_symm})$ выполняется для произвольной $F \in \mathfrak{F}$ и произвольной кусочно линейной $u$,
+Если неравенство $(\ref{eq:toprove_symm})$ выполняется для произвольной $F \in \mathfrak{F}$ и произвольной кусочно линейной $u$,
 то вес $a$ --- чётная и выпуклая по первому аргументу функция.
 \end{thm}
 
 \begin{proof}
-Докажем, что в условиях теоремы выполнено неравенство (\ref{almostConvex}).
-Если это так, то ввиду леммы \ref{almostConvexLm} утверждение теоремы будет следовать.
+Докажем, что в условиях теоремы выполнено неравенство (\ref{eq:convex_even_criterion}).
+Если это так, то ввиду леммы \ref{lm:convex_even_criterion} утверждение теоремы будет следовать.
 
-Предположим, что неравенство (\ref{almostConvex}) не выполнено.
+Предположим, что неравенство (\ref{eq:convex_even_criterion}) не выполнено.
 Тогда найдутся $-1 \le s < t \le 1$, $\eps, \delta > 0$ ($2 \eps < t - s$) и $v_0 \in \Real_+$,
 такие, что для любого $0 \le z \le \eps$ и любого $v_0 \le v \le v_0 + \eps$ выполнено
 \begin{equation}
-\label{notConvex}
+\label{eq:anticonvex}
 a(s + z, v + z) + a(t - z, v + z) + 2 \delta < a\Bigl(\frac{s - t}{2} + z, v + z \Bigr) + a\Bigl(\frac{t - s}{2} - z, v + z \Bigr).
 \end{equation}
 
-Рассмотрим функцию $u_2$, введенную в (\ref{parLinU}). Тогда
+Рассмотрим функцию $u_2$, введенную в (\ref{eq:nec_u2}). Тогда
 $$
 \left\{
 \begin{aligned}
@@ -101,7 +103,7 @@ $$
 \Delta \IWg \le \frac{1}{\eps} \int_0^{\eps} \bigl( a(s + z, v_0 + z) + a(t - z, v_0 + z) + 2 \delta
 \\ - a(\frac{s - t}{2} + z, v_0 + z) - a(\frac{t - s}{2} - z, v_0 + z) \bigr) dz < 0
 \end{multline*}
-(последнее неравенство следует из (\ref{notConvex})).
+(последнее неравенство следует из (\ref{eq:anticonvex})).
 
 Тем самым, мы пришли к противоречию, что завершает доказательство.
 \end{proof}

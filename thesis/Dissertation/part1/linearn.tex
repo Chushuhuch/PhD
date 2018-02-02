@@ -1,8 +1,8 @@
-\section{Доказательство неравенства (\ref{toprove_weighted}) для кусочно ли\-ней\-ных функций}
+\section{Доказательство неравенства (\ref{eq:to_prove_weighted}) для кусочно ли\-ней\-ных функций}
 
 \begin{lm}
-\label{weightSum}
-Пусть $a$ удовлетворяет (\ref{almostConcave}).
+\label{lm:weight_sum}
+Пусть $a$ удовлетворяет (\ref{eq:almostConcave}).
 
 \textbf{\textup{i)}}
 Для любых $x' \in \omega$, $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$, $v \in \Real_+$ выполнены следующие неравенства
@@ -50,8 +50,8 @@ a( x', t_1, v ) + \sum_{k = 2}^n a( x', t_k, v )
 \end{proof}
 
 \begin{lm}
-\label{weighted_linear_lm}
-Пусть функция $a(x', \cdot, u)$ чётна и удовлетворяет условию $(\ref{almostConcave})$.
+\label{lm:weighted_linear}
+Пусть функция $a(x', \cdot, u)$ чётна и удовлетворяет условию $(\ref{eq:almostConcave})$.
 Тогда, если $u$ --- неотрицательная кусочно линейная функция, то $\IWg( u ) \ge \IWg( \mon{u} )$.
 \end{lm}
 
@@ -73,7 +73,7 @@ $y = y_k^j( x', u_0 )$, $k = 1, \dots, m_j$,
 Её можно выразить через $y_k^j$ (в частности, $\mon{y}$ кусочно линейна):
 
 \begin{equation}
-\label{rearranged_expression}
+\label{eq:wlin_rearranged_expression}
 \begin{tabular}{l|l|l}
 \multirow{2}{*}{$u( x'_0, -1 ) < u_0$ \rule[-34pt]{0pt}{65pt}} & $m_j$ чётно   & $\mon{y} = 1-\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\
                                                                & $m_j$ нечётно & $\mon{y} = -\sum\limits_{k=1}^{m_j} (-1)^k y_k^j$ \rule[-17pt]{0pt}{40pt} \\ \hline
@@ -90,7 +90,7 @@ D_n \mon{y}(x', u(x', y)) = \frac{1}{D_n \mon{u}(x',y)}=\sum_{k=1}^{m_j}{|D_n y_
 
 Тогда 
 \begin{multline}
-\label{intu}
+\label{eq:wlin_functional_of_u}
 \IWg( u )=\sum_{j=1}^N {
     \int\limits_{G_j}{
         F( x', u(x), \norm{
@@ -112,7 +112,7 @@ D_n \mon{y}(x', u(x', y)) = \frac{1}{D_n \mon{u}(x',y)}=\sum_{k=1}^{m_j}{|D_n y_
 },
 \end{multline}
 \begin{multline}
-\label{intus}
+\label{eq:wlin_functional_of_u_rearranged}
 \IWg( \mon{u} )=
 \sum_{j=1}^N{
     \int\limits_{G_j}{
@@ -137,7 +137,7 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $\mon{c}_i=D_i \mon{y}$, $y_k=y_k^j
 Тогда справедлива следующая цепочка неравенств:
 
 \begin{multline}
-\label{chain}
+\label{eq:wlin_ineq_chain}
 \sum_{k=1}^m{ b_k F \Bigl(\frac{ \norm{ a_ic_{ki}, a(y_k) } }{b_k} \Bigr) }
 \overset{a}{\ge} F \Bigl( \frac{ \sum_{k=1}^m \norm{ a_i c_{ki}, a(y_k)} }{ \sum_{k=1}^m b_k } \Bigr) \sum_{k=1}^m b_k \\
 \overset{b}{=}  F \Bigl( \frac{ \sum_{k=1}^m \norm{ ( -1 )^k a_i c_{ki}, a(y_k) } }{ \sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k
@@ -148,22 +148,22 @@ $b_k=\abs{ D_n y_k^j }$, $c_{ki}=D_i y_k^j$, $\mon{c}_i=D_i \mon{y}$, $y_k=y_k^j
 = F \Bigl( \frac{ \norm{ a_i \mon{c}_i, a(\mon{y}) } }{\sum_{k=1}^m b_k} \Bigr) \sum_{k=1}^m b_k.
 \end{multline}
 Здесь в переходе (a) применено неравенство Йенсена, в переходах (b) и (e) использована чётность нормы, в (c) использовано неравенство треугольника,
-в (d) --- лемма \ref{weightSum} и чётность веса $a$ по $y$.
+в (d) --- лемма \ref{lm:weight_sum} и чётность веса $a$ по $y$.
 
-Из (\ref{chain}) видно, что подынтегральное выражение в (\ref{intu}) не меньше
-подынтегрального выражения в (\ref{intus}).
+Из (\ref{eq:wlin_ineq_chain}) видно, что подынтегральное выражение в (\ref{eq:wlin_functional_of_u}) не меньше
+подынтегрального выражения в (\ref{eq:wlin_functional_of_u_rearranged}).
 Тем самым, доказательство завершено.
 \end{proof}
 
 \begin{lm}
-Пусть функция $a(x', \cdot, u)$ удовлетворяет условию $(\ref{almostConcave})$.
+Пусть функция $a(x', \cdot, u)$ удовлетворяет условию $(\ref{eq:almostConcave})$.
 Тогда, если $u$ --- неотрицательная кусочно линейная функция, удовлетворяющая $u(\cdot, -1) \equiv 0$,
 то $\IWg( u ) \ge \IWg( \mon{u} )$.
 \end{lm}
 
 \begin{proof}
-Заметим, что в доказательстве леммы \ref{weighted_linear_lm}
-мы используем чётность веса только в переходе (d) цепочки неравенств (\ref{chain}).
+Заметим, что в доказательстве леммы \ref{lm:weighted_linear}
+мы используем чётность веса только в переходе (d) цепочки неравенств (\ref{eq:wlin_ineq_chain}).
 Поскольку при $u(\cdot, -1) \equiv 0$ всегда выполнено $u(x'_0, -1) < u_0$,
-с учётом соотношений (\ref{rearranged_expression}) лемма \ref{weightSum} как раз обеспечивает требуемые для перехода (d) неравенства.
+с учётом соотношений (\ref{eq:wlin_rearranged_expression}) лемма \ref{lm:weight_sum} как раз обеспечивает требуемые для перехода (d) неравенства.
 \end{proof}
