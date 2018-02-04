@@ -1,8 +1,8 @@
 \section{Численные оценки функции $B(w, q)$}
 \label{sec:calculations}
 
-Для доказательства неравенства (\ref{eq:var_suf_A_bound}) мы делим положительный квадрант
-$(w,q) \in \Real_+ \times \Real_+$ на пять участков, см. рис.~\ref{fig:estimate_A_everywhere_partition}:
+Для доказательства неравенства (\ref{eq:var_suf_B_bound}) мы делим положительный квадрант
+$(w,q) \in \Real_+ \times \Real_+$ на пять участков, см. рис.~\ref{fig:estimate_B_everywhere_partition}:
 \begin{eqnarray*}
 &&R_1 = [0, 6] \times [0, 1],\quad R_2 =[0, 1] \times [1,\infty],
 \quad R_3 = [1, 4] \times [1, \infty],\\
@@ -31,8 +31,8 @@ R_5=[4,\infty]\times[1,\infty].
 
 \end{picture}
 
-\caption{К доказательству неравенства (\ref{eq:var_suf_A_bound})}
-\label{fig:estimate_A_everywhere_partition}
+\caption{К доказательству неравенства (\ref{eq:var_suf_B_bound})}
+\label{fig:estimate_B_everywhere_partition}
 \end{figure}
 
 Для $(w, q) \in R_1$ мы строим кусочно постоянную функцию $B_1(w, q)$, оценивающую $B(w, q)$ сверху.
@@ -122,10 +122,10 @@ $1 \le w \le 4$ & & $3 \cdot 10^{-3}$ & $B_\infty \le -0.13$ \\
 Тем самым, точка максимума единственна.
 С использованием стандартных численных методов было получено, что максимум достигается при $w \approx 1.816960565240$,
 $\max B(w,\infty) \approx 0.627178211634$.
-Неравенство (\ref{eq:var_suf_A_bound}) доказано.
+Неравенство (\ref{eq:var_suf_B_bound}) доказано.
 
-Для доказательства неравенства (\ref{eq:var_suf_A_half_bound}) мы делим
-$(w, q) \in \Real_+ \times [0, 1.36]$ на четыре участка, см. рис.~\ref{fig:estimate_A_half_partition}:
+Для доказательства неравенства (\ref{eq:var_suf_B_half_bound}) мы делим
+$(w, q) \in \Real_+ \times [0, 1.36]$ на четыре участка, см. рис.~\ref{fig:estimate_B_half_partition}:
 \begin{eqnarray*}
 &&R_6 = [0, 3] \times [0, 1.36],\quad R_7 = [3, 5] \times [0, 1.3], \\
 &&R_8 = [3, 5] \times [1.3, 1.36],\quad R_9 =[5, \infty] \times [0,1.36].
@@ -151,8 +151,8 @@ $(w, q) \in \Real_+ \times [0, 1.36]$ на четыре участка, см. р
 
 \end{picture}
 
-\caption{К доказательству неравенства (\ref{eq:var_suf_A_half_bound})}
-\label{fig:estimate_A_half_partition}
+\caption{К доказательству неравенства (\ref{eq:var_suf_B_half_bound})}
+\label{fig:estimate_B_half_partition}
 \end{figure}
 
 На этих участках мы используем кусочно постоянные функции $B_1$ и $B_4$, введённые ранее.

@@ -17,10 +17,10 @@
 
 \begin{proof}
 Пусть $u_m \rightharpoondown u$ в $\W(\Omega)$.
-Обозначим $A = \varliminf \IWg(u_m) \ge 0$.
-Наша задача --- доказать $\IWg(u) \le A$.
-Если $A = \infty$, то утверждение тривиально, поэтому можно считать $A < \infty$.
-Переходя к подпоследовательности, добиваемся $A = \lim \IWg(u_m)$.
+Обозначим $\IWg_{lim} = \varliminf \IWg(u_m) \ge 0$.
+Наша задача --- доказать $\IWg(u) \le \IWg_{lim}$.
+Если $\IWg_{lim} = \infty$, то утверждение тривиально, поэтому можно считать $\IWg_{lim} < \infty$.
+Переходя к подпоследовательности, добиваемся $\IWg_{lim} = \lim \IWg(u_m)$.
 Из слабой сходимости $u_m \rightharpoondown u$ заключаем, что найдётся $R_0$ такое, что $\norm{ u_m }_{\W(\Omega)} \le R_0$.
 Более того, переходя к подпроследовательности, можно считать,
 что $u_m \to u$ в $L_1(\Omega)$ и $u_m(x) \to u(x)$ почти всюду.
@@ -68,7 +68,7 @@ $$\Bigabs{ F \bigl( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} \bigr) - F \bigl(
 $$\int\limits_{L_\eps} \Bigabs{ F \bigl( u_{m_j}( x ), a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| \bigr) - F \bigl( u( x ), a( x, u( x ) ) |u_{m_j}'( x )| \bigr) } \, dx < 2 \eps_j,$$
 мы получаем
 \begin{multline*}
-A = \lim \IWg (u_{m_j}) = \lim \int\limits_{\Omega} F \bigl( u_{m_j}(x), a(x, u_{m_j}(x)) | u_{m_j }'(x) | \bigr) \, dx \\
+\IWg_{lim} = \lim \IWg (u_{m_j}) = \lim \int\limits_{\Omega} F \bigl( u_{m_j}(x), a(x, u_{m_j}(x)) | u_{m_j }'(x) | \bigr) \, dx \\
 \ge \varliminf \int\limits_{\Omega} \chi_{L_\eps}(x) F \bigl(u (x), a(x, u(x)) | u_{m_j}'(x) | \bigr) \, dx
 =: \varliminf \IWg_\eps(u_{m_j}').
 \end{multline*}
@@ -102,10 +102,10 @@ $( x, M ) \in \Omega \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
 \mytodo{оно не компактно}
 Поэтому применима теорема Лебега, и мы получаем $\lim \IWg_\eps(w_k) = \IWg_\eps(u')$.
 Таким образом,
-$$A \ge \lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{l}' ) \ge
+$$\IWg_{lim} \ge \lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{l}' ) \ge
 \varliminf \IWg_\eps( w_k ) = \IWg_\eps( u' ).$$
 
-Ввиду произвольности $\eps > 0$ имеем $A \ge \IWg(u)$.
+Ввиду произвольности $\eps > 0$ имеем $\IWg_{lim} \ge \IWg(u)$.
 \end{proof}
 
 \begin{thm}
