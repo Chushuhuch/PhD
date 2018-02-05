@@ -5,7 +5,7 @@
 Пусть $a$ удовлетворяет (\ref{eq:almostConcave}).
 
 \textbf{\textup{i)}}
-Для любых $x' \in \omega$, $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$, $v \in \Real_+$ выполнены следующие неравенства
+Для любых $x' \in \overline{\omega}$, $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$, $v \in \Real_+$ выполнены следующие неравенства
 \begin{align*}
 \sum_{k = 1}^n a(x', t_k, v) & \ge a( x', 1 - \sum_{k = 1}^n (-1)^k t_k, v ), & \text{ для чётных $n$}, & \\
 \sum_{k = 1}^n a(x', t_k, v) & \ge a( x', - \sum_{k = 1}^n (-1)^k t_k, v ),   & \text{ для нечётных $n$}. &
@@ -13,7 +13,7 @@
 
 \textbf{\textup{ii)}}
 Предположим дополнительно, что функция $a$ чётна.
-Тогда для всех $x' \in \omega$, $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$, $v \in \Real_+$ также выполнены следующие неравенства
+Тогда для всех $x' \in \overline{\omega}$, $-1 \le t_1 \le t_2 \le \ldots \le t_n \le 1$, $v \in \Real_+$ также выполнены следующие неравенства
 \begin{align*}
 \sum_{k = 1}^n a(t_k, v) & \ge a( x', -1 + \sum_{k = 1}^n (-1)^k t_k, v ), & \text{ для чётных $n$}, & \\
 \sum_{k = 1}^n a(t_k, v) & \ge a( x', \sum_{k = 1}^n (-1)^k t_k, v ),      & \text{ для нечётных $n$}. &
@@ -56,7 +56,7 @@ a( x', t_1, v ) + \sum_{k = 2}^n a( x', t_k, v )
 \end{lm}
 
 \begin{proof}
-Пусть функция $u$ имеет изломы на множестве $A$ ($\partial \Omega \subset A \subset \Omega$).
+Пусть функция $u$ имеет изломы на множестве $A$ ($\partial \Omega \subset A \subset \overline{\Omega}$).
 Возьмём
 $$
 U := \{ ( x', u( x', y ) ): x' \in \omega, y \in (-1, 1), (x', y) \not\in A \}.

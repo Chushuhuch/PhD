@@ -13,7 +13,7 @@ a( s, v ) + a( t, v ) \ge a\Bigl( \frac{ s - t }{2}, v \Bigr) + a\Bigl( \frac{ t
 \end{lm}
 
 \begin{proof}
-Предположим для начала, что $a(\cdot, v) \in C^1([-1, 1])$ при каждом $v$.
+Предположим для начала, что $a(\cdot, v) \in C^1 [-1, 1]$ при каждом $v$.
 Зафиксируем произвольные $s \in [-1, 1]$ и $v \in \Real_+$ и рассмотрим функцию
 $$
 b(x) := a( s, v ) + a( x, v ) - a( \frac{ s - x }{2}, v ) - a( \frac{ x - s }{2}, v ) \ge 0.
@@ -31,13 +31,13 @@ $$
 Продолжим $a( x, v ) := a( -1, v )$ при $x < -1$ и $a( x, v ) := a( 1, v )$ при $x > 1$.
 Рассмотрим усреднение функции:
 $$
-a_\rho( x, v ) = \int_\Real \omega_\rho ( z ) a( x - z, v ) dz = \int_\Real \omega_\rho ( z ) a( x + z, v ) dz,
+a_\rho( x, v ) = \int_\Real \upomega_\rho ( z ) a( x - z, v ) dz = \int_\Real \upomega_\rho ( z ) a( x + z, v ) dz,
 $$
-где $\omega_\rho(z)$ --- усредняющее ядро с радиусом $\rho$.
+где $\upomega_\rho(z)$ --- усредняющее ядро с радиусом $\rho$.
 Тогда для $-1 + \rho \le s, t \le 1 - \rho$
 \begin{multline*}
 a_\rho( s, v ) + a_\rho( t, v ) - a_\rho( \frac{ s - t }{2}, v ) - a_\rho( \frac{ t - s }{2}, v ) =
-\\ \int_\Real \omega_\rho ( z ) \bigl( a( s - z, v ) + a( t + z, v ) - a( \frac{ s - t }{2} - z, v ) - a( \frac{ t - s }{2} + z, v ) \bigr) dz \ge 0.
+\\ \int_\Real \upomega_\rho ( z ) \bigl( a( s - z, v ) + a( t + z, v ) - a( \frac{ s - t }{2} - z, v ) - a( \frac{ t - s }{2} + z, v ) \bigr) dz \ge 0.
 \end{multline*}
 Значит функция $a_\rho(\cdot, v)$ чётна на $[-1 + \rho, 1 - \rho]$.
 Переходя к пределу при $\rho \to 0$, получаем, что функция $a(\cdot, v)$ чётна.
