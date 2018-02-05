@@ -124,22 +124,21 @@ $$\IWg_{lim} \ge \lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_
 
 \begin{proof}
 \textbf{\textup{i)}}
-Возьмём некоторую $u \in A$ и для нее найдем приближающую последовательность $\set{u_k} \subset B$.
+Возьмём некоторую $u \in A$ и для неё найдём приближающую последовательность $\set{u_k} \subset B$.
 По условию $\IWg(\symm{u_k}) \le \IWg(u_k) \to \IWg(u)$.
-В \cite[теорема 1]{Brock} показано, что
+По предложению \ref{prop:rearr_weak_conv} найдётся подпоследовательность $u_{k_l}$, для которой
 $$
-u_k \to u \text{ в } \W(\overline{\Omega}) \quad \Longrightarrow \quad \symm{u_k} \rightharpoondown \symm{u} \text{ in } \W(\overline{\Omega}).
+\symm{u_{k_l}} \rightharpoondown \symm{u} \text{ in } \W(\overline{\Omega}).
 $$
 Из леммы \ref{lm:lowersemi} получаем
 $$
-\IWg(\mon{u}) \le \varliminf \IWg(\mon{u_k}) \le \lim \IWg(u_k) = \IWg(u).
+\IWg(\mon{u}) \le \varliminf \IWg(\mon{u_{k_l}}) \le \lim \IWg(u_{k_l}) = \IWg(u).
 $$
 
 \textbf{\textup{ii)}}
-Поскольку $\mon{u_k}( x ) = \symm{u_k}( \frac{x - 1}{2} )$ и $\mon{u}( x ) = \symm{u}( \frac{x - 1}{2} )$, имеем
-$$
-u_k \to u \text{ в } \W(\overline{\Omega}) \quad \Longrightarrow \quad \mon{u_k} \rightharpoondown \mon{u} \text{ in } \W(\overline{\Omega}).
-$$
+Поскольку $\mon{u_k}( x ) = \symm{u_k}( \frac{x - 1}{2} )$ и $\mon{u}( x ) = \symm{u}( \frac{x - 1}{2} )$,
+из сходимости $u_k \to u$ в $\W(\overline{\Omega})$ также следует сходимость $\mon{u_{k_l}} \rightharpoondown \mon{u}$ в $\W(\overline{\Omega})$
+для некоторой подпоследовательности $u_{k_l}$.
 Тем самым, рассуждения из доказательства предыдущего пункта могут быть дословно повторены.
 \end{proof}
 
