@@ -1,7 +1,71 @@
-\section{Свойства функций и функциональных пространств}
+\section{Свойства меры и функций}
+
+\begin{prop}[{\cite[теорема 3.5]{BGH}}, теорема Тонелли о полунепрерывности]
+\label{prop:wlsc}
+Пусть $I$ --- ограниченный интервал на $\Real$ и $F(x, u, p)$ --- лагранжиан, удовлетворяющий следующим условиям:
+
+\textbf{\textup{i)}}
+$F$ и $F_p$ непрерывны по $(x, u, p)$,
+
+\textbf{\textup{ii)}}
+$F$ неотрицательна,
+
+\textbf{\textup{iii)}}
+$F$ выпукла по $p$.
+
+Тогда функционал $\int_I F(x, u(x), u'(x))dx$ секвенциально слабо полунепрерывен снизу в $\W(I)$.
+\end{prop}
+
+\begin{prop}[{\cite[теорема 3.13]{Rudin}}]
+\label{prop:convex_combination_convergence}
+Пусть $X$ --- метрическое локально выпуклое пространство.
+Если $\{x_k\}$ --- последовательность в $X$, слабо сходящаяся к некоторому $x \in X$,
+то найдётся последовательность $\{y_k\}$, удовлетворяющая условиям:
+
+\textbf{\textup{i)}}
+каждый $y_k$ является выпуклой комбинацией конечного количества $x_k$,
+
+\textbf{\textup{ii)}}
+$y_k$ сходятся сильно к $x$ в пространстве $X$.
+\end{prop}
 
 \begin{prop}[{\cite[доказательство теоремы 1]{Brock}}]
 \label{prop:rearr_weak_conv}
-Пусть $u_k \to u$ в $\Wf(\Real^n)$.
-Тогда найдётся подпоследовательность $u_{k_l}$, для которой $\symm{u_{k_l}} \rightharpoondown \symm{u}$ в $\Wf(-1, 1)$.
+Пусть $u_k \to u$ в $\W(\Real^n)$.
+Тогда найдётся подпоследовательность $u_{k_l}$, для которой $\symm{u_{k_l}} \rightharpoondown \symm{u}$ в $\W(\Real^n)$.
+\end{prop}
+
+\begin{prop}[{\cite[\S6.6, теорема 1]{Gariepy}}]
+\label{prop:app_lip_with_smooth}
+Пусть $f: \Real^n \to \Real$ --- липшицева функция.
+Тогда для любого $\eps$ найдётся функция $\tilde f: \Real^n \to \Real$, удовлетворяюшая
+$$
+\meas\set{ x: \tilde f(x) \neq f(x) \text{ или } \nabla \tilde f(x) \neq \nabla f(x) } < \eps.
+$$
+Более того, для некоторой константы, зависящей только от $n$, выполнено
+$$
+\sup\limits_{\Real^n} \abs{ \nabla \tilde f(x) } \le C Lip(f),
+$$
+где $Lip(f)$ --- константа липшицевости функции $f$.
+\end{prop}
+
+\begin{prop}[{\cite[лемма 2.7]{ASC}}]
+\label{prop:conv_to_one}
+Пусть $\phi_h: [-1, 1] \to \Real$ --- последовательность липшицевых функций, удовлетворяющих условиям:
+$\phi_h' \ge 1$ для почти всех $x$ и всех $h$, $\phi_h( x ) \to x$ для почти каждого $x$.
+Тогда для любой $f \in \Ls(\Real)$ выполнено $f(\phi_h) \to f$ в $\Ls(\Real)$.
+\end{prop}
+
+\begin{prop}
+\label{prop:level_derivative}
+\textrm{\cite[теорема 6.19]{LiebLoss} }
+Для любой $u \in \W(-1, 1)$ и произвольного множества $A \subset \Real$ нулевой меры выполнено
+$u'(x) = 0$ для почти всех $x \in u^{-1}(A)$.
+\end{prop}
+
+\begin{prop}[{\cite[\S2.1]{Sharapudinov}}]
+\label{prop:step_dense_orlicz}
+Пусть $p(x)$ --- измеримая функция на отрезке $[-1, 1]$, удовлетворяющая
+$1 \le p(x) \le \sup p(x) < \infty$.
+Тогда ступенчатые функции плотны в пространстве Орлича $L^{p(x)}$.
 \end{prop}
