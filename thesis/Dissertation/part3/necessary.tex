@@ -51,33 +51,32 @@ u_\eps(x) &= \eps + \frac{x_2 - x}{t}, & x \in &[x_2 - t \eps, x_2 + t \eps].
 $$
 
 \medskip
-\begin{center}
-\begin{picture}(200,90)
-\refstepcounter{pictureCounter}
+\begin{figure}[ht]
+    \begin{center}
+        \begin{picture}(200,90)
+            \put(0,25){\vector(1,0){200}}
+            \put(100,15){\vector(0,1){80}}
+            \put(10,24){\line(0,1){2}}
+            \put(0,14){$-1$}
+            \put(190,24){\line(0,1){2}}
+            \put(188,14){$1$}
 
-\put(0,25){\vector(1,0){200}}
-\put(100,15){\vector(0,1){80}}
-\put(10,24){\line(0,1){2}}
-\put(0,14){$-1$}
-\put(190,24){\line(0,1){2}}
-\put(188,14){$1$}
+            \put(38,25){\line(1,1){48}}
+            \put(67,24){\line(0,1){2}}
+            \put(60,14){$x_1$}
 
-\put(38,25){\line(1,1){48}}
-\put(67,24){\line(0,1){2}}
-\put(60,14){$x_1$}
+            \put(86,73){\line(1,0){48}}
 
-\put(86,73){\line(1,0){48}}
+            \put(134,73){\line(2,-3){32}}
+            \put(150,24){\line(0,1){2}}
+            \put(143,14){$x_2$}
 
-\put(134,73){\line(2,-3){32}}
-\put(150,24){\line(0,1){2}}
-\put(143,14){$x_2$}
-
-\put(110,77){$2 \eps$}
-\put(45,70){$u(x)$}
-
-\put(85,1){Рис. \arabic{pictureCounter}}
-\end{picture}
-\end{center}
+            \put(110,77){$2 \eps$}
+            \put(45,70){$u(x)$}
+        \end{picture}
+        \caption{График $u_\eps$}
+    \end{center}
+\end{figure}
 
 Тогда
 $$
@@ -97,31 +96,30 @@ $$
 $$
 
 \medskip
-\begin{center}
-\begin{picture}(200,90)
-\refstepcounter{pictureCounter}
+\begin{figure}[ht]
+    \begin{center}
+        \begin{picture}(200,90)
+            \put(0,25){\vector(1,0){200}}
+            \put(100,15){\vector(0,1){80}}
+            \put(10,24){\line(0,1){2}}
+            \put(0,14){$-1$}
+            \put(190,24){\line(0,1){2}}
+            \put(188,14){$1$}
 
-\put(0,25){\vector(1,0){200}}
-\put(100,15){\vector(0,1){80}}
-\put(10,24){\line(0,1){2}}
-\put(0,14){$-1$}
-\put(190,24){\line(0,1){2}}
-\put(188,14){$1$}
+            \put(36,25){\line(5,6){40}}
+            %\put(56,24){\line(0,1){2}}
 
-\put(36,25){\line(5,6){40}}
-%\put(56,24){\line(0,1){2}}
+            \put(76,73){\line(1,0){48}}
 
-\put(76,73){\line(1,0){48}}
+            \put(124,73){\line(5,-6){40}}
+            %\put(144,24){\line(0,1){2}}
 
-\put(124,73){\line(5,-6){40}}
-%\put(144,24){\line(0,1){2}}
-
-\put(110,77){$2 \eps$}
-\put(35,70){$\symm{u}(x)$}
-
-\put(85,1){Рис. \arabic{pictureCounter}}
-\end{picture}
-\end{center}
+            \put(110,77){$2 \eps$}
+            \put(35,70){$\symm{u}(x)$}
+        \end{picture}
+        \caption{График $\symm{u_\eps}$}
+    \end{center}
+\end{figure}
 
 Множества, на которых $u_\eps' = 0$ и $\symm{u_\eps}' = 0$ имеют одинаковую меру.
 Поэтому неравенство $\I(\symm{u_\eps}) \le \I(u_\eps)$ эквивалентно следующему:
