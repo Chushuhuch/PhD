@@ -6,9 +6,9 @@
 \begin{lm}
 \label{lm:monotone_weight_appr}
 Пусть $a$ --- непрерывная функция, $a(\cdot, u)$ возрастает на $[-1, 0]$ и убывает на $[0, 1]$ для всех $u \ge 0$.
-Тогда для любой функции $u \in \W(-1, 1)$, $u \ge 0$, найдётся последовательность $\{u_k\} \subset Lip[-1, 1]$, удовлетворяющая
+Тогда для любой функции $u \in \W[-1, 1]$, $u \ge 0$, найдётся последовательность $\{u_k\} \subset Lip[-1, 1]$, удовлетворяющая
 \begin{equation}
-u_k \to u \text{ в } \W(-1, 1) \quad \text{ и } \quad \IWg(a, u_k) \to \IWg(a, u).
+u_k \to u \text{ в } \W[-1, 1] \quad \text{ и } \quad \IWg(a, u_k) \to \IWg(a, u).
 \end{equation}
 \end{lm}
 
@@ -30,7 +30,7 @@ $$
 
 Обозначим $v_h$ неотрицательную непрерывную функцию, заданную на $[0, 1]$,
 совпадающую с $u$ на множестве $[0, 1] \setminus A_h$, и линейную на интервалах, составляющих $A_h$.
-Тогда $v_h \to u$ в $\W(-1, 1)$.
+Тогда $v_h \to u$ в $\W[-1, 1]$.
 Теперь изменим $v_h$ так, чтобы сделать их липшицевыми.
 
 Представим $A_h = \cup_k \Omega_{h,k}$, где $\Omega_{h,k} = ( b_{h,k}^-, b_{h,k}^+ )$.
@@ -42,12 +42,12 @@ $$
 Тогда $v'_h = \frac{\beta_{h,k}}{\alpha_{h,k}}$ в $\Omega_{h,k}$.
 Заметим, что
 $$
-\sum_k \abs{\beta_{h,k}} \le \int\limits_{A_h} \abs{u'} \, dx \le \norm{u'}_{\Ls(-1, 1)} < \infty,
+\sum_k \abs{\beta_{h,k}} \le \int\limits_{A_h} \abs{u'} \, dx \le \norm{u'}_{\Ls[-1, 1]} < \infty,
 $$
 а значит,
 $\sum_k \abs{\beta_{h,k}} \to 0$ при $h \to 0$ по теореме Лебега.
 
-Определим функцию $\phi_h \in \W(0, 1)$ следующим образом:
+Определим функцию $\phi_h \in \W[0, 1]$ следующим образом:
 $$
 \begin{aligned}
 \phi_h( 0 ) &= 0 & & \\
@@ -84,7 +84,7 @@ u_h' &=  v_h'( \phi_h^{-1} ) \cdot ( \phi_h^{-1} )' =
 \end{align*}
 Тем самым, $u_h$ липшицева, поскольку $u'$ ограничена в $[0, 1] \setminus A_h$.
 
-Покажем, что $u_h \to u$ в $\W(0, 1)$.
+Покажем, что $u_h \to u$ в $\W[0, 1]$.
 Для этого достаточно оценить
 
 $$
@@ -104,13 +104,13 @@ P_h^2 \le \abs{\phi_h( A_h )} = \sum\limits_k \abs{\phi_h( \Omega_{h,k} )} = \su
 $$
 Наконец, $P_h^3 \to 0$ по абсолютной непрерывности интеграла, и утверждение доказано.
 
-Осталось показать, что $\IWg_2( u_h ) \to \IWg_2( u )$.
+Осталось показать, что $\IWg_1( u_h ) \to \IWg_1( u )$.
 
 \begin{multline*}
 \IWg_1( u_h ) = \int\limits_{[0, 1] \setminus \phi_h( A_h )} F \bigl( u_h( x ), a( x, u_h(x) ) |u_h'( x )| \bigr) \, dx
 \\ + \int\limits_{[0, 1] \cap \phi_h( A_h )} F \bigl( u_h( x ), a( x, u_h(x) ) |u_h'( x )| \bigr) \, dx =: \hat{P_h^1} + \hat{P_h^2}.
 \end{multline*}
-Поскольку $u \in \W(0, 1)$, имеем $u \in L_\infty( [0, 1] )$.
+Поскольку $u \in \W[0, 1]$, имеем $u \in L_\infty( [0, 1] )$.
 Обозначим $\norm{u}_\infty = r$,
 тогда $\norm{u_h}_\infty < 2r$ при достаточно больших $h$.
 Кроме того, $\abs{u_h'} \le 1$ почти всюду в $\phi_h( A_h )$.
@@ -146,7 +146,7 @@ $$
 где вес $a$ убывает по $x$.
 То есть можно получить последовательность $\{u_h\}$, удовлетворяющую
 \begin{gather*}
-u_h(x_0) = u(x_0); \qquad u_h \to u \text{ в } \W(x_0, x_1);\\
+u_h(x_0) = u(x_0); \qquad u_h \to u \text{ в } \W[x_0, x_1];\\
 \int\limits_{x_0}^{x_1} F \bigl( u_h(x), a(x, u_h(x)) \abs{u_h'(x)} \bigr) \to \int\limits_{x_0}^{x_1} F \bigl( u(x), a(x, u(x)) \abs{u'(x)} \bigr).
 \end{gather*}
 Аналогично, если $a$ возрастает по $x$, можно аппроксимировать $u$ с закреплением на правом конце.
@@ -154,7 +154,7 @@ u_h(x_0) = u(x_0); \qquad u_h \to u \text{ в } \W(x_0, x_1);\\
 
 \begin{cor}
 Пусть функция $a$ непрерывна, чётна, убывает на $[0, 1]$ и удовлетворяет неравенству $(\ref{eq:almostConcave})$.
-Тогда для любой $u \in \W(-1, 1)$ выполнено $\IWg( a, u^* ) \le \IWg( a, u )$.
+Тогда для любой $u \in \W[-1, 1]$ выполнено $\IWg( a, u^* ) \le \IWg( a, u )$.
 \end{cor}
 
 \begin{proof}

@@ -18,7 +18,10 @@ a(x', s, v) + a(x', t, v) \ge a(x', 1 - t + s, v), \qquad x' \in \overline{\omeg
 \begin{proof}
 Ясно, что достаточно доказать утверждения теоремы для каждого $x'$ в отдельности.
 Поэтому далее в этом доказательстве мы по сути рассматриваем одномерный случай
-$u = u(y)$, $a = a(y, u)$, $\IWg(u) = \int\limits_{-1}^1 F( u(y), \abs{ a(y, u(y)) u'(y) } ) \, dy$.
+$u = u(y)$, $a = a(y, u)$,
+$$
+\IWg(u) = \int\limits_{-1}^1 F( u(y), \abs{ a(y, u(y)) u'(y) } ) \, dy.
+$$
 
 \textbf{\textup{i)}}
 Предположим, что $a(y, v) \not\equiv a(-y, v)$.
@@ -150,7 +153,7 @@ $$
 \end{equation}
 В нашем случае $p, q$ могут принимать значения на компакте $[0, M]$, где
 \begin{equation*}
-M = \max \limits_{(y, v)} a(y, v), \qquad (y, v) \in [-1, 1 ] \times u_2([-1, 1] ).
+M = \max \limits_{(y, v)} a(y, v), \qquad (y, v) \in [-1, 1] \times u_2( [-1, 1] ).
 \end{equation*}
 Значит найдётся и $\alpha > 1$ такое, что неравенство (\ref{eq:nec_anticonvex}) будет выполняться.
 Например, подходит любое $1 < \alpha < ( \log_2 \frac{2 M}{M + \delta} )^{-1}$.
