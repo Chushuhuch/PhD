@@ -1,15 +1,16 @@
 \section{Многомерный аналог неравенства $\I(\symm{u}) \le \I(u)$}
+\label{sec:multi_variable}
 
 В этом параграфе функция $u \in \Wf(\overline{\Omega})$, где $\Omega = \omega \times (-1, 1)$.
 Как и в первой главе, мы используем обозначения $x = (x', y)$, где $x' \in \overline{\omega}$, $y \in [-1, 1]$.
 
 Введём многомерный аналог функционала $\I$:
 $$
-\Imul(u)=\int\limits_{\Omega} ( 1 + | \nabla u(x) |^2 )^{ \frac{p(x)}{2} } dx.
+\Imul(u) = \int\limits_{\Omega} ( 1 + | \nabla u(x) |^2 )^{ \frac{p(x)}{2} } dx.
 $$
 
 \begin{thm}
-Если $\Imul(u^*) \le \Imul(u)$ для любой неотрицательной функции $u \in \Wf(\overline{\Omega})$,
+Если $\Imul(\symm{u}) \le \Imul(u)$ для любой неотрицательной функции $u \in \Wf(\overline{\Omega})$,
 то $p(x',y)$ не зависит от $y$.
 \end{thm}
 
@@ -58,7 +59,7 @@ $$
 
 Аналогично $\nabla u = (\B_2', -\frac{1}{c_2})$ на множестве $A_2$, $\meas A_2 = C_1 \delta c_2 w^n$.
 
-После симметризации на <<основаниях>> $\nabla u^* = (\frac{c_1 \B_1' + c_2 \B_2'}{c_1 + c_2}, \pm \frac{2}{c_1 + c_2})$.
+После симметризации на <<основаниях>> $\nabla \symm{u} = (\frac{c_1 \B_1' + c_2 \B_2'}{c_1 + c_2}, \pm \frac{2}{c_1 + c_2})$.
 Тем самым, множества $A_1$ и $A_2$ переходят в $A_1'$ и $A_2'$, и выполнено
 $$
 \meas A_1' = \meas A_2' = C_1 \delta \frac{c_1 + c_2}{2} w^n.
@@ -71,13 +72,13 @@ $$
 $$
 Также обозначим
 $$
-Z = \meas \{ x \in \Omega \,|\, \nabla u(x) = 0 \} = \meas \{ x \in \Omega \,|\, \nabla u^*(x) = 0 \}.
+Z = \meas \{ x \in \Omega \,|\, \nabla u(x) = 0 \} = \meas \{ x \in \Omega \,|\, \nabla \symm{u}(x) = 0 \}.
 $$
 
 При $\frac{1}{c_1} = \frac{1}{c_2} = w^2$, $\delta = w^4$ и $\B_1' = \B_2' = 0$
 из предположений теоремы следует
 \begin{eqnarray*}
-0 &\le& (\Imul(u) - Z ) - (\Imul(u^*) - Z )
+0 &\le& (\Imul(u) - Z ) - (\Imul(\symm{u}) - Z )
  \le \big( (1 + w^4)^{\frac{p(\bar{x}_1)}{2}} - 1 \big) \cdot \meas A_1 \\
 &+& \big( (1 + w^4)^{\frac{p(\bar{x}_2)}{2}} - 1 \big) \cdot \meas A_2
 + \big( (1 + w^8)^{\frac{P}{2}} - 1 \big) \cdot \meas A_\delta
@@ -101,7 +102,7 @@ $$
 и возьмём $\delta = w^2$.
 Тогда получаем
 \begin{eqnarray*}
-0 &\le& (\Imul(u) - Z) - (\Imul(u^*) - Z)
+0 &\le& (\Imul(u) - Z) - (\Imul(\symm{u}) - Z)
 \le \big( \textstyle{ \frac{1}{c_1} \K_{\bar{x}_1'}(c_1, d_1, \bar{y}_1)-1 } \big) \cdot  \meas A_1
 \\ &+& \big( \textstyle{ \frac{1}{c_2} \K_{\bar{x}_2'}(c_2, d_2, \bar{y}_2)-1 } \big) \cdot \meas A_2
   + \big( (1 + w^4)^{\frac{P}{2}} - 1 \big) \cdot \meas A_\delta
