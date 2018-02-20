@@ -4,7 +4,7 @@
 Нам потребуется вспомогательная
 \begin{lm}
 \label{lm:convex_even_criterion}
-Если для функции $a \in C([-1, 1] \times \Real_+)$ выполнено соотношение
+Если для функции $a \in \Cont([-1, 1] \times \Real_+)$ выполнено соотношение
 \begin{equation}
 \label{eq:convex_even_criterion}
 a( s, v ) + a( t, v ) \ge a\Bigl( \frac{ s - t }{2}, v \Bigr) + a\Bigl( \frac{ t - s }{2}, v \Bigr),
@@ -14,7 +14,7 @@ a( s, v ) + a( t, v ) \ge a\Bigl( \frac{ s - t }{2}, v \Bigr) + a\Bigl( \frac{ t
 \end{lm}
 
 \begin{proof}
-Предположим для начала, что $a(\cdot, v) \in C^1 [-1, 1]$ при каждом $v$.
+Предположим для начала, что $a(\cdot, v) \in \Cont^1 [-1, 1]$ при каждом $v$.
 Зафиксируем произвольные $s \in [-1, 1]$ и $v \in \Real_+$ и рассмотрим функцию
 $$
 b(x) := a( s, v ) + a( x, v ) - a( \frac{ s - x }{2}, v ) - a( \frac{ x - s }{2}, v ) \ge 0.
