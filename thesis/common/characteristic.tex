@@ -1,7 +1,5 @@
 {\actuality}
 
-\mytodo{проверить, что ссылки нужно по порядку}
-
 \mytodo{все ссылки с переводом, либо все без}
 
 \mytodo{все двоеточия в описаниях параграфов перед теоремами заменить на точки}
@@ -63,7 +61,7 @@ $$
 
 Существенно сложнее оказалось добавить зависимость от переменной, по которой происходит перестановка.
 Значительную роль в решении этого вопроса сыграла работа \cite{Brock}.
-В ней для липшицевых функций при некоторых условиях на весовую функцию был получен аналог неравенства (\ref{eq:intro_PS}):
+В ней для липшицевых функций при некоторых условиях на весовую функцию был получен аналог неравенства (\ref{eq:intro_PS}).
 \begin{equation}
 \label{eq:intro_brock}
 \int\limits_\Omega F( x', \symm{u}(x), \norm{ \mathcal{D} \symm{u} } ) dx \le \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
@@ -129,13 +127,13 @@ $$
 где $\charf{A}$ --- характеристическая функция множества $A$.
 
 Определим симметричную перестановку измеримого множества $E \subset [-1, 1]$ и
-симметричную перестановку (симметризацию по Штейнеру) неотрицательной функции $u \in \W(\overline{\Omega})$:
+симметричную перестановку (симметризацию по Штейнеру) неотрицательной функции $u \in \W(\overline{\Omega})$.
 \begin{eqnarray*}
 \symm{E} := [-\frac{\abs{E}}{2}, \frac{\abs{E}}{2}]; \qquad
 \symm{u}(x', y) = \int\limits_0^\infty \charf{ \symm{( \mathcal{A}_t(x') )} }(y) dt.
 \end{eqnarray*}
 
-В тех же условиях определим монотонную перестановку множества $E$ и функции $u \in \W(\overline{\Omega})$:
+В тех же условиях определим монотонную перестановку множества $E$ и функции $u \in \W(\overline{\Omega})$.
 \begin{eqnarray*}
 \mon{E} := [1 - \meas E, 1]; \qquad
 \mon{u}(x', y) = \int\limits_0^\infty \charf{ \mon{ \mathcal{A}_t(x') } }(y) dt.
@@ -147,7 +145,7 @@ $$
 Определим множество $\mathfrak{F}$ непрерывных функций $F: \overline{\omega} \times \Real_+ \times \Real_+ \to \Real_+$,
 выпуклых и строго возрастающих по третьему аргументу, удовлетворяющих $F( \cdot, \cdot, 0 ) \equiv 0$.
 
-Рассмотрим функционал:
+Рассмотрим функционал
 $$
 \IWg( u ) = \int\limits_\Omega F( x', u(x), \norm{ \mathcal{D} u } ) dx,
 $$
@@ -167,7 +165,7 @@ $a( \cdot, \cdot ): \overline{\Omega} \times \Real_+ \to \Real_+$
 
 В \S\ref{sec:notations_weighted} вводятся необходимые обозначения.
 
-В \S\ref{sec:necessary_weighted} устанавливаются условия, необходимые для выполнения неравенства (\ref{eq:intro_to_prove_weighted}):
+В \S\ref{sec:necessary_weighted} устанавливаются условия, необходимые для выполнения неравенства (\ref{eq:intro_to_prove_weighted}).
 
 \begin{thm}
 %\label{thm:necessary_conditions_weighted}
@@ -192,7 +190,7 @@ a(x', s, v) + a(x', t, v) \ge a(x', 1 - t + s, v), \qquad x' \in \overline{\omeg
 то вес $a$ удовлетворяет неравенству $(\ref{eq:intro_almostConcave})$.
 \end{thm}
 
-В \S\ref{sec:linearn} доказывается неравенство (\ref{eq:intro_to_prove_weighted}) для кусочно линейных $u$:
+В \S\ref{sec:linearn} доказывается неравенство (\ref{eq:intro_to_prove_weighted}) для кусочно линейных $u$.
 
 \begin{lm}
 %\label{lm:weighted_linear}
@@ -207,7 +205,7 @@ a(x', s, v) + a(x', t, v) \ge a(x', 1 - t + s, v), \qquad x' \in \overline{\omeg
 \end{lm}
 
 В \S\ref{sec:wlsc} устанавливается слабая полунепрерывность функционала $\IWg$
-и доказывается теорема, которая в дальнейшем является основой для предельных переходов:
+и доказывается теорема, которая в дальнейшем является основой для предельных переходов.
 
 \begin{thm}
 %\label{thm:uplift}
@@ -225,7 +223,7 @@ a(x', s, v) + a(x', t, v) \ge a(x', 1 - t + s, v), \qquad x' \in \overline{\omeg
 то для любой функции $u \in A$ будет выполнено $\IWg( \mon{u} ) \le \IWg( u )$.
 \end{thm}
 
-В \S\ref{sec:sobolev_bounded} неравенство (\ref{eq:intro_to_prove_weighted}) доказывается для интегрантов с ограниченным ростом по производной:
+В \S\ref{sec:sobolev_bounded} неравенство (\ref{eq:intro_to_prove_weighted}) доказывается для интегрантов с ограниченным ростом по производной.
 
 \begin{thm}
 %\label{thm:bounded_growth}
@@ -286,7 +284,7 @@ u_k \to u \text{ в } \W[-1, 1] \quad \text{ и } \quad \IWg(u_k) \to \IWg(u).
 В частности установлена структура множества нулей весовых функций.
 
 В \S\ref{sec:general_sobolev} с веса снимается требование монотонности и, тем самым,
-неравенство (\ref{eq:intro_to_prove_weighted}) доказано в наиболее общем виде:
+неравенство (\ref{eq:intro_to_prove_weighted}) доказано в наиболее общем виде.
 
 \begin{thm}
 %\label{thm:unbounded_growth}
@@ -305,14 +303,14 @@ u_k \to u \text{ в } \W[-1, 1] \quad \text{ и } \quad \IWg(u_k) \to \IWg(u).
 \end{thm}
 
 В \S\ref{sec:necessary_symm} доказано, что условия, накладываемые на вес в работе \cite{Brock},
-являются необходимыми в случае симметричной перестановки:
+являются необходимыми в случае симметричной перестановки.
 
 \begin{thm}
 Если неравенство $(\ref{eq:intro_brock})$ выполняется для произвольной $F \in \mathfrak{F}$ и произвольной кусочно линейной $u$,
 то вес $a$ --- чётная и выпуклая по первому аргументу функция.
 \end{thm}
 
-И наконец, в \S\ref{sec:sobolev_symm} закрывается пробел в работе \cite{Brock} в одномерном случае:
+И наконец, в \S\ref{sec:sobolev_symm} закрывается пробел в работе \cite{Brock} в одномерном случае.
 \begin{thm}
 Пусть $F \in \mathfrak{F}$, функция $u \in \W[-1, 1]$ неотрицательна,
 и непрерывная весовая функция $a: [-1, 1] \times \Real_+ \to \Real_+$ чётна и выпукла по первому аргументу.
@@ -402,7 +400,7 @@ $$
 \end{eqnarray}
 
 Наконец, в \S\ref{sec:multi_variable} показано, что прямое распространение неравенства $\I(\symm{u}) \le \I(u)$
-на многомерный случай несодержательно:
+на многомерный случай несодержательно.
 
 \begin{thm}
 Если
