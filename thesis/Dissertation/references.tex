@@ -1,12 +1,24 @@
 \clearpage                                  % В том числе гарантирует, что список литературы в оглавлении будет с правильным номером страницы
-%\hypersetup{ urlcolor=black }               % Ссылки делаем чёрными
-%\providecommand*{\BibDash}{}                % В стилях ugost2008 отключаем использование тире как разделителя 
+
+%\chapter*{Список литературы}
+
+%\addcontentsline{toc}{chapter}{\bibname}	% Добавляем список литературы в оглавление
+
 \urlstyle{rm}                               % ссылки URL обычным шрифтом
-\ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=false}}{} % не рекомендуется применять пакет микротипографики к автоматически генерируемому списку литературы
-\insertbibliofull                           % Подключаем Bib-базы
-%\nocite{*}
-%\insertbiblioother
-%\insertbiblioauthor
-\ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=true}}{}
+
+
+\begingroup
+    \let\clearpage\relax
+    \printbibliography[keyword={othercites}, title={ }]
+
+    %\chapter*{Публикации автора по теме диссертации}
+
+    \nocite{Bankevich2011, Bankevich2015, Bankevich2016, Bankevich2018}
+
+    \printbibliography[keyword={authorpapersVAK}, title={Публикации автора в рецензируемых изданиях по теме диссертации}]
+    % \printbibliography[keyword={authorpapersVAK}, title={Публикации в рецензируемых изданиях}]
+
+    \printbibliography[keyword={conference}, title={Прочие публикации}]
+\endgroup
+
 \urlstyle{tt}                               % возвращаем установки шрифта ссылок URL
-%\hypersetup{ urlcolor={urlcolor} }          % Восстанавливаем цвет ссылок
