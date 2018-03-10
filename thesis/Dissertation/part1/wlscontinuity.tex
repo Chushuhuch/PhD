@@ -1,10 +1,6 @@
 \section{О расширении класса функций, для которых выполняется неравенство (\ref{eq:to_prove_weighted})}
 \label{sec:wlsc}
 
-\mytodo{проверить ещё раз, что всё ок в многомерном случае}
-
-\mytodo{кое-где вместо 2 вылезет $\abs{\Omega}$}
-
 Следующее утверждение более или менее стандартно и близко к теореме Тонелли (предложение \ref{prop:wlsc}).
 Однако, в нашем случае множество $\{u: \IWg(u) < \infty\}$ даже не является выпуклым подмножеством $\W(\overline{\Omega})$.
 Поэтому здесь мы приводим полное доказательство для удобства читателя.
@@ -25,7 +21,7 @@
 Более того, переходя к подпоследовательности, можно считать,
 что $u_m \to u$ в $\Ls(\overline{\Omega})$ и $u_m(x) \to u(x)$ почти всюду.
 Тогда по теореме Егорова для любого $\eps$ найдётся множество
-$G_\eps^1$ такое, что $\abs{ G_\eps^1 } < \eps$ и $u_m \rightrightarrows u$ в $\Omega \setminus G_\eps^1$.
+$G_\eps^1$ такое, что $\meas G_\eps^1 < \eps$ и $u_m \rightrightarrows u$ в $\Omega \setminus G_\eps^1$.
 
 Из равномерной сходимости $u_m$ следует существование такого $K$, что для каждого $m > K$
 неравенство $\abs{u_m} \le \abs{u} + \eps$ выполнено для аргументов из $\Omega \setminus G_\eps^1$.
@@ -33,76 +29,117 @@ $G_\eps^1$ такое, что $\abs{ G_\eps^1 } < \eps$ и $u_m \rightrightarrow
 Тогда
 $$
 R_0 \ge \int\limits_{\Omega} \abs{ u(x) } \, dx \ge \int\limits_{G_\eps^2} \abs{ u(x) } \, dx \ge
-\int\limits_{G_\eps^2} \frac{R_0 + \eps}{\eps} \, dx = \abs{G_\eps^2} \frac{R_0 + \eps}{\eps}.
+\int\limits_{G_\eps^2} \frac{R_0 + \eps}{\eps} \, dx = \meas G_\eps^2 \cdot \frac{R_0 + \eps}{\eps}.
 $$
-То есть $\abs{G_\eps^2} \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
+То есть $\meas G_\eps^2 \le \eps \frac{R_0}{R_0 + \eps} < \eps$.
 Тем самым, последовательность $u_m$ равномерно сходится и равномерно ограничена вне множества $G_\eps := G_\eps^1 \cup G_\eps^2$.
 
-Из непрерывности $F$ и $a$ следует, что для произвольных $\eps$ и $R$ найдётся такое
-$N( \eps, R )$, что если $x \in \Omega \setminus G_\eps$, $\abs{ M } \le R$ и $m > N( \eps, R )$, то
-$$
-| F \bigl( u_m( x ), a( x, u_m( x ) ) M \bigr) - F \bigl( u( x ), a( x, u( x ) ) M \bigr) | < \eps.
-$$
+Из непрерывности $F$, $a_i$ и $a$ следует, что для произвольных $\eps$ и $R$ найдётся такое
+$N( \eps, R )$, что если $x \in \Omega \setminus G_\eps$, $\abs{ M_i } \le R$, $\abs{ M } \le R$ и $m > N( \eps, R )$, то
+\begin{multline*}
+| F \bigl( x', u_m( x ), \norm{ a_i( x', u_m(x) ) M_i, a( x, u_m(x) ) M } \bigr)
+\\ - F \bigl( x', u( x ), \norm{ a_i( x', u(x) ) M_i, a( x, u( x ) ) M } \bigr) | < \eps.
+\end{multline*}
 
-Рассмотрим множества $E_{m,\eps} := \{ x \in \Omega: \abs{ u_m'( x ) } \ge \frac{ R_0 }{ \eps } \}$.
+Рассмотрим множества
+$$
+E_{m,\eps} := \{ x \in \Omega: \max \set{ \abs{ D_i u_m(x) }, \abs{ D_n u_m(x) } } \ge \frac{ R_0 }{ \eps } \}.
+$$
 Имеем
-$$R_0 \ge \int\limits_{\Omega} \abs{ u_m'( x ) } \, dx \ge \int\limits_{ E_{m,\eps} } \abs{ u_m'( x ) } \, dx \ge
-\int\limits_{ E_{m,\eps} } \frac{ R_0 }{ \eps } \, dx = \frac{ R_0 }{ \eps } \abs{ E_{m,\eps} }.$$
-Поэтому $\abs{ E_{m,\eps} } \le \eps$.
+$$
+R_0
+\ge \int\limits_{\Omega} \abs{ \nabla u_m( x ) } \, dx
+\ge \int\limits_{ E_{m,\eps} } \abs{ \nabla u_m( x ) } \, dx
+\ge \int\limits_{ E_{m,\eps} } \frac{ R_0 }{ \eps } \, dx
+= \meas E_{m,\eps} \cdot \frac{ R_0 }{ \eps }.
+$$
+Поэтому $\meas E_{m,\eps} \le \eps$.
 
 Теперь можно ввести $L_{m,\eps} := \Omega \setminus ( E_{m,\eps} \cup G_\eps )$.
-Тогда $\abs{ L_{m,\eps} } \ge 2 - 3 \eps$.
+Тогда
+$$
+\meas L_{m,\eps} \ge \meas \Omega - 3 \eps.
+$$
 
 Зафиксируем $R := \frac{ R_0 }{ \eps }$, $N( \eps ) := N( \eps, \frac{ R_0 }{ \eps } )$.
 Для любых $\eps > 0$, $x \in L_{m,\eps}$ и $m > N( \eps )$ получим
-$$\Bigabs{ F \bigl( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} \bigr) - F \bigl( u( x ), a( x, u( x ) ) \abs{u_m'( x )} \bigr) } < \eps,$$
+\begin{multline*}
+\Bigabs{
+    F \bigl( x', u_m( x ), \norm{ a_i( x', u_m(x) ) D_i u_m(x), a( x, u_m(x) ) D_n u_m(x) } \bigr)
+    \\ - F \bigl( x', u( x ), \norm{ a_i( x', u(x) ) D_i u_m(x), a( x, u( x ) ) D_n u_m(x) } \bigr)
+} < \eps,
+\end{multline*}
 откуда
-\begin{equation}
+\begin{multline}
 \label{eq:wls_appr_diff}
-\int\limits_{L_{m,\eps}} \Bigabs{ F \bigl( u_m( x ), a( x, u_m( x ) ) \abs{u_m'( x )} \bigr) - F \bigl( u( x ), a( x, u( x ) ) \abs{u_m'( x )} \bigr) } \, dx < 2 \eps.
-\end{equation}
+\int\limits_{L_{m,\eps}} \Bigabs{
+    F \bigl( x', u_m( x ), \norm{ a_i( x', u_m(x) ) D_i u_m(x), a( x, u_m(x) ) D_n u_m(x) } \bigr)
+    \\ - F \bigl( x', u( x ), \norm{ a_i( x', u(x) ) D_i u_m(x), a( x, u( x ) ) D_n u_m(x) } \bigr)
+} \, dx < \meas \Omega \cdot \eps.
+\end{multline}
 
 Возьмём $\eps_j = \frac{ \eps }{ 2^j }$ ($j \ge 1$), $m_j = N( \eps_j ) + j \to \infty$ и $L_\eps = \bigcap L_{m_j,\eps_j}$.
-Тогда $\sum \eps_j = \eps$ и, тем самым, $\abs{ \Omega \setminus L_\eps } < 3 \eps$.
+Тогда $\sum \eps_j = \eps$ и, тем самым, $\meas (\Omega \setminus L_\eps) < 3 \eps$.
 Поскольку из (\ref{eq:wls_appr_diff}) следует
-$$\int\limits_{L_\eps} \Bigabs{ F \bigl( u_{m_j}( x ), a( x, u_{m_j}( x ) ) |u_{m_j}'( x )| \bigr) - F \bigl( u( x ), a( x, u( x ) ) |u_{m_j}'( x )| \bigr) } \, dx < 2 \eps_j,$$
+\begin{multline*}
+\int\limits_{L_\eps} \Bigabs{
+    F \bigl( x', u_m( x ), \norm{ a_i( x', u_m(x) ) D_i u_m(x), a( x, u_m(x) ) D_n u_m(x) } \bigr)
+    \\ - F \bigl( x', u( x ), \norm{ a_i( x', u(x) ) D_i u_m(x), a( x, u( x ) ) D_n u_m(x) } \bigr)
+} \, dx < \meas \Omega \cdot \eps_j.
+\end{multline*}
 мы получаем
 \begin{multline*}
-\IWg_{lim} = \lim \IWg (u_{m_j}) = \lim \int\limits_{\Omega} F \bigl( u_{m_j}(x), a(x, u_{m_j}(x)) | u_{m_j }'(x) | \bigr) \, dx \\
-\ge \varliminf \int\limits_{\Omega} \chi_{L_\eps}(x) F \bigl(u (x), a(x, u(x)) | u_{m_j}'(x) | \bigr) \, dx
-=: \varliminf \IWg_\eps(u_{m_j}').
+\IWg_{lim}
+= \lim \IWg (u_{m_j})
+\\ = \lim \int\limits_{\Omega}
+    F \bigl( x', u_{m_j}(x), \norm{ a_i(x', u_{m_j}(x) D_i u_{m_j}, a(x, u_{m_j}(x)) D_n u_{m_j }(x) } \bigr) \, dx
+\\ \ge \varliminf \int\limits_{\Omega} \charf{L_\eps}(x)
+    F \bigl( x', u(x), \norm{ a_i(x', u(x)) D_i u_{m_j}(x), a(x, u(x)) D_n u_{m_j}(x) } \bigr) \, dx
+\\ =: \varliminf \IWg_\eps( \nabla u_{m_j} ).
 \end{multline*}
 
 Наш новый функционал
 $$
-\IWg_\eps( v ) = \int\limits_{\Omega} \chi_{L_\eps}( x ) F \bigl( u( x ), a( x, u( x ) ) |v( x )| \bigr) \, dx
+\IWg_\eps( v ) = \int\limits_{\Omega} \charf{L_\eps}( x )
+    F \bigl( x', u( x ), \norm{ a_i( x', u(x) ) v_i(x), a( x, u(x) ) v_n( x ) } \bigr) \, dx
 $$
 выпуклый.
 Вновь переходя к подпоследовательности $u_k$, можно считать, что
 $\varliminf \IWg_\eps( u_{m_j}' ) = \lim \IWg_\eps( u_k' )$.
-Так как $u_k' \rightharpoondown u'$ в $\Ls$, по предложению \ref{prop:convex_combination_convergence} можно подобрать последовательность выпуклых комбинаций $u_k'$,
-которые будут сходиться к $u'$ сильно.
+Так как $\nabla u_k' \rightharpoondown\nabla  u'$ в $\Ls$,
+по предложению \ref{prop:convex_combination_convergence} можно подобрать последовательность выпуклых комбинаций $\nabla u_k$,
+которые будут сходиться к $\nabla u$ сильно.
 А именно: найдутся $\alpha_{k,l} \ge 0$ для
 $k \in \Nat$, $l \le k$ такие, что $\sum_{l = 1}^k \alpha_{k,l} = 1$ для каждого $k$ и
-$w_k := \sum_{l = 1}^k \alpha_{k,l} u_{l}' \to u'$ в $\Ls$.
+$w_k := \sum_{l = 1}^k \alpha_{k,l} \nabla u_{l} \to \nabla u$ в $\Ls$.
 Кроме того, очевидно, можно потребовать, чтобы минимальный индекс $l$ ненулевого коэффициента $\alpha_{k,l}$
 стремился к бесконечности при $k \to +\infty$.
 Тогда
-$$\lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{l}' ).$$
+$$
+\lim \IWg_\eps( \nabla u_k ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( \nabla u_{l} ).
+$$
 
 В силу выпуклости $\IWg_\eps$ имеем
-$$\sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{l}' ) \ge \IWg_\eps( w_k ).$$
+$$\sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( \nabla u_{l} ) \ge \IWg_\eps( w_k ).$$
 
-Наконец, поскольку $w_k \to u'$ в $\Ls(\overline{\Omega})$, переходя к подпоследовательности, можем считать, что $w_k(x) \to u'(x)$ почти всюду.
-Кроме того, так как для  $x \in L_\eps$ выполнено $\abs{ u_j'( x ) } < \frac{ R_0 }{\eps}$, то и $\abs{ w_k( x ) } < \frac{ R_0 }{\eps}$.
+Наконец, поскольку $(w_k)_i \to D_i u$ и $(w_k)_n \to D_n u$ в $\Ls(\overline{\Omega})$,
+переходя к подпоследовательности, можем считать, что $w_k(x) \to \nabla u(x)$ почти всюду.
+Кроме того, так как для  $x \in L_\eps$ выполнено $\abs{ D_i u_j( x ) } < \frac{ R_0 }{\eps}$ и $\abs{ D_n u_j( x ) } < \frac{ R_0 }{\eps}$,
+то $\abs{ (w_k)_i( x ) } < \frac{ R_0 }{\eps}$ и $\abs{ (w_k)_n( x ) } < \frac{ R_0 }{\eps}$.
 Значит,
-$$F \bigl( u( x ), a( x, u( x ) ) |w_k( x )| \bigr) \le \max\limits_{(x, M)} F \bigl( u( x ), a( x, u( x ) ) M \bigr) < \infty,$$
+\begin{multline*}
+\charf{L_\eps}(x)
+    F \bigl( x', u( x ), \norm{ a_i( x', u(x) ) (w_k)_i(x), a( x, u( x ) ) (w_k)_n(x) } \bigr)
+\\ \le \max\limits_{(x, M_i, M)} \charf{L_\eps}(x)
+    F \bigl( x', u( x ), \norm{ a_i( x', u(x) ) M_i, a( x, u(x) ) M } \bigr) < \infty,
+\end{multline*}
 где максимум берется по компактному множеству
-$( x, M ) \in \overline{\Omega} \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]$.
-Поэтому применима теорема Лебега, и мы получаем $\lim \IWg_\eps(w_k) = \IWg_\eps(u')$.
+$( x, M_i, M ) \in \overline{\Omega} \times [-\frac{ R_0 }{\eps},\frac{ R_0 }{\eps}]^n$.
+Поэтому применима теорема Лебега, и мы получаем $\lim \IWg_\eps(w_k) = \IWg_\eps( \nabla u )$.
 Таким образом,
-$$\IWg_{lim} \ge \lim \IWg_\eps( u_k' ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( u_{l}' ) \ge
-\varliminf \IWg_\eps( w_k ) = \IWg_\eps( u' ).$$
+$$
+\IWg_{lim} \ge \lim \IWg_\eps( \nabla u_k ) = \lim \sum_{l = 1}^k \alpha_{k,l} \IWg_\eps( \nabla u_{l} )
+\ge \varliminf \IWg_\eps( w_k ) = \IWg_\eps( \nabla u ).$$
 
 Ввиду произвольности $\eps > 0$ имеем $\IWg_{lim} \ge \IWg(u)$.
 \end{proof}
@@ -152,7 +189,7 @@ $$
 \begin{proof}
 Из предложения \ref{prop:app_lip_with_smooth} следует, что любая липшицева функция $u$ может быть приближена последовательностью $u_k \in \Cont^1(\overline{\Omega})$ в следующем смысле:
 $$
-u_k \rightrightarrows u, \qquad u_k' \to u' \text{ п.в.}, \qquad |u_k'| \le const.
+u_k \rightrightarrows u, \qquad \nabla u_k \to \nabla u \text{ п.в.}, \qquad |\nabla u_k| \le const.
 $$
 Тогда по теореме Лебега $u_k \to u$ в $\W(\overline{\Omega})$ и $\IWg( u_k ) \to \IWg( u )$.
 В свою очередь, $u_k$ могут быть аналогичным образом приближены кусочно линейными функциями.

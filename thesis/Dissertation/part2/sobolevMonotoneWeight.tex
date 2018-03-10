@@ -125,11 +125,11 @@ $$
 \hat{P_h^1} = \int\limits_{ [0, 1] \setminus \phi_h( A_h ) }
 	F \bigl( u( \phi_h^{-1}( x ) ), a( x, u( \phi_h^{-1}( x ) ) |u'( \phi_h^{-1}( x ) ) ( \phi_h^{-1} )'| ) \bigr) \, dx
 \\ =\int\limits_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } F \bigl( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| \bigr) \, dz
-\\ = \int\limits_{ [0, 1] } F \bigl( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| \bigr) \chi_{ \phi_h^{-1}( [0, 1] ) \setminus A_h } \, dz.
+\\ = \int\limits_{ [0, 1] } F \bigl( u( z ), a( \phi_h( z ), u( z ) ) |u'( z )| \bigr) \charf{ \phi_h^{-1}( [0, 1] ) \setminus A_h } \, dz.
 \end{multline*}
 Последнее равенство, вообще говоря, не имеет смысла, так как $\phi_h( z )$ может принимать значения вне $[0, 1]$.
 Определим $a( z, u ) = a( 1, u )$ при $z > 1$, теперь выражение корректно.
-Заметим, что $\chi_{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ возрастают,
+Заметим, что $\charf{\phi_h^{-1}( [0, 1] ) \setminus A_h}$ возрастают,
 так как множества $\phi_h^{-1}( [0, 1] )$ возрастают и $A_h$ убывают,
 то есть $\phi_{h_1}^{-1}( [0, 1] ) \subset \phi_{h_2}^{-1}( [0, 1] )$ и $A_{h_1} \supset A_{h_2}$ при $h_1 \le h_2$.
 На отрезке $[0, 1]$ (и даже $\phi_h( [0, 1] )$) функция $a$ убывает, а также $\phi_h( z )$ убывает по $h$,
