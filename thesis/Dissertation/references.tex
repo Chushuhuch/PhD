@@ -11,11 +11,14 @@
     \let\clearpage\relax
     \printbibliography[keyword={othercites}, title={ }]
 
-    %\chapter*{Публикации автора по теме диссертации}
+    \chapter*{Публикации автора по теме диссертации}
+    \addcontentsline{toc}{chapter}{Публикации автора по теме диссертации}
 
     \nocite{Bankevich2011, Bankevich2015, Bankevich2016, Bankevich2018}
+    \nocite{Suzdal2006, Approximation2010, Petrovskii2011, Suzdal2016}
 
-    \printbibliography[keyword={authorpapersVAK}, title={Публикации автора в рецензируемых изданиях по теме диссертации}]
+    \printbibliography[heading=subbibintoc, keyword={authorpapersVAK}, title={Публикации в рецензируемых изданиях}]
+    \printbibliography[heading=subbibintoc, keyword={proceedings}, title={Прочие публикации}]
     % \printbibliography[keyword={authorpapersVAK}, title={Публикации в рецензируемых изданиях}]
 
     \printbibliography[keyword={conference}, title={Прочие публикации}]
