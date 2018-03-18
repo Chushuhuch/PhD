@@ -51,33 +51,79 @@ u_\eps(x) &= \eps + \frac{x_2 - x}{t}, & x \in &[x_2 - t \eps, x_2 + t \eps].
 \right.
 $$
 
-\medskip
-\begin{figure}[ht]
-    \begin{center}
-        \begin{picture}(200,90)
-            \put(0,25){\vector(1,0){200}}
-            \put(100,15){\vector(0,1){80}}
-            \put(10,24){\line(0,1){2}}
-            \put(0,14){$-1$}
-            \put(190,24){\line(0,1){2}}
-            \put(188,14){$1$}
+\begin{figure}
+    \begin{subfigure}{1.0\textwidth}
+        \begin{center}
+            \begin{picture}(400,180)
+                \put(0,50){\vector(1,0){400}}
+                \put(200,30){\vector(0,1){160}}
+                \put(20,48){\line(0,1){4}}
+                \put(0,28){$-1$}
+                \put(380,48){\line(0,1){4}}
+                \put(376,28){$1$}
 
-            \put(38,25){\line(1,1){48}}
-            \put(67,24){\line(0,1){2}}
-            \put(60,14){$x_1$}
+                \thicklines
+                \put(20,50){\line(1,0){56}}
+                \put(76,50){\line(1,1){96}}
+                \put(134,48){\line(0,1){4}}
+                \put(120,28){$x_1$}
 
-            \put(86,73){\line(1,0){48}}
+                \put(172,146){\line(1,0){96}}
 
-            \put(134,73){\line(2,-3){32}}
-            \put(150,24){\line(0,1){2}}
-            \put(143,14){$x_2$}
+                \put(268,146){\line(2,-3){64}}
+                \put(300,48){\line(0,1){4}}
+                \put(286,28){$x_2$}
 
-            \put(110,77){$2 \eps$}
-            \put(45,70){$u(x)$}
-        \end{picture}
-        \caption{График $u_\eps$}
-    \end{center}
+                \put(332,50){\line(1,0){48}}
+                \thinlines
+
+                \put(220,154){$2 \eps$}
+                \put(90,140){$u(x)$}
+            \end{picture}
+            \caption{График $u_\eps$}
+        \end{center}
+    \end{subfigure}
+
+\bigskip
+\bigskip
+\bigskip
+
+    \begin{subfigure}{1.0\textwidth}
+        \begin{center}
+            \begin{picture}(400,180)
+                \put(0,50){\vector(1,0){400}}
+                \put(200,30){\vector(0,1){160}}
+                \put(20,48){\line(0,1){4}}
+                \put(0,28){$-1$}
+                \put(380,48){\line(0,1){4}}
+                \put(376,28){$1$}
+
+                \thicklines
+                \put(20,50){\line(1,0){52}}
+                \put(72,50){\line(5,6){80}}
+                \put(112,48){\line(0,1){4}}
+                \put(97,28){${x_1 - x_2 \over 2}$}
+
+                \put(152,146){\line(1,0){96}}
+
+                \put(248,146){\line(5,-6){80}}
+                \put(328,50){\line(1,0){52}}
+                \put(288,48){\line(0,1){4}}
+                \put(273,28){${x_2 - x_1 \over 2}$}
+                \thinlines
+
+                \put(220,154){$2 \eps$}
+                \put(70,140){$\symm{u}(x)$}
+            \end{picture}
+            \caption{График $\symm{u_\eps}$}
+        \end{center}
+    \end{subfigure}
+
+    \bigskip
+
+    \caption{К доказательству теоремы \ref{thm:necessary_variable}}
 \end{figure}
+\mytodo{отметить точки на склонах и полуразность подписать}
 
 Тогда
 $$
@@ -95,32 +141,6 @@ $$
 \right.
 %\symm{u_\eps}(x) = \min\big( 2 \eps, ( \eps + ( t + s )^{-1} ( x_2 - x_1 - 2 |x| ) )_+ \big).
 $$
-
-\medskip
-\begin{figure}[ht]
-    \begin{center}
-        \begin{picture}(200,90)
-            \put(0,25){\vector(1,0){200}}
-            \put(100,15){\vector(0,1){80}}
-            \put(10,24){\line(0,1){2}}
-            \put(0,14){$-1$}
-            \put(190,24){\line(0,1){2}}
-            \put(188,14){$1$}
-
-            \put(36,25){\line(5,6){40}}
-            %\put(56,24){\line(0,1){2}}
-
-            \put(76,73){\line(1,0){48}}
-
-            \put(124,73){\line(5,-6){40}}
-            %\put(144,24){\line(0,1){2}}
-
-            \put(110,77){$2 \eps$}
-            \put(35,70){$\symm{u}(x)$}
-        \end{picture}
-        \caption{График $\symm{u_\eps}$}
-    \end{center}
-\end{figure}
 
 Множества, на которых $u_\eps' = 0$ и $\symm{u_\eps}' = 0$ имеют одинаковую меру.
 Поэтому неравенство $\I(\symm{u_\eps}) \le \I(u_\eps)$ эквивалентно следующему:

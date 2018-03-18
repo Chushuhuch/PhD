@@ -26,7 +26,7 @@
 %%% Подписи %%%
 \setlength{\abovecaptionskip}{0pt}   % Отбивка над подписью
 \setlength{\belowcaptionskip}{0pt}   % Отбивка под подписью
-\captionwidth{\linewidth}
+%\captionwidth{\linewidth}
 \normalcaptionwidth
 
 %%% Таблицы %%%
@@ -140,3 +140,9 @@
 \setlist{nosep,%                                    % Единый стиль для всех списков (пакет enumitem), без дополнительных интервалов.
     labelindent=\parindent,leftmargin=*%            % Каждый пункт, подпункт и перечисление записывают с абзацного отступа (ГОСТ 2.105-95, 4.1.8)
 }
+
+% Make citations to be separated by a comma
+%\renewcommand*{\multicitedelim}{\addcomma\space}
+%\makeatletter
+%\patchcmd{\@citex}{,\penalty\@m\ }{,}{}{}
+%\makeatother

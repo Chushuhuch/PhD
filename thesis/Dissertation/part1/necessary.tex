@@ -76,31 +76,68 @@ u_2(y) &= v_0 + t - y, & y \in [t - \eps, t]
 \right.
 \end{equation}
 
-\begin{figure}[ht]
-    \begin{center}
-        \label{gr:nec_u2}
-        \begin{picture}(200,90)
-            \put(10,65){\line(1,0){50}}
-            \put(60,65){\line(1,1){10}}
-            \put(70,75){\line(1,0){40}}
-            \put(110,75){\line(1,-1){10}}
-            \put(120,65){\line(1,0){70}}
-            \put(0,25){\vector(1,0){200}}
-            \put(100,15){\vector(0,1){80}}
-            \put(99,65){\line(1,0){2}}
-            \put(85,62){$v_0$}
-            \put(60,24){\line(0,1){2}}
-            \put(58,14){$s$}
-            \put(120,24){\line(0,1){2}}
-            \put(119,14){$t$}
-            \put(10,24){\line(0,1){2}}
-            \put(6,14){$-1$}
-            \put(190,24){\line(0,1){2}}
-            \put(188,14){$1$}
-            \put(20,70){$u_2(y)$}
-        \end{picture}
-        \caption{График $u_2$}
-    \end{center}
+\begin{figure}
+    \begin{subfigure}{1.0\textwidth}
+        \begin{center}
+            \begin{picture}(400,180)
+                \thicklines
+                \put(20,130){\line(1,0){100}}
+                \put(120,130){\line(1,1){20}}
+                \put(140,150){\line(1,0){80}}
+                \put(220,150){\line(1,-1){20}}
+                \put(240,130){\line(1,0){140}}
+                \thinlines
+                \put(0,50){\vector(1,0){400}}
+                \put(200,30){\vector(0,1){160}}
+                \put(198,130){\line(1,0){4}}
+                \put(170,124){$v_0$}
+                \put(120,48){\line(0,1){4}}
+                \put(116,28){$s$}
+                \put(240,48){\line(0,1){4}}
+                \put(238,28){$t$}
+                \put(20,48){\line(0,1){4}}
+                \put(12,28){$-1$}
+                \put(380,48){\line(0,1){4}}
+                \put(376,28){$1$}
+                \put(40,140){$u_2(y)$}
+            \end{picture}
+            \caption{График $u_2$}
+            \label{gr:nec_u2}
+        \end{center}
+    \end{subfigure}
+
+\bigskip
+\bigskip
+\bigskip
+
+    \begin{subfigure}{1.0\textwidth}
+        \begin{center}
+            \begin{picture}(400,180)
+                \thicklines
+                \put(20,130){\line(1,0){240}}
+                \put(260,130){\line(2,1){40}}
+                \put(300,150){\line(1,0){80}}
+                \thinlines
+                \put(0,50){\vector(1,0){400}}
+                \put(200,30){\vector(0,1){160}}
+                \put(198,130){\line(1,0){4}}
+                \put(170,134){$v_0$}
+                \put(260,48){\line(0,1){4}}
+                \put(220,28){$1 - t + s$}
+                \put(20,48){\line(0,1){4}}
+                \put(12,28){$-1$}
+                \put(380,48){\line(0,1){4}}
+                \put(376,28){$1$}
+                \put(40,140){$\mon{u_2}(y)$}
+            \end{picture}
+            \caption{График $\mon{u_2}$}
+            \label{gr:nec_u2_rearr}
+        \end{center}
+    \end{subfigure}
+
+    \bigskip
+
+    \caption{К доказательству теоремы \ref{thm:necessary_conditions_weighted}}
 \end{figure}
 Тогда
 $$
@@ -113,29 +150,6 @@ $$
 \right.
 $$
 (см. рис. \ref{gr:nec_u2_rearr}).
-
-\begin{figure}[ht]
-    \begin{center}
-        \label{gr:nec_u2_rearr}
-        \begin{picture}(200,90)
-            \put(10,65){\line(1,0){120}}
-            \put(130,64){\line(2,1){20}}
-            \put(150,75){\line(1,0){40}}
-            \put(0,25){\vector(1,0){200}}
-            \put(100,15){\vector(0,1){80}}
-            \put(99,65){\line(1,0){2}}
-            \put(85,67){$v_0$}
-            \put(130,24){\line(0,1){2}}
-            \put(110,14){$1 - t + s$}
-            \put(10,24){\line(0,1){2}}
-            \put(6,14){$-1$}
-            \put(190,24){\line(0,1){2}}
-            \put(188,14){$1$}
-            \put(20,70){$\mon{u_2}(y)$}
-        \end{picture}
-        \caption{График $\mon{u_2}$}
-    \end{center}
-\end{figure}
 
 Имеем
 \begin{multline*}
@@ -165,6 +179,8 @@ M = \max \limits_{(y, v)} a(y, v), \qquad (y, v) \in [-1, 1] \times u_2( [-1, 1]
 Это противоречие доказывает утверждение \textbf{(ii)}.
 
 \textbf{2.}
+\mytodo{отдельно тоже i, ii. Возьмём ...}
+\mytodo{плюс написать, что $\eps \to 0$}
 В многомерном случае рассматриваются функции следующего вида
 \begin{eqnarray*}
 u_1(x) &=& v_0 + \bigl( \min( \eps - \abs{x' - x'_0}, y_0 - y ) \bigr)_+ \\
