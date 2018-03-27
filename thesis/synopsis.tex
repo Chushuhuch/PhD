@@ -12,11 +12,14 @@
 \input{common/newnames}       % Новые переменные, которые могут использоваться во всём проекте
 \input{Synopsis/setup}        % Упрощённые настройки шаблона 
 
+\input{common/commands}
+
 \input{common/data}           % Основные сведения
 \input{common/styles}         % Стили общие для диссертации и автореферата
 \input{Synopsis/synstyles}    % Стили для автореферата
 \input{Synopsis/userstyles}   % Стили для специфических пользовательских задач
-\input{biblio/bibliopreamble} % Настройки библиографии из внешнего файла (там же выбор: встроенная или на основе biblatex)
+\input{biblio/biblatex_synopsis}% Настройки библиографии из внешнего файла (там же выбор: встроенная или на основе biblatex)
+%\input{biblio/bibliopreamble} % Настройки библиографии из внешнего файла (там же выбор: встроенная или на основе biblatex)
 
 \begin{document}
 
@@ -35,7 +38,7 @@
     \textit{\thesisAuthor}
     \par\medskip
     
-    \thesisTitle
+    О монотонности интегральных функционалов \\ при перестановках
     \par\medskip
     
     Автореф. дис. на соискание ученой степени \thesisDegreeShort
