@@ -5,9 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/1dimRus/1dimRus.iml" filepath="$PROJECT_DIR$/1dimRus/1dimRus.iml" />
       <module fileurl="file://$PROJECT_DIR$/DRAN/DRAN.iml" filepath="$PROJECT_DIR$/DRAN/DRAN.iml" />
       <module fileurl="file://$PROJECT_DIR$/PhD.iml" filepath="$PROJECT_DIR$/PhD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tmp/Russian-Phd-LaTeX-Dissertation-Template-master/Russian-Phd-LaTeX-Dissertation-Template-master.iml" filepath="$PROJECT_DIR$/tmp/Russian-Phd-LaTeX-Dissertation-Template-master/Russian-Phd-LaTeX-Dissertation-Template-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/english/english.iml" filepath="$PROJECT_DIR$/english/english.iml" />
       <module fileurl="file://$PROJECT_DIR$/mpower/mpower.iml" filepath="$PROJECT_DIR$/mpower/mpower.iml" />
       <module fileurl="file://$PROJECT_DIR$/multi/multi.iml" filepath="$PROJECT_DIR$/multi/multi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tmp/nikita/nikita.iml" filepath="$PROJECT_DIR$/tmp/nikita/nikita.iml" />
       <module fileurl="file://$PROJECT_DIR$/power/power.iml" filepath="$PROJECT_DIR$/power/power.iml" />
       <module fileurl="file://$PROJECT_DIR$/thesis/thesis.iml" filepath="$PROJECT_DIR$/thesis/thesis.iml" />
     </modules>
