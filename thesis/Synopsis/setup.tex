@@ -34,7 +34,7 @@
 %Демонстрация подписи диссертанта на автореферате
 \setcounter{showperssign}{0}        % 0 --- не показывать; 1 --- показывать
 %Демонстрация подписи учёного секретаря на автореферате
-\setcounter{showsecrsign}{0}        % 0 --- не показывать; 1 --- показывать
+\setcounter{showsecrsign}{1}        % 0 --- не показывать; 1 --- показывать
 %Демонстрация информации об оппонентах и ведущей организации на автореферате
 \setcounter{showopplead}{1}         % 0 --- не показывать; 1 --- показывать
 
@@ -49,3 +49,13 @@
 
 %%% Библиография
 \setcounter{usefootcite}{0}         % 0 --- два списка литературы, 1 --- список публикаций автора + цитирование других работ в сносках
+
+\setlength{\parskip}{0em}
+\setlist[itemize]{leftmargin=5mm}
+
+\AtBeginDocument{%
+ \abovedisplayskip=6pt plus 3pt minus 3pt
+ \abovedisplayshortskip=0pt plus 3pt
+ \belowdisplayskip=6pt plus 3pt minus 3pt
+ \belowdisplayshortskip=6pt plus 3pt minus 3pt
+}
